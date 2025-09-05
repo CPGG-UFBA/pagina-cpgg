@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Upload } from 'lucide-react';
+import { Middle } from '../components/Middle';
 
 export function Home() {
   return (
     <div className="flex flex-col">
+      <Middle />
+      
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-6">Home</h1>
         <p className="text-lg mb-8">Bem-vindo à página inicial.</p>

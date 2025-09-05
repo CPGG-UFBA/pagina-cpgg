@@ -43,6 +43,9 @@ All colors MUST be HSL.
     --gray-text: 220 9% 37%;
     --gray-contact: 220 9% 37%; /* #363F5F - assumindo que era um typo */
     --orange-button: 25 95% 58%;
+    
+    /* Custom gradients */
+    --gradient-blue-purple: linear-gradient(135deg, #2c66b8, #8859ec);
 
     --sidebar-background: 0 0% 98%;
 
@@ -121,5 +124,17 @@ All colors MUST be HSL.
   :focus {
     outline: transparent;
     box-shadow: 0 0 0 2px hsl(var(--primary));
+  }
+
+  /* Custom gradient text utilities */
+  .gradient-text {
+    background: var(--gradient-blue-purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Pause animation on hover */
+  .animate-scroll-vertical:hover {
+    animation-play-state: paused;
   }
 }

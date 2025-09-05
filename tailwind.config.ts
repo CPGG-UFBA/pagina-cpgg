@@ -33,6 +33,14 @@ export default {
 				'300': '300px',
 				'500': '500px',
 				'100': '100px',
+				'15': '60px',
+				'18': '4.5rem',
+				'35': '140px',
+				'112': '450px',
+				'120': '30rem',
+				'122': '30.5rem',
+				'150': '600px',
+				'192': '48rem',
 			},
 			screens: {
 				'xs': '400px',
@@ -108,11 +116,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'scroll-vertical': {
+					'0%': {
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						transform: 'translateY(calc(-200px * 3))'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'scroll-vertical': 'scroll-vertical 15s linear infinite'
 			}
 		}
 	},
