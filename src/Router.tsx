@@ -9,6 +9,7 @@ import { History } from './pages/History'
 import { Former } from './pages/History/FormerHeaders'
 import { Institution } from './pages/Institution'
 import { Researchers } from './pages/Researchers'
+import { Coordination } from './pages/Coordination'
 import { UploadPage } from './pages/Upload'
 
 // Páginas que serão implementadas gradualmente
@@ -66,7 +67,7 @@ export function Router() {
         <Route path='/researchers/personal/Wilson' element={<PlaceholderPage title="Wilson" />} />
 
         {/* Outras páginas principais */}
-        <Route path='/coordination' element={<PlaceholderPage title="Coordenação" />} />
+        <Route path='/coordination' element={<Coordination />} />
         <Route path='/technicians' element={<PlaceholderPage title="Técnicos" />} />
         <Route path='/recipes' element={<PlaceholderPage title="Receitas" />} />
         <Route path='/recipes/Calendars' element={<PlaceholderPage title="Calendários" />} />
