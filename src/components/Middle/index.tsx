@@ -22,7 +22,7 @@ export function Middle() {
             <img 
               src={news1} 
               alt="Notícia 1" 
-              className="w-full transition-transform duration-1000 hover:translate-z-[20px]"
+              className="w-full transition-transform duration-1000 hover:translate-z-20"
             />
           </div>
           
@@ -31,7 +31,7 @@ export function Middle() {
             <img 
               src={news2} 
               alt="Notícia 2" 
-              className="w-full transition-transform duration-1000 hover:translate-z-[20px]"
+              className="w-full transition-transform duration-1000 hover:translate-z-20"
             />
           </div>
           
@@ -40,7 +40,7 @@ export function Middle() {
             <img 
               src={news3} 
               alt="Notícia 3" 
-              className="w-full transition-transform duration-1000 hover:translate-z-[20px]"
+              className="w-full transition-transform duration-1000 hover:translate-z-20"
             />
           </div>
         </div>

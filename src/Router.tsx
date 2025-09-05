@@ -27,8 +27,11 @@ export function Router() {
         <Route path='/' element={<Home />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/News/News1' element={<News1 />} />
+        <Route path='/news/news1' element={<News1 />} />
         <Route path='/News/News2' element={<News2 />} />
+        <Route path='/news/news2' element={<News2 />} />
         <Route path='/News/News3' element={<News3 />} />
+        <Route path='/news/news3' element={<News3 />} />
 
         <Route path='/researchers' element={<Researchers />} />
         <Route path='/upload' element={<UploadPage />} />
