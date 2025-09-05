@@ -35,6 +35,14 @@ export function Header() {
         <ul className="inline-flex list-none text-[#FF5733] ml-[510px] xl:ml-[410px] lg:ml-[250px] md:ml-[-30px] sm:ml-[50px] xs:ml-[100px]">
           <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
             <NavLink 
+              to="/upload" 
+              className="no-underline text-white hover:text-white/80 transition-colors"
+            >
+              Adm
+            </NavLink>
+          </li>
+          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+            <NavLink 
               to="/Contact" 
               className="no-underline text-white hover:text-white/80 transition-colors"
             >
