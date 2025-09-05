@@ -3,8 +3,10 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-import { Upload, X, File, Image, CheckCircle } from 'lucide-react';
+import { Upload, X, File, Image, CheckCircle, Folder } from 'lucide-react';
 
 interface UploadedFile {
   id: string;
@@ -19,6 +21,7 @@ export const UploadPage = () => {
   const [files, setFiles] = useState<UploadedFile[]>([]);
   const [isDragging, setIsDragging] = useState(false);
   const [uploadProgress, setUploadProgress] = useState<Record<string, number>>({});
+  const [directory, setDirectory] = useState('');
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
@@ -64,7 +67,10 @@ export const UploadPage = () => {
 
   const uploadFile = async (file: File, fileId: string) => {
     try {
-      const fileName = `${Date.now()}-${file.name}`;
+      // Create file path with directory if specified
+      const sanitizedDirectory = directory.trim().replace(/[^a-zA-Z0-9\-_\/]/g, '');
+      const directoryPath = sanitizedDirectory ? `${sanitizedDirectory}/` : '';
+      const fileName = `${directoryPath}${Date.now()}-${file.name}`;
       
       // Simulate progress for better UX
       setUploadProgress(prev => ({ ...prev, [fileId]: 0 }));
@@ -101,7 +107,7 @@ export const UploadPage = () => {
 
       toast({
         title: "Upload concluído",
-        description: `${file.name} foi enviado com sucesso!`,
+        description: `${file.name} foi enviado${directoryPath ? ` para ${sanitizedDirectory}` : ''} com sucesso!`,
       });
 
     } catch (error) {
@@ -141,6 +147,33 @@ export const UploadPage = () => {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-center">Upload de Arquivos</h1>
+        
+        {/* Directory Input */}
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Folder className="h-5 w-5" />
+              Diretório de Destino
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              <Label htmlFor="directory">Nome da pasta (opcional)</Label>
+              <Input
+                id="directory"
+                placeholder="ex: figuras, documentos, imagens/perfil"
+                value={directory}
+                onChange={(e) => setDirectory(e.target.value)}
+                className="max-w-md"
+              />
+              <p className="text-sm text-muted-foreground">
+                Os arquivos serão salvos em: <code className="bg-muted px-1 rounded">
+                  uploads/{directory || 'raiz'}/
+                </code>
+              </p>
+            </div>
+          </CardContent>
+        </Card>
         
         {/* Drop Zone */}
         <Card className="mb-8">
