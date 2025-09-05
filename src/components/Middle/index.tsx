@@ -7,7 +7,7 @@ import blueWavesBg from '../../assets/blue-waves-bg.jpg';
 export function Middle() {
   return (
     <div 
-      className="w-full min-h-screen relative flex items-center justify-between px-8 py-16"
+      className="w-full min-h-screen relative flex items-center justify-between px-8 py-16 mt-0"
       style={{ background: 'var(--gradient-main-bg)' }}
     >
       {/* Left Side - Images */}
