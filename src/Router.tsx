@@ -9,6 +9,7 @@ import { History } from './pages/History'
 import { Former } from './pages/History/FormerHeaders'
 import { Institution } from './pages/Institution'
 import { Researchers } from './pages/Researchers'
+import { UploadPage } from './pages/Upload'
 
 // Páginas que serão implementadas gradualmente
 const PlaceholderPage = ({ title }: { title: string }) => (
@@ -29,6 +30,7 @@ export function Router() {
         <Route path='/News/News3' element={<News3 />} />
 
         <Route path='/researchers' element={<Researchers />} />
+        <Route path='/upload' element={<UploadPage />} />
         
         {/* Páginas de pesquisadores - placeholder por enquanto */}
         <Route path='/researchers/personal/Alanna' element={<PlaceholderPage title="Alanna" />} />
