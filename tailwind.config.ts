@@ -41,6 +41,12 @@ export default {
 				'122': '30.5rem',
 				'150': '600px',
 				'192': '48rem',
+				'206': '825px',
+				'175': '175px',
+				'190': '190px',
+				'205': '205px',
+				'600': '600px',
+				'730': '730px',
 			},
 			screens: {
 				'xs': '400px',
@@ -56,6 +62,8 @@ export default {
 				'gray-text': 'hsl(var(--gray-text))',
 				'gray-contact': 'hsl(var(--gray-contact))',
 				'orange-button': 'hsl(var(--orange-button))',
+				'glass-border': 'hsl(var(--glass-border))',
+				'glass-bg': 'hsl(var(--glass-bg))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
