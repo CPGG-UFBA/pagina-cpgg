@@ -25,6 +25,14 @@ export default {
 			},
 			spacing: {
 				'25': '100px',
+				'435': '435px',
+				'1500': '1500px',
+				'1000': '1000px',
+				'800': '800px',
+				'200': '200px',
+				'300': '300px',
+				'500': '500px',
+				'100': '100px',
 			},
 			screens: {
 				'xs': '400px',
@@ -38,6 +46,7 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				'gray-light': 'hsl(var(--gray-light))',
 				'gray-text': 'hsl(var(--gray-text))',
+				'gray-contact': 'hsl(var(--gray-contact))',
 				'orange-button': 'hsl(var(--orange-button))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',

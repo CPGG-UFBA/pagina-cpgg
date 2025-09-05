@@ -41,6 +41,7 @@ All colors MUST be HSL.
     /* Custom colors from CSS modules */
     --gray-light: 210 16% 95%;
     --gray-text: 220 9% 37%;
+    --gray-contact: 220 9% 37%; /* #363F5F - assumindo que era um typo */
     --orange-button: 25 95% 58%;
 
     --sidebar-background: 0 0% 98%;
