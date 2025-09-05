@@ -15,9 +15,9 @@ export const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen relative">
           <Header />
-          <main className="flex-1">
+          <main className="pt-[100vh] relative z-10">
             <Router />
           </main>
           <Footer />

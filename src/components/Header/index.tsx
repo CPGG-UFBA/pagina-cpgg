@@ -1,183 +1,190 @@
 import { NavLink } from "react-router-dom";
 import logocpgg from "../Figures/cpgg.png";
 import logoufba from "../Figures/LogoUfba.png";
+import headerBg from "../Figures/header-bg.png";
 
 export function Header() {
   return (
-    <header className="bg-background border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <div className="flex-shrink-0">
-            <img src={logocpgg} alt="CPGG" className="h-16 w-auto" />
-          </div>
-          
-          <div className="text-center">
-            <h1 className="text-lg font-bold text-foreground">Centro de Pesquisa em Geofísica e Geologia</h1>
-            <h1 className="text-sm text-muted-foreground">Instituto de Geociências/Instituto de Física</h1>
-            <h1 className="text-sm text-muted-foreground">Universidade Federal da Bahia</h1>
-          </div>
+    <header 
+      className="w-full h-screen absolute flex flex-row aspect-square bg-contain bg-no-repeat"
+      style={{ backgroundImage: `url(${headerBg})` }}
+    >
+      <div className="flex items-start ml-4 mt-4">
+        <div className="flex-shrink-0 mr-4">
+          <img src={logocpgg} alt="CPGG" className="h-12 xl:h-15 lg:h-12 md:h-12 sm:h-10" />
         </div>
-
-        <div className="flex-shrink-0">
-          <img src={logoufba} alt="UFBA" className="h-16 w-auto" />
+        
+        <div className="text-center mt-2">
+          <h1 className="pt-1 pl-2 ml-1 mt-2 text-sm text-center whitespace-nowrap font-roboto font-medium xl:text-sm lg:text-sm md:text-sm sm:text-[9px]">
+            Centro de Pesquisa em Geofísica e Geologia
+          </h1>
+          <h1 className="pt-1 pl-2 ml-1 mt-2 text-sm text-center whitespace-nowrap font-roboto font-medium xl:text-sm lg:text-sm md:text-sm sm:text-[9px]">
+            Instituto de Geociências/Instituto de Física
+          </h1>
+          <h1 className="pt-1 pl-2 ml-1 mt-2 text-sm text-center whitespace-nowrap font-roboto font-medium xl:text-sm lg:text-sm md:text-sm sm:text-[9px]">
+            Universidade Federal da Bahia
+          </h1>
         </div>
       </div>
 
-      <nav className="bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4">
-          <ul className="flex items-center justify-center space-x-8 py-3">
-            <li>
-              <NavLink 
-                to="/Contact" 
-                className={({ isActive }) => 
-                  `hover:text-primary-foreground/80 transition-colors ${isActive ? 'font-semibold' : ''}`
-                }
-              >
-                Contact us
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/" 
-                className={({ isActive }) => 
-                  `hover:text-primary-foreground/80 transition-colors ${isActive ? 'font-semibold' : ''}`
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink 
-                to="/sign" 
-                className={({ isActive }) => 
-                  `hover:text-primary-foreground/80 transition-colors ${isActive ? 'font-semibold' : ''}`
-                }
-              >
-                Sign
-              </NavLink>
-            </li>
-            <li className="relative group">
-              <a href="#" className="hover:text-primary-foreground/80 transition-colors">
-                About us
-              </a>
-              
-              <div className="absolute top-full left-0 mt-1 bg-background border border-border shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[200px]">
-                <ul className="py-2">
-                  <li className="relative group/submenu">
-                    <a href="#" className="block px-4 py-2 text-foreground hover:bg-muted">
+      <div className="flex-shrink-0 ml-8 mt-2">
+        <img src={logoufba} alt="UFBA" className="h-[70px] mt-2 xl:h-[70px] lg:h-[50px] md:h-[50px] sm:h-[50px]" />
+      </div>
+
+      <nav className="ml-auto">
+        <ul className="inline-flex list-none text-[#FF5733] ml-[510px] xl:ml-[410px] lg:ml-[250px] md:ml-[-30px] sm:ml-[50px] xs:ml-[100px]">
+          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+            <NavLink 
+              to="/Contact" 
+              className="no-underline text-white hover:text-white/80 transition-colors"
+            >
+              Contact us
+            </NavLink>
+          </li>
+          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+            <NavLink 
+              to="/" 
+              className="no-underline text-white hover:text-white/80 transition-colors"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+            <NavLink 
+              to="/sign" 
+              className="no-underline text-white hover:text-white/80 transition-colors"
+            >
+              Sign
+            </NavLink>
+          </li>
+          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm relative group">
+            <a href="#" className="no-underline text-white hover:text-white/80 transition-colors">
+              About us
+            </a>
+            
+            {/* Submenu 1 */}
+            <div className="hidden group-hover:block absolute bg-[#592cbb] opacity-90 -mt-8 text-lg z-[100] w-[190px]">
+              <ul className="block">
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <div className="relative group/submenu">
+                    <a href="#" className="block px-4 py-2 text-white hover:text-black">
                       Instituição
                     </a>
-                    <div className="absolute left-full top-0 ml-1 bg-background border border-border shadow-lg rounded-md opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50 min-w-[200px]">
-                      <ul className="py-2">
-                        <li>
+                    {/* Submenu 2 */}
+                    <div className="hidden group-hover/submenu:block absolute -mt-12 -ml-[220px] bg-[#592cbb] opacity-90 w-[190px]">
+                      <ul>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/cpgg" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             O CPGG
                           </NavLink>
                         </li>
-                        <li>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/history" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             Nossa História
                           </NavLink>
                         </li>
-                        <li>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/regulations" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             Regimento e Normas
                           </NavLink>
                         </li>
-                        <li>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/photos" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             Fotos
                           </NavLink>
                         </li>
                       </ul>
                     </div>
-                  </li>
+                  </div>
+                </li>
 
-                  <li className="relative group/submenu">
-                    <a href="#" className="block px-4 py-2 text-foreground hover:bg-muted">
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <div className="relative group/submenu">
+                    <a href="#" className="block px-4 py-2 text-white hover:text-black">
                       Pessoal
                     </a>
-                    <div className="absolute left-full top-0 ml-1 bg-background border border-border shadow-lg rounded-md opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 z-50 min-w-[200px]">
-                      <ul className="py-2">
-                        <li>
+                    {/* Submenu 2 */}
+                    <div className="hidden group-hover/submenu:block absolute -mt-12 -ml-[220px] bg-[#592cbb] opacity-90 w-[190px]">
+                      <ul>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/coordination" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             Coordenação e Conselhos
                           </NavLink>
                         </li>
-                        <li>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/researchers" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             Pesquisadores
                           </NavLink>
                         </li>
-                        <li>
+                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
                           <NavLink 
                             to="/technicians" 
-                            className="block px-4 py-2 text-foreground hover:bg-muted"
+                            className="block px-4 py-2 text-white hover:text-black"
                           >
                             Corpo Técnico
                           </NavLink>
                         </li>
                       </ul>
                     </div>
-                  </li>
+                  </div>
+                </li>
 
-                  <li>
-                    <NavLink 
-                      to="/labs" 
-                      className="block px-4 py-2 text-foreground hover:bg-muted"
-                    >
-                      Laboratórios e reservas
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink 
-                      to="/spaces" 
-                      className="block px-4 py-2 text-foreground hover:bg-muted"
-                    >
-                      Espaços e Reservas
-                    </NavLink>
-                  </li>
-                  <li>
-                    <a href="#" className="block px-4 py-2 text-foreground hover:bg-muted">
-                      Projetos de Pesquisa
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" className="block px-4 py-2 text-foreground hover:bg-muted">
-                      Produção Científica
-                    </a>
-                  </li>
-                  <li>
-                    <NavLink 
-                      to="/recipes" 
-                      className="block px-4 py-2 text-foreground hover:bg-muted"
-                    >
-                      Receitas
-                    </NavLink>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <NavLink 
+                    to="/labs" 
+                    className="block px-4 py-2 text-white hover:text-black"
+                  >
+                    Laboratórios e reservas
+                  </NavLink>
+                </li>
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <NavLink 
+                    to="/spaces" 
+                    className="block px-4 py-2 text-white hover:text-black"
+                  >
+                    Espaços e Reservas
+                  </NavLink>
+                </li>
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <a href="#" className="block px-4 py-2 text-white hover:text-black">
+                    Projetos de Pesquisa
+                  </a>
+                </li>
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <a href="#" className="block px-4 py-2 text-white hover:text-black">
+                    Produção Científica
+                  </a>
+                </li>
+                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                  <NavLink 
+                    to="/recipes" 
+                    className="block px-4 py-2 text-white hover:text-black"
+                  >
+                    Receitas
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </nav>
     </header>
   );
