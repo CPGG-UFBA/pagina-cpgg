@@ -48,7 +48,7 @@ export function Header() {
             </li>
             <li>
               <NavLink 
-                to="/Sign" 
+                to="/sign" 
                 className={({ isActive }) => 
                   `hover:text-primary-foreground/80 transition-colors ${isActive ? 'font-semibold' : ''}`
                 }
@@ -87,7 +87,7 @@ export function Header() {
                         </li>
                         <li>
                           <NavLink 
-                            to="/Regulations" 
+                            to="/regulations" 
                             className="block px-4 py-2 text-foreground hover:bg-muted"
                           >
                             Regimento e Normas
@@ -95,7 +95,7 @@ export function Header() {
                         </li>
                         <li>
                           <NavLink 
-                            to="/Photos" 
+                            to="/photos" 
                             className="block px-4 py-2 text-foreground hover:bg-muted"
                           >
                             Fotos
@@ -113,7 +113,7 @@ export function Header() {
                       <ul className="py-2">
                         <li>
                           <NavLink 
-                            to="/Coordination" 
+                            to="/coordination" 
                             className="block px-4 py-2 text-foreground hover:bg-muted"
                           >
                             Coordenação e Conselhos
@@ -121,7 +121,7 @@ export function Header() {
                         </li>
                         <li>
                           <NavLink 
-                            to="/Researchers" 
+                            to="/researchers" 
                             className="block px-4 py-2 text-foreground hover:bg-muted"
                           >
                             Pesquisadores
@@ -129,7 +129,7 @@ export function Header() {
                         </li>
                         <li>
                           <NavLink 
-                            to="/Technicians" 
+                            to="/technicians" 
                             className="block px-4 py-2 text-foreground hover:bg-muted"
                           >
                             Corpo Técnico
@@ -141,7 +141,7 @@ export function Header() {
 
                   <li>
                     <NavLink 
-                      to="/Labs" 
+                      to="/labs" 
                       className="block px-4 py-2 text-foreground hover:bg-muted"
                     >
                       Laboratórios e reservas
@@ -149,7 +149,7 @@ export function Header() {
                   </li>
                   <li>
                     <NavLink 
-                      to="/Spaces" 
+                      to="/spaces" 
                       className="block px-4 py-2 text-foreground hover:bg-muted"
                     >
                       Espaços e Reservas
@@ -167,7 +167,7 @@ export function Header() {
                   </li>
                   <li>
                     <NavLink 
-                      to="/Recipes" 
+                      to="/recipes" 
                       className="block px-4 py-2 text-foreground hover:bg-muted"
                     >
                       Receitas

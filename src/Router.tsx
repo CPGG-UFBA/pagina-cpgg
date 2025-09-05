@@ -78,27 +78,27 @@ export function Router() {
         <Route path='/history' element={<History />} />
         <Route path='/history/Former' element={<Former />} />
         <Route path='/production' element={<PlaceholderPage title="Produção" />} />
-        <Route path='/Spaces' element={<PlaceholderPage title="Espaços" />} />
-        <Route path='/Labs' element={<PlaceholderPage title="Laboratórios" />} />
-        <Route path='/Labs/Laiga' element={<PlaceholderPage title="LAIGA" />} />
-        <Route path='/Labs/Laiga/ReservationForm' element={<PlaceholderPage title="Formulário de Reserva" />} />
-        <Route path='/Labs/Lagep' element={<PlaceholderPage title="LAGEP" />} />
-        <Route path='/Labs/Lamod' element={<PlaceholderPage title="LAMOD" />} />
-        <Route path='/Labs/Successlab' element={<PlaceholderPage title="Success Lab" />} />
-        <Route path='/Spaces/Auditory' element={<PlaceholderPage title="Auditório" />} />
-        <Route path='/Spaces/MeetingRoom' element={<PlaceholderPage title="Sala de Reunião" />} />
+        <Route path='/spaces' element={<PlaceholderPage title="Espaços" />} />
+        <Route path='/labs' element={<PlaceholderPage title="Laboratórios" />} />
+        <Route path='/labs/Laiga' element={<PlaceholderPage title="LAIGA" />} />
+        <Route path='/labs/Laiga/ReservationForm' element={<PlaceholderPage title="Formulário de Reserva" />} />
+        <Route path='/labs/Lagep' element={<PlaceholderPage title="LAGEP" />} />
+        <Route path='/labs/Lamod' element={<PlaceholderPage title="LAMOD" />} />
+        <Route path='/labs/Successlab' element={<PlaceholderPage title="Success Lab" />} />
+        <Route path='/spaces/Auditory' element={<PlaceholderPage title="Auditório" />} />
+        <Route path='/spaces/MeetingRoom' element={<PlaceholderPage title="Sala de Reunião" />} />
         <Route path='/Reservations/ReservationAuditory' element={<PlaceholderPage title="Reservar Auditório" />} />
         <Route path='/Reservations/ReservationMeetingRoom' element={<PlaceholderPage title="Reservar Sala de Reunião" />} />
         <Route path='/Reservations/Success' element={<PlaceholderPage title="Reserva Confirmada" />} />
-        <Route path='/Regulations' element={<PlaceholderPage title="Regulamentos" />} />  
-        <Route path='/Photos' element={<PlaceholderPage title="Fotos" />} />  
-        <Route path='/Photos/HistoricalPhotos' element={<PlaceholderPage title="Fotos Históricas" />} />  
-        <Route path='/Photos/HistoricalPhotos/Yeda' element={<PlaceholderPage title="Yeda" />} />  
-        <Route path='/Photos/HistoricalPhotos/BlockE' element={<PlaceholderPage title="Bloco E" />} />  
-        <Route path='/Photos/HistoricalPhotos/ICG' element={<PlaceholderPage title="ICG" />} />  
-        <Route path='/Photos/HistoricalPhotos/LatinAmerican' element={<PlaceholderPage title="Latin American" />} />  
-        <Route path='/Photos/Years' element={<PlaceholderPage title="Anos" />} /> 
-        <Route path='/Photos/FirstMeeting' element={<PlaceholderPage title="Primeira Reunião" />} /> 
+        <Route path='/regulations' element={<PlaceholderPage title="Regulamentos" />} />  
+        <Route path='/photos' element={<PlaceholderPage title="Fotos" />} />  
+        <Route path='/photos/HistoricalPhotos' element={<PlaceholderPage title="Fotos Históricas" />} />  
+        <Route path='/photos/HistoricalPhotos/Yeda' element={<PlaceholderPage title="Yeda" />} />  
+        <Route path='/photos/HistoricalPhotos/BlockE' element={<PlaceholderPage title="Bloco E" />} />  
+        <Route path='/photos/HistoricalPhotos/ICG' element={<PlaceholderPage title="ICG" />} />  
+        <Route path='/photos/HistoricalPhotos/LatinAmerican' element={<PlaceholderPage title="Latin American" />} />  
+        <Route path='/photos/Years' element={<PlaceholderPage title="Anos" />} /> 
+        <Route path='/photos/FirstMeeting' element={<PlaceholderPage title="Primeira Reunião" />} />
 
       </Route>
     </Routes>
