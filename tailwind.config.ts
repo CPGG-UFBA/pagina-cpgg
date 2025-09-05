@@ -21,6 +21,7 @@ export default {
 			fontFamily: {
 				'roboto': ['Roboto', 'sans-serif'],
 				'sans': ['Roboto', 'sans-serif'],
+				'poppins': ['Poppins', 'sans-serif'],
 			},
 			spacing: {
 				'25': '100px',
@@ -35,6 +36,9 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				'gray-light': 'hsl(var(--gray-light))',
+				'gray-text': 'hsl(var(--gray-text))',
+				'orange-button': 'hsl(var(--orange-button))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'

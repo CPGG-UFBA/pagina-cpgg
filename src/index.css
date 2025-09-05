@@ -38,6 +38,11 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    /* Custom colors from CSS modules */
+    --gray-light: 210 16% 95%;
+    --gray-text: 220 9% 37%;
+    --orange-button: 25 95% 58%;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
