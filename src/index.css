@@ -100,6 +100,20 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-roboto;
+  }
+
+  /* Form elements styling from global.css */
+  input,
+  textarea,
+  button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+
+  /* Custom focus styles */
+  :focus {
+    outline: transparent;
+    box-shadow: 0 0 0 2px hsl(var(--primary));
   }
 }
