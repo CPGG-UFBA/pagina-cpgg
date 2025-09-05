@@ -17,7 +17,7 @@ export const App = () => (
       <BrowserRouter>
         <div className="min-h-screen relative">
           <Header />
-          <main className="relative z-10" style={{ marginTop: '100vh' }}>
+          <main className="relative z-10">
             <Router />
           </main>
           <Footer />
