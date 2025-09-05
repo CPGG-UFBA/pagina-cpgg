@@ -1,15 +1,23 @@
+import bgFooter from "../Figures/bg-footer.png";
+
 export function Footer() {
   return (
-    <footer className="bg-background border-t border-border">
-      <div className="h-32 bg-gradient-to-r from-primary/10 to-accent/10" />
-      <div className="bg-muted">
-        <nav className="container mx-auto px-4 py-6">
-          <div className="flex flex-wrap justify-center gap-6 text-sm">
+    <footer className="flex flex-col -mt-12 w-full relative justify-end">
+      <div 
+        className="w-full h-[300px] bg-cover bg-no-repeat relative z-10"
+        style={{ backgroundImage: `url(${bgFooter})` }}
+      />
+      <div className="bg-[#00249c] flex h-[7vh] w-full relative items-center justify-center z-20">
+        <nav>
+          <div className="flex items-center justify-center">
             <a 
               href="https://www.linkedin.com/in/cpgg-centro-de-pesquisa-94768a304/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-white no-underline pr-10 text-sm ml-25 -top-1 relative cursor-pointer font-roboto font-medium
+                         lg:ml-25 lg:text-sm
+                         md:ml-25 md:text-xs
+                         sm:ml-25 sm:text-[10px]"
             >
               Linkedin
             </a>
@@ -17,7 +25,10 @@ export function Footer() {
               href="http://www.pggeofisica.ufba.br/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-white no-underline pr-10 text-sm ml-25 -top-1 relative cursor-pointer font-roboto font-medium
+                         lg:ml-25 lg:text-sm
+                         md:ml-25 md:text-xs
+                         sm:ml-25 sm:text-[10px]"
             >
               Pós-Graduação em Geofísica
             </a>
@@ -25,7 +36,10 @@ export function Footer() {
               href="https://pggeologia.ufba.br/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors"
+              className="text-white no-underline pr-10 text-sm ml-25 -top-1 relative cursor-pointer font-roboto font-medium
+                         lg:ml-25 lg:text-sm
+                         md:ml-25 md:text-xs
+                         sm:ml-25 sm:text-[10px]"
             >
               Pós-Graduação em Geologia
             </a>

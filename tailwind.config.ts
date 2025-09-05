@@ -22,6 +22,9 @@ export default {
 				'roboto': ['Roboto', 'sans-serif'],
 				'sans': ['Roboto', 'sans-serif'],
 			},
+			spacing: {
+				'25': '100px',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
