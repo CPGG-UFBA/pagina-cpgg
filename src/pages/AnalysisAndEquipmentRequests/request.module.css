@@ -1,65 +1,79 @@
-/* Analysis and Equipment Requests Styles */
-.AnalysisAndEquipmentRequestsContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
+.AnalysisAndEquipmentRequestsContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0 0 0;
+  padding-top: 32px;
+  background-color: #F0F2F5;
 }
 
 .List {
-  list-style: none;
-  padding: 0;
-  margin: 2rem 0;
-}
-
-.ListItem {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  color: white;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.FormContainer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
-
-.Container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.FormTitle {
-  font-size: 1.1rem;
-  font-weight: 600;
+  overflow: visible;
+  text-overflow: ellipsis;
+  justify-content: center;
+  align-items:  normal;
   color: #363F5F;
-  margin: 0 0 1rem 0;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 
-.SendButton {
-  background: linear-gradient(135deg, #2c66b8, #8859ec);
-  border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  margin-top: 1rem;
+.ListItem { 
+ text-overflow: ellipsis;
+ justify-content: center;
+ align-items: center;
+ margin-top: 8px;
 }
 
-.SendButton:hover {
-  transform: translateY(-2px);
+.FormContainer{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  align-items: center;
 }
 
-.SendButtonTitle {
-  color: white;
-  font-size: 1.1rem;
-  font-weight: 600;
+.FormTitle{
+display: flex;
+overflow: visible;
+text-overflow: ellipsis;
+justify-content: left;
+margin-right: 4px;
+font-weight: bold;
+color: black;
+font-size: 14px;
+}
+
+.Container{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+padding-top: 4px;
+gap: 16px;
+}
+
+.sendButton{
+display: flex;
+flex:1;
+justify-content: center;
+width: 330px;
+height: 64px;
+background-color: #FF872C;
+border-radius: 5px;
+border: none;
+font-size: 24px;
+}
+
+.SendButtonTitle{
+display: flex;
+overflow: visible;
+text-overflow: ellipsis;
+justify-content: center;
+font-weight: bold;
+color: white;
+font-size: 24px;
+font-family: Poppins;
 }
