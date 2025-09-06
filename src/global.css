@@ -9,8 +9,6 @@
 }
 
 body {
-  background-image: url('/src/components/Figures/bg.png');
-  background-size: cover;
   -webkit-font-smoothing: antialiased;
   color: #fff;
 }
