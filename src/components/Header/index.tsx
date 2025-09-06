@@ -6,7 +6,7 @@ import headerBg from "../Figures/header-bg.png";
 export function Header() {
   return (
     <header 
-      className="w-full h-screen fixed top-0 left-0 flex flex-row aspect-square bg-contain bg-no-repeat z-50"
+      className="w-full h-24 fixed top-0 left-0 flex flex-row bg-contain bg-no-repeat z-50"
       style={{ backgroundImage: `url(${headerBg})` }}
     >
       <div className="flex items-start ml-4 mt-4">
