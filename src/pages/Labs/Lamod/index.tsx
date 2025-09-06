@@ -1,47 +1,83 @@
+import styles from './lamod.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import styles from './Lamod.module.css'
+import earth from '../../../components/Figures/earth3.png'
 
 export function Lamod() {
   return (
-    <div className={styles.container}>
+    <>
       <Header />
-      <main className={styles.main}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>LAMOD</h1>
-          <h2 className={styles.subtitle}>Laboratório de Modelagem</h2>
-          
-          <section className={styles.section}>
-            <h3>Sobre o Laboratório</h3>
-            <p>
-              O Laboratório de Modelagem (LAMOD) é especializado em modelagem 
-              computacional e simulações numéricas aplicadas às geociências, 
-              desenvolvendo modelos para diversos processos geológicos.
+      <div className={styles.lamod}>
+        <div className={styles.Title} >
+          <ul> LAMOD </ul>
+          <a> Laboratório de Modelagem Física </a>
+          <div className={styles.box}>
+          <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+    aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+    pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc, at
+    ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta. Integer
+    ligula ipsum, tristique sit amet orci vel, viverra egestas ligula. Curabitur
+    vehicula tellus neque, ac ornare ex malesuada et. In vitae convallis lacus.
+    Aliquam erat volutpat. Suspendisse ac imperdiet turpis. Aenean finibus
+    sollicitudin eros pharetra congue. Duis ornare egestas augue ut luctus.
+    Proin blandit quam nec lacus varius commodo et a urna. Ut id ornare felis,
+    eget fermentum sapien.
+  </p>
+<br></br>
+  <p>
+    Nam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada
+    ultrices. Phasellus turpis est, posuere sit amet dapibus ut, facilisis sed
+    est. Nam id risus quis ante semper consectetur eget aliquam lorem. Vivamus
+    tristique elit dolor, sed pretium metus suscipit vel. Mauris ultricies
+    lectus sed lobortis finibus. Vivamus eu urna eget velit cursus viverra quis
+    vestibulum sem. Aliquam tincidunt eget purus in interdum. Cum sociis natoque
+    penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+  </p>
+            <p> 
+              Para acessar as informações acerca das estatísticas de uso dos equipamentos, acesse o link abaixo
+             </p>
+             <nav>
+              <a href='https://pnipe.mcti.gov.br/search?term=Laiga' target="_blank">Estatísticas de uso</a>
+            </nav>
+            <br></br>
+             <p> 
+              Acesse o site da Plataforma Nacional de Infraestrutura de Pesquisa-PNIPE, e veja as fotos e mais detalhes sobre os equipamentos disponíveis. 
             </p>
-          </section>
 
-          <section className={styles.section}>
-            <h3>Especialidades</h3>
-            <ul className={styles.servicesList}>
-              <li>Modelagem geológica 3D</li>
-              <li>Simulações numéricas</li>
-              <li>Análise de bacias sedimentares</li>
-              <li>Modelagem de reservatórios</li>
-              <li>Processamento de dados geofísicos</li>
-            </ul>
-          </section>
-
-          <section className={styles.section}>
-            <h3>Recursos Computacionais</h3>
-            <p>
-              O laboratório possui infraestrutura computacional avançada com 
-              softwares especializados em modelagem geológica e processamento 
-              de grandes volumes de dados.
+             <nav>
+              <a href='https://pnipe.mcti.gov.br/laboratory/19338' target="_blank">Site do PNIPE</a>
+            </nav>
+            <p> 
+              Para saber da disponibilidade dos equipamentos e solicitá-los para uso, acesse nossa plataforma de requerimento
             </p>
-          </section>
+            <nav>
+             <a href='https://pnipe.mcti.gov.br/search?term=Laiga' target="_blank">Requerimento de uso</a>
+           </nav>
+          <br></br>
+           <b> Chefe do LAIGA</b>
+           <c> prof. Luiz Cesar Correa Gomes</c> 
+
+            <div className={styles.box1}>
+              <h4 className={styles.legend1}>Sala 1- Almoxarifado com equipamentos</h4>
+            </div>
+            <div className={styles.box2}>
+              <h4 className={styles.legend2}>Sala 1-Sala de Dados</h4>
+            </div>
+            <div className={styles.box3}>
+              <h4 className={styles.legend3}>Sala 3- Eletrônica</h4>
+            </div>
+            <div className={styles.box4}>
+              <h4 className={styles.legend4}>Sala de apoio do LAIGA</h4>
+            </div>
+          </div>
+          <div className={styles.staticFigure}>
+            <img src={earth} alt='Terra' />
+          </div>
         </div>
-      </main>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
+
