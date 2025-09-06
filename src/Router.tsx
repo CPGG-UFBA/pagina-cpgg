@@ -8,107 +8,150 @@ import { CPGG } from './pages/CPGG'
 import { History } from './pages/History'
 import { Former } from './pages/History/FormerHeaders'
 import { Institution } from './pages/Institution'
+
 import { Researchers } from './pages/Researchers'
+  import { Alanna } from './pages/Researchers/Personal_pages/Alanna'
+  import { Alexandre } from './pages/Researchers/Personal_pages/Alexandre'
+  import { Alexsandro } from './pages/Researchers/Personal_pages/Alexsandro'
+  import { Alice } from './pages/Researchers/Personal_pages/Alice'
+  import { Amin } from './pages/Researchers/Personal_pages/Amin'
+  import { Angela } from './pages/Researchers/Personal_pages/Angela'
+  import { AnaV } from './pages/Researchers/Personal_pages/AnaV'
+  import { Aroldo } from './pages/Researchers/Personal_pages/Aroldo'
+  import { Arthur } from './pages/Researchers/Personal_pages/Arthur'
+  import { Camila } from './pages/Researchers/Personal_pages/Camila'
+  import { Carlson } from './pages/Researchers/Personal_pages/Carlson'
+  import { Edson } from './pages/Researchers/Personal_pages/Edson'
+  import { Eduardo } from './pages/Researchers/Personal_pages/Eduardo'
+  import { Haroldo } from './pages/Researchers/Personal_pages/Haroldo'
+  import { Joelson } from './pages/Researchers/Personal_pages/Joelson'
+  import { Johildo } from './pages/Researchers/Personal_pages/Johildo'
+  import { Landim}  from './pages/Researchers/Personal_pages/Landim'
+  import { LFelipe } from './pages/Researchers/Personal_pages/LFelipe'
+  import { LCesar } from './pages/Researchers/Personal_pages/LCesar'
+  import { LRogerio } from './pages/Researchers/Personal_pages/LRogerio'
+  import { Marcos } from './pages/Researchers/Personal_pages/Marcos'
+  import { MZucchi } from './pages/Researchers/Personal_pages/MZucchi'
+  import { Porsani } from './pages/Researchers/Personal_pages/Porsani'
+  import { RicardoM } from './pages/Researchers/Personal_pages/RicardoM'
+  import { Reynam } from './pages/Researchers/Personal_pages/Reynam'
+  import { Ruy } from './pages/Researchers/Personal_pages/Ruy'
+  import { Simone } from './pages/Researchers/Personal_pages/Simone'
+  import { Susana } from './pages/Researchers/Personal_pages/Susana'
+  import { Suzan } from './pages/Researchers/Personal_pages/Suzan'
+  import { Wilson } from './pages/Researchers/Personal_pages/Wilson'
+  import { Jailma } from './pages/Researchers/Personal_pages/Jailma'
+
 import { Coordination } from './pages/Coordination'
-import { UploadPage } from './pages/Upload'
-import { AnalysisAndEquipmentRequests } from './pages/AnalysisAndEquipmentRequests'
+import { Technicians } from './pages/Technicians'
+import { Recipes } from './pages/Recipes'
+import { Calendars } from './pages/Recipes/Calendars'
+import { Sign } from './pages/Sign'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
-import { Sign } from './pages/Sign'
+import { Production } from './pages/Production'
+import { Spaces } from './pages/Spaces'
+import { Labs } from './pages/Labs'
+import { Laiga } from './pages/Labs/Laiga'
+import { RF } from './pages/Labs/Laiga/ReservationForm'
+import { Lagep } from './pages/Labs/Lagep'
+import { Lamod } from './pages/Labs/Lamod'
+import { Auditory } from './pages/Spaces/Auditory'
+import { MeetingRoom } from './pages/Spaces/MeetingRoom'
+import { RA } from './pages/Reservations/ReservationAuditory'
+import { MR } from './pages/Reservations/ReservationMeetingRoom'
+import { Success } from './pages/Reservations/Success'
+import { Successlab } from './pages/Labs/Successlab'
 
-// Páginas que serão implementadas gradualmente
-const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="container mx-auto px-4 py-8">
-    <h1 className="text-4xl font-bold mb-6">{title}</h1>
-    <p className="text-lg">Esta página será implementada em breve.</p>
-  </div>
-)
+
+import { Regulations } from './pages/Regulations'
+import { Photos } from './pages/Photos'
+import { Years } from './pages/Photos/Years' 
+import { HP } from './pages/HistoricalPhotos'
+import {ICG } from './pages/HistoricalPhotos/ICG'
+import {Latin } from './pages/HistoricalPhotos/LatinAmerican'
+import { Yeda } from './pages/HistoricalPhotos/Yeda'
+import {BlockE } from './pages/HistoricalPhotos/BlockE'
+import { FirstMeeting } from './pages/Photos/FirstMeeting'
 
 export function Router() {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/contact' element={<Contact />} />
-      <Route path='/Contact' element={<Contact />} />
-      <Route path='/News/News1' element={<News1 />} />
-      <Route path='/news/news1' element={<News1 />} />
-      <Route path='/News/News2' element={<News2 />} />
-      <Route path='/news/news2' element={<News2 />} />
-      <Route path='/News/News3' element={<News3 />} />
-      <Route path='/news/news3' element={<News3 />} />
+      <Route path='/'>
+        <Route path='/' element={<Home />} />
+        <Route path='/Contact' element={<Contact />} />
+        <Route path='/News/News1' element={<News1 />} />
+        <Route path='/News/News2' element={<News2 />} />
+        <Route path='/News/News3' element={<News3 />} />
 
-      <Route path='/researchers' element={<Researchers />} />
-      <Route path='/upload' element={<UploadPage />} />
-      <Route path='/analysis-equipment-requests' element={<AnalysisAndEquipmentRequests />} />
-      
-      {/* Páginas de pesquisadores - placeholder por enquanto */}
-      <Route path='/researchers/personal/Alanna' element={<PlaceholderPage title="Alanna" />} />
-      <Route path='/researchers/personal/Alexandre' element={<PlaceholderPage title="Alexandre" />} />
-      <Route path='/researchers/personal/Alexsandro' element={<PlaceholderPage title="Alexsandro" />} />
-      <Route path='/researchers/personal/Alice' element={<PlaceholderPage title="Alice" />} />
-      <Route path='/researchers/personal/Amin' element={<PlaceholderPage title="Amin" />} />
-      <Route path='/researchers/personal/Angela' element={<PlaceholderPage title="Angela" />} />
-      <Route path='/researchers/personal/AnaV' element={<PlaceholderPage title="Ana V" />} />
-      <Route path='/researchers/personal/Aroldo' element={<PlaceholderPage title="Aroldo" />} />
-      <Route path='/researchers/personal/Arthur' element={<PlaceholderPage title="Arthur" />} />
-      <Route path='/researchers/personal/Camila' element={<PlaceholderPage title="Camila" />} />
-      <Route path='/researchers/personal/Carlson' element={<PlaceholderPage title="Carlson" />} />
-      <Route path='/researchers/personal/Edson' element={<PlaceholderPage title="Edson" />} />
-      <Route path='/researchers/personal/Eduardo' element={<PlaceholderPage title="Eduardo" />} />
-      <Route path='/researchers/personal/Haroldo' element={<PlaceholderPage title="Haroldo" />} />
-      <Route path='/researchers/personal/Jailma' element={<PlaceholderPage title="Jailma" />} />
-      <Route path='/researchers/personal/Joelson' element={<PlaceholderPage title="Joelson" />} />
-      <Route path='/researchers/personal/Johildo' element={<PlaceholderPage title="Johildo" />} />
-      <Route path='/researchers/personal/Landim' element={<PlaceholderPage title="Landim" />} />
-      <Route path='/researchers/personal/LFelipe' element={<PlaceholderPage title="Luis Felipe" />} />
-      <Route path='/researchers/personal/LCesar' element={<PlaceholderPage title="Luis Cesar" />} />
-      <Route path='/researchers/personal/LRogerio' element={<PlaceholderPage title="Luis Rogerio" />} />
-      <Route path='/researchers/personal/Marcos' element={<PlaceholderPage title="Marcos" />} />
-      <Route path='/researchers/personal/MZucchi' element={<PlaceholderPage title="M. Zucchi" />} />
-      <Route path='/researchers/personal/Porsani' element={<PlaceholderPage title="Porsani" />} />
-      <Route path='/researchers/personal/RicardoM' element={<PlaceholderPage title="Ricardo M" />} />
-      <Route path='/researchers/personal/Reynam' element={<PlaceholderPage title="Reynam" />} />
-      <Route path='/researchers/personal/Ruy' element={<PlaceholderPage title="Ruy" />} />
-      <Route path='/researchers/personal/Simone' element={<PlaceholderPage title="Simone" />} />
-      <Route path='/researchers/personal/Susana' element={<PlaceholderPage title="Susana" />} />
-      <Route path='/researchers/personal/Suzan' element={<PlaceholderPage title="Suzan" />} />
-      <Route path='/researchers/personal/Wilson' element={<PlaceholderPage title="Wilson" />} />
+        <Route path='/researchers' element={<Researchers />} />
+        <Route path='/researchers/personal/Alanna' element={<Alanna />} />
+        <Route path='/researchers/personal/Alexandre' element={<Alexandre />} />
+        <Route path='/researchers/personal/Alexsandro' element={<Alexsandro />} />
+        <Route path='/researchers/personal/Alice' element={<Alice />} />
+        <Route path='/researchers/personal/Amin' element={<Amin />} />
+        <Route path='/researchers/personal/Angela' element={<Angela />} />
+        <Route path='/researchers/personal/AnaV' element={<AnaV />} />
+        <Route path='/researchers/personal/Aroldo' element={<Aroldo />} />
+        <Route path='/researchers/personal/Arthur' element={<Arthur />} />
+        <Route path='/researchers/personal/Camila' element={<Camila />} />
+        <Route path='/researchers/personal/Carlson' element={<Carlson />} />
+        <Route path='/researchers/personal/Edson' element={<Edson />} />
+        <Route path='/researchers/personal/Eduardo' element={<Eduardo />} />
+        <Route path='/researchers/personal/Haroldo' element={<Haroldo />} />
+        <Route path='/researchers/personal/Jailma' element={<Jailma />} />
+        <Route path='/researchers/personal/Joelson' element={<Joelson />} />
+        <Route path='/researchers/personal/Johildo' element={<Johildo />} />
+        <Route path='/researchers/personal/Landim' element={<Landim />} />
+        <Route path='/researchers/personal/LFelipe' element={<LFelipe />} />
+        <Route path='/researchers/personal/LCesar' element={<LCesar />} />
+        <Route path='/researchers/personal/LRogerio' element={<LRogerio />} />
+        <Route path='/researchers/personal/Marcos' element={<Marcos />} />
+        <Route path='/researchers/personal/MZucchi' element={<MZucchi />} />
+        <Route path='/researchers/personal/Porsani' element={<Porsani />} />
+        <Route path='/researchers/personal/RicardoM' element={<RicardoM />} />
+        <Route path='/researchers/personal/Reynam' element={<Reynam />} />
+        <Route path='/researchers/personal/Ruy' element={<Ruy />} />
+        <Route path='/researchers/personal/Simone' element={<Simone />} />
+        <Route path='/researchers/personal/Susana' element={<Susana />} />
+        <Route path='/researchers/personal/Suzan' element={<Suzan />} />
+        <Route path='/researchers/personal/Wilson' element={<Wilson />} />
 
-      {/* Outras páginas principais */}
-      <Route path='/coordination' element={<Coordination />} />
-      <Route path='/technicians' element={<PlaceholderPage title="Técnicos" />} />
-      <Route path='/recipes' element={<PlaceholderPage title="Receitas" />} />
-      <Route path='/recipes/Calendars' element={<PlaceholderPage title="Calendários" />} />
-      <Route path='/sign' element={<Sign />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/auth' element={<Login />} />
-      <Route path='/register' element={<Register />} />
-      <Route path='/institution' element={<Institution />} />
-      <Route path='/cpgg' element={<CPGG />} />
-      <Route path='/history' element={<History />} />
-      <Route path='/history/Former' element={<Former />} />
-      <Route path='/production' element={<PlaceholderPage title="Produção" />} />
-      <Route path='/spaces' element={<PlaceholderPage title="Espaços" />} />
-      <Route path='/labs' element={<PlaceholderPage title="Laboratórios" />} />
-      <Route path='/labs/Laiga' element={<PlaceholderPage title="LAIGA" />} />
-      <Route path='/labs/Laiga/ReservationForm' element={<PlaceholderPage title="Formulário de Reserva" />} />
-      <Route path='/labs/Lagep' element={<PlaceholderPage title="LAGEP" />} />
-      <Route path='/labs/Lamod' element={<PlaceholderPage title="LAMOD" />} />
-      <Route path='/labs/Successlab' element={<PlaceholderPage title="Success Lab" />} />
-      <Route path='/spaces/Auditory' element={<PlaceholderPage title="Auditório" />} />
-      <Route path='/spaces/MeetingRoom' element={<PlaceholderPage title="Sala de Reunião" />} />
-      <Route path='/Reservations/ReservationAuditory' element={<PlaceholderPage title="Reservar Auditório" />} />
-      <Route path='/Reservations/ReservationMeetingRoom' element={<PlaceholderPage title="Reservar Sala de Reunião" />} />
-      <Route path='/Reservations/Success' element={<PlaceholderPage title="Reserva Confirmada" />} />
-      <Route path='/regulations' element={<PlaceholderPage title="Regulamentos" />} />  
-      <Route path='/photos' element={<PlaceholderPage title="Fotos" />} />  
-      <Route path='/photos/HistoricalPhotos' element={<PlaceholderPage title="Fotos Históricas" />} />  
-      <Route path='/photos/HistoricalPhotos/Yeda' element={<PlaceholderPage title="Yeda" />} />  
-      <Route path='/photos/HistoricalPhotos/BlockE' element={<PlaceholderPage title="Bloco E" />} />  
-      <Route path='/photos/HistoricalPhotos/ICG' element={<PlaceholderPage title="ICG" />} />  
-      <Route path='/photos/HistoricalPhotos/LatinAmerican' element={<PlaceholderPage title="Latin American" />} />  
-      <Route path='/photos/Years' element={<PlaceholderPage title="Anos" />} /> 
-      <Route path='/photos/FirstMeeting' element={<PlaceholderPage title="Primeira Reunião" />} />
+        <Route path='/coordination' element={<Coordination />} />
+        <Route path='/technicians' element={<Technicians />} />
+        <Route path='/recipes' element={<Recipes />} />
+        <Route path='/recipes/Calendars' element={<Calendars />} />
+        <Route path='/sign' element={<Sign />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/institution' element={<Institution />} />
+        <Route path='/cpgg' element={<CPGG />} />
+        <Route path='/history' element={<History />} />
+        <Route path='/history/Former' element={<Former />} />
+        <Route path='/production' element={<Production />} />
+         <Route path='/Spaces' element={<Spaces />} />
+         <Route path='/Labs' element={<Labs />} />
+         <Route path='/Labs/Laiga' element={<Laiga />} />
+         <Route path='/Labs/Laiga/ReservationForm' element={<RF />} />
+         <Route path='/Labs/Lagep' element={<Lagep />} />
+         <Route path='/Labs/Lamod' element={<Lamod />} />
+         <Route path='/Labs/Successlab' element={<Successlab />} />
+         <Route path='/Spaces/Auditory' element={<Auditory />} />
+         <Route path='/Spaces/MeetingRoom' element={<MeetingRoom />} />
+         <Route path='/Reservations/ReservationAuditory' element={<RA />} />
+         <Route path='/Reservations/ReservationMeetingRoom' element={<MR />} />
+         <Route path='/Reservations/Success' element={<Success />} />
+        <Route path='/Regulations' element={<Regulations />} />  
+        <Route path='/Photos' element={<Photos />} />  
+        <Route path='/Photos/HistoricalPhotos' element={<HP />} />  
+        <Route path='/Photos/HistoricalPhotos/Yeda' element={<Yeda />} />  
+        <Route path='/Photos/HistoricalPhotos/BlockE' element={<BlockE />} />  
+        <Route path='/Photos/HistoricalPhotos/ICG' element={<ICG />} />  
+        <Route path='/Photos/HistoricalPhotos/LatinAmerican' element={<Latin />} />  
+         <Route path='/Photos/Years' element={<Years />} /> 
+         <Route path='/Photos/FirstMeeting' element={<FirstMeeting />} /> 
+
+      </Route>
     </Routes>
   )
 }
