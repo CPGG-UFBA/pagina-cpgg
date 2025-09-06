@@ -1,55 +1,131 @@
-/* Footer Styles */
 .footer {
-  background-color: #00249c;
+  display: flex;
+  flex-direction: column;
+  margin-top: -50px;
+  width: 100%;
+  position: relative;
+  justify-content: flex-end; /* Alinhar conteúdo ao final, incluindo a barra */
+}
+
+.image {
+  width: 100%;
+  background-image: url('../Figures/bg-footer.png');
+  background-size: cover; /* Use "cover" se quiser que a imagem ocupe todo o espaço */
+  background-repeat: no-repeat;
+  height: 300px; /* Definir uma altura mínima para a div ficar visível */
+  position: relative; /* Manter a imagem no fluxo normal */
+  z-index: 1; /* Garantir que a imagem fique acima da barra */
+}
+
+.bar {
+  background: #00249c;
   display: flex;
   height: 7vh;
   width: 100%;
+  position: relative; /* Mantendo a barra dentro do fluxo */
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 30;
+  z-index: 2; /* Garantindo que a barra esteja acima de outros elementos, exceto a imagem */
 }
 
-.nav {
-  /* Navigation container */
-}
-
-.linkContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.link {
-  color: white;
+.footer nav a:first-child,
+.footer nav a:nth-child(2),
+.footer nav a:nth-child(3){
+  color: #fff;
   text-decoration: none;
-  padding-right: 2.5rem;
-  font-size: 0.875rem;
-  margin-left: 6.25rem;
-  top: -0.25rem;
+  padding-right: 40px;
+  font-size: 14px;
+  margin-left: 100px;
+  top: -5px;
   position: relative;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
+  cursor:pointer;
+  font-family: Roboto;
   font-weight: 500;
 }
 
-@media (min-width: 1024px) {
-  .link {
-    margin-left: 6.25rem;
-    font-size: 0.875rem;
-  }
+
+.footer figures {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  margin-right: 10px;
 }
 
-@media (min-width: 768px) {
-  .link {
-    margin-left: 6.25rem;
-    font-size: 0.75rem;
+/*-------------------*/
+
+@media(max-width:1024px) {
+
+  .bar {
+    top: 200px;
+    width: 100%;
   }
+
+  .image {
+    top: 200px;
+    width: 120%;
+  }
+
+
+  .footer nav a:first-child,
+  .footer nav a:nth-child(2),
+  .footer nav a:nth-child(3){
+    font-size: 12px;
+    margin-left: 100px;
+    font-weight: 500;
+  }
+
 }
 
-@media (min-width: 640px) {
-  .link {
-    margin-left: 6.25rem;
+
+@media(max-width:800px) {
+
+  .bar {
+    top: 170px;
+    width: 150%;
+    height: 5vh;
+  }
+
+  .image {
+    top: 170px;
+    width: 150%;
+
+  }
+  .footer nav a:first-child,
+  .footer nav a:nth-child(2),
+  .footer nav a:nth-child(3){
+    font-size: 12px;
+    margin-left: 100px;
+    font-weight: 500;
+  }
+
+
+}
+
+
+@media(max-width:400px) {
+
+  .bar {
+    top: 620px;
+    width: 275%;
+    height: 5vh;
+  }
+
+  .image {
+    top: -60px;
+    width: 275%;
+  }
+
+  .footer nav a:first-child,
+  .footer nav a:nth-child(2),
+  .footer nav a:nth-child(3){
     font-size: 10px;
+    margin-left: 100px;
+    font-weight: 500;
   }
+
+
 }
