@@ -1,12 +1,29 @@
-/* Global styles */
+.root {
+  --purple-300: #8859ec;
+  --purple-500: #71226e;
+}
+
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Roboto', 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-image: url('./components/Figures/bg.png');
+  background-size: cover;
+  -webkit-font-smoothing: antialised;
+  color: #fff;
+}
+
+body,
+input,
+textare,
+button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+:focus {
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--purple-300);
 }
