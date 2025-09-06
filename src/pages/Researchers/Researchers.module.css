@@ -1,19 +1,226 @@
-/* Researchers Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
-}
+.Programs{
+  column-count: 5;
+  column-gap: 3rem;
+  display: flex;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 170px;
+  padding-bottom: 650px;
+  padding-left: 200px;
+  padding-right: 8px;
+  }
 
-.title {
-  font-size: 2.25rem;
+.Oil  h1{
+  display: flex;
+  max-width:10px;
+  font-size: 18px;
+  color: #363F5;
   font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+  margin-top: 0px;
+  margin-left: 3rem;
+  padding-left: -20px;
+  white-space: nowrap;
 }
 
-.content {
-  font-size: 1.125rem;
-  color: white;
+.Oil   a{
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  margin-left: 3rem;
+  margin-top: 25px;
+  white-space: nowrap;
+  margin-bottom: 40px;
+  line-height: 10px;
+}
+
+
+.Oil nav a{
+  list-style: none;
+}
+
+.Oil nav a:hover {
+  color: rgba(147 106 235);
+  transition: 0.1s;
+}
+
+
+.Environment  h1{
+  display: flex;
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: -450px;
+  margin-left: 18rem;
+  padding-left:50px;
+  white-space: nowrap;
+}
+
+
+.Environment   a{
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  margin-left: 23rem;
+  margin-top: 22px;
+  white-space: nowrap;
+  margin-bottom: 40px;
+  line-height: 10px;
+}
+
+
+.Environment nav a{
+  list-style: none;
+}
+
+.Environment nav a:hover {
+  color: rgba(147 106 235);
+  transition: 0.1s;
+}
+
+.Mineral  h1{
+  display: flex;
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: -455px;
+  margin-left: 43rem;
+  padding-left:0px;
+  white-space: nowrap;
+}
+
+.Mineral   a{
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  margin-left: 45rem;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  white-space: nowrap;
+  line-height: 10px;
+}
+
+
+.Oceanography  h1{
+  display: flex;
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: -545px;
+  margin-left: 68rem;
+  padding-left:0px;
+  white-space: nowrap;
+}
+
+.Oceanography   a{
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  margin-left: 66rem;
+  margin-top: 20px;
+  white-space: nowrap;
+  margin-bottom: 40px;
+  line-height: 10px;
+}
+
+.Coast  h1{
+  display: flex;
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: -550px;
+  margin-left: 86rem;
+  padding-left:0px;
+  white-space: nowrap;
+}
+
+.Coast   a{
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  margin-left: 85rem;
+  margin-top: -10px;
+  margin-bottom: 40px;
+  line-height: 10px;
+}
+
+
+.Programs ul {
+  font-size: 25px;
+  color: #363F5; 
+  margin-left: -400px;
+  margin-top: -50px;
+  white-space: nowrap;
+}
+
+
+.box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 1645px;
+  height: 530px;
+  top: 17%; 
+  left:1%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+
+
+
+@media (max-width: 1200px) {
+ .box {
+  width: 940px;
+  left: 5%;
+  overflow-y: scroll;
+  height: 700px;
+  top: 200px;
+ }
+ 
+ 
+.Oceanography  h1{
+  margin-top: 70px;
+  margin-left: 3rem;
+}
+
+.Oceanography   a{
+  margin-left: 3rem;
+  margin-top: 20px;
+  line-height: 1px;
+}
+
+
+.Coast  h1{
+  margin-top: -170px;
+  margin-left: 25rem;
+}
+
+.Coast   a{
+  margin-left: 25rem;
+}
+ .Programs {
+  margin-bottom: 100px;
+  padding-left: 500px;
+ }
+
+}
+
+
+@media (max-width: 400px) {
+
+  .Programs {
+    margin-bottom: 760px;
+    padding-left: 700px;
+   }
+
+   .box {
+    height: 900px;
+   }
 }
