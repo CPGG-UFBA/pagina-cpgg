@@ -1,5 +1,5 @@
 import styles from './middle.module.css'
-import earth from '../../../assets/earth-imgur.png'
+import earth from '../../../../assets/earth-imgur.png'
 
 import figure1 from '../../../../components/Figures/news1.png'
 import figure2 from '../../../../components/Figures/news2.png'
