@@ -1,7 +1,6 @@
-/* Header Styles */
 .header {
   width: 100%;
-  background-color: transparent;
+  background-image: url("../Figures/header-bg.png");
   background-size: contain;
   background-repeat: no-repeat;
   height: 100vh;
@@ -161,7 +160,7 @@ nav ul li:hover .submenu2 ul li {
 @media (max-width: 900px) {
   .header {
     width: 1300px;
-    background-color: transparent;
+    background-image: url("../Figures/header-bg.png");
     background-size: contain;
     background-repeat: no-repeat;
     height: 100vh;
@@ -221,3 +220,4 @@ nav ul li:hover .submenu2 ul li {
   }
 
 }
+
