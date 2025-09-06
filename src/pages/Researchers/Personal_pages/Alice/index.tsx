@@ -4,6 +4,7 @@ import { Footer } from '../../../../components/Footer'
 import earth from '../../../../assets/earth-imgur.png'
 
 export function Alice() {
+  console.log('[Researchers] Alice page render');
   return (
     <>
       <Header />

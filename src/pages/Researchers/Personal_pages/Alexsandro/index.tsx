@@ -4,6 +4,7 @@ import { Footer } from '../../../../components/Footer'
 import earth from '../../../../assets/earth-imgur.png'
 
 export function Alexsandro() {
+  console.log('[Researchers] Alexsandro page render');
   return (
     <>
       <Header />

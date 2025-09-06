@@ -88,7 +88,7 @@ export function Header() {
                       </NavLink>
                     </li>
                     <li>
-                      <NavLink to='/Researchers' className={styles.navLink}>
+                      <NavLink to='/researchers' className={styles.navLink}>
                         Pesquisadores
                       </NavLink>
                     </li>

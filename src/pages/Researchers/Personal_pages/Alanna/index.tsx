@@ -4,6 +4,7 @@ import { Footer } from '../../../../components/Footer'
 import earth from '../../../../assets/earth-imgur.png'
 
 export function Alanna() {
+  console.log('[Researchers] Alanna page render');
   return (
     <>
       <Header />
