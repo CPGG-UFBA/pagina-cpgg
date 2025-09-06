@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url('/src/components/Figures/bg.png');
+  background-color: #1B086E;
   background-size: cover;
   -webkit-font-smoothing: antialiased;
   color: #fff;
