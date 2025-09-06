@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styles from './sign.module.css'
-import logocpgg from '../../components/Figures/cpgg.png';
+import logocpgg from '../../assets/cpgg-logo.png';
 
 
 export function Sign() {

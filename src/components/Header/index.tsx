@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
-import logocpgg from "../Figures/cpgg.png";
-import logoufba from "../Figures/LogoUfba.png";
+import logocpgg from "../../assets/cpgg-logo.png";
+import logoufba from "../../assets/ufba-logo.png";
 
 export function Header() {
   return (
