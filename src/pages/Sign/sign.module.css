@@ -7,19 +7,18 @@
 .sign {
   background-image: url('../../components/Figures/bg-signin.png');
   background-size: cover;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialised;
   margin: 0;
   display: flex;
   height: 100vh;
-  align-items: center;
-  justify-content: center;
 }
 
+
 .logo img {
-  width: 100px;
-  height: 65px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+width: 100px;
+height: 65px;
+margin-top: 2rem;
+margin-left: auto;
 }
 
 .box {
@@ -28,132 +27,151 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.1);
+  position: absolute;
   width: 600px;
-  min-height: 500px;
-  padding: 20px;
+  height: 600px;
+  top: 15%; 
+  left:30%;
+  padding: 10px;
   border-radius: 20px;
-  backdrop-filter: blur(10px);
-  align-items: center;
+  gap: 5px;
 }
 
-.upper p {
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  margin-bottom: 1rem;
-}
 
-.already p {
-  font-size: 16px;
-  color: rgb(60, 60, 60);
-  margin-bottom: 0.5rem;
-}
-
-.login {
-  margin-bottom: 2rem;
-}
-
-.login li {
-  list-style: none;
-}
-
-.login a {
-  color: #936aeb;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.login a:hover {
-  color: #7c5ce0;
-  text-decoration: underline;
-}
-
-.box h1 {
-  font-size: 18px;
-  color: rgb(0, 0, 0);
-  margin-bottom: 1.5rem;
-  font-weight: normal;
-}
 
 .box input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    margin-left:2.5rem;
+    border-radius: 15px;
+    transition: all linear 160ms;
+    outline: none;
+    width: 500px;
+}
+
+.box button {
+  appearance: button;
   padding: 15px;
   font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  transition: all linear 160ms;
-  outline: none;
-  width: 500px;
-  background: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-}
-
-.box input:focus {
-  border-color: #936aeb;
-  box-shadow: 0 0 5px rgba(147, 106, 235, 0.3);
-}
-
-.button {
-  padding: 15px;
-  font-size: 16px;
-  color: white;
   border-radius: 25px;
-  width: 300px;
+  width: 500px;
+  margin-left:2.5rem;
   background-color: #BEB6B6;
   border: none;
   transition: 500ms linear;
-  font-family: Roboto;
-  font-weight: 500;
-  cursor: pointer;
+ 
 }
 
-.button:hover {
-  background-color: #936aeb;
-}
-
-.button a {
-  color: white;
+.box button > a{
+  font-size: 16px;
   text-decoration: none;
-  display: block;
-  width: 100%;
-  height: 100%;
+  color: white;
+  
+
+}
+
+.box button:hover {
+  background-color: #936aeb;
+  
+}
+
+.box label {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.box a {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 13px;
+  color: black;
+  transition: all linear 160ms;
+}
+
+.box h1 {
+  display: inline-block;
+  margin-top: 10rem;
+  left: 2rem;
+  font-size: 13px;
+  color: gray;
+  transition: all linear 160ms;
+}
+
+.upper p {
+  position: absolute;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  top:8rem;
+  left:50%;
+  transform: translate(-50%, -50%);
+}
+
+.already p {
+  position: absolute;
+  font-size: 14px;
+  color: #666;
+  top:10rem;
+  left:50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+}
+
+.box li {
+  position: absolute;
+  padding: 0 10px;
+  text-decoration: none;
+  top:12rem;
+  left:48%;
+  transform: translate(-50%, -50%);
+
+}
+
+.login {
+  padding: 0 10px;
+  list-style-type: none;
+  top:1rem;
+
+}
+
+@media(max-width:1200px) {
+
+  .box {
+    left: 20%;
+  }
 }
 
 @media(max-width:900px) {
+
   .box {
-    width: 400px;
-    padding: 15px;
-  }
-  
-  .box input {
-    width: 350px;
+    left: 10%;
   }
 
-  .button {
-    width: 200px;
-  }
-
-  .upper p {
-    font-size: 20px;
-  }
-
-  .box h1 {
-    font-size: 16px;
-  }
 }
 
 @media(max-width:500px) {
-  .box {
-    width: 90%;
-    margin: 0 20px;
-  }
-  
-  .box input {
-    width: 100%;
+
+  .sign {
+    background-size: cover;
   }
 
-  .button {
-    width: 80%;
+  .box {
+    left: 6%;
+    width: 330px;
+    height: 500px;
   }
+
+
+.box button {
+  width: 250px;
+  top: 5%;
+ 
+}
+
+.box input {
+  width: 250px;
+}
+
 }
