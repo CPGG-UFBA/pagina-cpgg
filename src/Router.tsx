@@ -11,6 +11,7 @@ import { Institution } from './pages/Institution'
 import { Researchers } from './pages/Researchers'
 import { Coordination } from './pages/Coordination'
 import { UploadPage } from './pages/Upload'
+import { AnalysisAndEquipmentRequests } from './pages/AnalysisAndEquipmentRequests'
 
 // Páginas que serão implementadas gradualmente
 const PlaceholderPage = ({ title }: { title: string }) => (
@@ -35,6 +36,7 @@ export function Router() {
 
       <Route path='/researchers' element={<Researchers />} />
       <Route path='/upload' element={<UploadPage />} />
+      <Route path='/analysis-equipment-requests' element={<AnalysisAndEquipmentRequests />} />
       
       {/* Páginas de pesquisadores - placeholder por enquanto */}
       <Route path='/researchers/personal/Alanna' element={<PlaceholderPage title="Alanna" />} />

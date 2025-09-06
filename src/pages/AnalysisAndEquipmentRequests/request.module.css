@@ -1,0 +1,65 @@
+/* Analysis and Equipment Requests Styles */
+.AnalysisAndEquipmentRequestsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  padding-top: 8rem;
+}
+
+.List {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+.ListItem {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.FormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.FormTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #363F5F;
+  margin: 0 0 1rem 0;
+}
+
+.SendButton {
+  background: linear-gradient(135deg, #2c66b8, #8859ec);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-top: 1rem;
+}
+
+.SendButton:hover {
+  transform: translateY(-2px);
+}
+
+.SendButtonTitle {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
