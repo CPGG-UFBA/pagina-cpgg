@@ -1,74 +1,269 @@
-.container {
+.lamod{
+  text-align: justify;
+  font-size: 18px;
+  line-height: 35px;
+  column-count: 1;
+  display: flex;
+  flex: 1;
+  color: #fff;
+  padding-top: 140px;
+  padding-bottom: 543px;
+  padding-left: 280px;
+  padding-right: 200px;
+  }
+
+
+.Title ul {
+    font-size: 35px;
+    color: #363F5;
+    margin-top: -10px; 
+    padding-left: 200px;
+    padding-bottom: 20px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .Title a {
+    font-size: 25px;
+    color: #363F5;
+    margin-top: -25px; 
+    margin-left: 55px;
+    padding-bottom: 50px;
+    white-space: nowrap;
+  }
+
+.box  {
+    text-align: justify-all;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.2);
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    top: 25%; 
+    left:2%;
+    padding: 20px;
+    padding-left: 350px;
+    border-radius: 20px;
+    gap: 5px;
+    margin-bottom: -500px;
+    overflow-y: scroll;
+  }
+
+
+  
+  .box b {
+    font-size: 14px;
+    color: #363F5; 
+    margin-left: 200px;
+    white-space: nowrap;
+  }
+
+  
+  .box c {
+    font-size: 14px;
+    color: #363F5; 
+    margin-left: 150px;
+    white-space: nowrap;
+  }
+
+
+  .box ul {
+    font-size: 16px;
+    olor: #363F5;
+    text-align: justify-all; 
+    margin-left: -195px;
+    padding: 20px;
+    margin-top: 50px;
+    white-space: nowrap;
+  }
+ 
+
+
+  .box nav a {
+    color: #fff;
+    padding-right: 40px;
+    font-size: 14px;
+    margin-left: 200px;
+    top: -5px;
+    position: relative;
+    cursor:pointer;
+    font-family: Roboto;
+    font-weight: 500;
+  }
+
+  nav a{
+    list-style: none;
+  }
+  
+  nav a:hover {
+    color: rgba(147 106 235);
+    transition: 0.1s;
+  }
+
+
+.box1 {
+  text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 3%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAMOD/Lamod1.png') center/cover;
 }
 
-.main {
-  flex: 1;
-  padding: 2rem;
-  margin-top: 80px;
+.legend1 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
 }
 
-.content {
-  max-width: 1200px;
-  margin: 0 auto;
-  color: white;
-}
 
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+.box2 {
   text-align: center;
-  background: linear-gradient(135deg, #2c66b8, #8859ec);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 85%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAMOD/Lamod2.png') center/cover;
 }
 
-.subtitle {
-  font-size: 1.5rem;
+
+.legend2 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
+}
+
+
+.box3 {
   text-align: center;
-  margin-bottom: 3rem;
-  color: #93c5fd;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 165%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAMOD/Lamod3.png') center/cover;
 }
 
-.section {
-  margin-bottom: 2.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
-  border-radius: 1rem;
-  backdrop-filter: blur(10px);
+
+.legend3 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
 }
 
-.section h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #8859ec;
+.box4 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 245%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAMOD/Lamod4.png')center/cover;
 }
 
-.section p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
+.legend4 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
 }
 
-.servicesList {
-  list-style: none;
-  padding: 0;
+
+.staticFigure img {
+  height: 40rem;
+  margin-top: -83px;
+  padding-left: 710px;
+  margin-bottom: -500px;
 }
 
-.servicesList li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+@media (max-width: 1200px) {
+
+  .staticFigure {
+    display: none;
+  }
+
+  .box {
+    top: 20%;
+    left: 7%;
+    height: 650px;
+  }
+
+  .lamod {
+    padding-bottom: 680px;
+  }
 }
 
-.servicesList li:last-child {
-  border-bottom: none;
+
+@media (max-width: 800px) {
+
+
+  .box {
+    top: 25%;
+    left: 7%;
+    height: 650px;
+  }
+
 }
 
-.servicesList li:before {
-  content: "▸ ";
-  color: #8859ec;
-  font-weight: bold;
+@media (max-width: 400px) {
+
+
+  .box {
+    top: 40%;
+    left: 12%;
+    height: 900px;
+    overflow-y: none;
+  }
+
+  .lamod {
+    padding-bottom: 1350px;
+  }
 }
