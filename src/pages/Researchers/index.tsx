@@ -1,4 +1,4 @@
-import styles from './researchers.module.css'
+import styles from './Researchers.module.css'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 
