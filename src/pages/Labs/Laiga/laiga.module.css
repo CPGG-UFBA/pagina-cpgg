@@ -1,0 +1,269 @@
+.laiga{
+  text-align: justify;
+  font-size: 18px;
+  line-height: 35px;
+  column-count: 1;
+  display: flex;
+  flex: 1;
+  color: #fff;
+  padding-top: 140px;
+  padding-bottom: 543px;
+  padding-left: 280px;
+  padding-right: 200px;
+  }
+
+
+.Title ul {
+    font-size: 35px;
+    color: #363F5;
+    margin-top: -10px; 
+    padding-left: 200px;
+    padding-bottom: 20px;
+    white-space: nowrap;
+    font-weight: bold;
+  }
+
+  .Title a {
+    font-size: 25px;
+    color: #363F5;
+    margin-top: -25px; 
+    margin-left: -15px;
+    padding-bottom: 50px;
+    white-space: nowrap;
+  }
+
+.box  {
+    text-align: justify-all;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.2);
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    top: 25%; 
+    left:2%;
+    padding: 20px;
+    padding-left: 350px;
+    border-radius: 20px;
+    gap: 5px;
+    margin-bottom: -500px;
+    overflow-y: scroll;
+  }
+
+
+  
+  .box b {
+    font-size: 14px;
+    color: #363F5; 
+    margin-left: 200px;
+    white-space: nowrap;
+  }
+
+  
+  .box c {
+    font-size: 14px;
+    color: #363F5; 
+    margin-left: 100px;
+    white-space: nowrap;
+  }
+
+
+  .box ul {
+    font-size: 16px;
+    olor: #363F5;
+    text-align: justify-all; 
+    margin-left: -195px;
+    padding: 20px;
+    margin-top: 50px;
+    white-space: nowrap;
+  }
+ 
+
+
+  .box nav a {
+    color: #fff;
+    padding-right: 40px;
+    font-size: 14px;
+    margin-left: 200px;
+    top: -5px;
+    position: relative;
+    cursor:pointer;
+    font-family: Roboto;
+    font-weight: 500;
+  }
+
+  nav a{
+    list-style: none;
+  }
+  
+  nav a:hover {
+    color: rgba(147 106 235);
+    transition: 0.1s;
+  }
+
+
+.box1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 3%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAIGA/Laiga1.png') center/cover;
+}
+
+.legend1 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
+}
+
+
+.box2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 85%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAIGA/Laiga2.png') center/cover;
+}
+
+
+.legend2 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
+}
+
+
+.box3 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 165%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAIGA/Laiga3.png') center/cover;
+}
+
+
+.legend3 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
+}
+
+.box4 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 245%; 
+  left:2%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Labs/LAIGA/Laiga4.png')center/cover;
+}
+
+.legend4 {
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
+  top: 300px;
+	position: absolute;
+}
+
+
+.staticFigure img {
+  height: 40rem;
+  margin-top: -83px;
+  padding-left: 710px;
+  margin-bottom: -500px;
+}
+
+
+@media (max-width: 1200px) {
+
+  .staticFigure {
+    display: none;
+  }
+
+  .box {
+    top: 20%;
+    left: 7%;
+    height: 650px;
+  }
+
+  .laiga {
+    padding-bottom: 690px;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+
+  .box {
+    top: 25%;
+    left: 7%;
+    height: 650px;
+  }
+
+}
+
+@media (max-width: 400px) {
+
+
+  .box {
+    top: 40%;
+    left: 12%;
+    height: 900px;
+    overflow-y: none;
+  }
+
+  .laiga {
+    padding-bottom: 1350px;
+  }
+}
