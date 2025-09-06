@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register {
+    background-image: url('../../components/Figures/bg-signin.png');
+    background-size: cover;
+    -webkit-font-smoothing: antialised;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+  width: 100px;
+  height: 65px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.1);
+    width: 600px;
+    min-height: 650px;
+    padding: 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.upper p {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  margin-bottom: 2rem;
+}
+
+.form {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form input {
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    transition: all linear 160ms;
+    outline: none;
+    width: 500px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form input:focus {
+    border-color: #936aeb;
+    box-shadow: 0 0 5px rgba(147, 106, 235, 0.3);
+}
+
+.form input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.box button {
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  border-radius: 25px;
+  width: 300px;
+  background-color: #BEB6B6;
+  margin-top: 2rem;
+  border: none;
+  transition: 500ms linear;
+  font-family: Roboto;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.box button:hover:not(:disabled) {
+  background-color: #936aeb;
+}
+
+.box button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loginLink {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.loginLink p {
+  color: #333;
+  font-size: 14px;
+  margin: 0;
+}
+
+.linkButton {
+  background: none;
+  border: none;
+  color: #936aeb;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.linkButton:hover:not(:disabled) {
+  color: #7c5ce0;
+}
+
+.linkButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media(max-width:900px) {
+  .box {
+    width: 400px;
+    padding: 15px;
+  }
+  
+  .form input {
+    width: 350px;
+  }
+
+  .box button {
+    width: 200px;
+  }
+
+  .upper p {
+    font-size: 20px;
+  }
+}
+
+@media(max-width:500px) {
+  .box {
+    width: 90%;
+    margin: 0 20px;
+  }
+  
+  .form input {
+    width: 100%;
+  }
+
+  .box button {
+    width: 80%;
+  }
+}
