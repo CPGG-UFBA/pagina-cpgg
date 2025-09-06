@@ -1,207 +1,178 @@
-/* Middle Component Styles for Home Page */
 .middle {
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  background: var(--gradient-main-bg);
-  padding-top: 100px;
-  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  padding-top: 140px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 60px; /* Corrigido aqui */
+  font-family: 'Poppins', sans-serif;
 }
 
 .middle ul {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  color: white;
-  font-size: 14px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  z-index: 10;
+  top: 78%;
+  font-size: 12px;
+  padding-left: 42px;
 }
 
 .News {
-  position: absolute;
-  bottom: 80px;
-  left: 0;
-  width: 100%;
-  height: 120px;
+  height: auto; /* Altere de fixo para auto para melhor responsividade */
+  width: 100%; /* Altere de percentual fixo para ocupar toda a largura disponível */
+  max-width: 400px; /* Defina um max-width para telas maiores */
+  position: relative;
+  display: grid;
+  place-items: center;
   overflow: hidden;
 }
 
 .NewsTrack {
   display: flex;
-  width: calc(300px * 6);
-  animation: scroll 15s linear infinite;
+  flex-direction: column;
+  height: calc(200px * 3);
+  animation: scroll-vertical 15s linear infinite;
 }
 
-@keyframes scroll {
+.NewsTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-vertical {
   0% {
-    transform: translateX(0);
+    transform: translateY(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateY(calc(-200px * 3));
   }
 }
 
 .slide {
-  width: 300px;
-  height: 120px;
-  margin-right: 20px;
-  flex-shrink: 0;
-}
-
-.slide a {
-  display: block;
-  width: 100%;
-  height: 100%;
+  height: 100%; /* Ajuste a altura para ocupar o espaço disponível */
+  width: 100%; /* Ajuste para ocupar o espaço disponível */
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  perspective: 100px;
 }
 
 .slide img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 1s;
 }
 
 .slide img:hover {
-  transform: scale(1.05);
+  transform: translateZ(20px);
 }
 
 .static {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  z-index: 5;
+  color: #fff;
+  margin-top: 50px;
+  line-height: 0.5;
+  margin-left: 4.5rem;
+  font-size: 35px;
 }
 
-.static strong {
-  font-size: 4rem;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.static > h1 {
-  font-size: 3rem;
-  font-weight: bold;
-  margin: 0 0 2rem 0;
+.static > strong {
+  font-size: 90px;
+  line-height: 1.6;
+  background: -webkit-linear-gradient(#2c66b8, #8859ec);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .enjoy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  line-height: 1.6;
+  color: #fff;
+  padding-top: 30px;
+  line-height: 1.2;
+  font-size: 18px;
 }
 
-.enjoy h1 {
-  font-size: 1.5rem;
-  margin: 0;
-  font-weight: normal;
-}
-
-.enjoy strong {
-  font-size: 1.5rem;
-  color: #93c5fd;
-  font-weight: bold;
-}
-
-.staticFigure {
-  position: absolute;
-  right: 10%;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
+.enjoy > strong {
+  font-size: 30px; 
+  line-height: 1.6;
+  background: -webkit-linear-gradient(#2c66b8, #8859ec);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .staticFigure img {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 50%;
-  opacity: 0.8;
+  height: 40rem; /* Altere de fixo para auto para responsividade */
+  max-height: 70rem; /* Defina um max-height apenas */
+  margin-top: -10px;
+  margin-bottom: 50px;
+  margin-left: 30px; /* Melhore a responsividade com margens automáticas */
+  margin-right: auto; /* Melhore a responsividade com margens automáticas */
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .static strong {
-    font-size: 3rem;
+
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .middle {
+    flex-direction: column; /* Muda para coluna em telas menores */
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  
-  .static > h1 {
-    font-size: 2.5rem;
+
+  .middle ul {
+    top: 58%;
+    padding-left: 80px;
+  } 
+
+  .News {
+    width: 90%; /* Altera a largura para 90% em telas menores */
   }
-  
+
   .staticFigure img {
-    width: 300px;
-    height: 300px;
+    margin-top: 10px;
+    height: 30rem;
+    margin-left: 480px; /* Remove margem à esquerda em telas menores */
   }
-}
 
-@media (max-width: 768px) {
-  .static strong {
-    font-size: 2.5rem;
-  }
-  
-  .static > h1 {
-    font-size: 2rem;
-  }
-  
-  .enjoy h1 {
-    font-size: 1.2rem;
-  }
-  
-  .enjoy strong {
-    font-size: 1.2rem;
-  }
-  
-  .staticFigure {
-    right: 5%;
-  }
-  
-  .staticFigure img {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .slide {
-    width: 250px;
-    height: 100px;
-  }
-}
-
-@media (max-width: 640px) {
   .static {
-    left: 40%;
+    margin-top: -600px;
+    line-height: 0.5;
+    margin-left: 30.5rem;
+    font-size: 35px; 
+  }
+}
+
+
+
+@media (max-width: 780px) {
+
+  .static {
+
+    margin-right: -100px;
+  }
+  .static > strong {
+    line-height: 5px;
+    font-size: 70px; 
+    margin-right: -100px;
+  }
+
+  .static h1{
+    line-height: 55px;
+    margin-top: 20px;
+    margin-right: -100px;
+  }
+
+}
+
+
+
+@media (max-width: 400px) {
+
+  .static {
+    margin-right: -500px;
+    margin-top:-450px;
   }
   
-  .static strong {
-    font-size: 2rem;
+
+  .staticFigure img {
+    margin-top: 100px;
+    height: 48rem;
+    margin-left: 150px; 
   }
-  
-  .static > h1 {
-    font-size: 1.5rem;
-  }
-  
-  .enjoy h1 {
-    font-size: 1rem;
-  }
-  
-  .enjoy strong {
-    font-size: 1rem;
-  }
-  
-  .staticFigure {
-    display: none;
-  }
-  
-  .slide {
-    width: 200px;
-    height: 80px;
-  }
+
 }
