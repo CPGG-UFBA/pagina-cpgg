@@ -1,195 +1,121 @@
 import { NavLink } from "react-router-dom";
+import styles from "./Header.module.css";
 import logocpgg from "../Figures/cpgg.png";
 import logoufba from "../Figures/LogoUfba.png";
-import headerBg from "../Figures/header-bg.png";
-import styles from './Header.module.css';
 
 export function Header() {
   return (
-    <header 
-      className={styles.header}
-      style={{ backgroundImage: `url(${headerBg})` }}
-    >
-      <div className={styles.logoContainer}>
-        <div className={styles.cpggLogo}>
-          <img src={logocpgg} alt="CPGG" className={styles.cpggLogo} />
-        </div>
-        
-        <div className={styles.titleContainer}>
-          <h1 className={styles.title}>
-            Centro de Pesquisa em Geofísica e Geologia
-          </h1>
-          <h1 className={styles.title}>
-            Instituto de Geociências/Instituto de Física
-          </h1>
-          <h1 className={styles.title}>
-            Universidade Federal da Bahia
-          </h1>
-        </div>
+    <header className={styles.header}>
+      <div className={styles.figure}>
+        <img src={logocpgg} alt='CPGG' />
+      </div>
+      
+      <div className={styles.block1}>
+        <h1>Centro de Pesquisa em Geofísica e Geologia</h1>
+        <h1>Instituto de Geociências/Instituto de Física</h1>
+        <h1>Universidade Federal da Bahia</h1>
       </div>
 
-      <div className={styles.ufbaLogoContainer}>
-        <img src={logoufba} alt="UFBA" className={styles.ufbaLogo} />
+      <div className={styles.logoufba}>
+        <img src={logoufba} alt='UFBA' />
       </div>
-
-      <nav className={styles.nav}>
-        <ul className={styles.navList}>
-          <li className={styles.navItem}>
-            <NavLink 
-              to="/upload" 
-              className={styles.navLink}
-            >
-              Adm
-            </NavLink>
-          </li>
-          <li className={styles.navItem}>
-            <NavLink 
-              to="/Contact" 
-              className={styles.navLink}
-            >
+      <nav>
+      
+        <ul className={styles.signup}>
+          <li>
+            <NavLink to='/Contact' className={styles.navLink}>
               Contact us
             </NavLink>
           </li>
-          <li className={styles.navItem}>
-            <NavLink 
-              to="/" 
-              className={styles.navLink}
-            >
+          <li>
+            <NavLink to='/' className={styles.navLink}>
               Home
             </NavLink>
           </li>
-          <li className={styles.navItem}>
-            <NavLink 
-              to="/login" 
-              className={styles.navLink}
-            >
-              Login
+          <li>
+            <NavLink to='/Sign' className={styles.navLink}>
+              Sign
             </NavLink>
           </li>
-          <li className={`${styles.navItem} ${styles.dropdownContainer}`}>
-            <a href="#" className={styles.navLink}>
-              About us
-            </a>
-            
-            {/* Submenu 1 */}
-            <div className={styles.dropdown}>
-              <ul className={styles.dropdownList}>
-                <li className={styles.dropdownItem}>
-                  <div className={styles.submenu}>
-                    <a href="#" className={styles.dropdownLink}>
-                      Instituição
-                    </a>
-                    {/* Submenu 2 */}
-                    <div className={styles.submenuDropdown}>
-                      <ul>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/cpgg" 
-                            className={styles.submenuLink}
-                          >
-                            O CPGG
-                          </NavLink>
-                        </li>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/history" 
-                            className={styles.submenuLink}
-                          >
-                            Nossa História
-                          </NavLink>
-                        </li>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/regulations" 
-                            className={styles.submenuLink}
-                          >
-                            Regimento e Normas
-                          </NavLink>
-                        </li>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/photos" 
-                            className={styles.submenuLink}
-                          >
-                            Fotos
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
+          <li>
+            <a href='#' className={styles.navLink}>About us</a>
+          <li>
+          
+          </li>
+          
+              <div className={styles.submenu1}>
+                <ul>
 
-                <li className={styles.dropdownItem}>
-                  <div className={styles.submenu}>
-                    <a href="#" className={styles.dropdownLink}>
-                      Pessoal
-                    </a>
-                    {/* Submenu 2 */}
-                    <div className={styles.submenuDropdown}>
-                      <ul>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/coordination" 
-                            className={styles.submenuLink}
-                          >
-                            Coordenação e Conselhos
-                          </NavLink>
-                        </li>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/researchers" 
-                            className={styles.submenuLink}
-                          >
-                            Pesquisadores
-                          </NavLink>
-                        </li>
-                        <li className={styles.submenuItem}>
-                          <NavLink 
-                            to="/technicians" 
-                            className={styles.submenuLink}
-                          >
-                            Corpo Técnico
-                          </NavLink>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
+                <li className={styles.hoversub}> <a href='#'>Instituição</a>
+                  <div className={styles.submenu2}>
+                    <ul>
+                    <li>
+                      <NavLink to='/cpgg' className={styles.navLink}>
+                        O CPGG
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to='/history' className={styles.navLink}>
+                        Nossa História
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to='/Regulations' className={styles.navLink}>
+                        Regimento e Normas
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to='/Photos' className={styles.navLink}>
+                        Fotos
+                      </NavLink>
+                    </li>
+                    </ul>
+                  </div> 
+                  </li>
 
-                <li className={styles.dropdownItem}>
-                  <NavLink 
-                    to="/labs" 
-                    className={styles.dropdownLink}
-                  >
-                    Laboratórios e reservas
-                  </NavLink>
-                </li>
-                <li className={styles.dropdownItem}>
-                  <NavLink 
-                    to="/spaces" 
-                    className={styles.dropdownLink}
-                  >
-                    Espaços e Reservas
-                  </NavLink>
-                </li>
-                <li className={styles.dropdownItem}>
-                  <a href="#" className={styles.dropdownLink}>
-                    Projetos de Pesquisa
-                  </a>
-                </li>
-                <li className={styles.dropdownItem}>
-                  <a href="#" className={styles.dropdownLink}>
-                    Produção Científica
-                  </a>
-                </li>
-                <li className={styles.dropdownItem}>
-                  <NavLink 
-                    to="/recipes" 
-                    className={styles.dropdownLink}
-                  >
-                    Receitas
-                  </NavLink>
-                </li>
+
+                <li className={styles.hoversub}> <a href='#'>Pessoal</a>
+                  <div className={styles.submenu2}>
+                    <ul>
+                    <li>
+                      <NavLink to='/Coordination' className={styles.navLink}>
+                        Coordenação e Conselhos
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to='/Researchers' className={styles.navLink}>
+                        Pesquisadores
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to='/Technicians' className={styles.navLink}>
+                        Corpo Técnico
+                      </NavLink>
+                    </li>
+                    </ul>
+                  </div> 
+              </li>
+                    <li>
+                      <NavLink to='/Labs' className={styles.navLink}>
+                        Laboratórios e reservas
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to='/Spaces' className={styles.navLink}>
+                        Espaços e Reservas
+                      </NavLink>
+                    </li>
+              <li>
+                <a href='#'>Projetos de Pesquisa</a>
+              </li>
+              <li>
+                <a href='#'>Produção Científica</a>
+              </li>
+              <li>
+              <NavLink to='/Recipes' className={styles.navLink}>
+                        Receitas
+              </NavLink>
+              </li>
               </ul>
             </div>
           </li>
