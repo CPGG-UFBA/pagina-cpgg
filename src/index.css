@@ -38,6 +38,8 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
+    --page-background: 260 94% 32%;
+
     /* Custom colors from CSS modules */
     --gray-light: 210 16% 95%;
     --gray-text: 220 9% 37%;
@@ -115,7 +117,7 @@ All colors MUST be HSL.
 
   body {
     @apply text-foreground font-roboto;
-    background: #37059E;
+    background: hsl(var(--page-background));
   }
 
   /* Form elements styling from global.css */
