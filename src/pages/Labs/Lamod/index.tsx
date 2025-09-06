@@ -56,7 +56,7 @@ export function Lamod() {
            </nav>
           <br></br>
            <b> Chefe do LAIGA</b>
-           <c> prof. Luiz Cesar Correa Gomes</c> 
+           <span> prof. Luiz Cesar Correa Gomes</span>
 
             <div className={styles.box1}>
               <h4 className={styles.legend1}>Sala 1- Almoxarifado com equipamentos</h4>
