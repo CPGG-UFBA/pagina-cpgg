@@ -1,46 +1,77 @@
+import styles from './laiga.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import styles from './Laiga.module.css'
+import earth from '../../../components/Figures/earth3.png'
 
 export function Laiga() {
   return (
-    <div className={styles.container}>
+    <>
       <Header />
-      <main className={styles.main}>
-        <div className={styles.content}>
-          <h1 className={styles.title}>LAIGA</h1>
-          <h2 className={styles.subtitle}>Laboratório de Investigações em Geologia Aplicada</h2>
-          
-          <section className={styles.section}>
-            <h3>Sobre o Laboratório</h3>
-            <p>
-              O Laboratório de Investigações em Geologia Aplicada (LAIGA) desenvolve 
-              pesquisas aplicadas em geologia, focando em soluções práticas para 
-              problemas geotécnicos e ambientais.
+      <div className={styles.laiga}>
+        <div className={styles.Title} >
+          <ul> LAIGA </ul>
+          <a> Laboratório Integrado de Geofísica Aplicada </a>
+          <div className={styles.box}>
+          <p>
+              O Laboratório Integrado de Geofísica Aplicada -LAIGA- foi criado no ano de 2023 com a reunião de equipamentos adquiridos por pesquisadores do CPGG. Localiza-se na sala 112 do Bloco D do Instituto de Geociências. Atualmente é o Laboratório de Geofísica mais completo do Brasil em termos de variedade de equipamentos reunidos no mesmo espaço físico, contando em seu acervo com mais de 80 equipamentos e periféricos associados disponíveis para uso.
             </p>
-          </section>
-
-          <section className={styles.section}>
-            <h3>Áreas de Atuação</h3>
-            <ul className={styles.servicesList}>
-              <li>Geologia aplicada à engenharia</li>
-              <li>Estudos geotécnicos</li>
-              <li>Análise de riscos geológicos</li>
-              <li>Monitoramento ambiental</li>
-              <li>Caracterização de solos e rochas</li>
-            </ul>
-          </section>
-
-          <section className={styles.section}>
-            <h3>Projetos de Pesquisa</h3>
+            <br></br>
             <p>
-              O laboratório desenvolve projetos de pesquisa em parceria com empresas 
-              e instituições, oferecendo soluções inovadoras em geologia aplicada.
+              O LAIGA possui uma estrutura de cerca de 70 m<sup>2</sup> com três salas integradas: (i) almoxarifado; (ii) sala de dados; e (iii) eletrônica. Além disso, conta com uma sala de apoio de cerca de 35 m<sup>2</sup> onde
+              ficam quardados os materiais de apoio para os trabalhos de campo.
             </p>
-          </section>
+            <br></br>
+            <p>
+              Os principais objetivos do LAIGA consistem em (i) dar suporte às pesquisas internas dos pesquisadores do CPGG em todas as instâncias: graduação, pós-graduação e seus seus projetos de pesquisa; e (ii) fortalecer a pesquisa em Geofísica Aplicada de instituições parceiras de capital público e privado por meio de Convênios e Contratos de Prestação de Serviços.
+            </p>
+            <br></br>
+            <p>
+              O LAIGA está entre os laboratórios do CPGG que faz parte do Projeto de Desenvolvimento Institucional -PDI- criado para captação de recursos junto a outros órgãos públicos e empresas privadas. A coordenação do laboratório foi aprovada em reunião do Conselho Científico do CPGG no ano de 2024.
+           </p>
+            <br></br>
+            <p> 
+              Para acessar as informações acerca das estatísticas de uso dos equipamentos, acesse o link abaixo
+             </p>
+             <nav>
+              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank">Estatísticas de uso</a>
+            </nav>
+            <br></br>
+             <p> 
+              Acesse o site da Plataforma Nacional de Infraestrutura de Pesquisa-PNIPE, e veja as fotos e mais detalhes sobre os equipamentos disponíveis. 
+            </p>
+
+             <nav>
+              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank">Site do PNIPE</a>
+            </nav>
+            <p> 
+              Para saber da disponibilidade dos equipamentos e solicitá-los para uso, acesse nossa plataforma de requerimento
+            </p>
+            <nav>
+             <a href="/Labs/Laiga/ReservationForm" target="_blank">Requerimento de uso</a>
+           </nav>
+          <br></br>
+           <b> Chefe do LAIGA</b>
+           <span> prof. Marcos Alberto Rodrigues Vasconcelos</span> 
+
+            <div className={styles.box1}>
+              <h4 className={styles.legend1}>Sala 1- Almoxarifado com equipamentos</h4>
+            </div>
+            <div className={styles.box2}>
+              <h4 className={styles.legend2}>Sala 1-Sala de Dados</h4>
+            </div>
+            <div className={styles.box3}>
+              <h4 className={styles.legend3}>Sala 3- Eletrônica</h4>
+            </div>
+            <div className={styles.box4}>
+              <h4 className={styles.legend4}>Sala de apoio do LAIGA</h4>
+            </div>
+          </div>
+          <div className={styles.staticFigure}>
+            <img src={earth} alt="Terra" />
+          </div>
         </div>
-      </main>
+      </div>
       <Footer />
-    </div>
+    </>
   )
 }
