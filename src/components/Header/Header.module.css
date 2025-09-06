@@ -1,268 +1,223 @@
 /* Header Styles */
 .header {
   width: 100%;
-  height: 6rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: row;
+  background-image: url("../Figures/header-bg.png");
   background-size: contain;
   background-repeat: no-repeat;
-  z-index: 50;
-}
-
-.logoContainer {
+  height: 100vh;
+  position: absolute;
+  flex-direction: row;
   display: flex;
-  align-items: flex-start;
-  margin-left: 1rem;
-  margin-top: 1rem;
+  aspect-ratio: 1;
 }
 
-.cpggLogo {
-  flex-shrink: 0;
-  margin-right: 1rem;
-  height: 3rem;
-}
 
-@media (min-width: 1280px) {
-  .cpggLogo {
-    height: 3.75rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .cpggLogo {
-    height: 3rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .cpggLogo {
-    height: 3rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .cpggLogo {
-    height: 2.5rem;
-  }
-}
-
-.titleContainer {
-  text-align: center;
-  margin-top: 0.5rem;
-}
-
-.title {
-  padding-top: 0.25rem;
-  padding-left: 0.5rem;
-  margin-left: 0.25rem;
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
+.block1 h1 {
+  padding-top: 5px;
+  padding-left: 10px;
+  margin-left:5px;
+  margin-top: 8px;
+  font-size: 14px;
   text-align: center;
   white-space: nowrap;
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto;
   font-weight: 500;
 }
 
-@media (min-width: 1280px) {
-  .title {
-    font-size: 0.875rem;
-  }
+.logo {
+  margin-left: 15px;
 }
 
-@media (min-width: 1024px) {
-  .title {
-    font-size: 0.875rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .title {
-    font-size: 0.875rem;
-  }
-}
-
-@media (min-width: 640px) {
-  .title {
-    font-size: 9px;
-  }
-}
-
-.ufbaLogoContainer {
-  flex-shrink: 0;
-  margin-left: 2rem;
-  margin-top: 0.5rem;
-}
-
-.ufbaLogo {
+.header .logoufba img {
   height: 70px;
-  margin-top: 0.5rem;
+  margin-top: 10px;
 }
 
-@media (min-width: 1280px) {
-  .ufbaLogo {
-    height: 70px;
-  }
+.header .figure img {
+  height: 60px;
 }
 
-@media (min-width: 1024px) {
-  .ufbaLogo {
-    height: 50px;
-  }
+.signup {
+  margin-left: 510px;
+  color: #FF5733;
 }
 
-@media (min-width: 768px) {
-  .ufbaLogo {
-    height: 50px;
-  }
-}
-
-@media (min-width: 640px) {
-  .ufbaLogo {
-    height: 50px;
-  }
-}
-
-.nav {
-  margin-left: auto;
-}
-
-.navList {
+nav ul {
   display: inline-flex;
   list-style: none;
-  color: #FF5733;
-  margin-left: 510px;
 }
 
-@media (min-width: 1280px) {
-  .navList {
-    margin-left: 410px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .navList {
-    margin-left: 250px;
-  }
-}
-
-@media (min-width: 768px) {
-  .navList {
-    margin-left: -30px;
-  }
-}
-
-@media (min-width: 640px) {
-  .navList {
-    margin-left: 50px;
-  }
-}
-
-.navItem {
+nav ul li {
   width: 120px;
-  margin: 1rem;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-size: 1rem;
+  margin: 15px;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 16px;
 }
 
-@media (min-width: 768px) {
-  .navItem {
-    font-size: 0.875rem;
-  }
-}
-
-.navLink {
+nav ul li a {
   text-decoration: none;
-  color: white;
-  transition: color 0.3s ease;
+  color: #fff;
+  
 }
 
-.navLink:hover {
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.dropdownContainer {
-  position: relative;
-}
-
-.dropdown {
+.submenu1 {
   display: none;
+}
+
+nav ul li:hover .submenu1 {
+  display: block;
   position: absolute;
   background-color: #592cbb;
   opacity: 0.9;
-  margin-top: -2rem;
-  font-size: 1.125rem;
+  margin-top: -30px;
+  font-size: 18px;
   z-index: 100;
   width: 190px;
 }
 
-.navItem:hover .dropdown {
+nav ul li:hover .submenu1 ul {
   display: block;
+ 
+  
 }
 
-.dropdownList {
-  display: block;
-}
-
-.dropdownItem {
-  transition: all 0.7s ease;
+nav ul li:hover .submenu1 ul li {
+  transition: 0.7s;
   width: 175px;
 }
 
-.dropdownItem:hover {
-  background-color: white;
-  background-color: rgba(255, 255, 255, 1);
+nav ul li:hover .submenu1 ul li:hover {
+  background-color: rgba(255 255 255);
 }
 
-.dropdownLink {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: white;
-  text-decoration: none;
-}
-
-.dropdownItem:hover .dropdownLink {
-  color: black;
-}
-
-.submenu {
-  position: relative;
-}
-
-.submenuDropdown {
+.submenu2{
   display: none;
+}
+
+.hoversub:hover .submenu2{
+  display: block;
   position: absolute;
-  margin-top: -3rem;
+  margin-top: -47px;
   margin-left: -220px;
   background-color: #592cbb;
   opacity: 0.9;
   width: 190px;
+
 }
 
-.submenu:hover .submenuDropdown {
-  display: block;
-}
-
-.submenuItem {
-  transition: all 0.7s ease;
+nav ul li:hover .submenu2 ul li {
+  transition: 0.7s;
   width: 190px;
 }
 
-.submenuItem:hover {
-  background-color: white;
-  background-color: rgba(255, 255, 255, 1);
+.header img {
+  height: 3rem;
+  margin-top: 15px;
+  margin-left: 30px;
 }
 
-.submenuLink {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: white;
-  text-decoration: none;
+
+
+@media (max-width: 1500px) {
+  .header {
+    width: 1400px;
+  }
+  .signup {
+    margin-left: 410px;
+  }
+  
 }
 
-.submenuItem:hover .submenuLink {
-  color: black;
+@media (max-width: 1400px) {
+  .header {
+    width: 1400px;
+  }
+  .signup {
+    margin-left: 250px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header {
+    width: 1300px;
+  }
+  .signup {
+    margin-left: -30px;
+  }
+  .block1 h1 {
+    margin-top: 1px;
+  }
+  .header .logoufba img {
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .header .figure img {
+    height: 50px;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    width: 1300px;
+    background-image: url("../Figures/header-bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+    position: absolute;
+    flex-direction: row;
+    display: flex;
+  }
+
+  .signup {
+    margin-left: 50px;
+  }
+
+  .block1 h1 {
+    margin-top: 1px;
+  }
+  .header .figure img {
+    height: 60px;
+  }
+
+  nav ul li{
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  .block1 h1 {
+    padding-top: 6px;
+    padding-left: 3px;
+    margin-left: 5px;
+    margin-top: 3px;
+    font-size: 9px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .header img {
+    height: 2.5rem;
+    margin-top: 15px;
+    margin-left: 10px;
+  }
+
+  .signup {
+    margin-left: 100px;
+  }
+
+  .block1 h1 {
+    margin-top: 1px;
+  }
+ 
+  .header .logoufba img {
+    height: 50px;
+    margin-top: 10px;
+  }
+
+  .header .figure img {
+    height: 60px;
+  }
+
 }
