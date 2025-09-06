@@ -1,0 +1,66 @@
+/* MZucchi Specific Styles */
+.MZucchi {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  padding-top: 8rem;
+}
+
+.Professor {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: white;
+}
+
+.Professor > p {
+  font-size: 2.25rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.box1 {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.box1 ul {
+  margin: 1rem 0;
+  font-weight: bold;
+}
+
+.box1 nav a {
+  color: #8859ec;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.box1 nav a:hover {
+  color: #71226e;
+}
+
+.box1 b {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.box1 p {
+  margin: 0.5rem 0;
+}
+
+.box2 {
+  margin-top: 2rem;
+}
+
+.staticFigure {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.staticFigure img {
+  max-width: 300px;
+  height: auto;
+}
