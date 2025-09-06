@@ -1,0 +1,207 @@
+/* Middle Component Styles for Home Page */
+.middle {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: var(--gradient-main-bg);
+  padding-top: 100px;
+  overflow: hidden;
+}
+
+.middle ul {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+  font-size: 14px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 10;
+}
+
+.News {
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+
+.NewsTrack {
+  display: flex;
+  width: calc(300px * 6);
+  animation: scroll 15s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.slide {
+  width: 300px;
+  height: 120px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.slide a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.slide img:hover {
+  transform: scale(1.05);
+}
+
+.static {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 5;
+}
+
+.static strong {
+  font-size: 4rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.static > h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0 0 2rem 0;
+}
+
+.enjoy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.enjoy h1 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: normal;
+}
+
+.enjoy strong {
+  font-size: 1.5rem;
+  color: #93c5fd;
+  font-weight: bold;
+}
+
+.staticFigure {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.staticFigure img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .static strong {
+    font-size: 3rem;
+  }
+  
+  .static > h1 {
+    font-size: 2.5rem;
+  }
+  
+  .staticFigure img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .static strong {
+    font-size: 2.5rem;
+  }
+  
+  .static > h1 {
+    font-size: 2rem;
+  }
+  
+  .enjoy h1 {
+    font-size: 1.2rem;
+  }
+  
+  .enjoy strong {
+    font-size: 1.2rem;
+  }
+  
+  .staticFigure {
+    right: 5%;
+  }
+  
+  .staticFigure img {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .slide {
+    width: 250px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 640px) {
+  .static {
+    left: 40%;
+  }
+  
+  .static strong {
+    font-size: 2rem;
+  }
+  
+  .static > h1 {
+    font-size: 1.5rem;
+  }
+  
+  .enjoy h1 {
+    font-size: 1rem;
+  }
+  
+  .enjoy strong {
+    font-size: 1rem;
+  }
+  
+  .staticFigure {
+    display: none;
+  }
+  
+  .slide {
+    width: 200px;
+    height: 80px;
+  }
+}
