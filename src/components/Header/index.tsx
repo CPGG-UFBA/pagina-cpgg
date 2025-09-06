@@ -23,6 +23,11 @@ export function Header() {
       
         <ul className={styles.signup}>
           <li>
+            <NavLink to='/Upload' className={styles.navLink}>
+              Adm
+            </NavLink>
+          </li>
+          <li>
             <NavLink to='/Contact' className={styles.navLink}>
               Contact us
             </NavLink>
