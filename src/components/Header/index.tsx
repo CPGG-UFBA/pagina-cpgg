@@ -60,10 +60,10 @@ export function Header() {
           </li>
           <li className={styles.navItem}>
             <NavLink 
-              to="/sign" 
+              to="/login" 
               className={styles.navLink}
             >
-              Sign
+              Login
             </NavLink>
           </li>
           <li className={`${styles.navItem} ${styles.dropdownContainer}`}>

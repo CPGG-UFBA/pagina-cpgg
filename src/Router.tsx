@@ -12,6 +12,7 @@ import { Researchers } from './pages/Researchers'
 import { Coordination } from './pages/Coordination'
 import { UploadPage } from './pages/Upload'
 import { AnalysisAndEquipmentRequests } from './pages/AnalysisAndEquipmentRequests'
+import { Login } from './pages/Login'
 
 // Páginas que serão implementadas gradualmente
 const PlaceholderPage = ({ title }: { title: string }) => (
@@ -76,8 +77,9 @@ export function Router() {
       <Route path='/technicians' element={<PlaceholderPage title="Técnicos" />} />
       <Route path='/recipes' element={<PlaceholderPage title="Receitas" />} />
       <Route path='/recipes/Calendars' element={<PlaceholderPage title="Calendários" />} />
-      <Route path='/sign' element={<PlaceholderPage title="Assinar" />} />
-      <Route path='/login' element={<PlaceholderPage title="Login" />} />
+      <Route path='/sign' element={<Login />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/auth' element={<Login />} />
       <Route path='/register' element={<PlaceholderPage title="Registrar" />} />
       <Route path='/institution' element={<Institution />} />
       <Route path='/cpgg' element={<CPGG />} />
