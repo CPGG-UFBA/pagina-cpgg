@@ -1,118 +1,120 @@
-/* Login Page Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: var(--gradient-main-bg);
-  padding: 2rem;
+    background-image: url('../../components/Figures/bg-signin.png');
+    background-size: cover;
+    -webkit-font-smoothing: antialised;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+}
+
+
+.logo img {
+  width: 100px;
+  height: 65px;
+  margin-top: 2rem;
+  margin-left: auto;
 }
 
 .box {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  padding: 3rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.1);
+    position: absolute;
+    width: 600px;
+    height: 500px;
+    top: 15%; 
+    left:30%;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 5px;
 }
 
-.logo {
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
+
+.box input {
+    display: flex;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-top: 3.5rem;
+    margin-left:2.5rem;
+    border-radius: 15px;
+    transition: all linear 160ms;
+    outline: none;
+    width: 500px;
 }
 
-.logo img {
-  height: 80px;
-  object-fit: contain;
+.box label {
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.upper {
-  margin-bottom: 2rem;
-}
 
 .upper p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #363F5F;
-  margin: 0;
+  position: absolute;
+  font-size: 18px;
+  color: rgb(0, 0, 0);
+  top:8rem;
+  left:50%;
+  transform: translate(-50%, -50%);
 }
 
+.box button {
+  padding: 15px;
+  font-size: 14px;
+  color: white;
+  border-radius: 25px;
+  width: 300px;
+  margin-left:2.5rem;
+  background-color: #BEB6B6;
+  margin-left:9rem;
+  margin-top:3rem;
+  border: none;
+  transition: 500ms linear;
+  font-family: Roboto;
+  font-weight: 100;
+}
+
+.box button:hover {
+  background-color: #936aeb;
+}
+
+/* Additional styles for new elements */
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.form input {
-  padding: 1rem;
-  border: 2px solid #E1E5E9;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-  background: white;
-}
-
-.form input:focus {
-  outline: none;
-  border-color: #2c66b8;
-}
-
-.form input:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.form button {
-  padding: 1rem;
-  background: linear-gradient(135deg, #2c66b8, #8859ec);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.3s ease;
-}
-
-.form button:hover:not(:disabled) {
-  transform: translateY(-2px);
-}
-
-.form button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  transform: none;
+  gap: 0;
 }
 
 .switchMode {
-  border-top: 1px solid #E1E5E9;
-  padding-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .switchMode p {
-  color: #666;
-  font-size: 0.9rem;
+  color: #333;
+  font-size: 14px;
   margin: 0;
 }
 
 .switchButton {
   background: none;
   border: none;
-  color: #2c66b8;
+  color: #936aeb;
   cursor: pointer;
   text-decoration: underline;
-  font-size: 0.9rem;
+  font-size: 14px;
   transition: color 0.3s ease;
 }
 
 .switchButton:hover:not(:disabled) {
-  color: #8859ec;
+  color: #7c5ce0;
 }
 
 .switchButton:disabled {
@@ -120,21 +122,29 @@
   cursor: not-allowed;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .login {
-    padding: 1rem;
+@media(max-width:900px) {
+  .box > logo {
+   text-align: center; 
   }
   
   .box {
-    padding: 2rem;
+    width: 400px;
   }
   
-  .logo img {
-    height: 60px;
+  .box > input {
+    width: 300px;
+    border-radius: 20px;
   }
-  
+
+  .box > button {
+    width: 150px;
+    border-radius: 20px;
+    margin-left: 7rem;
+  }
+
   .upper p {
-    font-size: 1.3rem;
+    top:8rem;
+    left:50%;
+    transform: translate(-50%, -50%);
   }
 }
