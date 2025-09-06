@@ -1,0 +1,221 @@
+/* Coordination Page Styles */
+.container {
+  padding-bottom: 206px;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    margin-bottom: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin-bottom: 750px;
+  }
+}
+
+.headerContainer {
+  display: flex;
+  color: white;
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+  padding-left: 730px;
+  padding-right: 0.5rem;
+}
+
+.mainTitle {
+  position: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: -600px;
+  margin-top: -1.25rem;
+}
+
+.coordinationBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--glass-border);
+  background: var(--glass-bg);
+  position: absolute;
+  width: 100px;
+  height: 250px;
+  top: 15%;
+  left: 5%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  gap: 0.25rem;
+  margin-bottom: -25px;
+}
+
+@media (min-width: 1024px) {
+  .coordinationBox {
+    left: 30%;
+  }
+}
+
+@media (min-width: 768px) {
+  .coordinationBox {
+    left: 40%;
+  }
+}
+
+@media (max-width: 480px) {
+  .coordinationBox {
+    left: 80%;
+    top: 20%;
+  }
+}
+
+.chiefTitle {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 1.125rem;
+  color: var(--gray-contact);
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-left: -205px;
+}
+
+.chiefName {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 0.875rem;
+  margin-left: -175px;
+  margin-top: 1.25rem;
+  white-space: nowrap;
+}
+
+.chiefMandate {
+  position: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 0.875rem;
+  margin-left: -190px;
+  margin-top: 1.25rem;
+  white-space: nowrap;
+}
+
+.scientificBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--glass-border);
+  background: var(--glass-bg);
+  position: absolute;
+  width: 100px;
+  height: 125px;
+  top: -1%;
+  left: 120%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  gap: 0.25rem;
+  margin-bottom: -25px;
+}
+
+@media (min-width: 1024px) {
+  .scientificBox {
+    left: -55%;
+    top: 115%;
+  }
+}
+
+@media (min-width: 768px) {
+  .scientificBox {
+    left: -60%;
+    top: 115%;
+  }
+}
+
+@media (max-width: 480px) {
+  .scientificBox {
+    left: 1%;
+    top: 110%;
+  }
+}
+
+.scientificTitle {
+  position: absolute;
+  display: flex;
+  font-size: 22px;
+  color: var(--gray-contact);
+  font-weight: bold;
+  margin-top: -0.25rem;
+  margin-left: 25px;
+  white-space: nowrap;
+}
+
+.scientificMembers {
+  text-align: center;
+  display: flex;
+  font-size: 0.875rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.deliberativeBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--glass-border);
+  background: var(--glass-bg);
+  position: absolute;
+  width: 100px;
+  height: 112px;
+  top: -1%;
+  left: 240%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  gap: 0.25rem;
+}
+
+@media (min-width: 1024px) {
+  .deliberativeBox {
+    left: 55%;
+    top: 115%;
+    height: 125px;
+  }
+}
+
+@media (min-width: 768px) {
+  .deliberativeBox {
+    left: 55%;
+    top: 115%;
+  }
+}
+
+@media (max-width: 480px) {
+  .deliberativeBox {
+    left: 1%;
+    top: 330%;
+  }
+}
+
+.deliberativeTitle {
+  display: flex;
+  font-size: 22px;
+  color: var(--gray-contact);
+  font-weight: bold;
+  margin-top: -0.25rem;
+  margin-left: 25px;
+}
+
+.deliberativeMembers {
+  text-align: center;
+  display: flex;
+  font-size: 0.875rem;
+  margin-left: 2rem;
+  margin-top: 1.25rem;
+  margin-bottom: 2.5rem;
+}
