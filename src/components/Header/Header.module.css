@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  background-image: url("https://imgur.com/Pu4A6jE");
+  background-image: url("../../assets/header-bg.jpg");
   background-size: contain;
   background-repeat: no-repeat;
   height: 100vh;
@@ -160,7 +160,7 @@ nav ul li:hover .submenu2 ul li {
 @media (max-width: 900px) {
   .header {
     width: 1300px;
-    background-image: url("../Figures/header-bg.png");
+    background-image: url("../../assets/header-bg.jpg");
     background-size: contain;
     background-repeat: no-repeat;
     height: 100vh;
