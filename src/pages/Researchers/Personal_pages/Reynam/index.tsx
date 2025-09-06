@@ -7,7 +7,7 @@ export function Reynam() {
   return (
     <>
       <Header />
-      <div className={styles.Reynam}>
+      <div>
         <div className={styles.Professor} >
           <p> Reynam da Cruz Pestana </p>
           <div className={styles.box1}>

@@ -7,7 +7,7 @@ export function Marcos() {
   return (
     <>
       <Header />
-      <div className={styles.Marcos}>
+      <div>
         <div className={styles.Professor} >
           <p> Marcos Alberto Rodrigues Vasconcelos </p>
           <div className={styles.box1}>

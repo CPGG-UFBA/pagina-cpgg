@@ -7,7 +7,7 @@ export function Eduardo() {
   return (
     <>
       <Header />
-      <div className={styles.Eduardo}>
+      <div>
         <div className={styles.Professor} >
           <p> Eduardo Reis Viana Rocha Junior </p>
           <div className={styles.box1}>

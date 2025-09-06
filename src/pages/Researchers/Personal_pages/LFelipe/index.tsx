@@ -7,7 +7,7 @@ export function LFelipe() {
   return (
     <>
       <Header />
-      <div className={styles.LFelipe}>
+      <div>
         <div className={styles.Professor} >
           <p> Luis Felipe Ferreira de Mendonça </p>
           <div className={styles.box1}>

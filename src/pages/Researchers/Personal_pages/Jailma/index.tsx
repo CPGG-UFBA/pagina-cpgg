@@ -7,7 +7,7 @@ export function Jailma() {
   return (
     <>
       <Header />
-      <div className={styles.Jailma}>
+      <div>
         <div className={styles.Professor} >
           <p> Jailma Santos de Souza de Oliveira </p>
           <div className={styles.box1}>

@@ -7,7 +7,7 @@ export function Aroldo() {
   return (
     <>
       <Header />
-      <div className={styles.Aroldo}>
+      <div>
         <div className={styles.Professor} >
           <p> Aroldo Misi </p>
           <div className={styles.box1}>

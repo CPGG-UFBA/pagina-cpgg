@@ -7,7 +7,7 @@ export function Alice() {
   return (
     <>
       <Header />
-      <div className={styles.Alice}>
+      <div>
         <div className={styles.Professor} >
           <p> Alice Marques Pereira Lau </p>
           <div className={styles.box1}>

@@ -7,7 +7,7 @@ export function Porsani() {
   return (
     <>
       <Header />
-      <div className={styles.Porsani}>
+      <div>
         <div className={styles.Professor} >
           <p> Milton José Porsani </p>
           <div className={styles.box1}>

@@ -7,7 +7,7 @@ export function Amin() {
   return (
     <>
       <Header />
-      <div className={styles.Amin}>
+      <div>
         <div className={styles.Professor} >
           <p> Amin Bassrei </p>
           <div className={styles.box1}>

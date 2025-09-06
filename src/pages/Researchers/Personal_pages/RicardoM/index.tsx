@@ -7,7 +7,7 @@ export function RicardoM() {
   return (
     <>
       <Header />
-      <div className={styles.RicardoM}>
+      <div>
         <div className={styles.Professor} >
           <p> Ricardo Piazza Meireles </p>
           <div className={styles.box1}>

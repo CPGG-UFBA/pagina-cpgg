@@ -7,7 +7,7 @@ export function Ruy() {
   return (
     <>
       <Header />
-      <div className={styles.Ruy}>
+      <div>
         <div className={styles.Professor} >
           <p> Ruy Kenji Papa de Kikuchi </p>
           <div className={styles.box1}>

@@ -7,7 +7,7 @@ export function Johildo() {
   return (
     <>
       <Header />
-      <div className={styles.Johildo}>
+      <div>
         <div className={styles.Professor} >
           <p> Johildo Salomão Figuerêdo Barbosa </p>
           <div className={styles.box1}>

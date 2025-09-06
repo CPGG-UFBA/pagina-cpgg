@@ -7,7 +7,7 @@ export function LRogerio() {
   return (
     <>
       <Header />
-      <div className={styles.LRogerio}>
+      <div>
         <div className={styles.Professor} >
           <p> Luiz Rogério Bastos Leal </p>
           <div className={styles.box1}>

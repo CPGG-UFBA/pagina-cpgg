@@ -7,7 +7,7 @@ export function Wilson() {
   return (
     <>
       <Header />
-      <div className={styles.Wilson}>
+      <div>
         <div className={styles.Professor} >
           <p> Wilson Mouzer Figueiró </p>
           <div className={styles.box1}>

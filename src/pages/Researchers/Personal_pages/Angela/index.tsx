@@ -7,7 +7,7 @@ export function Angela() {
   return (
     <>
       <Header />
-      <div className={styles.Angela}>
+      <div>
         <div className={styles.Professor} >
           <p> Angela Beatriz de Menezes Leal </p>
           <div className={styles.box1}>

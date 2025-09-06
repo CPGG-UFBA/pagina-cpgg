@@ -7,7 +7,7 @@ export function Landim() {
   return (
     <>
       <Header />
-      <div className={styles.Landim}>
+      <div>
         <div className={styles.Professor} >
           <p> José Maria Dominguez Landim </p>
           <div className={styles.box1}>

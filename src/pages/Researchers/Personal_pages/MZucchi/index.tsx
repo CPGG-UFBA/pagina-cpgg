@@ -7,7 +7,7 @@ export function MZucchi() {
   return (
     <>
       <Header />
-      <div className={styles.MZucchi}>
+      <div>
         <div className={styles.Professor} >
           <p> Maria do Rosário Zucchi </p>
           <div className={styles.box1}>

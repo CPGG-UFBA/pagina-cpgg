@@ -7,7 +7,7 @@ export function AnaV() {
   return (
     <>
       <Header />
-      <div className={styles.AnaV}>
+      <div>
         <div className={styles.Professor} >
           <p> Ana Virgínia Alves de Santana </p>
           <div className={styles.box1}>

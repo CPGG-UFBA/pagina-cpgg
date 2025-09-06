@@ -7,7 +7,7 @@ export function Alexsandro() {
   return (
     <>
       <Header />
-      <div className={styles.Alexsandro}>
+      <div>
         <div className={styles.Professor} >
           <p> Alexsandro Guerra Cerqueira </p>
           <div className={styles.box1}>

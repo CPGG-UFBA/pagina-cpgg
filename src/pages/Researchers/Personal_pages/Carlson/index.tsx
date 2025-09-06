@@ -7,7 +7,7 @@ export function Carlson() {
   return (
     <>
       <Header />
-      <div className={styles.Carlson}>
+      <div>
         <div className={styles.Professor} >
           <p> Carlson de Matos Maia Leite  </p>
           <div className={styles.box1}>

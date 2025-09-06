@@ -7,7 +7,7 @@ export function Suzan() {
   return (
     <>
       <Header />
-      <div className={styles.Suzan}>
+      <div>
         <div className={styles.Professor} >
           <p> Suzan Souza de Vasconcelos </p>
           <div className={styles.box1}>

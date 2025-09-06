@@ -7,7 +7,7 @@ export function LCesar() {
   return (
     <>
       <Header />
-      <div className={styles.LCesar}>
+      <div>
         <div className={styles.Professor} >
           <p> Luiz Cesar Correa Gomes </p>
           <div className={styles.box1}>
