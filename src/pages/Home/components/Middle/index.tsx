@@ -1,67 +1,43 @@
 import styles from './middle.module.css'
 import earth from '../../../../components/Figures/earth3.png'
-
-import figure1 from '../../../../components/Figures/news1.png'
-import figure2 from '../../../../components/Figures/news2.png'
-import figure3 from '../../../../components/Figures/news3.png'
+import conferenceRoom from '../../../../assets/conference-room.jpg'
+import teamCollaboration from '../../../../assets/team-collaboration.jpg'
 
 export function Middle() {
   return (
     <main className={styles.middle}>
-        <ul> Clique sobre a notícia para mais detalhes</ul>
-      <div className={styles.News}>
-        <div className={styles.NewsTrack}>
-          <div className={styles.slide}>
-            <a href='/News/News1'>
-              <img src={figure1}></img>
-            </a> 
-          </div>
-
-          <div className={styles.slide}>
-            <a href='/News/News2'>
-              <img src={figure2}></img>
-            </a> 
-          </div>
-
-          <div className={styles.slide}>
-            <a href='/News/News3'>
-              <img src={figure3}></img>
-            </a> 
-          </div>
-
-          <div className={styles.slide}>
-            <a href='/News/News1'>
-              <img src={figure1}></img>
-            </a> 
-          </div>
-
-          <div className={styles.slide}>
-            <a href='/News/News2'>
-              <img src={figure2}></img>
-            </a> 
-          </div>
-
-          <div className={styles.slide}>
-            <a href='/News/News3'>
-              <img src={figure3}></img>
-            </a> 
-          </div>
-
+      {/* Seção esquerda com duas imagens pequenas */}
+      <div className={styles.leftSection}>
+        <div className={styles.imageContainer}>
+          <img src={conferenceRoom} alt="Sala de conferência" />
+        </div>
+        <div className={styles.imageContainer}>
+          <img src={teamCollaboration} alt="Colaboração em equipe" />
         </div>
       </div>
 
-      <div className={styles.static}>
-        <strong>Earth</strong>
-        <h1>is our Goal</h1>
-        <div className={styles.enjoy}>
-          <h1>Enjoy our best solutions for </h1>
-          <strong>scientific</strong>
-          <h1>and trade proposals</h1>
+      {/* Seção central com texto */}
+      <div className={styles.centerSection}>
+        <div className={styles.heroText}>
+          <h1 className={styles.earthText}>Earth</h1>
+          <h1 className={styles.goalText}>is our Goal</h1>
+          <div className={styles.subtitle}>
+            <p>Enjoy our best solutions for</p>
+            <span className={styles.scientificText}>scientific</span>
+            <p>and trade proposals</p>
+          </div>
         </div>
       </div>
-      <div className={styles.staticFigure}>
-        <img src={earth} alt='Terra' />
+
+      {/* Seção direita com imagem da Terra */}
+      <div className={styles.rightSection}>
+        <div className={styles.earthContainer}>
+          <img src={earth} alt="Terra" className={styles.earthImage} />
+        </div>
       </div>
+
+      {/* Ondas azuis na parte inferior */}
+      <div className={styles.waves}></div>
     </main>
   )
 }
