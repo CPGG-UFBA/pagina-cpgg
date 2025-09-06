@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../integrations/supabase/client';
 import { useToast } from '../../hooks/use-toast';
 import styles from './register.module.css';
-import logocpgg from '../../assets/cpgg-logo.png';
+const logocpgg = 'https://imgur.com/6HRTVzo.png';
 
 export function Register() {
   const [formData, setFormData] = useState({
