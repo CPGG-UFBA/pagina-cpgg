@@ -1,7 +1,7 @@
 import styles from './Alexsandro.module.css'
 import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
-import earth from '../../../../components/Figures/earth3.png'
+import earth from '../../../../assets/earth-imgur.png'
 
 export function Alexsandro() {
   return (
