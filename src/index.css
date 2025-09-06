@@ -114,7 +114,8 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground font-roboto;
+    @apply text-foreground font-roboto;
+    background: #37059E;
   }
 
   /* Form elements styling from global.css */
