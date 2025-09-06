@@ -1,10 +1,33 @@
-import styles from '../researcher.module.css';
+import styles from './Haroldo.module.css'
+import { Header } from '../../../../components/Header'
+import { Footer } from '../../../../components/Footer'
+import earth from '../../../../assets/earth-imgur.png'
 
 export function Haroldo() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Haroldo</h1>
-      <p className={styles.content}>Página do pesquisador Haroldo.</p>
-    </div>
-  );
+    <>
+      <Header />
+      <div className={styles.Haroldo}>
+        <div className={styles.Professor} >
+          <p> José Haroldo da Silva Sá </p>
+          <div className={styles.box1}>
+          Possui graduação em Geologia pela Universidade Federal da Bahia (1975), mestrado em Geologia pela Universidade Federal da Bahia (1980) e doutorado em Geologia pela Universidade Federal da Bahia (1993). Atualmente é professor titular da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Petrologia, atuando principalmente nos seguintes temas: petrologia metamórfica, evolução crustal, geocronologia e geoquímica isotópica.
+            <ul> Link para Currículo Lattes</ul>
+
+            <nav>
+             <a href="http://lattes.cnpq.br/7890123456789012" target="_blank">Currículo</a>
+           </nav>
+           <b> email</b>
+           <p>haroldo@ufba.br</p> 
+            <div className={styles.box2}>
+            </div>
+          </div>
+          <div className={styles.staticFigure}>
+            <img src={earth} alt="Terra" />
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </>
+  )
 }
