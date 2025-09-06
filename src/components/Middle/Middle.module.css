@@ -1,0 +1,94 @@
+/* Middle Component Styles */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  margin-top: 0;
+  background: var(--gradient-main-bg);
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 25%;
+}
+
+.imageContainer {
+  width: 100%;
+  height: 12rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.centerContent {
+  text-align: center;
+  color: white;
+  flex: 1;
+  margin: 0 3rem;
+}
+
+.mainTitle {
+  font-size: 3.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 3rem;
+}
+
+.description {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.scientificText {
+  color: #93c5fd;
+}
+
+.rightSide {
+  width: 33.333333%;
+  display: flex;
+  justify-content: center;
+}
+
+.earthGlobe {
+  width: 24rem;
+  height: 24rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.wavePattern {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 16rem;
+  background-size: cover;
+  background-position: center;
+}
+
+.newsContainer {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+}
+
+.newsText {
+  color: white;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}

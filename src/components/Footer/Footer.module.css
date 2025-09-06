@@ -1,0 +1,55 @@
+/* Footer Styles */
+.footer {
+  background-color: #00249c;
+  display: flex;
+  height: 7vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 30;
+}
+
+.nav {
+  /* Navigation container */
+}
+
+.linkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  padding-right: 2.5rem;
+  font-size: 0.875rem;
+  margin-left: 6.25rem;
+  top: -0.25rem;
+  position: relative;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+  .link {
+    margin-left: 6.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .link {
+    margin-left: 6.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .link {
+    margin-left: 6.25rem;
+    font-size: 10px;
+  }
+}

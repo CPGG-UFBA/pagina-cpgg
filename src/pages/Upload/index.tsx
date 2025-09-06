@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { Upload, X, File, Image, CheckCircle, Folder } from 'lucide-react';
+import styles from './Upload.module.css';
 
 interface UploadedFile {
   id: string;
@@ -138,36 +139,36 @@ export const UploadPage = () => {
 
   const getFileIcon = (type: string) => {
     if (type.startsWith('image/')) {
-      return <Image className="h-8 w-8 text-primary" />;
+      return <Image className={styles.fileIcon} />;
     }
-    return <File className="h-8 w-8 text-muted-foreground" />;
+    return <File className={styles.fileIconGeneric} />;
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 pt-32">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8 text-center">Upload de Arquivos</h1>
+    <div className={styles.container}>
+      <div>
+        <h1 className={styles.pageTitle}>Upload de Arquivos</h1>
         
         {/* Directory Input */}
-        <Card className="mb-6">
+        <Card className={styles.directoryCard}>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2">
+            <CardTitle className={styles.directoryHeader}>
               <Folder className="h-5 w-5" />
               Diretório de Destino
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="space-y-2">
+          <CardContent className={styles.directoryContent}>
+            <div className={styles.directoryForm}>
               <Label htmlFor="directory">Nome da pasta (opcional)</Label>
               <Input
                 id="directory"
                 placeholder="ex: figuras, documentos, imagens/perfil"
                 value={directory}
                 onChange={(e) => setDirectory(e.target.value)}
-                className="max-w-md"
+                className={styles.directoryInput}
               />
-              <p className="text-sm text-muted-foreground">
-                Os arquivos serão salvos em: <code className="bg-muted px-1 rounded">
+              <p className={styles.directoryHelp}>
+                Os arquivos serão salvos em: <code className={styles.directoryCode}>
                   uploads/{directory || 'raiz'}/
                 </code>
               </p>
@@ -176,23 +177,21 @@ export const UploadPage = () => {
         </Card>
         
         {/* Drop Zone */}
-        <Card className="mb-8">
-          <CardContent className="p-8">
+        <Card className={styles.uploadCard}>
+          <CardContent className={styles.uploadContent}>
             <div
-              className={`border-2 border-dashed rounded-lg p-12 text-center transition-colors ${
-                isDragging 
-                  ? 'border-primary bg-primary/5' 
-                  : 'border-muted-foreground/25 hover:border-primary/50'
+              className={`${styles.dropZone} ${
+                isDragging ? styles.active : styles.inactive
               }`}
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
             >
-              <Upload className="mx-auto h-12 w-12 text-muted-foreground mb-4" />
-              <h3 className="text-xl font-semibold mb-2">
+              <Upload className={styles.uploadIcon} />
+              <h3 className={styles.uploadTitle}>
                 Arraste seus arquivos aqui
               </h3>
-              <p className="text-muted-foreground mb-4">
+              <p className={styles.uploadDescription}>
                 ou clique para selecionar arquivos
               </p>
               <Button 
@@ -205,7 +204,7 @@ export const UploadPage = () => {
                 ref={fileInputRef}
                 type="file"
                 multiple
-                className="hidden"
+                className={styles.hiddenInput}
                 onChange={handleFileSelect}
                 accept="image/*,application/pdf,.doc,.docx,.txt"
               />
@@ -215,31 +214,31 @@ export const UploadPage = () => {
 
         {/* Files List */}
         {files.length > 0 && (
-          <Card>
-            <CardHeader>
+          <Card className={styles.filesCard}>
+            <CardHeader className={styles.filesHeader}>
               <CardTitle>Arquivos ({files.length})</CardTitle>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-4">
+            <CardContent className={styles.filesContent}>
+              <div className={styles.filesList}>
                 {files.map((file) => (
-                  <div key={file.id} className="flex items-center gap-4 p-4 border rounded-lg">
+                  <div key={file.id} className={styles.fileItem}>
                     {getFileIcon(file.type)}
                     
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center gap-2">
-                        <p className="font-medium truncate">{file.name}</p>
+                    <div className={styles.fileInfo}>
+                      <div className={styles.fileHeader}>
+                        <p className={styles.fileName}>{file.name}</p>
                         {file.uploaded && (
-                          <CheckCircle className="h-4 w-4 text-green-500" />
+                          <CheckCircle className={styles.successIcon} />
                         )}
                       </div>
-                      <p className="text-sm text-muted-foreground">
+                      <p className={styles.fileSize}>
                         {formatFileSize(file.size)}
                       </p>
                       
                       {!file.uploaded && uploadProgress[file.id] !== undefined && (
-                        <div className="mt-2">
-                          <Progress value={uploadProgress[file.id]} className="h-2" />
-                          <p className="text-xs text-muted-foreground mt-1">
+                        <div className={styles.progressContainer}>
+                          <Progress value={uploadProgress[file.id]} className={styles.progressBar} />
+                          <p className={styles.progressText}>
                             {Math.round(uploadProgress[file.id])}% enviado
                           </p>
                         </div>
@@ -250,7 +249,7 @@ export const UploadPage = () => {
                       <img 
                         src={file.url} 
                         alt={file.name}
-                        className="w-16 h-16 object-cover rounded"
+                        className={styles.filePreview}
                       />
                     )}
 
@@ -258,6 +257,7 @@ export const UploadPage = () => {
                       variant="ghost"
                       size="sm"
                       onClick={() => removeFile(file.id)}
+                      className={styles.removeButton}
                     >
                       <X className="h-4 w-4" />
                     </Button>

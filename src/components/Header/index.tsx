@@ -2,113 +2,114 @@ import { NavLink } from "react-router-dom";
 import logocpgg from "../Figures/cpgg.png";
 import logoufba from "../Figures/LogoUfba.png";
 import headerBg from "../Figures/header-bg.png";
+import styles from './Header.module.css';
 
 export function Header() {
   return (
     <header 
-      className="w-full h-24 fixed top-0 left-0 flex flex-row bg-contain bg-no-repeat z-50"
+      className={styles.header}
       style={{ backgroundImage: `url(${headerBg})` }}
     >
-      <div className="flex items-start ml-4 mt-4">
-        <div className="flex-shrink-0 mr-4">
-          <img src={logocpgg} alt="CPGG" className="h-12 xl:h-15 lg:h-12 md:h-12 sm:h-10" />
+      <div className={styles.logoContainer}>
+        <div className={styles.cpggLogo}>
+          <img src={logocpgg} alt="CPGG" className={styles.cpggLogo} />
         </div>
         
-        <div className="text-center mt-2">
-          <h1 className="pt-1 pl-2 ml-1 mt-2 text-sm text-center whitespace-nowrap font-roboto font-medium xl:text-sm lg:text-sm md:text-sm sm:text-[9px]">
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>
             Centro de Pesquisa em Geofísica e Geologia
           </h1>
-          <h1 className="pt-1 pl-2 ml-1 mt-2 text-sm text-center whitespace-nowrap font-roboto font-medium xl:text-sm lg:text-sm md:text-sm sm:text-[9px]">
+          <h1 className={styles.title}>
             Instituto de Geociências/Instituto de Física
           </h1>
-          <h1 className="pt-1 pl-2 ml-1 mt-2 text-sm text-center whitespace-nowrap font-roboto font-medium xl:text-sm lg:text-sm md:text-sm sm:text-[9px]">
+          <h1 className={styles.title}>
             Universidade Federal da Bahia
           </h1>
         </div>
       </div>
 
-      <div className="flex-shrink-0 ml-8 mt-2">
-        <img src={logoufba} alt="UFBA" className="h-[70px] mt-2 xl:h-[70px] lg:h-[50px] md:h-[50px] sm:h-[50px]" />
+      <div className={styles.ufbaLogoContainer}>
+        <img src={logoufba} alt="UFBA" className={styles.ufbaLogo} />
       </div>
 
-      <nav className="ml-auto">
-        <ul className="inline-flex list-none text-[#FF5733] ml-[510px] xl:ml-[410px] lg:ml-[250px] md:ml-[-30px] sm:ml-[50px] xs:ml-[100px]">
-          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+      <nav className={styles.nav}>
+        <ul className={styles.navList}>
+          <li className={styles.navItem}>
             <NavLink 
               to="/upload" 
-              className="no-underline text-white hover:text-white/80 transition-colors"
+              className={styles.navLink}
             >
               Adm
             </NavLink>
           </li>
-          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+          <li className={styles.navItem}>
             <NavLink 
               to="/Contact" 
-              className="no-underline text-white hover:text-white/80 transition-colors"
+              className={styles.navLink}
             >
               Contact us
             </NavLink>
           </li>
-          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+          <li className={styles.navItem}>
             <NavLink 
               to="/" 
-              className="no-underline text-white hover:text-white/80 transition-colors"
+              className={styles.navLink}
             >
               Home
             </NavLink>
           </li>
-          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm">
+          <li className={styles.navItem}>
             <NavLink 
               to="/sign" 
-              className="no-underline text-white hover:text-white/80 transition-colors"
+              className={styles.navLink}
             >
               Sign
             </NavLink>
           </li>
-          <li className="w-[120px] m-4 p-4 mt-4 text-base md:text-sm relative group">
-            <a href="#" className="no-underline text-white hover:text-white/80 transition-colors">
+          <li className={`${styles.navItem} ${styles.dropdownContainer}`}>
+            <a href="#" className={styles.navLink}>
               About us
             </a>
             
             {/* Submenu 1 */}
-            <div className="hidden group-hover:block absolute bg-[#592cbb] opacity-90 -mt-8 text-lg z-[100] w-[190px]">
-              <ul className="block">
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
-                  <div className="relative group/submenu">
-                    <a href="#" className="block px-4 py-2 text-white hover:text-black">
+            <div className={styles.dropdown}>
+              <ul className={styles.dropdownList}>
+                <li className={styles.dropdownItem}>
+                  <div className={styles.submenu}>
+                    <a href="#" className={styles.dropdownLink}>
                       Instituição
                     </a>
                     {/* Submenu 2 */}
-                    <div className="hidden group-hover/submenu:block absolute -mt-12 -ml-[220px] bg-[#592cbb] opacity-90 w-[190px]">
+                    <div className={styles.submenuDropdown}>
                       <ul>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/cpgg" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             O CPGG
                           </NavLink>
                         </li>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/history" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             Nossa História
                           </NavLink>
                         </li>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/regulations" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             Regimento e Normas
                           </NavLink>
                         </li>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/photos" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             Fotos
                           </NavLink>
@@ -118,34 +119,34 @@ export function Header() {
                   </div>
                 </li>
 
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
-                  <div className="relative group/submenu">
-                    <a href="#" className="block px-4 py-2 text-white hover:text-black">
+                <li className={styles.dropdownItem}>
+                  <div className={styles.submenu}>
+                    <a href="#" className={styles.dropdownLink}>
                       Pessoal
                     </a>
                     {/* Submenu 2 */}
-                    <div className="hidden group-hover/submenu:block absolute -mt-12 -ml-[220px] bg-[#592cbb] opacity-90 w-[190px]">
+                    <div className={styles.submenuDropdown}>
                       <ul>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/coordination" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             Coordenação e Conselhos
                           </NavLink>
                         </li>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/researchers" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             Pesquisadores
                           </NavLink>
                         </li>
-                        <li className="transition-all duration-700 w-[190px] hover:bg-white hover:bg-opacity-100">
+                        <li className={styles.submenuItem}>
                           <NavLink 
                             to="/technicians" 
-                            className="block px-4 py-2 text-white hover:text-black"
+                            className={styles.submenuLink}
                           >
                             Corpo Técnico
                           </NavLink>
@@ -155,36 +156,36 @@ export function Header() {
                   </div>
                 </li>
 
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                <li className={styles.dropdownItem}>
                   <NavLink 
                     to="/labs" 
-                    className="block px-4 py-2 text-white hover:text-black"
+                    className={styles.dropdownLink}
                   >
                     Laboratórios e reservas
                   </NavLink>
                 </li>
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                <li className={styles.dropdownItem}>
                   <NavLink 
                     to="/spaces" 
-                    className="block px-4 py-2 text-white hover:text-black"
+                    className={styles.dropdownLink}
                   >
                     Espaços e Reservas
                   </NavLink>
                 </li>
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
-                  <a href="#" className="block px-4 py-2 text-white hover:text-black">
+                <li className={styles.dropdownItem}>
+                  <a href="#" className={styles.dropdownLink}>
                     Projetos de Pesquisa
                   </a>
                 </li>
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
-                  <a href="#" className="block px-4 py-2 text-white hover:text-black">
+                <li className={styles.dropdownItem}>
+                  <a href="#" className={styles.dropdownLink}>
                     Produção Científica
                   </a>
                 </li>
-                <li className="transition-all duration-700 w-[175px] hover:bg-white hover:bg-opacity-100">
+                <li className={styles.dropdownItem}>
                   <NavLink 
                     to="/recipes" 
-                    className="block px-4 py-2 text-white hover:text-black"
+                    className={styles.dropdownLink}
                   >
                     Receitas
                   </NavLink>
