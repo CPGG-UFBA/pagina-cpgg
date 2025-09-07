@@ -19,7 +19,7 @@ export  function History() {
 
 
 
-                  <a className={styles.card} href="https://www.dropbox.com/scl/fi/o5nuqrtp4bbmk7ex8ska7/PDF_history.pdf?rlkey=omsdmtx11iaezxpfnphif1gim&st=c6jangfk&dl=0" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://drive.google.com/file/d/1wXzmvTryrxVP16wdg_3XCoJDleefLnMW/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                       <div className={styles.document}>
                           <h2> A História do CPGG (por Dr. Olivar Lima)</h2>
                       </div>
