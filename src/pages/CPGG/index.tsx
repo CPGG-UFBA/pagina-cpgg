@@ -1,4 +1,4 @@
-import styles from './cpgg.module.css'
+import styles from './CPGG.module.css'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import earth from '../../components/Figures/earth3.png'
