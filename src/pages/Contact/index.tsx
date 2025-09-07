@@ -8,21 +8,6 @@ export function Contact() {
   const phoneNumber = '+55(71)3283-8531'
   const whatsappNumber = '5571328385531'
   
-  const handleWhatsAppClick = () => {
-    // Try to open WhatsApp in parent window if in iframe
-    try {
-      if (window.parent && window.parent !== window) {
-        window.parent.open(`https://wa.me/${whatsappNumber}`, '_blank')
-        return
-      }
-    } catch (e) {
-      // Fallback if cross-origin
-    }
-    
-    // Direct link as fallback
-    window.open(`https://wa.me/${whatsappNumber}`, '_blank')
-  }
-
   return (
     <>
       <Header />
@@ -31,14 +16,16 @@ export function Contact() {
         <p> secretaria.cpgg.ufba@gmail.com</p>
 
         <div className={styles.whatsappSection}>
-          <button
-            onClick={handleWhatsAppClick}
+          <a
+            href={`https://wa.me/${whatsappNumber}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.whatsappLink}
             aria-label="Abrir WhatsApp"
           >
             <img src={Whats} alt="Whatsapp" className={styles.whatsappIcon} />
             <span>Whats app us</span>
-          </button>
+          </a>
         </div>
 
         <b> {phoneNumber}</b>
