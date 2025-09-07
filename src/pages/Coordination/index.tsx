@@ -1,4 +1,4 @@
-import styles from './coordination.module.css'
+import styles from './Coordination.module.css'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 
