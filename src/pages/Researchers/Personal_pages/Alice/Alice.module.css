@@ -6,64 +6,70 @@
   overflow: visible;
   justify-content: center;
   color: #fff;
-  padding-top: 170px;
-  padding-bottom: 560px;
-  padding-left: 200px;
-  padding-right: 8px;
-  }
-
+  padding-top: clamp(80px, 12vw, 170px);
+  padding-bottom: clamp(300px, 40vw, 560px);
+  padding-left: clamp(20px, 15vw, 200px);
+  padding-right: clamp(8px, 2vw, 8px);
+}
 
 .Professor p {
-  font-size: 25px;
+  font-size: clamp(16px, 3vw, 25px);
   color: #363F5; 
-  padding-left: 250px;
-  margin-top: -50px;
+  padding-left: clamp(20px, 18vw, 250px);
+  margin-top: clamp(-30px, -5vw, -50px);
   white-space: nowrap;
 }
 
-
 .box1 {
   text-align: justify;
-  line-height: 35px;
+  line-height: clamp(25px, 4vw, 35px);
   display: flex;
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  width: 950px;
-  height: 450px;
-  top: 20%; 
-  left:2%;
+  width: clamp(300px, 70vw, 950px);
+  height: clamp(350px, 50vh, 450px);
+  top: clamp(15%, 20%, 20%); 
+  left: clamp(2%, 2%, 2%);
   border-radius: 20px;
   padding-top: 6px;
-  padding-left: 230px;
-  padding-right: 15px;
-  overflow-y: scroll;
-
+  padding-left: clamp(20px, 15vw, 230px);
+  padding-right: clamp(15px, 3vw, 15px);
+  overflow-y: auto;
 }
 
 .box1 ul {
-  font-size: 16px;
+  font-size: clamp(12px, 2vw, 16px);
   color: #363F5; 
-  margin-left: 200px;
-  margin-top: 50px;
+  margin-left: clamp(20px, 15vw, 200px);
+  margin-top: clamp(20px, 5vh, 50px);
   white-space: nowrap;
 }
 
 .box1 b {
-  font-size: 16px;
+  font-size: clamp(12px, 2vw, 16px);
   color: #363F5; 
-  margin-left: 274px;
+  margin-left: clamp(30px, 20vw, 274px);
   margin-top: 1px;
   white-space: nowrap;
 }
 
 .box1 p {
-  font-size: 12px;
+  font-size: clamp(10px, 1.5vw, 12px);
   color: #363F5; 
-  padding-left: 248px;
+  padding-left: clamp(30px, 18vw, 248px);
   margin-top: -1px;
   white-space: nowrap;
+}
+
+.content {
+  font-size: clamp(10px, 1.5vw, 12px);
+  color: #363F5; 
+  padding-left: clamp(30px, 18vw, 248px);
+  margin-top: 10px;
+  white-space: normal;
+  line-height: 1.4;
 }
 
 .box2 {
@@ -73,11 +79,11 @@
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  width: 180px;
-  height: 180px;
-  top: 3%; 
-  left:2%;
-  padding: 10px;
+  width: clamp(120px, 15vw, 180px);
+  height: clamp(120px, 15vw, 180px);
+  top: clamp(3%, 3%, 3%); 
+  left: clamp(2%, 2%, 2%);
+  padding: clamp(5px, 1vw, 10px);
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -100px;
@@ -85,15 +91,14 @@
   url('https://i.imgur.com/nnNDbMR.png') center/cover;
 }
 
-
 .box1 nav a {
   color: #fff;
-  padding-right: 40px;
-  font-size: 12px;
-  margin-left: 270px;
+  padding-right: clamp(20px, 4vw, 40px);
+  font-size: clamp(10px, 1.5vw, 12px);
+  margin-left: clamp(30px, 20vw, 270px);
   top: -5px;
   position: relative;
-  cursor:pointer;
+  cursor: pointer;
   font-family: Roboto;
   font-weight: 500;
 }
@@ -108,8 +113,43 @@ nav a:hover {
 }
 
 .staticFigure img {
-  height: 40rem;
-  margin-top: -40px;
-  padding-left: 180px;
-  margin-bottom: -510px;
+  height: clamp(200px, 30vw, 40rem);
+  margin-top: clamp(-20px, -3vw, -40px);
+  padding-left: clamp(50px, 18vw, 180px);
+  margin-bottom: clamp(-300px, -40vw, -510px);
+}
+
+/* Media queries para breakpoints específicos */
+@media (max-width: 768px) {
+  .Professor {
+    flex-direction: column;
+    padding-top: 60px;
+    padding-bottom: 200px;
+  }
+  
+  .box1 {
+    position: relative;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 20px;
+  }
+  
+  .box2 {
+    position: relative;
+    margin: 0 auto 20px auto;
+  }
+  
+  .staticFigure img {
+    position: relative;
+    padding-left: 0;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  .box1 p, .content, .box1 ul, .box1 b, .box1 nav a {
+    padding-left: 0;
+    margin-left: 0;
+  }
 }
