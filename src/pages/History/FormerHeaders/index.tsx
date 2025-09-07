@@ -1,16 +1,94 @@
-import styles from './former.module.css';
-import { Header } from '../../../components/Header';
-import { Footer } from '../../../components/Footer';
+import styles from './former.module.css'
+import { Header } from '../../../components/Header'
+import { Footer } from '../../../components/Footer'
 
 export function Former() {
   return (
     <>
       <Header />
-      <div className={styles.container}>
-        <h1 className={styles.title}>Ex-Diretores</h1>
-        <p className={styles.description}>Informações sobre ex-diretores.</p>
+      <div className={styles.former}>
+        <div className={styles.Headers}>
+          <ul>Coordenadores do CPGG </ul>
+            <div className={styles.boxzero}>
+            <div className={styles.box1}></div>
+                <div className={styles.Header1}>
+                  <h1>Prof. Carlos Alberto Dias</h1>
+                    <a> (1969 a 1976/ 1980 a 1984)</a>
+                      <div className={styles.photobox1}></div>
+                </div>
+            </div>
+            <div className={styles.box2}>
+              <div className={styles.Header2}>
+                <h1>Prof. Antônio Expedito</h1>
+                <h1>Gomes de Azevedo</h1>
+                 <a>(1976 a 1976)</a>
+                  <div className={styles.photobox2}></div>
+              </div>
+            </div>
+
+          <div className={styles.box3}>
+            <div className={styles.Header3}> 
+              <h1>Profa. Yeda de Andrade Ferreira</h1>
+                <a>(1976 a 1980/ 1887 a 2002)</a>
+                  <div className={styles.photobox3}></div>
+            </div>
+          </div>
+          <div className={styles.box4}>
+            <div className={styles.Header4}>
+              <h1>Prof. Humberto da Silva Carvalho</h1>
+              <h1>Gomes de Azevedo</h1>
+                <a>(1984 a 1996)</a>
+                  <div className={styles.photobox4}></div>
+            </div>
+          </div>
+
+          <div className={styles.box5}>
+            <div className={styles.Header5}>
+              <h1>Prof. Umberto Raimundo Costa</h1>
+              <h1>Gomes de Azevedo</h1>
+                <a>(1989 a 1990)</a>
+                  <div className={styles.photobox5}></div>
+            </div>
+          </div>
+
+          <div className={styles.box6}>
+            <div className={styles.Header6}>
+              <h1>Prof. Edson Starteri Sampaio</h1>
+                <a> (1986 a 1989)</a>
+                  <div className={styles.photobox6}></div>
+            </div>
+          </div>
+
+         
+       
+          <div className={styles.box7}>
+            <div className={styles.Header7}>
+              <h1>Prof. Olivar Antônio Lima de Lima</h1>
+                <a> (1990 a 1994/ 2002 a 2012)</a>
+                  <div className={styles.photobox7}></div>
+            </div>
+          </div>
+
+          <div className={styles.box8}>
+            <div className={styles.Header8}>
+              <h1>Prof. Hédison Kiuity Sato</h1>
+                <a> (2012 a 2018)</a>
+                  <div className={styles.photobox8}></div>
+            </div>
+          </div>
+
+            <div className={styles.box9}>
+              <div className={styles.Header9}>
+                <h1>Prof. Marcos Alberto Rodrigues </h1>
+                <h1> Vasconcelos</h1>
+                  <a> (2023 a atual)</a>
+             <div className={styles.photobox9}></div>
+            </div>
+
+            </div>
       </div>
-      <Footer />
-    </>
+    </div>
+  <Footer />
+  </>
   )
 }
