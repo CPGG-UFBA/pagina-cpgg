@@ -5,7 +5,7 @@
 .coordination{
   column-count: 1;
   display: flex;
-  color: #fff;
+  color: hsl(var(--foreground));
   padding-top: 15px;
   padding-bottom: 50px;
   margin-bottom: 50px;
@@ -19,6 +19,7 @@
   font-weight: bold;
   margin-left: -600px;
   margin-top: -20px;
+  color: hsl(var(--foreground));
 }
 .chief h1{
   postion: absolute;
@@ -39,6 +40,7 @@
   margin-left: -175px;
   margin-top: 20px;
   white-space: nowrap;
+  color: hsl(var(--foreground));
 }
 
 .chief b{
@@ -49,6 +51,7 @@
   margin-left: -190px;
   margin-top: 20px;
   white-space: nowrap;
+  color: hsl(var(--foreground));
 }
 
 .scientific  h1{
@@ -70,6 +73,7 @@
   margin-left: 30px;
   margin-top: 15px;
   margin-bottom: 40px;
+  color: hsl(var(--foreground));
 }
 
 
@@ -89,6 +93,7 @@
   margin-left: 30px;
   margin-top: 20px;
   margin-bottom: 40px;
+  color: hsl(var(--foreground));
 }
 
 .box1 {
