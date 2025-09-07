@@ -1,19 +1,122 @@
-/* Regulations Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
+.regulations {
+  flex: 1;
+  padding: 2rem;
 }
 
 .title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-left: 300px;
+  margin-top: 7rem;
+  font-size: 24px;
 }
 
-.content {
-  font-size: 1.125rem;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-bottom: 18rem;
+}
+
+
+.regulation {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
+  text-align: center;
+  width: 350px;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+    url('/src/components/Figures/laws.jpg') center/cover;
+}
+
+.regulation:hover {
+  transform: translateY(-5px);
+}
+
+.accreditation {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  margin-left: 0px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('/src/components/Figures/books.jpg') center/cover;
+}
+
+.senior:hover {
+  transform: translateY(-5px);
+}
+
+.senior {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  height: 130px;
+  margin-left: -760px;
+  margin-top: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('/src/components/Figures/senior.jpg') center/cover;
+}
+
+.accreditation:hover {
+  transform: translateY(-5px);
+}
+
+.staticFigure img {
+  height: 40rem;
+  padding-left: 970px;
+  margin-bottom: 20px;
+  margin-top: -700px;
+}
+
+
+
+@media (max-width: 1200px) {
+  .staticFigure img {
+    height: 35rem;
+    padding-left: 170px;
+    margin-bottom: -70px;
+    margin-top: -250px;
+  }
+}
+
+
+@media (max-width: 800px) {
+  .staticFigure img {
+    height: 35rem;
+    padding-left: 170px;
+    margin-bottom: -70px;
+    margin-top: -250px;
+  }
+}
+
+@media (max-width: 800px) {
+  .staticFigure img {
+    margin-bottom: 300px;
+  }
+
+  .title {
+    margin-left: 70px;
+  }
 }
