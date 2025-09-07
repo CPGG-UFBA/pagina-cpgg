@@ -3,8 +3,8 @@ import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import earth from '../../../components/Figures/earth3.png'
 
-import auditory1 from '../../../assets/Photos/Auditory/Auditorio1.png'
-import auditory2 from '../../../assets/Photos/Auditory/Auditorio2.png'
+import auditory1 from = 'https://imgur.com/6OUQmS1'
+import auditory2 from = 'https://imgur.com/tA75GHg'
 
 export function Auditory() {
   return (
