@@ -13,14 +13,15 @@ export function Contact() {
           <ul> Contact us by e-mail </ul>
           <p> secretaria.cpgg.ufba@gmail.com</p>
 
-          <a> Whats app us </a>
+          <div className={styles.whatsappSection}>
+            <a href="https://wa.me/5571328385531" target="_blank" rel="noopener noreferrer" className={styles.whatsappLink}>
+              <img src={Whats} alt='Whatsapp' className={styles.whatsappIcon} />
+              <span> Whats app us </span>
+            </a>
+          </div>
           <b> +55(71)3283-8531</b>
           <p className={styles.address}> R. Barão de Jeremoabo, s/n - Ondina, Salvador - BA, 40170-290</p>
           <p className={styles.building}> Bloco E- Anexo ao Instituto de Geociências</p>
-
-          <div className={styles.Whatsapp}>
-            <img src={Whats} alt='Whatsapp' />
-          </div>
 
           <div className={styles.staticFigure}>
             <img src={earth} alt='Terra' />

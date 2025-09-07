@@ -27,12 +27,24 @@
     margin-top: 150px;
   }
 
-  .contact a {
-    font-size: 30px;
-    color: #fff;
-    position: absolute; 
+  .whatsappSection {
+    position: absolute;
     margin-left: -1500px;
     margin-top: 250px;
+  }
+
+  .whatsappLink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+  }
+
+  .whatsappIcon {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
   }
 
   .contact b {
@@ -60,13 +72,6 @@
 
   }
 
-.Whatsapp img {
-    height: 40px;
-    width: 40px;
-    position: absolute;
-    margin-left: -1545px;
-    margin-top: 250px;
-  }
 
 .staticFigure img {
   height: 40rem;
@@ -100,8 +105,8 @@
     margin-left: -1000px;
   }
 
-  .Whatsapp img {
-    margin-left: -1045px;
+  .whatsappSection {
+    margin-left: -1000px;
   }
   .staticFigure img {
     height: 20rem;
@@ -132,8 +137,8 @@
     margin-left: -800px;
   }
 
-  .Whatsapp img {
-    margin-left: -845px;
+  .whatsappSection {
+    margin-left: -800px;
   }
 
   .staticFigure img {
