@@ -1,19 +1,429 @@
-/* Technicians Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
-}
+.Employees{
+  column-count: 3;
+  column-gap: 3rem;
+  display: flex;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 150px;
+  padding-bottom: 550px;
+  padding-left: 830px;
+  padding-right: 8px;
+  }
 
-.title {
-  font-size: 2.25rem;
+  .Employees ul {
+    font-size: 24px;
+    color: #363F5; 
+    margin-left: -900px;
+    margin-top: -20px;
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+.Secretary  h1{
+  display: flex;
+  max-width:10px;
+  font-size: 20px;
+  color: #363F5;
   font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+  margin-top: 65px;
+  margin-left: -50rem;
+  padding-left: 20px;
+  white-space: nowrap;
 }
 
-.content {
-  font-size: 1.125rem;
-  color: white;
+.Secretary   a{
+  display: flex;
+  font-size: 14px;
+  margin-left: -47rem;
+  margin-top: 18px;
+  white-space: nowrap;
 }
+
+
+.TI  h1{
+  display: flex;
+  font-size: 20px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top:-1px;
+  margin-left: -1rem;
+  padding-left:85px;
+  white-space: nowrap;
+}
+
+
+.TI   a{
+  display: flex;
+  font-size: 14px;
+  margin-left: 3rem;
+  margin-top: 20px;
+  white-space: nowrap;
+}
+
+
+.Driver  h1{
+  display: flex;
+  font-size: 20px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: 1px;
+  margin-left: 3rem;
+  padding-left:50px;
+  white-space: nowrap;
+}
+
+.Driver   a{
+  display: flex;
+  font-size: 14px;
+  margin-left: 5rem;
+  margin-top: 20px;
+  margin-bottom: 150px;
+  white-space: nowrap;
+}
+
+
+.Lab  h1{
+  display: flex;
+  font-size: 20px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: 1px;
+  margin-left: 1.5rem;
+  padding-left:20px;
+  white-space: nowrap;
+}
+
+.Lab   a{
+  display: flex;
+  font-size: 14px;
+  margin-left: 4rem;
+  margin-top: 20px;
+  margin-bottom: 150px;
+  white-space: nowrap;
+}
+
+.box1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 320px;
+  top: 22%; 
+  left:10%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+.box2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 320px;
+  top: 22%; 
+  left:30%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+.box3 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 320px;
+  top: 22%; 
+  left:50%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+.box4 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 300px;
+  height: 320px;
+  top: 22%; 
+  left:70%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+.photobox1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 33%; 
+  left:13%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Technicians/Lene.png') center/cover;
+}
+
+.photobox2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 32%; 
+  left:13%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Technicians/Bianca.png') center/cover;
+}
+
+.photobox3 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 32%; 
+  left:16%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Technicians/Mota.png') center/cover;
+}
+
+.photobox4 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  top: 32%; 
+  left:17%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('/src/assets/Photos/Technicians/Michel.png') center/cover;
+}
+
+
+
+@media (max-width: 1200px) {
+  .box {
+   width: 940px;
+   left: 5%;
+   overflow-y: scroll;
+   height: 700px;
+   top: 200px;
+  }
+ 
+.Secretary h1 {
+  margin-top: 70px;
+  margin-left: -33rem;
+
+}
+
+.Secretary a {
+
+  margin-left: -30rem;
+}
+
+.Employees {
+  padding-bottom: 65%;
+}
+.photobox1 {
+  top: 22.5%;
+  left: 15%;
+}
+.box1 {
+
+    top: 15%; 
+   
+  }
+
+.box2 {
+
+    top: 15%;
+    left: 50%; 
+   
+  }
+
+
+.box3 {
+
+  top: 40%; 
+  left:10%;
+ 
+}
+
+.box4 {
+
+  top: 40%; 
+  left:50%;
+ 
+}
+
+}
+
+
+
+
+@media (max-width: 800px) {
+  
+ 
+.Secretary h1 {
+  margin-top: 70px;
+  margin-left: -38rem;
+
+}
+
+.Secretary a {
+
+  margin-left: -35rem;
+}
+
+.Employees {
+  padding-bottom: 80%;
+}
+
+
+.Employees ul {
+  margin-left: -550px;
+}
+
+.photobox1 {
+  top: 30%;
+  left: 20%;
+}
+.box1 {
+
+    top: 20%;
+    left: 15%; 
+   
+  }
+
+.box2 {
+
+    top: 20%;
+    left: 70%; 
+   
+  }
+
+
+.box3 {
+
+  top: 55%; 
+  left:15%;
+ 
+}
+
+.box4 {
+
+  top: 55%; 
+  left:70%;
+ 
+}
+
+}
+
+
+
+@media (max-width: 400px) {
+  
+ 
+  .Secretary h1 {
+    margin-top: 130px;
+    margin-left: -36rem;
+  
+  }
+  
+  .Secretary a {
+  
+    margin-left: -33rem;
+  }
+  
+  .Employees {
+    padding-bottom: 320%;
+  }
+  
+  
+  .Employees ul {
+    margin-left: -550px;
+  }
+  
+  .photobox1 {
+    top: 54%;
+    left: 56%;
+  }
+  .box1 {
+  
+      top: 40%;
+      left: 40%; 
+     
+    }
+  
+  .box2 {
+  
+      top: 40%;
+      left: 150%; 
+     
+    }
+  
+  
+  .box3 {
+  
+    top: 100%; 
+    left:40%;
+   
+  }
+  
+  .box4 {
+  
+    top: 100%; 
+    left:150%;
+   
+  }
+  
+  } 
