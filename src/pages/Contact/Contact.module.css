@@ -1,262 +1,147 @@
 /* Contact Page Styles */
-.container {
+.contact{
   display: flex;
   flex: 1;
   overflow: visible;
   justify-content: center;
-  color: white;
+  color: #fff;
   padding-top: 150px;
   padding-bottom: 400px;
   padding-left: 700px;
-  padding-right: 0.5rem;
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-left: 410px;
+  padding-right: 8px;
   }
-}
 
-@media (min-width: 768px) {
-  .container {
-    padding-left: 250px;
+.contact ul {
+    font-size: 30px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 100px;
   }
-}
 
-@media (min-width: 640px) {
-  .container {
-    padding-left: 2rem;
+  .contact p {
+    font-size: 20px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 150px;
   }
-}
 
-.contentWrapper {
-  position: relative;
-}
-
-.title {
-  font-size: 30px;
-  color: var(--gray-contact);
-  position: absolute;
-  margin-left: -1500px;
-  margin-top: 100px;
-}
-
-@media (min-width: 1024px) {
-  .title {
-    margin-left: -1000px;
+  .contact a {
+    font-size: 30px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 250px;
   }
-}
 
-@media (min-width: 768px) {
-  .title {
-    margin-left: -800px;
+  .contact b {
+    font-size: 20px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 300px;
   }
-}
 
-@media (min-width: 640px) {
-  .title {
-    margin-left: -200px;
+  .contact c {
+    font-size: 20px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 400px;
   }
-}
 
-.description {
-  font-size: 1.25rem;
-  color: var(--gray-contact);
-  position: absolute;
-  margin-left: -1500px;
-  margin-top: 150px;
-}
+  .contact f {
+    font-size: 20px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 450px;
 
-@media (min-width: 1024px) {
-  .description {
-    margin-left: -1000px;
   }
-}
 
-@media (min-width: 768px) {
-  .description {
-    margin-left: -800px;
+.Whatsapp img {
+    height: 40px;
+    width: 40px;
+    margin-left: -435px;
+    margin-top: 250px;
   }
-}
 
-@media (min-width: 640px) {
-  .description {
-    margin-left: -200px;
-  }
-}
-
-.emailLink {
-  font-size: 30px;
-  color: var(--gray-contact);
-  position: absolute;
-  margin-left: -1500px;
-  margin-top: 250px;
-  transition: color 0.3s ease;
-}
-
-.emailLink:hover {
-  color: var(--primary);
-}
-
-@media (min-width: 1024px) {
-  .emailLink {
-    margin-left: -1000px;
-  }
-}
-
-@media (min-width: 768px) {
-  .emailLink {
-    margin-left: -800px;
-  }
-}
-
-@media (min-width: 640px) {
-  .emailLink {
-    margin-left: -200px;
-  }
-}
-
-.address {
-  font-size: 1.25rem;
-  color: var(--gray-contact);
-  position: absolute;
-  margin-left: -1500px;
-  margin-top: 300px;
-}
-
-@media (min-width: 1024px) {
-  .address {
-    margin-left: -1000px;
-  }
-}
-
-@media (min-width: 768px) {
-  .address {
-    margin-left: -800px;
-  }
-}
-
-@media (min-width: 640px) {
-  .address {
-    margin-left: -200px;
-  }
-}
-
-.phone {
-  font-size: 1.25rem;
-  color: var(--gray-contact);
-  position: absolute;
-  margin-left: -1500px;
-  margin-top: 400px;
-}
-
-@media (min-width: 1024px) {
-  .phone {
-    margin-left: -1000px;
-  }
-}
-
-@media (min-width: 768px) {
-  .phone {
-    margin-left: -800px;
-  }
-}
-
-@media (min-width: 640px) {
-  .phone {
-    margin-left: -200px;
-  }
-}
-
-.cep {
-  font-size: 1.25rem;
-  color: var(--gray-contact);
-  position: absolute;
-  margin-left: -1500px;
-  margin-top: 450px;
-}
-
-@media (min-width: 1024px) {
-  .cep {
-    margin-left: -1000px;
-  }
-}
-
-@media (min-width: 768px) {
-  .cep {
-    margin-left: -800px;
-  }
-}
-
-@media (min-width: 640px) {
-  .cep {
-    margin-left: -200px;
-  }
-}
-
-.whatsappContainer {
-  position: absolute;
-  margin-left: -435px;
-  margin-top: 250px;
-}
-
-@media (min-width: 1024px) {
-  .whatsappContainer {
-    margin-left: -500px;
-  }
-}
-
-@media (min-width: 768px) {
-  .whatsappContainer {
-    margin-left: -300px;
-  }
-}
-
-@media (min-width: 640px) {
-  .whatsappContainer {
-    margin-left: -100px;
-  }
-}
-
-.whatsappIcon {
-  height: 2.5rem;
-  width: 2.5rem;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.whatsappIcon:hover {
-  transform: scale(1.1);
-}
-
-.imageContainer {
-  position: absolute;
-}
-
-.contactImage {
+.staticFigure img {
   height: 40rem;
   padding-left: 275px;
   margin-bottom: -350px;
-  margin-top: -1.25rem;
+  margin-top: -20px;
 }
 
-@media (min-width: 1024px) {
-  .contactImage {
+/*--------------------*/
+
+
+@media (max-width: 1200px) {
+
+  .contact ul {
+    margin-left: -1000px;
+  }
+  .contact a {
+    margin-left: -1000px;
+  }
+  .contact p {
+    margin-left: -1000px;
+  }
+  .contact b {
+    margin-left: -1000px;
+  }
+  .contact c {
+    margin-left: -1000px;
+  }
+
+  .contact f {
+    margin-left: -1000px;
+  }
+
+  .Whatsapp img {
+    margin-left: -500px;
+  }
+  .staticFigure img {
     height: 20rem;
-    padding-left: 0.5rem;
+    padding-left: 10px;
   }
 }
 
-@media (min-width: 768px) {
-  .contactImage {
+@media (max-width: 900px) {
+ 
+  
+  .contact ul {
+    margin-left: -800px;
+  }
+  .contact a {
+    margin-left: -800px;
+  }
+  .contact p {
+    margin-left: -800px;
+  }
+  .contact b {
+    margin-left: -800px;
+  }
+  .contact c {
+    margin-left: -800px;
+  }
+
+  .contact f {
+    margin-left: -800px;
+  }
+
+  .Whatsapp img {
+    margin-left: -300px;
+  }
+
+  .staticFigure img {
     height: 20rem;
     padding-left: 150px;
   }
 }
 
-@media (min-width: 640px) {
-  .contactImage {
-    height: 15rem;
-    padding-left: 1rem;
-  }
+@media (max-width: 430px) {
+  
+
 }
