@@ -14,12 +14,13 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  margin-left: 50px;
-  margin-bottom: 18rem;
+  padding: 0 2rem;
+  margin-bottom: 4rem;
+  position: relative;
 }
 
 .historical {
@@ -28,9 +29,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
-  width: 350px;
   min-height: 120px;
-  position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
@@ -48,9 +47,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   min-height: 120px;
-  left: -1200px;
-  width: 350px;
-  position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
@@ -67,11 +63,7 @@
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
-  width: 350px;
-  height: 130px;
-  margin-left: -1980px;
-  margin-top: 150px;
-  position: absolute;
+  min-height: 120px;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
@@ -82,56 +74,49 @@
   transform: translateY(-5px);
 }
 
+.staticFigure {
+  position: absolute;
+  right: -200px;
+  bottom: -100px;
+  z-index: -1;
+}
+
 .staticFigure img {
-  height: 40rem;
-  padding-left: 900px;
-  margin-bottom: -270px;
-  margin-left: 20px;
-  margin-top: -230px;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  opacity: 0.3;
 }
 
 @media (max-width: 1200px) {
-  .staticFigure {
-  height: 20rem;
-  margin-bottom: -270px;
-  margin-top: 400px;
-  margin-left: -800px;
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 600px;
   }
-
   
-
-  .fifthy {
-   margin-left: 800px;
+  .staticFigure {
+    right: -100px;
+    bottom: -50px;
   }
-
+  
+  .staticFigure img {
+    width: 300px;
+    height: 300px;
+  }
 }
 
 
-@media (max-width: 400px) {
-  .staticFigure {
-  margin-bottom: -100px;
-  margin-top: 400px;
-  margin-left: -900px;
-  }
-
-  
-
-  .fifthy {
-   margin-left: 850px;
-    width: 300px;
-  }
-
-
-  .historical {
-    width: 300px;
-  }
-
-  .reopen {
-    width: 300px;
-    margin-left: -1880px;
-  }
-
+@media (max-width: 768px) {
   .title {
-    margin-left: 5rem;
+    margin-left: 2rem;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .staticFigure {
+    display: none;
   }
 }
