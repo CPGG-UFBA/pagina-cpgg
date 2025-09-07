@@ -15,8 +15,8 @@ export function Contact() {
 
           <a> Whats app us </a>
           <b> +55(71)3283-8531</b>
-          <c> R. Barão de Jeremoabo, s/n - Ondina, Salvador - BA, 40170-290</c>
-          <f> Bloco E- Anexo ao Instituto de Geociências</f>
+          <p className={styles.address}> R. Barão de Jeremoabo, s/n - Ondina, Salvador - BA, 40170-290</p>
+          <p className={styles.building}> Bloco E- Anexo ao Instituto de Geociências</p>
 
           <div className={styles.Whatsapp}>
             <img src={Whats} alt='Whatsapp' />

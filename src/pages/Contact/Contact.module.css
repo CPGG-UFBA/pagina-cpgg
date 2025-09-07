@@ -43,7 +43,7 @@
     margin-top: 300px;
   }
 
-  .contact c {
+  .contact .address {
     font-size: 20px;
     color: #363F5;
     position: absolute; 
@@ -51,7 +51,7 @@
     margin-top: 400px;
   }
 
-  .contact f {
+  .contact .building {
     font-size: 20px;
     color: #363F5;
     position: absolute; 
@@ -91,11 +91,11 @@
   .contact b {
     margin-left: -1000px;
   }
-  .contact c {
+  .contact .address {
     margin-left: -1000px;
   }
 
-  .contact f {
+  .contact .building {
     margin-left: -1000px;
   }
 
@@ -123,11 +123,11 @@
   .contact b {
     margin-left: -800px;
   }
-  .contact c {
+  .contact .address {
     margin-left: -800px;
   }
 
-  .contact f {
+  .contact .building {
     margin-left: -800px;
   }
 
