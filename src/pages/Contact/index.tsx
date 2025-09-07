@@ -14,7 +14,7 @@ export function Contact() {
           <p> secretaria.cpgg.ufba@gmail.com</p>
 
           <div className={styles.whatsappSection}>
-            <a href="https://wa.me/5571328385531" className={styles.whatsappLink}>
+            <a href="https://api.whatsapp.com/send?phone=5571328385531" target="_blank" rel="noopener noreferrer" className={styles.whatsappLink}>
               <img src={Whats} alt='Whatsapp' className={styles.whatsappIcon} />
               <span> Whats app us </span>
             </a>
