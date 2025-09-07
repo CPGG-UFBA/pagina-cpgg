@@ -3,8 +3,8 @@ import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import earth from '../../../components/Figures/earth3.png'
 
-import meeting1 from '../../../assets/Photos/Meetingroom/Meetings1.png'
-import meeting2 from '../../../assets/Photos/Meetingroom/Meetings2.png'
+import meeting1 from = 'https://imgur.com/zcKpXdn'
+import meeting2 from = 'https://imgur.com/aMwUPVq'
 
 export function MeetingRoom() {
   return (
