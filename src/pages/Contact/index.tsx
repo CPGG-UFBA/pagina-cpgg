@@ -6,6 +6,22 @@ import Whats from '../../assets/whatsapp-icon.png'
 
 
 export function Contact() {
+  const whatsappUrl = 'https://web.whatsapp.com/send?phone=5571328385531';
+  const handleOpenWhatsApp = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    try {
+      if (window.top) {
+        e.preventDefault();
+        window.top.location.href = whatsappUrl;
+        return;
+      }
+    } catch (err) {
+      // ignore
+    }
+    const win = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+    if (!win) {
+      window.location.href = whatsappUrl;
+    }
+  };
   return (
     <>
       <Header />
@@ -14,7 +30,7 @@ export function Contact() {
           <p> secretaria.cpgg.ufba@gmail.com</p>
 
           <div className={styles.whatsappSection}>
-            <a href="https://api.whatsapp.com/send?phone=5571328385531" target="_blank" rel="noopener noreferrer" className={styles.whatsappLink}>
+            <a href={whatsappUrl} target="_top" rel="noopener noreferrer" className={styles.whatsappLink} onClick={handleOpenWhatsApp} aria-label="Abrir WhatsApp Web">
               <img src={Whats} alt='Whatsapp' className={styles.whatsappIcon} />
               <span> Whats app us </span>
             </a>
