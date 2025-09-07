@@ -1,43 +1,393 @@
-.container {
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+.FirstMeeting{
+  display: flex;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 150px;
+  padding-bottom: 650px;
+  padding-left: 700px;
+  padding-right: 8px;
+  }
 
-.title {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  color: var(--foreground);
-}
+  .FirstMeeting ul {
+    font-size: 24px;
+    color: #363F5; 
+    margin-left: -850px;
+    margin-top: -10px;
+  }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat (8, 100px 1fr);
+    grid-gap: 30px;
+    margin-top: 50px;
+    margin-left: -100px;
+    margin-bottom: 50px;
 }
 
-.imageCard {
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+.photo1 img {
+    width: 500px;
+    height: 400px;
 }
 
-.imageCard:hover {
-  transform: translateY(-5px);
+.photo1 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
 
-.image {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+.photo2 img {
+  width: 500px;
+  height: 400px;
 }
 
-.caption {
-  padding: 1rem;
-  background: var(--background);
-  color: var(--foreground);
+.photo2 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.photo3 img {
+  width: 500px;
+  height: 400px;
+}
+
+.photo3 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.photo4 img {
+  width: 500px;
+  height: 300px;
+}
+
+.photo4 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.photo5 img {
+  width:300px;
+  height: 400px;
+}
+
+.photo5 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.photo6 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo6 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+
+.photo7 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo7 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+.photo8 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo8 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.photo9 img {
+  width:250px;
+  height: 400px;
+}
+
+.photo9 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 3;
+}
+
+.photo10 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo10 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.photo11 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo11 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+.photo12 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo12 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 4;
+}
+
+
+.photo13 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo13 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+.photo14 img {
+  width:250px;
+  height: 400px;
+}
+
+.photo14 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.photo15 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo15 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 5;
+}
+
+.photo16 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo16 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+.photo17 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo17 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+.photo18 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo18 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 6;
+}
+
+
+.photo19 img {
+  width:250px;
+  height: 400px;
+}
+
+.photo19 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+.photo20 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo20 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+.photo21 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo21 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 7;
+  grid-row-end: 7;
+}
+
+.photo22 img {
+  width:250px;
+  height: 400px;
+}
+
+.photo22 img {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 8;
+  grid-row-end: 8;
+}
+
+.photo23 img {
+  width:250px;
+  height: 400px;
+}
+
+.photo23 img {
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 8;
+  grid-row-end: 8;
+}
+
+.photo24 img {
+  width:500px;
+  height: 400px;
+}
+
+.photo24 img {
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 8;
+  grid-row-end: 8;
+}
+
+
+.box {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 1400px;
+  height: 500px;
+  top: 20%; 
+  left:5%;
+  padding: 10px;
+  padding-left: 200px;
+  padding-top: 1px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -500px;
+  overflow-y: scroll;
+} 
+
+
+
+@media (max-width: 1200px) {
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .box {
+  width: 750px;
+  margin-bottom: 100px;
+  top: 15%;
+  left: 10%;
+  height: 700px;
+  }
+
+  .FirstMeeting {
+    padding-bottom: 750px;
+  }
+}
+
+
+@media (max-width: 800px) {
+
+.box{
+  left: 18%;
+  top:23%;
+  height: 600px;
+  padding: 30%;
+}
+
+.FirstMeeting ul {
+  margin-left: -570px;
+  margin-bottom: -50px;
+}
+}
+
+@media (max-width: 400px) {
+
+  .box{
+    left: 25%;
+    top:35%;
+    height: 1200px;
+    padding-left: 60%;
+    padding-right: 60%;
+    padding-top: 10%;
+
+  }
+  
+  .FirstMeeting ul {
+    margin-left: -600px;
+    margin-bottom: 600px;
+  }
+
 }
