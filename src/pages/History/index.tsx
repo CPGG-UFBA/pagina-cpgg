@@ -19,7 +19,7 @@ export  function History() {
 
 
 
-                  <a className={styles.card} href="https://drive.google.com/file/d/1wXzmvTryrxVP16wdg_3XCoJDleefLnMW/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://drive.google.com/file/d/1_9rqkr55S-9kwJRLZcEn0TWXzd6bMTSN/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                       <div className={styles.document}>
                           <h2> A História do CPGG (por Dr. Olivar Lima)</h2>
                       </div>
