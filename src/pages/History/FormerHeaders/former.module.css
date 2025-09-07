@@ -402,7 +402,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Dias.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Dias.jpg') center/cover;
 }
 
 .photobox2 {
@@ -421,7 +421,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Expedito.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Expedito.jpg') center/cover;
 }
 
 .photobox3 {
@@ -440,7 +440,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/yeda.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/yeda.jpg') center/cover;
 }
 
 .photobox4 {
@@ -459,7 +459,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Humberto.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Humberto.jpg') center/cover;
 }
 
 .photobox5 {
@@ -478,7 +478,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Umberto.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Umberto.jpg') center/cover;
 }
 
 .photobox6 {
@@ -497,7 +497,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Edson.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Edson.jpg') center/cover;
 }
 
 .photobox7 {
@@ -516,7 +516,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Olivar.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Olivar.jpg') center/cover;
 }
 
 
@@ -536,7 +536,7 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Sato.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Sato.jpg') center/cover;
 }
 
 
@@ -556,5 +556,5 @@
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/FormerHeaders/Marcos.png') center/cover;
+  url('/src/assets/Photos/FormerHeaders/Marcos.jpg') center/cover;
 }
