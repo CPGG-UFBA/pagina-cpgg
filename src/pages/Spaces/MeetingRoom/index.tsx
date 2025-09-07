@@ -1,7 +1,7 @@
 import styles from './meetingroom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import earth from '../../../components/Figures/earth3.png'
+import earth from '../../../components/Figures/earth-new.jpg'
 
 import meeting1 from '../../../assets/Photos/Meetingroom/Meetings1-new.jpg'
 import meeting2 from '../../../assets/Photos/Meetingroom/Meetings2-new.jpg'

@@ -1,7 +1,7 @@
 import styles from './auditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import earth from '../../../components/Figures/earth3.png'
+import earth from '../../../components/Figures/earth-new.jpg'
 
 import auditory1 from '../../../assets/Photos/Auditory/Auditorio1-new.jpg'
 import auditory2 from '../../../assets/Photos/Auditory/Auditorio2-new.jpg'
