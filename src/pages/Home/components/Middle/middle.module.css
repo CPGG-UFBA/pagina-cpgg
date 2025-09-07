@@ -74,7 +74,7 @@
 .static > strong {
   font-size: 90px;
   line-height: 1.6;
-  background: -webkit-linear-gradient(#2c66b8, #8859ec);
+  background: -webkit-linear-gradient(#2c66b8, #080B5E);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -90,7 +90,7 @@
 .enjoy > strong {
   font-size: 30px; 
   line-height: 1.6;
-  background: -webkit-linear-gradient(#2c66b8, #8859ec);
+  background: -webkit-linear-gradient(#2c66b8, #080B5E);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
