@@ -25,7 +25,7 @@
   justify-content: center;
   display: flex;
   font-size: 18px;
-  color: hsl(var(--foreground));
+  color: #fff;
   font-weight: bold;
   margin-top: 30px;
   margin-left:-205px;
@@ -55,7 +55,7 @@
   postion: absolute;
   display: flex;
   font-size: 22px;
-  color: hsl(var(--foreground));
+  color: #fff;
   font-weight: bold;
   margin-top: -6px;
   margin-left: 100px;
@@ -76,7 +76,7 @@
 .deliberative  h1{
   display: flex;
   font-size: 22px;
-  color: hsl(var(--foreground));
+  color: #fff;
   font-weight: bold;
   margin-top:-5px;
   margin-left: 100px;
