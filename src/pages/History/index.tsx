@@ -1,10 +1,36 @@
-import styles from './History.module.css';
+import styles from './history.module.css';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import earth from '../../components/Figures/earth3.png'
 
-export function History() {
+export  function History() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>História</h1>
-      <p className={styles.content}>História da instituição.</p>
-    </div>
+      <>
+      <Header/>
+          <div className={styles.history}>
+              <h1 className={styles.title}>Nossa História </h1>
+
+              <div className={styles.container}>
+                  <a className={styles.card} href="history/Former">
+                      <div className={styles.headers}>
+                          <h2>Coordenadores do CPGG</h2>
+                      </div>
+                  </a>
+
+
+
+                  <a className={styles.card} href="/src/assets/PDF/PDF_history.pdf" target="_blank" rel="noopener noreferrer">
+                      <div className={styles.document}>
+                          <h2> A História do CPGG (por Dr. Olivar Lima)</h2>
+                      </div>
+                  </a>
+                  <div className={styles.staticFigure}>
+                    <img src={earth} alt='Terra' />
+                 </div>
+              </div>
+          </div>
+         
+          <Footer/>
+      </>
   )
 }
