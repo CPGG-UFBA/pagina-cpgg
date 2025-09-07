@@ -1,83 +1,64 @@
-import fachada1 from '../../assets/Photos/CPGG/fachada1.png';
-import fachada2 from '../../assets/Photos/CPGG/fachada2.png';
-import entrada1 from '../../assets/Photos/CPGG/entrada1.png';
-import cpggStatic from '../../components/Figures/cpgg-static.png';
-import styles from './CPGG.module.css';
+import styles from './cpgg.module.css'
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import earth from '../../components/Figures/earth3.png'
 
 export function CPGG() {
   return (
-    <div className={styles.container}>
-      {/* Title */}
-      <div className={styles.titleContainer}>
-        <ul className={styles.title}>
-          <li>O CPGG</li>
-        </ul>
-      </div>
-
-      {/* Main Content Box */}
-      <div className={styles.mainContent}>
-        <p>
-          O Centro de Pesquisa em Geofísica e Geologia (CPGG) é uma instituição de excelência acadêmica 
-          e científica, dedicada ao avanço do conhecimento nas ciências da Terra. Fundado com o objetivo 
-          de promover pesquisa de ponta e formar recursos humanos altamente qualificados, o CPGG tem se 
-          destacado como referência nacional e internacional.
-        </p>
-        <p>
-          Nossa missão é desenvolver pesquisas inovadoras em geofísica e geologia, contribuindo para 
-          o entendimento dos processos terrestres e suas aplicações práticas. Trabalhamos em estreita 
-          colaboração com instituições nacionais e internacionais, promovendo o intercâmbio científico 
-          e tecnológico.
-        </p>
-        <p>
-          O CPGG conta com uma equipe de pesquisadores altamente qualificados, laboratórios modernos 
-          e equipamentos de última geração. Nossos programas de pós-graduação em Geofísica e Geologia 
-          são reconhecidos pela CAPES e formam mestres e doutores que atuam em todo o Brasil e exterior.
-        </p>
-        <p>
-          Entre nossas principais linhas de pesquisa estão: exploração de recursos naturais, 
-          geofísica ambiental, sismologia, geologia estrutural, hidrogeologia, geoquímica e 
-          modelagem computacional. Nossos projetos contribuem diretamente para o desenvolvimento 
-          sustentável e a solução de problemas socioambientais.
-        </p>
-      </div>
-
-      {/* Image Box 1 */}
-      <div 
-        className={styles.imageBox1}
-        style={{ backgroundImage: `url(${fachada1})` }}
-      >
-        <div className={styles.legend1}>
-          Fachada principal do CPGG - Vista externa do prédio que abriga nossa instituição
+    <>
+      <Header />
+      <div className={styles.cpgg}>
+        <div className={styles.Title} >
+          <ul> O CPGG </ul>
+          <div className={styles.box}>
+          <p>
+              O Centro de Pesquisa em Geofísica e Geologia (CPGG/UFBA) é um órgão complementar
+              da UFBA vinculado aos Institutos de Geociências e de Física através da Resolução nº 02/2011 do 
+              Conselho Universitário. Foi reestruturado em março de 1997 visando, sobretudo, institucionalizar e suceder o Programa de Pesquisa e Pós-Graduação em Geofísica da Universidade Federal da Bahia (PPPG/UFBA), criado no ano de 1969 pelo prof. Carlos Alberto Dias. Tem como filosofia desenvolver programas interdisciplinares de pesquisa científica, assim
+              como, fomentar o desenvolvimento da qualificação pessoal. 
+            </p>
+            <br></br>
+            <p>
+              O objetivo do CPGG é também continuar atuando como uma interface entre o setor industrial,
+              organizações governamentais e a Universidade Federal da Bahia, por meio das suas áreas
+              específicas de pesquisa tendo em vista a geração de oportunidades educacionais em nível
+              de pós-graduação, e iniciação científica para a graduação; a disseminação do conhecimento
+              através da transferência de tecnologia para a sociedade; tendo para isso uma estrutura
+              administrativa adequada para dar suporte a novas áreas de pesquisa.
+            </p>
+            <br></br>
+            <p>
+              Além de dar suporte aos cursos de doutorado, mestrado e graduação em Geofísica
+              e em Geologia, o CPGG, a partir de 1999, deu início a um programa de Educação Continuada
+              a nível de especialização com dois cursos em Sistemas Petrolíferos com ênfase em bacias
+              sedimentares brasileiras e caracterização de reservatórios, dirigida ao pessoal da
+              indústria.
+           </p>
+            <br></br>
+            <p> 
+              Após uma pausa de 5 anos, o CPGG voltou a ter seu corpo de pesquisadores ativo, agora sob
+              a coordenação dos professsores Marcos Vasconcelos e Ruy Kikuchi. Um novo credenciamento foi
+              realizado, de maneira que no momento atual, o órgão conta com 31 pesquisadores distribuídos em
+             cinco Programas de Pesquisa. O momento atual impele o CPGG a despertar o interesse de novos pesquisadores, com o intuito de somar esforços para construir um Centro mais forte, e proporcionando recursos para desenvolvimento de pesquisas de ponta.
+             </p>
+            
+            <div className={styles.box1}>
+              <h4 className={styles.legend1}>Fachada da sede do CGG em primeiro ângulo</h4>
+            </div>
+            <div className={styles.box2}>
+              <h4 className={styles.legend2}>Fachada da sede do CGG em segundo ângulo</h4>
+            </div>
+            <div className={styles.box3}>
+              <h4 className={styles.legend3}>Hall de acesso da sede do CPGG</h4>
+            </div>
+          </div>
+          <div className={styles.staticFigure}>
+            <img src={earth} alt='Terra' />
+          </div>
         </div>
       </div>
-
-      {/* Image Box 2 */}
-      <div 
-        className={styles.imageBox2}
-        style={{ backgroundImage: `url(${fachada2})` }}
-      >
-        <div className={styles.legend2}>
-          Vista lateral do complexo - Área de convivência e laboratórios
-        </div>
-      </div>
-
-      {/* Image Box 3 */}
-      <div 
-        className={styles.imageBox3}
-        style={{ backgroundImage: `url(${entrada1})` }}
-      >
-        <div className={styles.legend3}>
-          Entrada principal - Acesso ao hall de recepção e auditório
-        </div>
-      </div>
-
-      <div className={styles.staticFigure}>
-        <img 
-          src={cpggStatic} 
-          alt="CPGG Static" 
-          className={styles.staticImage}
-        />
-      </div>
-    </div>
+      <Footer />
+    </>
   )
 }
+

@@ -1,215 +1,206 @@
-/* CPGG Page Styles */
-.container {
+.cpgg{
   text-align: justify;
-  font-size: 1.125rem;
+  font-size: 18px;
   line-height: 35px;
+  column-count: 1;
   display: flex;
   flex: 1;
-  color: white;
-  padding-top: 35px;
+  color: #fff;
+  padding-top: 140px;
   padding-bottom: 543px;
   padding-left: 280px;
   padding-right: 200px;
-}
-
-@media (min-width: 1024px) {
-  .container {
-    padding-bottom: 700px;
   }
-}
 
-@media (min-width: 768px) {
-  .container {
-    padding-bottom: 700px;
+
+.Title ul {
+    font-size: 35px;
+    color: #363F5;
+    margin-top: -10px; 
+    padding-left: 300px;
+    padding-bottom: 50px;
+    white-space: nowrap;
+    font-weight: bold;
   }
-}
 
-@media (max-width: 480px) {
-  .container {
-    padding-bottom: 700px;
+.box  {
+    text-align: justify-all;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.2);
+    position: absolute;
+    width: 900px;
+    height: 500px;
+    top: 20%; 
+    left:2%;
+    padding: 20px;
+    padding-left: 350px;
+    border-radius: 20px;
+    gap: 5px;
+    margin-bottom: -500px;
+    overflow-y: scroll;
   }
-}
 
-.titleContainer {
-  /* Title container */
-}
 
-.title {
-  font-size: 35px;
-  color: var(--gray-contact);
-  margin-top: -0.5rem;
-  padding-left: 300px;
-  padding-bottom: 3rem;
-  white-space: nowrap;
-  font-weight: bold;
-}
 
-@media (min-width: 1024px) {
-  .title {
-    padding-left: 200px;
-  }
-}
-
-@media (min-width: 768px) {
-  .title {
-    padding-left: 200px;
-    margin-top: -2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .title {
-    padding-left: 200px;
-    margin-top: -2rem;
-  }
-}
-
-.mainContent {
-  text-align: justify;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
-  position: absolute;
-  width: 900px;
-  height: 125px;
-  top: 20%;
-  left: 2%;
-  padding: 1.25rem;
-  padding-left: 350px;
-  border-radius: 20px;
-  gap: 0.25rem;
-  margin-bottom: -125px;
-  overflow-y: scroll;
-}
-
-@media (min-width: 1024px) {
-  .mainContent {
-    top: 15%;
-  }
-}
-
-@media (min-width: 768px) {
-  .mainContent {
-    top: 15%;
-    height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .mainContent {
-    height: 1000px;
-    top: 25%;
-    left: 15%;
-  }
-}
-
-.imageBox1 {
+.box1 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 300px;
   height: 300px;
-  top: 3%;
-  left: 2%;
-  padding: 0.5rem;
+  top: 3%; 
+  left:2%;
+  padding: 10px;
   border-radius: 20px;
-  gap: 0.25rem;
-  margin-bottom: -25px;
-  background-size: cover;
-  background-position: center;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('https://imgur.com/fQMNk9Y') center/cover;
 }
 
 .legend1 {
-  position: absolute;
-  font-size: 0.75rem;
-  right: 0.5rem;
-  left: 0.5rem;
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
   top: 300px;
+	position: absolute;
 }
 
-.imageBox2 {
+
+.box2 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 300px;
   height: 300px;
-  top: 85%;
-  left: 2%;
-  padding: 0.5rem;
+  top: 85%; 
+  left:2%;
+  padding: 10px;
   border-radius: 20px;
-  gap: 0.25rem;
-  margin-bottom: -25px;
-  background-size: cover;
-  background-position: center;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('https://imgur.com/RKAvYyR') center/cover;
 }
+
 
 .legend2 {
-  position: absolute;
-  font-size: 0.75rem;
-  right: 0.5rem;
-  left: 0.5rem;
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
   top: 300px;
+	position: absolute;
 }
 
-.imageBox3 {
+
+.box3 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 300px;
   height: 300px;
-  top: 165%;
-  left: 2%;
-  padding: 0.5rem;
+  top: 165%; 
+  left:2%;
+  padding: 10px;
   border-radius: 20px;
-  gap: 0.25rem;
-  margin-bottom: -25px;
-  background-size: cover;
-  background-position: center;
+  gap: 5px;
+  margin-bottom: -100px;
+  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
+  url('https://imgur.com/7oNBqkd') center/cover;
 }
+
 
 .legend3 {
-  position: absolute;
-  font-size: 0.75rem;
-  right: 0.5rem;
-  left: 0.5rem;
+  font-size: 12px;
+  right: 10px;
+  left: 10px;
   top: 300px;
+	position: absolute;
 }
 
-.staticFigure {
-  /* Static figure container */
-}
-
-@media (min-width: 1024px) {
-  .staticFigure {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) {
-  .staticFigure {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .staticFigure {
-    display: none;
-  }
-}
-
-.staticImage {
+.staticFigure img {
   height: 40rem;
   margin-top: -83px;
   padding-left: 710px;
-  margin-bottom: -125px;
+  margin-bottom: -500px;
+}
+
+/*---------------------*/
+
+@media (max-width: 1024px) {
+  .staticFigure {
+    display: none;
+  }
+
+  .cpgg{
+    padding-bottom: 700px;
+    }
+
+  .box {
+    top: 15%;
+  }
+
+  .Title ul {
+    padding-left: 200px;
+  }
+
+}
+
+
+@media (max-width: 780px) {
+  .staticFigure {
+    display: none;
+  }
+
+  .cpgg{
+    padding-bottom: 700px;
+    }
+
+  .box {
+    top: 15%;
+    height: 800px;
+  }
+
+  .Title ul {
+    padding-left: 200px;
+    margin-top: -30px; 
+
+  }
+
+}
+
+
+
+@media (max-width: 400px) {
+  .staticFigure {
+    display: none;
+  }
+
+  .cpgg{
+    padding-bottom: 700px;
+    }
+
+  .box {
+    height: 1000px;
+    top: 25%;
+    left: 15%; 
+  }
+
+  .Title ul {
+    padding-left: 200px;
+    margin-top: -30px; 
+
+  }
+
 }
