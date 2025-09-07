@@ -1,429 +1,155 @@
+.technicians {
+  background: hsl(var(--page-background));
+  min-height: 100vh;
+  padding: 2rem;
+}
+
 .Employees{
-  column-count: 3;
-  column-gap: 3rem;
   display: flex;
-  flex: 1;
-  overflow: visible;
-  justify-content: center;
-  color: #fff;
+  flex-direction: column;
+  align-items: center;
+  color: white;
   padding-top: 150px;
-  padding-bottom: 550px;
-  padding-left: 830px;
-  padding-right: 8px;
+  padding-bottom: 100px;
   }
 
   .Employees ul {
     font-size: 24px;
-    color: #363F5; 
-    margin-left: -900px;
-    margin-top: -20px;
+    color: white; 
+    margin-bottom: 40px;
     white-space: nowrap;
     font-weight: 600;
+    text-align: center;
   }
 
-.Secretary  h1{
-  display: flex;
-  max-width:10px;
-  font-size: 20px;
-  color: #363F5;
+  .techniciansGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+.Secretary h1,
+.TI h1,
+.Driver h1,
+.Lab h1 {
+  font-size: 18px;
+  color: white;
   font-weight: bold;
-  margin-top: 65px;
-  margin-left: -50rem;
-  padding-left: 20px;
-  white-space: nowrap;
-}
-
-.Secretary   a{
-  display: flex;
-  font-size: 14px;
-  margin-left: -47rem;
-  margin-top: 18px;
-  white-space: nowrap;
-}
-
-
-.TI  h1{
-  display: flex;
-  font-size: 20px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top:-1px;
-  margin-left: -1rem;
-  padding-left:85px;
-  white-space: nowrap;
-}
-
-
-.TI   a{
-  display: flex;
-  font-size: 14px;
-  margin-left: 3rem;
-  margin-top: 20px;
-  white-space: nowrap;
-}
-
-
-.Driver  h1{
-  display: flex;
-  font-size: 20px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 1px;
-  margin-left: 3rem;
-  padding-left:50px;
-  white-space: nowrap;
-}
-
-.Driver   a{
-  display: flex;
-  font-size: 14px;
-  margin-left: 5rem;
-  margin-top: 20px;
-  margin-bottom: 150px;
-  white-space: nowrap;
-}
-
-
-.Lab  h1{
-  display: flex;
-  font-size: 20px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 1px;
-  margin-left: 1.5rem;
-  padding-left:20px;
-  white-space: nowrap;
-}
-
-.Lab   a{
-  display: flex;
-  font-size: 14px;
-  margin-left: 4rem;
-  margin-top: 20px;
-  margin-bottom: 150px;
-  white-space: nowrap;
-}
-
-.box1 {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 300px;
-  height: 320px;
-  top: 22%; 
-  left:10%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
+  margin: 10px 0;
+  white-space: nowrap;
 }
 
-.box2 {
+.Secretary a,
+.TI a,
+.Driver a,
+.Lab a {
+  font-size: 14px;
+  color: white;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 300px;
-  height: 320px;
-  top: 22%; 
-  left:30%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
+  margin: 5px 0;
+  white-space: nowrap;
 }
 
-.box3 {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 300px;
-  height: 320px;
-  top: 22%; 
-  left:50%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
-}
 
+
+.box1,
+.box2,
+.box3,
 .box4 {
   text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
   width: 300px;
-  height: 320px;
-  top: 22%; 
-  left:70%;
-  padding: 10px;
+  height: 380px;
+  padding: 20px;
   border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
+  gap: 10px;
+  position: relative;
+}
+
+.photobox1,
+.photobox2,
+.photobox3,
+.photobox4 {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 10px 0;
+  background-size: cover;
+  background-position: center;
+  border: 3px solid rgba(255,255,255,.3);
 }
 
 .photobox1 {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 33%; 
-  left:13%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
-  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/Technicians/Lene.png') center/cover;
+  background-image: url('/src/assets/Photos/Technicians/Lene.png');
 }
 
 .photobox2 {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 32%; 
-  left:13%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
-  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/Technicians/Bianca.png') center/cover;
+  background-image: url('/src/assets/Photos/Technicians/Bianca.png');
 }
 
 .photobox3 {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 32%; 
-  left:16%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
-  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/Technicians/Mota.png') center/cover;
+  background-image: url('/src/assets/Photos/Technicians/Mota.png');
 }
 
 .photobox4 {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  top: 32%; 
-  left:17%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
-  margin-bottom: -100px;
-  background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
-  url('/src/assets/Photos/Technicians/Michel.png') center/cover;
+  background-image: url('/src/assets/Photos/Technicians/Michel.png');
 }
 
 
 
 @media (max-width: 1200px) {
-  .box {
-   width: 940px;
-   left: 5%;
-   overflow-y: scroll;
-   height: 700px;
-   top: 200px;
+  .techniciansGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
- 
-.Secretary h1 {
-  margin-top: 70px;
-  margin-left: -33rem;
-
 }
-
-.Secretary a {
-
-  margin-left: -30rem;
-}
-
-.Employees {
-  padding-bottom: 65%;
-}
-.photobox1 {
-  top: 22.5%;
-  left: 15%;
-}
-.box1 {
-
-    top: 15%; 
-   
-  }
-
-.box2 {
-
-    top: 15%;
-    left: 50%; 
-   
-  }
-
-
-.box3 {
-
-  top: 40%; 
-  left:10%;
- 
-}
-
-.box4 {
-
-  top: 40%; 
-  left:50%;
- 
-}
-
-}
-
-
-
 
 @media (max-width: 800px) {
+  .Employees {
+    padding-top: 100px;
+    padding-bottom: 50px;
+  }
   
- 
-.Secretary h1 {
-  margin-top: 70px;
-  margin-left: -38rem;
-
-}
-
-.Secretary a {
-
-  margin-left: -35rem;
-}
-
-.Employees {
-  padding-bottom: 80%;
-}
-
-
-.Employees ul {
-  margin-left: -550px;
-}
-
-.photobox1 {
-  top: 30%;
-  left: 20%;
-}
-.box1 {
-
-    top: 20%;
-    left: 15%; 
-   
+  .techniciansGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
-
-.box2 {
-
-    top: 20%;
-    left: 70%; 
-   
+  
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
+    width: 280px;
+    height: 350px;
   }
-
-
-.box3 {
-
-  top: 55%; 
-  left:15%;
- 
 }
-
-.box4 {
-
-  top: 55%; 
-  left:70%;
- 
-}
-
-}
-
-
 
 @media (max-width: 400px) {
-  
- 
-  .Secretary h1 {
-    margin-top: 130px;
-    margin-left: -36rem;
-  
-  }
-  
-  .Secretary a {
-  
-    margin-left: -33rem;
-  }
-  
   .Employees {
-    padding-bottom: 320%;
+    padding: 80px 1rem 50px 1rem;
   }
   
-  
-  .Employees ul {
-    margin-left: -550px;
-  }
-  
-  .photobox1 {
-    top: 54%;
-    left: 56%;
-  }
-  .box1 {
-  
-      top: 40%;
-      left: 40%; 
-     
-    }
-  
-  .box2 {
-  
-      top: 40%;
-      left: 150%; 
-     
-    }
-  
-  
-  .box3 {
-  
-    top: 100%; 
-    left:40%;
-   
-  }
-  
+  .box1,
+  .box2,
+  .box3,
   .box4 {
-  
-    top: 100%; 
-    left:150%;
-   
+    width: 250px;
+    height: 320px;
   }
   
-  } 
+  .photobox1,
+  .photobox2,
+  .photobox3,
+  .photobox4 {
+    width: 120px;
+    height: 120px;
+  }
+}
