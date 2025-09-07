@@ -2,7 +2,7 @@ import styles from './Contact.module.css'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import earth from '../../components/Figures/earth3.png'
-import Whats from '../../components/Figures/whatsapp-icon.png'
+import Whats from '../../components/Figures/whatsapp-new.png'
 
 
 export function Contact() {
