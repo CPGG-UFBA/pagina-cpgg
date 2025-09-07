@@ -48,7 +48,7 @@ All colors MUST be HSL.
     
     /* Custom gradients */
     --gradient-blue-purple: linear-gradient(135deg, #2c66b8, #8859ec);
-    --gradient-main-bg: linear-gradient(135deg, #1e3a8a, #3730a3, #581c87);
+    --gradient-main-bg: hsl(238, 84%, 20%);
     
     /* Glass morphism colors */
     --glass-border: 0 0% 100% / 0.2;
