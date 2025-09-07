@@ -1,4 +1,4 @@
-import styles from './regulations.module.css';
+import styles from './Regulations.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import earth from '../../components/Figures/earth3.png'
