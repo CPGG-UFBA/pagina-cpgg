@@ -31,6 +31,7 @@
     position: absolute;
     margin-left: -1500px;
     margin-top: 250px;
+    z-index: 10;
   }
 
   .whatsappLink {
@@ -78,6 +79,10 @@
   padding-left: 275px;
   margin-bottom: -350px;
   margin-top: -20px;
+}
+
+.staticFigure {
+  pointer-events: none;
 }
 
 /*--------------------*/
