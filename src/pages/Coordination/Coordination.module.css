@@ -1,221 +1,219 @@
-/* Coordination Page Styles */
-.container {
-  padding-bottom: 206px;
+.heads {
+  padding-bottom: 825px;
+  
+}
+.coordination{
+  column-count: 1;
+  display: flex;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  padding-left: 730px;
+  padding-right: 8px;
+  }
+
+.coordination ul{
+  postion: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: -600px;
+  margin-top: -20px;
+}
+.chief h1{
+  postion: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left:-205px;
 }
 
-@media (min-width: 1024px) {
-  .container {
-    margin-bottom: 30px;
+.chief a{
+  postion: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: -175px;
+  margin-top: 20px;
+  white-space: nowrap;
+}
+
+.chief b{
+  postion: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: -190px;
+  margin-top: 20px;
+  white-space: nowrap;
+}
+
+.scientific  h1{
+  postion: absolute;
+  display: flex;
+  font-size: 22px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top: -6px;
+  margin-left: 100px;
+  white-space: nowrap;
+}
+
+
+.scientific   a{
+  text-align: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: 30px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+
+.deliberative  h1{
+  display: flex;
+  font-size: 22px;
+  color: #363F5;
+  font-weight: bold;
+  margin-top:-5px;
+  margin-left: 100px;
+}
+
+.deliberative   a{
+  text-align: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.box1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  top: 15%; 
+  left:5%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+
+.box2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 400px;
+  height: 500px;
+  top: -1%; 
+  left:120%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+
+.box3 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 400px;
+  height: 450px;
+  top: -1%; 
+  left:240%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+}
+
+
+@media (max-width: 1200px) {
+
+  .box1 {
+    left: 30%;
+  }
+
+  .box2{
+    left: -55%;
+    top: 115%;
+
+  }
+
+  .box3 {
+    left: 55%;
+    top: 115%;
+    height: 500px;
+  }
+
+  .heads {
+    margin-bottom: 120px;
   }
 }
 
-@media (min-width: 768px) {
-  .container {
+
+
+
+@media (max-width: 800px) {
+
+  .box1 {
+    left: 40%;
+  }
+
+  .box2{
+    left: -60%;
+
+  }
+
+  .box3 {
+    left: 55%;
+    top: 115%;
+
+  }
+
+  .heads {
     margin-bottom: 90px;
   }
 }
 
-@media (max-width: 480px) {
-  .container {
-    margin-bottom: 750px;
-  }
-}
 
-.headerContainer {
-  display: flex;
-  color: white;
-  padding-top: 1rem;
-  padding-bottom: 3rem;
-  margin-bottom: 3rem;
-  padding-left: 730px;
-  padding-right: 0.5rem;
-}
 
-.mainTitle {
-  position: absolute;
-  font-size: 22px;
-  font-weight: bold;
-  margin-left: -600px;
-  margin-top: -1.25rem;
-}
 
-.coordinationBox {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
-  position: absolute;
-  width: 100px;
-  height: 250px;
-  top: 15%;
-  left: 5%;
-  padding: 0.5rem;
-  border-radius: 20px;
-  gap: 0.25rem;
-  margin-bottom: -25px;
-}
+@media (max-width: 400px) {
 
-@media (min-width: 1024px) {
-  .coordinationBox {
-    left: 30%;
-  }
-}
-
-@media (min-width: 768px) {
-  .coordinationBox {
-    left: 40%;
-  }
-}
-
-@media (max-width: 480px) {
-  .coordinationBox {
+  .box1 {
     left: 80%;
     top: 20%;
   }
-}
 
-.chiefTitle {
-  position: absolute;
-  justify-content: center;
-  display: flex;
-  font-size: 1.125rem;
-  color: var(--gray-contact);
-  font-weight: bold;
-  margin-top: 2rem;
-  margin-left: -205px;
-}
-
-.chiefName {
-  position: absolute;
-  justify-content: center;
-  display: flex;
-  font-size: 0.875rem;
-  margin-left: -175px;
-  margin-top: 1.25rem;
-  white-space: nowrap;
-}
-
-.chiefMandate {
-  position: absolute;
-  justify-content: center;
-  display: flex;
-  font-size: 0.875rem;
-  margin-left: -190px;
-  margin-top: 1.25rem;
-  white-space: nowrap;
-}
-
-.scientificBox {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
-  position: absolute;
-  width: 100px;
-  height: 125px;
-  top: -1%;
-  left: 120%;
-  padding: 0.5rem;
-  border-radius: 20px;
-  gap: 0.25rem;
-  margin-bottom: -25px;
-}
-
-@media (min-width: 1024px) {
-  .scientificBox {
-    left: -55%;
-    top: 115%;
-  }
-}
-
-@media (min-width: 768px) {
-  .scientificBox {
-    left: -60%;
-    top: 115%;
-  }
-}
-
-@media (max-width: 480px) {
-  .scientificBox {
+  .box2 {
     left: 1%;
     top: 110%;
   }
-}
 
-.scientificTitle {
-  position: absolute;
-  display: flex;
-  font-size: 22px;
-  color: var(--gray-contact);
-  font-weight: bold;
-  margin-top: -0.25rem;
-  margin-left: 25px;
-  white-space: nowrap;
-}
-
-.scientificMembers {
-  text-align: center;
-  display: flex;
-  font-size: 0.875rem;
-  margin-left: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 2.5rem;
-}
-
-.deliberativeBox {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid var(--glass-border);
-  background: var(--glass-bg);
-  position: absolute;
-  width: 100px;
-  height: 112px;
-  top: -1%;
-  left: 240%;
-  padding: 0.5rem;
-  border-radius: 20px;
-  gap: 0.25rem;
-}
-
-@media (min-width: 1024px) {
-  .deliberativeBox {
-    left: 55%;
-    top: 115%;
-    height: 125px;
-  }
-}
-
-@media (min-width: 768px) {
-  .deliberativeBox {
-    left: 55%;
-    top: 115%;
-  }
-}
-
-@media (max-width: 480px) {
-  .deliberativeBox {
+  .box3 {
     left: 1%;
-    top: 330%;
+    top:330%;
   }
-}
 
-.deliberativeTitle {
-  display: flex;
-  font-size: 22px;
-  color: var(--gray-contact);
-  font-weight: bold;
-  margin-top: -0.25rem;
-  margin-left: 25px;
-}
 
-.deliberativeMembers {
-  text-align: center;
-  display: flex;
-  font-size: 0.875rem;
-  margin-left: 2rem;
-  margin-top: 1.25rem;
-  margin-bottom: 2.5rem;
+  .heads {
+    margin-bottom: 750px;
+  }
 }
