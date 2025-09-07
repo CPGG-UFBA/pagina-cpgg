@@ -1,7 +1,7 @@
 import styles from './Photos.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import earth from '../../assets/earth-new.png'
+import earth from '../../components/Figures/earth3.png'
 
 export  function Photos() {
   return (
