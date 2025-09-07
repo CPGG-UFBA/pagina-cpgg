@@ -63,7 +63,8 @@
 .Whatsapp img {
     height: 40px;
     width: 40px;
-    margin-left: -435px;
+    position: absolute;
+    margin-left: -1545px;
     margin-top: 250px;
   }
 
@@ -100,7 +101,7 @@
   }
 
   .Whatsapp img {
-    margin-left: -500px;
+    margin-left: -1045px;
   }
   .staticFigure img {
     height: 20rem;
@@ -132,7 +133,7 @@
   }
 
   .Whatsapp img {
-    margin-left: -300px;
+    margin-left: -845px;
   }
 
   .staticFigure img {
