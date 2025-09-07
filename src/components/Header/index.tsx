@@ -39,7 +39,7 @@ export function Header() {
           </li>
           <li>
             <NavLink to='/Sign' className={styles.navLink}>
-              Sign
+              Signin
             </NavLink>
           </li>
           <li>
