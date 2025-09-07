@@ -1,10 +1,34 @@
-import styles from './Spaces.module.css';
+import styles from './spaces.module.css';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import earth from '../../components/Figures/earth3.png'
 
-export function Spaces() {
+export  function Spaces() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Espaços</h1>
-      <p className={styles.content}>Página de espaços.</p>
-    </div>
-  );
+      <>
+      <Header/>
+          <div className={styles.spaces}>
+              <h1 className={styles.title}>Espaços e Reservas </h1>
+
+              <div className={styles.container}>
+                  <a className={styles.card} href="Spaces/Auditory">
+                      <div className={styles.auditory}>
+                          <h2>Auditório</h2>
+                      </div>
+                  </a>
+
+                  <a className={styles.card} href="Spaces/MeetingRoom">
+                      <div className={styles.meetingroom}>
+                          <h2>Sala de reuniões</h2>
+                      </div>
+                  </a>
+                  <div className={styles.staticFigure}>
+                    <img src={earth} alt='Terra' />
+                 </div>
+              </div>
+          </div>
+         
+          <Footer/>
+      </>
+  )
 }
