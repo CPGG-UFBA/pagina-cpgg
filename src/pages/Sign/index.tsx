@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styles from './sign.module.css'
-const logocpgg = 'https://imgur.com/6HRTVzo.png';
+import logocpgg from = 'https://imgur.com/6HRTVzo';
 
 
 export function Sign() {
@@ -18,9 +18,9 @@ export function Sign() {
           </div> 
           <div className={styles.login}>
               <li>
-            <NavLink to='/login'> Log in </NavLink>
+            <NavLink to='/Login'> Log in </NavLink>
               </li>
-          </div>
+          </div> 
           
           <h1> Enter your email address to create an account </h1>
           <input type="email"   placeholder="Email address" required></input>
