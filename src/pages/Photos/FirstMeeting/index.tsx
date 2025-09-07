@@ -2,30 +2,29 @@ import styles from './firstmeeting.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 
-import photo1 from '../../../assets/Photos/FirstMeeting/Foto1.png'
-import photo2 from '../../../assets/Photos/FirstMeeting/Foto2.png'
-import photo3 from '../../../assets/Photos/FirstMeeting/Foto3.png'
-import photo4 from '../../../assets/Photos/FirstMeeting/Foto4.png'
-import photo5 from '../../../assets/Photos/FirstMeeting/Foto5.png'
-import photo6 from '../../../assets/Photos/FirstMeeting/Foto6.png'
-import photo7 from '../../../assets/Photos/FirstMeeting/Foto7.png'
-import photo8 from '../../../assets/Photos/FirstMeeting/Foto8.png'
-import photo9 from '../../../assets/Photos/FirstMeeting/Foto9.png'
-import photo10 from '../../../assets/Photos/FirstMeeting/Foto10.png'
-import photo11 from '../../../assets/Photos/FirstMeeting/Foto11.png'
-import photo12 from '../../../assets/Photos/FirstMeeting/Foto12.png'
-import photo13 from '../../../assets/Photos/FirstMeeting/Foto13.png'
-import photo14 from '../../../assets/Photos/FirstMeeting/Foto14.png'
-import photo15 from '../../../assets/Photos/FirstMeeting/Foto15.png'
-import photo16 from '../../../assets/Photos/FirstMeeting/Foto16.png'
-import photo17 from '../../../assets/Photos/FirstMeeting/Foto17.png'
-import photo18 from '../../../assets/Photos/FirstMeeting/Foto18.png'
-import photo19 from '../../../assets/Photos/FirstMeeting/Foto19.png'
-import photo20 from '../../../assets/Photos/FirstMeeting/Foto20.png'
-import photo21 from '../../../assets/Photos/FirstMeeting/Foto21.png'
-import photo22 from '../../../assets/Photos/FirstMeeting/Foto22.png'
-import photo23 from '../../../assets/Photos/FirstMeeting/Foto23.png'
-import photo24 from '../../../assets/Photos/FirstMeeting/Foto24.png'
+import photo1 from ='https://imgur.com/lvESJHN'
+import photo2 from ='https://imgur.com/QaTS5bR'
+import photo3 from = 'https://imgur.com/zobqr2b'
+import photo4 from = 'https://imgur.com/ANSaXpu'
+import photo5 from = 'https://imgur.com/HK3MFA9'
+import photo6 from ='https://imgur.com/YgBtjzG'
+import photo7 from ='https://imgur.com/vaudMVm'
+import photo8 from ='https://imgur.com/vaudMVm'
+import photo9 from ='https://imgur.com/bUI0F8f'
+import photo10 from ='https://imgur.com/8iLDZ3Z'
+import photo11 from ='https://imgur.com/cFsgQ9e'
+import photo12 from ='https://imgur.com/IQgebg3'
+import photo13 from ='https://imgur.com/tLVri9b'
+import photo14 from = 'https://imgur.com/y630kmm'
+import photo15 from ='https://imgur.com/AX8qxQN'
+import photo16 from ='https://imgur.com/5Hyv0FX'
+import photo17 from ='https://imgur.com/dnm4jOl'
+import photo18 from ='https://imgur.com/NRq0yZH'
+import photo19 from ='https://imgur.com/LQXVKTW'
+import photo20 from ='https://imgur.com/T4Y0ouG'
+import photo21 from ='https://imgur.com/kwpibYz'
+import photo22 from ='https://imgur.com/DbgG0FT'
+
 
 
 
@@ -103,12 +102,7 @@ export function FirstMeeting() {
             <div className={styles.photo22}>
               <img src={photo22} alt='Foto22' />
             </div>
-            <div className={styles.photo23}>
-              <img src={photo23} alt='Foto23' />
-            </div>
-            <div className={styles.photo24}>
-              <img src={photo24} alt='Foto24' />
-            </div>
+
             
           </div>
           </div>
