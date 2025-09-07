@@ -14,7 +14,7 @@ export function Coordination() {
             <h1>Coordenador</h1>
               <a> Marcos Alberto Rodrigues Vasconcelos</a>
             <h1>Coordenador Adjunto</h1>
-              <b> Ruy Kenji Papa de Kikuchi</b>
+              <b> Simone Cerqueira Pereira Cruz</b>
           </div>
           </div>
         <div className={styles.box2}>
@@ -27,7 +27,7 @@ export function Coordination() {
               <a>Marcos Alberto Rodrigues Vasconcelos</a>
               <a>Milton José Porsani</a>
               <a> Reynam da Cruz Pestana (rep. pesquisadores sêniores)</a>
-              <a> Ruy Kenji Papa de Kikuchi</a>
+              <a> Simone Cerqueira Pereira Cruz</a>
           </div>
         </div>
           
@@ -35,10 +35,10 @@ export function Coordination() {
           <div className={styles.deliberative}>
             <h1>Conselho Deliberativo</h1>
               <a>Cristóvão de Cássio da Trindade de Brito (presidente)</a>
-              <a>Ricardo Carneiro de Miranda Filho</a>
+              <a>Frederico Vasconcelos Prudente</a>
               <a>Luiz Rogério Bastos Leal (rep. dos pesquisadores)</a>
               <a>Marcos Alberto Rodrigues Vasconcelos</a>
-              <a>Ruy Kenji Papa de Kikuchi</a>
+              <a>Simone Cerqueira Pereira Cruz</a>
               <a>Onofre H. D. J. das Flores (rep. estudantil)</a>
               <a>Leonardo Moreira Batista (suplente estudantil)</a>
           </div>
