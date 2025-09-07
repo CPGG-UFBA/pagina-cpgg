@@ -32,27 +32,7 @@ import photo27 from '../../../assets/Photos/Years/Foto27.png'
 import photo28 from '../../../assets/Photos/Years/Foto28.png'
 import photo29 from '../../../assets/Photos/Years/Foto29.png'
 import photo30 from '../../../assets/Photos/Years/Foto30.png'
-import photo31 from '../../../assets/Photos/Years/Foto31.png'
-import photo32 from '../../../assets/Photos/Years/Foto32.png'
-import photo33 from '../../../assets/Photos/Years/Foto33.png'
-import photo34 from '../../../assets/Photos/Years/Foto34.png'
-import photo35 from '../../../assets/Photos/Years/Foto35.png'
-import photo36 from '../../../assets/Photos/Years/Foto36.png'
-import photo37 from '../../../assets/Photos/Years/Foto37.png'
-import photo38 from '../../../assets/Photos/Years/Foto38.png'
-import photo39 from '../../../assets/Photos/Years/Foto39.png'
-import photo40 from '../../../assets/Photos/Years/Foto40.png'
-import photo41 from '../../../assets/Photos/Years/Foto41.png'
-import photo42 from '../../../assets/Photos/Years/Foto42.png'
-import photo43 from '../../../assets/Photos/Years/Foto43.png'
-import photo44 from '../../../assets/Photos/Years/Foto44.png'
-import photo45 from '../../../assets/Photos/Years/Foto45.png'
-import photo46 from '../../../assets/Photos/Years/Foto46.png'
-import photo47 from '../../../assets/Photos/Years/Foto47.png'
-import photo48 from '../../../assets/Photos/Years/Foto48.png'
-import photo49 from '../../../assets/Photos/Years/Foto49.png'
-import photo50 from '../../../assets/Photos/Years/Foto50.png'
-import photo51 from '../../../assets/Photos/Years/Foto51.png'
+
 
 export function Years() {
   return (
@@ -153,69 +133,7 @@ export function Years() {
             <div className={styles.photo30}>
               <img src={photo30} alt='Foto30' />
             </div>
-            <div className={styles.photo31}>
-              <img src={photo31} alt='Foto31' />
-            </div>
-            <div className={styles.photo32}>
-              <img src={photo32} alt='Foto32' />
-            </div>
-            <div className={styles.photo33}>
-              <img src={photo33} alt='Foto33' />
-            </div>
-            <div className={styles.photo34}>
-              <img src={photo34} alt='Foto34' />
-            </div>
-            <div className={styles.photo35}>
-              <img src={photo35} alt='Foto35' />
-            </div>
-            <div className={styles.photo36}>
-              <img src={photo36} alt='Foto36' />
-            </div>
-            <div className={styles.photo37}>
-              <img src={photo37} alt='Foto37' />
-            </div>
-            <div className={styles.photo38}>
-              <img src={photo38} alt='Foto38' />
-            </div>
-            <div className={styles.photo39}>
-              <img src={photo39} alt='Foto39' />
-            </div>
-            <div className={styles.photo40}>
-              <img src={photo40} alt='Foto40' />
-            </div>
-            <div className={styles.photo41}>
-              <img src={photo41} alt='Foto41' />
-            </div>
-            <div className={styles.photo42}>
-              <img src={photo42} alt='Foto42' />
-            </div>
-            <div className={styles.photo43}>
-              <img src={photo43} alt='Foto43' />
-            </div>
-            <div className={styles.photo44}>
-              <img src={photo44} alt='Foto44' />
-            </div>
-            <div className={styles.photo45}>
-              <img src={photo45} alt='Foto45' />
-            </div>
-            <div className={styles.photo46}>
-              <img src={photo46} alt='Foto46' />
-            </div>
-            <div className={styles.photo47}>
-              <img src={photo47} alt='Foto47' />
-            </div>
-            <div className={styles.photo48}>
-              <img src={photo48} alt='Foto48' />
-            </div>
-            <div className={styles.photo49}>
-              <img src={photo49} alt='Foto49' />
-            </div>
-            <div className={styles.photo50}>
-              <img src={photo50} alt='Foto50' />
-            </div>
-            <div className={styles.photo51}>
-              <img src={photo51} alt='Foto51' />
-            </div>
+            
             
           </div>
           </div>
