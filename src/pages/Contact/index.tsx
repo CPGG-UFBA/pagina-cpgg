@@ -12,7 +12,6 @@ export function Contact() {
     e.preventDefault();
     try {
       if (window.top) {
-        // Try direct wa.me first
         window.top.location.href = whatsappDirectUrl;
         return;
       }
@@ -20,14 +19,6 @@ export function Contact() {
     const win = window.open(whatsappWebUrl, '_blank', 'noopener,noreferrer');
     if (!win) {
       window.location.href = whatsappWebUrl;
-    }
-  };
-  const copyWhatsLink = async () => {
-    try {
-      await navigator.clipboard.writeText(whatsappDirectUrl);
-      alert('Link do WhatsApp copiado. Cole na barra do navegador caso o preview bloqueie.');
-    } catch {
-      alert('Não foi possível copiar. Use: ' + whatsappDirectUrl);
     }
   };
   return (
@@ -38,11 +29,10 @@ export function Contact() {
           <p> secretaria.cpgg.ufba@gmail.com</p>
 
           <div className={styles.whatsappSection}>
-            <a href={whatsappDirectUrl} target="_blank" rel="noopener noreferrer" className={styles.whatsappLink} onClick={handleOpenWhatsApp} aria-label="Abrir WhatsApp Web">
+            <a href={whatsappDirectUrl} target="_blank" rel="noopener noreferrer" className={styles.whatsappLink} onClick={handleOpenWhatsApp} aria-label="Abrir WhatsApp">
               <img src={Whats} alt='Whatsapp' className={styles.whatsappIcon} />
-              <span> Whats app us </span>
+              <span>Whats app us</span>
             </a>
-            <button type="button" className={styles.copyBtn} onClick={copyWhatsLink} aria-label="Copiar link do WhatsApp">Copiar link</button>
           </div>
           <b> +55(71)3283-8531</b>
           <p className={styles.address}> R. Barão de Jeremoabo, s/n - Ondina, Salvador - BA, 40170-290</p>
