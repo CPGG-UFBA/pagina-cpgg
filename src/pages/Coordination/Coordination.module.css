@@ -5,7 +5,7 @@
 .coordination{
   column-count: 1;
   display: flex;
-  color: hsl(var(--foreground));
+  color: hsl(0 0% 100%);
   padding-top: 15px;
   padding-bottom: 50px;
   margin-bottom: 50px;
@@ -19,14 +19,14 @@
   font-weight: bold;
   margin-left: -600px;
   margin-top: -20px;
-  color: hsl(var(--foreground));
+  color: hsl(0 0% 100%);
 }
 .chief h1{
   postion: absolute;
   justify-content: center;
   display: flex;
   font-size: 18px;
-  color: #fff;
+  color: hsl(0 0% 100%);
   font-weight: bold;
   margin-top: 30px;
   margin-left:-205px;
@@ -40,7 +40,7 @@
   margin-left: -175px;
   margin-top: 20px;
   white-space: nowrap;
-  color: hsl(var(--foreground));
+  color: hsl(0 0% 100%);
 }
 
 .chief b{
@@ -51,14 +51,14 @@
   margin-left: -190px;
   margin-top: 20px;
   white-space: nowrap;
-  color: hsl(var(--foreground));
+  color: hsl(0 0% 100%);
 }
 
 .scientific  h1{
   postion: absolute;
   display: flex;
   font-size: 22px;
-  color: #fff;
+  color: hsl(0 0% 100%);
   font-weight: bold;
   margin-top: -6px;
   margin-left: 100px;
@@ -73,14 +73,14 @@
   margin-left: 30px;
   margin-top: 15px;
   margin-bottom: 40px;
-  color: hsl(var(--foreground));
+  color: hsl(0 0% 100%);
 }
 
 
 .deliberative  h1{
   display: flex;
   font-size: 22px;
-  color: #fff;
+  color: hsl(0 0% 100%);
   font-weight: bold;
   margin-top:-5px;
   margin-left: 100px;
@@ -93,7 +93,7 @@
   margin-left: 30px;
   margin-top: 20px;
   margin-bottom: 40px;
-  color: hsl(var(--foreground));
+  color: hsl(0 0% 100%);
 }
 
 .box1 {
