@@ -8,20 +8,19 @@ export function Marcos() {
     <>
       <Header />
       <div>
-        <div className={styles.Professor} style={{ backgroundImage: `url(${earth})` }}>
-          <div className={styles.box2}>
-          </div>
+        <div className={styles.Professor} >
+          <p> Marcos Alberto Rodrigues Vasconcelos </p>
           <div className={styles.box1}>
-            <p>Marcos Alberto Rodrigues Vasconcelos</p>
-            <div className={styles.content}>
-              Possui graduação em Geologia pela Universidade Federal da Bahia (1994), mestrado em Geologia pela Universidade Federal da Bahia (1997) e doutorado em Geociências pela Universidade Federal da Bahia (2002). Atualmente é professor associado da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Geologia Estrutural, atuando principalmente nos seguintes temas: análise estrutural, tectônica, metamorfismo e evolução crustal.
-            </div>
-            <ul>Link para Currículo Lattes</ul>
+          Possui graduação em Geologia pela Universidade Federal da Bahia (1994), mestrado em Geologia pela Universidade Federal da Bahia (1997) e doutorado em Geociências pela Universidade Federal da Bahia (2002). Atualmente é professor associado da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Geologia Estrutural, atuando principalmente nos seguintes temas: análise estrutural, tectônica, metamorfismo e evolução crustal.
+            <ul> Link para Currículo Lattes</ul>
+
             <nav>
-              <a href="http://lattes.cnpq.br/4567890123456789" target="_blank">Currículo</a>
-            </nav>
-            <b>email</b>
-            <p>marcos@ufba.br</p>
+             <a href="http://lattes.cnpq.br/4567890123456789" target="_blank">Currículo</a>
+           </nav>
+           <b> email</b>
+           <p>marcos@ufba.br</p> 
+            <div className={styles.box2}>
+            </div>
           </div>
           <div className={styles.staticFigure}>
             <img src={earth} alt="Terra" />
