@@ -1,63 +1,33 @@
-import whatsappIcon from "../../components/Figures/whatsapp-icon.png";
-import contactFigure from "../../components/Figures/contact-figure.png";
-import styles from './Contact.module.css';
+import styles from './contact.module.css'
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import earth from '../../components/Figures/earth3.png'
+import Whats from '../../components/Figures/Whats.png'
+
 
 export function Contact() {
   return (
-    <div className={styles.container}>
-      <div className={styles.contentWrapper}>
-        {/* Contact List */}
-        <ul className={styles.title}>
-          <li>Contatos</li>
-        </ul>
+    <>
+      <Header />
+      <div className={styles.contact}>
+          <ul> Contact us by e-mail </ul>
+          <p> secretaria.cpgg.ufba@gmail.com</p>
 
-        {/* Contact Information */}
-        <p className={styles.description}>
-          Entre em contato conosco:
-        </p>
+          <a> Whats app us </a>
+          <b> +55(71)3283-8531</b>
+          <c> R. Barão de Jeremoabo, s/n - Ondina, Salvador - BA, 40170-290</c>
+          <f> Bloco E- Anexo ao Instituto de Geociências</f>
 
-        {/* Phone/Email Link */}
-        <a 
-          href="mailto:cpgg@ufba.br" 
-          className={styles.emailLink}
-        >
-          cpgg@ufba.br
-        </a>
+          <div className={styles.Whatsapp}>
+            <img src={Whats} alt='Whatsapp' />
+          </div>
 
-        <div className={styles.address}>
-          Rua Barão de Jeremoabo, S/N - Ondina
+          <div className={styles.staticFigure}>
+            <img src={earth} alt='Terra' />
+          </div>
         </div>
-
-        <div className={styles.phone}>
-          Tel: (71) 3283-8500/8501
-        </div>
-
-        <div className={styles.cep}>
-          Salvador - Bahia - CEP: 40170-110
-        </div>
-
-        <div className={styles.whatsappContainer}>
-          <a 
-            href="https://web.whatsapp.com/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            <img 
-              src={whatsappIcon} 
-              alt="WhatsApp" 
-              className={styles.whatsappIcon}
-            />
-          </a>
-        </div>
-
-        <div className={styles.imageContainer}>
-          <img 
-            src={contactFigure} 
-            alt="Contact" 
-            className={styles.contactImage}
-          />
-        </div>
-      </div>
-    </div>
+        
+      <Footer />
+    </>
   )
 }
