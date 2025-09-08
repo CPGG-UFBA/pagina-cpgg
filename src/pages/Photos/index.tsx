@@ -11,29 +11,31 @@ export  function Photos() {
                <h1 className={styles.title}>Fotos de eventos </h1>
 
                <div className={styles.container}>
-                   <a className={styles.card} href="Photos/HistoricalPhotos">
-                       <div className={styles.historical}>
-                           <h2>Históricas</h2>
-                       </div>
-                   </a>
-
-                   <a className={styles.card} href="Photos/Years">
-                       <div className={styles.fifthy}>
-                           <h2> 50 anos - Pós-Graduação em Geofísica</h2>
-                       </div>
-                   </a>
+                   <div className={styles.leftColumn}>
+                       <a className={styles.card} href="Photos/HistoricalPhotos">
+                           <div className={styles.historical}>
+                               <h2>Históricas</h2>
+                           </div>
+                       </a>
+                       
+                       <a className={styles.card} href="Photos/FirstMeeting">
+                           <div className={styles.reopen}>
+                               <h2>Primeira reunião geral- retorno das atividades do CPGG</h2>
+                           </div>
+                       </a>
+                   </div>
+                   
+                   <div className={styles.rightColumn}>
+                       <a className={styles.card} href="Photos/Years">
+                           <div className={styles.fifthy}>
+                               <h2>50 anos - Pós-Graduação em Geofísica</h2>
+                           </div>
+                       </a>
+                   </div>
                    
                    <div className={styles.staticFigure}>
                      <img src={earth} alt='Terra' />
                    </div>
-               </div>
-
-               <div className={styles.containerSecondRow}>
-                   <a className={styles.card} href="Photos/FirstMeeting">
-                       <div className={styles.reopen}>
-                           <h2> Primeira reunião geral- retorno das atividades do CPGG</h2>
-                       </div>
-                   </a>
                </div>
            </div>
           <Footer/>
