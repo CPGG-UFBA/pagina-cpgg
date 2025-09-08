@@ -220,11 +220,11 @@
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  width: 1450px;
-  height: 1050px;
+  width: 1600px;
+  height: 1400px;
   top: 16%; 
-  left:5%;
-  padding: 10px;
+  left:3%;
+  padding: 30px;
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -100px;
@@ -240,8 +240,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 1%; 
-  left:6%;
+  top: 5%; 
+  left:8%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -257,8 +257,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 17%; 
-  left:30%;
+  top: 5%; 
+  left:28%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -274,8 +274,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 17%; 
-  left:50%;
+  top: 5%; 
+  left:48%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -291,8 +291,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 17%; 
-  left:70%;
+  top: 5%; 
+  left:68%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -306,10 +306,10 @@
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  width: 310px;
+  width: 300px;
   height: 320px;
-  top: 55%; 
-  left:10%;
+  top: 35%; 
+  left:8%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -325,8 +325,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 55%; 
-  left:30%;
+  top: 35%; 
+  left:28%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -343,8 +343,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 55%; 
-  left:50%;
+  top: 35%; 
+  left:48%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -361,8 +361,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 55%; 
-  left:70%;
+  top: 35%; 
+  left:68%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -378,8 +378,8 @@
   position: absolute;
   width: 300px;
   height: 320px;
-  top: 92%; 
-  left:10%;
+  top: 65%; 
+  left:38%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -395,8 +395,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 10.5%; 
-  left:10%;
+  top: 8%; 
+  left:12%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -414,8 +414,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:13%;
+  top: 8%; 
+  left:32%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -433,8 +433,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:16%;
+  top: 8%; 
+  left:52%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -452,8 +452,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:17%;
+  top: 8%; 
+  left:72%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -471,8 +471,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:13%;
+  top: 38%; 
+  left:12%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -490,14 +490,15 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:13%;
+  top: 38%; 
+  left:32%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -100px;
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
   url('/src/assets/Photos/FormerHeaders/Edson.jpg') center/cover;
+}
 }
 
 .photobox7 {
@@ -509,8 +510,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:16%;
+  top: 38%; 
+  left:52%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -529,8 +530,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:16%;
+  top: 38%; 
+  left:72%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -549,8 +550,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 32%; 
-  left:13%;
+  top: 68%; 
+  left:42%;
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
