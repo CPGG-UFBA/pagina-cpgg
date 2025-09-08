@@ -1,7 +1,7 @@
 import styles from './HistoricalPhotos.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import earth from '../../components/Figures/earth3.png'
+import earthCorrect from '../../assets/earth-correct.jpg'
 
 export  function HP() {
   return (
@@ -42,7 +42,7 @@ export  function HP() {
                       </div>
                   </a>
                   <div className={styles.staticFigure}>
-                    <img src={earth} alt='Terra' />
+                    <img src={earthCorrect} alt='Terra' />
                  </div>
               </div>
           </div>
