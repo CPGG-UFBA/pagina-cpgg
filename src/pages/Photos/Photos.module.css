@@ -88,7 +88,7 @@
   object-fit: contain;
   margin-left: 850px;
   margin-bottom: -270px;
-  margin-top: -1280px;
+  margin-top: -780px;
 }
 
 @media (max-width: 1200px) {
@@ -102,7 +102,7 @@
     width: auto;
     object-fit: contain;
     margin-left: 300px;
-    margin-top: -1250px;
+    margin-top: -750px;
   }
 
 }
