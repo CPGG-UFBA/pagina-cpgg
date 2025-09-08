@@ -88,7 +88,7 @@ export function Former() {
             </div>
       </div>
     </div>
-  <div style={{ marginTop: '30px' }}>
+  <div style={{ marginTop: '80px' }}>
     <Footer />
   </div>
   </>
