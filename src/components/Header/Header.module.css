@@ -157,31 +157,6 @@ nav ul li:hover .submenu2 ul li a {
   margin-left: 30px;
 }
 
-/* Terra alinhada abaixo do menu Signin - mesmo tamanho da página CPGG */
-.signinItem {
-  position: relative;
-}
-.earthFigure {
-  position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-.earthFigure img {
-  height: 40rem;
-  margin-top: -83px;
-  padding-left: 710px;
-  margin-bottom: -500px;
-  width: auto; /* mantém proporção original */
-  opacity: 1; /* mesma opacidade da página CPGG */
-  display: block;
-  object-fit: contain; /* evita distorção */
-}
-
-@media (max-width: 1024px) {
-  .earthFigure { display: none; }
-}
 
 
 @media (max-width: 1500px) {

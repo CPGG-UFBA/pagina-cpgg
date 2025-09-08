@@ -2,9 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
-import earthImg from "../../assets/earth-imgur.png";
-
-export function Header({ hideEarth = false }: { hideEarth?: boolean }) {
+export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -38,15 +36,10 @@ export function Header({ hideEarth = false }: { hideEarth?: boolean }) {
               Home
             </NavLink>
           </li>
-          <li className={styles.signinItem}>
+          <li>
             <NavLink to='/Sign' className={styles.navLink}>
               Signin
             </NavLink>
-{!hideEarth && (
-              <div className={styles.earthFigure} aria-hidden="true">
-                <img src={earthImg} alt="Figura decorativa da Terra abaixo do menu Signin" loading="lazy" />
-              </div>
-            )}
           </li>
           <li>
             <a href='#' className={styles.navLink}>About us</a>
