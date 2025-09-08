@@ -131,6 +131,8 @@ nav ul li:hover .submenu2 ul li a {
   padding: 12px 15px;
   margin: 0;
   transition: 0.3s;
+  background-color: transparent;
+  color: #fff;
 }
 
 .submenu2 ul li:hover,
