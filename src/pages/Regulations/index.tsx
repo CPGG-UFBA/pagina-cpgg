@@ -2,6 +2,7 @@ import styles from './Regulations.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import cpggLogo from '../../assets/cpgg-logo.jpg'
+import earthImage from '../../assets/earth-regulations.jpg'
 
 export  function Regulations() {
   return (
@@ -29,7 +30,10 @@ export  function Regulations() {
                   </a>
 
                   
-              </div>
+                </div>
+                <div className={styles.earthFigure}>
+                    <img src={earthImage} alt='Figura da Terra' />
+                </div>
                 <div className={styles.staticFigure}>
                      <img src={cpggLogo} alt='Logo CPGG' />
                  </div>

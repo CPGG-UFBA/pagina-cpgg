@@ -90,6 +90,13 @@
   margin-top: -650px;
 }
 
+.earthFigure img {
+  height: 25rem;
+  padding-left: 100px;
+  margin-bottom: 20px;
+  margin-top: -400px;
+}
+
 
 
 @media (max-width: 1200px) {
@@ -99,6 +106,13 @@
     margin-bottom: -70px;
     margin-top: -250px;
   }
+
+  .earthFigure img {
+    height: 20rem;
+    padding-left: 50px;
+    margin-bottom: -50px;
+    margin-top: -200px;
+  }
 }
 
 
@@ -109,11 +123,22 @@
     margin-bottom: -70px;
     margin-top: -250px;
   }
+
+  .earthFigure img {
+    height: 18rem;
+    padding-left: 30px;
+    margin-bottom: -30px;
+    margin-top: -150px;
+  }
 }
 
 @media (max-width: 800px) {
   .staticFigure img {
     margin-bottom: 300px;
+  }
+
+  .earthFigure img {
+    margin-bottom: 200px;
   }
 
   .title {
