@@ -55,7 +55,6 @@ export function Researchers() {
 
   const oceanography = sortProgram([
     { name: 'Camila Brasil Louro da Silveira (Chefe)', route: '/researchers/personal/Camila', chief: true },
-    { name: 'Luis Felipe Ferreira de Mendonça', route: '/researchers/personal/LFelipe' },
     { name: 'Arthur Antonio Machado', route: '/researchers/personal/Arthur' },
   ])
 

@@ -27,7 +27,6 @@ import { Researchers } from './pages/Researchers'
   import { Joelson } from './pages/Researchers/Personal_pages/Joelson'
   import { Johildo } from './pages/Researchers/Personal_pages/Johildo'
   import { Landim}  from './pages/Researchers/Personal_pages/Landim'
-  import { LFelipe } from './pages/Researchers/Personal_pages/LFelipe'
   import { LCesar } from './pages/Researchers/Personal_pages/LCesar'
   import { LRogerio } from './pages/Researchers/Personal_pages/LRogerio'
   import { Marcos } from './pages/Researchers/Personal_pages/Marcos'
@@ -106,7 +105,6 @@ export function Router() {
         <Route path='/researchers/personal/Joelson' element={<Joelson />} />
         <Route path='/researchers/personal/Johildo' element={<Johildo />} />
         <Route path='/researchers/personal/Landim' element={<Landim />} />
-        <Route path='/researchers/personal/LFelipe' element={<LFelipe />} />
         <Route path='/researchers/personal/LCesar' element={<LCesar />} />
         <Route path='/researchers/personal/LRogerio' element={<LRogerio />} />
         <Route path='/researchers/personal/Marcos' element={<Marcos />} />
