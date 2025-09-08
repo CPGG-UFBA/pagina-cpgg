@@ -111,11 +111,11 @@ nav ul li:hover .submenu1 ul li:hover a {
   display: block;
   position: absolute;
   margin-top: -47px;
-  margin-left: -220px;
+  margin-left: 190px;
   background-color: #592cbb;
   opacity: 0.9;
   width: 190px;
-
+  z-index: 101;
 }
 
 nav ul li:hover .submenu2 ul li {
