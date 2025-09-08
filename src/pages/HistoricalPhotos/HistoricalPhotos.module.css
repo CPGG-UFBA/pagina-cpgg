@@ -1,19 +1,157 @@
-/* Historical Photos Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
+.hp {
+  flex: 1;
+  padding: 2rem;
 }
 
 .title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-left: 350px;
+  margin-bottom: 2rem;
+  margin-top: 7rem;
+  font-size: 24px;
 }
 
-.content {
-  font-size: 1.125rem;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-bottom: 18rem;
+}
+
+
+.Latin {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
+  text-align: center;
+  width: 350px;
+  height: 100px;
+  min-height: 120px;
+  left: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
+    url('/src/components/Figures/sky.jpg') center/cover;
+}
+
+.Latin:hover {
+  transform: translateY(-5px);
+}
+
+
+.ICG {
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  width: 350px;
+  height: 100px;
+  min-height: 120px;
+  top: 200px;
+  left: 480px;
+  position: absolute;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
+    url('/src/components/Figures/sky.jpg') center/cover;
+}
+
+.ICG:hover {
+  transform: translateY(-5px);
+}
+
+
+.Yeda {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 120px;
+  width: 350px;
+  top: 355px;
+  left: 480px;
+  position: absolute;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('/src/components/Figures/congrats.jpg') center/cover;
+}
+
+
+.Yeda:hover {
+  transform: translateY(-5px);
+}
+
+
+.BlockE {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 120px;
+  width: 350px;
+  left: 83px;
+  top: 355px;
+  position: absolute;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('/src/components/Figures/congrats.jpg') center/cover;
+}
+
+.BlockE:hover {
+  transform: translateY(-5px);
+}
+
+
+
+.others {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 120px;
+  width: 350px;
+  left: 80px;
+  top: 510px;
+  position: absolute;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('/src/components/Figures/meeting.jpg') center/cover;
+}
+
+.others:hover {
+  transform: translateY(-5px);
+}
+
+
+
+.staticFigure img {
+  height: 40rem;
+  padding-left: 900px;
+  margin-bottom: -270px;
+  margin-left: 15px;
+  margin-top: -260px;
+}
+
+
+@media (max-width: 1200px) {
+  .staticFigure {
+  display: none;
+  }
+
+  .container {
+    margin-bottom: 35rem;
+  }
 }
