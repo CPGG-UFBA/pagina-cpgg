@@ -100,7 +100,7 @@
   max-height: 70rem; /* Defina um max-height apenas */
   margin-top: -10px;
   margin-bottom: 50px;
-  margin-left: 30px; /* Melhore a responsividade com margens automáticas */
+  margin-left: 80px; /* Aumentado de 30px para 80px (+50px) */
   margin-right: auto; /* Melhore a responsividade com margens automáticas */
 }
 
