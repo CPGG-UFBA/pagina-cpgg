@@ -217,7 +217,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px 10px;
+  gap: 20px;
   align-content: start;
   justify-items: center;
   border: 2px solid rgba(255,255,255,.2);
@@ -227,7 +227,7 @@
   height: 1000px;
   top: 16%; 
   left:5%;
-  padding: 15px;
+  padding: 20px;
   border-radius: 20px;
   margin-bottom: -100px;
   overflow-y: auto;
