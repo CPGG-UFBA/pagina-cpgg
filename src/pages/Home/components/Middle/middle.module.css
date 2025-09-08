@@ -100,7 +100,7 @@
   max-height: 70rem; /* Defina um max-height apenas */
   margin-top: -10px;
   margin-bottom: 50px;
-  margin-left: 80px; /* Aumentado de 30px para 80px (+50px) */
+  margin-left: 180px; /* +100px à direita */
   margin-right: auto; /* Melhore a responsividade com margens automáticas */
 }
 
@@ -126,7 +126,7 @@
   .staticFigure img {
     margin-top: 10px;
     height: 30rem;
-    margin-left: 480px; /* Remove margem à esquerda em telas menores */
+    margin-left: 580px; /* +100px à direita */
   }
 
   .static {
