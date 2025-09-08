@@ -20,6 +20,7 @@
   margin: 0 auto;
   margin-left: 50px;
   margin-bottom: 18rem;
+  position: relative;
 }
 
 .Laiga {
@@ -102,12 +103,16 @@
   transform: translateY(-5px);
 }
 
+.staticFigure {
+  position: absolute;
+  right: -100px;
+  top: 100px;
+  z-index: -1;
+}
+
 .staticFigure img {
   height: 40rem;
-  padding-left: 900px;
-  margin-bottom: -270px;
-  margin-left: -365px;
-  margin-top: -230px;
+  opacity: 0.3;
 }
 
 @media (max-width: 1200px) {

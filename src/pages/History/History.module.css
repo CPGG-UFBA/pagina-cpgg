@@ -20,6 +20,7 @@
   margin: 0 auto;
   margin-left: 50px;
   margin-bottom: 18rem;
+  position: relative;
 }
 
 .headers {
@@ -61,12 +62,16 @@
 }
 
 
+.staticFigure {
+  position: absolute;
+  right: -100px;
+  top: 100px;
+  z-index: -1;
+}
+
 .staticFigure img {
   height: 40rem;
-  padding-left: 205px;
-  padding-top: -1000px;
-  margin-bottom: -270px;
-  margin-top: -75px;
+  opacity: 0.3;
 }
 
 @media (max-width: 1200px) {

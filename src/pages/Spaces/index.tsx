@@ -22,9 +22,9 @@ export  function Spaces() {
                           <h2>Sala de reuniões</h2>
                       </div>
                   </a>
-                  <div className={styles.staticFigure}>
-                    <img src={earth} alt='Terra' />
-                 </div>
+                  <div className={styles.staticFigure} aria-hidden="true">
+                    <img src={earth} alt="Figura de fundo: planeta Terra" />
+                  </div>
               </div>
           </div>
          

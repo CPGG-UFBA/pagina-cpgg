@@ -111,7 +111,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   display: block;
   position: absolute;
   margin-top: -47px;
-  margin-left: -220px; /* posiciona à esquerda do menu primário */
+  margin-left: -190px; /* colado ao menu primário, à esquerda */
   background-color: #592cbb;
   opacity: 0.9;
   width: 190px;
