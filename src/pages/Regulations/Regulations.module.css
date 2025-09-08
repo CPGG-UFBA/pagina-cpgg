@@ -91,7 +91,7 @@
 }
 
 .earthFigure img {
-  height: calc(25rem + 100px);
+  height: calc(25rem + 180px);
   margin-left: 1050px;
   margin-bottom: 20px;
   margin-top: -37rem;
@@ -108,7 +108,7 @@
   }
 
   .earthFigure img {
-    height: calc(20rem + 100px);
+    height: calc(20rem + 180px);
     margin-left: 510px;
     margin-bottom: -50px;
     margin-top: -34rem;
@@ -125,7 +125,7 @@
   }
 
   .earthFigure img {
-    height: calc(18rem + 100px);
+    height: calc(18rem + 180px);
     margin-left: 360px;
     margin-bottom: -30px;
     margin-top: -31rem;
