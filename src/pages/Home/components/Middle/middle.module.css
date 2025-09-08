@@ -106,8 +106,11 @@
 
 
 
+.staticFigure { margin-left: 100px; }
+
 /* Media Queries */
 @media (max-width: 1200px) {
+  .staticFigure { margin-left: 100px; }
   .middle {
     flex-direction: column; /* Muda para coluna em telas menores */
     padding-left: 10px;
