@@ -22,7 +22,7 @@ export function Header() {
       
         <ul className={styles.signup}>
           <li>
-            <NavLink to='/Upload' className={styles.navLink}>
+            <NavLink to='/adm' className={styles.navLink}>
               Adm
             </NavLink>
           </li>
