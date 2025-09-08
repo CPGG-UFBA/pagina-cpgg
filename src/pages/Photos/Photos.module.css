@@ -83,13 +83,13 @@
 }
 
 .staticFigure img {
-  height: calc(40rem + 1000px);
+  height: calc(40rem + 2000px);
   width: auto;
   object-fit: contain;
   padding-left: 1050px;
   margin-bottom: -270px;
   margin-left: 20px;
-  margin-top: -230px;
+  margin-top: -730px;
 }
 
 @media (max-width: 1200px) {
