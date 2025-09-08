@@ -1,6 +1,28 @@
 .photos {
   flex: 1;
   padding: 2rem;
+  padding-bottom: 8rem;
+  min-height: calc(100vh - 200px);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.containerSecondRow {
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-bottom: 6rem;
 }
 
 .title {
@@ -10,17 +32,6 @@
   margin-left: 20rem;
   margin-top: 7rem;
   font-size: 24px;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  margin-bottom: 4rem;
-  position: relative;
 }
 
 .historical {
@@ -76,14 +87,14 @@
 
 .staticFigure {
   position: absolute;
-  right: -200px;
-  bottom: -100px;
+  right: -150px;
+  bottom: -50px;
   z-index: -1;
 }
 
 .staticFigure img {
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   object-fit: cover;
   opacity: 0.3;
 }
@@ -91,6 +102,10 @@
 @media (max-width: 1200px) {
   .container {
     grid-template-columns: 1fr;
+    max-width: 600px;
+  }
+  
+  .containerSecondRow {
     max-width: 600px;
   }
   
@@ -113,6 +128,10 @@
   }
   
   .container {
+    padding: 0 1rem;
+  }
+  
+  .containerSecondRow {
     padding: 0 1rem;
   }
   
