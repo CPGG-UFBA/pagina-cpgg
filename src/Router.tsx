@@ -73,6 +73,9 @@ import {Latin } from './pages/HistoricalPhotos/LatinAmerican'
 import { Yeda } from './pages/HistoricalPhotos/Yeda'
 import {BlockE } from './pages/HistoricalPhotos/BlockE'
 import { FirstMeeting } from './pages/Photos/FirstMeeting'
+import { Adm } from './pages/Adm'
+import { TI } from './pages/Adm/TI'
+import { Secretaria } from './pages/Adm/Secretaria'
 
 export function Router() {
   return (
@@ -149,7 +152,10 @@ export function Router() {
         <Route path='/Photos/HistoricalPhotos/ICG' element={<ICG />} />  
         <Route path='/Photos/HistoricalPhotos/LatinAmerican' element={<Latin />} />  
          <Route path='/Photos/Years' element={<Years />} /> 
-         <Route path='/Photos/FirstMeeting' element={<FirstMeeting />} /> 
+         <Route path='/Photos/FirstMeeting' element={<FirstMeeting />} />
+         <Route path='/adm' element={<Adm />} />
+         <Route path='/adm/ti' element={<TI />} />
+         <Route path='/adm/secretaria' element={<Secretaria />} />
 
       </Route>
     </Routes>
