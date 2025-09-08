@@ -92,9 +92,9 @@
 
 .earthFigure img {
   height: calc(25rem + 180px);
-  margin-left: 1050px;
+  margin-left: 1040px;
   margin-bottom: 20px;
-  margin-top: -37rem;
+  margin-top: calc(-37rem - 20px);
 }
 
 
@@ -109,9 +109,9 @@
 
   .earthFigure img {
     height: calc(20rem + 180px);
-    margin-left: 510px;
+    margin-left: 500px;
     margin-bottom: -50px;
-    margin-top: -34rem;
+    margin-top: calc(-34rem - 20px);
   }
 }
 
@@ -126,9 +126,9 @@
 
   .earthFigure img {
     height: calc(18rem + 180px);
-    margin-left: 360px;
+    margin-left: 350px;
     margin-bottom: -30px;
-    margin-top: -31rem;
+    margin-top: calc(-31rem - 20px);
   }
 }
 
