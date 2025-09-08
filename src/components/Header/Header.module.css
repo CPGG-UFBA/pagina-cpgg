@@ -112,10 +112,11 @@ nav ul li:hover .submenu1 ul li:hover a {
   position: absolute;
   margin-top: -47px;
   margin-left: -190px; /* colado ao menu primário, à esquerda */
-  background-color: #592cbb;
-  opacity: 0.9;
+  background-color: rgba(89, 44, 187, 0.98);
+  /* removido opacity para não herdar o branco do item pai */
   width: 190px;
-  z-index: 101;
+  z-index: 1000;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
 nav ul li:hover .submenu2 ul li {
