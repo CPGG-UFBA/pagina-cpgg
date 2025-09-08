@@ -1,8 +1,8 @@
 import styles from './yeda.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import photo1 from ='https://imgur.com/X1NBeAU'
-import photo2 from ='https://imgur.com/okukHvA'
+const photo1 = 'https://i.imgur.com/X1NBeAU.jpg'
+const photo2 = 'https://i.imgur.com/okukHvA.jpg'
 
 
 export function Yeda() {
