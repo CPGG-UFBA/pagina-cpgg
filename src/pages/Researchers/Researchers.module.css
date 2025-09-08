@@ -203,9 +203,12 @@
 
 
 .box {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
+  text-align: left;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  justify-items: start;
+  gap: 16px 32px;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
@@ -215,12 +218,28 @@
   left:1%;
   padding: 10px;
   border-radius: 20px;
-  gap: 5px;
   margin-bottom: -100px;
 }
+/* Normalize columns for perfect vertical alignment */
+.Oil, .Environment, .Mineral, .Oceanography, .Coast {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
+.Oil h1, .Environment h1, .Mineral h1, .Oceanography h1, .Coast h1 {
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
+}
 
+.Oil nav, .Environment nav, .Mineral nav, .Oceanography nav, .Coast nav {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
+.Oil a, .Environment a, .Mineral a, .Oceanography a, .Coast a {
+  margin: 0 !important;
+  display: block;
+}
 
 @media (max-width: 1200px) {
  .box {
