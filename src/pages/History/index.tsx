@@ -24,9 +24,6 @@ export  function History() {
                           <h2> A História do CPGG (por Dr. Olivar Lima)</h2>
                       </div>
                   </a>
-                  <div className={styles.staticFigure}>
-                    <img src={earth} alt='Terra' />
-                 </div>
               </div>
           </div>
          

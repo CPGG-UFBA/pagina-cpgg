@@ -36,9 +36,6 @@ export  function Labs() {
                       <h2>Laboratório a ser credenciado</h2>
                       </div>
                   </a>
-                  <div className={styles.staticFigure} aria-hidden="true">
-                    <img src={earth} alt="Figura de fundo: planeta Terra" />
-                  </div>
               </div>
           </div>
           <Footer/>
