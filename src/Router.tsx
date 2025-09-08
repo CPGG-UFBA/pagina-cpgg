@@ -153,6 +153,7 @@ export function Router() {
         <Route path='/Photos/HistoricalPhotos/LatinAmerican' element={<Latin />} />  
          <Route path='/Photos/Years' element={<Years />} /> 
          <Route path='/Photos/FirstMeeting' element={<FirstMeeting />} />
+         <Route path='/Upload' element={<Adm />} />
          <Route path='/adm' element={<Adm />} />
          <Route path='/adm/ti' element={<TI />} />
          <Route path='/adm/secretaria' element={<Secretaria />} />
