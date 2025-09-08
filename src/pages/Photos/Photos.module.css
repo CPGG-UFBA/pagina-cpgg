@@ -84,6 +84,8 @@
 
 .staticFigure img {
   height: 40rem;
+  width: auto;
+  object-fit: contain;
   padding-left: 900px;
   margin-bottom: -270px;
   margin-left: 20px;
