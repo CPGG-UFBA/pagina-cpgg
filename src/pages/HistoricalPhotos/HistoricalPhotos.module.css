@@ -138,11 +138,14 @@
 
 
 .staticFigure img {
-  height: 40rem;
-  padding-left: 900px;
-  margin-bottom: -270px;
-  margin-left: -365px;
-  margin-top: -230px;
+  width: 24rem;
+  height: 24rem;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
 }
 
 

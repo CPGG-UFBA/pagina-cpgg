@@ -83,11 +83,14 @@
 }
 
 .staticFigure img {
-  height: 40rem;
-  padding-left: 900px;
-  margin-bottom: -270px;
-  margin-left: 20px;
-  margin-top: -230px;
+  width: 24rem;
+  height: 24rem;
+  object-fit: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
 }
 
 @media (max-width: 1200px) {
