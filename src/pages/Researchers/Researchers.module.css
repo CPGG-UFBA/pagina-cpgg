@@ -33,6 +33,9 @@
   white-space: nowrap;
   margin-bottom: 40px;
   line-height: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 
@@ -41,8 +44,9 @@
 }
 
 .Oil nav a:hover {
-  color: rgba(147 106 235);
-  transition: 0.1s;
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 
@@ -67,6 +71,9 @@
   white-space: nowrap;
   margin-bottom: 40px;
   line-height: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 
@@ -75,8 +82,9 @@
 }
 
 .Environment nav a:hover {
-  color: rgba(147 106 235);
-  transition: 0.1s;
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .Mineral  h1{
@@ -99,6 +107,19 @@
   margin-bottom: 40px;
   white-space: nowrap;
   line-height: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Mineral nav a{
+  list-style: none;
+}
+
+.Mineral nav a:hover {
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 
@@ -122,6 +143,19 @@
   white-space: nowrap;
   margin-bottom: 40px;
   line-height: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Oceanography nav a{
+  list-style: none;
+}
+
+.Oceanography nav a:hover {
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 .Coast  h1{
@@ -143,6 +177,19 @@
   margin-top: -10px;
   margin-bottom: 40px;
   line-height: 10px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Coast nav a{
+  list-style: none;
+}
+
+.Coast nav a:hover {
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
 }
 
 
