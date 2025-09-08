@@ -4,7 +4,7 @@ const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 import earthImg from "../../assets/earth-imgur.png";
 
-export function Header() {
+export function Header({ hideEarth = false }: { hideEarth?: boolean }) {
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -42,9 +42,11 @@ export function Header() {
             <NavLink to='/Sign' className={styles.navLink}>
               Signin
             </NavLink>
-            <div className={styles.earthFigure} aria-hidden="true">
-              <img src={earthImg} alt="Figura decorativa da Terra abaixo do menu Signin" loading="lazy" />
-            </div>
+{!hideEarth && (
+              <div className={styles.earthFigure} aria-hidden="true">
+                <img src={earthImg} alt="Figura decorativa da Terra abaixo do menu Signin" loading="lazy" />
+              </div>
+            )}
           </li>
           <li>
             <a href='#' className={styles.navLink}>About us</a>

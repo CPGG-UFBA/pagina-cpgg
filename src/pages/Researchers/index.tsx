@@ -67,7 +67,7 @@ export function Researchers() {
 
   return (
     <>
-      <Header />
+      <Header hideEarth />
       <div className={`${styles.researchers} hide-earth`}>
         <div className={styles.Programs}>
           <ul>Programas de Pesquisa e Corpo Científico </ul>
