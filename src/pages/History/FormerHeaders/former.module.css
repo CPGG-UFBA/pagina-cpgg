@@ -229,7 +229,7 @@
   width: auto; /* ocupa a largura disponível */
   height: 1000px;
   top: 16%;
-  padding: 0; /* sem padding para manter o mesmo espaço das bordas */
+  padding: 2; /* sem padding para manter o mesmo espaço das bordas */
   border-radius: 20px;
   margin-bottom: -100px;
   overflow-y: auto;
