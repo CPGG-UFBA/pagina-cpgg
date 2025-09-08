@@ -23,8 +23,11 @@
     grid-template-rows: repeat (9, 100px 1fr);
     grid-gap: 30px;
     margin-top: 50px;
-    margin-left: -200px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 50px;
+    max-width: 1200px;
+    justify-items: center;
 }
 
 .photo1 img {
@@ -396,15 +399,15 @@
   width: 1420px;
   height: 500px;
   top: 20%; 
-  left:10%;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px;
-  padding-left: 200px;
-  padding-top: 1px;
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -500px;
   overflow-y: scroll;
-} 
+}
+
 
 
 @media (max-width: 1200px) {
@@ -416,6 +419,8 @@
     top: 200px;
     width: 800px;
     height: 700px;
+    left: 50%;
+    transform: translateX(-50%);
   }
   .gallery {
     grid-template-columns: 1fr;
