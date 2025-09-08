@@ -536,9 +536,10 @@
 
 /* Common centering override for all photo boxes */
 .photobox1, .photobox2, .photobox3, .photobox4, .photobox5, .photobox6, .photobox7, .photobox8, .photobox9 {
+  position: absolute;
   left: 50%;
-  transform: translateX(-50%);
-  top: 200px;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 200px;
   height: 180px;
 }
