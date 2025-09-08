@@ -73,7 +73,7 @@
 @media (max-width: 1200px) {
 
   .staticFigure {
-    display: none;
+    display: block;
   }
   .container {
     margin-bottom: 35rem;
