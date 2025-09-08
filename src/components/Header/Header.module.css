@@ -125,6 +125,10 @@ nav ul li:hover .submenu2 ul li {
   padding: 0;
   margin: 0;
 }
+/* Ensure default background of submenu2 items is solid purple */
+.submenu2 ul li {
+  background-color: #592cbb;
+}
 
 nav ul li:hover .submenu2 ul li a {
   display: block;
@@ -132,13 +136,13 @@ nav ul li:hover .submenu2 ul li a {
   padding: 12px 15px;
   margin: 0;
   transition: 0.3s;
-  background-color: transparent;
+  background-color: #592cbb; /* default purple */
   color: #fff;
 }
 
 .submenu2 ul li:hover,
 .submenu2 ul li:hover a {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.95);
   color: #592cbb;
 }
 
