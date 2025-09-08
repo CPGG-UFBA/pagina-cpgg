@@ -216,10 +216,12 @@
 .boxzero {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px 10px;
+  grid-template-columns: repeat(4, 350px);
+  row-gap: 5px;
+  column-gap: 5px;
   align-content: start;
   justify-items: center;
+  justify-content: center;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
