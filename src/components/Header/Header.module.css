@@ -130,20 +130,25 @@ nav ul li:hover .submenu2 ul li {
   background-color: #592cbb;
 }
 
-nav ul li:hover .submenu2 ul li a {
+/* Default state: anchors inside submenu2 are purple with white text */
+.submenu2 li a {
   display: block;
   width: 100%;
   padding: 12px 15px;
   margin: 0;
+  background-color: #592cbb !important;
+  color: #fff !important;
+}
+
+/* Keep smooth transition on hover */
+nav ul li:hover .submenu2 ul li a {
   transition: 0.3s;
-  background-color: #592cbb; /* default purple */
-  color: #fff;
 }
 
 .submenu2 ul li:hover,
 .submenu2 ul li:hover a {
-  background-color: rgba(255, 255, 255, 0.95);
-  color: #592cbb;
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  color: #592cbb !important;
 }
 
 .header img {
