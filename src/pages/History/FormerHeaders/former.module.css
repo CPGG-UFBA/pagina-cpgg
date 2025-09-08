@@ -558,3 +558,11 @@
   background: linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)),
   url('/src/assets/Photos/FormerHeaders/Marcos.jpg') center/cover;
 }
+
+/* Common centering override for all photo boxes */
+.photobox1, .photobox2, .photobox3, .photobox4, .photobox5, .photobox6, .photobox7, .photobox8, .photobox9 {
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60px;
+}
+
