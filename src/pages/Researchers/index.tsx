@@ -4,18 +4,21 @@ import { Footer } from '../../components/Footer'
 import { Link } from 'react-router-dom'
 
 export function Researchers() {
-  const bySurname = (name: string) => {
-    const cleaned = name.replace(/\s*\(Chefe\).*/i, '').trim()
-    const parts = cleaned.split(/\s+/)
-    return parts[parts.length - 1].toLocaleLowerCase('pt-BR')
-  }
+  const normalize = (name: string) =>
+    name
+      .replace(/\s*\(Chefe\).*/i, '')
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLocaleLowerCase('pt-BR')
+      .trim()
+
   const sortProgram = (
     items: { name: string; route: string; chief?: boolean }[]
   ) => {
     const chief = items.find((i) => i.chief)
     const rest = items
       .filter((i) => !i.chief)
-      .sort((a, b) => bySurname(a.name).localeCompare(bySurname(b.name), 'pt-BR'))
+      .sort((a, b) => normalize(a.name).localeCompare(normalize(b.name), 'pt-BR', { sensitivity: 'base' }))
     return chief ? [chief, ...rest] : rest
   }
 
