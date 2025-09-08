@@ -84,7 +84,7 @@
 }
 
 .staticFigure img {
-  height: 40rem;
+  height: 37rem;
   padding-left: 970px;
   margin-bottom: 20px;
   margin-top: -700px;
@@ -94,7 +94,7 @@
 
 @media (max-width: 1200px) {
   .staticFigure img {
-    height: 35rem;
+    height: 32rem;
     padding-left: 170px;
     margin-bottom: -70px;
     margin-top: -250px;
@@ -104,7 +104,7 @@
 
 @media (max-width: 800px) {
   .staticFigure img {
-    height: 35rem;
+    height: 32rem;
     padding-left: 170px;
     margin-bottom: -70px;
     margin-top: -250px;
