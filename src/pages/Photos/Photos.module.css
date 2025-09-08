@@ -96,12 +96,9 @@
 
 .staticFigure img {
   height: 40rem;
-  max-height: 70rem;
-  margin-top: -10px;
-  margin-bottom: 50px;
-  margin-left: 30px;
-  margin-right: auto;
-  opacity: 0.3;
+  margin-top: -83px;
+  padding-left: 300px;
+  margin-bottom: -500px;
 }
 
 @media (max-width: 1200px) {

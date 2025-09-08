@@ -1,5 +1,5 @@
 import styles from './middle.module.css'
-
+import earth from '../../../../assets/earth-photos.jpg'
 
 import figure1 from '../../../../components/Figures/news1.png'
 import figure2 from '../../../../components/Figures/news2.png'
@@ -58,6 +58,10 @@ export function Middle() {
           <strong>scientific</strong>
           <h1>and trade proposals</h1>
         </div>
+      </div>
+
+      <div className={styles.staticFigure}>
+        <img src={earth} alt='Terra' />
       </div>
     </main>
   )

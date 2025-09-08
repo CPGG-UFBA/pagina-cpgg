@@ -96,17 +96,13 @@
 }
 
 .staticFigure img {
-  height: 40rem; /* Altere de fixo para auto para responsividade */
-  max-height: 70rem; /* Defina um max-height apenas */
-  margin-top: -10px;
-  margin-bottom: 50px;
-  margin-left: 180px; /* +100px à direita */
-  margin-right: auto; /* Melhore a responsividade com margens automáticas */
+  height: 40rem;
+  margin-top: -83px;
+  padding-left: 300px;
+  margin-bottom: -500px;
 }
 
-
-
-.staticFigure { margin-left: 100px; }
+.staticFigure { margin-left: 0; }
 
 /* Media Queries */
 @media (max-width: 1200px) {
