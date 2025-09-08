@@ -1,36 +1,39 @@
 import styles from './latinamerican.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import photo1 from '../../../assets/Photos/Historical/Latin/foto1.png'
-import photo2 from '../../../assets/Photos/Historical/Latin/foto2.png'
-import photo3 from '../../../assets/Photos/Historical/Latin/foto3.png'
-import photo4 from '../../../assets/Photos/Historical/Latin/foto4.png'
-import photo5 from '../../../assets/Photos/Historical/Latin/foto5.png'
-import photo6 from '../../../assets/Photos/Historical/Latin/foto6.png'
-import photo7 from '../../../assets/Photos/Historical/Latin/foto7.png'
-import photo8 from '../../../assets/Photos/Historical/Latin/foto8.png'
-import photo9 from '../../../assets/Photos/Historical/Latin/foto9.png'
-import photo10 from '../../../assets/Photos/Historical/Latin/foto10.png'
-import photo11 from '../../../assets/Photos/Historical/Latin/foto11.png'
-import photo12 from '../../../assets/Photos/Historical/Latin/foto12.png'
-import photo13 from '../../../assets/Photos/Historical/Latin/foto13.png'
-import photo14 from '../../../assets/Photos/Historical/Latin/foto14.png'
-import photo15 from '../../../assets/Photos/Historical/Latin/foto15.png'
-import photo16 from '../../../assets/Photos/Historical/Latin/foto16.png'
-import photo17 from '../../../assets/Photos/Historical/Latin/foto17.png'
-import photo18 from '../../../assets/Photos/Historical/Latin/foto18.png'
-import photo19 from '../../../assets/Photos/Historical/Latin/foto19.png'
-import photo20 from '../../../assets/Photos/Historical/Latin/foto20.png'
-import photo21 from '../../../assets/Photos/Historical/Latin/foto21.png'
-import photo22 from '../../../assets/Photos/Historical/Latin/foto22.png'
-import photo23 from '../../../assets/Photos/Historical/Latin/foto23.png'
-import photo24 from '../../../assets/Photos/Historical/Latin/foto24.png'
-import photo25 from '../../../assets/Photos/Historical/Latin/foto25.png'
-import photo26 from '../../../assets/Photos/Historical/Latin/foto26.png'
-import photo27 from '../../../assets/Photos/Historical/Latin/foto27.png'
-import photo28 from '../../../assets/Photos/Historical/Latin/foto28.png'
-import photo29 from '../../../assets/Photos/Historical/Latin/foto29.png'
-import photo30 from '../../../assets/Photos/Historical/Latin/foto30.png'
+import photo1 from ='https://imgur.com/pzNfaQS'
+import photo2 from ='https://imgur.com/LRJ3g5F'
+import photo3 from 'https://imgur.com/LRJ3g5F'
+import photo4 from 'https://imgur.com/b3Hq897'
+import photo5 from 'https://imgur.com/LYn7MK0'
+import photo6 from 'https://imgur.com/FhqiNZ4'
+import photo7 from 'https://imgur.com/kROBTxj'
+import photo8 from 'https://imgur.com/D7PTuf9'
+import photo9 from 'https://imgur.com/fn6gJsI'
+import photo10 from 'https://imgur.com/undefined'
+import photo11 from 'https://imgur.com/tXzkyu4'
+import photo12 from 'https://imgur.com/undefined'
+import photo13 from 'https://imgur.com/oORlrsa'
+import photo14 from 'https://imgur.com/undefined'
+import photo15 from 'https://imgur.com/undefined'
+import photo16 from 'https://imgur.com/undefined'
+import photo17 from 'https://imgur.com/undefined'
+import photo18 from 'https://imgur.com/undefined'
+import photo19 from 'https://imgur.com/undefined'
+import photo20 from 'https://imgur.com/undefined'
+import photo21 from 'https://imgur.com/undefined'
+import photo22 from 'https://imgur.com/undefined'
+import photo23 from 'https://imgur.com/undefined'
+import photo24 from 'https://imgur.com/undefined'
+import photo25 from 'https://imgur.com/undefined'
+import photo26 from 'https://imgur.com/undefined'
+import photo27 from 'https://imgur.com/undefined'
+import photo28 from 'https://imgur.com/undefined'
+import photo29 from 'https://imgur.com/undefined'
+import photo30 from 'https://imgur.com/pa00G1j'
+import photo31 from 'https://imgur.com/aSdZWXp'
+import photo32 from 'https://imgur.com/0hFHadj'
+
 
 export function Latin() {
   return (
@@ -129,6 +132,12 @@ export function Latin() {
             </div>
             <div className={styles.photo30}>
               <img src={photo30} alt='Foto30' />
+            </div>
+             <div className={styles.photo31}>
+              <img src={photo30} alt='Foto31' />
+            </div>
+             <div className={styles.photo32}>
+              <img src={photo30} alt='Foto32' />
             </div>
          
           </div>
