@@ -12,185 +12,7 @@
   padding-right: 8px;
   }
 
-.Oil  h1{
-  display: flex;
-  max-width:10px;
-  font-size: 18px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 0px;
-  margin-left: 3rem;
-  padding-left: -20px;
-  white-space: nowrap;
-}
-
-.Oil   a{
-  color: #fff;
-  display: flex;
-  font-size: 14px;
-  margin-left: 2.25rem;
-  margin-top: 25px;
-  white-space: nowrap;
-  margin-bottom: 40px;
-  line-height: 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-
-.Oil nav a{
-  list-style: none;
-}
-
-.Oil nav a:hover {
-  color: rgba(147, 106, 235, 1);
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-
-.Environment  h1{
-  display: flex;
-  font-size: 18px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 0px;
-  margin-left: 18rem;
-  padding-left:50px;
-  white-space: nowrap;
-}
-
-
-.Environment   a{
-  color: #fff;
-  display: flex;
-  font-size: 14px;
-  margin-left: 22.25rem;
-  margin-top: 22px;
-  white-space: nowrap;
-  margin-bottom: 40px;
-  line-height: 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-
-.Environment nav a{
-  list-style: none;
-}
-
-.Environment nav a:hover {
-  color: rgba(147, 106, 235, 1);
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.Mineral  h1{
-  display: flex;
-  font-size: 18px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 0px;
-  margin-left: 43rem;
-  padding-left:0px;
-  white-space: nowrap;
-}
-
-.Mineral   a{
-  color: #fff;
-  display: flex;
-  font-size: 14px;
-  margin-left: 44.25rem;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  white-space: nowrap;
-  line-height: 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.Mineral nav a{
-  list-style: none;
-}
-
-.Mineral nav a:hover {
-  color: rgba(147, 106, 235, 1);
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-
-.Oceanography  h1{
-  display: flex;
-  font-size: 18px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 0px;
-  margin-left: 68rem;
-  padding-left:0px;
-  white-space: nowrap;
-}
-
-.Oceanography   a{
-  color: #fff;
-  display: flex;
-  font-size: 14px;
-  margin-left: 65.25rem;
-  margin-top: 20px;
-  white-space: nowrap;
-  margin-bottom: 40px;
-  line-height: 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.Oceanography nav a{
-  list-style: none;
-}
-
-.Oceanography nav a:hover {
-  color: rgba(147, 106, 235, 1);
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.Coast  h1{
-  display: flex;
-  font-size: 18px;
-  color: #363F5;
-  font-weight: bold;
-  margin-top: 0px;
-  margin-left: 86rem;
-  padding-left:0px;
-  white-space: nowrap;
-}
-
-.Coast   a{
-  color: #fff;
-  display: flex;
-  font-size: 14px;
-  margin-left: 84.25rem;
-  margin-top: -10px;
-  margin-bottom: 40px;
-  line-height: 10px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.Coast nav a{
-  list-style: none;
-}
-
-.Coast nav a:hover {
-  color: rgba(147, 106, 235, 1);
-  background-color: rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
+/* Grid-based layout - old individual styles removed */
 
 
 .Programs ul {
@@ -208,15 +30,15 @@
   grid-template-columns: repeat(5, minmax(0, 1fr));
   align-items: start;
   justify-items: start;
-  gap: 16px 32px;
+  gap: 24px 32px;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 1645px;
-  height: 530px;
+  height: 580px;
   top: 17%; 
   left:1%;
-  padding: 10px;
+  padding: 20px;
   border-radius: 20px;
   margin-bottom: -100px;
 }
@@ -237,8 +59,28 @@
 }
 
 .Oil a, .Environment a, .Mineral a, .Oceanography a, .Coast a {
-  margin: 0 !important;
+  margin: 0 0 12px 0 !important;
   display: block;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.Oil a:hover, .Environment a:hover, .Mineral a:hover, .Oceanography a:hover, .Coast a:hover {
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.Oil h1, .Environment h1, .Mineral h1, .Oceanography h1, .Coast h1 {
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 @media (max-width: 1200px) {
