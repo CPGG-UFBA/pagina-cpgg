@@ -4,6 +4,67 @@ import { Footer } from '../../components/Footer'
 import { Link } from 'react-router-dom'
 
 export function Researchers() {
+  const bySurname = (name: string) => {
+    const cleaned = name.replace(/\s*\(Chefe\).*/i, '').trim()
+    const parts = cleaned.split(/\s+/)
+    return parts[parts.length - 1].toLocaleLowerCase('pt-BR')
+  }
+  const sortProgram = (
+    items: { name: string; route: string; chief?: boolean }[]
+  ) => {
+    const chief = items.find((i) => i.chief)
+    const rest = items
+      .filter((i) => !i.chief)
+      .sort((a, b) => bySurname(a.name).localeCompare(bySurname(b.name), 'pt-BR'))
+    return chief ? [chief, ...rest] : rest
+  }
+
+  const oil = sortProgram([
+    { name: 'Milton José Porsani (Chefe)', route: '/researchers/personal/Porsani', chief: true },
+    { name: 'Alexsandro Guerra Cerqueira', route: '/researchers/personal/Alexsandro' },
+    { name: 'Amin Bassrei', route: '/researchers/personal/Amin' },
+    { name: 'Ana Virgínia Alves de Santana', route: '/researchers/personal/AnaV' },
+    { name: 'Joelson da Conceição Batista', route: '/researchers/personal/Joelson' },
+    { name: 'Luiz Cesar Correa Gomes', route: '/researchers/personal/LCesar' },
+    { name: 'Reynam da Cruz Pestana', route: '/researchers/personal/Reynam' },
+    { name: 'Wilson Mouzer Figueiró', route: '/researchers/personal/Wilson' },
+  ])
+
+  const environment = sortProgram([
+    { name: 'Alanna Costa Dutra (Chefe)', route: '/researchers/personal/Alanna', chief: true },
+    { name: 'Alexandre Barreto Costa', route: '/researchers/personal/Alexandre' },
+    { name: 'Eduardo Reis Viana Rocha Junior', route: '/researchers/personal/Eduardo' },
+    { name: 'Luiz Rogério Bastos Leal', route: '/researchers/personal/LRogerio' },
+    { name: 'Maria do Rosário Zucchi', route: '/researchers/personal/MZucchi' },
+    { name: 'Susana Silva Cavalcanti', route: '/researchers/personal/Susana' },
+    { name: 'Suzan Souza de Vasconcelos', route: '/researchers/personal/Suzan' },
+  ])
+
+  const mineral = sortProgram([
+    { name: 'Edson Emanuel Starteri Sampaio (Chefe)', route: '/researchers/personal/Edson', chief: true },
+    { name: 'Alice Marques Pereira Lau', route: '/researchers/personal/Alice' },
+    { name: 'Angela Beatriz de Menezes Leal', route: '/researchers/personal/Angela' },
+    { name: 'Carlson de Matos Maia Leite', route: '/researchers/personal/Carlson' },
+    { name: 'Aroldo Misi', route: '/researchers/personal/Aroldo' },
+    { name: 'Jailma Santos de Souza de Oliveira', route: '/researchers/personal/Jailma' },
+    { name: 'Johildo Salomão Figuerêdo Barbosa', route: '/researchers/personal/Johildo' },
+    { name: 'José Haroldo da Silva Sá', route: '/researchers/personal/Haroldo' },
+    { name: 'Marcos Alberto Rodrigues Vasconcelos', route: '/researchers/personal/Marcos' },
+    { name: 'Simone Cerqueira Pereira Cruz', route: '/researchers/personal/Simone' },
+  ])
+
+  const oceanography = sortProgram([
+    { name: 'Camila Brasil Louro da Silveira (Chefe)', route: '/researchers/personal/Camila', chief: true },
+    { name: 'Luis Felipe Ferreira de Mendonça', route: '/researchers/personal/LFelipe' },
+    { name: 'Arthur Antonio Machado', route: '/researchers/personal/Arthur' },
+  ])
+
+  const coast = sortProgram([
+    { name: 'José Maria Dominguez Landim (Chefe)', route: '/researchers/personal/Landim', chief: true },
+    { name: 'Ricardo Piazza Meireles', route: '/researchers/personal/RicardoM' },
+    { name: 'Ruy Kenji Papa de Kikuchi', route: '/researchers/personal/Ruy' },
+  ])
+
   return (
     <>
       <Header />
@@ -11,59 +72,40 @@ export function Researchers() {
         <div className={styles.Programs}>
           <ul>Programas de Pesquisa e Corpo Científico </ul>
           <div className={styles.box}>
-          <div className={styles.Oil}>
-            <h1>Exploração de Petróleo</h1>
-            <nav> <Link to='/researchers/personal/Porsani' > Milton José Porsani (Chefe)</Link> </nav>
-            <nav> <Link to='/researchers/personal/Alexsandro' > Alexsandro Guerra Cerqueira</Link> </nav>
-            <nav> <Link to='/researchers/personal/Amin' > Amin Bassrei</Link> </nav>
-            <nav> <Link to='/researchers/personal/AnaV' > Ana Virgínia Alves de Santana</Link> </nav>
-            <nav> <Link to='/researchers/personal/Joelson' > Joelson da Conceição Batista</Link> </nav>
-            <nav> <Link to='/researchers/personal/LCesar' > Luiz Cesar Correa Gomes</Link> </nav>
-            <nav> <Link to='/researchers/personal/Reynam' > Reynam da Cruz Pestana</Link> </nav>
-            <nav> <Link to='/researchers/personal/Wilson' > Wilson Mouzer Figueiró</Link> </nav>
-          </div>
-          
-          <div className={styles.Environment}> 
-            <h1>Recursos Hidricos e Ambientais</h1>
-            <nav> <Link to='/researchers/personal/Alanna' >Alanna Costa Dutra (Chefe)</Link> </nav>
-            <nav> <Link to='/researchers/personal/Alexandre' >Alexandre Barreto Costa</Link> </nav> 
-            <nav> <Link to='/researchers/personal/Eduardo' >Eduardo Reis Viana Rocha Junior</Link></nav> 
-            <nav> <Link to='/researchers/personal/LRogerio' >Luiz Rogério Bastos Leal</Link> </nav> 
-            <nav> <Link to='/researchers/personal/MZucchi' >Maria do Rosário Zucchi</Link> </nav> 
-            <nav> <Link to='/researchers/personal/Susana' > Susana Silva Cavalcanti</Link> </nav> 
-            <nav> <Link to='/researchers/personal/Suzan' > Suzan Souza de Vasconcelos</Link> </nav> 
-          </div>
+            <div className={styles.Oil}>
+              <h1>Exploração de Petróleo</h1>
+              {oil.map((r) => (
+                <nav key={r.route}><Link to={r.route}> {r.name}</Link></nav>
+              ))}
+            </div>
+            
+            <div className={styles.Environment}> 
+              <h1>Recursos Hidricos e Ambientais</h1>
+              {environment.map((r) => (
+                <nav key={r.route}><Link to={r.route}> {r.name}</Link></nav>
+              ))}
+            </div>
 
-          <div className={styles.Mineral}>
-            <h1> Petrologia, Metalogênese e Exp. Mineral</h1>
-            <nav> <Link to='/researchers/personal/Edson' >Edson Emanuel Starteri Sampaio (Chefe)</Link> </nav>
-            <nav> <Link to='/researchers/personal/Alice' >Alice Marques Pereira Lau</Link> </nav>
-            <nav> <Link to='/researchers/personal/Angela' >Angela Beatriz de Menezes Leal</Link> </nav>
-            <nav> <Link to='/researchers/personal/Aroldo' >Aroldo Misi </Link> </nav>
-            <nav> <Link to='/researchers/personal/Carlson' >Carlson de Matos Maia Leite</Link> </nav>
-            <nav> <Link to='/researchers/personal/Haroldo' >José Haroldo da Silva Sá</Link> </nav>
-            <nav> <Link to='/researchers/personal/Jailma' >Jailma Santos de Souza de Oliveira</Link> </nav>
-            <nav> <Link to='/researchers/personal/Johildo' >Johildo Salomão Figuerêdo Barbosa</Link> </nav>
-            <nav> <Link to='/researchers/personal/Marcos' >Marcos Alberto Rodrigues Vasconcelos</Link> </nav>
-            <nav> <Link to='/researchers/personal/Simone' >Simone Cerqueira Pereira Cruz</Link> </nav>
-          </div>
+            <div className={styles.Mineral}>
+              <h1> Petrologia, Metalogênese e Exp. Mineral</h1>
+              {mineral.map((r) => (
+                <nav key={r.route}><Link to={r.route}> {r.name}</Link></nav>
+              ))}
+            </div>
 
+            <div className={styles.Oceanography}> 
+              <h1>Oceanografia Física</h1>
+              {oceanography.map((r) => (
+                <nav key={r.route}><Link to={r.route}> {r.name}</Link></nav>
+              ))}
+            </div>
 
-          <div className={styles.Oceanography}> 
-            <h1>Oceanografia Física</h1>
-            <nav> <Link to='/researchers/personal/Camila' >Camila Brasil Louro da Silveira (Chefe)</Link> </nav>
-            <nav> <Link to='/researchers/personal/Arthur' >Arthur Antonio Machado</Link> </nav>
-            <nav> <Link to='/researchers/personal/LFelipe' >Luis Felipe Ferreira de Mendonça</Link> </nav>
-          </div>
-
-          <div className={styles.Coast}> 
-            <h1>Geologia Marinha e Costeira</h1>
-             <a>  </a>
-            <nav> <Link to='/researchers/personal/Landim' >José Maria Dominguez Landim (Chefe)</Link> </nav>
-            <nav> <Link to='/researchers/personal/RicardoM' >Ricardo Piazza Meireles</Link> </nav>
-            <nav> <Link to='/researchers/personal/Ruy' >Ruy Kenji Papa de Kikuchi</Link> </nav>
-             <a>  </a>
-          </div>
+            <div className={styles.Coast}> 
+              <h1>Geologia Marinha e Costeira</h1>
+              {coast.map((r) => (
+                <nav key={r.route}><Link to={r.route}> {r.name}</Link></nav>
+              ))}
+            </div>
           </div>
         </div>
       </div>
