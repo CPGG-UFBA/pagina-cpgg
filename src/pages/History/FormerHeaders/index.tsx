@@ -30,7 +30,7 @@ export function Former() {
               <div className={styles.box3}>
                 <div className={styles.Header3}>
                   <h1>Profa. Yeda de Andrade Ferreira</h1>
-                  <a>(1976 a 1980/ 1887 a 2002)</a>
+                  <a>(1976 a 1980/ 2002 a atual)</a>
                   <div className={styles.photobox3}></div>
                 </div>
               </div>
