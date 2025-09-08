@@ -216,10 +216,10 @@
 .boxzero {
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 350px);
+  gap: 90px; /* espaçamento uniforme entre polígonos e bordas */
   align-content: start;
-  justify-items: center;
+  justify-content: start;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
@@ -227,7 +227,7 @@
   height: 1000px;
   top: 16%; 
   left:5%;
-  padding: 20px;
+  padding: 20px 90px; /* padding lateral igual ao gap */
   border-radius: 20px;
   margin-bottom: -100px;
   overflow-y: auto;
