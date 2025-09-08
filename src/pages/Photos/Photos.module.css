@@ -83,10 +83,10 @@
 }
 
 .staticFigure img {
-  height: calc(40rem + 2700px);
+  height: calc(40rem + 2400px);
   width: auto;
   object-fit: contain;
-  margin-left: 1050px;
+  margin-left: 900px;
   margin-bottom: -270px;
   margin-top: -1430px;
 }
@@ -98,10 +98,10 @@
   }
 
   .staticFigure img {
-    height: calc(40rem + 2700px);
+    height: calc(40rem + 2400px);
     width: auto;
     object-fit: contain;
-    margin-left: 500px;
+    margin-left: 350px;
     margin-top: -1400px;
   }
 
