@@ -23,13 +23,11 @@
     grid-template-rows: repeat (8, 100px 1fr);
     grid-gap: 30px;
     margin-top: 50px;
-    margin-left: -100px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 50px;
-}
-
-.photo1 img {
-    width: 500px;
-    height: 400px;
+    max-width: 1200px;
+    justify-items: center;
 }
 
 .photo1 img {
@@ -40,20 +38,10 @@
 }
 
 .photo2 img {
-  width: 500px;
-  height: 400px;
-}
-
-.photo2 img {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 1;
-}
-
-.photo3 img {
-  width: 500px;
-  height: 400px;
 }
 
 .photo3 img {
@@ -64,20 +52,10 @@
 }
 
 .photo4 img {
-  width: 500px;
-  height: 300px;
-}
-
-.photo4 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 2;
-}
-
-.photo5 img {
-  width:300px;
-  height: 400px;
 }
 
 .photo5 img {
@@ -88,11 +66,6 @@
 }
 
 .photo6 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo6 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -100,19 +73,10 @@
 }
 
 .photo7 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo7 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 3;
-}
-.photo8 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo8 img {
@@ -123,11 +87,6 @@
 }
 
 .photo9 img {
-  width:250px;
-  height: 400px;
-}
-
-.photo9 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 3;
@@ -135,20 +94,10 @@
 }
 
 .photo10 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo10 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 4;
   grid-row-end: 4;
-}
-
-.photo11 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo11 img {
@@ -159,32 +108,17 @@
 }
 
 .photo12 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo12 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 4;
   grid-row-end: 4;
 }
 
-
-.photo13 img {
-  width:500px;
-  height: 400px;
-}
-
 .photo13 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 5;
   grid-row-end: 5;
-}
-.photo14 img {
-  width:250px;
-  height: 400px;
 }
 
 .photo14 img {
@@ -195,11 +129,6 @@
 }
 
 .photo15 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo15 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 5;
@@ -207,20 +136,10 @@
 }
 
 .photo16 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo16 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 6;
   grid-row-end: 6;
-}
-
-.photo17 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo17 img {
@@ -231,23 +150,12 @@
 }
 
 .photo18 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo18 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 6;
   grid-row-end: 6;
 }
 
-
-.photo19 img {
-  width:250px;
-  height: 400px;
-}
-
 .photo19 img {
   grid-column-start: 1;
   grid-column-end: 1;
@@ -256,20 +164,10 @@
 }
 
 .photo20 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo20 img {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 7;
   grid-row-end: 7;
-}
-
-.photo21 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo21 img {
@@ -280,11 +178,6 @@
 }
 
 .photo22 img {
-  width:250px;
-  height: 400px;
-}
-
-.photo22 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 8;
@@ -292,20 +185,10 @@
 }
 
 .photo23 img {
-  width:250px;
-  height: 400px;
-}
-
-.photo23 img {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 8;
   grid-row-end: 8;
-}
-
-.photo24 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo24 img {
@@ -326,15 +209,42 @@
   width: 1400px;
   height: 500px;
   top: 20%; 
-  left:5%;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px;
-  padding-left: 200px;
-  padding-top: 1px;
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -500px;
   overflow-y: scroll;
-} 
+}
+
+
+/* Padronização dos tamanhos das imagens */
+.photo1 img, .photo2 img, .photo3 img, .photo6 img,
+.photo7 img, .photo8 img, .photo10 img, .photo11 img,
+.photo12 img, .photo13 img, .photo15 img, .photo16 img,
+.photo17 img, .photo18 img, .photo20 img, .photo21 img,
+.photo24 img {
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Imagens menores que devem manter proporção diferente */
+.photo4 img {
+    width: 400px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.photo5 img, .photo9 img, .photo14 img, .photo19 img, .photo22 img, .photo23 img {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
 
 
@@ -364,7 +274,8 @@
   width: 750px;
   margin-bottom: 100px;
   top: 15%;
-  left: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 700px;
   }
 

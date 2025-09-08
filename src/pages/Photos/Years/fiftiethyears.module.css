@@ -29,20 +29,10 @@
 }
 
 .photo1 img {
-    width: 500px;
-    height: 400px;
-}
-
-.photo1 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 1;
   grid-row-end: 1;
-}
-
-.photo2 img {
-  width: 500px;
-  height: 400px;
 }
 
 .photo2 img {
@@ -53,11 +43,6 @@
 }
 
 .photo3 img {
-  width: 500px;
-  height: 400px;
-}
-
-.photo3 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 1;
@@ -65,20 +50,10 @@
 }
 
 .photo4 img {
-  width: 500px;
-  height: 400px;
-}
-
-.photo4 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 2;
   grid-row-end: 2;
-}
-
-.photo5 img {
-  width:300px;
-  height: 400px;
 }
 
 .photo5 img {
@@ -89,11 +64,6 @@
 }
 
 .photo6 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo6 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 2;
@@ -101,19 +71,10 @@
 }
 
 .photo7 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo7 img {
   grid-column-start: 1;
   grid-column-end: 1;
   grid-row-start: 3;
   grid-row-end: 3;
-}
-.photo8 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo8 img {
@@ -124,20 +85,10 @@
 }
 
 .photo9 img {
-  width:500px;
-  height: 400px;
-}
-
-.photo9 img {
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row-start: 3;
   grid-row-end: 3;
-}
-
-.photo10 img {
-  width:500px;
-  height: 400px;
 }
 
 .photo10 img {
@@ -650,15 +601,56 @@
   width: 1550px;
   height: 500px;
   top: 20%; 
-  left:5%;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px;
-  padding-left: 200px;
-  padding-top: 1px;
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -500px;
   overflow-y: scroll;
-} 
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat (17, 100px 1fr);
+    object-fit: cover;
+    grid-gap: 30px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    max-width: 1400px;
+    justify-items: center;
+}
+
+/* Padronização dos tamanhos das imagens */
+.photo1 img, .photo2 img, .photo3 img, .photo4 img,
+.photo6 img, .photo7 img, .photo8 img, .photo9 img,
+.photo10 img, .photo11 img, .photo12 img, .photo13 img,
+.photo14 img, .photo15 img, .photo16 img, .photo17 img,
+.photo18 img, .photo20 img, .photo21 img, .photo22 img,
+.photo23 img, .photo24 img, .photo25 img, .photo26 img,
+.photo27 img, .photo28 img, .photo29 img, .photo30 img,
+.photo31 img, .photo32 img, .photo33 img, .photo34 img,
+.photo35 img, .photo36 img, .photo37 img, .photo38 img,
+.photo39 img, .photo40 img, .photo41 img, .photo42 img,
+.photo43 img, .photo44 img, .photo45 img, .photo46 img,
+.photo47 img, .photo48 img, .photo49 img, .photo50 img,
+.photo51 img {
+    width: 400px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Imagens menores que devem manter proporção diferente */
+.photo5 img, .photo19 img {
+    width: 300px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
 @media (max-width: 1200px) {
 
@@ -670,7 +662,8 @@
   width: 750px;
   margin-bottom: 100px;
   top: 15%;
-  left: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   height: 700px;
   }
 
