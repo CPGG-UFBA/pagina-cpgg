@@ -215,8 +215,11 @@
 
 .boxzero {
   text-align: center;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  align-content: start;
+  justify-items: center;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
@@ -226,9 +229,8 @@
   left:5%;
   padding: 15px;
   border-radius: 20px;
-  gap: 5px;
   margin-bottom: -100px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .box1 {
@@ -237,15 +239,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 1%; 
-  left:6%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .box2 {
@@ -254,15 +253,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 12%; 
-  left:25%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .box3 {
@@ -271,15 +267,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 12%; 
-  left:44%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .box4 {
@@ -288,15 +281,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 12%; 
-  left:63%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .box5 {
@@ -305,15 +295,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 45%; 
-  left:6%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .box6 {
@@ -322,15 +309,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 45%; 
-  left:25%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 
@@ -340,15 +324,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 45%; 
-  left:44%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 
@@ -358,15 +339,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 45%; 
-  left:63%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .box9 {
@@ -375,15 +353,12 @@
   flex-direction: column;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
+  position: relative;
   width: 350px;
   height: 380px;
-  top: 78%; 
-  left:6%;
   padding: 15px;
   border-radius: 20px;
   gap: 5px;
-  margin-bottom: -100px;
 }
 
 .photobox1 {
@@ -395,8 +370,8 @@
   position: absolute;
   width: 200px;
   height: 200px;
-  top: 5%; 
-  left:8.5%;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -564,7 +539,7 @@
   left: 50%;
   transform: translateX(-50%);
   top: 200px;
-  width: 180px;
-  height: 160px;
+  width: 200px;
+  height: 180px;
 }
 
