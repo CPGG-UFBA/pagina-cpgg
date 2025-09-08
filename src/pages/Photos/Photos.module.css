@@ -86,9 +86,9 @@
   height: calc(40rem + 2200px);
   width: auto;
   object-fit: contain;
-  margin-left: 700px;
+  margin-left: 850px;
   margin-bottom: -270px;
-  margin-top: -1430px;
+  margin-top: -1280px;
 }
 
 @media (max-width: 1200px) {
@@ -101,8 +101,8 @@
     height: calc(40rem + 2200px);
     width: auto;
     object-fit: contain;
-    margin-left: 150px;
-    margin-top: -1400px;
+    margin-left: 300px;
+    margin-top: -1250px;
   }
 
 }
