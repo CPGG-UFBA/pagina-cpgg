@@ -152,9 +152,8 @@ nav ul li:hover .submenu2 ul li:hover a {
 .earthFigure {
   position: absolute;
   top: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 0;
+  left: 0; /* alinhado ao início do item Signin */
+  z-index: 1; /* acima do fundo, abaixo dos submenus */
   pointer-events: none;
 }
 .earthFigure img {
