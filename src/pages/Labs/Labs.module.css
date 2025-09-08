@@ -107,7 +107,8 @@
   position: absolute;
   right: -100px;
   top: 100px;
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .staticFigure img {
