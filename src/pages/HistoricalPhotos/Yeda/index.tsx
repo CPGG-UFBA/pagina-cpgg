@@ -1,10 +1,29 @@
-import styles from '../HistoricalPhotos.module.css';
+import styles from './yeda.module.css'
+import { Header } from '../../../components/Header'
+import { Footer } from '../../../components/Footer'
+import photo1 from '../../../assets/Photos/Historical/Yeda/foto1.png'
+import photo2 from '../../../assets/Photos/Historical/Yeda/foto2.png'
+
 
 export function Yeda() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Yeda</h1>
-      <p className={styles.content}>Fotos históricas relacionadas a Yeda.</p>
-    </div>
-  );
+    <>
+      <Header />
+      <div className={styles.Yeda}>
+          <ul> Professora Yeda </ul>
+          <div className={styles.box}>
+          <div className={styles.gallery}>
+            <div className={styles.photo1}>
+              <img src={photo1} alt='Foto1' />
+            </div>
+            <div className={styles.photo2}>
+              <img src={photo2} alt='Foto2' />
+            </div>
+          </div>
+          </div>
+        </div>
+
+      <Footer />
+    </>
+  )
 }
