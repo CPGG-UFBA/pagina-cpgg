@@ -43,8 +43,13 @@
   margin-bottom: -100px;
 }
 /* Normalize columns for perfect vertical alignment */
-.Oil, .Environment, .Mineral, .Oceanography, .Coast {
+.Oil, .Environment, .Mineral, .Coast {
   margin: 0 !important;
+  padding: 0 !important;
+}
+
+.Oceanography {
+  margin: 0 0 0 50px !important;
   padding: 0 !important;
 }
 
