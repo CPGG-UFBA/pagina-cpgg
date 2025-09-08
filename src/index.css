@@ -151,4 +151,10 @@ All colors MUST be HSL.
   .translate-z-20 {
     transform: translateZ(20px);
   }
+
+  /* Esconde a Terra na página Researchers */
+  .hide-earth ~ header .earthFigure,
+  .hide-earth .earthFigure {
+    display: none !important;
+  }
 }

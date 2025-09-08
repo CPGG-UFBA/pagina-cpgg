@@ -7,7 +7,7 @@ export function Researchers() {
   return (
     <>
       <Header />
-      <div className={styles.researchers}>
+      <div className={`${styles.researchers} hide-earth`}>
         <div className={styles.Programs}>
           <ul>Programas de Pesquisa e Corpo Científico </ul>
           <div className={styles.box}>
@@ -39,11 +39,11 @@ export function Researchers() {
             <nav> <Link to='/researchers/personal/Edson' >Edson Emanuel Starteri Sampaio (Chefe)</Link> </nav>
             <nav> <Link to='/researchers/personal/Alice' >Alice Marques Pereira Lau</Link> </nav>
             <nav> <Link to='/researchers/personal/Angela' >Angela Beatriz de Menezes Leal</Link> </nav>
-            <nav> <Link to='/researchers/personal/Carlson' >Carlson de Matos Maia Leite</Link> </nav>
             <nav> <Link to='/researchers/personal/Aroldo' >Aroldo Misi </Link> </nav>
+            <nav> <Link to='/researchers/personal/Carlson' >Carlson de Matos Maia Leite</Link> </nav>
+            <nav> <Link to='/researchers/personal/Haroldo' >José Haroldo da Silva Sá</Link> </nav>
             <nav> <Link to='/researchers/personal/Jailma' >Jailma Santos de Souza de Oliveira</Link> </nav>
             <nav> <Link to='/researchers/personal/Johildo' >Johildo Salomão Figuerêdo Barbosa</Link> </nav>
-            <nav> <Link to='/researchers/personal/Haroldo' >José Haroldo da Silva Sá</Link> </nav>
             <nav> <Link to='/researchers/personal/Marcos' >Marcos Alberto Rodrigues Vasconcelos</Link> </nav>
             <nav> <Link to='/researchers/personal/Simone' >Simone Cerqueira Pereira Cruz</Link> </nav>
           </div>
@@ -52,8 +52,8 @@ export function Researchers() {
           <div className={styles.Oceanography}> 
             <h1>Oceanografia Física</h1>
             <nav> <Link to='/researchers/personal/Camila' >Camila Brasil Louro da Silveira (Chefe)</Link> </nav>
-            <nav> <Link to='/researchers/personal/LFelipe' >Luis Felipe Ferreira de Mendonça</Link> </nav>
             <nav> <Link to='/researchers/personal/Arthur' >Arthur Antonio Machado</Link> </nav>
+            <nav> <Link to='/researchers/personal/LFelipe' >Luis Felipe Ferreira de Mendonça</Link> </nav>
           </div>
 
           <div className={styles.Coast}> 
