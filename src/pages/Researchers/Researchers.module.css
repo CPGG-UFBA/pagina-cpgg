@@ -26,13 +26,16 @@
 
 .Oil   a{
   color: #fff;
-  display: flex;
+  display: inline-block;
   font-size: 14px;
   margin-left: 3rem;
   margin-top: 25px;
   white-space: nowrap;
   margin-bottom: 40px;
-  line-height: 10px;
+  line-height: 1.4;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 
@@ -66,13 +69,16 @@
 
 .Environment   a{
   color: #fff;
-  display: flex;
+  display: inline-block;
   font-size: 14px;
   margin-left: 23rem;
   margin-top: 22px;
   white-space: nowrap;
   margin-bottom: 40px;
-  line-height: 10px;
+  line-height: 1.4;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 
@@ -104,13 +110,16 @@
 
 .Mineral   a{
   color: #fff;
-  display: flex;
+  display: inline-block;
   font-size: 14px;
   margin-left: 45rem;
   margin-top: 20px;
   margin-bottom: 40px;
   white-space: nowrap;
-  line-height: 10px;
+  line-height: 1.4;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .Mineral nav a {
@@ -138,13 +147,16 @@
 
 .Oceanography   a{
   color: #fff;
-  display: flex;
+  display: inline-block;
   font-size: 14px;
   margin-left: 66rem;
   margin-top: 20px;
   white-space: nowrap;
   margin-bottom: 40px;
-  line-height: 10px;
+  line-height: 1.4;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .Oceanography nav a {
@@ -171,12 +183,15 @@
 
 .Coast   a{
   color: #fff;
-  display: flex;
+  display: inline-block;
   font-size: 14px;
   margin-left: 85rem;
   margin-top: -10px;
   margin-bottom: 40px;
-  line-height: 10px;
+  line-height: 1.4;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 
 .Coast nav a {
