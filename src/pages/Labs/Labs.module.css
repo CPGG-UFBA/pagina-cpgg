@@ -105,7 +105,7 @@
 
 .staticFigure {
   position: absolute;
-  right: -100px;
+  left: 510px;
   top: 100px;
   z-index: 0;
   pointer-events: none;
@@ -116,10 +116,21 @@
   opacity: 0.3;
 }
 
-@media (max-width: 1200px) {
-
+@media (max-width: 1500px) {
   .staticFigure {
-    display: block;
+    left: 410px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .staticFigure {
+    left: 250px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .staticFigure {
+    left: -30px;
   }
 
   .container {
@@ -130,26 +141,28 @@
   .others {
     left: 5px;
   }
-
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
+  .staticFigure {
+    left: 50px;
+  }
 
   .container {
     margin-bottom: 27rem;
   }
-
-
 }
 
 @media (max-width: 400px) {
-
+  .staticFigure {
+    left: 100px;
+  }
 
   .title {
     margin-left: 100px;
   }
   .container {
-    margin-bottom: 30rem;
+    margin-bottom: 65rem;
   }
 
   .Lagep {
@@ -159,10 +172,4 @@
     left: 5px;
     top: 10px;
   }
-
-  .container {
-    margin-bottom: 65rem;
-  }
-
-
 }

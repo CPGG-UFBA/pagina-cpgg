@@ -64,7 +64,7 @@
 
 .staticFigure {
   position: absolute;
-  right: -100px;
+  left: 510px;
   top: 100px;
   z-index: 0;
   pointer-events: none;
@@ -75,11 +75,21 @@
   opacity: 0.3;
 }
 
+@media (max-width: 1500px) {
+  .staticFigure {
+    left: 410px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .staticFigure {
+    left: 250px;
+  }
+}
+
 @media (max-width: 1200px) {
   .staticFigure {
-  margin-top: 250px;
-  margin-left: -880px;
-  margin-bottom: -90px;
+    left: -30px;
   }
 
   .history h1{
@@ -100,17 +110,15 @@
 }
 
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .staticFigure {
-  margin-bottom: -160px;
+    left: 50px;
   }
-   
 }
 
 
 @media (max-width: 400px) {
   .staticFigure {
-  margin-bottom: 400px;
+    left: 100px;
   }
-   
 }
