@@ -84,11 +84,23 @@ nav ul li:hover .submenu1 ul {
 
 nav ul li:hover .submenu1 ul li {
   transition: 0.7s;
-  width: 175px;
+  width: 190px;
+  padding: 0;
+  margin: 0;
 }
 
-nav ul li:hover .submenu1 ul li:hover {
-  background-color: rgba(255 255 255);
+nav ul li:hover .submenu1 ul li a {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 0;
+  transition: 0.3s;
+}
+
+nav ul li:hover .submenu1 ul li:hover,
+nav ul li:hover .submenu1 ul li:hover a {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #592cbb;
 }
 
 .submenu2{
@@ -109,6 +121,22 @@ nav ul li:hover .submenu1 ul li:hover {
 nav ul li:hover .submenu2 ul li {
   transition: 0.7s;
   width: 190px;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li:hover .submenu2 ul li a {
+  display: block;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 0;
+  transition: 0.3s;
+}
+
+nav ul li:hover .submenu2 ul li:hover,
+nav ul li:hover .submenu2 ul li:hover a {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #592cbb;
 }
 
 .header img {
