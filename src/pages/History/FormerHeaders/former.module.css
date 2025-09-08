@@ -16,7 +16,7 @@
     font-size: 24px;
     color: #363F5; 
     margin-left: -900px;
-    margin-top: -10px;
+    margin-top: -5px;
     white-space: nowrap;
     font-weight: 600;
   }
@@ -224,7 +224,7 @@
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 1850px;
-  height: 1100px;
+  height: 1000px;
   top: 16%; 
   left:5%;
   padding: 15px;
