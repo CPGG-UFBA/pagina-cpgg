@@ -83,27 +83,26 @@
 }
 
 .staticFigure img {
-  height: calc(40rem + 2000px);
+  height: calc(40rem + 3000px);
   width: auto;
   object-fit: contain;
-  padding-left: 1050px;
+  margin-left: 1050px;
   margin-bottom: -270px;
-  margin-left: 20px;
-  margin-top: -730px;
+  margin-top: -1230px;
 }
 
 @media (max-width: 1200px) {
   .staticFigure {
-  height: 20rem;
-  margin-bottom: -270px;
-  margin-top: 400px;
-  margin-left: -800px;
+    height: auto;
+    margin: 0;
   }
 
-  
-
-  .fifthy {
-   margin-left: 800px;
+  .staticFigure img {
+    height: calc(40rem + 3000px);
+    width: auto;
+    object-fit: contain;
+    margin-left: 500px;
+    margin-top: -1200px;
   }
 
 }
