@@ -83,12 +83,12 @@
 }
 
 .staticFigure img {
-  height: calc(40rem + 3000px);
+  height: calc(40rem + 2700px);
   width: auto;
   object-fit: contain;
   margin-left: 1050px;
   margin-bottom: -270px;
-  margin-top: -1230px;
+  margin-top: -1430px;
 }
 
 @media (max-width: 1200px) {
@@ -98,11 +98,11 @@
   }
 
   .staticFigure img {
-    height: calc(40rem + 3000px);
+    height: calc(40rem + 2700px);
     width: auto;
     object-fit: contain;
     margin-left: 500px;
-    margin-top: -1200px;
+    margin-top: -1400px;
   }
 
 }
