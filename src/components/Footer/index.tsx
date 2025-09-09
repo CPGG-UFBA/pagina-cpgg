@@ -11,6 +11,9 @@ export function Footer() {
           <a href='http://www.pggeofisica.ufba.br/' target="_blank">Pós-Graduação em Geofísica</a>
           <a href='https://pggeologia.ufba.br/' target="_blank" >Pós-Graduação em Geologia</a>
         </nav>
+        <div className={styles.copyright}>
+          © Todos os direitos reservados
+        </div>
       </div>
     </footer>
   )

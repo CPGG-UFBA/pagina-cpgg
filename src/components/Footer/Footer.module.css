@@ -24,8 +24,16 @@
   width: 100%;
   position: relative; /* Mantendo a barra dentro do fluxo */
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 20px;
   z-index: 2; /* Garantindo que a barra esteja acima de outros elementos, exceto a imagem */
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-family: Roboto;
+  font-weight: 300;
 }
 
 .footer nav a:first-child,
