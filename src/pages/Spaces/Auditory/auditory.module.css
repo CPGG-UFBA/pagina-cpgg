@@ -80,20 +80,16 @@
   line-height: 30px;
 }
 
-.box nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .box nav a {
   color: #fff;
+  padding-right: 40px;
   font-size: 14px;
+  margin-left: 270px;
+  top: -450px;
+  position: relative;
   cursor:pointer;
   font-family: Roboto;
   font-weight: 500;
-  position: static;
-  margin: 0;
-  padding: 0;
 }
 
 .staticFigure img {
@@ -131,8 +127,8 @@
   }
 
   .box nav a {
-    position: static;
-    margin: 0;
+    top: -150px;
+    margin-left: 350px;
   }
 
   .auditory1 img {
@@ -177,8 +173,8 @@
   }
 
   .box nav a {
-    position: static;
-    margin: 0;
+    top: -100px;
+    margin-left: 350px;
   }
 
   .auditory1 img {
@@ -224,8 +220,8 @@
   }
 
   .box nav a {
-    position: static;
-    margin: 0;
+    top: -10px;
+    margin-left: 350px;
   }
 
   .auditory1 img {
