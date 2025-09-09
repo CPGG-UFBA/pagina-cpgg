@@ -63,6 +63,7 @@ export function Researchers() {
 
   const coast = sortProgram([
     { name: 'José Maria Dominguez Landim (Chefe)', route: '/researchers/personal/Landim', chief: true },
+    { name: 'Marília de Dirceu Machado de Oliveira', route: '/researchers/personal/Marilia' },
     { name: 'Ricardo Piazza Meireles', route: '/researchers/personal/RicardoM' },
     { name: 'Ruy Kenji Papa de Kikuchi', route: '/researchers/personal/Ruy' },
   ])

@@ -40,6 +40,7 @@ import { Researchers } from './pages/Researchers'
   import { Suzan } from './pages/Researchers/Personal_pages/Suzan'
   import { Wilson } from './pages/Researchers/Personal_pages/Wilson'
   import { Jailma } from './pages/Researchers/Personal_pages/Jailma'
+  import { Marilia } from './pages/Researchers/Personal_pages/Marilia'
 
 import { Coordination } from './pages/Coordination'
 import { Technicians } from './pages/Technicians'
@@ -108,6 +109,7 @@ export function Router() {
         <Route path='/researchers/personal/LCesar' element={<LCesar />} />
         <Route path='/researchers/personal/LRogerio' element={<LRogerio />} />
         <Route path='/researchers/personal/Marcos' element={<Marcos />} />
+        <Route path='/researchers/personal/Marilia' element={<Marilia />} />
         <Route path='/researchers/personal/MZucchi' element={<MZucchi />} />
         <Route path='/researchers/personal/Porsani' element={<Porsani />} />
         <Route path='/researchers/personal/RicardoM' element={<RicardoM />} />
