@@ -106,34 +106,39 @@
 
 .staticFigure {
   position: absolute;
-  left: 510px;
-  top: 100px;
-  z-index: 0;
+  right: -80px;
+  top: 0;
+  z-index: 2;
   pointer-events: none;
+  overflow: visible;
 }
 
 .staticFigure img {
-  height: 40rem;
-  margin-top: -83px;
-  padding-left: 300px;
-  margin-bottom: -500px;
+  width: min(520px, 40vw);
+  height: auto;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 @media (max-width: 1500px) {
   .staticFigure {
-    left: 410px;
+    right: 0;
+    left: auto;
   }
 }
 
 @media (max-width: 1400px) {
   .staticFigure {
-    left: 250px;
+    right: 0;
+    left: auto;
   }
 }
 
 @media (max-width: 1200px) {
   .staticFigure {
-    left: -30px;
+    right: 0;
+    left: auto;
   }
 
   .container {
@@ -144,7 +149,8 @@
 
 @media (max-width: 900px) {
   .staticFigure {
-    left: 50px;
+    right: 0;
+    left: auto;
   }
 
   .container {
