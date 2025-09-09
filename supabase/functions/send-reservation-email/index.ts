@@ -28,7 +28,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { nome, sobrenome, email, uso, inicio, termino, tipoReserva }: ReservationRequest = await req.json();
 
     // Email da secretária (configurável)
-    const secretariaEmail = "secretaria@cpgg.com.br"; // Substituir pelo email real
+    const secretariaEmail = "secretaria.cpgg.ufba@gmail.com";
 
     // Formatar datas
     const inicioFormatado = new Date(inicio).toLocaleString('pt-BR');
