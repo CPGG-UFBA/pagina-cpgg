@@ -169,7 +169,7 @@
   position: absolute;
   right: 150px;
   top: 150px;
-  z-index: 50;
+  z-index: -1;
   pointer-events: none;
   overflow: visible;
 }

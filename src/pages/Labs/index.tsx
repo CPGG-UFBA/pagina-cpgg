@@ -137,7 +137,7 @@ export  function Labs() {
                    {laboratories.map((lab, index) => {
                      console.log('Rendering lab:', lab.name, 'isEditing:', isEditing)
                      return (
-                     <div key={lab.id} className={`${styles.card} ${styles.dynamicLab} ${isEditing ? styles.dynamicLabEditing : ''}`}>
+                     <div key={lab.id} className={`${styles.card} ${isEditing ? styles.dynamicLab : ''} ${isEditing ? styles.dynamicLabEditing : ''}`}>
                        {isEditing ? (
                          <EditableLaboratory
                            laboratory={lab}
