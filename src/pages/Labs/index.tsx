@@ -6,6 +6,8 @@ import { EditButton } from '../Researchers/components/EditButton';
 import { EditableLaboratory } from '../../components/EditableLaboratory';
 import { AdminLoginLabs } from '../../components/AdminLoginLabs';
 import { supabase } from '@/integrations/supabase/client';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 import earth from '../../assets/earth-labs.png'
 
 interface Laboratory {
@@ -20,12 +22,17 @@ interface Laboratory {
   photo3_url?: string
 }
 
+type LastAction =
+  | { type: 'delete'; lab: Laboratory }
+  | { type: 'update'; previous: Laboratory; current: Laboratory }
+
 export  function Labs() {
   const [laboratories, setLaboratories] = useState<Laboratory[]>([])
   const [isEditing, setIsEditing] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [showAdminLogin, setShowAdminLogin] = useState(false)
-
+  const [lastAction, setLastAction] = useState<LastAction | null>(null)
+  const { toast } = useToast()
   useEffect(() => {
     fetchLaboratories()
   }, [])
@@ -46,14 +53,16 @@ export  function Labs() {
     }
   }
 
-  const handleUpdateLaboratory = (updatedLab: Laboratory) => {
+  const handleUpdateLaboratory = (updatedLab: Laboratory, previousLab: Laboratory) => {
     setLaboratories(prev => 
       prev.map(lab => lab.id === updatedLab.id ? updatedLab : lab)
     )
+    setLastAction({ type: 'update', previous: previousLab, current: updatedLab })
   }
 
-  const handleDeleteLaboratory = (id: string) => {
-    setLaboratories(prev => prev.filter(lab => lab.id !== id))
+  const handleDeleteLaboratory = (lab: Laboratory) => {
+    setLaboratories(prev => prev.filter(l => l.id !== lab.id))
+    setLastAction({ type: 'delete', lab })
   }
 
   const handleLogin = () => {
@@ -67,6 +76,38 @@ export  function Labs() {
 
   const handleLogout = () => {
     setIsEditing(false)
+  }
+  const handleUndo = async () => {
+    if (!lastAction) return
+    try {
+      setIsLoading(true)
+      if (lastAction.type === 'delete') {
+        const { error } = await supabase.from('laboratories').insert(lastAction.lab)
+        if (error) throw error
+        setLaboratories(prev => [...prev, lastAction.lab])
+        toast({ title: 'Desfeito', description: 'Laboratório restaurado.' })
+      } else if (lastAction.type === 'update') {
+        const { error } = await supabase
+          .from('laboratories')
+          .update({
+            name: lastAction.previous.name,
+            acronym: lastAction.previous.acronym,
+            chief_name: lastAction.previous.chief_name,
+            description: lastAction.previous.description,
+            pnipe_address: lastAction.previous.pnipe_address,
+          })
+          .eq('id', lastAction.previous.id)
+        if (error) throw error
+        setLaboratories(prev => prev.map(l => l.id === lastAction.previous.id ? lastAction.previous : l))
+        toast({ title: 'Desfeito', description: 'Edição revertida.' })
+      }
+      setLastAction(null)
+    } catch (e: any) {
+      console.error('Erro ao desfazer:', e)
+      toast({ title: 'Erro', description: e.message || 'Não foi possível desfazer', variant: 'destructive' })
+    } finally {
+      setIsLoading(false)
+    }
   }
   return (
       <>
@@ -136,6 +177,13 @@ export  function Labs() {
             onClose={() => setShowAdminLogin(false)}
             onLogin={handleAdminLogin}
           />
+          <div className="fixed bottom-4 left-4 z-50">
+            {lastAction && (
+              <Button variant="secondary" onClick={handleUndo}>
+                Desfazer
+              </Button>
+            )}
+          </div>
           <Footer/>
       </>
   )

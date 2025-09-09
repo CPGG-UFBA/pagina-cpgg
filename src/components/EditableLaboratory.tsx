@@ -21,8 +21,8 @@ interface Laboratory {
 interface EditableLaboratoryProps {
   laboratory: Laboratory
   isEditing: boolean
-  onUpdate: (laboratory: Laboratory) => void
-  onDelete: (id: string) => void
+  onUpdate: (updated: Laboratory, previous: Laboratory) => void
+  onDelete: (lab: Laboratory) => void
 }
 
 export function EditableLaboratory({ laboratory, isEditing, onUpdate, onDelete }: EditableLaboratoryProps) {
@@ -56,7 +56,7 @@ export function EditableLaboratory({ laboratory, isEditing, onUpdate, onDelete }
 
       if (error) throw error
 
-      onUpdate({ ...laboratory, ...editData })
+      onUpdate({ ...laboratory, ...editData }, { ...laboratory })
       setIsEditingThis(false)
       toast({
         title: "Sucesso",
@@ -78,20 +78,6 @@ export function EditableLaboratory({ laboratory, isEditing, onUpdate, onDelete }
     if (window.confirm(`Tem certeza que deseja excluir o laboratório ${laboratory.name}?`)) {
       setIsLoading(true)
       try {
-        // Deletar fotos do storage se existirem
-        const photosToDelete = [laboratory.photo1_url, laboratory.photo2_url, laboratory.photo3_url]
-          .filter(Boolean)
-          .map(url => {
-            const filename = url?.split('/').pop()
-            return filename
-          })
-          .filter(Boolean) as string[]
-
-        if (photosToDelete.length > 0) {
-          await supabase.storage
-            .from('laboratory-photos')
-            .remove(photosToDelete)
-        }
 
         const { error } = await supabase
           .from('laboratories')
@@ -100,7 +86,7 @@ export function EditableLaboratory({ laboratory, isEditing, onUpdate, onDelete }
 
         if (error) throw error
 
-        onDelete(laboratory.id)
+        onDelete(laboratory)
         toast({
           title: "Sucesso",
           description: "Laboratório excluído com sucesso!",
