@@ -45,6 +45,7 @@ export  function Labs() {
         .order('created_at', { ascending: true })
 
       if (error) throw error
+      console.log('Fetched laboratories:', data?.length || 0)
       setLaboratories(data || [])
     } catch (error) {
       console.error('Erro ao buscar laboratórios:', error)
@@ -114,14 +115,14 @@ export  function Labs() {
       <>
       <Header/>
           <div className={styles.labs}>
-              <div className={styles.titleContainer}>
-                <h1 className={styles.title}>Laboratórios e Reservas</h1>
-                <EditButton 
-                  onClick={handleLogin}
-                  isEditMode={isEditing}
-                  onLogout={handleLogout}
-                />
-              </div>
+            <div className={styles.titleContainer}>
+              <h1 className={styles.title}>Laboratórios e Reservas</h1>
+              <EditButton 
+                onClick={handleLogin}
+                isEditMode={isEditing}
+                onLogout={handleLogout}
+              />
+            </div>
 
               <div className={styles.container}>
                   {/* Laboratórios estáticos */}
@@ -150,7 +151,7 @@ export  function Labs() {
                    {laboratories.map((lab, index) => {
                      console.log('Rendering lab:', lab.name, 'isEditing:', isEditing)
                      return (
-                     <div key={lab.id} className={`${styles.card} ${styles.dynamicLab}`}>
+                     <div key={lab.id} className={`${styles.card} ${styles.dynamicLab} ${isEditing ? styles.dynamicLabEditing : ''}`}>
                        {isEditing ? (
                          <EditableLaboratory
                            laboratory={lab}
@@ -169,6 +170,11 @@ export  function Labs() {
                      </div>
                    )})}
 
+                  {isEditing && laboratories.length === 0 && (
+                    <div className="col-span-2 text-sm opacity-80">
+                      Nenhum laboratório cadastrado ainda. Use a página da Coordenação para cadastrar.
+                    </div>
+                  )}
                   <div className={styles.staticFigure}>
                     <img src={earth} alt='Terra' />
                   </div>

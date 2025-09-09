@@ -33,6 +33,15 @@
   text-decoration: none;
 }
 
+.dynamicLabEditing {
+  height: auto;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+
 .dynamicLab:hover {
   transform: translateY(-5px);
 }

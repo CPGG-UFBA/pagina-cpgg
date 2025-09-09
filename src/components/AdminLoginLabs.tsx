@@ -65,10 +65,11 @@ export function AdminLoginLabs({ isOpen, onClose, onLogin }: AdminLoginLabsProps
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md" aria-describedby="admin-login-desc">
         <DialogHeader>
           <DialogTitle>Login Administrativo</DialogTitle>
         </DialogHeader>
+        <p id="admin-login-desc" className="sr-only">Entre com suas credenciais para habilitar o modo de edição de laboratórios.</p>
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label htmlFor="email" className="text-sm font-medium">
