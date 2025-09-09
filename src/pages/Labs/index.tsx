@@ -24,12 +24,14 @@ export  function Labs() {
                       <h2>Laboratório de Modelagem Física</h2>
                       </div>
                   </a>
+
                   <a className={styles.card} href="Labs/Lagep">
                       <div className={styles.Lagep}>
                       <h2>LAGEP</h2>
                       <h2>Laboratório de Geofísica do Petróleo</h2>
                       </div>
                   </a>
+
                   <a className={styles.card} href="Labs/Lab3">
                       <div className={styles.others}>
                       <h2>LAB4</h2>

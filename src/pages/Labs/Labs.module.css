@@ -14,7 +14,8 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
@@ -65,13 +66,13 @@
   color: white;
   width: 350px;
   height: 100px;
-  left: 83px;
-  top: 330px;
-  position: absolute;
+  position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('/src/components/Figures/congrats.jpg') center/cover;
+  grid-column: 1;
+  grid-row: 2;
 }
 
 .Lagep:hover {
@@ -90,13 +91,13 @@
   color: white;
   width: 350px;
   height: 100px;
-  left: 380px;
-  top: -5px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('/src/components/Figures/meeting.jpg') center/cover;
+  grid-column: 2;
+  grid-row: 2;
 }
 
 .Yeda:hover {
@@ -139,10 +140,6 @@
     grid-template-columns: 1fr 1fr;
     margin-bottom: 30rem;
   }
-
-  .others {
-    left: 5px;
-  }
 }
 
 @media (max-width: 900px) {
@@ -165,13 +162,5 @@
   }
   .container {
     margin-bottom: 65rem;
-  }
-
-  .Lagep {
-    top: 400px;
-  }
-  .others {
-    left: 5px;
-    top: 10px;
   }
 }
