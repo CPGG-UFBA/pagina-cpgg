@@ -1,4 +1,4 @@
-import styles from './ra.module.css'
+import styles from './ReservationAuditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 const earth = 'https://imgur.com/z6pTgZ1'
