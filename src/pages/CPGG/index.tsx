@@ -2,8 +2,11 @@ import styles from './CPGG.module.css'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import earth from '../../components/Figures/earth-new.jpg'
+import { getTotalResearchersCount } from '../../data/researchers'
 
 export function CPGG() {
+  const totalResearchers = getTotalResearchersCount()
+  
   return (
     <>
       <Header />
@@ -38,7 +41,7 @@ export function CPGG() {
             <p> 
               Após uma pausa de 5 anos, o CPGG voltou a ter seu corpo de pesquisadores ativo, agora sob
               a coordenação dos professsores Marcos Vasconcelos e Ruy Kikuchi. Um novo credenciamento foi
-              realizado, de maneira que no momento atual, o órgão conta com 31 pesquisadores distribuídos em
+              realizado, de maneira que no momento atual, o órgão conta com {totalResearchers} pesquisadores distribuídos em
              cinco Programas de Pesquisa. O momento atual impele o CPGG a despertar o interesse de novos pesquisadores, com o intuito de somar esforços para construir um Centro mais forte, e proporcionando recursos para desenvolvimento de pesquisas de ponta.
              </p>
             
