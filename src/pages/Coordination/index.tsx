@@ -13,7 +13,7 @@ export function Coordination() {
           <div className={styles.chief}>
             <h1>Coordenador</h1>
               <a> Marcos Alberto Rodrigues Vasconcelos</a>
-            <h1>Coordenador Adjunto</h1>
+            <h1>Coordenadora Adjunta</h1>
               <b> Simone Cerqueira Pereira Cruz</b>
           </div>
           </div>
