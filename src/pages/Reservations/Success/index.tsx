@@ -1,4 +1,4 @@
-import styles from './success.module.css'
+import styles from './Success.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 const earth = 'https://imgur.com/z6pTgZ1'
