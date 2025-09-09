@@ -1,10 +1,73 @@
-import styles from './ReservationAuditory.module.css';
+import styles from './ra.module.css'
+import { Header } from '../../../components/Header'
+import { Footer } from '../../../components/Footer'
+import earth from = 'https://imgur.com/z6pTgZ1'
+
 
 export function RA() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Reserva do Auditório</h1>
-      <p className={styles.content}>Formulário de reserva do auditório.</p>
-    </div>
-  );
+    <>
+      <Header />
+      <div className={styles.RA}>
+          <ul> Reserva do Auditório do CPGG </ul>
+          <div className={styles.box}>
+
+          <div className={styles.form}> 
+             <input type="Name"   placeholder="Nome" required></input>
+          </div>
+
+          <div className={styles.form}> 
+            <input type="Surname"   placeholder="Sobrenome" required></input>
+          </div>
+
+
+          <div className={styles.form}> 
+            <input type="email"   placeholder="E-mail" required></input>
+          </div>
+
+
+     
+        
+
+
+          <div className={styles.form}> 
+            <input type="use"   placeholder="Uso para...?" required></input>
+          </div>
+
+
+          <button className={styles.button}>
+             <a href="/Reservations/Success" >
+              Enviar   
+             </a> 
+             </button> 
+
+          </div>
+          
+          <div className={styles.container}> 
+            <div className={styles.startingday }>
+              
+             
+              <input type="datetime-local"   placeholder="Starting Day"  required></input>
+            </div> 
+            <div className={styles.label1}>
+               <label>Início</label>
+              </div>
+            <div className={styles.endday }>
+              <input type="datetime-local"   placeholder="End Day" required></input>
+            </div>
+
+            <div className={styles.label2}>
+               <label>Término</label>
+              </div>
+
+          </div>
+
+          <div className={styles.staticFigure}>
+            <img src={earth} alt='Terra' />
+          </div>
+        </div>
+        
+      <Footer />
+    </>
+  )
 }
