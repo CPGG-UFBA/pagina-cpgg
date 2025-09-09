@@ -125,14 +125,6 @@ export  function Labs() {
             </div>
 
               <div className={styles.container}>
-                  {/* Laboratório LAIGA permanece como estático, mas será também no banco */}
-                  <a className={styles.card} href="Labs/Laiga">
-                      <div className={styles.Laiga}>
-                          <h2>LAIGA</h2>
-                          <h2>Laboratório Integrado de Geofísica Aplicada</h2>
-                      </div>
-                  </a>
-
                    {/* Laboratórios dinâmicos do banco de dados */}
                    {laboratories.map((lab, index) => {
                      console.log('Rendering lab:', lab.name, 'isEditing:', isEditing)
