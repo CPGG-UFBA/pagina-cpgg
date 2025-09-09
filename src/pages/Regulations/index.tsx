@@ -1,9 +1,38 @@
+import { useState, useEffect } from 'react';
 import styles from './Regulations.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { supabase } from '@/integrations/supabase/client';
 import earthImage from '../../assets/earth-regulations.jpg'
 
-export  function Regulations() {
+interface Regulation {
+  id: string;
+  name: string;
+  pdf_url: string;
+}
+
+export function Regulations() {
+  const [dynamicRegulations, setDynamicRegulations] = useState<Regulation[]>([]);
+
+  useEffect(() => {
+    const fetchRegulations = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('regulations')
+          .select('*')
+          .order('created_at', { ascending: true });
+
+        if (error) throw error;
+        
+        setDynamicRegulations(data || []);
+      } catch (error) {
+        console.error('Erro ao buscar normas:', error);
+      }
+    };
+
+    fetchRegulations();
+  }, []);
+
   return (
       <>
       <Header/>
@@ -27,6 +56,21 @@ export  function Regulations() {
                           <h2> Deliberação Normativa para pesquisadores seniores</h2>
                       </div>
                   </a>
+
+                  {/* Normas dinâmicas do banco de dados */}
+                  {dynamicRegulations.map((regulation) => (
+                    <a 
+                      key={regulation.id} 
+                      className={styles.card} 
+                      href={regulation.pdf_url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                    >
+                      <div className={styles.dynamicRegulation}>
+                        <h2>{regulation.name}</h2>
+                      </div>
+                    </a>
+                  ))}
 
               </div>
               <div className={styles.earthFigure}>

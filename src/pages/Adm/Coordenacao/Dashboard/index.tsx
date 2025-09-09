@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
-import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper } from 'lucide-react'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText } from 'lucide-react'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
@@ -49,6 +49,10 @@ export function CoordenacaoDashboard() {
   const [newsPhoto3, setNewsPhoto3] = useState<File | null>(null)
   const [newsCoverPhoto, setNewsCoverPhoto] = useState<string>('1')
   const [newsPosition, setNewsPosition] = useState<string>('')
+
+  // Estados para normas/regulamentos
+  const [regulationName, setRegulationName] = useState('')
+  const [regulationPdfUrl, setRegulationPdfUrl] = useState('')
   
   const [isLoading, setIsLoading] = useState(false)
   const [uploadingPhotos, setUploadingPhotos] = useState(false)
@@ -435,6 +439,48 @@ export function CoordenacaoDashboard() {
     }
   }
 
+  const handleRegisterRegulation = async () => {
+    if (!regulationName || !regulationPdfUrl) {
+      toast({
+        title: "Erro",
+        description: "Nome da norma e endereço do PDF são obrigatórios",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const { error } = await supabase
+        .from('regulations')
+        .insert({
+          name: regulationName,
+          pdf_url: regulationPdfUrl,
+        })
+
+      if (error) throw error
+
+      toast({
+        title: "Sucesso",
+        description: "Norma/regulamento cadastrado com sucesso!",
+      })
+
+      // Limpar formulário
+      setRegulationName('')
+      setRegulationPdfUrl('')
+    } catch (error: any) {
+      console.error('Erro ao cadastrar norma:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao cadastrar norma",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   const createResearcherPage = async (name: string, email: string, description: string, lattes: string) => {
     // Aqui será implementada a criação automática da página do pesquisador
     // Por enquanto, apenas um console.log para indicar que a função foi chamada
@@ -767,6 +813,40 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Publicando...' : 'Publicar Notícia'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <FileText size={24} />
+              <h2>Cadastrar Norma/Regulamento</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="regulation-name">Nome da Norma:</label>
+              <Input
+                id="regulation-name"
+                type="text"
+                value={regulationName}
+                onChange={(e) => setRegulationName(e.target.value)}
+                placeholder="Digite o nome da norma/regulamento"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="regulation-pdf">Endereço do PDF:</label>
+              <Input
+                id="regulation-pdf"
+                type="url"
+                value={regulationPdfUrl}
+                onChange={(e) => setRegulationPdfUrl(e.target.value)}
+                placeholder="Digite o link do PDF"
+              />
+            </div>
+            <Button
+              onClick={handleRegisterRegulation}
+              disabled={isLoading || !regulationName || !regulationPdfUrl}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Cadastrando...' : 'Cadastrar Norma'}
             </Button>
           </div>
         </div>

@@ -84,6 +84,25 @@
   transform: translateY(-5px);
 }
 
+.dynamicRegulation {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 120px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)),
+    url('/src/components/Figures/laws.jpg') center/cover;
+}
+
+.dynamicRegulation:hover {
+  transform: translateY(-5px);
+}
+
 .staticFigure img {
   height: 37rem;
   padding-left: 970px;
