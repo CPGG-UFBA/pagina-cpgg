@@ -67,11 +67,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(950px, -100px);
+  transform: translate(900px, -150px);
 }
 
 .staticFigure img {
-  width: 700px;
+  width: 650px;
   height: auto;
   object-fit: contain;
 }
