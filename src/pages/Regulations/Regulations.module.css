@@ -15,13 +15,12 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
   margin-bottom: 18rem;
-  justify-items: center;
 }
 
 
@@ -49,6 +48,7 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
+  margin-left: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   min-height: 120px;
@@ -69,6 +69,8 @@
   text-align: center;
   width: 350px;
   height: 130px;
+  margin-left: -760px;
+  margin-top: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   position: relative;
