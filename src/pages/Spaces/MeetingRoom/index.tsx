@@ -1,6 +1,7 @@
 import styles from './meetingroom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { Button } from '../../../components/ui/button'
 import earth from '../../../components/Figures/earth-new.jpg'
 
 import meeting1 from '../../../assets/Photos/Meetingroom/Meetings1-new.jpg'
@@ -31,7 +32,13 @@ export function MeetingRoom() {
 
           </ul>
           <nav>
-             <a href='/Reservations/ReservationMeetingRoom' target="_blank">Reservar</a>
+             <Button 
+               variant="outline" 
+               className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300"
+               onClick={() => window.open('/Reservations/ReservationMeetingRoom', '_blank')}
+             >
+               Reservar
+             </Button>
           </nav>
           
           </div>

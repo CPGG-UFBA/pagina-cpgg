@@ -1,6 +1,7 @@
 import styles from './auditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { Button } from '../../../components/ui/button'
 import earth from '../../../components/Figures/earth-new.jpg'
 
 import auditory1 from '../../../assets/Photos/Auditory/Auditorio1-new.jpg'
@@ -33,7 +34,13 @@ export function Auditory() {
 
           </ul>
           <nav>
-             <a href='/Reservations/ReservationAuditory' target="_blank">Reservar</a>
+             <Button 
+               variant="outline" 
+               className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300"
+               onClick={() => window.open('/Reservations/ReservationAuditory', '_blank')}
+             >
+               Reservar
+             </Button>
           </nav>
           
           </div>
