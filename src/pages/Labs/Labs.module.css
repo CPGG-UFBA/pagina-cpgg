@@ -107,8 +107,8 @@
 
 .staticFigure {
   position: absolute;
-  right: 0;
-  top: 0;
+  right: 150px;
+  top: 50px;
   z-index: 50;
   pointer-events: none;
   overflow: visible;
