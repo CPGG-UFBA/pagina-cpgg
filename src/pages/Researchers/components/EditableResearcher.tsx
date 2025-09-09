@@ -34,13 +34,6 @@ export function EditableResearcher({
   const isDatabaseResearcher = researcher.route.includes('/researchers/dynamic/')
   const researcherId = isDatabaseResearcher ? researcher.route.split('/').pop() : null
 
-  console.log('EditableResearcher render:', {
-    name: researcher.name,
-    isEditMode,
-    isDatabaseResearcher,
-    researcherId
-  })
-
   const handleNameChange = async () => {
     if (!isDatabaseResearcher || !researcherId || editedName === researcher.name) return
 

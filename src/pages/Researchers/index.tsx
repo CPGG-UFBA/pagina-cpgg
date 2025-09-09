@@ -19,11 +19,6 @@ export function Researchers() {
     fetchDbResearchers()
   }, [])
 
-  // Debug logs
-  console.log('Debug - isEditMode:', isEditMode)
-  console.log('Debug - dbResearchers:', dbResearchers)
-  console.log('Debug - showLogin:', showLogin)
-
   const fetchDbResearchers = async () => {
     try {
       const { data, error } = await supabase
@@ -33,7 +28,6 @@ export function Researchers() {
 
       if (error) throw error
 
-      console.log('Dados do banco de pesquisadores:', data)
       setDbResearchers(data || [])
     } catch (error) {
       console.error('Erro ao buscar pesquisadores:', error)
