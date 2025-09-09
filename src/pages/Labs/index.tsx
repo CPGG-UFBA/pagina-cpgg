@@ -125,25 +125,11 @@ export  function Labs() {
             </div>
 
               <div className={styles.container}>
-                  {/* Laboratórios estáticos */}
+                  {/* Laboratório LAIGA permanece como estático, mas será também no banco */}
                   <a className={styles.card} href="Labs/Laiga">
                       <div className={styles.Laiga}>
                           <h2>LAIGA</h2>
                           <h2>Laboratório Integrado de Geofísica Aplicada</h2>
-                      </div>
-                  </a>
-
-                  <a className={styles.card} href="Labs/Lamod">
-                      <div className={styles.Lamod}>
-                      <h2>LAMOD</h2>
-                      <h2>Laboratório de Modelagem Física</h2>
-                      </div>
-                  </a>
-
-                  <a className={styles.card} href="Labs/Lagep">
-                      <div className={styles.Lagep}>
-                      <h2>LAGEP</h2>
-                      <h2>Laboratório de Geofísica do Petróleo</h2>
                       </div>
                   </a>
 
