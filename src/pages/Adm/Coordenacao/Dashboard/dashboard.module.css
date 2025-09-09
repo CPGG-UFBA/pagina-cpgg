@@ -186,11 +186,39 @@
 
 /* Ensure readable text in all form controls */
 input, select, textarea {
-  color: #000;
+  color: #000 !important;
   caret-color: #000;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #333;
+  color: #333 !important;
+}
+
+/* Specific styles for shadcn components */
+.formCard input {
+  color: #000 !important;
+  caret-color: #000;
+}
+
+.formCard textarea {
+  color: #000 !important;
+  caret-color: #000;
+}
+
+.formCard select {
+  color: #000 !important;
+}
+
+/* Select dropdown styles */
+[data-radix-select-content] {
+  color: #000 !important;
+}
+
+[data-radix-select-item] {
+  color: #000 !important;
+}
+
+[data-radix-select-trigger] {
+  color: #000 !important;
 }
