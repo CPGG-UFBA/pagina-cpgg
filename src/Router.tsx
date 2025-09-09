@@ -76,6 +76,7 @@ import { FirstMeeting } from './pages/Photos/FirstMeeting'
 import { Adm } from './pages/Adm'
 import { TI } from './pages/Adm/TI'
 import { Secretaria } from './pages/Adm/Secretaria'
+import { Coordenacao } from './pages/Adm/Coordenacao'
 
 export function Router() {
   return (
@@ -156,6 +157,7 @@ export function Router() {
          <Route path='/Upload' element={<Adm />} />
          <Route path='/adm' element={<Adm />} />
          <Route path='/adm/ti' element={<TI />} />
+         <Route path='/adm/coordenacao' element={<Coordenacao />} />
          <Route path='/adm/secretaria' element={<Secretaria />} />
 
       </Route>

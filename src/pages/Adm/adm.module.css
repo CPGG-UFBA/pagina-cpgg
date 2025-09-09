@@ -49,7 +49,7 @@
 
 .optionsContainer {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -59,8 +59,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 250px;
-  height: 200px;
+  width: 200px;
+  height: 180px;
   border: 2px solid rgba(255,255,255,.3);
   background-color: rgba(255,255,255, 0.15);
   border-radius: 15px;
@@ -76,7 +76,7 @@
 }
 
 .cardContent h2 {
-  font-size: 28px;
+  font-size: 24px;
   color: rgb(0, 0, 0);
   margin-bottom: 15px;
   font-weight: 600;
