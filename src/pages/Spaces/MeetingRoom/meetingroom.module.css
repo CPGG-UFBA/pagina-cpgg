@@ -63,7 +63,7 @@
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 800px;
-  height: 585px;
+  height: 600px;
   top: 18%; 
   left:5%;
   padding: 10px;
@@ -75,7 +75,7 @@
   font-size: 16px;
   text-align: justify;
   margin-left: 30px;
-  margin-top: 330px;
+  margin-top: 350px;
   margin-right: 50px;
   line-height: 30px;
 }
