@@ -9,7 +9,7 @@ import { useToast } from '@/hooks/use-toast'
 interface AdminLoginProps {
   isOpen: boolean
   onClose: () => void
-  onLogin: () => void
+  onLogin: (email: string, password: string) => void
 }
 
 export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
@@ -47,7 +47,7 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
       
       setEmail('')
       setPassword('')
-      onLogin()
+      onLogin(email, password)
     } catch (error) {
       console.error('Erro no login:', error)
       toast({

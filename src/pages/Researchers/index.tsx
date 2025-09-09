@@ -8,12 +8,14 @@ import { getOrderedResearchersData } from '../../data/researchers'
 import { EditButton } from './components/EditButton'
 import { AdminLogin } from './components/AdminLogin'
 import { EditableResearcher } from './components/EditableResearcher'
+import { useToast } from '@/hooks/use-toast'
 
 export function Researchers() {
   const { oil, environment, mineral, oceanography, coast } = getOrderedResearchersData()
   const [dbResearchers, setDbResearchers] = useState<any[]>([])
   const [isEditMode, setIsEditMode] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
+  const [adminCreds, setAdminCreds] = useState<{ email: string; password: string } | null>(null)
 
   useEffect(() => {
     fetchDbResearchers()
@@ -34,42 +36,70 @@ export function Researchers() {
     }
   }
 
-  const handleLogin = () => {
+  const { toast } = useToast()
+
+  const handleLogin = (email: string, password: string) => {
     setIsEditMode(true)
+    setAdminCreds({ email, password })
     setShowLogin(false)
   }
 
   const handleLogout = () => {
     setIsEditMode(false)
+    setAdminCreds(null)
   }
 
   const handleDeleteResearcher = async (id: string) => {
-    try {
-      const { error } = await supabase
-        .from('researchers')
-        .delete()
-        .eq('id', id)
+    if (!adminCreds) {
+      toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
+      return
+    }
 
-      if (error) throw error
+    // Atualização otimista
+    setDbResearchers((prev) => prev.filter((r: any) => r.id !== id))
 
-      fetchDbResearchers()
-    } catch (error) {
-      console.error('Erro ao excluir pesquisador:', error)
+    const { error } = await supabase.functions.invoke('admin-researchers', {
+      body: {
+        email: adminCreds.email,
+        password: adminCreds.password,
+        action: 'delete',
+        id,
+      },
+    })
+
+    if (error) {
+      toast({ title: 'Erro ao excluir', description: error.message, variant: 'destructive' })
+      // Recarrega para desfazer a otimização se falhar
+      await fetchDbResearchers()
+    } else {
+      toast({ title: 'Excluído', description: 'Pesquisador removido com sucesso.' })
     }
   }
 
   const handleUpdateResearcher = async (id: string, name: string) => {
-    try {
-      const { error } = await supabase
-        .from('researchers')
-        .update({ name })
-        .eq('id', id)
+    if (!adminCreds) {
+      toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
+      return
+    }
 
-      if (error) throw error
+    // Atualização otimista
+    setDbResearchers((prev) => prev.map((r: any) => (r.id === id ? { ...r, name } : r)))
 
-      fetchDbResearchers()
-    } catch (error) {
-      console.error('Erro ao atualizar pesquisador:', error)
+    const { error } = await supabase.functions.invoke('admin-researchers', {
+      body: {
+        email: adminCreds.email,
+        password: adminCreds.password,
+        action: 'update',
+        id,
+        name,
+      },
+    })
+
+    if (error) {
+      toast({ title: 'Erro ao atualizar', description: error.message, variant: 'destructive' })
+      await fetchDbResearchers()
+    } else {
+      toast({ title: 'Atualizado', description: 'Nome atualizado com sucesso.' })
     }
   }
 
