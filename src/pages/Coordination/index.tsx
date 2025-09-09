@@ -26,8 +26,9 @@ export function Coordination() {
               <a>Luiz César Gomes Corrêa (rep. dos pesquisadores)</a>
               <a>Marcos Alberto Rodrigues Vasconcelos</a>
               <a>Milton José Porsani</a>
-              <a> Reynam da Cruz Pestana (rep. pesquisadores sêniores)</a>
               <a> Simone Cerqueira Pereira Cruz</a>
+              <a> Reynam da Cruz Pestana (rep. pesquisadores sêniores)</a>
+              
           </div>
         </div>
           
