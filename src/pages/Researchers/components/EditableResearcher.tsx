@@ -12,10 +12,10 @@ interface Researcher {
 }
 
 interface EditableResearcherProps {
-  researcher: Researcher
+  researcher: any // Mudança para aceitar mais propriedades
   isEditMode: boolean
-  onUpdate: (id: string, name: string) => Promise<void>
-  onDelete: (id: string) => Promise<void>
+  onUpdate: (id: string, name: string, isStatic?: boolean, originalName?: string, programKey?: string) => Promise<void>
+  onDelete: (id: string, isStatic?: boolean, name?: string) => Promise<void>
   dbResearchers: any[]
 }
 
@@ -31,26 +31,34 @@ export function EditableResearcher({
   const [isLoading, setIsLoading] = useState(false)
 
   // Verifica se é um pesquisador do banco de dados
-  const isDatabaseResearcher = researcher.route.includes('/researchers/dynamic/')
-  const researcherId = isDatabaseResearcher ? researcher.route.split('/').pop() : null
+  const isDatabaseResearcher = researcher.isDatabase || researcher.route.includes('/researchers/dynamic/')
+  const researcherId = isDatabaseResearcher ? (researcher.id || researcher.route.split('/').pop()) : null
 
   const handleNameChange = async () => {
-    if (!isDatabaseResearcher || !researcherId || editedName === researcher.name) return
+    if (editedName === researcher.name) return
 
     setIsLoading(true)
     try {
-      await onUpdate(researcherId, editedName)
+      if (isDatabaseResearcher && researcherId) {
+        await onUpdate(researcherId, editedName)
+      } else {
+        // Pesquisador estático - migra para o banco
+        await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
+      }
     } finally {
       setIsLoading(false)
     }
   }
 
   const handleDelete = async () => {
-    if (!isDatabaseResearcher || !researcherId) return
-
     setIsLoading(true)
     try {
-      await onDelete(researcherId)
+      if (isDatabaseResearcher && researcherId) {
+        await onDelete(researcherId)
+      } else {
+        // Pesquisador estático - apenas oculta
+        await onDelete('', true, researcher.originalName || researcher.name)
+      }
       setShowDeleteConfirm(false)
     } finally {
       setIsLoading(false)
@@ -74,36 +82,26 @@ export function EditableResearcher({
   return (
     <>
       <nav className="flex items-center gap-2 group">
-        {isDatabaseResearcher ? (
-          <>
-            <Input
-              value={editedName}
-              onChange={(e) => setEditedName(e.target.value)}
-              onBlur={handleNameChange}
-              onKeyPress={handleKeyPress}
-              className="h-8 text-sm bg-background text-foreground border-border focus:border-ring"
-              disabled={isLoading}
-            />
-            <Button
-              size="sm"
-              variant="destructive"
-              className="h-8 w-8 p-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
-              onClick={() => setShowDeleteConfirm(true)}
-              disabled={isLoading}
-            >
-              <Minus className="w-3 h-3" />
-            </Button>
-          </>
-        ) : (
-          <div className="flex items-center gap-2">
-            <Input
-              value={editedName}
-              onChange={(e) => setEditedName(e.target.value)}
-              className="h-8 text-sm bg-muted text-muted-foreground border-border focus:border-ring"
-              placeholder="Nome do pesquisador"
-            />
-            <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">(estático)</span>
-          </div>
+        <Input
+          value={editedName}
+          onChange={(e) => setEditedName(e.target.value)}
+          onBlur={handleNameChange}
+          onKeyPress={handleKeyPress}
+          className="h-8 text-sm bg-background text-foreground border-border focus:border-ring"
+          disabled={isLoading}
+          placeholder="Nome do pesquisador"
+        />
+        <Button
+          size="sm"
+          variant="destructive"
+          className="h-8 w-8 p-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
+          onClick={() => setShowDeleteConfirm(true)}
+          disabled={isLoading}
+        >
+          <Minus className="w-3 h-3" />
+        </Button>
+        {!isDatabaseResearcher && (
+          <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">(estático)</span>
         )}
       </nav>
 
