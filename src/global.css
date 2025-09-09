@@ -57,6 +57,15 @@ button {
   background-color: white !important;
 }
 
+/* Force black text for selected value in trigger */
+[data-radix-select-trigger] span {
+  color: #000 !important;
+}
+
+[data-radix-select-value] {
+  color: #000 !important;
+}
+
 /* Force black text on all select elements */
 [role="option"] {
   color: #000 !important;
@@ -77,4 +86,19 @@ button {
 .select-item {
   color: #000 !important;
   background-color: white !important;
+}
+
+/* Ensure all text inside select components is black */
+button[data-radix-select-trigger] * {
+  color: #000 !important;
+}
+
+/* Specific override for placeholder and selected text */
+[data-placeholder] {
+  color: #666 !important;
+}
+
+/* Override any inherited white text */
+.formCard [data-radix-select-trigger] * {
+  color: #000 !important;
 }
