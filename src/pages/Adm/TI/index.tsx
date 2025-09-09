@@ -1,48 +1,86 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
+import { supabase } from '@/integrations/supabase/client'
 import styles from './ti.module.css'
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
-
-// Simulando emails cadastrados
-const registeredEmails = ['ti@cpgg.ufba.br', 'tech@cpgg.ufba.br'];
-const passwords = { 'ti@cpgg.ufba.br': 'ti123', 'tech@cpgg.ufba.br': 'tech456' };
 
 export function TI() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [resetEmail, setResetEmail] = useState('')
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
+  const navigate = useNavigate()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Lógica de login aqui
-    console.log('Login TI:', { email, password })
+    setIsLoading(true)
+    
+    try {
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('email', email)
+        .eq('password', password)
+        .eq('role', 'ti')
+        .single()
+
+      if (error || !data) {
+        toast({
+          title: "Erro de login",
+          description: "Email ou senha incorretos, ou usuário não cadastrado.",
+          variant: "destructive"
+        })
+        return
+      }
+
+      // Login bem-sucedido
+      sessionStorage.setItem('admin_user', JSON.stringify(data))
+      toast({
+        title: "Login realizado!",
+        description: "Bem-vindo à área de T.I.",
+      })
+      // Aqui poderia navegar para uma dashboard específica do TI se necessário
+      console.log('Login TI bem-sucedido:', data)
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Erro ao realizar login. Tente novamente.",
+        variant: "destructive"
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!registeredEmails.includes(resetEmail)) {
-      toast({
-        title: "Erro",
-        description: "Email não encontrado. Verifique o email digitado.",
-        variant: "destructive"
-      })
-      return
-    }
-
-    // Simular envio de email
-    const userPassword = passwords[resetEmail as keyof typeof passwords]
-    
     try {
-      // Aqui seria a integração real com serviço de email
-      console.log(`Enviando senha para ${resetEmail}: ${userPassword}`)
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('email, password')
+        .eq('email', resetEmail)
+        .eq('role', 'ti')
+        .single()
+
+      if (error || !data) {
+        toast({
+          title: "Erro",
+          description: "Email não encontrado. Verifique o email digitado.",
+          variant: "destructive"
+        })
+        return
+      }
+
+      // Simular envio de email com a senha
+      console.log(`Enviando senha para ${resetEmail}: ${data.password}`)
       
       toast({
         title: "Email enviado!",
@@ -82,6 +120,7 @@ export function TI() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required 
+            disabled={isLoading}
           />
           
           <label htmlFor="password">Senha:</label>
@@ -92,11 +131,12 @@ export function TI() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required 
+            disabled={isLoading}
           />
         </div>
         
-        <button type="submit" className={styles.button}>
-          Entrar
+        <button type="submit" className={styles.button} disabled={isLoading}>
+          {isLoading ? 'Entrando...' : 'Entrar'}
         </button>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

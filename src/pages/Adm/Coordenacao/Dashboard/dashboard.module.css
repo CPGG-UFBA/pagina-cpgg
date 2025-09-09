@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.dashboard {
+  background-image: url('https://i.imgur.com/ZwnmRF6.png');
+  background-size: cover;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255,255,255, 0.1);
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.logo img {
+  width: 80px;
+  height: 52px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+.logoutButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  text-align: center;
+  background-color: rgba(255,255,255, 0.1);
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.title h1 {
+  font-size: 32px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.title p {
+  font-size: 18px;
+  color: #333;
+}
+
+.formsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.formCard {
+  background-color: rgba(255,255,255, 0.1);
+  border: 2px solid rgba(255,255,255,.2);
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.formHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.formHeader h2 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.submitButton {
+  background-color: #936aeb;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.submitButton:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+.submitButton:disabled {
+  background-color: #BEB6B6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media(max-width: 900px) {
+  .formsContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .userInfo {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .title h1 {
+    font-size: 24px;
+  }
+  
+  .title p {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 500px) {
+  .dashboard {
+    padding: 10px;
+  }
+  
+  .formCard {
+    padding: 20px;
+  }
+  
+  .title {
+    padding: 20px;
+  }
+  
+  .formHeader h2 {
+    font-size: 20px;
+  }
+}

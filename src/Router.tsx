@@ -77,6 +77,7 @@ import { Adm } from './pages/Adm'
 import { TI } from './pages/Adm/TI'
 import { Secretaria } from './pages/Adm/Secretaria'
 import { Coordenacao } from './pages/Adm/Coordenacao'
+import { CoordenacaoDashboard } from './pages/Adm/Coordenacao/Dashboard'
 
 export function Router() {
   return (
@@ -158,6 +159,7 @@ export function Router() {
          <Route path='/adm' element={<Adm />} />
          <Route path='/adm/ti' element={<TI />} />
          <Route path='/adm/coordenacao' element={<Coordenacao />} />
+         <Route path='/adm/coordenacao/dashboard' element={<CoordenacaoDashboard />} />
          <Route path='/adm/secretaria' element={<Secretaria />} />
 
       </Route>

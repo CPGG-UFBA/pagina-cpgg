@@ -1,48 +1,85 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
+import { supabase } from '@/integrations/supabase/client'
 import styles from './coordenacao.module.css'
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
-
-// Simulando emails cadastrados
-const registeredEmails = ['coordenacao@cpgg.ufba.br', 'admin@cpgg.ufba.br'];
-const passwords = { 'coordenacao@cpgg.ufba.br': 'coord123', 'admin@cpgg.ufba.br': 'admin456' };
 
 export function Coordenacao() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [resetEmail, setResetEmail] = useState('')
   const [isDialogOpen, setIsDialogOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
+  const navigate = useNavigate()
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Lógica de login aqui
-    console.log('Login Coordenação:', { email, password })
+    setIsLoading(true)
+    
+    try {
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('email', email)
+        .eq('password', password)
+        .eq('role', 'coordenacao')
+        .single()
+
+      if (error || !data) {
+        toast({
+          title: "Erro de login",
+          description: "Email ou senha incorretos.",
+          variant: "destructive"
+        })
+        return
+      }
+
+      // Login bem-sucedido - salvar dados na sessão e navegar
+      sessionStorage.setItem('admin_user', JSON.stringify(data))
+      toast({
+        title: "Login realizado!",
+        description: "Bem-vindo à área administrativa.",
+      })
+      navigate('/adm/coordenacao/dashboard')
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Erro ao realizar login. Tente novamente.",
+        variant: "destructive"
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!registeredEmails.includes(resetEmail)) {
-      toast({
-        title: "Erro",
-        description: "Email não encontrado. Verifique o email digitado.",
-        variant: "destructive"
-      })
-      return
-    }
-
-    // Simular envio de email
-    const userPassword = passwords[resetEmail as keyof typeof passwords]
-    
     try {
-      // Aqui seria a integração real com serviço de email
-      console.log(`Enviando senha para ${resetEmail}: ${userPassword}`)
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('email, password')
+        .eq('email', resetEmail)
+        .eq('role', 'coordenacao')
+        .single()
+
+      if (error || !data) {
+        toast({
+          title: "Erro",
+          description: "Email não encontrado. Verifique o email digitado.",
+          variant: "destructive"
+        })
+        return
+      }
+
+      // Simular envio de email com a senha
+      console.log(`Enviando senha para ${resetEmail}: ${data.password}`)
       
       toast({
         title: "Email enviado!",
@@ -82,6 +119,7 @@ export function Coordenacao() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required 
+            disabled={isLoading}
           />
           
           <label htmlFor="password">Senha:</label>
@@ -92,11 +130,12 @@ export function Coordenacao() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required 
+            disabled={isLoading}
           />
         </div>
         
-        <button type="submit" className={styles.button}>
-          Entrar
+        <button type="submit" className={styles.button} disabled={isLoading}>
+          {isLoading ? 'Entrando...' : 'Entrar'}
         </button>
 
         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
