@@ -1,6 +1,7 @@
 .labs {
   flex: 1;
   padding: 2rem;
+  position: relative;
 }
 
 .title {
@@ -21,7 +22,7 @@
   margin: 0 auto;
   margin-left: 50px;
   margin-bottom: 18rem;
-  position: relative;
+  position: static;
 }
 
 .Laiga {
@@ -106,9 +107,9 @@
 
 .staticFigure {
   position: absolute;
-  right: -80px;
+  right: 0;
   top: 0;
-  z-index: 2;
+  z-index: 50;
   pointer-events: none;
   overflow: visible;
 }
