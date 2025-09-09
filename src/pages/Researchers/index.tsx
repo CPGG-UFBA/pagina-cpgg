@@ -64,10 +64,12 @@ export function Researchers() {
   }
 
   const showUndoButton = (action: typeof lastAction) => {
+    console.log('Mostrando botão desfazer:', action)
     setLastAction(action)
     setShowUndo(true)
     // Auto-hide após 8 segundos
     setTimeout(() => {
+      console.log('Ocultando botão desfazer após 8 segundos')
       setShowUndo(false)
     }, 8000)
   }
@@ -392,6 +394,14 @@ export function Researchers() {
                 ✕
               </button>
             </div>
+          </div>
+        )}
+        
+        {/* Debug info */}
+        {process.env.NODE_ENV === 'development' && (
+          <div className="fixed top-4 left-4 z-50 bg-gray-800 text-white p-2 text-xs">
+            showUndo: {showUndo ? 'true' : 'false'}<br/>
+            lastAction: {lastAction ? JSON.stringify(lastAction.type) : 'null'}
           </div>
         )}
         
