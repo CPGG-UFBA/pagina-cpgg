@@ -10,6 +10,7 @@ import { Former } from './pages/History/FormerHeaders'
 import { Institution } from './pages/Institution'
 
 import { Researchers } from './pages/Researchers'
+import { DynamicResearcher } from './pages/Researchers/DynamicResearcher'
   import { Alanna } from './pages/Researchers/Personal_pages/Alanna'
   import { Alexandre } from './pages/Researchers/Personal_pages/Alexandre'
   import { Alexsandro } from './pages/Researchers/Personal_pages/Alexsandro'
@@ -90,6 +91,7 @@ export function Router() {
         <Route path='/News/News3' element={<News3 />} />
 
         <Route path='/researchers' element={<Researchers />} />
+        <Route path='/researchers/dynamic/:id' element={<DynamicResearcher />} />
         <Route path='/researchers/personal/Alanna' element={<Alanna />} />
         <Route path='/researchers/personal/Alexandre' element={<Alexandre />} />
         <Route path='/researchers/personal/Alexsandro' element={<Alexsandro />} />

@@ -41,6 +41,39 @@ export type Database = {
         }
         Relationships: []
       }
+      researchers: {
+        Row: {
+          created_at: string
+          description: string | null
+          email: string
+          id: string
+          lattes_link: string | null
+          name: string
+          program: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          email: string
+          id?: string
+          lattes_link?: string | null
+          name: string
+          program: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          email?: string
+          id?: string
+          lattes_link?: string | null
+          name?: string
+          program?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

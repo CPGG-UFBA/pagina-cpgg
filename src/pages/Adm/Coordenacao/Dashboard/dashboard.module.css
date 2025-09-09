@@ -135,6 +135,12 @@
   transform: none;
 }
 
+@media(max-width: 1200px) {
+  .formsContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 @media(max-width: 900px) {
   .formsContainer {
     grid-template-columns: 1fr;
