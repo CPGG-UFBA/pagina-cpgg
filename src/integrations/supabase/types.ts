@@ -83,6 +83,45 @@ export type Database = {
         }
         Relationships: []
       }
+      news: {
+        Row: {
+          content: string
+          cover_photo_number: number | null
+          created_at: string
+          id: string
+          news_position: string
+          photo1_url: string | null
+          photo2_url: string | null
+          photo3_url: string | null
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          content: string
+          cover_photo_number?: number | null
+          created_at?: string
+          id?: string
+          news_position: string
+          photo1_url?: string | null
+          photo2_url?: string | null
+          photo3_url?: string | null
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          content?: string
+          cover_photo_number?: number | null
+          created_at?: string
+          id?: string
+          news_position?: string
+          photo1_url?: string | null
+          photo2_url?: string | null
+          photo3_url?: string | null
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       researchers: {
         Row: {
           created_at: string

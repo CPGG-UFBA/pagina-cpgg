@@ -2,16 +2,14 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { LogOut, UserCheck, Settings, Users, Building } from 'lucide-react'
-import { supabase } from '@/integrations/supabase/client'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { useToast } from '@/hooks/use-toast'
+import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper } from 'lucide-react'
+import logocpgg from '../../../../../assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
-
-const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
 interface AdminUser {
   id: string
@@ -33,19 +31,27 @@ export function CoordenacaoDashboard() {
   const [researcherDescription, setResearcherDescription] = useState('')
   const [researcherLattes, setResearcherLattes] = useState('')
   
-  // Estados para cadastro de laboratório
+  // Estados para laboratórios
   const [labName, setLabName] = useState('')
   const [labAcronym, setLabAcronym] = useState('')
   const [labChief, setLabChief] = useState('')
   const [labDescription, setLabDescription] = useState('')
   const [labPnipe, setLabPnipe] = useState('')
-  const [labPhotos, setLabPhotos] = useState<File[]>([])
   const [labPhoto1, setLabPhoto1] = useState<File | null>(null)
   const [labPhoto2, setLabPhoto2] = useState<File | null>(null)
   const [labPhoto3, setLabPhoto3] = useState<File | null>(null)
-  const [uploadingPhotos, setUploadingPhotos] = useState(false)
+  
+  // Estados para notícias
+  const [newsTitle, setNewsTitle] = useState('')
+  const [newsContent, setNewsContent] = useState('')
+  const [newsPhoto1, setNewsPhoto1] = useState<File | null>(null)
+  const [newsPhoto2, setNewsPhoto2] = useState<File | null>(null)
+  const [newsPhoto3, setNewsPhoto3] = useState<File | null>(null)
+  const [newsCoverPhoto, setNewsCoverPhoto] = useState<string>('1')
+  const [newsPosition, setNewsPosition] = useState<string>('')
   
   const [isLoading, setIsLoading] = useState(false)
+  const [uploadingPhotos, setUploadingPhotos] = useState(false)
   const { toast } = useToast()
   const navigate = useNavigate()
 
@@ -328,6 +334,107 @@ export function CoordenacaoDashboard() {
     }
   }
 
+  const handleRegisterNews = async () => {
+    if (!newsTitle || !newsContent || !newsPosition) {
+      toast({
+        title: "Erro",
+        description: "Preencha todos os campos obrigatórios (Título, Conteúdo e Posição)",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+    setUploadingPhotos(true)
+
+    try {
+      const photos = [newsPhoto1, newsPhoto2, newsPhoto3]
+      const photoUrls: (string | null)[] = [null, null, null]
+
+      // Upload das fotos
+      for (let i = 0; i < photos.length; i++) {
+        const photo = photos[i]
+        if (photo) {
+          const fileName = `${Date.now()}-${i + 1}-${photo.name}`
+          const { data: uploadData, error: uploadError } = await supabase.storage
+            .from('news-photos')
+            .upload(fileName, photo)
+
+          if (uploadError) throw uploadError
+
+          const { data: { publicUrl } } = supabase.storage
+            .from('news-photos')
+            .getPublicUrl(fileName)
+
+          photoUrls[i] = publicUrl
+        }
+      }
+
+      // Verificar se já existe uma notícia na posição selecionada
+      const { data: existingNews } = await supabase
+        .from('news')
+        .select('id')
+        .eq('news_position', newsPosition)
+        .single()
+
+      if (existingNews) {
+        // Atualizar notícia existente
+        const { error } = await supabase
+          .from('news')
+          .update({
+            title: newsTitle,
+            content: newsContent,
+            photo1_url: photoUrls[0],
+            photo2_url: photoUrls[1],
+            photo3_url: photoUrls[2],
+            cover_photo_number: parseInt(newsCoverPhoto),
+          })
+          .eq('id', existingNews.id)
+
+        if (error) throw error
+      } else {
+        // Inserir nova notícia
+        const { error } = await supabase
+          .from('news')
+          .insert({
+            title: newsTitle,
+            content: newsContent,
+            photo1_url: photoUrls[0],
+            photo2_url: photoUrls[1],
+            photo3_url: photoUrls[2],
+            cover_photo_number: parseInt(newsCoverPhoto),
+            news_position: newsPosition
+          })
+
+        if (error) throw error
+      }
+
+      toast({
+        title: "Sucesso",
+        description: "Notícia publicada com sucesso!",
+      })
+
+      // Limpar formulário
+      setNewsTitle('')
+      setNewsContent('')
+      setNewsPhoto1(null)
+      setNewsPhoto2(null)
+      setNewsPhoto3(null)
+      setNewsCoverPhoto('1')
+      setNewsPosition('')
+    } catch (error: any) {
+      console.error('Erro ao publicar notícia:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao publicar notícia",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+      setUploadingPhotos(false)
+    }
+  }
+
   const createResearcherPage = async (name: string, email: string, description: string, lattes: string) => {
     // Aqui será implementada a criação automática da página do pesquisador
     // Por enquanto, apenas um console.log para indicar que a função foi chamada
@@ -431,7 +538,7 @@ export function CoordenacaoDashboard() {
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
               <Users size={24} />
-              <h2>Cadastrar Novo Pesquisador</h2>
+              <h2>Cadastrar Pesquisador</h2>
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-name">Nome:</label>
@@ -440,21 +547,21 @@ export function CoordenacaoDashboard() {
                 type="text"
                 value={researcherName}
                 onChange={(e) => setResearcherName(e.target.value)}
-                placeholder="Digite o nome completo"
+                placeholder="Digite o nome do pesquisador"
               />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-program">Programa:</label>
               <Select value={researcherProgram} onValueChange={setResearcherProgram}>
-                <SelectTrigger className={styles.selectTrigger}>
+                <SelectTrigger>
                   <SelectValue placeholder="Selecione o programa" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="oil">Exploração de Petróleo</SelectItem>
-                  <SelectItem value="environment">Recursos Hidricos e Ambientais</SelectItem>
-                  <SelectItem value="mineral">Petrologia, Metalogênese e Exp. Mineral</SelectItem>
-                  <SelectItem value="oceanography">Oceanografia Física</SelectItem>
-                  <SelectItem value="coast">Geologia Marinha e Costeira</SelectItem>
+                  {Object.entries(programMapping).map(([key, value]) => (
+                    <SelectItem key={key} value={key}>
+                      {value}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
@@ -474,18 +581,18 @@ export function CoordenacaoDashboard() {
                 id="researcher-description"
                 value={researcherDescription}
                 onChange={(e) => setResearcherDescription(e.target.value)}
-                placeholder="Digite a descrição do pesquisador"
-                rows={3}
+                placeholder="Digite uma descrição sobre o pesquisador"
+                rows={4}
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher-lattes">Link Lattes:</label>
+              <label htmlFor="researcher-lattes">Link do Lattes:</label>
               <Input
                 id="researcher-lattes"
                 type="url"
                 value={researcherLattes}
                 onChange={(e) => setResearcherLattes(e.target.value)}
-                placeholder="Digite o link do Lattes"
+                placeholder="Digite o link do currículo Lattes"
               />
             </div>
             <Button
@@ -499,17 +606,17 @@ export function CoordenacaoDashboard() {
 
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
-              <Building size={24} />
-              <h2>Cadastrar Novo Laboratório</h2>
+              <FlaskConical size={24} />
+              <h2>Cadastrar Laboratório</h2>
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="lab-name">Nome do Laboratório:</label>
+              <label htmlFor="lab-name">Nome:</label>
               <Input
                 id="lab-name"
                 type="text"
                 value={labName}
                 onChange={(e) => setLabName(e.target.value)}
-                placeholder="Digite o nome completo do laboratório"
+                placeholder="Digite o nome do laboratório"
               />
             </div>
             <div className={styles.formGroup}>
@@ -533,13 +640,13 @@ export function CoordenacaoDashboard() {
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="lab-description">Texto Descritivo:</label>
+              <label htmlFor="lab-description">Descrição:</label>
               <Textarea
                 id="lab-description"
                 value={labDescription}
                 onChange={(e) => setLabDescription(e.target.value)}
-                placeholder="Digite a descrição do laboratório"
-                rows={3}
+                placeholder="Digite uma descrição do laboratório"
+                rows={4}
               />
             </div>
             <div className={styles.formGroup}>
@@ -579,6 +686,87 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Cadastrando...' : 'Cadastrar Laboratório'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <Newspaper size={24} />
+              <h2>Gerenciar Notícias</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="news-title">Título:</label>
+              <Input
+                id="news-title"
+                type="text"
+                value={newsTitle}
+                onChange={(e) => setNewsTitle(e.target.value)}
+                placeholder="Digite o título da notícia"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="news-content">Conteúdo:</label>
+              <Textarea
+                id="news-content"
+                value={newsContent}
+                onChange={(e) => setNewsContent(e.target.value)}
+                placeholder="Digite o conteúdo da notícia"
+                rows={8}
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="news-position">Posição na Home:</label>
+              <Select value={newsPosition} onValueChange={setNewsPosition}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione a posição" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="News1">Notícia 1</SelectItem>
+                  <SelectItem value="News2">Notícia 2</SelectItem>
+                  <SelectItem value="News3">Notícia 3</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <PhotoDropZone
+              id="news-photo1"
+              label="Foto 1:"
+              value={newsPhoto1}
+              onChange={setNewsPhoto1}
+              className={styles.photoDropZone}
+            />
+            <PhotoDropZone
+              id="news-photo2"
+              label="Foto 2:"
+              value={newsPhoto2}
+              onChange={setNewsPhoto2}
+              className={styles.photoDropZone}
+            />
+            <PhotoDropZone
+              id="news-photo3"
+              label="Foto 3:"
+              value={newsPhoto3}
+              onChange={setNewsPhoto3}
+              className={styles.photoDropZone}
+            />
+            <div className={styles.formGroup}>
+              <label htmlFor="news-cover">Foto de Capa:</label>
+              <Select value={newsCoverPhoto} onValueChange={setNewsCoverPhoto}>
+                <SelectTrigger>
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="1">Foto 1</SelectItem>
+                  <SelectItem value="2">Foto 2</SelectItem>
+                  <SelectItem value="3">Foto 3</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Button
+              onClick={handleRegisterNews}
+              disabled={isLoading || uploadingPhotos || !newsTitle || !newsContent || !newsPosition}
+              className={styles.submitButton}
+            >
+              {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Publicando...' : 'Publicar Notícia'}
             </Button>
           </div>
         </div>
