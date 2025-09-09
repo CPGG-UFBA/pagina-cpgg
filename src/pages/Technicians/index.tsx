@@ -41,7 +41,9 @@ export function Technicians() {
           </div>
         </div>
       </div>
-  <Footer />
-  </>
+      <div style={{ marginTop: '-50px' }}>
+        <Footer />
+      </div>
+    </>
   )
 }
