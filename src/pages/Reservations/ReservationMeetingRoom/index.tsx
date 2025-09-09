@@ -1,4 +1,4 @@
-import styles from './mr.module.css'
+import styles from './ReservationMeetingRoom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 const earth = 'https://imgur.com/z6pTgZ1'
