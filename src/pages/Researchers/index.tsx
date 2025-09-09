@@ -74,10 +74,14 @@ export function Researchers() {
     setDbResearchers((prev) => prev.filter((r: any) => r.id !== id))
 
     try {
-      const { error } = await supabase
-        .from('researchers')
-        .delete()
-        .eq('id', id)
+      const { error } = await supabase.functions.invoke('admin-researchers', {
+        body: {
+          email: adminCreds.email,
+          password: adminCreds.password,
+          action: 'delete',
+          id,
+        },
+      })
 
       if (error) throw error
 
@@ -126,10 +130,15 @@ export function Researchers() {
     setDbResearchers((prev) => prev.map((r: any) => (r.id === id ? { ...r, name } : r)))
 
     try {
-      const { error } = await supabase
-        .from('researchers')
-        .update({ name })
-        .eq('id', id)
+      const { error } = await supabase.functions.invoke('admin-researchers', {
+        body: {
+          email: adminCreds.email,
+          password: adminCreds.password,
+          action: 'update',
+          id,
+          name,
+        },
+      })
 
       if (error) throw error
 
