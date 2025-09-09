@@ -49,6 +49,12 @@
     transition: all linear 160ms;
     outline: none;
     width: 500px;
+    color: #000;
+    caret-color: #000;
+}
+
+.box input::placeholder {
+  color: #333;
 }
 
 .box label {

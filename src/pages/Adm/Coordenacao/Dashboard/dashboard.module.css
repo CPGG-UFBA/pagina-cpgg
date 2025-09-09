@@ -177,3 +177,14 @@
     font-size: 20px;
   }
 }
+
+/* Ensure readable text in all form controls */
+input, select, textarea {
+  color: #000;
+  caret-color: #000;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #333;
+}
