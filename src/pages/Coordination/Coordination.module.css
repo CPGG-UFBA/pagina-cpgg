@@ -54,6 +54,9 @@
   color: hsl(0 0% 100%);
 }
 
+.scientific {
+  padding-left: 30px;
+}
 .scientific  h1{
   postion: absolute;
   display: flex;
@@ -67,12 +70,12 @@
 
 
 .scientific   a{
-  text-align: center;
-  display: flex;
+  text-align: left;
+  display: block;
   font-size: 14px;
-  margin-left: 30px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-left: 0;
+  margin-top: 8px;
+  margin-bottom: 8px;
   color: hsl(0 0% 100%);
 }
 

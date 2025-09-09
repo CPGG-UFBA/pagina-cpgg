@@ -27,7 +27,7 @@ export function Coordination() {
               <a>Marcos Alberto Rodrigues Vasconcelos</a>
               <a>Milton José Porsani</a>
               <a> Simone Cerqueira Pereira Cruz</a>
-              <a> Reynam da Cruz Pestana (rep. pesquisadores sêniores)</a>
+              <a>Reynam da Cruz Pestana (rep. pesquisadores sêniores)</a>
               
           </div>
         </div>
