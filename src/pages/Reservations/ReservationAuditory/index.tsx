@@ -2,6 +2,7 @@ import { useState } from 'react'
 import styles from './ReservationAuditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { supabase } from '../../../integrations/supabase/client'
 const earth = 'https://i.imgur.com/z6pTgZ1.jpg'
 
 export function RA() {
@@ -18,12 +19,26 @@ export function RA() {
     setFormData(prev => ({ ...prev, [field]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Aqui você pode processar os dados do formulário
-    console.log('Dados do formulário:', formData)
-    // Redirecionar para página de sucesso
-    window.location.href = "/Reservations/Success"
+    
+    try {
+      const { data, error } = await supabase.functions.invoke('send-reservation-email', {
+        body: {
+          ...formData,
+          tipoReserva: 'auditorio'
+        }
+      });
+
+      if (error) throw error;
+
+      console.log('Reserva enviada com sucesso:', data);
+      // Redirecionar para página de sucesso
+      window.location.href = "/Reservations/Success"
+    } catch (error) {
+      console.error('Erro ao enviar reserva:', error);
+      alert('Erro ao enviar reserva. Tente novamente.');
+    }
   }
 
   return (
