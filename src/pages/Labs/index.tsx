@@ -1,7 +1,7 @@
 import styles from './Labs.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import earth from '../../assets/earth-photos.jpg'
+import earth from '../../assets/earth-labs.png'
 
 export  function Labs() {
   return (
