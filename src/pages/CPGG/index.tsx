@@ -60,7 +60,9 @@ export function CPGG() {
           </div>
         </div>
       </div>
-      <Footer />
+      <div style={{ marginTop: '-50px' }}>
+        <Footer />
+      </div>
     </>
   )
 }
