@@ -17,6 +17,12 @@ export function Researchers() {
   const [showLogin, setShowLogin] = useState(false)
   const [adminCreds, setAdminCreds] = useState<{ email: string; password: string } | null>(null)
   const [hiddenStaticResearchers, setHiddenStaticResearchers] = useState<string[]>([])
+  const [lastAction, setLastAction] = useState<{
+    type: 'delete' | 'update' | 'hide'
+    data: any
+    timestamp: number
+  } | null>(null)
+  const [showUndo, setShowUndo] = useState(false)
 
   useEffect(() => {
     fetchDbResearchers()
@@ -53,6 +59,67 @@ export function Researchers() {
   const handleLogout = () => {
     setIsEditMode(false)
     setAdminCreds(null)
+    setLastAction(null)
+    setShowUndo(false)
+  }
+
+  const showUndoButton = (action: typeof lastAction) => {
+    setLastAction(action)
+    setShowUndo(true)
+    // Auto-hide após 8 segundos
+    setTimeout(() => {
+      setShowUndo(false)
+    }, 8000)
+  }
+
+  const handleUndo = async () => {
+    if (!lastAction || !adminCreds) return
+
+    try {
+      if (lastAction.type === 'delete') {
+        // Restaura pesquisador excluído
+        const { error } = await supabase.functions.invoke('admin-researchers', {
+          body: {
+            email: adminCreds.email,
+            password: adminCreds.password,
+            action: 'restore',
+            data: lastAction.data,
+          },
+        })
+
+        if (error) throw error
+
+        await fetchDbResearchers()
+        toast({ title: 'Desfeito', description: 'Exclusão desfeita com sucesso.' })
+      } else if (lastAction.type === 'update') {
+        // Restaura nome anterior
+        const { error } = await supabase.functions.invoke('admin-researchers', {
+          body: {
+            email: adminCreds.email,
+            password: adminCreds.password,
+            action: 'update',
+            id: lastAction.data.id,
+            name: lastAction.data.oldName,
+          },
+        })
+
+        if (error) throw error
+
+        await fetchDbResearchers()
+        toast({ title: 'Desfeito', description: 'Edição desfeita com sucesso.' })
+      } else if (lastAction.type === 'hide') {
+        // Restaura pesquisador estático oculto
+        const newHidden = hiddenStaticResearchers.filter(name => name !== lastAction.data.name)
+        setHiddenStaticResearchers(newHidden)
+        localStorage.setItem('hiddenStaticResearchers', JSON.stringify(newHidden))
+        toast({ title: 'Desfeito', description: 'Pesquisador restaurado na lista.' })
+      }
+
+      setLastAction(null)
+      setShowUndo(false)
+    } catch (error: any) {
+      toast({ title: 'Erro ao desfazer', description: error.message, variant: 'destructive' })
+    }
   }
 
   const handleDeleteResearcher = async (id: string, isStatic: boolean = false, name: string = '') => {
@@ -66,11 +133,20 @@ export function Researchers() {
       const newHidden = [...hiddenStaticResearchers, name]
       setHiddenStaticResearchers(newHidden)
       localStorage.setItem('hiddenStaticResearchers', JSON.stringify(newHidden))
+      
+      // Salva ação para desfazer
+      showUndoButton({
+        type: 'hide',
+        data: { name },
+        timestamp: Date.now()
+      })
+      
       toast({ title: 'Excluído', description: 'Pesquisador removido da lista.' })
       return
     }
 
-    // Para pesquisadores do banco
+    // Para pesquisadores do banco - salva dados antes de excluir
+    const researcherToDelete = dbResearchers.find(r => r.id === id)
     setDbResearchers((prev) => prev.filter((r: any) => r.id !== id))
 
     try {
@@ -84,6 +160,13 @@ export function Researchers() {
       })
 
       if (error) throw error
+
+      // Salva ação para desfazer
+      showUndoButton({
+        type: 'delete',
+        data: researcherToDelete,
+        timestamp: Date.now()
+      })
 
       toast({ title: 'Excluído', description: 'Pesquisador removido com sucesso.' })
     } catch (error: any) {
@@ -126,7 +209,8 @@ export function Researchers() {
       return
     }
 
-    // Para pesquisadores do banco
+    // Para pesquisadores do banco - salva nome anterior
+    const oldName = dbResearchers.find(r => r.id === id)?.name || ''
     setDbResearchers((prev) => prev.map((r: any) => (r.id === id ? { ...r, name } : r)))
 
     try {
@@ -141,6 +225,13 @@ export function Researchers() {
       })
 
       if (error) throw error
+
+      // Salva ação para desfazer
+      showUndoButton({
+        type: 'update',
+        data: { id, oldName, newName: name },
+        timestamp: Date.now()
+      })
 
       toast({ title: 'Atualizado', description: 'Nome atualizado com sucesso.' })
     } catch (error: any) {
@@ -278,6 +369,31 @@ export function Researchers() {
           isEditMode={isEditMode}
           onLogout={handleLogout}
         />
+        
+        {/* Botão de Desfazer */}
+        {showUndo && lastAction && (
+          <div className="fixed bottom-20 right-4 z-50">
+            <div className="bg-card text-card-foreground border border-border rounded-lg p-3 shadow-lg flex items-center gap-3">
+              <span className="text-sm">
+                {lastAction.type === 'delete' ? 'Pesquisador excluído' : 
+                 lastAction.type === 'update' ? 'Nome alterado' : 
+                 'Pesquisador ocultado'}
+              </span>
+              <button
+                onClick={handleUndo}
+                className="text-sm bg-primary text-primary-foreground px-3 py-1 rounded hover:bg-primary/90 transition-colors"
+              >
+                Desfazer
+              </button>
+              <button
+                onClick={() => setShowUndo(false)}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
         
         <AdminLogin
           isOpen={showLogin}

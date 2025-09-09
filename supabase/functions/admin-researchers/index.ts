@@ -30,7 +30,7 @@ serve(async (req) => {
   }
 
   try {
-    const { email, password, action, id, name } = await req.json();
+    const { email, password, action, id, name, data } = await req.json();
 
     if (!email || !password) {
       return json({ error: "Credenciais ausentes" }, { status: 400 });
@@ -70,6 +70,25 @@ serve(async (req) => {
         .eq("id", id);
 
       if (updErr) return json({ error: updErr.message }, { status: 400 });
+      return json({ ok: true });
+    }
+
+    if (action === "restore") {
+      if (!data) return json({ error: "Dados obrigatórios" }, { status: 400 });
+
+      const researcherData = data;
+      const { error: insertErr } = await supabase
+        .from("researchers")
+        .insert({
+          id: researcherData.id,
+          name: researcherData.name,
+          email: researcherData.email,
+          program: researcherData.program,
+          description: researcherData.description,
+          lattes_link: researcherData.lattes_link
+        });
+
+      if (insertErr) return json({ error: insertErr.message }, { status: 400 });
       return json({ ok: true });
     }
 
