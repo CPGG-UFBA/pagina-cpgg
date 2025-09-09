@@ -61,11 +61,17 @@
 }
 
 
+.staticFigure {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .staticFigure img {
-  height: 40rem;
-  padding-left: 205px;
-  padding-top: -1000px;
-  margin-bottom: -270px;
-  margin-top: -75px;
+  width: min(520px, 100%);
+  height: auto;
+  object-fit: contain;
+  margin: 0;
 }
 
