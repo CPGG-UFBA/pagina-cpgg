@@ -83,12 +83,12 @@
 }
 
 .staticFigure img {
-  height: 1000px;
-  width: 1000px;
+  height: 500px;
+  width: 500px;
   object-fit: contain;
   margin-left: 850px;
   margin-bottom: 50px;
-  margin-top: -750px;
+  margin-top: -450px;
 }
 
 
