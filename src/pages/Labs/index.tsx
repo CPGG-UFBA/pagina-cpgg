@@ -70,6 +70,7 @@ export  function Labs() {
   }
 
   const handleAdminLogin = (email: string, password: string) => {
+    console.log('Login successful, setting isEditing to true')
     setIsEditing(true)
     setShowAdminLogin(false)
   }
@@ -145,26 +146,28 @@ export  function Labs() {
                       </div>
                   </a>
 
-                  {/* Laboratórios dinâmicos do banco de dados */}
-                  {laboratories.map((lab, index) => (
-                    <div key={lab.id} className={`${styles.card} ${styles.dynamicLab}`}>
-                      {isEditing ? (
-                        <EditableLaboratory
-                          laboratory={lab}
-                          isEditing={isEditing}
-                          onUpdate={handleUpdateLaboratory}
-                          onDelete={handleDeleteLaboratory}
-                        />
-                      ) : (
-                        <a href={`Labs/${lab.acronym}`} className={styles.labLink}>
-                          <div className={styles.others}>
-                            <h2>{lab.acronym}</h2>
-                            <h2>{lab.name}</h2>
-                          </div>
-                        </a>
-                      )}
-                    </div>
-                  ))}
+                   {/* Laboratórios dinâmicos do banco de dados */}
+                   {laboratories.map((lab, index) => {
+                     console.log('Rendering lab:', lab.name, 'isEditing:', isEditing)
+                     return (
+                     <div key={lab.id} className={`${styles.card} ${styles.dynamicLab}`}>
+                       {isEditing ? (
+                         <EditableLaboratory
+                           laboratory={lab}
+                           isEditing={isEditing}
+                           onUpdate={handleUpdateLaboratory}
+                           onDelete={handleDeleteLaboratory}
+                         />
+                       ) : (
+                         <a href={`Labs/${lab.acronym}`} className={styles.labLink}>
+                           <div className={styles.others}>
+                             <h2>{lab.acronym}</h2>
+                             <h2>{lab.name}</h2>
+                           </div>
+                         </a>
+                       )}
+                     </div>
+                   )})}
 
                   <div className={styles.staticFigure}>
                     <img src={earth} alt='Terra' />
