@@ -1,57 +1,104 @@
+import { useState } from 'react'
 import styles from './ReservationMeetingRoom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 const earth = 'https://i.imgur.com/z6pTgZ1.jpg'
 
-
 export function MR() {
+  const [formData, setFormData] = useState({
+    nome: '',
+    sobrenome: '',
+    email: '',
+    uso: '',
+    inicio: '',
+    termino: ''
+  })
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }))
+  }
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    // Aqui você pode processar os dados do formulário
+    console.log('Dados do formulário:', formData)
+    // Redirecionar para página de sucesso
+    window.location.href = "/Reservations/Success"
+  }
+
   return (
     <>
       <Header />
       <div className={styles.MR}>
           <ul> Reserva da Sala de Reuniões do CPGG </ul>
-          <div className={styles.box}>
+          <form className={styles.box} onSubmit={handleSubmit}>
 
           <div className={styles.form}> 
-             <input type="Name"   placeholder="Nome" required></input>
+             <input 
+               type="text" 
+               placeholder="Nome" 
+               value={formData.nome}
+               onChange={(e) => handleInputChange('nome', e.target.value)}
+               required 
+             />
           </div>
 
           <div className={styles.form}> 
-            <input type="Surname"   placeholder="Sobrenome" required></input>
+            <input 
+              type="text" 
+              placeholder="Sobrenome" 
+              value={formData.sobrenome}
+              onChange={(e) => handleInputChange('sobrenome', e.target.value)}
+              required 
+            />
           </div>
 
-
           <div className={styles.form}> 
-            <input type="email"   placeholder="Eimail" required></input>
+            <input 
+              type="email" 
+              placeholder="E-mail" 
+              value={formData.email}
+              onChange={(e) => handleInputChange('email', e.target.value)}
+              required 
+            />
           </div>
 
-
-     
-        
-
-
           <div className={styles.form}> 
-            <input type="use"   placeholder="Uso para...?" required></input>
+            <input 
+              type="text" 
+              placeholder="Uso para...?" 
+              value={formData.uso}
+              onChange={(e) => handleInputChange('uso', e.target.value)}
+              required 
+            />
           </div>
 
           <div className={styles.container}> 
             <div className={styles.dateField}>
                <label>Início</label>
-              <input type="datetime-local"   placeholder="Starting Day"  required></input>
+              <input 
+                type="datetime-local" 
+                value={formData.inicio}
+                onChange={(e) => handleInputChange('inicio', e.target.value)}
+                required 
+              />
             </div> 
             <div className={styles.dateField}>
                <label>Término</label>
-              <input type="datetime-local"   placeholder="End Day" required></input>
+              <input 
+                type="datetime-local" 
+                value={formData.termino}
+                onChange={(e) => handleInputChange('termino', e.target.value)}
+                required 
+              />
             </div>
           </div>
 
-          <button className={styles.button}>
-             <a href="/Reservations/Success" >
+          <button type="submit" className={styles.button}>
               Enviar   
-             </a> 
-             </button> 
+          </button> 
 
-          </div>
+          </form>
 
           <div className={styles.staticFigure}>
             <img src={earth} alt='Terra' />
