@@ -33,13 +33,14 @@ export function Auditory() {
             ser feitas pelo link abaixo:
 
           </ul>
-          <nav>
+          <nav className="flex justify-center mt-4">
              <Button
                asChild
                variant="outline"
-               className="bg-[#BEB6B6] border-none text-white rounded-[35px] hover:bg-[#936aeb] transition-all duration-500"
+               size="sm"
+               className="bg-[#BEB6B6] border-none text-white rounded-md hover:bg-[#936aeb] transition-all duration-500 flex items-center justify-center px-6"
              >
-               <a href='/Reservations/ReservationAuditory' target="_blank" rel="noopener noreferrer">Reservar</a>
+               <a href='/Reservations/ReservationAuditory' target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">Reservar</a>
              </Button>
           </nav>
           
