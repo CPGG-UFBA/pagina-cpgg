@@ -1,10 +1,24 @@
-import styles from './Success.module.css';
+import styles from './success.module.css'
+import { Header } from '../../../components/Header'
+import { Footer } from '../../../components/Footer'
+import earth from ='https://imgur.com/z6pTgZ1'
+
 
 export function Success() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Reserva Realizada com Sucesso!</h1>
-      <p className={styles.content}>Sua reserva foi confirmada.</p>
-    </div>
-  );
+    <>
+      <Header />
+      <div className={styles.success}>
+          <ul> Your request has been succesfully submitted </ul>
+          <p> Our secretary will soonly confirm it by email </p>
+
+
+          <div className={styles.staticFigure}>
+            <img src={earth} alt='Terra' />
+          </div>
+        </div>
+        
+      <Footer />
+    </>
+  )
 }

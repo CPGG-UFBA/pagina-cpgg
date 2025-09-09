@@ -1,19 +1,35 @@
 /* Success Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
-}
+.success{
+  display: flex;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 150px;
+  padding-bottom: 400px;
+  padding-left: 700px;
+  padding-right: 8px;
+  }
 
-.title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
-}
+.success ul {
+    font-size: 30px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 100px;
+  }
 
-.content {
-  font-size: 1.125rem;
-  color: white;
+  .success p {
+    font-size: 30px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1500px;
+    margin-top: 200px;
+  }
+
+.staticFigure img {
+  height: 40rem;
+  padding-left: 100px;
+  margin-bottom: -350px;
+  margin-top: -30px;
 }
