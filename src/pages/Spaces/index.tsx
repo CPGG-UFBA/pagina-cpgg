@@ -1,7 +1,6 @@
 import styles from './spaces.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import earth from = 'https://imgur.com/z6pTgZ1'
 
 export  function Spaces() {
   return (
@@ -23,7 +22,7 @@ export  function Spaces() {
                       </div>
                   </a>
                   <div className={styles.staticFigure}>
-                    <img src={earth} alt='Terra' />
+                    <img src="https://imgur.com/z6pTgZ1" alt='Terra' />
                  </div>
               </div>
           </div>
