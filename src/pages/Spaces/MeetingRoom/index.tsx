@@ -35,9 +35,9 @@ export function MeetingRoom() {
              <Button
                asChild
                variant="outline"
-               className="bg-[#BEB6B6] border-none text-white rounded-[25px] hover:bg-[#936aeb] transition-all duration-500"
+               className="bg-[#BEB6B6] border-none text-white rounded-md hover:bg-[#936aeb] transition-all duration-500 flex items-center justify-center"
              >
-               <a href='/Reservations/ReservationMeetingRoom' target="_blank" rel="noopener noreferrer">Reservar</a>
+               <a href='/Reservations/ReservationMeetingRoom' target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">Reservar</a>
              </Button>
           </nav>
           
