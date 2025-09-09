@@ -80,16 +80,20 @@
   line-height: 30px;
 }
 
+.box nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .box nav a {
   color: #fff;
-  padding-right: 40px;
   font-size: 14px;
-  margin-left: 350px;
-  top: -480px;
-  position: relative;
   cursor:pointer;
   font-family: Roboto;
   font-weight: 500;
+  position: static;
+  margin: 0;
+  padding: 0;
 }
 
 .staticFigure img {
@@ -131,8 +135,8 @@
   }
 
   .box nav a {
-    top: -150px;
-    margin-left: 350px;
+    position: static;
+    margin: 0;
   }
 
   .meetingroom1 img {
@@ -177,8 +181,8 @@
   }
 
   .box nav a {
-    top: -100px;
-    margin-left: 350px;
+    position: static;
+    margin: 0;
   }
 
   .meetingroom1 img {
@@ -224,8 +228,8 @@
   }
 
   .box nav a {
-    top: -10px;
-    margin-left: 350px;
+    position: static;
+    margin: 0;
   }
 
   .meetingroom1 img {
