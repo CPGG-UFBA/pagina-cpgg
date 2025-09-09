@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { LogOut, UserCheck, Settings, Users } from 'lucide-react'
+import { LogOut, UserCheck, Settings, Users, Building } from 'lucide-react'
 import { supabase } from '@/integrations/supabase/client'
 import { useToast } from '@/hooks/use-toast'
 import styles from './dashboard.module.css'
@@ -32,12 +32,14 @@ export function CoordenacaoDashboard() {
   const [researcherDescription, setResearcherDescription] = useState('')
   const [researcherLattes, setResearcherLattes] = useState('')
   
-  // Estados para segunda caixa (futura funcionalidade)
-  const [researcher2Name, setResearcher2Name] = useState('')
-  const [researcher2Program, setResearcher2Program] = useState('')
-  const [researcher2Email, setResearcher2Email] = useState('')
-  const [researcher2Description, setResearcher2Description] = useState('')
-  const [researcher2Lattes, setResearcher2Lattes] = useState('')
+  // Estados para cadastro de laboratório
+  const [labName, setLabName] = useState('')
+  const [labAcronym, setLabAcronym] = useState('')
+  const [labChief, setLabChief] = useState('')
+  const [labDescription, setLabDescription] = useState('')
+  const [labPnipe, setLabPnipe] = useState('')
+  const [labPhotos, setLabPhotos] = useState<File[]>([])
+  const [uploadingPhotos, setUploadingPhotos] = useState(false)
   
   const [isLoading, setIsLoading] = useState(false)
   const { toast } = useToast()
@@ -207,8 +209,8 @@ export function CoordenacaoDashboard() {
     }
   }
 
-  const handleRegisterResearcher2 = async () => {
-    if (!researcher2Name || !researcher2Program || !researcher2Email || !researcher2Description || !researcher2Lattes) {
+  const handleRegisterLaboratory = async () => {
+    if (!labName || !labAcronym || !labChief || !labDescription || !labPnipe) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
@@ -220,41 +222,72 @@ export function CoordenacaoDashboard() {
     setIsLoading(true)
 
     try {
+      let photo1_url = null
+      let photo2_url = null
+      let photo3_url = null
+
+      // Upload das fotos se foram fornecidas
+      if (labPhotos.length > 0) {
+        setUploadingPhotos(true)
+        
+        for (let i = 0; i < Math.min(labPhotos.length, 3); i++) {
+          const photo = labPhotos[i]
+          const fileExt = photo.name.split('.').pop()
+          const fileName = `${labAcronym.toLowerCase()}_photo_${i + 1}_${Date.now()}.${fileExt}`
+          
+          const { error: uploadError } = await supabase.storage
+            .from('laboratory-photos')
+            .upload(fileName, photo)
+
+          if (uploadError) throw uploadError
+
+          const { data: { publicUrl } } = supabase.storage
+            .from('laboratory-photos')
+            .getPublicUrl(fileName)
+
+          if (i === 0) photo1_url = publicUrl
+          else if (i === 1) photo2_url = publicUrl
+          else if (i === 2) photo3_url = publicUrl
+        }
+      }
+
       const { error } = await supabase
-        .from('researchers')
+        .from('laboratories')
         .insert({
-          name: researcher2Name,
-          program: researcher2Program,
-          email: researcher2Email,
-          description: researcher2Description,
-          lattes_link: researcher2Lattes,
+          name: labName,
+          acronym: labAcronym,
+          chief_name: labChief,
+          description: labDescription,
+          pnipe_address: labPnipe,
+          photo1_url,
+          photo2_url,
+          photo3_url,
         })
 
       if (error) throw error
 
-      // Criar página pessoal do pesquisador
-      await createResearcherPage(researcher2Name, researcher2Email, researcher2Description, researcher2Lattes)
-
       toast({
         title: "Sucesso",
-        description: "Pesquisador cadastrado com sucesso!",
+        description: "Laboratório cadastrado com sucesso!",
       })
 
       // Limpar formulário
-      setResearcher2Name('')
-      setResearcher2Program('')
-      setResearcher2Email('')
-      setResearcher2Description('')
-      setResearcher2Lattes('')
+      setLabName('')
+      setLabAcronym('')
+      setLabChief('')
+      setLabDescription('')
+      setLabPnipe('')
+      setLabPhotos([])
     } catch (error: any) {
-      console.error('Erro ao cadastrar pesquisador:', error)
+      console.error('Erro ao cadastrar laboratório:', error)
       toast({
         title: "Erro",
-        description: error.message || "Erro ao cadastrar pesquisador",
+        description: error.message || "Erro ao cadastrar laboratório",
         variant: "destructive",
       })
     } finally {
       setIsLoading(false)
+      setUploadingPhotos(false)
     }
   }
 
@@ -429,70 +462,84 @@ export function CoordenacaoDashboard() {
 
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
-              <Users size={24} />
-              <h2>Cadastrar Novo Pesquisador (2)</h2>
+              <Building size={24} />
+              <h2>Cadastrar Novo Laboratório</h2>
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher2-name">Nome:</label>
+              <label htmlFor="lab-name">Nome do Laboratório:</label>
               <Input
-                id="researcher2-name"
+                id="lab-name"
                 type="text"
-                value={researcher2Name}
-                onChange={(e) => setResearcher2Name(e.target.value)}
-                placeholder="Digite o nome completo"
+                value={labName}
+                onChange={(e) => setLabName(e.target.value)}
+                placeholder="Digite o nome completo do laboratório"
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher2-program">Programa:</label>
-              <Select value={researcher2Program} onValueChange={setResearcher2Program}>
-                <SelectTrigger className={styles.selectTrigger}>
-                  <SelectValue placeholder="Selecione o programa" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="oil">Exploração de Petróleo</SelectItem>
-                  <SelectItem value="environment">Recursos Hidricos e Ambientais</SelectItem>
-                  <SelectItem value="mineral">Petrologia, Metalogênese e Exp. Mineral</SelectItem>
-                  <SelectItem value="oceanography">Oceanografia Física</SelectItem>
-                  <SelectItem value="coast">Geologia Marinha e Costeira</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="researcher2-email">E-mail:</label>
+              <label htmlFor="lab-acronym">Sigla:</label>
               <Input
-                id="researcher2-email"
-                type="email"
-                value={researcher2Email}
-                onChange={(e) => setResearcher2Email(e.target.value)}
-                placeholder="Digite o e-mail do pesquisador"
+                id="lab-acronym"
+                type="text"
+                value={labAcronym}
+                onChange={(e) => setLabAcronym(e.target.value)}
+                placeholder="Digite a sigla do laboratório"
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher2-description">Descrição:</label>
+              <label htmlFor="lab-chief">Nome do Chefe:</label>
+              <Input
+                id="lab-chief"
+                type="text"
+                value={labChief}
+                onChange={(e) => setLabChief(e.target.value)}
+                placeholder="Digite o nome do chefe do laboratório"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="lab-description">Texto Descritivo:</label>
               <Textarea
-                id="researcher2-description"
-                value={researcher2Description}
-                onChange={(e) => setResearcher2Description(e.target.value)}
-                placeholder="Digite a descrição do pesquisador"
+                id="lab-description"
+                value={labDescription}
+                onChange={(e) => setLabDescription(e.target.value)}
+                placeholder="Digite a descrição do laboratório"
                 rows={3}
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher2-lattes">Link Lattes:</label>
+              <label htmlFor="lab-pnipe">Endereço PNIPE:</label>
               <Input
-                id="researcher2-lattes"
-                type="url"
-                value={researcher2Lattes}
-                onChange={(e) => setResearcher2Lattes(e.target.value)}
-                placeholder="Digite o link do Lattes"
+                id="lab-pnipe"
+                type="text"
+                value={labPnipe}
+                onChange={(e) => setLabPnipe(e.target.value)}
+                placeholder="Digite o endereço PNIPE"
               />
             </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="lab-photos">Fotos (máximo 3):</label>
+              <Input
+                id="lab-photos"
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={(e) => {
+                  const files = Array.from(e.target.files || [])
+                  setLabPhotos(files.slice(0, 3))
+                }}
+                className={styles.fileInput}
+              />
+              {labPhotos.length > 0 && (
+                <div className={styles.photoPreview}>
+                  <p>{labPhotos.length} foto(s) selecionada(s)</p>
+                </div>
+              )}
+            </div>
             <Button
-              onClick={handleRegisterResearcher2}
-              disabled={isLoading || !researcher2Name || !researcher2Program || !researcher2Email || !researcher2Description || !researcher2Lattes}
+              onClick={handleRegisterLaboratory}
+              disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labDescription || !labPnipe}
               className={styles.submitButton}
             >
-              {isLoading ? 'Cadastrando...' : 'Cadastrar Pesquisador'}
+              {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Cadastrando...' : 'Cadastrar Laboratório'}
             </Button>
           </div>
         </div>

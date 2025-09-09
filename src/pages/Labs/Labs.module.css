@@ -4,26 +4,76 @@
   position: relative;
 }
 
-.title {
-  justify-content: center;
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   margin-left: 330px;
   margin-bottom: 2rem;
   margin-top: 7rem;
+}
+
+.title {
   font-size: 24px;
   color: white;
+}
+
+.dynamicLab {
+  padding: 1rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 350px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85));
+  text-decoration: none;
+}
+
+.dynamicLab:hover {
+  transform: translateY(-5px);
+}
+
+.labLink {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.photoPreview {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.fileInput {
+  cursor: pointer;
 }
 
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
   margin-bottom: 18rem;
   position: static;
+  grid-auto-rows: auto;
+}
+
+.card {
+  text-decoration: none;
 }
 
 .Laiga {

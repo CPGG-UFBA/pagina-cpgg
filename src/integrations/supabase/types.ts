@@ -41,6 +41,48 @@ export type Database = {
         }
         Relationships: []
       }
+      laboratories: {
+        Row: {
+          acronym: string
+          chief_name: string
+          created_at: string
+          description: string | null
+          id: string
+          name: string
+          photo1_url: string | null
+          photo2_url: string | null
+          photo3_url: string | null
+          pnipe_address: string | null
+          updated_at: string
+        }
+        Insert: {
+          acronym: string
+          chief_name: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name: string
+          photo1_url?: string | null
+          photo2_url?: string | null
+          photo3_url?: string | null
+          pnipe_address?: string | null
+          updated_at?: string
+        }
+        Update: {
+          acronym?: string
+          chief_name?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          name?: string
+          photo1_url?: string | null
+          photo2_url?: string | null
+          photo3_url?: string | null
+          pnipe_address?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       researchers: {
         Row: {
           created_at: string
