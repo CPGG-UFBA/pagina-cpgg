@@ -1,7 +1,7 @@
 import styles from './ReservationAuditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-const earth = 'https://imgur.com/z6pTgZ1'
+import earth from '../../../assets/earth-globe.jpg'
 
 
 export function RA() {
