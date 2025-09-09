@@ -18,7 +18,7 @@ export function Marilia() {
              <a href="http://lattes.cnpq.br/2945071439166054" target="_blank">Currículo</a>
            </nav>
            <b> email</b>
-           <p>[email será adicionado aqui]</p> 
+           <p>mariliadirceu.mo@gmail.com</p> 
             <div className={styles.box2}>
             </div>
           </div>
