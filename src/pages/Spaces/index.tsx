@@ -1,7 +1,7 @@
 import styles from './Spaces.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import earthImage from '../../assets/earth-globe.jpg';
+import earthImage from '../../assets/earth-imgur.png';
 
 export  function Spaces() {
   return (
