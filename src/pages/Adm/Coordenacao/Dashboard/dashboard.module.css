@@ -245,6 +245,20 @@ textarea::placeholder {
   border: 1px solid #ccc !important;
 }
 
+/* Force black text on selected value in dropdown trigger */
+[data-radix-select-trigger] span[data-radix-select-value] {
+  color: #000 !important;
+}
+
+[data-radix-select-trigger] span {
+  color: #000 !important;
+}
+
+/* Override any white text in form cards */
+.formCard [data-radix-select-trigger] * {
+  color: #000 !important;
+}
+
 /* Force black text on all select elements */
 * [role="option"] {
   color: #000 !important;
