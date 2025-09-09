@@ -114,7 +114,7 @@
   display: flex;
   padding: 15px;
   margin-top: 25rem;
-  margin-left:-55rem;
+  margin-left: 15px;
   border-radius: 0.25rem;
 }
 
@@ -128,7 +128,7 @@
   display: flex;
   padding: 15px;
   margin-top: 25rem;
-  margin-left:-50rem;
+  margin-left: 20px;
   border-radius: 0.25rem;
 }
 
