@@ -102,9 +102,15 @@ export function EditableResearcher({
             </Button>
           </>
         ) : (
-          <span className="text-muted-foreground text-sm px-2">
-            {researcher.name} (estático)
-          </span>
+          <div className="flex items-center gap-2">
+            <Input
+              value={editedName}
+              onChange={(e) => setEditedName(e.target.value)}
+              className="h-8 text-sm bg-background/80 border-border"
+              placeholder="Nome do pesquisador"
+            />
+            <span className="text-xs text-muted-foreground">(estático)</span>
+          </div>
         )}
       </nav>
 

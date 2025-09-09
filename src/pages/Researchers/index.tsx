@@ -33,6 +33,7 @@ export function Researchers() {
 
       if (error) throw error
 
+      console.log('Dados do banco de pesquisadores:', data)
       setDbResearchers(data || [])
     } catch (error) {
       console.error('Erro ao buscar pesquisadores:', error)
