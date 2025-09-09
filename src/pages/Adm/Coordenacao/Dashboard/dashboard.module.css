@@ -210,8 +210,9 @@ textarea::placeholder {
   color: #000 !important;
 }
 
-/* Select dropdown styles with proper background and hover */
-[data-radix-select-content] {
+/* Global styles for Select dropdown with highest specificity */
+[data-radix-select-content],
+.select-content {
   background-color: white !important;
   color: #000 !important;
   border: 1px solid #ccc !important;
@@ -220,31 +221,46 @@ textarea::placeholder {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
-[data-radix-select-item] {
+[data-radix-select-item],
+.select-item {
   color: #000 !important;
+  background-color: white !important;
   padding: 8px 12px !important;
   cursor: pointer !important;
   transition: background-color 0.2s ease !important;
 }
 
-[data-radix-select-item]:hover {
+[data-radix-select-item]:hover,
+.select-item:hover,
+[data-radix-select-item][data-highlighted],
+.select-item[data-highlighted] {
   background-color: #f3f4f6 !important;
   color: #000 !important;
 }
 
-[data-radix-select-item][data-highlighted] {
-  background-color: #e5e7eb !important;
-  color: #000 !important;
-}
-
-[data-radix-select-trigger] {
+[data-radix-select-trigger],
+.select-trigger {
   color: #000 !important;
   background-color: white !important;
-}
-
-/* Additional styles for Select components in this form */
-.formCard [data-radix-select-trigger] {
-  background-color: white !important;
-  color: #000 !important;
   border: 1px solid #ccc !important;
+}
+
+/* Force black text on all select elements */
+* [role="option"] {
+  color: #000 !important;
+  background-color: white !important;
+}
+
+* [role="option"]:hover {
+  background-color: #f3f4f6 !important;
+  color: #000 !important;
+}
+
+/* Additional global overrides */
+.formCard * [data-radix-select-content] * {
+  color: #000 !important;
+}
+
+.formCard * [data-radix-select-item] * {
+  color: #000 !important;
 }
