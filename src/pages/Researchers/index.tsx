@@ -58,21 +58,19 @@ export function Researchers() {
     // Atualização otimista
     setDbResearchers((prev) => prev.filter((r: any) => r.id !== id))
 
-    const { error } = await supabase.functions.invoke('admin-researchers', {
-      body: {
-        email: adminCreds.email,
-        password: adminCreds.password,
-        action: 'delete',
-        id,
-      },
-    })
+    try {
+      const { error } = await supabase
+        .from('researchers')
+        .delete()
+        .eq('id', id)
 
-    if (error) {
+      if (error) throw error
+
+      toast({ title: 'Excluído', description: 'Pesquisador removido com sucesso.' })
+    } catch (error: any) {
       toast({ title: 'Erro ao excluir', description: error.message, variant: 'destructive' })
       // Recarrega para desfazer a otimização se falhar
       await fetchDbResearchers()
-    } else {
-      toast({ title: 'Excluído', description: 'Pesquisador removido com sucesso.' })
     }
   }
 
@@ -85,21 +83,18 @@ export function Researchers() {
     // Atualização otimista
     setDbResearchers((prev) => prev.map((r: any) => (r.id === id ? { ...r, name } : r)))
 
-    const { error } = await supabase.functions.invoke('admin-researchers', {
-      body: {
-        email: adminCreds.email,
-        password: adminCreds.password,
-        action: 'update',
-        id,
-        name,
-      },
-    })
+    try {
+      const { error } = await supabase
+        .from('researchers')
+        .update({ name })
+        .eq('id', id)
 
-    if (error) {
+      if (error) throw error
+
+      toast({ title: 'Atualizado', description: 'Nome atualizado com sucesso.' })
+    } catch (error: any) {
       toast({ title: 'Erro ao atualizar', description: error.message, variant: 'destructive' })
       await fetchDbResearchers()
-    } else {
-      toast({ title: 'Atualizado', description: 'Nome atualizado com sucesso.' })
     }
   }
 
