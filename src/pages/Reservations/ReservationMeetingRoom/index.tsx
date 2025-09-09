@@ -34,31 +34,22 @@ export function MR() {
             <input type="use"   placeholder="Uso para...?" required></input>
           </div>
 
+          <div className={styles.container}> 
+            <div className={styles.dateField}>
+               <label>Início</label>
+              <input type="datetime-local"   placeholder="Starting Day"  required></input>
+            </div> 
+            <div className={styles.dateField}>
+               <label>Término</label>
+              <input type="datetime-local"   placeholder="End Day" required></input>
+            </div>
+          </div>
 
           <button className={styles.button}>
              <a href="/Reservations/Success" >
               Enviar   
              </a> 
              </button> 
-
-          </div>
-          
-          <div className={styles.container}> 
-            <div className={styles.startingday }>
-              
-             
-              <input type="datetime-local"   placeholder="Starting Day"  required></input>
-            </div> 
-            <div className={styles.label1}>
-               <label>Início</label>
-              </div>
-            <div className={styles.endday }>
-              <input type="datetime-local"   placeholder="End Day" required></input>
-            </div>
-
-            <div className={styles.label2}>
-               <label>Término</label>
-              </div>
 
           </div>
 

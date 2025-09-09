@@ -104,37 +104,33 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 2fr);
-  grid-template-rows: repeat(1, 25vw);
-}
-
-.startingday {
-  position: absolute;
   display: flex;
-  padding: 15px;
-  margin-top: 23rem;
-  margin-left:-35rem;
-  border-radius: 0.25rem;
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.label1{
-  margin-top: 22.5rem;
-  margin-left: -32rem;
-}
-
-.endday {
-  position: absolute;
+.dateField {
   display: flex;
-  padding: 15px;
-  margin-top: 23rem;
-  margin-left:-20rem;
-  border-radius: 0.25rem;
+  flex-direction: column;
+  flex: 1;
 }
 
-.label2{
-  margin-top: 22.5rem;
-  margin-left: -15rem;
+.dateField label {
+  margin-bottom: 8px;
+  margin-left: 2.5rem;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.dateField input {
+  padding: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  margin-left: 2.5rem;
+  border-radius: 15px;
+  transition: all linear 160ms;
+  outline: none;
+  width: 220px;
 }
 
 .staticFigure {
