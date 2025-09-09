@@ -8,7 +8,7 @@ import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
 import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper } from 'lucide-react'
-import logocpgg from '../../../../../assets/cpgg-logo.jpg'
+import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
 interface AdminUser {
