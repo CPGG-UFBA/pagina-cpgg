@@ -34,12 +34,12 @@ export function Auditory() {
 
           </ul>
           <nav>
-             <Button 
-               variant="outline" 
-               className="border-white text-white hover:bg-white hover:text-primary transition-all duration-300"
-               onClick={() => window.open('/Reservations/ReservationAuditory', '_blank')}
+             <Button
+               asChild
+               variant="outline"
+               className="transition-all duration-200 hover:scale-105"
              >
-               Reservar
+               <a href='/Reservations/ReservationAuditory' target="_blank" rel="noopener noreferrer">Reservar</a>
              </Button>
           </nav>
           
