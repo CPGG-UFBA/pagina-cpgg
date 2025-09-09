@@ -37,7 +37,7 @@ export function Auditory() {
              <Button
                asChild
                variant="outline"
-               className="transition-all duration-200 hover:scale-105"
+               className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary transition-all duration-300"
              >
                <a href='/Reservations/ReservationAuditory' target="_blank" rel="noopener noreferrer">Reservar</a>
              </Button>
