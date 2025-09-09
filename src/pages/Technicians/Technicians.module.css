@@ -9,7 +9,7 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  padding-top: 150px;
+  padding-top: 100px;
   padding-bottom: 100px;
   }
 
@@ -114,7 +114,7 @@
 
 @media (max-width: 800px) {
   .Employees {
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 50px;
   }
   
@@ -134,7 +134,7 @@
 
 @media (max-width: 400px) {
   .Employees {
-    padding: 80px 1rem 50px 1rem;
+    padding: 30px 1rem 50px 1rem;
   }
   
   .box1,
