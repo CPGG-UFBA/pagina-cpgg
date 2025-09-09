@@ -137,8 +137,13 @@
   margin-left: -15rem;
 }
 
+.staticFigure {
+  position: absolute;
+  right: 10%;
+  top: 20%;
+}
+
 .staticFigure img {
-  height: 40rem;
-  padding-left: 100px;
-  margin-bottom: -400px;
+  height: 35rem;
+  width: auto;
 }

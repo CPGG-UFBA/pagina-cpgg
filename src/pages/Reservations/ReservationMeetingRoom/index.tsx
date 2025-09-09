@@ -1,7 +1,7 @@
 import styles from './ReservationMeetingRoom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
-import earth from '../../../assets/earth-globe.jpg'
+const earth = 'https://i.imgur.com/z6pTgZ1.jpg'
 
 
 export function MR() {
