@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { LogOut, UserCheck, Settings, Users, Building } from 'lucide-react'
 import { supabase } from '@/integrations/supabase/client'
 import { useToast } from '@/hooks/use-toast'
+import { PhotoDropZone } from '@/components/PhotoDropZone'
 import styles from './dashboard.module.css'
 
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
@@ -39,6 +40,9 @@ export function CoordenacaoDashboard() {
   const [labDescription, setLabDescription] = useState('')
   const [labPnipe, setLabPnipe] = useState('')
   const [labPhotos, setLabPhotos] = useState<File[]>([])
+  const [labPhoto1, setLabPhoto1] = useState<File | null>(null)
+  const [labPhoto2, setLabPhoto2] = useState<File | null>(null)
+  const [labPhoto3, setLabPhoto3] = useState<File | null>(null)
   const [uploadingPhotos, setUploadingPhotos] = useState(false)
   
   const [isLoading, setIsLoading] = useState(false)
@@ -227,17 +231,16 @@ export function CoordenacaoDashboard() {
       let photo3_url = null
 
       // Upload das fotos se foram fornecidas
-      if (labPhotos.length > 0) {
+      if (labPhoto1 || labPhoto2 || labPhoto3) {
         setUploadingPhotos(true)
         
-        for (let i = 0; i < Math.min(labPhotos.length, 3); i++) {
-          const photo = labPhotos[i]
-          const fileExt = photo.name.split('.').pop()
-          const fileName = `${labAcronym.toLowerCase()}_photo_${i + 1}_${Date.now()}.${fileExt}`
+        if (labPhoto1) {
+          const fileExt = labPhoto1.name.split('.').pop()
+          const fileName = `${labAcronym.toLowerCase()}_photo_1_${Date.now()}.${fileExt}`
           
           const { error: uploadError } = await supabase.storage
             .from('laboratory-photos')
-            .upload(fileName, photo)
+            .upload(fileName, labPhoto1)
 
           if (uploadError) throw uploadError
 
@@ -245,9 +248,41 @@ export function CoordenacaoDashboard() {
             .from('laboratory-photos')
             .getPublicUrl(fileName)
 
-          if (i === 0) photo1_url = publicUrl
-          else if (i === 1) photo2_url = publicUrl
-          else if (i === 2) photo3_url = publicUrl
+          photo1_url = publicUrl
+        }
+
+        if (labPhoto2) {
+          const fileExt = labPhoto2.name.split('.').pop()
+          const fileName = `${labAcronym.toLowerCase()}_photo_2_${Date.now()}.${fileExt}`
+          
+          const { error: uploadError } = await supabase.storage
+            .from('laboratory-photos')
+            .upload(fileName, labPhoto2)
+
+          if (uploadError) throw uploadError
+
+          const { data: { publicUrl } } = supabase.storage
+            .from('laboratory-photos')
+            .getPublicUrl(fileName)
+
+          photo2_url = publicUrl
+        }
+
+        if (labPhoto3) {
+          const fileExt = labPhoto3.name.split('.').pop()
+          const fileName = `${labAcronym.toLowerCase()}_photo_3_${Date.now()}.${fileExt}`
+          
+          const { error: uploadError } = await supabase.storage
+            .from('laboratory-photos')
+            .upload(fileName, labPhoto3)
+
+          if (uploadError) throw uploadError
+
+          const { data: { publicUrl } } = supabase.storage
+            .from('laboratory-photos')
+            .getPublicUrl(fileName)
+
+          photo3_url = publicUrl
         }
       }
 
@@ -277,7 +312,9 @@ export function CoordenacaoDashboard() {
       setLabChief('')
       setLabDescription('')
       setLabPnipe('')
-      setLabPhotos([])
+      setLabPhoto1(null)
+      setLabPhoto2(null)
+      setLabPhoto3(null)
     } catch (error: any) {
       console.error('Erro ao cadastrar laboratório:', error)
       toast({
@@ -515,25 +552,27 @@ export function CoordenacaoDashboard() {
                 placeholder="Digite o endereço PNIPE"
               />
             </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="lab-photos">Fotos (máximo 3):</label>
-              <Input
-                id="lab-photos"
-                type="file"
-                multiple
-                accept="image/*"
-                onChange={(e) => {
-                  const files = Array.from(e.target.files || [])
-                  setLabPhotos(files.slice(0, 3))
-                }}
-                className={styles.fileInput}
-              />
-              {labPhotos.length > 0 && (
-                <div className={styles.photoPreview}>
-                  <p>{labPhotos.length} foto(s) selecionada(s)</p>
-                </div>
-              )}
-            </div>
+            <PhotoDropZone
+              id="lab-photo1"
+              label="Foto 1:"
+              value={labPhoto1}
+              onChange={setLabPhoto1}
+              className={styles.photoDropZone}
+            />
+            <PhotoDropZone
+              id="lab-photo2"
+              label="Foto 2:"
+              value={labPhoto2}
+              onChange={setLabPhoto2}
+              className={styles.photoDropZone}
+            />
+            <PhotoDropZone
+              id="lab-photo3"
+              label="Foto 3:"
+              value={labPhoto3}
+              onChange={setLabPhoto3}
+              className={styles.photoDropZone}
+            />
             <Button
               onClick={handleRegisterLaboratory}
               disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labDescription || !labPnipe}
