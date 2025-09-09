@@ -22,7 +22,7 @@ export  function Photos() {
                           <h2> 50 anos - Pós-Graduação em Geofísica</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="Photos/FirstMeeting">
+                  <a className={styles.card} href="Photos/FirstMeeting" style={{ gridColumn: '1' }}>
                       <div className={styles.reopen}>
                           <h2> Primeira reunião geral- retorno das atividades do CPGG</h2>
                       </div>
