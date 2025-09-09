@@ -87,8 +87,8 @@
   width: 4000px;
   object-fit: contain;
   margin-left: 850px;
-  margin-bottom: 50px;
-  margin-top: 50px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 @media (max-width: 1200px) {
