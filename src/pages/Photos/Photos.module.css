@@ -91,48 +91,6 @@
   margin-top: 50px;
 }
 
-@media (max-width: 1200px) {
-  .staticFigure {
-    height: auto;
-    margin: 0;
-  }
-
-  .staticFigure img {
-    height: calc(40rem + 2200px);
-    width: auto;
-    object-fit: contain;
-    margin-left: 300px;
-    margin-top: -1250px;
-  }
-
-}
 
 
-@media (max-width: 400px) {
-  .staticFigure {
-  margin-bottom: -100px;
-  margin-top: 400px;
-  margin-left: -900px;
-  }
 
-  
-
-  .fifthy {
-   margin-left: 850px;
-    width: 300px;
-  }
-
-
-  .historical {
-    width: 300px;
-  }
-
-  .reopen {
-    width: 300px;
-    margin-left: -1880px;
-  }
-
-  .title {
-    margin-left: 5rem;
-  }
-}
