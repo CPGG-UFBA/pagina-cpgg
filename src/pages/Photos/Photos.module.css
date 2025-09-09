@@ -98,11 +98,11 @@
   }
 
   .staticFigure img {
-    height: calc(40rem + 2200px);
-    width: auto;
+    height: 4000px;
+    width: 4000px;
     object-fit: contain;
     margin-left: 300px;
-    margin-top: -1250px;
+    margin-top: -150px;
   }
 
 }
