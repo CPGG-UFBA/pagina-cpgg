@@ -210,14 +210,31 @@ textarea::placeholder {
   color: #000 !important;
 }
 
+/* Ensure black text and white background in Select trigger */
+.selectTrigger {
+  color: #000 !important;
+  background-color: #fff !important;
+  border: 1px solid #ccc !important;
+}
+.selectTrigger > span,
+.selectTrigger [data-placeholder],
+.selectTrigger * {
+  color: #000 !important;
+}
+.selectTrigger svg {
+  color: #000 !important;
+  stroke: #000 !important;
+}
+
 /* Global styles for Select dropdown with highest specificity */
+[data-state] .radix-select-content,
 [data-radix-select-content],
 .select-content {
   background-color: white !important;
   color: #000 !important;
   border: 1px solid #ccc !important;
   border-radius: 8px !important;
-  z-index: 1000 !important;
+  z-index: 9999 !important;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 

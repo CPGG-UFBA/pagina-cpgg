@@ -376,7 +376,7 @@ export function CoordenacaoDashboard() {
             <div className={styles.formGroup}>
               <label htmlFor="researcher-program">Programa:</label>
               <Select value={researcherProgram} onValueChange={setResearcherProgram}>
-                <SelectTrigger>
+                <SelectTrigger className={styles.selectTrigger}>
                   <SelectValue placeholder="Selecione o programa" />
                 </SelectTrigger>
                 <SelectContent>
@@ -445,7 +445,7 @@ export function CoordenacaoDashboard() {
             <div className={styles.formGroup}>
               <label htmlFor="researcher2-program">Programa:</label>
               <Select value={researcher2Program} onValueChange={setResearcher2Program}>
-                <SelectTrigger>
+                <SelectTrigger className={styles.selectTrigger}>
                   <SelectValue placeholder="Selecione o programa" />
                 </SelectTrigger>
                 <SelectContent>
