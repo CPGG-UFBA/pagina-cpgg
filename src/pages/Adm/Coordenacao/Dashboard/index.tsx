@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
-import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText } from 'lucide-react'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen } from 'lucide-react'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
@@ -53,6 +53,13 @@ export function CoordenacaoDashboard() {
   // Estados para normas/regulamentos
   const [regulationName, setRegulationName] = useState('')
   const [regulationPdfUrl, setRegulationPdfUrl] = useState('')
+
+  // Estados para projetos de pesquisa
+  const [projectTitle, setProjectTitle] = useState('')
+  const [fundingAgency, setFundingAgency] = useState('')
+  const [validityPeriod, setValidityPeriod] = useState('')
+  const [coordinator, setCoordinator] = useState('')
+  const [viceCoordinator, setViceCoordinator] = useState('')
   
   const [isLoading, setIsLoading] = useState(false)
   const [uploadingPhotos, setUploadingPhotos] = useState(false)
@@ -481,6 +488,54 @@ export function CoordenacaoDashboard() {
     }
   }
 
+  const handleRegisterProject = async () => {
+    if (!projectTitle || !fundingAgency || !validityPeriod || !coordinator) {
+      toast({
+        title: "Erro",
+        description: "Título, agência financiadora, vigência e coordenador são obrigatórios",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const { error } = await supabase
+        .from('research_projects')
+        .insert({
+          title: projectTitle,
+          funding_agency: fundingAgency,
+          validity_period: validityPeriod,
+          coordinator: coordinator,
+          vice_coordinator: viceCoordinator || null,
+        })
+
+      if (error) throw error
+
+      toast({
+        title: "Sucesso",
+        description: "Projeto de pesquisa cadastrado com sucesso!",
+      })
+
+      // Limpar formulário
+      setProjectTitle('')
+      setFundingAgency('')
+      setValidityPeriod('')
+      setCoordinator('')
+      setViceCoordinator('')
+    } catch (error: any) {
+      console.error('Erro ao cadastrar projeto:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao cadastrar projeto",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   const createResearcherPage = async (name: string, email: string, description: string, lattes: string) => {
     // Aqui será implementada a criação automática da página do pesquisador
     // Por enquanto, apenas um console.log para indicar que a função foi chamada
@@ -813,6 +868,70 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Publicando...' : 'Publicar Notícia'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <BookOpen size={24} />
+              <h2>Cadastrar Projeto de Pesquisa</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-title">Título do Projeto:</label>
+              <Input
+                id="project-title"
+                type="text"
+                value={projectTitle}
+                onChange={(e) => setProjectTitle(e.target.value)}
+                placeholder="Digite o título do projeto"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-funding">Agência Financiadora:</label>
+              <Input
+                id="project-funding"
+                type="text"
+                value={fundingAgency}
+                onChange={(e) => setFundingAgency(e.target.value)}
+                placeholder="Digite a agência financiadora"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-validity">Vigência do Projeto:</label>
+              <Input
+                id="project-validity"
+                type="text"
+                value={validityPeriod}
+                onChange={(e) => setValidityPeriod(e.target.value)}
+                placeholder="Ex: 2023-2026"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-coordinator">Coordenador do Projeto:</label>
+              <Input
+                id="project-coordinator"
+                type="text"
+                value={coordinator}
+                onChange={(e) => setCoordinator(e.target.value)}
+                placeholder="Digite o nome do coordenador"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-vice-coordinator">Vice-coordenador do Projeto:</label>
+              <Input
+                id="project-vice-coordinator"
+                type="text"
+                value={viceCoordinator}
+                onChange={(e) => setViceCoordinator(e.target.value)}
+                placeholder="Digite o nome do vice-coordenador (opcional)"
+              />
+            </div>
+            <Button
+              onClick={handleRegisterProject}
+              disabled={isLoading || !projectTitle || !fundingAgency || !validityPeriod || !coordinator}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Cadastrando...' : 'Cadastrar Projeto'}
             </Button>
           </div>
 

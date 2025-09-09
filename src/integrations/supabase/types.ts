@@ -146,6 +146,39 @@ export type Database = {
         }
         Relationships: []
       }
+      research_projects: {
+        Row: {
+          coordinator: string
+          created_at: string
+          funding_agency: string
+          id: string
+          title: string
+          updated_at: string
+          validity_period: string
+          vice_coordinator: string | null
+        }
+        Insert: {
+          coordinator: string
+          created_at?: string
+          funding_agency: string
+          id?: string
+          title: string
+          updated_at?: string
+          validity_period: string
+          vice_coordinator?: string | null
+        }
+        Update: {
+          coordinator?: string
+          created_at?: string
+          funding_agency?: string
+          id?: string
+          title?: string
+          updated_at?: string
+          validity_period?: string
+          vice_coordinator?: string | null
+        }
+        Relationships: []
+      }
       researchers: {
         Row: {
           created_at: string

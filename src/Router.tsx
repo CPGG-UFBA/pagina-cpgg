@@ -79,6 +79,7 @@ import { TI } from './pages/Adm/TI'
 import { Secretaria } from './pages/Adm/Secretaria'
 import { Coordenacao } from './pages/Adm/Coordenacao'
 import { CoordenacaoDashboard } from './pages/Adm/Coordenacao/Dashboard'
+import { ResearchProjects } from './pages/ResearchProjects'
 
 export function Router() {
   return (
@@ -148,8 +149,9 @@ export function Router() {
          <Route path='/Reservations/ReservationAuditory' element={<RA />} />
          <Route path='/Reservations/ReservationMeetingRoom' element={<MR />} />
          <Route path='/Reservations/Success' element={<Success />} />
-        <Route path='/Regulations' element={<Regulations />} />  
-        <Route path='/Photos' element={<Photos />} />  
+         <Route path='/Regulations' element={<Regulations />} />  
+         <Route path='/research-projects' element={<ResearchProjects />} />
+         <Route path='/Photos' element={<Photos />} />
         <Route path='/Photos/HistoricalPhotos' element={<HP />} />  
         <Route path='/Photos/HistoricalPhotos/Yeda' element={<Yeda />} />  
         <Route path='/Photos/HistoricalPhotos/BlockE' element={<BlockE />} />  
