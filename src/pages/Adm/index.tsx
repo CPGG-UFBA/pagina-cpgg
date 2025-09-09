@@ -22,17 +22,17 @@ export function Adm() {
             </div>
           </NavLink>
           
-          <NavLink to="/adm/coordenacao" className={styles.optionCard}>
-            <div className={styles.cardContent}>
-              <h2>Coordenação</h2>
-              <p>Acesso Coordenação</p>
-            </div>
-          </NavLink>
-          
           <NavLink to="/adm/secretaria" className={styles.optionCard}>
             <div className={styles.cardContent}>
               <h2>Secretária</h2>
               <p>Acesso Secretaria</p>
+            </div>
+          </NavLink>
+          
+          <NavLink to="/adm/coordenacao" className={styles.optionCard}>
+            <div className={styles.cardContent}>
+              <h2>Coordenação</h2>
+              <p>Acesso Coordenação</p>
             </div>
           </NavLink>
         </div>
