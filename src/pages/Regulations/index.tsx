@@ -3,6 +3,10 @@ import styles from './Regulations.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { supabase } from '@/integrations/supabase/client';
+import { useToast } from '@/hooks/use-toast';
+import { EditButton } from './components/EditButton';
+import { AdminLogin } from './components/AdminLogin';
+import { EditableRegulation } from './components/EditableRegulation';
 import earthImage from '../../assets/earth-regulations.jpg'
 
 interface Regulation {
@@ -13,25 +17,90 @@ interface Regulation {
 
 export function Regulations() {
   const [dynamicRegulations, setDynamicRegulations] = useState<Regulation[]>([]);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const { toast } = useToast();
 
   useEffect(() => {
-    const fetchRegulations = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('regulations')
-          .select('*')
-          .order('created_at', { ascending: true });
-
-        if (error) throw error;
-        
-        setDynamicRegulations(data || []);
-      } catch (error) {
-        console.error('Erro ao buscar normas:', error);
-      }
-    };
-
     fetchRegulations();
   }, []);
+
+  const fetchRegulations = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('regulations')
+        .select('*')
+        .order('created_at', { ascending: true });
+
+      if (error) throw error;
+      
+      setDynamicRegulations(data || []);
+    } catch (error) {
+      console.error('Erro ao buscar normas:', error);
+    }
+  };
+
+  const handleUpdateRegulation = async (id: string, name: string, pdfUrl: string) => {
+    try {
+      const { error } = await supabase
+        .from('regulations')
+        .update({ name, pdf_url: pdfUrl })
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: "Sucesso",
+        description: "Norma atualizada com sucesso!",
+      });
+
+      await fetchRegulations();
+    } catch (error: any) {
+      console.error('Erro ao atualizar norma:', error);
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao atualizar norma",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleDeleteRegulation = async (id: string) => {
+    try {
+      const { error } = await supabase
+        .from('regulations')
+        .delete()
+        .eq('id', id);
+
+      if (error) throw error;
+
+      toast({
+        title: "Sucesso",
+        description: "Norma excluída com sucesso!",
+      });
+
+      await fetchRegulations();
+    } catch (error: any) {
+      console.error('Erro ao excluir norma:', error);
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao excluir norma",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleLoginSuccess = () => {
+    setIsEditMode(true);
+  };
+
+  const handleLogout = () => {
+    setIsEditMode(false);
+    toast({
+      title: "Logout",
+      description: "Saindo do modo de edição",
+    });
+  };
 
   return (
       <>
@@ -59,17 +128,13 @@ export function Regulations() {
 
                   {/* Normas dinâmicas do banco de dados */}
                   {dynamicRegulations.map((regulation) => (
-                    <a 
-                      key={regulation.id} 
-                      className={styles.card} 
-                      href={regulation.pdf_url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                    >
-                      <div className={styles.dynamicRegulation}>
-                        <h2>{regulation.name}</h2>
-                      </div>
-                    </a>
+                    <EditableRegulation
+                      key={regulation.id}
+                      regulation={regulation}
+                      isEditMode={isEditMode}
+                      onUpdate={handleUpdateRegulation}
+                      onDelete={handleDeleteRegulation}
+                    />
                   ))}
 
               </div>
@@ -77,6 +142,19 @@ export function Regulations() {
                   <img src={earthImage} alt='Figura da Terra do CPGG' />
               </div>
           </div>
+
+          <EditButton 
+            onClick={() => setShowLogin(true)}
+            isEditMode={isEditMode}
+            onLogout={handleLogout}
+          />
+          
+          <AdminLogin
+            isOpen={showLogin}
+            onClose={() => setShowLogin(false)}
+            onSuccess={handleLoginSuccess}
+          />
+
           <Footer/>
       </>
   )
