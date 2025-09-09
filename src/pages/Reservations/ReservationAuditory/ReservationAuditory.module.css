@@ -1,19 +1,144 @@
 /* Reservation Auditory Page Styles */
+.RA{
+  display: flex;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 150px;
+  padding-bottom: 280px;
+  padding-left: 700px;
+  padding-right: 8px;
+  }
+
+.RA ul {
+    font-size: 24px;
+    color: #363F5;
+    position: absolute; 
+    margin-left: -1400px;
+    margin-top: -20px;
+  }
+
+
+
+.box {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 600px;
+  height: 550px;
+  top: 18%; 
+  left:10%;
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: -500px;
+}
+
+/* .box {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.1);
+    position: absolute;
+    width: 600px;
+    height: 650px;
+    top: 5%; 
+    left:30%;
+    padding: 10px;
+    border-radius: 20px;
+    gap: 5px;
+} */
+
+.box input {
+    display: flex;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    margin-top: 0.2rem;
+    margin-left:2.5rem;
+    border-radius: 15px;
+    transition: all linear 160ms;
+    outline: none;
+    width: 500px;
+}
+
+.box label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.form {
+  padding-bottom: 5px;
+  padding-top: 25px
+}
+
+.box button {
+  padding: 15px;
+  font-size: 14px;
+  color: white;
+  border-radius: 25px;
+  width: 300px;
+  margin-left:2.5rem;
+  background-color: #BEB6B6;
+  margin-left:9rem;
+  margin-top:6rem;
+  border: none;
+  transition: 500ms linear;
+}
+
+.box button:hover {
+  background-color: #936aeb;
+  
+}
+
+.box button > a{
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  
+
+}
+
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
+  display: grid;
+  grid-template-columns: repeat(2, 2fr);
+  grid-template-rows: repeat(1, 25vw);
 }
 
-.title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+.startingday {
+  position: absolute;
+  display: flex;
+  padding: 15px;
+  margin-top: 23rem;
+  margin-left:-35rem;
+  border-radius: 0.25rem;
 }
 
-.content {
-  font-size: 1.125rem;
-  color: white;
+.label1{
+  margin-top: 22.5rem;
+  margin-left: -32rem;
+}
+
+.endday {
+  position: absolute;
+  display: flex;
+  padding: 15px;
+  margin-top: 23rem;
+  margin-left:-20rem;
+  border-radius: 0.25rem;
+}
+
+.label2{
+  margin-top: 22.5rem;
+  margin-left: -15rem;
+}
+
+.staticFigure img {
+  height: 40rem;
+  padding-left: 100px;
+  margin-bottom: -400px;
 }
