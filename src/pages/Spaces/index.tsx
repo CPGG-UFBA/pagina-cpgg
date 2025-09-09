@@ -28,7 +28,9 @@ export  function Spaces() {
               </div>
           </div>
          
-          <Footer/>
+          <div className={styles.spacesFooter}>
+            <Footer/>
+          </div>
       </>
   )
 }
