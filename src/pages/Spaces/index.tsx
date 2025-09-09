@@ -1,4 +1,4 @@
-import styles from './spaces.module.css';
+import styles from './Spaces.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 
