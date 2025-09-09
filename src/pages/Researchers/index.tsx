@@ -19,6 +19,11 @@ export function Researchers() {
     fetchDbResearchers()
   }, [])
 
+  // Debug logs
+  console.log('Debug - isEditMode:', isEditMode)
+  console.log('Debug - dbResearchers:', dbResearchers)
+  console.log('Debug - showLogin:', showLogin)
+
   const fetchDbResearchers = async () => {
     try {
       const { data, error } = await supabase

@@ -11,8 +11,10 @@ interface EditButtonProps {
 export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
 
+  console.log('EditButton render - isEditMode:', isEditMode)
+
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50" style={{ background: 'red', padding: '4px' }}>
       {!isEditMode ? (
         <div 
           className="relative"
