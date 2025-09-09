@@ -81,13 +81,13 @@ export function EditableResearcher({
               onChange={(e) => setEditedName(e.target.value)}
               onBlur={handleNameChange}
               onKeyPress={handleKeyPress}
-              className="h-8 text-sm bg-background/50 border-border/50"
+              className="h-8 text-sm bg-background text-foreground border-border focus:border-ring"
               disabled={isLoading}
             />
             <Button
               size="sm"
               variant="destructive"
-              className="h-8 w-8 p-0 opacity-70 hover:opacity-100"
+              className="h-8 w-8 p-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
               onClick={() => setShowDeleteConfirm(true)}
               disabled={isLoading}
             >
@@ -99,10 +99,10 @@ export function EditableResearcher({
             <Input
               value={editedName}
               onChange={(e) => setEditedName(e.target.value)}
-              className="h-8 text-sm bg-background/80 border-border"
+              className="h-8 text-sm bg-muted text-muted-foreground border-border focus:border-ring"
               placeholder="Nome do pesquisador"
             />
-            <span className="text-xs text-muted-foreground">(estático)</span>
+            <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">(estático)</span>
           </div>
         )}
       </nav>
@@ -122,6 +122,7 @@ export function EditableResearcher({
               variant="outline"
               onClick={() => setShowDeleteConfirm(false)}
               disabled={isLoading}
+              className="bg-background text-foreground border-border hover:bg-muted"
             >
               NÃO
             </Button>
@@ -129,6 +130,7 @@ export function EditableResearcher({
               variant="destructive"
               onClick={handleDelete}
               disabled={isLoading}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
             >
               {isLoading ? 'Excluindo...' : 'SIM'}
             </Button>

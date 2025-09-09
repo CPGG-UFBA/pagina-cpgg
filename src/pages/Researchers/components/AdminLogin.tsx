@@ -91,10 +91,10 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
           </div>
           
           <div className="flex gap-2 pt-2">
-            <Button type="button" variant="outline" onClick={onClose} className="flex-1">
+            <Button type="button" variant="outline" onClick={onClose} className="flex-1 bg-background text-foreground border-border hover:bg-muted">
               Cancelar
             </Button>
-            <Button type="submit" disabled={loading} className="flex-1">
+            <Button type="submit" disabled={loading} className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
               {loading ? 'Entrando...' : 'Entrar'}
             </Button>
           </div>
