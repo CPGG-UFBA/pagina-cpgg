@@ -71,8 +71,6 @@ export function Registration() {
         return
       }
 
-      console.log('[Registration] Submitting with:', formData)
-
       // Verifica se já existe usuário com este email ou nome (usando função SQL que bypassa RLS)
       const { data: duplicateCheck, error: dupCheckError } = await supabase
         .rpc('check_user_profile_duplicates', {
@@ -80,14 +78,10 @@ export function Registration() {
           _full_name: formData.fullName
         })
 
-      console.log('[Registration] Duplicate RPC result:', { duplicateCheck, dupCheckError })
-
       if (!dupCheckError && duplicateCheck) {
         const { email_in_auth, email_exists, name_exists } = duplicateCheck as { email_in_auth: boolean; email_exists: boolean; name_exists: boolean }
-        console.log('[Registration] Duplicate flags:', { email_in_auth, email_exists, name_exists })
         
         if (email_in_auth || email_exists || name_exists) {
-          console.log('[Registration] Blocking signup due to duplicate')
           toast({
             title: 'Usuário já cadastrado',
             description: 'Já existe um usuário com este email ou nome completo.',
