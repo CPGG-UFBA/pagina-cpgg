@@ -33,6 +33,7 @@ interface AdminUser {
 export function UsuariosAdmin() {
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null)
   const [users, setUsers] = useState<UserProfile[]>([])
+  const [isSyncing, setIsSyncing] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
   const [userToDelete, setUserToDelete] = useState<UserProfile | null>(null)
@@ -74,6 +75,38 @@ export function UsuariosAdmin() {
       setIsLoading(false)
     }
   }
+
+  const handleSyncUsers = async () => {
+    setIsSyncing(true)
+    try {
+      const { data, error } = await supabase
+        .rpc('sync_auth_users_to_profiles')
+
+      if (error) throw error
+
+      const result = data as { success: boolean; synced_users: number; message?: string; error?: string }
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Erro ao sincronizar usuários')
+      }
+
+      toast({
+        title: 'Sincronização concluída',
+        description: `${result.synced_users} usuário(s) sincronizado(s) com sucesso.`,
+      })
+
+      // Recarregar a lista
+      await loadUsers()
+    } catch (error: any) {
+      console.error('Erro ao sincronizar usuários:', error)
+      toast({
+        title: 'Erro',
+        description: 'Erro ao sincronizar usuários. Tente novamente.',
+        variant: 'destructive'
+      })
+    } finally {
+      setIsSyncing(false)
+    }
 
   const handleDeleteUser = async () => {
     if (!userToDelete) return
@@ -180,6 +213,13 @@ export function UsuariosAdmin() {
           className={styles.backButton}
         >
           ← Voltar ao Dashboard
+        </Button>
+        <Button
+          onClick={handleSyncUsers}
+          disabled={isSyncing}
+          className={styles.syncButton}
+        >
+          {isSyncing ? 'Sincronizando...' : 'Sincronizar Usuários'}
         </Button>
       </div>
 
