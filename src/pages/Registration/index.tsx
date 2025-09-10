@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
 import { supabase } from '@/integrations/supabase/client'
 import { researcherData, normalize } from '../../data/researchers'
 import { useToast } from '@/hooks/use-toast'
 import styles from './registration.module.css'
+
+const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
 export function Registration() {
   const navigate = useNavigate()
@@ -123,9 +123,11 @@ export function Registration() {
 
   if (success) {
     return (
-      <>
-        <Header />
-        <div className={styles.registration}>
+      <div className={styles.registration}>
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <img src={logocpgg} alt="CPGG" />
+          </div>
           <div className={styles.successBox}>
             <h1>Registration</h1>
             <div className={styles.successMessage}>
@@ -140,15 +142,16 @@ export function Registration() {
             </div>
           </div>
         </div>
-        <Footer />
-      </>
+      </div>
     )
   }
 
   return (
-    <>
-      <Header />
-      <div className={styles.registration}>
+    <div className={styles.registration}>
+      <div className={styles.container}>
+        <div className={styles.logo}>
+          <img src={logocpgg} alt="CPGG" />
+        </div>
         <div className={styles.formBox}>
           <h1>Registration</h1>
           <form onSubmit={handleSubmit} className={styles.form}>
@@ -194,7 +197,6 @@ export function Registration() {
           </form>
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   )
 }
