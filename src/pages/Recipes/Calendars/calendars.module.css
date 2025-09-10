@@ -29,10 +29,10 @@
 }
 
 .calendarCard {
-  padding: 1.5rem;
+  padding: 1.2rem;
   border-radius: 12px;
   width: 100%;
-  height: 140px;
+  height: 112px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
