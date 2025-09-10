@@ -89,7 +89,7 @@ export function Middle() {
                       alt={article.title || `Notícia ${index + 1}`}
                     />
                     <div className={styles.titleOverlay}>
-                      <span className={styles.titleText}>{article.title}</span>
+                      <span className={styles.titleText}>{article.title || `Notícia ${index + 1}`}</span>
                     </div>
                   </div>
                 </a> 
