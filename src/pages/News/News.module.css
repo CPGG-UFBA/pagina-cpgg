@@ -30,15 +30,18 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   height: 100%;
   min-height: 0;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .title {
   font-size: 2.5rem;
   font-weight: bold;
   color: #2c3e50;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
+  flex: 0 0 auto;
 }
 
 .text {
@@ -46,6 +49,9 @@
   line-height: 1.6;
   color: #555;
   white-space: pre-wrap;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .sidebar {
