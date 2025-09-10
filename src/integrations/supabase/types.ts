@@ -267,6 +267,10 @@ export type Database = {
         Args: { _user_profile_id: string }
         Returns: Json
       }
+      sync_auth_users_to_profiles: {
+        Args: Record<PropertyKey, never>
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never

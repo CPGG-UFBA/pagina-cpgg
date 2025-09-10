@@ -44,7 +44,10 @@ export function UsuariosAdmin() {
     const userData = sessionStorage.getItem('admin_user')
     if (userData) {
       setAdminUser(JSON.parse(userData))
-      loadUsers()
+      // Sincroniza auth.users -> user_profiles antes de listar
+      supabase.rpc('sync_auth_users_to_profiles').then(() => {
+        loadUsers()
+      })
     } else {
       navigate('/adm/coordenacao')
     }
