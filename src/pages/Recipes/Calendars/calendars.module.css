@@ -27,14 +27,14 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  transform: translateX(-100px);
+  transform: translateX(-50px);
 }
 
 .earthContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 400px;
+  margin-left: 300px;
 }
 
 .earthImage {
