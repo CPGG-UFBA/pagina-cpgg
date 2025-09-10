@@ -15,17 +15,15 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 250px);
   row-gap: 3rem;
   column-gap: 0.17rem;
+  justify-content: flex-start;
+  justify-items: start;
   max-width: 1200px;
   margin: 0 auto;
   margin-left: -50px;
   margin-bottom: 4rem;
-}
-
-.card {
-  display: block;
 }
 
 .logos {
