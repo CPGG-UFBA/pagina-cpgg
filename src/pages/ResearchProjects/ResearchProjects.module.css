@@ -55,10 +55,16 @@
   font-size: 1.1rem;
 }
 
+.scrollArea {
+  height: calc(100vh - 300px);
+  width: 100%;
+}
+
 .projectsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
+  padding-right: 1rem;
 }
 
 .projectCard {

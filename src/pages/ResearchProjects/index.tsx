@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { BookOpen, Building, Calendar, Users } from 'lucide-react'
 import { Header } from '../../components/Header/'
 import { Footer } from '../../components/Footer/'
@@ -62,48 +63,50 @@ export function ResearchProjects() {
             <p>Nenhum projeto de pesquisa cadastrado ainda.</p>
           </div>
         ) : (
-          <div className={styles.projectsGrid}>
-            {projects.map((project) => (
-              <Card key={project.id} className={styles.projectCard}>
-                <CardHeader>
-                  <CardTitle className={styles.projectTitle}>
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className={styles.projectContent}>
-                  <div className={styles.projectInfo}>
-                    <div className={styles.infoItem}>
-                      <Building size={16} />
-                      <span className={styles.label}>Agência Financiadora:</span>
-                      <span className={styles.value}>{project.funding_agency}</span>
-                    </div>
+          <ScrollArea className={styles.scrollArea}>
+            <div className={styles.projectsGrid}>
+              {projects.map((project) => (
+                <Card key={project.id} className={styles.projectCard}>
+                  <CardHeader>
+                    <CardTitle className={styles.projectTitle}>
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className={styles.projectContent}>
+                    <div className={styles.projectInfo}>
+                      <div className={styles.infoItem}>
+                        <Building size={16} />
+                        <span className={styles.label}>Agência Financiadora:</span>
+                        <span className={styles.value}>{project.funding_agency}</span>
+                      </div>
 
-                    <div className={styles.infoItem}>
-                      <Calendar size={16} />
-                      <span className={styles.label}>Vigência:</span>
-                      <Badge variant="secondary" className={styles.validityBadge}>
-                        {project.validity_period}
-                      </Badge>
-                    </div>
+                      <div className={styles.infoItem}>
+                        <Calendar size={16} />
+                        <span className={styles.label}>Vigência:</span>
+                        <Badge variant="secondary" className={styles.validityBadge}>
+                          {project.validity_period}
+                        </Badge>
+                      </div>
 
-                    <div className={styles.infoItem}>
-                      <Users size={16} />
-                      <span className={styles.label}>Coordenador:</span>
-                      <span className={styles.value}>{project.coordinator}</span>
-                    </div>
-
-                    {project.vice_coordinator && (
                       <div className={styles.infoItem}>
                         <Users size={16} />
-                        <span className={styles.label}>Vice-coordenador:</span>
-                        <span className={styles.value}>{project.vice_coordinator}</span>
+                        <span className={styles.label}>Coordenador:</span>
+                        <span className={styles.value}>{project.coordinator}</span>
                       </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+
+                      {project.vice_coordinator && (
+                        <div className={styles.infoItem}>
+                          <Users size={16} />
+                          <span className={styles.label}>Vice-coordenador:</span>
+                          <span className={styles.value}>{project.vice_coordinator}</span>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </ScrollArea>
         )}
       </div>
       <Footer />
