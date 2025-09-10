@@ -123,6 +123,7 @@ export function Registration() {
             <h1>Registration</h1>
             <div className={styles.successMessage}>
               <h2>Registro completado com sucesso!</h2>
+              <p>Acesse seu email para completar o registro</p>
               <p>Retorne para a página de Login</p>
               <button 
                 onClick={() => navigate('/login')}
