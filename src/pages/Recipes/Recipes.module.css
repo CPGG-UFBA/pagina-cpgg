@@ -158,7 +158,7 @@
 
 /* Mover rodapé para cima apenas na página Recipes */
 .recipes :global(.footer) {
-  margin-top: -250px;
+  margin-top: -550px;
 }
 
 .staticFigure img {
