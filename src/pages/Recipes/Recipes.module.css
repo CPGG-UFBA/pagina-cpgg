@@ -16,7 +16,7 @@
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
+  gap: 1.5rem 0.17rem;
   max-width: 1200px;
   margin: 0 auto;
   margin-left: -50px;
