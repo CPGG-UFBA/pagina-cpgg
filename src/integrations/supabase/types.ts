@@ -221,6 +221,7 @@ export type Database = {
           id: string
           institution: string
           phone: string
+          photo_url: string | null
           researcher_route: string | null
           updated_at: string
           user_id: string | null
@@ -233,6 +234,7 @@ export type Database = {
           id?: string
           institution: string
           phone: string
+          photo_url?: string | null
           researcher_route?: string | null
           updated_at?: string
           user_id?: string | null
@@ -245,6 +247,7 @@ export type Database = {
           id?: string
           institution?: string
           phone?: string
+          photo_url?: string | null
           researcher_route?: string | null
           updated_at?: string
           user_id?: string | null
