@@ -1,7 +1,7 @@
 import styles from './calendars.module.css';
 import { Header } from '../../../components/Header';
 import { Footer } from '../../../components/Footer';
-import earth from ='https://imgur.com/z6pTgZ1'
+const earth = 'https://i.imgur.com/z6pTgZ1.jpg'
 
 export  function Calendars() {
   return (
