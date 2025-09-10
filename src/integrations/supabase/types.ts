@@ -267,6 +267,31 @@ export type Database = {
         Args: { _user_profile_id: string }
         Returns: Json
       }
+      list_all_user_profiles: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          email: string
+          full_name: string
+          id: string
+          institution: string
+          phone: string
+          researcher_route: string
+          user_id: string
+        }[]
+      }
+      restore_user_profile: {
+        Args: {
+          _email: string
+          _first_name: string
+          _full_name: string
+          _id: string
+          _institution: string
+          _phone: string
+          _researcher_route: string
+          _user_id: string
+        }
+        Returns: Json
+      }
       sync_auth_users_to_profiles: {
         Args: Record<PropertyKey, never>
         Returns: Json

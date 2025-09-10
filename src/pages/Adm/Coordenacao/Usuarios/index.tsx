@@ -22,6 +22,7 @@ interface UserProfile {
   institution: string
   phone: string
   user_id: string
+  researcher_route: string | null
 }
 
 interface AdminUser {
@@ -57,9 +58,7 @@ export function UsuariosAdmin() {
   const loadUsers = async () => {
     try {
       const { data, error } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .order('full_name', { ascending: true })
+        .rpc('list_all_user_profiles')
 
       if (error) throw error
 
@@ -152,24 +151,29 @@ export function UsuariosAdmin() {
 
   const handleUndoDelete = async (deletedUser: UserProfile) => {
     try {
-      // Restaurar na tabela user_profiles
-      const { error } = await supabase
-        .from('user_profiles')
-        .insert({
-          id: deletedUser.id,
-          user_id: deletedUser.user_id,
-          full_name: deletedUser.full_name,
-          email: deletedUser.email,
-          institution: deletedUser.institution,
-          phone: deletedUser.phone,
-          first_name: deletedUser.full_name.split(' ')[0],
-          researcher_route: null
+      // Restaurar usando função SQL
+      const { data, error } = await supabase
+        .rpc('restore_user_profile', {
+          _id: deletedUser.id,
+          _user_id: deletedUser.user_id,
+          _full_name: deletedUser.full_name,
+          _email: deletedUser.email,
+          _institution: deletedUser.institution,
+          _phone: deletedUser.phone,
+          _first_name: deletedUser.full_name.split(' ')[0],
+          _researcher_route: deletedUser.researcher_route
         })
 
       if (error) throw error
 
-      // Adicionar de volta à lista
-      setUsers(prev => [...prev, deletedUser].sort((a, b) => a.full_name.localeCompare(b.full_name)))
+      const result = data as { success: boolean; error?: string }
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Erro ao restaurar usuário')
+      }
+
+      // Recarregar lista
+      await loadUsers()
 
       // Remover da lista de deletados
       setDeletedUsers(prev => prev.filter(user => user.id !== deletedUser.id))
