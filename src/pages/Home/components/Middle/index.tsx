@@ -83,10 +83,15 @@ export function Middle() {
             return (
               <div key={article.id} className={styles.slide}>
                 <a href={route}>
-                  <img 
-                    src={coverImage || fallbackImages[index]} 
-                    alt={article.title || `Notícia ${index + 1}`}
-                  />
+                  <div className={styles.slideContainer}>
+                    <img 
+                      src={coverImage || fallbackImages[index]} 
+                      alt={article.title || `Notícia ${index + 1}`}
+                    />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>{article.title}</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
             )
@@ -100,10 +105,15 @@ export function Middle() {
             return (
               <div key={`duplicate-${article.id}`} className={styles.slide}>
                 <a href={route}>
-                  <img 
-                    src={coverImage || fallbackImages[index]} 
-                    alt={article.title || `Notícia ${index + 1}`}
-                  />
+                  <div className={styles.slideContainer}>
+                    <img 
+                      src={coverImage || fallbackImages[index]} 
+                      alt={article.title || `Notícia ${index + 1}`}
+                    />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>{article.title}</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
             )
@@ -114,32 +124,62 @@ export function Middle() {
             <>
               <div className={styles.slide}>
                 <a href='/News/News1'>
-                  <img src={fallbackImages[0]} alt="Notícia 1" />
+                  <div className={styles.slideContainer}>
+                    <img src={fallbackImages[0]} alt="Notícia 1" />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia 1</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
               <div className={styles.slide}>
                 <a href='/News/News2'>
-                  <img src={fallbackImages[1]} alt="Notícia 2" />
+                  <div className={styles.slideContainer}>
+                    <img src={fallbackImages[1]} alt="Notícia 2" />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia 2</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
               <div className={styles.slide}>
                 <a href='/News/News3'>
-                  <img src={fallbackImages[2]} alt="Notícia 3" />
+                  <div className={styles.slideContainer}>
+                    <img src={fallbackImages[2]} alt="Notícia 3" />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia 3</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
               <div className={styles.slide}>
                 <a href='/News/News1'>
-                  <img src={fallbackImages[0]} alt="Notícia 1" />
+                  <div className={styles.slideContainer}>
+                    <img src={fallbackImages[0]} alt="Notícia 1" />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia 1</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
               <div className={styles.slide}>
                 <a href='/News/News2'>
-                  <img src={fallbackImages[1]} alt="Notícia 2" />
+                  <div className={styles.slideContainer}>
+                    <img src={fallbackImages[1]} alt="Notícia 2" />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia 2</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
               <div className={styles.slide}>
                 <a href='/News/News3'>
-                  <img src={fallbackImages[2]} alt="Notícia 3" />
+                  <div className={styles.slideContainer}>
+                    <img src={fallbackImages[2]} alt="Notícia 3" />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia 3</span>
+                    </div>
+                  </div>
                 </a> 
               </div>
             </>
