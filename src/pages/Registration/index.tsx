@@ -71,26 +71,6 @@ export function Registration() {
         return
       }
 
-      // Verifica se já existe usuário com mesmo email ou nome completo
-      const { data: existingUsers, error: checkError } = await supabase
-        .from('user_profiles')
-        .select('email, full_name')
-        .or(`email.eq.${formData.email},full_name.eq.${formData.fullName}`)
-
-      if (checkError) {
-        console.error('Erro ao verificar usuários existentes:', checkError)
-      }
-
-      if (existingUsers && existingUsers.length > 0) {
-        toast({
-          title: 'Usuário já cadastrado',
-          description: 'Já existe um usuário com este email ou nome completo.',
-          variant: 'destructive'
-        })
-        setIsLoading(false)
-        return
-      }
-
       // Cria conta no Supabase Auth se email e senha foram fornecidos
       if (email && password) {
         const firstName = formData.fullName.trim().split(' ')[0]
@@ -110,7 +90,20 @@ export function Registration() {
           }
         })
 
-        if (authError) throw authError
+        if (authError) {
+          // Se o erro contém "Usuário já cadastrado", significa que é duplicata
+          if (authError.message.includes('Usuário já cadastrado')) {
+            toast({
+              title: 'Usuário já cadastrado',
+              description: 'Já existe um usuário com este email ou nome completo.',
+              variant: 'destructive'
+            })
+          } else {
+            throw authError
+          }
+          setIsLoading(false)
+          return
+        }
 
         setSuccess(true)
       }
