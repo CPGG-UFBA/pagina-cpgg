@@ -22,6 +22,10 @@ export function Contact() {
             rel="noopener noreferrer"
             className={styles.whatsappLink}
             aria-label="Abrir WhatsApp"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(`https://wa.me/${whatsappNumber}`, '_blank', 'noopener,noreferrer');
+            }}
           >
             <img src={Whats} alt="Whatsapp" className={styles.whatsappIcon} />
             <span>Whats app us</span>
