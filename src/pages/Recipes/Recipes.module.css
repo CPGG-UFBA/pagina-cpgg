@@ -1,19 +1,158 @@
 /* Recipes Page Styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  padding-top: 8rem;
+.recipes {
+  flex: 1;
+  padding: 2rem;
 }
 
 .title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-left: -700px;
+  margin-top: 7rem;
+  font-size: 24px;
 }
 
-.content {
-  font-size: 1.125rem;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-bottom: 18rem;
+}
+
+.logos {
+  padding: 2rem;
+  border-radius: 12px;
+  width:250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+    url('/src/components/Figures/laws.jpg') center/cover;
+}
+
+
+
+.calendars {
+  padding: 2rem;
+  border-radius: 12px;
+  width:250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('/src/components/Figures/calendar.jpg') center/cover;
+}
+
+
+
+.power {
+  padding: 1.3rem;
+  border-radius: 12px;
+  width:250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('/src/components/Figures/power.jpg') center/cover;
+}
+
+
+.latex {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width:250px;
+  height: 100px;
+  left:-1030px;
+  top: 132px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('/src/components/Figures/latex.jpg') center/cover;
+}
+
+.gmt {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width:250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
+    url('/src/components/Figures/programing.jpg') center/cover;
+}
+
+.python {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  width:250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
+
+    url('/src/components/Figures/python.jpg') center/cover;
+}
+
+
+.logos:hover {
+  transform: translateY(-5px);
+}
+.power:hover {
+  transform: translateY(-5px);
+}
+.calendars:hover {
+  transform: translateY(-5px);
+}
+
+.latex:hover {
+  transform: translateY(-5px);
+}
+
+.gmt:hover {
+  transform: translateY(-5px);
+}
+
+.python:hover {
+  transform: translateY(-5px);
+}
+
+
+.staticFigure img {
+  height: 40rem;
+  padding-left: 355px;
+  padding-top: -980px;
+  margin-bottom: -270px;
+  margin-top: -208px;
 }
