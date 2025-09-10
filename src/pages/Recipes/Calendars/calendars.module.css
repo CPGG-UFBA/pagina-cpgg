@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-left: -100px;
+  margin-left: -250px;
 }
 
 .earthContainer {
