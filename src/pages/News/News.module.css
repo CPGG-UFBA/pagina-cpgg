@@ -1,8 +1,7 @@
 .container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .main {
@@ -19,8 +18,8 @@
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 2rem;
-  margin-top: 40vh;
-  height: calc(100% - 40vh);
+  margin-top: calc(2rem + 150px);
+  height: calc(100vh - (2rem + 150px));
   min-height: 0;
 }
 
