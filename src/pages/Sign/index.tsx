@@ -99,46 +99,17 @@ export function Sign() {
     setSignupLoading(true);
 
     try {
-      const redirectUrl = `${window.location.origin}/`;
-      
-      const { error } = await supabase.auth.signUp({
-        email: signupEmail,
-        password: signupPassword,
-        options: {
-          emailRedirectTo: redirectUrl
-        }
+      // Redireciona para a página de registro com email e senha
+      navigate('/registration', { 
+        state: { 
+          email: signupEmail, 
+          password: signupPassword 
+        } 
       });
-
-      if (error) {
-        if (error.message.includes('User already registered')) {
-          toast({
-            title: "Usuário já existe",
-            description: "Este email já está cadastrado. Tente fazer login.",
-            variant: "destructive",
-          });
-        } else if (error.message.includes('Password should be at least 6 characters')) {
-          toast({
-            title: "Senha muito curta",
-            description: "A senha deve ter pelo menos 6 caracteres.",
-            variant: "destructive",
-          });
-        } else {
-          toast({
-            title: "Erro ao criar conta",
-            description: error.message,
-            variant: "destructive",
-          });
-        }
-      } else {
-        toast({
-          title: "Conta criada",
-          description: "Verifique seu email para confirmar o cadastro.",
-        });
-      }
-    } catch (error) {
+    } catch (error: any) {
       toast({
-        title: "Erro inesperado",
-        description: "Tente novamente em alguns instantes.",
+        title: "Erro",
+        description: error.message,
         variant: "destructive",
       });
     } finally {

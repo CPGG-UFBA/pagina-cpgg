@@ -212,6 +212,45 @@ export type Database = {
         }
         Relationships: []
       }
+      user_profiles: {
+        Row: {
+          created_at: string
+          email: string
+          first_name: string
+          full_name: string
+          id: string
+          institution: string
+          phone: string
+          researcher_route: string | null
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          first_name: string
+          full_name: string
+          id?: string
+          institution: string
+          phone: string
+          researcher_route?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          first_name?: string
+          full_name?: string
+          id?: string
+          institution?: string
+          phone?: string
+          researcher_route?: string | null
+          updated_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

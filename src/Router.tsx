@@ -50,6 +50,7 @@ import { Calendars } from './pages/Recipes/Calendars'
 import { Sign } from './pages/Sign'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
+import { Registration } from './pages/Registration'
 import { Production } from './pages/Production'
 import { Spaces } from './pages/Spaces'
 import { Labs } from './pages/Labs'
@@ -132,6 +133,7 @@ export function Router() {
         <Route path='/sign' element={<Sign />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />
+        <Route path='/registration' element={<Registration />} />
         <Route path='/institution' element={<Institution />} />
         <Route path='/cpgg' element={<CPGG />} />
         <Route path='/history' element={<History />} />

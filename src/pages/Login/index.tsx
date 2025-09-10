@@ -58,7 +58,7 @@ export function Login() {
     setLoginLoading(true);
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: loginEmail,
         password: loginPassword,
       });
@@ -77,11 +77,40 @@ export function Login() {
             variant: "destructive",
           });
         }
-      } else {
-        toast({
-          title: "Login realizado",
-          description: "Bem-vindo de volta!",
-        });
+      } else if (data.user) {
+        // Busca o perfil do usuário para obter a rota do pesquisador
+        const { data: profile, error: profileError } = await supabase
+          .from('user_profiles')
+          .select('researcher_route')
+          .eq('user_id', data.user.id)
+          .single()
+
+        if (profileError) {
+          console.error('Erro ao buscar perfil:', profileError)
+          toast({
+            title: "Login realizado",
+            description: "Bem-vindo de volta!",
+          });
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 1000)
+        } else if (profile.researcher_route) {
+          toast({
+            title: "Login realizado",
+            description: "Redirecionando para sua página...",
+          });
+          setTimeout(() => {
+            window.location.href = profile.researcher_route
+          }, 1000)
+        } else {
+          toast({
+            title: "Login realizado",
+            description: "Bem-vindo de volta!",
+          });
+          setTimeout(() => {
+            window.location.href = '/'
+          }, 1000)
+        }
       }
     } catch (error) {
       toast({
