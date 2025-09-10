@@ -57,16 +57,17 @@ export function EditableProfile() {
       // Converte o nome da URL para buscar o perfil correspondente
       const searchName = decodeURIComponent(name).replace(/-/g, ' ')
       
-      const { data, error } = await supabase
-        .from('user_profiles')
-        .select('*')
-        .ilike('full_name', `%${searchName}%`)
-        .single()
+      const { data, error } = await supabase.rpc('find_user_profile_by_name', {
+        _search_name: searchName
+      })
 
       if (error) throw error
+      if (!data || data.length === 0) throw new Error('Perfil não encontrado')
+
+      const profileData = data[0]
 
       // Verifica se o perfil encontrado pertence ao usuário logado
-      if (data.user_id !== user?.id) {
+      if (profileData.user_id !== user?.id) {
         toast({
           title: 'Acesso negado',
           description: 'Você só pode editar seu próprio perfil.',
@@ -76,8 +77,8 @@ export function EditableProfile() {
         return
       }
 
-      setProfile(data)
-      setEditedProfile(data)
+      setProfile(profileData)
+      setEditedProfile(profileData)
     } catch (error) {
       console.error('Erro ao buscar perfil:', error)
       toast({
