@@ -79,9 +79,9 @@ export function Registration() {
         })
 
       if (!dupCheckError && duplicateCheck) {
-        const { email_exists, name_exists } = duplicateCheck as { email_exists: boolean, name_exists: boolean }
+        const { email_in_auth, email_exists, name_exists } = duplicateCheck as { email_in_auth: boolean; email_exists: boolean; name_exists: boolean }
         
-        if (email_exists || name_exists) {
+        if (email_in_auth || email_exists || name_exists) {
           toast({
             title: 'Usuário já cadastrado',
             description: 'Já existe um usuário com este email ou nome completo.',
