@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAuth } from '@/hooks/useAuth'
 import { Minus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -30,15 +29,10 @@ export function EditableResearcher({
   const [editedName, setEditedName] = useState(researcher.name)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const { user } = useAuth()
 
   // Verifica se é um pesquisador do banco de dados
   const isDatabaseResearcher = researcher.isDatabase || researcher.route.includes('/researchers/dynamic/')
   const researcherId = isDatabaseResearcher ? (researcher.id || researcher.route.split('/').pop()) : null
-  
-  // Encontra o pesquisador no banco para verificar se é o mesmo usuário logado
-  const dbResearcher = dbResearchers.find(r => r.name === researcher.name || r.id === researcherId)
-  const isOwnProfile = user && dbResearcher && user.email === dbResearcher.email
 
   const handleNameChange = async () => {
     if (editedName === researcher.name) return
@@ -78,14 +72,9 @@ export function EditableResearcher({
   }
 
   if (!isEditMode) {
-    // Se é o próprio perfil do usuário logado, redireciona para página editável
-    const linkTo = isOwnProfile 
-      ? `/profile/${encodeURIComponent(researcher.name.replace(/\s+/g, '-'))}` 
-      : researcher.route
-      
     return (
       <nav>
-        <Link to={linkTo}> {researcher.name}</Link>
+        <Link to={researcher.route}> {researcher.name}</Link>
       </nav>
     )
   }
