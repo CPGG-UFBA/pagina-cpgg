@@ -72,7 +72,7 @@ nav ul li:hover .submenu1 {
   opacity: 0.9;
   margin-top: -30px;
   font-size: 18px;
-  z-index: 100;
+  z-index: 1000;
   width: 190px;
 }
 
@@ -115,7 +115,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   background-color: rgba(89, 44, 187, 0.98);
   /* removido opacity para não herdar o branco do item pai */
   width: 190px;
-  z-index: 1000;
+  z-index: 1001;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
