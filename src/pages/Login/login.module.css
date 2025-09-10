@@ -161,7 +161,7 @@
     background-color: #7c5ce0;
 }
 
-@media(max-width: 1024px) {
+@media(max-width: 900px) {
     .formsContainer {
         flex-direction: column;
         gap: 2rem;
