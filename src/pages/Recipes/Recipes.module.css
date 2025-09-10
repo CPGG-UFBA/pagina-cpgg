@@ -37,7 +37,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
-    url('/src/components/Figures/laws.jpg') center/cover;
+    url('https://imgur.com/dha5JtJ') center/cover;
 }
 
 
@@ -54,7 +54,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
-    url('/src/components/Figures/calendar.jpg') center/cover;
+    url('https://imgur.com/tETHUnK') center/cover;
 }
 
 
@@ -71,7 +71,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
-    url('/src/components/Figures/power.jpg') center/cover;
+    url('https://imgur.com/qwyDw3g') center/cover;
 }
 
 
@@ -90,7 +90,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
-    url('/src/components/Figures/latex.jpg') center/cover;
+    url('https://imgur.com/pROEtsX') center/cover;
 }
 
 .gmt {
@@ -106,7 +106,7 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
-    url('/src/components/Figures/programing.jpg') center/cover;
+    url('https://imgur.com/Uvpl9WR') center/cover;
 }
 
 .python {
@@ -122,7 +122,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
 
-    url('/src/components/Figures/python.jpg') center/cover;
+    url('https://imgur.com/jQGbUDR') center/cover;
 }
 
 
