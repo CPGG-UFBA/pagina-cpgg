@@ -58,7 +58,9 @@ export  function Calendars() {
                   </div>
               </div>
           </div>
-          <Footer/>
+          <div className={styles.footerCalendars}>
+            <Footer/>
+          </div>
       </>
   )
 }

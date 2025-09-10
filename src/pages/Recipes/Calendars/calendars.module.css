@@ -100,5 +100,10 @@
   .calendarCard {
     height: 120px;
     padding: 1rem;
-  }
+}
+
+/* Mover rodapé para cima apenas na página Calendars */
+.footerCalendars {
+  margin-top: -80px;
+}
 }
