@@ -34,12 +34,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100px;
+  margin-left: 250px;
 }
 
 .earthImage {
-  width: 300px;
-  height: 300px;
+  width: 450px;
+  height: 450px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
