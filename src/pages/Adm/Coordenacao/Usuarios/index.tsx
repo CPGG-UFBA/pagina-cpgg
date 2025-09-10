@@ -107,6 +107,7 @@ export function UsuariosAdmin() {
     } finally {
       setIsSyncing(false)
     }
+  }
 
   const handleDeleteUser = async () => {
     if (!userToDelete) return
