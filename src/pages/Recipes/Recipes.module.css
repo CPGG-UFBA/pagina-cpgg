@@ -9,19 +9,17 @@
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
-  margin-left: -700px;
-  margin-top: 7rem;
+  margin-top: 2rem;
   font-size: 24px;
 }
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  margin-left: 50px;
-  margin-bottom: 18rem;
+  margin-bottom: 4rem;
 }
 
 .logos {
@@ -81,8 +79,6 @@
   text-align: center;
   width:250px;
   height: 100px;
-  left:-1030px;
-  top: 132px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   min-height: 100px;
@@ -149,10 +145,13 @@
 }
 
 
+.staticFigure {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .staticFigure img {
-  height: 40rem;
-  padding-left: 355px;
-  padding-top: -980px;
-  margin-bottom: -270px;
-  margin-top: -208px;
+  height: 25rem;
+  object-fit: contain;
 }
