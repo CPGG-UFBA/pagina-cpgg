@@ -146,7 +146,7 @@ export function Registration() {
               <p>Acesse seu email para completar o registro</p>
               <p>Retorne para a página de Login</p>
               <button 
-                onClick={() => navigate('/sign')}
+                onClick={() => { window.location.href = '/sign' }}
                 className={styles.backButton}
               >
                 Ir para Login
