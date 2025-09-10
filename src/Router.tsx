@@ -80,6 +80,7 @@ import { TI } from './pages/Adm/TI'
 import { Secretaria } from './pages/Adm/Secretaria'
 import { Coordenacao } from './pages/Adm/Coordenacao'
 import { CoordenacaoDashboard } from './pages/Adm/Coordenacao/Dashboard'
+import { UsuariosAdmin } from './pages/Adm/Coordenacao/Usuarios'
 import { ResearchProjects } from './pages/ResearchProjects'
 
 export function Router() {
@@ -166,6 +167,7 @@ export function Router() {
          <Route path='/adm/ti' element={<TI />} />
          <Route path='/adm/coordenacao' element={<Coordenacao />} />
          <Route path='/adm/coordenacao/dashboard' element={<CoordenacaoDashboard />} />
+         <Route path='/adm/coordenacao/usuarios' element={<UsuariosAdmin />} />
          <Route path='/adm/secretaria' element={<Secretaria />} />
 
       </Route>

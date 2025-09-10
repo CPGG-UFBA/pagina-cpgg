@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
-import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen } from 'lucide-react'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus } from 'lucide-react'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
@@ -966,6 +966,22 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Norma'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <UserMinus size={24} />
+              <h2>Administrar Usuários</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <p>Gerencie os usuários cadastrados no sistema</p>
+            </div>
+            <Button
+              onClick={() => navigate('/adm/coordenacao/usuarios')}
+              className={styles.submitButton}
+            >
+              Listar Usuários Cadastrados
             </Button>
           </div>
         </div>
