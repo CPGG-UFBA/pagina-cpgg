@@ -154,7 +154,7 @@
 }
 
 .staticFigure img {
-  height: 25rem;
+  height: calc(25rem + 200px);
   object-fit: contain;
   margin-left: 900px;
 }
