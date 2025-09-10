@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import { Home } from './pages/Home'
+import { Auth } from './pages/Auth'
+import { EditableProfile } from './pages/EditableProfile'
 import { Contact } from './pages/Contact'
 import { News1 } from './pages/News/News1'
 import { News2 } from './pages/News/News2'
@@ -169,6 +171,8 @@ export function Router() {
          <Route path='/adm/coordenacao/dashboard' element={<CoordenacaoDashboard />} />
          <Route path='/adm/coordenacao/usuarios' element={<UsuariosAdmin />} />
          <Route path='/adm/secretaria' element={<Secretaria />} />
+         <Route path='/auth' element={<Auth />} />
+         <Route path='/profile/:name' element={<EditableProfile />} />
 
       </Route>
     </Routes>

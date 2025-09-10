@@ -1,8 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from '@/hooks/useAuth';
+import { Button } from '@/components/ui/button';
 import styles from "./Header.module.css";
 const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
+  const { user, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/');
+  };
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -35,11 +44,22 @@ export function Header() {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink to='/Sign' className={styles.navLink}>
-              Signin
-            </NavLink>
-          </li>
+          {user ? (
+            <li className="flex items-center space-x-2">
+              <span className="text-sm">
+                Olá, {user.user_metadata?.full_name || user.email}
+              </span>
+              <Button onClick={handleSignOut} variant="outline" size="sm">
+                Sair
+              </Button>
+            </li>
+          ) : (
+            <li>
+              <NavLink to='/auth' className={styles.navLink}>
+                Entrar
+              </NavLink>
+            </li>
+          )}
           <li>
             <a href='#' className={styles.navLink}>About us</a>
             
