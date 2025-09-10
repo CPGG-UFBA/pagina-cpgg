@@ -73,33 +73,24 @@ export function Registration() {
 
       // Cria conta no Supabase Auth se email e senha foram fornecidos
       if (email && password) {
+        const firstName = formData.fullName.trim().split(' ')[0]
+        const researcherRoute = findResearcherRoute(formData.fullName)
+
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email,
           password,
           options: {
-            emailRedirectTo: `${window.location.origin}/`
+            emailRedirectTo: `${window.location.origin}/`,
+            data: {
+              full_name: formData.fullName,
+              institution: formData.institution,
+              phone: formData.phone,
+              researcher_route: researcherRoute
+            }
           }
         })
 
         if (authError) throw authError
-
-        // Cria perfil do usuário
-        const firstName = formData.fullName.trim().split(' ')[0]
-        const researcherRoute = findResearcherRoute(formData.fullName)
-
-        const { error: profileError } = await supabase
-          .from('user_profiles')
-          .insert({
-            user_id: authData.user?.id,
-            full_name: formData.fullName,
-            email: formData.email,
-            institution: formData.institution,
-            phone: formData.phone,
-            first_name: firstName,
-            researcher_route: researcherRoute
-          })
-
-        if (profileError) throw profileError
 
         setSuccess(true)
       }
