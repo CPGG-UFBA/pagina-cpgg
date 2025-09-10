@@ -16,7 +16,7 @@
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
   max-width: 1200px;
   margin: 0 auto;
   margin-left: -50px;
@@ -148,7 +148,7 @@
 
 .staticFigure {
   position: relative;
-  margin-left: 200px;
+  margin-left: 500px;
   margin-top: -200px;
 }
 
