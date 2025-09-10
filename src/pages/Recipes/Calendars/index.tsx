@@ -1,7 +1,7 @@
 import styles from './calendars.module.css';
 import { Header } from '../../../components/Header';
 import { Footer } from '../../../components/Footer';
-const earth = 'https://i.imgur.com/z6pTgZ1.jpg'
+import earthGlobe from '../../../assets/earth-globe.jpg';
 
 export  function Calendars() {
   return (
@@ -11,41 +11,51 @@ export  function Calendars() {
               <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="https://drive.google.com/file/d/1HCYNtR6-Su2mbSAbbMKh8rYgJIIsYOWk/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                      <div className={styles.calendarCard}>
-                          <h2>Calendário de 2025</h2>
-                      </div>
-                  </a>
+                  <div className={styles.buttonsGrid}>
+                      <a className={styles.card} href="https://drive.google.com/file/d/1HCYNtR6-Su2mbSAbbMKh8rYgJIIsYOWk/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.calendarCard}>
+                              <h2>Calendário de 2025</h2>
+                          </div>
+                      </a>
 
-                  <a className={styles.card} href="https://drive.google.com/file/d/1UbaOdBxcqlvDY3v_a08b9rgEGahxRf0_/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                      <div className={styles.calendarCard}>
-                          <h2>Calendário de 2024</h2>
-                      </div>
-                  </a>
+                      <a className={styles.card} href="https://drive.google.com/file/d/1UbaOdBxcqlvDY3v_a08b9rgEGahxRf0_/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.calendarCard}>
+                              <h2>Calendário de 2024</h2>
+                          </div>
+                      </a>
+                      
+                      <a className={styles.card} href="https://drive.google.com/file/d/11UYvunAfYl3oij3toYaIY8jJzsEE-bcD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.calendarCard}>
+                              <h2>Calendário de 2023</h2>
+                          </div>
+                      </a>
+                      
+                      <a className={styles.card} href="https://drive.google.com/file/d/1plx9hvCJSz-_81HxMb72BIWaI7ZyU17q/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.calendarCard}>
+                              <h2>Calendário de 2022</h2>
+                          </div>
+                      </a>
+                      
+                      <a className={styles.card} href="https://drive.google.com/file/d/1suCYamkdt0flvMuuYzy3j4of8WUKrD3k/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.calendarCard}>
+                              <h2>Calendário de 2021</h2>
+                          </div>
+                      </a>
+                      
+                      <a className={styles.card} href="https://drive.google.com/file/d/1H-e1JFNm2dthU8porSI8bn-S5fpRIF3h/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.calendarCard}>
+                              <h2>Calendário de 2020</h2>
+                          </div>
+                      </a>
+                  </div>
                   
-                  <a className={styles.card} href="https://drive.google.com/file/d/11UYvunAfYl3oij3toYaIY8jJzsEE-bcD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                      <div className={styles.calendarCard}>
-                          <h2>Calendário de 2023</h2>
-                      </div>
-                  </a>
-                  
-                  <a className={styles.card} href="https://drive.google.com/file/d/1plx9hvCJSz-_81HxMb72BIWaI7ZyU17q/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                      <div className={styles.calendarCard}>
-                          <h2>Calendário de 2022</h2>
-                      </div>
-                  </a>
-                  
-                  <a className={styles.card} href="https://drive.google.com/file/d/1suCYamkdt0flvMuuYzy3j4of8WUKrD3k/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                      <div className={styles.calendarCard}>
-                          <h2>Calendário de 2021</h2>
-                      </div>
-                  </a>
-                  
-                  <a className={styles.card} href="https://drive.google.com/file/d/1H-e1JFNm2dthU8porSI8bn-S5fpRIF3h/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
-                      <div className={styles.calendarCard}>
-                          <h2>Calendário de 2020</h2>
-                      </div>
-                  </a>
+                  <div className={styles.earthContainer}>
+                      <img 
+                          src={earthGlobe} 
+                          alt="Terra" 
+                          className={styles.earthImage}
+                      />
+                  </div>
               </div>
           </div>
           <Footer/>
