@@ -42,7 +42,8 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.9) 0%, rgba(63,9,121,0.8) 100%);
+  background: linear-gradient(135deg, rgba(2,0,36,0.8) 0%, rgba(63,9,121,0.7) 100%), 
+              url('https://i.imgur.com/tETHUnK.jpg') center/cover;
 }
 
 .calendarCard h2 {
