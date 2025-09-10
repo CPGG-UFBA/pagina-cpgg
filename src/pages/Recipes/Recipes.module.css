@@ -16,9 +16,10 @@
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1rem;
   max-width: 1200px;
   margin: 0 auto;
+  margin-left: -50px;
   margin-bottom: 4rem;
 }
 
@@ -146,9 +147,9 @@
 
 
 .staticFigure {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
+  position: relative;
+  margin-left: 200px;
+  margin-top: -200px;
 }
 
 .staticFigure img {
