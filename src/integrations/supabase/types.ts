@@ -263,6 +263,10 @@ export type Database = {
         Args: { _email: string; _full_name: string }
         Returns: Json
       }
+      delete_user_complete: {
+        Args: { _user_profile_id: string }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never

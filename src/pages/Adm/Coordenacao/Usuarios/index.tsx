@@ -76,22 +76,18 @@ export function UsuariosAdmin() {
     if (!userToDelete) return
 
     try {
-      // Primeiro, deletar da tabela user_profiles
-      const { error: profileError } = await supabase
-        .from('user_profiles')
-        .delete()
-        .eq('id', userToDelete.id)
+      // Usar função SQL para deletar do banco e auth
+      const { data, error } = await supabase
+        .rpc('delete_user_complete', {
+          _user_profile_id: userToDelete.id
+        })
 
-      if (profileError) throw profileError
+      if (error) throw error
 
-      // Depois, deletar do auth.users usando admin API
-      const { error: authError } = await supabase.auth.admin.deleteUser(
-        userToDelete.user_id
-      )
-
-      if (authError) {
-        console.warn('Erro ao deletar do auth.users:', authError)
-        // Não bloquear se o usuário não existir mais no auth
+      const result = data as { success: boolean; error?: string; message?: string }
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Erro ao deletar usuário')
       }
 
       // Adicionar à lista de deletados para possível desfazer
