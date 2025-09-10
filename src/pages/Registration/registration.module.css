@@ -1,23 +1,12 @@
 .registration {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('../../assets/header-bg.jpg') no-repeat center center;
-  background-size: cover;
-  position: relative;
-  padding: 2rem;
-}
-
-.registration::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+    background-image: url('https://i.imgur.com/ZwnmRF6.png');
+    background-size: cover;
+    -webkit-font-smoothing: antialised;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
 .formBox {
@@ -36,8 +25,8 @@
 }
 
 .formBox h1 {
-  color: white;
-  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 0;
@@ -54,45 +43,44 @@
 }
 
 .form input {
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-  padding: 1rem;
-  color: white;
-  font-size: 1rem;
-  outline: none;
-  transition: all 0.3s ease;
+    padding: 15px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    transition: all linear 160ms;
+    outline: none;
+    width: 100%;
+    color: #000;
+    caret-color: #000;
 }
 
 .form input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.form input:focus {
-  border-color: rgba(255, 255, 255, 0.5);
-  background: rgba(255, 255, 255, 0.15);
+    color: #333;
 }
 
 .submitButton {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  padding: 1rem;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    padding: 15px;
+    font-size: 14px;
+    color: white;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #BEB6B6;
+    border: none;
+    transition: 500ms linear;
+    font-family: Roboto;
+    font-weight: 100;
+    cursor: pointer;
 }
 
 .submitButton:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+    background-color: #936aeb;
 }
 
 .submitButton:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .successBox {
@@ -110,8 +98,8 @@
 }
 
 .successBox h1 {
-  color: white;
-  font-size: 2rem;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
   margin: 0;
@@ -126,32 +114,35 @@
 }
 
 .successMessage h2 {
-  color: white;
-  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
   margin: 0;
 }
 
 .successMessage p {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
   margin: 0;
 }
 
 .backButton {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  padding: 1rem 2rem;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    padding: 15px;
+    font-size: 14px;
+    color: white;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #BEB6B6;
+    border: none;
+    transition: 500ms linear;
+    font-family: Roboto;
+    font-weight: 100;
+    cursor: pointer;
 }
 
 .backButton:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+    background-color: #936aeb;
 }
 
 @media (max-width: 768px) {
