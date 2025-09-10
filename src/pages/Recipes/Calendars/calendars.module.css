@@ -68,9 +68,37 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
-              url('https://i.imgur.com/tETHUnK.jpg') center/cover;
   margin: 0 auto;
+}
+
+.calendar2025 {
+  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+}
+
+.calendar2024 {
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+}
+
+.calendar2023 {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+}
+
+.calendar2022 {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+}
+
+.calendar2021 {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+}
+
+.calendar2020 {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
 }
 
 .calendarCard h2 {
