@@ -30,7 +30,6 @@ export const researcherData = {
     { name: 'Jailma Santos de Souza de Oliveira', route: '/researchers/personal/Jailma' },
     { name: 'Johildo Salomão Figuerêdo Barbosa', route: '/researchers/personal/Johildo' },
     { name: 'José Haroldo da Silva Sá', route: '/researchers/personal/Haroldo' },
-    { name: 'Marcos Alberto Rodrigues Vasconcelos', route: '/researchers/personal/Marcos' },
     { name: 'Simone Cerqueira Pereira Cruz', route: '/researchers/personal/Simone' },
   ],
 
