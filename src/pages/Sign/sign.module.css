@@ -5,175 +5,201 @@
 }
 
 .sign {
-  background-image: url('https://i.imgur.com/ZwnmRF6.png');
-  background-size: cover;
-  -webkit-font-smoothing: antialised;
-  margin: 0;
-  display: flex;
-  height: 100vh;
+    background-image: url('https://i.imgur.com/ZwnmRF6.png');
+    background-size: cover;
+    -webkit-font-smoothing: antialised;
+    margin: 0;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+.logo {
+    margin-bottom: 2rem;
+}
 
 .logo img {
-width: 100px;
-height: 65px;
-margin-top: 2rem;
-margin-left: auto;
-margin-right: auto;
-display: block;
+    width: 120px;
+    height: 80px;
 }
 
-.box {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.1);
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  top: 15%; 
-  left:30%;
-  padding: 10px;
-  border-radius: 20px;
-  gap: 5px;
+.formsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: start;
+    width: 100%;
 }
 
+.formBox {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255, 0.1);
+    width: 450px;
+    min-height: 500px;
+    padding: 2rem;
+    border-radius: 20px;
+    gap: 1rem;
+    flex-shrink: 0;
+}
 
+.formTitle p {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    margin-bottom: 1rem;
+}
 
-.box input {
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.form input {
     padding: 15px;
     font-size: 14px;
     border: 1px solid #ccc;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    margin-left:2.5rem;
     border-radius: 15px;
     transition: all linear 160ms;
     outline: none;
-    width: 500px;
+    width: 100%;
+    color: #000;
+    caret-color: #000;
 }
 
-.box button {
-  appearance: button;
-  padding: 15px;
-  font-size: 14px;
-  border-radius: 25px;
-  width: 500px;
-  margin-left:2.5rem;
-  background-color: #BEB6B6;
-  border: none;
-  transition: 500ms linear;
- 
+.form input::placeholder {
+    color: #333;
 }
 
-.box button > a{
-  font-size: 16px;
-  text-decoration: none;
-  color: white;
-  
-
+.form button {
+    padding: 15px;
+    font-size: 14px;
+    color: white;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: #BEB6B6;
+    border: none;
+    transition: 500ms linear;
+    font-family: Roboto;
+    font-weight: 100;
+    cursor: pointer;
 }
 
-.box button:hover {
-  background-color: #936aeb;
-  
+.form button:hover:not(:disabled) {
+    background-color: #936aeb;
 }
 
-.box label {
-  font-size: 14px;
-  font-weight: 600;
+.form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
-.box a {
-  display: inline-block;
-  margin-bottom: 20px;
-  font-size: 13px;
-  color: black;
-  transition: all linear 160ms;
+.forgotPassword {
+    background: none;
+    border: none;
+    color: #936aeb;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+    transition: color 0.3s ease;
+    margin-top: 1rem;
 }
 
-.box h1 {
-  display: inline-block;
-  margin-top: 10rem;
-  left: 2rem;
-  font-size: 13px;
-  color: gray;
-  transition: all linear 160ms;
+.forgotPassword:hover {
+    color: #7c5ce0;
 }
 
-.upper p {
-  position: absolute;
-  font-size: 18px;
-  color: rgb(0, 0, 0);
-  top:8rem;
-  left:50%;
-  transform: translate(-50%, -50%);
+.dialogContent {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
 }
 
-.already p {
-  position: absolute;
-  font-size: 14px;
-  color: #666;
-  top:10rem;
-  left:50%;
-  transform: translate(-50%, -50%);
-  text-decoration: none;
+.resetForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.box li {
-  position: absolute;
-  padding: 0 10px;
-  text-decoration: none;
-  top:12rem;
-  left:48%;
-  transform: translate(-50%, -50%);
-
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.login {
-  padding: 0 10px;
-  list-style-type: none;
-  top:1rem;
-
+.resetButton {
+    background-color: #936aeb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-@media(max-width:1200px) {
-
-  .box {
-    left: 20%;
-  }
+.resetButton:hover {
+    background-color: #7c5ce0;
 }
 
-@media(max-width:900px) {
-
-  .box {
-    left: 10%;
-  }
-
+@media(max-width: 700px) {
+    .formsContainer {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        justify-items: center;
+        align-items: center;
+    }
+    
+    .formBox {
+        width: 100%;
+        max-width: 500px;
+    }
 }
 
-@media(max-width:500px) {
-
-  .sign {
-    background-size: cover;
-  }
-
-  .box {
-    left: 6%;
-    width: 330px;
-    height: 500px;
-  }
-
-
-.box button {
-  width: 250px;
-  top: 5%;
- 
-}
-
-.box input {
-  width: 250px;
-}
-
+@media(max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .formBox {
+        width: 100%;
+        min-height: 400px;
+        padding: 1.5rem;
+    }
+    
+    .logo img {
+        width: 100px;
+        height: 65px;
+    }
+    
+    .formTitle p {
+        font-size: 18px;
+    }
+    
+    .form input {
+        padding: 12px;
+    }
+    
+    .form button {
+        padding: 12px;
+        max-width: 250px;
+    }
 }
