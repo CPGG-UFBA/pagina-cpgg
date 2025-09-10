@@ -1,12 +1,11 @@
 .container {
-  min-height: calc(100vh + 500px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .main {
   flex: 1;
-  overflow: visible;
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
@@ -17,7 +16,7 @@
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 2rem;
-  margin-top: calc(2rem + 150px);
+  margin-top: calc(100vh + 2rem);
 }
 
 .textSection {
