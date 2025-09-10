@@ -362,16 +362,24 @@ export function CoordenacaoDashboard() {
       const photos = [newsPhoto1, newsPhoto2, newsPhoto3]
       const photoUrls: (string | null)[] = [null, null, null]
 
-      // Upload das fotos
+      // Upload das fotos (sanitiza nome e define contentType)
       for (let i = 0; i < photos.length; i++) {
         const photo = photos[i]
         if (photo) {
-          const fileName = `${Date.now()}-${i + 1}-${photo.name}`
-          const { data: uploadData, error: uploadError } = await supabase.storage
+          const originalName = photo.name || `foto-${i + 1}.jpg`
+          const sanitizedName = originalName
+            .toLowerCase()
+            .replace(/[^a-z0-9._-]/g, '_')
+            .replace(/_+/g, '_')
+          const fileName = `${newsPosition || 'news'}/${Date.now()}-${i + 1}-${sanitizedName}`
+          const { error: uploadError } = await supabase.storage
             .from('news-photos')
-            .upload(fileName, photo)
+            .upload(fileName, photo, { contentType: photo.type || 'application/octet-stream', upsert: false })
 
-          if (uploadError) throw uploadError
+          if (uploadError) {
+            console.error('Erro upload storage:', uploadError)
+            throw uploadError
+          }
 
           const { data: { publicUrl } } = supabase.storage
             .from('news-photos')
@@ -386,7 +394,7 @@ export function CoordenacaoDashboard() {
         .from('news')
         .select('id')
         .eq('news_position', newsPosition)
-        .single()
+        .maybeSingle()
 
       if (existingNews) {
         // Atualizar notícia existente
