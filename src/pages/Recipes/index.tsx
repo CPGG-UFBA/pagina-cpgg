@@ -48,7 +48,9 @@ export  function Recipes() {
                   </div>
               </div>
           </div>
-          <Footer/>
+          <div className={styles.footerRecipes}>
+            <Footer/>
+          </div>
       </>
   )
 }

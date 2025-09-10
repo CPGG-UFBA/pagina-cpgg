@@ -157,7 +157,7 @@
 }
 
 /* Mover rodapé para cima apenas na página Recipes */
-.recipes :global(.footer) {
+.footerRecipes {
   margin-top: -550px;
 }
 
