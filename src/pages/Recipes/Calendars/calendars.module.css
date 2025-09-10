@@ -31,8 +31,8 @@
 .calendarCard {
   padding: 1.2rem;
   border-radius: 12px;
-  width: 100%;
-  height: 112px;
+  width: 80%;
+  height: 140px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
@@ -44,6 +44,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.8) 0%, rgba(63,9,121,0.7) 100%), 
               url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+  margin: 0 auto;
 }
 
 .calendarCard h2 {
