@@ -71,6 +71,29 @@ export function Registration() {
         return
       }
 
+      // Verifica duplicidade por email e nome completo (case-insensitive)
+      try {
+        const [emailCheck, nameCheck] = await Promise.all([
+          supabase.from('user_profiles').select('id, researcher_route').ilike('email', formData.email).maybeSingle(),
+          supabase.from('user_profiles').select('id, researcher_route').ilike('full_name', formData.fullName).maybeSingle()
+        ])
+
+        const emailExists = !!emailCheck.data
+        const nameExists = !!nameCheck.data
+
+        if (emailExists || nameExists) {
+          toast({
+            title: 'Usuário já cadastrado',
+            description: 'Já existe um usuário com este email ou nome completo.',
+            variant: 'destructive'
+          })
+          setIsLoading(false)
+          return
+        }
+      } catch (dupErr) {
+        // Se não for possível verificar (RLS), prosseguimos e deixamos o banco garantir unicidade
+      }
+
       // Cria conta no Supabase Auth se email e senha foram fornecidos
       if (email && password) {
         const firstName = formData.fullName.trim().split(' ')[0]
@@ -91,8 +114,13 @@ export function Registration() {
         })
 
         if (authError) {
-          // Se o erro contém "Usuário já cadastrado", significa que é duplicata
-          if (authError.message.includes('Usuário já cadastrado')) {
+          const msg = (authError as any)?.message || ''
+          if (
+            msg.includes('Usuário já cadastrado') ||
+            msg.includes('duplicate key value') ||
+            msg.toLowerCase().includes('already registered') ||
+            msg.toLowerCase().includes('already exists')
+          ) {
             toast({
               title: 'Usuário já cadastrado',
               description: 'Já existe um usuário com este email ou nome completo.',
