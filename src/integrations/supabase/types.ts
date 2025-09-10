@@ -267,6 +267,20 @@ export type Database = {
         Args: { _user_profile_id: string }
         Returns: Json
       }
+      find_user_profile_by_name: {
+        Args: { _search_name: string }
+        Returns: {
+          email: string
+          first_name: string
+          full_name: string
+          id: string
+          institution: string
+          phone: string
+          photo_url: string
+          researcher_route: string
+          user_id: string
+        }[]
+      }
       list_all_user_profiles: {
         Args: Record<PropertyKey, never>
         Returns: {
