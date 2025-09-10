@@ -148,7 +148,9 @@
 
 .staticFigure {
   position: relative;
-  transform: translate(300px, -200px);
+  grid-column: 1 / -1;
+  left: 300px;
+  top: -200px;
 }
 
 .staticFigure img {
