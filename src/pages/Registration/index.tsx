@@ -71,17 +71,17 @@ export function Registration() {
         return
       }
 
-      // Verifica duplicidade por email e nome completo (case-insensitive)
-      try {
-        const [emailCheck, nameCheck] = await Promise.all([
-          supabase.from('user_profiles').select('id, researcher_route').ilike('email', formData.email).maybeSingle(),
-          supabase.from('user_profiles').select('id, researcher_route').ilike('full_name', formData.fullName).maybeSingle()
-        ])
+      // Verifica se já existe usuário com este email ou nome (usando função SQL que bypassa RLS)
+      const { data: duplicateCheck, error: dupCheckError } = await supabase
+        .rpc('check_user_profile_duplicates', {
+          _email: formData.email,
+          _full_name: formData.fullName
+        })
 
-        const emailExists = !!emailCheck.data
-        const nameExists = !!nameCheck.data
-
-        if (emailExists || nameExists) {
+      if (!dupCheckError && duplicateCheck) {
+        const { email_exists, name_exists } = duplicateCheck as { email_exists: boolean, name_exists: boolean }
+        
+        if (email_exists || name_exists) {
           toast({
             title: 'Usuário já cadastrado',
             description: 'Já existe um usuário com este email ou nome completo.',
@@ -90,8 +90,6 @@ export function Registration() {
           setIsLoading(false)
           return
         }
-      } catch (dupErr) {
-        // Se não for possível verificar (RLS), prosseguimos e deixamos o banco garantir unicidade
       }
 
       // Cria conta no Supabase Auth se email e senha foram fornecidos

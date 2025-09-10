@@ -259,7 +259,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      check_user_profile_duplicates: {
+        Args: { _email: string; _full_name: string }
+        Returns: Json
+      }
     }
     Enums: {
       [_ in never]: never
