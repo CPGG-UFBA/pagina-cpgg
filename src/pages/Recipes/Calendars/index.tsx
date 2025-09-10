@@ -1,7 +1,7 @@
 import styles from './calendars.module.css';
 import { Header } from '../../../components/Header';
 import { Footer } from '../../../components/Footer';
-import earthGlobe from '../../../assets/earth-globe.jpg';
+
 
 export  function Calendars() {
   return (
@@ -51,7 +51,7 @@ export  function Calendars() {
                   
                   <div className={styles.earthContainer}>
                       <img 
-                          src={earthGlobe} 
+                          src="https://i.imgur.com/z6pTgZ1.jpg" 
                           alt="Terra" 
                           className={styles.earthImage}
                       />
