@@ -17,7 +17,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: 200px;
+  gap: 0;
   max-width: 1400px;
   margin: 0 auto;
   margin-bottom: 4rem;
@@ -34,7 +34,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateX(100px);
+  margin-left: 100px;
 }
 
 .earthImage {
