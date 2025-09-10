@@ -28,8 +28,8 @@
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  height: calc(200px * 3);
-  animation: scroll-vertical 15s linear infinite;
+  height: calc(200px * 6);
+  animation: scroll-vertical 30s linear infinite;
 }
 
 .NewsTrack:hover {
