@@ -17,7 +17,7 @@
   display: grid;
   grid-template-columns: repeat(3, 250px);
   row-gap: 3rem;
-  column-gap: calc(0.17rem + 10px);
+  column-gap: calc(0.17rem + 50px);
   justify-content: flex-start;
   justify-items: start;
   max-width: 1200px;
