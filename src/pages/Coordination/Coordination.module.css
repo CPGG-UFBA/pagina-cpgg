@@ -228,7 +228,7 @@
 
 /* Estilos para modo de edição */
 .editMode .coordination {
-  padding-left: 30px !important;
+  padding-left: 120px !important;
 }
 
 .editMode .chief h1,
@@ -265,3 +265,21 @@
   margin: 0;
   font-size: 0.9rem;
 }
+
+/* Reposiciona corretamente os elementos no modo de edição */
+.editMode .coordination ul {
+  position: static !important;
+  margin: 0 0 1rem 0 !important;
+  text-align: left !important;
+}
+
+.editMode .chief {
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: 12px;
+}
+
+.editMode .chief span {
+  margin: 0 !important;
+}
+
