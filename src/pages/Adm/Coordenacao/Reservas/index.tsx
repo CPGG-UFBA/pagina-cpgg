@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
-import { LogOut, Download, FileText, BarChart3, Calendar, User, MapPin, Clock } from 'lucide-react'
+import { LogOut, Download, FileText, BarChart3, Calendar, User, MapPin, Clock, ArrowLeft } from 'lucide-react'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts'
@@ -277,7 +277,13 @@ export function ReservasAdmin() {
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG Logo" />
         </div>
-        <h1>Gerenciamento de Reservas</h1>
+        <div className="flex items-center gap-4">
+          <Button onClick={() => navigate('/adm/coordenacao/dashboard')} variant="outline" size="sm">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Voltar ao Painel
+          </Button>
+          <h1>Gerenciamento de Reservas</h1>
+        </div>
         <Button onClick={handleLogout} variant="outline" size="sm">
           <LogOut className="w-4 h-4 mr-2" />
           Sair

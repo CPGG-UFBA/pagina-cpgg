@@ -9,7 +9,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { LaigaEquipmentUpload } from '@/components/LaigaEquipmentUpload';
 import styles from './equipamentos.module.css';
 import logoUfba from '/src/components/Figures/LogoUfba.png';
-import { Trash2, Search, LogOut } from 'lucide-react';
+import { Trash2, Search, LogOut, ArrowLeft } from 'lucide-react';
 
 interface Equipment {
   id: string;
@@ -126,6 +126,10 @@ export function EquipamentosLaiga() {
     window.location.href = '/coordenacao';
   };
 
+  const handleBackToDashboard = () => {
+    window.location.href = '/adm/coordenacao/dashboard';
+  };
+
   const getStatusBadgeVariant = (status: string) => {
     switch (status) {
       case 'available':
@@ -170,7 +174,13 @@ export function EquipamentosLaiga() {
         <div className={styles.logo}>
           <img src={logoUfba} alt="UFBA Logo" />
         </div>
-        <h1>Gerenciar Equipamentos LAIGA</h1>
+        <div className="flex items-center gap-4">
+          <Button onClick={handleBackToDashboard} variant="outline" size="sm">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Voltar ao Painel
+          </Button>
+          <h1>Gerenciar Equipamentos LAIGA</h1>
+        </div>
         <Button onClick={handleLogout} variant="outline" size="sm">
           <LogOut className="h-4 w-4 mr-2" />
           Sair

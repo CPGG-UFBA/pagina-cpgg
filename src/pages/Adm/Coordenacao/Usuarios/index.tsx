@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Trash2, Undo } from 'lucide-react'
+import { Trash2, Undo, ArrowLeft } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
@@ -211,14 +211,13 @@ export function UsuariosAdmin() {
     <div className={styles.container}>
       <div className={styles.header}>
         <img src={logocpgg} alt="CPGG Logo" className={styles.logo} />
-        <h1>Administrar Usuários</h1>
-        <Button
-          onClick={() => navigate('/adm/coordenacao/dashboard')}
-          variant="outline"
-          className={styles.backButton}
-        >
-          ← Voltar ao Dashboard
-        </Button>
+        <div className="flex items-center gap-4">
+          <Button onClick={() => navigate('/adm/coordenacao/dashboard')} variant="outline" size="sm">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Voltar ao Painel
+          </Button>
+          <h1>Administrar Usuários</h1>
+        </div>
         <Button
           onClick={handleSyncUsers}
           disabled={isSyncing}
