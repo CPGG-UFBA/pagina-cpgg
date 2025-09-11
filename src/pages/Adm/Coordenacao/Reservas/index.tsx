@@ -206,8 +206,8 @@ export function ReservasAdmin() {
     setEditData({})
   }
 
-  const generatePDF = async () => {
-    const element = document.getElementById('reservations-table')
+  const generatePDF = async (tableId: string, filename: string, title: string) => {
+    const element = document.getElementById(tableId)
     if (!element) return
 
     try {
@@ -230,7 +230,7 @@ export function ReservasAdmin() {
 
       // Header
       pdf.setFontSize(16)
-      pdf.text('Relatório de Reservas - CPGG', pdfWidth / 2, 20, { align: 'center' })
+      pdf.text(title, pdfWidth / 2, 20, { align: 'center' })
       
       // Data
       pdf.setFontSize(10)
@@ -239,7 +239,7 @@ export function ReservasAdmin() {
       // Table
       pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio)
 
-      pdf.save('relatorio-reservas.pdf')
+      pdf.save(filename)
       
       toast({
         title: "Sucesso",
@@ -415,7 +415,7 @@ export function ReservasAdmin() {
                 <option value="rejeitada">Rejeitada</option>
               </select>
 
-              <Button onClick={generatePDF} variant="outline">
+              <Button onClick={() => generatePDF('physical-spaces-table', 'relatorio-espacos-fisicos.pdf', 'Relatório de Reservas - Espaços Físicos - CPGG')} variant="outline">
                 <Download className="w-4 h-4 mr-2" />
                 Gerar PDF
               </Button>
@@ -703,7 +703,7 @@ export function ReservasAdmin() {
                 <option value="rejeitada">Rejeitada</option>
               </select>
 
-              <Button onClick={generatePDF} variant="outline">
+              <Button onClick={() => generatePDF('laboratories-table', 'relatorio-laboratorios.pdf', 'Relatório de Reservas - Laboratórios - CPGG')} variant="outline">
                 <Download className="w-4 h-4 mr-2" />
                 Gerar PDF
               </Button>
