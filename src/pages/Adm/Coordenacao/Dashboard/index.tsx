@@ -11,6 +11,8 @@ import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, 
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
+// Dashboard component for coordination administration
+
 interface AdminUser {
   id: string
   email: string
