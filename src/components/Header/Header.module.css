@@ -99,7 +99,7 @@ nav ul li:hover .submenu1 ul li a {
 
 nav ul li:hover .submenu1 ul li:hover,
 nav ul li:hover .submenu1 ul li:hover a {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   color: #592cbb;
 }
 
@@ -147,7 +147,7 @@ nav ul li:hover .submenu2 ul li a {
 
 .submenu2 ul li:hover,
 .submenu2 ul li:hover a {
-  background-color: rgba(255, 255, 255, 0.95) !important;
+  background-color: white !important;
   color: #592cbb !important;
 }
 
