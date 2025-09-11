@@ -32,22 +32,18 @@ export function Sign() {
         setSession(session);
         setUser(session?.user ?? null);
         
-        // Redirect to home if user is logged in
-        if (session?.user) {
+        // Redirect only after a successful sign in event
+        if (event === 'SIGNED_IN' && session?.user) {
           navigate('/');
         }
       }
     );
 
-    // THEN check for existing session
+    // Check for existing session but do NOT redirect;
+    // keep forms visible even if already logged in
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setUser(session?.user ?? null);
-      
-      // Redirect to home if already logged in
-      if (session?.user) {
-        navigate('/');
-      }
     });
 
     return () => subscription.unsubscribe();
