@@ -33,6 +33,7 @@ export function RF() {
     returnDate: '',
     purpose: '',
     applicantName: '',
+    applicantEmail: '',
     agreementAccepted: false,
     damageReportAgreement: false
   })
@@ -79,10 +80,21 @@ export function RF() {
       return
     }
 
-    if (!formData.purpose || !formData.applicantName) {
+    if (!formData.purpose || !formData.applicantName || !formData.applicantEmail) {
       toast({
         title: "Erro",
         description: "Preencha todos os campos obrigatórios",
+        variant: "destructive"
+      })
+      return
+    }
+
+    // Validação de email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(formData.applicantEmail)) {
+      toast({
+        title: "Erro",
+        description: "Por favor, insira um email válido",
         variant: "destructive"
       })
       return
@@ -143,6 +155,7 @@ export function RF() {
         returnDate: '',
         purpose: '',
         applicantName: '',
+        applicantEmail: '',
         agreementAccepted: false,
         damageReportAgreement: false
       })
@@ -262,6 +275,18 @@ export function RF() {
                 value={formData.applicantName}
                 onChange={(e) => handleInputChange('applicantName', e.target.value)}
                 placeholder="Digite seu nome completo"
+                required
+              />
+            </div>
+
+            <div className={styles.form}>
+              <label htmlFor="applicantEmail">Email do Solicitante *</label>
+              <input
+                type="email"
+                id="applicantEmail"
+                value={formData.applicantEmail}
+                onChange={(e) => handleInputChange('applicantEmail', e.target.value)}
+                placeholder="Digite seu email"
                 required
               />
             </div>

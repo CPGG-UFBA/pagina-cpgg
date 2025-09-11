@@ -9,6 +9,7 @@ import laigaLogo from '../../../../assets/earth-labs.png'
 interface LaigaReservation {
   id: string
   nome: string
+  email: string
   uso: string
   inicio: string
   termino: string
@@ -94,6 +95,7 @@ export function LaigaReceipt() {
             <div className={styles.section}>
               <h3>Dados do Solicitante</h3>
               <p><strong>Nome:</strong> {reservation.nome}</p>
+              <p><strong>Email:</strong> {reservation.email}</p>
             </div>
 
             <div className={styles.section}>

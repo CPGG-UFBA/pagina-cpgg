@@ -15,7 +15,7 @@ interface LaigaReservationRequest {
   returnDate: string
   purpose: string
   applicantName: string
-  applicantEmail?: string
+  applicantEmail: string
   agreementAccepted: boolean
 }
 
@@ -53,7 +53,7 @@ const handler = async (req: Request): Promise<Response> => {
       .insert({
         nome: reservationData.applicantName,
         sobrenome: '', // Campo obrigatório mas não usado neste formulário
-        email: reservationData.applicantEmail || 'laiga@reservation.temp', // Usar email fornecido ou temporário
+        email: reservationData.applicantEmail,
         uso: `${reservationData.purpose} - Equipamentos: ${reservationData.selectedEquipments.join(', ')}${reservationData.otherEquipment ? `, ${reservationData.otherEquipment}` : ''}`,
         inicio: new Date(reservationData.withdrawalDate).toISOString(),
         termino: new Date(reservationData.returnDate).toISOString(),
@@ -79,6 +79,7 @@ const handler = async (req: Request): Promise<Response> => {
       
       <h3>Dados do Solicitante:</h3>
       <p><strong>Nome:</strong> ${reservationData.applicantName}</p>
+      <p><strong>Email:</strong> ${reservationData.applicantEmail}</p>
       
       <h3>Equipamentos Solicitados:</h3>
       <p><strong>Da lista:</strong> ${equipmentsList}</p>
@@ -125,7 +126,7 @@ const handler = async (req: Request): Promise<Response> => {
             <p><strong>Destinatário pretendido:</strong> marcos.vasconcelos@ufba.br</p>
             ${emailContent}
           `,
-          reply_to: reservationData.applicantEmail || undefined,
+          reply_to: reservationData.applicantEmail,
         })
         if (fallback.error) {
           console.error('Falha também no fallback:', fallback.error)
