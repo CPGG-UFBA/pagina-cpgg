@@ -107,8 +107,8 @@ const handler = async (req: Request): Promise<Response> => {
     try {
       const emailResponse = await resend.emails.send({
         from: 'CPGG LAIGA <onboarding@resend.dev>',
-        to: ['marcos.vasconcelos@ufba.br'],
-        subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
+        to: ['secretaria.cpgg.ufba@gmail.com'], // Teste temporário - mude depois para marcos.vasconcelos@ufba.br
+        subject: `[TESTE] Nova Solicitação LAIGA - ${reservationData.applicantName} (Dest: Prof. Marcos)`,
         html: emailContent,
         reply_to: reservationData.applicantEmail,
       })
