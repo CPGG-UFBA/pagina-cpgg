@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { HomeButton } from '../../components/HomeButton';
 import styles from './sign.module.css';
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
@@ -148,6 +149,7 @@ export function Sign() {
 
   return (
     <div className={styles.sign}>
+      <HomeButton />
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG" />

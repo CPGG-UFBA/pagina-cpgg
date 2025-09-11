@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from '@/integrations/supabase/client'
 import { researcherData, normalize } from '../../data/researchers'
 import { useToast } from '@/hooks/use-toast'
+import { HomeButton } from '../../components/HomeButton'
 import styles from './registration.module.css'
 
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
@@ -154,6 +155,7 @@ export function Registration() {
   if (success) {
     return (
       <div className={styles.registration}>
+        <HomeButton />
         <div className={styles.container}>
           <div className={styles.logo}>
             <img src={logocpgg} alt="CPGG" />
@@ -179,6 +181,7 @@ export function Registration() {
 
   return (
     <div className={styles.registration}>
+      <HomeButton />
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG" />

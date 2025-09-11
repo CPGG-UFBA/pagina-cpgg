@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
+import { HomeButton } from '../../../components/HomeButton'
 import styles from './secretaria.module.css'
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
@@ -100,6 +101,7 @@ export function Secretaria() {
 
   return (
     <div className={styles.secretaria}>
+      <HomeButton />
       <form className={styles.box} onSubmit={handleSubmit}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG" />

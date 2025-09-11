@@ -1,0 +1,41 @@
+.homeButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background-color: rgba(147, 106, 235, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(147, 106, 235, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.homeButton:hover {
+  background-color: rgba(147, 106, 235, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(147, 106, 235, 0.4);
+}
+
+.homeButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .homeButton {
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  
+  .homeButton span {
+    display: none;
+  }
+}

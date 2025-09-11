@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../../integrations/supabase/client';
 import { useToast } from '../../hooks/use-toast';
+import { HomeButton } from '../../components/HomeButton';
 import styles from './register.module.css';
 const logocpgg = 'https://imgur.com/6HRTVzo.png';
 
@@ -125,6 +126,7 @@ export function Register() {
 
   return (
     <div className={styles.register}>
+      <HomeButton />
       <div className={styles.box}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG" />

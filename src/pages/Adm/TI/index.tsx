@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
+import { HomeButton } from '../../../components/HomeButton'
 import styles from './ti.module.css'
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
@@ -100,6 +101,7 @@ export function TI() {
 
   return (
     <div className={styles.ti}>
+      <HomeButton />
       <form className={styles.box} onSubmit={handleSubmit}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG" />

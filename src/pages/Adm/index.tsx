@@ -1,10 +1,12 @@
 import { NavLink } from 'react-router-dom'
+import { HomeButton } from '../../components/HomeButton'
 import styles from './adm.module.css'
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
 export function Adm() {
   return (
     <div className={styles.adm}>
+      <HomeButton />
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG" />
