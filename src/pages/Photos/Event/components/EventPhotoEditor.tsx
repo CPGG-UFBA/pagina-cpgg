@@ -181,9 +181,15 @@ export function EventPhotoEditor({ eventId, photos, onPhotosChange, onClose }: E
         <div className="p-6 border-b">
           <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Editar Fotos do Evento</h2>
-            <Button variant="outline" onClick={onClose}>
-              Fechar
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button onClick={handleAddPhoto} disabled={isUploading}>
+                <Plus className="w-4 h-4 mr-2" />
+                {isUploading ? 'Enviando...' : 'Adicionar Foto'}
+              </Button>
+              <Button variant="outline" onClick={onClose}>
+                Fechar
+              </Button>
+            </div>
           </div>
         </div>
         
@@ -206,7 +212,7 @@ export function EventPhotoEditor({ eventId, photos, onPhotosChange, onClose }: E
                   alt={`Foto ${index + 1}`}
                   className="w-full h-48 object-cover"
                 />
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-2 right-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                   <Button
                     size="sm"
                     variant="destructive"
