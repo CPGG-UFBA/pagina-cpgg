@@ -4,14 +4,14 @@
 }
 
 .content {
-  padding-top: calc(100vh - 800px);
+  padding-top: calc(100vh - 750px);
   min-height: 100vh;
   position: relative;
 }
 
 .title {
   text-align: center;
-  color: #333;
+  color: white;
   margin-bottom: 30px;
   font-size: 32px;
   font-weight: 600;
