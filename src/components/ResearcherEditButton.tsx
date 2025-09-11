@@ -19,6 +19,7 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [description, setDescription] = useState('')
+  const [profileEmail, setProfileEmail] = useState('')
   const [photo, setPhoto] = useState<File | null>(null)
   const [currentPhotoUrl, setCurrentPhotoUrl] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -49,7 +50,8 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
         .maybeSingle()
 
       if (data) {
-        setDescription((data as any).description || '')
+        setDescription(data.description || '')
+        setProfileEmail(data.email || '')
         setCurrentPhotoUrl(data.photo_url)
       }
     }
@@ -106,6 +108,9 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
       }
 
       setUserProfile(profile)
+      setDescription(profile.description || '')
+      setProfileEmail(profile.email || '')
+      setCurrentPhotoUrl(profile.photo_url)
       setIsAuthenticated(true)
       setIsLoginOpen(false)
       setIsEditOpen(true)
@@ -156,6 +161,7 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
         .from('user_profiles')
         .update({
           description,
+          email: profileEmail,
           photo_url: photoUrl,
         })
         .eq('user_id', userProfile.user_id)
@@ -186,6 +192,10 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
     setUserProfile(null)
     setEmail('')
     setPassword('')
+    setDescription('')
+    setProfileEmail('')
+    setCurrentPhotoUrl(null)
+    setPhoto(null)
     setIsEditOpen(false)
   }
 
@@ -266,6 +276,16 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
                 onChange={(e) => setDescription(e.target.value)}
                 rows={6}
                 placeholder="Digite sua descrição profissional..."
+              />
+            </div>
+            <div>
+              <Label htmlFor="profileEmail">Email</Label>
+              <Input
+                id="profileEmail"
+                type="email"
+                value={profileEmail}
+                onChange={(e) => setProfileEmail(e.target.value)}
+                placeholder="Digite seu email..."
               />
             </div>
             <div>
