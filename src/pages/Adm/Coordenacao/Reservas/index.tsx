@@ -26,6 +26,7 @@ interface Reservation {
   termino: string
   status: string
   created_at: string
+  equipamento?: string
 }
 
 interface AdminUser {
@@ -628,6 +629,7 @@ export function ReservasAdmin() {
                         <TableHead>Término</TableHead>
                         <TableHead>Status</TableHead>
                         <TableHead>Solicitação</TableHead>
+                        <TableHead>Equipamento</TableHead>
                         <TableHead>Ações</TableHead>
                       </TableRow>
                     </TableHeader>
@@ -666,6 +668,7 @@ export function ReservasAdmin() {
                             </Badge>
                           </TableCell>
                           <TableCell>{formatDate(reservation.created_at)}</TableCell>
+                          <TableCell>{reservation.equipamento || 'N/A'}</TableCell>
                           <TableCell>
                             <div className="flex gap-2">
                               {reservation.status === 'pendente' && (
