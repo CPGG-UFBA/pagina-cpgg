@@ -13,7 +13,6 @@ export function Alanna() {
   return (
     <>
       <Header />
-      <ResearcherEditButton researcherName="Alanna Costa Dutra" />
       <div>
         <div className={styles.Professor} >
           <p> Alanna Costa Dutra </p>
@@ -21,6 +20,7 @@ export function Alanna() {
             <DynamicResearcherProfile 
               researcherName="Alanna Costa Dutra"
               staticDescription={staticDescription}
+              belowPhoto={<ResearcherEditButton researcherName="Alanna Costa Dutra" inline />}
             />
             <ul> Link para Currículo Lattes</ul>
 

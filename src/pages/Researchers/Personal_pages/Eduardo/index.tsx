@@ -10,7 +10,6 @@ export function Eduardo() {
   return (
     <>
       <Header />
-      <ResearcherEditButton researcherName="Eduardo Reis Viana Rocha Junior" />
       <div>
         <div className={styles.Professor} >
           <p> Eduardo Reis Viana Rocha Junior </p>
@@ -18,6 +17,7 @@ export function Eduardo() {
           <DynamicResearcherProfile 
             researcherName="Eduardo Reis Viana Rocha Junior"
             staticDescription="Possui graduação em Geologia pela Universidade Federal da Bahia (2003), mestrado em Geologia pela Universidade Federal da Bahia (2006) e doutorado em Geologia pela Universidade Federal da Bahia (2011). Atualmente é professor adjunto da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Recursos Hídricos e Ambientais, atuando principalmente nos seguintes temas: hidrogeologia, geofísica aplicada, geologia ambiental e gestão de recursos hídricos."
+            belowPhoto={<ResearcherEditButton researcherName="Eduardo Reis Viana Rocha Junior" inline />}
           />
             <ul> Link para Currículo Lattes</ul>
 
