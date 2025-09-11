@@ -23,7 +23,7 @@ export function Amin() {
             <nav>
              <a href="http://lattes.cnpq.br/0254085595142341" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>bassrei@ufba.br</p> 
             <div className={styles.box2}>
             </div>

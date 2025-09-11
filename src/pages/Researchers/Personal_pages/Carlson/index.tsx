@@ -23,7 +23,7 @@ export function Carlson() {
             <nav>
              <a href="http://lattes.cnpq.br/9331382619641585" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>cmml@ufba.br</p> 
             <div className={styles.box2}>
             </div>

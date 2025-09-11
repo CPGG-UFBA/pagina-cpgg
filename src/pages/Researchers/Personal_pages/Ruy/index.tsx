@@ -23,7 +23,7 @@ export function Ruy() {
             <nav>
              <a href="http://lattes.cnpq.br/7234567890123456" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>ruy@ufba.br</p> 
             <div className={styles.box2}>
             </div>

@@ -23,7 +23,7 @@ export function LCesar() {
             <nav>
              <a href="http://lattes.cnpq.br/9902635897527204" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>lccgomes@ufba.br</p>
             <div className={styles.box2}>
             </div>

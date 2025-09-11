@@ -23,7 +23,7 @@ export function Porsani() {
             <nav>
              <a href=' http://lattes.cnpq.br/1428637808064409' target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>milton.porsani@gmail.com</p> 
             <div className={styles.box2}>
             </div>

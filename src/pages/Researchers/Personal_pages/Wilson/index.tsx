@@ -23,7 +23,7 @@ export function Wilson() {
             <nav>
              <a href="http://lattes.cnpq.br/4503597230743925" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>figueiro6@gmail.com</p> 
             <div className={styles.box2}>
             </div>

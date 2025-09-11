@@ -22,7 +22,7 @@ export function Simone() {
             <nav>
              <a href="http://lattes.cnpq.br/8624206151398922" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>simonecruz@ufba.br</p> 
             <div className={styles.box2}>
             </div>

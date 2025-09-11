@@ -23,7 +23,7 @@ export function Haroldo() {
             <nav>
              <a href="http://lattes.cnpq.br/7890123456789012" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>haroldo@ufba.br</p> 
             <div className={styles.box2}>
             </div>

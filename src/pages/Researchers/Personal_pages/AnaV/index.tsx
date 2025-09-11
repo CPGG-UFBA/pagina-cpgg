@@ -23,7 +23,7 @@ export function AnaV() {
             <nav>
              <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4706843J3" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>anavas@ufba.br</p> 
             <div className={styles.box2}>
             </div>

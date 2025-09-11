@@ -51,9 +51,9 @@
 .box1 b {
   font-size: 16px;
   color: #363F5; 
-  margin-left: 274px;
+  text-align: center;
   margin-top: 1px;
-  white-space: nowrap;
+  display: block;
 }
 
 .box1 p {

@@ -23,7 +23,7 @@ export function Susana() {
             <nav>
              <a href="http://lattes.cnpq.br/3712697556346790" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>scavalcanti@ufba.br</p> 
             <div className={styles.box2}>
             </div>

@@ -24,7 +24,7 @@ export function Alice() {
             <nav>
              <a href="http://lattes.cnpq.br/8498244876614542" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>alicelau@ufba.br</p> 
             <div className={styles.box2}>
             </div>

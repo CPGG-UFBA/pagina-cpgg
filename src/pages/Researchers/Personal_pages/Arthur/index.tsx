@@ -23,7 +23,7 @@ export function Arthur() {
             <nav>
              <a href="http://lattes.cnpq.br/0995930862317550" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>arthur.machado@ufba.br</p> 
             <div className={styles.box2}>
             </div>

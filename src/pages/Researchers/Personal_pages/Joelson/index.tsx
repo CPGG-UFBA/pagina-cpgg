@@ -23,7 +23,7 @@ export function Joelson() {
             <nav>
              <a href="http://lattes.cnpq.br/8901234567890123" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>joelson@ufba.br</p> 
             <div className={styles.box2}>
             </div>

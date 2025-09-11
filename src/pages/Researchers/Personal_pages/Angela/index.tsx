@@ -23,7 +23,7 @@ export function Angela() {
             <nav>
              <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4797800A4" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>angelab@ufba.br</p> 
             <div className={styles.box2}>
             </div>

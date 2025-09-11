@@ -23,7 +23,7 @@ export function RicardoM() {
             <nav>
              <a href="http://lattes.cnpq.br/3456789012345678" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>ricardo@ufba.br</p> 
             <div className={styles.box2}>
             </div>

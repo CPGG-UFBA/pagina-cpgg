@@ -24,7 +24,7 @@ export function Alexandre() {
             <nav>
              <a href="http://lattes.cnpq.br/9954455880450271" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>abc@ufba.br</p> 
             <div className={styles.box2}>
             </div>

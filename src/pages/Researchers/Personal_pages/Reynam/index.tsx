@@ -23,7 +23,7 @@ export function Reynam() {
             <nav>
              <a href="http://lattes.cnpq.br/5678901234567890" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>reynam@ufba.br</p> 
             <div className={styles.box2}>
             </div>

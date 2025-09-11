@@ -23,7 +23,7 @@ export function LRogerio() {
             <nav>
              <a href="http://lattes.cnpq.br/1234567890123456" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>lrogerio@ufba.br</p> 
             <div className={styles.box2}>
             </div>

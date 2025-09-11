@@ -23,7 +23,7 @@ export function Marcos() {
             <nav>
              <a href="http://lattes.cnpq.br/4567890123456789" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>marcos@ufba.br</p> 
             <div className={styles.box2}>
             </div>

@@ -23,7 +23,7 @@ export function MZucchi() {
             <nav>
              <a href="http://lattes.cnpq.br/2345678901234567" target="_blank">Currículo</a>
            </nav>
-           <b> email</b>
+           <b> e-mail</b>
            <p>mzucchi@ufba.br</p> 
             <div className={styles.box2}>
             </div>
