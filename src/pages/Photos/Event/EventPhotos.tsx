@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 import { supabase } from '@/integrations/supabase/client'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
-import { HomeButton } from '@/components/HomeButton'
 import styles from './EventPhotos.module.css'
 
 interface EventPhoto {
@@ -86,7 +85,6 @@ export function EventPhotos() {
   return (
     <>
       <Header />
-      <HomeButton />
       <div className={styles.Years}>
         <ul>{event.name}</ul>
         <div className={styles.box}>
