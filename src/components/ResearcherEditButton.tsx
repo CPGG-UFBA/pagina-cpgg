@@ -195,7 +195,8 @@ export function ResearcherEditButton({ researcherName }: ResearcherEditButtonPro
         variant="ghost"
         size="sm"
         onClick={() => setIsLoginOpen(true)}
-        className="fixed top-20 right-4 opacity-70 hover:opacity-100 transition-opacity"
+        className="fixed top-20 right-4 opacity-70 hover:opacity-100 transition-opacity z-50 bg-background/80 backdrop-blur-sm border"
+        title="Editar perfil"
       >
         <Edit3 className="w-4 h-4" />
       </Button>
@@ -206,6 +207,9 @@ export function ResearcherEditButton({ researcherName }: ResearcherEditButtonPro
           <DialogHeader>
             <DialogTitle>Login do Pesquisador</DialogTitle>
           </DialogHeader>
+          <p className="text-sm text-muted-foreground mb-4">
+            Faça login com suas credenciais para editar seu perfil
+          </p>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <Label htmlFor="email">Email</Label>
@@ -249,6 +253,9 @@ export function ResearcherEditButton({ researcherName }: ResearcherEditButtonPro
           <DialogHeader>
             <DialogTitle>Editar Perfil - {researcherName}</DialogTitle>
           </DialogHeader>
+          <p className="text-sm text-muted-foreground mb-4">
+            Edite sua descrição e foto do perfil
+          </p>
           <div className="space-y-4">
             <div>
               <Label htmlFor="description">Descrição</Label>
