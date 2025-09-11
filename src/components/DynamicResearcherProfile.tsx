@@ -72,7 +72,7 @@ export function DynamicResearcherProfile({
         </div>
       )}
       <div className="w-full">
-        <p style={{ whiteSpace: 'pre-line', textAlign: 'justify' }}>{description}</p>
+        <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', paddingLeft: 0, paddingRight: 0, margin: 0 }}>{description}</div>
       </div>
     </div>
   )
