@@ -93,9 +93,8 @@ export function DynamicResearcher() {
                 )}
               </div>
               
-              <div className={styles.description}>
-                <h2>Descrição</h2>
-                <p>{researcher.description}</p>
+              <div className={`${styles.description} w-full px-4`}>
+                <p style={{ whiteSpace: 'pre-line' }}>{researcher.description}</p>
               </div>
             </div>
           </div>
