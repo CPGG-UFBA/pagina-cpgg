@@ -1,20 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Header } from '../../../components/Header'
-import { Footer } from '../../../components/Footer'
-import { supabase } from '../../../integrations/supabase/client'
-import styles from '../Photos.module.css'
-
-interface Event {
-  id: string
-  name: string
-  event_date: string
-}
+import { supabase } from '@/integrations/supabase/client'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { HomeButton } from '@/components/HomeButton'
+import styles from './EventPhotos.module.css'
 
 interface EventPhoto {
   id: string
   photo_url: string
   photo_order: number
+}
+
+interface Event {
+  id: string
+  name: string
+  event_date: string
 }
 
 export function EventPhotos() {
@@ -62,10 +63,8 @@ export function EventPhotos() {
     return (
       <>
         <Header />
-        <div className={styles.photos}>
-          <div className={styles.container}>
-            <p>Carregando...</p>
-          </div>
+        <div style={{ padding: '150px 20px', textAlign: 'center' }}>
+          Carregando...
         </div>
         <Footer />
       </>
@@ -76,10 +75,8 @@ export function EventPhotos() {
     return (
       <>
         <Header />
-        <div className={styles.photos}>
-          <div className={styles.container}>
-            <h1>Evento não encontrado</h1>
-          </div>
+        <div style={{ padding: '150px 20px', textAlign: 'center' }}>
+          Evento não encontrado
         </div>
         <Footer />
       </>
@@ -89,20 +86,16 @@ export function EventPhotos() {
   return (
     <>
       <Header />
-      <div className={styles.photos}>
-        <div className={styles.container}>
-          <h1 className={styles.title}>{event.name}</h1>
-          <p style={{ textAlign: 'center', marginBottom: '20px', color: '#666' }}>
-            Evento realizado em {new Date(event.event_date).toLocaleDateString('pt-BR')}
-          </p>
-          
-          <div className={styles.photoGrid}>
-            {photos.map((photo) => (
-              <div key={photo.id} className={styles.photoItem}>
+      <HomeButton />
+      <div className={styles.Years}>
+        <ul>{event.name}</ul>
+        <div className={styles.box}>
+          <div className={styles.gallery}>
+            {photos.map((photo, index) => (
+              <div key={photo.id} className={styles[`photo${index + 1}`]}>
                 <img 
                   src={photo.photo_url} 
-                  alt={`Foto do evento ${event.name}`}
-                  style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+                  alt={`Foto ${index + 1} do evento ${event.name}`}
                 />
               </div>
             ))}
