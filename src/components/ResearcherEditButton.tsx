@@ -10,9 +10,10 @@ import { useToast } from '@/hooks/use-toast'
 
 interface ResearcherEditButtonProps {
   researcherName: string
+  inline?: boolean
 }
 
-export function ResearcherEditButton({ researcherName }: ResearcherEditButtonProps) {
+export function ResearcherEditButton({ researcherName, inline = false }: ResearcherEditButtonProps) {
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [isEditOpen, setIsEditOpen] = useState(false)
   const [email, setEmail] = useState('')
@@ -195,7 +196,7 @@ export function ResearcherEditButton({ researcherName }: ResearcherEditButtonPro
         variant="ghost"
         size="sm"
         onClick={() => setIsLoginOpen(true)}
-        className="fixed top-20 right-4 opacity-70 hover:opacity-100 transition-opacity z-50 bg-background/80 backdrop-blur-sm border"
+        className={inline ? "mt-2 self-start opacity-70 hover:opacity-100 transition-opacity" : "fixed top-20 right-4 opacity-70 hover:opacity-100 transition-opacity z-50 bg-background/80 backdrop-blur-sm border"}
         title="Editar perfil"
       >
         <Edit3 className="w-4 h-4" />

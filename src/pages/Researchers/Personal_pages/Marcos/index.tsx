@@ -9,7 +9,6 @@ export function Marcos() {
   return (
     <>
       <Header />
-      <ResearcherEditButton researcherName="Marcos Alberto Rodrigues Vasconcelos" />
       <div>
         <div className={styles.Professor} >
           <p> Marcos Alberto Rodrigues Vasconcelos </p>
@@ -17,6 +16,7 @@ export function Marcos() {
           <DynamicResearcherProfile 
             researcherName="Marcos Alberto Rodrigues Vasconcelos"
             staticDescription="Possui graduação em Geologia pela Universidade Federal da Bahia (1994), mestrado em Geologia pela Universidade Federal da Bahia (1997) e doutorado em Geociências pela Universidade Federal da Bahia (2002). Atualmente é professor associado da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Geologia Estrutural, atuando principalmente nos seguintes temas: análise estrutural, tectônica, metamorfismo e evolução crustal."
+            belowPhoto={<ResearcherEditButton researcherName="Marcos Alberto Rodrigues Vasconcelos" inline />}
           />
             <ul> Link para Currículo Lattes</ul>
 

@@ -9,7 +9,6 @@ export function RicardoM() {
   return (
     <>
       <Header />
-      <ResearcherEditButton researcherName="Ricardo Piazza Meireles" />
       <div>
         <div className={styles.Professor} >
           <p> Ricardo Piazza Meireles </p>
@@ -17,6 +16,7 @@ export function RicardoM() {
           <DynamicResearcherProfile 
             researcherName="Ricardo Piazza Meireles"
             staticDescription="Professor e pesquisador especializado em Geologia Marinha e Costeira. Possui experiência em sedimentologia marinha, evolução costeira e oceanografia geológica. Atua principalmente em pesquisas relacionadas à dinâmica sedimentar, mudanças do nível do mar e processos costeiros."
+            belowPhoto={<ResearcherEditButton researcherName="Ricardo Piazza Meireles" inline />}
           />
             <ul> Link para Currículo Lattes</ul>
 

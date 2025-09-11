@@ -5,12 +5,14 @@ interface DynamicResearcherProfileProps {
   researcherName: string
   staticDescription: string
   staticPhotoUrl?: string
+  belowPhoto?: React.ReactNode
 }
 
 export function DynamicResearcherProfile({ 
   researcherName, 
   staticDescription,
-  staticPhotoUrl 
+  staticPhotoUrl,
+  belowPhoto
 }: DynamicResearcherProfileProps) {
   const [userProfile, setUserProfile] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
@@ -60,6 +62,7 @@ export function DynamicResearcherProfile({
           />
         </div>
       )}
+      {belowPhoto}
       <div className="description">
         <h2>Descrição</h2>
         <p style={{ whiteSpace: 'pre-line' }}>{description}</p>

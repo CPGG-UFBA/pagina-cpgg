@@ -9,7 +9,6 @@ export function Reynam() {
   return (
     <>
       <Header />
-      <ResearcherEditButton researcherName="Reynam da Cruz Pestana" />
       <div>
         <div className={styles.Professor} >
           <p> Reynam da Cruz Pestana </p>
@@ -17,6 +16,7 @@ export function Reynam() {
           <DynamicResearcherProfile 
             researcherName="Reynam da Cruz Pestana"
             staticDescription="Possui graduação em Geofísica pela Universidade Federal da Bahia (1987), mestrado em Geofísica pela Universidade Federal da Bahia (1994) e doutorado em Geofísica pela Universidade Federal da Bahia (2000). Atualmente é professor associado da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Geofísica, atuando principalmente nos seguintes temas: processamento sísmico, migração sísmica, inversão geofísica e exploração petrolífera."
+            belowPhoto={<ResearcherEditButton researcherName="Reynam da Cruz Pestana" inline />}
           />
             <ul> Link para Currículo Lattes</ul>
 
