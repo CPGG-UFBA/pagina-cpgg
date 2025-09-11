@@ -30,13 +30,6 @@ export function Laiga() {
            </p>
             <br></br>
             <p> 
-              Para acessar as informações acerca das estatísticas de uso dos equipamentos, acesse o link abaixo
-             </p>
-             <nav>
-              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank">Estatísticas de uso</a>
-            </nav>
-            <br></br>
-             <p> 
               Acesse o site da Plataforma Nacional de Infraestrutura de Pesquisa-PNIPE, e veja as fotos e mais detalhes sobre os equipamentos disponíveis. 
             </p>
 
