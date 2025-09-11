@@ -227,6 +227,24 @@
 }
 
 /* Estilos para modo de edição */
+.editMode .coordination {
+  padding-left: 30px !important;
+}
+
+.editMode .chief h1,
+.editMode .chief a,
+.editMode .chief b {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  position: static !important;
+  display: block !important;
+  text-align: left !important;
+}
+
+.editMode .box1 {
+  z-index: 2;
+}
+
 .coordination-member.editable {
   margin: 0.5rem 0;
   transition: all 0.3s ease;
@@ -246,47 +264,4 @@
 .coordination-member h1 {
   margin: 0;
   font-size: 0.9rem;
-}
-
-/* Ajustes específicos para a seção de coordenação em modo de edição */
-.chief .coordination-member.editable,
-.chief .coordination-member.editing {
-  position: relative;
-  margin: 10px 0;
-  left: 0;
-  transform: none;
-  width: auto;
-  max-width: 300px;
-  margin-left: -175px;
-}
-
-.chief .coordination-member.editable .coordination-member,
-.chief .coordination-member.editing .coordination-member {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-/* Sobrescreve estilos específicos quando em modo de edição */
-.chief .coordination-member.editable h1,
-.chief .coordination-member.editing h1 {
-  font-size: 18px;
-  color: white;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-left: 0;
-  text-align: center;
-}
-
-.chief .coordination-member.editable span,
-.chief .coordination-member.editing span,
-.chief .coordination-member.editable a,
-.chief .coordination-member.editing a {
-  font-size: 14px;
-  color: white;
-  margin-left: 0;
-  margin-top: 10px;
-  text-align: center;
-  white-space: nowrap;
 }

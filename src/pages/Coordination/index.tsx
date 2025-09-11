@@ -158,7 +158,7 @@ export function Coordination() {
   return (
     <>
       <Header />
-      <div className={styles.heads}>
+      <div className={`${styles.heads} ${isEditMode ? styles.editMode : ''}`}>
         <div className={styles.box1}>
           <div className={styles.coordination}>
             <ul>Coordenação</ul>
