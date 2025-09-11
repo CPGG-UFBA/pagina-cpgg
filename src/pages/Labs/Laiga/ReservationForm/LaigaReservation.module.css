@@ -1,25 +1,31 @@
 .container {
   min-height: 100vh;
-  background: linear-gradient(180deg, #e3f2fd 0%, #f5f5f5 100%);
+  background-image: url("../../../../assets/header-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   padding: 20px;
   padding-top: 120px;
 }
 
 .title {
   text-align: center;
-  color: #1565c0;
+  color: white;
   margin-bottom: 30px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  font-size: 32px;
+  font-weight: 600;
 }
 
 .formContainer {
   max-width: 800px;
   margin: 0 auto;
-  background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
   padding: 40px;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(21, 101, 192, 0.1);
-  border: 1px solid rgba(21, 101, 192, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .form {
@@ -47,8 +53,8 @@
 .form select:focus,
 .form textarea:focus {
   outline: none;
-  border-color: #1565c0;
-  box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+  border-color: #592cbb;
+  box-shadow: 0 0 0 3px rgba(89, 44, 187, 0.1);
 }
 
 .equipmentList {
@@ -83,9 +89,9 @@
   gap: 10px;
   margin: 20px 0;
   padding: 15px;
-  background: linear-gradient(145deg, #e3f2fd 0%, #f0f8ff 100%);
+  background: rgba(89, 44, 187, 0.1);
   border-radius: 10px;
-  border: 2px solid #1565c0;
+  border: 2px solid #592cbb;
 }
 
 .checkboxContainer input[type="checkbox"] {
@@ -94,7 +100,7 @@
 }
 
 .submitButton {
-  background: linear-gradient(145deg, #1565c0 0%, #1976d2 100%);
+  background: linear-gradient(145deg, #592cbb 0%, #6a3bc5 100%);
   color: white;
   padding: 15px 30px;
   border: none;
@@ -103,18 +109,20 @@
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+  box-shadow: 0 4px 15px rgba(89, 44, 187, 0.3);
 }
 
 .submitButton:hover {
-  background: linear-gradient(145deg, #0d47a1 0%, #1565c0 100%);
+  background: linear-gradient(145deg, #4a237a 0%, #592cbb 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(21, 101, 192, 0.4);
+  box-shadow: 0 6px 20px rgba(89, 44, 187, 0.4);
 }
 
 .submitButton:disabled {
   background: #ccc;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 @media (max-width: 768px) {
@@ -124,5 +132,9 @@
   
   .formContainer {
     padding: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
   }
 }
