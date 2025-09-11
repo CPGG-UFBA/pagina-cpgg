@@ -28,7 +28,7 @@ export  function Photos() {
                       </div>
                   </a>
                   <div className={styles.staticFigure}>
-                    <img src={earth} alt='Terra' />
+                    <img src={earth} alt='Figura da Terra - página Fotos, CPGG' />
                  </div>
               </div>
           </div>
