@@ -1,39 +1,39 @@
 .container {
   min-height: 80vh;
   padding: 2rem;
-  background: #f5f5f5;
+  background: hsl(var(--page-background));
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
 .receipt {
-  background: white;
+  background: hsl(var(--background));
   max-width: 800px;
   width: 100%;
   padding: 3rem;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px hsl(var(--foreground) / 0.1);
   margin: 2rem 0;
 }
 
 .header {
   text-align: center;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid hsl(var(--foreground));
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
 
 .header h1 {
   font-size: 1.8rem;
-  color: #333;
+  color: hsl(var(--foreground));
   margin: 0 0 0.5rem 0;
   font-weight: bold;
 }
 
 .header h2 {
   font-size: 1.1rem;
-  color: #666;
+  color: hsl(var(--muted-foreground));
   margin: 0;
   font-weight: normal;
 }
@@ -45,7 +45,7 @@
 .section {
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .section:last-child {
@@ -54,18 +54,18 @@
 
 .section h3 {
   font-size: 1.2rem;
-  color: #333;
+  color: hsl(var(--foreground));
   margin: 0 0 1rem 0;
   font-weight: bold;
 }
 
 .section p {
   margin: 0.5rem 0;
-  color: #444;
+  color: hsl(var(--foreground));
 }
 
 .footer {
-  background: #f9f9f9;
+  background: hsl(var(--muted));
   padding: 1.5rem;
   border-radius: 4px;
   margin-top: 2rem;
@@ -74,29 +74,30 @@
 .footer p {
   margin: 0.5rem 0;
   font-size: 0.9rem;
-  color: #666;
+  color: hsl(var(--muted-foreground));
 }
 
 .actions {
   text-align: center;
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid hsl(var(--border));
 }
 
 .printButton {
-  background: #007bff;
-  color: white;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
   border: none;
   padding: 0.75rem 2rem;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .printButton:hover {
-  background: #0056b3;
+  background: hsl(var(--primary) / 0.9);
+  transform: translateY(-2px);
 }
 
 /* Print styles */
@@ -118,6 +119,7 @@
     padding: 2rem;
     box-shadow: none;
     border-radius: 0;
+    background: white;
   }
   
   .actions {
@@ -125,10 +127,27 @@
   }
   
   .header {
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #000;
   }
   
   .section {
     page-break-inside: avoid;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .header h1,
+  .header h2,
+  .section h3,
+  .section p {
+    color: #000 !important;
+  }
+  
+  .footer {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+  }
+  
+  .footer p {
+    color: #333 !important;
   }
 }
