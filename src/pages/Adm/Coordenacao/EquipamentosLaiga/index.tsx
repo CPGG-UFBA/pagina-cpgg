@@ -226,11 +226,13 @@ export function EquipamentosLaiga() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Nome</TableHead>
+                    <TableHead>Descrição</TableHead>
                     <TableHead>Marca/Modelo</TableHead>
                     <TableHead>Série</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Localização</TableHead>
                     <TableHead>Responsável</TableHead>
+                    <TableHead>Data Criação</TableHead>
                     <TableHead>Ações</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -239,11 +241,9 @@ export function EquipamentosLaiga() {
                     <TableRow key={equipment.id}>
                       <TableCell className="font-medium">
                         {equipment.name}
-                        {equipment.description && (
-                          <div className="text-sm text-muted-foreground">
-                            {equipment.description}
-                          </div>
-                        )}
+                      </TableCell>
+                      <TableCell>
+                        {equipment.description || '-'}
                       </TableCell>
                       <TableCell>
                         {equipment.brand && equipment.model
@@ -258,6 +258,13 @@ export function EquipamentosLaiga() {
                       </TableCell>
                       <TableCell>{equipment.location || '-'}</TableCell>
                       <TableCell>{equipment.responsible_person || '-'}</TableCell>
+                      <TableCell>
+                        {new Date(equipment.created_at).toLocaleDateString('pt-BR', {
+                          day: '2-digit',
+                          month: '2-digit',
+                          year: 'numeric'
+                        })}
+                      </TableCell>
                       <TableCell>
                         <Button
                           variant="outline"
