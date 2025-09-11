@@ -1,7 +1,7 @@
 import styles from './Alanna.module.css'
 import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
-import { ResearcherProfileEditor } from '../../../../components/ResearcherProfileEditor'
+import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
 import earth from '../../../../assets/earth-imgur.png'
 
@@ -13,6 +13,7 @@ export function Alanna() {
   return (
     <>
       <Header />
+      <ResearcherEditButton researcherName="Alanna Costa Dutra" />
       <div>
         <div className={styles.Professor} >
           <p> Alanna Costa Dutra </p>
@@ -36,11 +37,6 @@ export function Alanna() {
           </div>
         </div>
       </div>
-      
-      <ResearcherProfileEditor 
-        researcherName="Alanna Costa Dutra"
-        currentDescription={staticDescription}
-      />
       
       <Footer />
     </>
