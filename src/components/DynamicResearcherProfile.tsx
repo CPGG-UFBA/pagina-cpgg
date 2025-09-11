@@ -114,12 +114,10 @@ export function DynamicResearcherProfile({
           className="absolute"
           style={{
             width: '180px',
-            height: '180px',
-            top: '3%', 
+            top: 'calc(3% + 190px)', 
             left: '2%',
             zIndex: 10,
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center'
           }}
         >
