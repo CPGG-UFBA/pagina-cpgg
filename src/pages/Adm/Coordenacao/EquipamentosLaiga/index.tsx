@@ -438,6 +438,7 @@ export function EquipamentosLaiga() {
                     <TableHead>Término</TableHead>
                     <TableHead>Status</TableHead>
                     <TableHead>Solicitação</TableHead>
+                    <TableHead>Equipamento</TableHead>
                     <TableHead>Ações</TableHead>
                   </TableRow>
                 </TableHeader>

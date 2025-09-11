@@ -21,6 +21,7 @@ interface Equipment {
   last_maintenance?: string;
   next_maintenance?: string;
   observations?: string;
+  created_at?: string; // allow overriding created_at when provided
 }
 
 export function LaigaEquipmentUpload() {
@@ -133,15 +134,15 @@ export function LaigaEquipmentUpload() {
 
         const normalized = {
           name: findKey([
-            'name', 'nome', 'equipamento', 'equipment', 'item', 'produto', 'product',
+            'name', 'nome', 'item', 'produto', 'product',
             'denominação', 'denominacao', 'título', 'titulo', 'descritor'
           ]) || '',
           description: findKey([
             'description', 'descrição', 'descricao', 'desc', 'detalhes', 'details',
-            'especificação', 'especificacao', 'specs', 'características', 'caracteristicas'
+            'especificação', 'especificacao', 'specs', 'características', 'caracteristicas', 'uso'
           ]),
           model: findKey([
-            'model', 'modelo', 'mod', 'version', 'versão', 'versao', 'tipo', 'type'
+            'model', 'modelo', 'mod', 'version', 'versão', 'versao', 'tipo', 'type', 'equipamento', 'equip'
           ]),
           brand: findKey([
             'brand', 'marca', 'fabricante', 'manufacturer', 'make', 'empresa', 'company'
@@ -161,11 +162,12 @@ export function LaigaEquipmentUpload() {
           responsible_person: findKey([
             'responsible_person', 'responsável', 'responsavel', 'responsible', 
             'encarregado', 'supervisor', 'operador', 'operator', 'técnico', 'tecnico',
-            'usuario', 'usuário', 'user'
+            'usuario', 'usuário', 'user', 'email'
           ]),
           acquisition_date: findKey([
             'acquisition_date', 'data_aquisição', 'data_aquisicao', 'data de aquisição',
-            'data de aquisicao', 'compra', 'purchase', 'bought', 'adquirido', 'acquired'
+            'data de aquisicao', 'compra', 'purchase', 'bought', 'adquirido', 'acquired',
+            'início', 'inicio', 'data_inicio'
           ]),
           last_maintenance: findKey([
             'last_maintenance', 'última_manutenção', 'ultima_manutencao', 'última manutenção',
@@ -173,7 +175,8 @@ export function LaigaEquipmentUpload() {
           ]),
           next_maintenance: findKey([
             'next_maintenance', 'próxima_manutenção', 'proxima_manutencao', 'próxima manutenção',
-            'proxima manutencao', 'next', 'próximo', 'proximo', 'future', 'futuro'
+            'proxima manutencao', 'next', 'próximo', 'proximo', 'future', 'futuro',
+            'término', 'termino', 'data_termino', 'fim', 'final'
           ]),
           observations: findKey([
             'observations', 'observações', 'observacoes', 'obs', 'notas', 'notes',
