@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
-import { useToast } from '@/components/ui/use-toast';
+import { Checkbox } from '@/components/ui/checkbox';
+import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import { LaigaEquipmentUpload } from '@/components/LaigaEquipmentUpload';
 import styles from './equipamentos.module.css';
@@ -43,6 +44,7 @@ export function EquipamentosLaiga() {
   const [loading, setLoading] = useState(true);
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editingData, setEditingData] = useState<Partial<Equipment>>({});
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const { toast } = useToast();
 
   useEffect(() => {
@@ -56,6 +58,11 @@ export function EquipamentosLaiga() {
   useEffect(() => {
     filterEquipments();
   }, [equipments, searchTerm, statusFilter]);
+
+  useEffect(() => {
+    // Limpar seleções quando os filtros mudarem
+    setSelectedItems([]);
+  }, [searchTerm, statusFilter]);
 
   const fetchEquipments = async () => {
     try {
@@ -167,6 +174,61 @@ export function EquipamentosLaiga() {
       ...prev,
       [field]: value
     }));
+  };
+
+  const handleSelectAll = (checked: boolean) => {
+    if (checked) {
+      setSelectedItems(filteredEquipments.map(eq => eq.id));
+    } else {
+      setSelectedItems([]);
+    }
+  };
+
+  const handleSelectItem = (itemId: string, checked: boolean) => {
+    if (checked) {
+      setSelectedItems(prev => [...prev, itemId]);
+    } else {
+      setSelectedItems(prev => prev.filter(id => id !== itemId));
+    }
+  };
+
+  const deleteSelectedItems = async () => {
+    if (selectedItems.length === 0) {
+      toast({
+        title: 'Nenhum item selecionado',
+        description: 'Selecione pelo menos um equipamento para excluir.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!confirm(`Tem certeza que deseja excluir ${selectedItems.length} equipamento(s) selecionado(s)?`)) {
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('laiga_equipments')
+        .delete()
+        .in('id', selectedItems);
+
+      if (error) throw error;
+
+      await fetchEquipments();
+      setSelectedItems([]);
+      
+      toast({
+        title: 'Equipamentos excluídos',
+        description: `${selectedItems.length} equipamento(s) foram removidos com sucesso.`,
+      });
+    } catch (error) {
+      console.error('Error deleting selected equipment:', error);
+      toast({
+        title: 'Erro ao excluir',
+        description: 'Não foi possível excluir os equipamentos selecionados.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const handleLogout = () => {
@@ -310,14 +372,26 @@ export function EquipamentosLaiga() {
           <CardHeader>
             <div className="flex justify-between items-center">
               <CardTitle>Lista de Equipamentos</CardTitle>
-              <Button 
-                onClick={migrateToReservations}
-                variant="default"
-                disabled={filteredEquipments.length === 0}
-                className="bg-blue-600 hover:bg-blue-700"
-              >
-                Agregar ao banco de dados geral
-              </Button>
+              <div className="flex gap-2">
+                {selectedItems.length > 0 && (
+                  <Button 
+                    onClick={deleteSelectedItems}
+                    variant="destructive"
+                    size="sm"
+                  >
+                    <Trash2 className="h-4 w-4 mr-2" />
+                    Excluir Selecionados ({selectedItems.length})
+                  </Button>
+                )}
+                <Button 
+                  onClick={migrateToReservations}
+                  variant="default"
+                  disabled={filteredEquipments.length === 0}
+                  className="bg-blue-600 hover:bg-blue-700"
+                >
+                  Agregar ao banco de dados geral
+                </Button>
+              </div>
             </div>
             <div className={styles.filters}>
               <div className="flex gap-4 items-center">
@@ -349,6 +423,13 @@ export function EquipamentosLaiga() {
               <Table>
                 <TableHeader>
                   <TableRow>
+                    <TableHead className="w-[50px]">
+                      <Checkbox
+                        checked={selectedItems.length === filteredEquipments.length && filteredEquipments.length > 0}
+                        onCheckedChange={handleSelectAll}
+                        aria-label="Selecionar todos"
+                      />
+                    </TableHead>
                     <TableHead>Nome</TableHead>
                     <TableHead>Email</TableHead>
                     <TableHead>Laboratório/Espaço</TableHead>
@@ -363,6 +444,13 @@ export function EquipamentosLaiga() {
                 <TableBody>
                   {filteredEquipments.map((equipment) => (
                     <TableRow key={equipment.id}>
+                      <TableCell>
+                        <Checkbox
+                          checked={selectedItems.includes(equipment.id)}
+                          onCheckedChange={(checked) => handleSelectItem(equipment.id, checked as boolean)}
+                          aria-label={`Selecionar ${equipment.name}`}
+                        />
+                      </TableCell>
                       <TableCell className="font-medium">
                         {editingId === equipment.id ? (
                           <Input
