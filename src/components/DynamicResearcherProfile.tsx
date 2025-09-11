@@ -68,17 +68,17 @@ export function DynamicResearcherProfile({
   return (
     <div className="w-full" ref={rootRef}>
       {photoUrl && (
-        <div 
-          className="absolute"
-          style={{
-            width: '180px',
-            height: '180px',
-            top: '3%', 
-            left: '2%',
-            zIndex: 10
-          }}
-        >
-          <div className="flex flex-col items-center gap-2">
+        <>
+          <div 
+            className="absolute"
+            style={{
+              width: '180px',
+              height: '180px',
+              top: '3%', 
+              left: '2%',
+              zIndex: 10
+            }}
+          >
             <img 
               src={photoUrl} 
               alt={`Foto de ${researcherName}`}
@@ -91,11 +91,23 @@ export function DynamicResearcherProfile({
               }}
               loading="lazy"
             />
-            <div className="mt-2 flex justify-center">
+          </div>
+          {belowPhoto && (
+            <div 
+              className="absolute"
+              style={{
+                width: '180px',
+                top: 'calc(3% + 190px)', 
+                left: '2%',
+                zIndex: 10,
+                display: 'flex',
+                justifyContent: 'center'
+              }}
+            >
               {belowPhoto}
             </div>
-          </div>
-        </div>
+          )}
+        </>
       )}
       {!photoUrl && belowPhoto && (
         <div 
