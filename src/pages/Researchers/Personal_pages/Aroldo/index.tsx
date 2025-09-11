@@ -3,7 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
-import earth from '../../../../assets/earth-imgur.png'
+
 
 export function Aroldo() {
   return (
@@ -26,8 +26,6 @@ export function Aroldo() {
            </nav>
            <b> email</b>
            <p>aroldo.misi@gmail.com</p> 
-            <div className={styles.box2}>
-            </div>
           </div>
         </div>
       </div>
