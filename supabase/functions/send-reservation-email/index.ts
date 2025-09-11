@@ -1,7 +1,5 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
-
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+import { Resend } from "npm:resend@4.0.0";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,6 +22,17 @@ const handler = async (req: Request): Promise<Response> => {
     return new Response(null, { headers: corsHeaders });
   }
 
+  const apiKey = Deno.env.get("RESEND_API_KEY");
+  if (!apiKey || apiKey.trim() === "") {
+    console.error("RESEND_API_KEY ausente ou inválida (vazia)");
+    return new Response(
+      JSON.stringify({ success: false, error: "RESEND_API_KEY não configurada nas Secrets do Supabase" }),
+      { status: 500, headers: { "Content-Type": "application/json", ...corsHeaders } }
+    );
+  }
+
+  const resend = new Resend(apiKey);
+
   try {
     const { nome, sobrenome, email, uso, inicio, termino, tipoReserva }: ReservationRequest = await req.json();
 
@@ -39,9 +48,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email para a secretária
     const emailSecretaria = await resend.emails.send({
-      from: "CPGG <onboarding@resend.dev>",
+      from: "CPGG <noreply@resend.dev>",
       to: [secretariaEmail],
-      subject: "Solicitação ao CPGG",
+      subject: `Nova Solicitação de Reserva - ${espacoNome}`,
       html: `
         <h2>Nova Solicitação de Reserva - ${espacoNome}</h2>
         <ul>
@@ -58,9 +67,9 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email de confirmação para o solicitante
     const emailSolicitante = await resend.emails.send({
-      from: "CPGG <onboarding@resend.dev>",
+      from: "CPGG <noreply@resend.dev>",
       to: [email],
-      subject: "Solicitação ao CPGG",
+      subject: "Confirmação de Solicitação - CPGG",
       html: `
         <p>Prezado ${nome},</p>
         <br>
@@ -72,7 +81,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Emails sent successfully:", { emailSecretaria, emailSolicitante });
+    console.log("Emails sent via Resend:", { emailSecretaria, emailSolicitante });
 
     return new Response(
       JSON.stringify({ 
@@ -92,7 +101,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.error("Error sending reservation emails:", error);
     return new Response(
       JSON.stringify({ 
-        error: error.message,
+        error: error?.message ?? "Erro desconhecido ao enviar emails",
         success: false 
       }),
       {
