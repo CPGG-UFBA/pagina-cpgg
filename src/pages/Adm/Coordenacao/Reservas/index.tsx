@@ -623,7 +623,7 @@ export function ReservasAdmin() {
                       <TableRow>
                         <TableHead>Nome</TableHead>
                         <TableHead>Email</TableHead>
-                        <TableHead>Laboratório</TableHead>
+                        <TableHead>Laboratório/Espaço</TableHead>
                         <TableHead>Uso</TableHead>
                         <TableHead>Início</TableHead>
                         <TableHead>Término</TableHead>
