@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
-import { LogOut, Download, FileText, BarChart3, Calendar, User, MapPin, Clock, ArrowLeft } from 'lucide-react'
+import { LogOut, Download, FileText, BarChart3, Calendar, User, MapPin, Clock, ArrowLeft, Edit, Save, X } from 'lucide-react'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts'
@@ -45,6 +45,8 @@ export function ReservasAdmin() {
   const [filterLab, setFilterLab] = useState('all')
   const [filterStatus, setFilterStatus] = useState('all')
   const [isLoading, setIsLoading] = useState(true)
+  const [editingId, setEditingId] = useState<string | null>(null)
+  const [editData, setEditData] = useState<Partial<Reservation>>({})
   const { toast } = useToast()
   const navigate = useNavigate()
 
@@ -164,6 +166,44 @@ export function ReservasAdmin() {
         variant: "destructive",
       })
     }
+  }
+
+  const handleEditReservation = (reservation: Reservation) => {
+    setEditingId(reservation.id)
+    setEditData({ ...reservation })
+  }
+
+  const handleSaveEdit = async () => {
+    if (!editingId || !editData) return
+
+    try {
+      const { error } = await supabase
+        .from('reservations')
+        .update(editData)
+        .eq('id', editingId)
+
+      if (error) throw error
+
+      await fetchReservations()
+      setEditingId(null)
+      setEditData({})
+      toast({
+        title: "Sucesso",
+        description: "Reserva atualizada com sucesso",
+      })
+    } catch (error: any) {
+      console.error('Erro ao atualizar reserva:', error)
+      toast({
+        title: "Erro",
+        description: "Erro ao atualizar reserva",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const handleCancelEdit = () => {
+    setEditingId(null)
+    setEditData({})
   }
 
   const generatePDF = async () => {
@@ -455,63 +495,173 @@ export function ReservasAdmin() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {physicalSpaceReservations.map((reservation) => (
-                        <TableRow key={reservation.id}>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <User className="w-4 h-4" />
-                              {reservation.nome} {reservation.sobrenome}
-                            </div>
-                          </TableCell>
-                          <TableCell>{reservation.email}</TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4" />
-                              {reservation.tipo_reserva === 'auditorio' ? 'Auditório' : 'Sala de Reunião'}
-                            </div>
-                          </TableCell>
-                          <TableCell>{reservation.uso}</TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4" />
-                              {formatDate(reservation.inicio)}
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4" />
-                              {formatDate(reservation.termino)}
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <Badge variant={getStatusBadgeVariant(reservation.status)}>
-                              {reservation.status}
-                            </Badge>
-                          </TableCell>
-                          <TableCell>{formatDate(reservation.created_at)}</TableCell>
-                          <TableCell>
-                            <div className="flex gap-2">
-                              {reservation.status === 'pendente' && (
-                                <>
-                                  <Button
-                                    size="sm"
-                                    onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
-                                  >
-                                    Aprovar
-                                  </Button>
-                                  <Button
-                                    size="sm"
-                                    variant="destructive"
-                                    onClick={() => updateReservationStatus(reservation.id, 'rejeitada')}
-                                  >
-                                    Rejeitar
-                                  </Button>
-                                </>
+                      {physicalSpaceReservations.map((reservation) => {
+                        const isEditing = editingId === reservation.id
+                        return (
+                          <TableRow key={reservation.id}>
+                            <TableCell>
+                              {isEditing ? (
+                                <div className="flex gap-1">
+                                  <Input
+                                    value={editData.nome || ''}
+                                    onChange={(e) => setEditData({ ...editData, nome: e.target.value })}
+                                    placeholder="Nome"
+                                    className="w-20 text-sm"
+                                  />
+                                  <Input
+                                    value={editData.sobrenome || ''}
+                                    onChange={(e) => setEditData({ ...editData, sobrenome: e.target.value })}
+                                    placeholder="Sobrenome"
+                                    className="w-20 text-sm"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <User className="w-4 h-4" />
+                                  {reservation.nome} {reservation.sobrenome}
+                                </div>
                               )}
-                            </div>
-                          </TableCell>
-                        </TableRow>
-                      ))}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  value={editData.email || ''}
+                                  onChange={(e) => setEditData({ ...editData, email: e.target.value })}
+                                  placeholder="Email"
+                                  className="w-24 text-sm"
+                                />
+                              ) : (
+                                reservation.email
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <select
+                                  value={editData.tipo_reserva || ''}
+                                  onChange={(e) => setEditData({ ...editData, tipo_reserva: e.target.value })}
+                                  className="border rounded px-2 py-1 text-sm"
+                                >
+                                  <option value="auditorio">Auditório</option>
+                                  <option value="sala_reuniao">Sala de Reunião</option>
+                                </select>
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <MapPin className="w-4 h-4" />
+                                  {reservation.tipo_reserva === 'auditorio' ? 'Auditório' : 'Sala de Reunião'}
+                                </div>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  value={editData.uso || ''}
+                                  onChange={(e) => setEditData({ ...editData, uso: e.target.value })}
+                                  placeholder="Uso"
+                                  className="w-20 text-sm"
+                                />
+                              ) : (
+                                reservation.uso
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  type="datetime-local"
+                                  value={editData.inicio ? new Date(editData.inicio).toISOString().slice(0, 16) : ''}
+                                  onChange={(e) => setEditData({ ...editData, inicio: e.target.value })}
+                                  className="w-32 text-sm"
+                                />
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <Clock className="w-4 h-4" />
+                                  {formatDate(reservation.inicio)}
+                                </div>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  type="datetime-local"
+                                  value={editData.termino ? new Date(editData.termino).toISOString().slice(0, 16) : ''}
+                                  onChange={(e) => setEditData({ ...editData, termino: e.target.value })}
+                                  className="w-32 text-sm"
+                                />
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <Clock className="w-4 h-4" />
+                                  {formatDate(reservation.termino)}
+                                </div>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <select
+                                  value={editData.status || ''}
+                                  onChange={(e) => setEditData({ ...editData, status: e.target.value })}
+                                  className="border rounded px-2 py-1 text-sm"
+                                >
+                                  <option value="pendente">Pendente</option>
+                                  <option value="aprovada">Aprovada</option>
+                                  <option value="rejeitada">Rejeitada</option>
+                                </select>
+                              ) : (
+                                <Badge variant={getStatusBadgeVariant(reservation.status)}>
+                                  {reservation.status}
+                                </Badge>
+                              )}
+                            </TableCell>
+                            <TableCell>{formatDate(reservation.created_at)}</TableCell>
+                            <TableCell>
+                              <div className="flex gap-2">
+                                {isEditing ? (
+                                  <>
+                                    <Button
+                                      size="sm"
+                                      onClick={handleSaveEdit}
+                                    >
+                                      <Save className="w-3 h-3" />
+                                    </Button>
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      onClick={handleCancelEdit}
+                                    >
+                                      <X className="w-3 h-3" />
+                                    </Button>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      onClick={() => handleEditReservation(reservation)}
+                                    >
+                                      <Edit className="w-3 h-3" />
+                                    </Button>
+                                    {reservation.status === 'pendente' && (
+                                      <>
+                                        <Button
+                                          size="sm"
+                                          onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
+                                        >
+                                          Aprovar
+                                        </Button>
+                                        <Button
+                                          size="sm"
+                                          variant="destructive"
+                                          onClick={() => updateReservationStatus(reservation.id, 'rejeitada')}
+                                        >
+                                          Rejeitar
+                                        </Button>
+                                      </>
+                                    )}
+                                  </>
+                                )}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
                     </TableBody>
                   </Table>
                 </div>
@@ -634,64 +784,186 @@ export function ReservasAdmin() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {laboratoryReservations.map((reservation) => (
-                        <TableRow key={reservation.id}>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <User className="w-4 h-4" />
-                              {reservation.nome} {reservation.sobrenome}
-                            </div>
-                          </TableCell>
-                          <TableCell>{reservation.email}</TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <MapPin className="w-4 h-4" />
-                              {reservation.tipo_reserva === 'laiga_equipments' ? 'LAIGA' : reservation.tipo_reserva.toUpperCase()}
-                            </div>
-                          </TableCell>
-                          <TableCell>{reservation.uso}</TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4" />
-                              {formatDate(reservation.inicio)}
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="flex items-center gap-2">
-                              <Clock className="w-4 h-4" />
-                              {formatDate(reservation.termino)}
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <Badge variant={getStatusBadgeVariant(reservation.status)}>
-                              {reservation.status}
-                            </Badge>
-                          </TableCell>
-                          <TableCell>{formatDate(reservation.created_at)}</TableCell>
-                          <TableCell>{reservation.equipamento || 'N/A'}</TableCell>
-                          <TableCell>
-                            <div className="flex gap-2">
-                              {reservation.status === 'pendente' && (
-                                <>
-                                  <Button
-                                    size="sm"
-                                    onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
-                                  >
-                                    Aprovar
-                                  </Button>
-                                  <Button
-                                    size="sm"
-                                    variant="destructive"
-                                    onClick={() => updateReservationStatus(reservation.id, 'rejeitada')}
-                                  >
-                                    Rejeitar
-                                  </Button>
-                                </>
+                      {laboratoryReservations.map((reservation) => {
+                        const isEditing = editingId === reservation.id
+                        return (
+                          <TableRow key={reservation.id}>
+                            <TableCell>
+                              {isEditing ? (
+                                <div className="flex gap-1">
+                                  <Input
+                                    value={editData.nome || ''}
+                                    onChange={(e) => setEditData({ ...editData, nome: e.target.value })}
+                                    placeholder="Nome"
+                                    className="w-20 text-sm"
+                                  />
+                                  <Input
+                                    value={editData.sobrenome || ''}
+                                    onChange={(e) => setEditData({ ...editData, sobrenome: e.target.value })}
+                                    placeholder="Sobrenome"
+                                    className="w-20 text-sm"
+                                  />
+                                </div>
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <User className="w-4 h-4" />
+                                  {reservation.nome} {reservation.sobrenome}
+                                </div>
                               )}
-                            </div>
-                          </TableCell>
-                        </TableRow>
-                      ))}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  value={editData.email || ''}
+                                  onChange={(e) => setEditData({ ...editData, email: e.target.value })}
+                                  placeholder="Email"
+                                  className="w-24 text-sm"
+                                />
+                              ) : (
+                                reservation.email
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <select
+                                  value={editData.tipo_reserva || ''}
+                                  onChange={(e) => setEditData({ ...editData, tipo_reserva: e.target.value })}
+                                  className="border rounded px-2 py-1 text-sm"
+                                >
+                                  <option value="laiga_equipments">LAIGA</option>
+                                  <option value="lagep">LAGEP</option>
+                                  <option value="lamod">LAMOD</option>
+                                </select>
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <MapPin className="w-4 h-4" />
+                                  {reservation.tipo_reserva === 'laiga_equipments' ? 'LAIGA' : reservation.tipo_reserva.toUpperCase()}
+                                </div>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  value={editData.uso || ''}
+                                  onChange={(e) => setEditData({ ...editData, uso: e.target.value })}
+                                  placeholder="Uso"
+                                  className="w-20 text-sm"
+                                />
+                              ) : (
+                                reservation.uso
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  type="datetime-local"
+                                  value={editData.inicio ? new Date(editData.inicio).toISOString().slice(0, 16) : ''}
+                                  onChange={(e) => setEditData({ ...editData, inicio: e.target.value })}
+                                  className="w-32 text-sm"
+                                />
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <Clock className="w-4 h-4" />
+                                  {formatDate(reservation.inicio)}
+                                </div>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  type="datetime-local"
+                                  value={editData.termino ? new Date(editData.termino).toISOString().slice(0, 16) : ''}
+                                  onChange={(e) => setEditData({ ...editData, termino: e.target.value })}
+                                  className="w-32 text-sm"
+                                />
+                              ) : (
+                                <div className="flex items-center gap-2">
+                                  <Clock className="w-4 h-4" />
+                                  {formatDate(reservation.termino)}
+                                </div>
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <select
+                                  value={editData.status || ''}
+                                  onChange={(e) => setEditData({ ...editData, status: e.target.value })}
+                                  className="border rounded px-2 py-1 text-sm"
+                                >
+                                  <option value="pendente">Pendente</option>
+                                  <option value="aprovada">Aprovada</option>
+                                  <option value="rejeitada">Rejeitada</option>
+                                </select>
+                              ) : (
+                                <Badge variant={getStatusBadgeVariant(reservation.status)}>
+                                  {reservation.status}
+                                </Badge>
+                              )}
+                            </TableCell>
+                            <TableCell>{formatDate(reservation.created_at)}</TableCell>
+                            <TableCell>
+                              {isEditing ? (
+                                <Input
+                                  value={editData.equipamento || ''}
+                                  onChange={(e) => setEditData({ ...editData, equipamento: e.target.value })}
+                                  placeholder="Equipamento"
+                                  className="w-20 text-sm"
+                                />
+                              ) : (
+                                reservation.equipamento || 'N/A'
+                              )}
+                            </TableCell>
+                            <TableCell>
+                              <div className="flex gap-2">
+                                {isEditing ? (
+                                  <>
+                                    <Button
+                                      size="sm"
+                                      onClick={handleSaveEdit}
+                                    >
+                                      <Save className="w-3 h-3" />
+                                    </Button>
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      onClick={handleCancelEdit}
+                                    >
+                                      <X className="w-3 h-3" />
+                                    </Button>
+                                  </>
+                                ) : (
+                                  <>
+                                    <Button
+                                      size="sm"
+                                      variant="outline"
+                                      onClick={() => handleEditReservation(reservation)}
+                                    >
+                                      <Edit className="w-3 h-3" />
+                                    </Button>
+                                    {reservation.status === 'pendente' && (
+                                      <>
+                                        <Button
+                                          size="sm"
+                                          onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
+                                        >
+                                          Aprovar
+                                        </Button>
+                                        <Button
+                                          size="sm"
+                                          variant="destructive"
+                                          onClick={() => updateReservationStatus(reservation.id, 'rejeitada')}
+                                        >
+                                          Rejeitar
+                                        </Button>
+                                      </>
+                                    )}
+                                  </>
+                                )}
+                              </div>
+                            </TableCell>
+                          </TableRow>
+                        )
+                      })}
                     </TableBody>
                   </Table>
                 </div>
