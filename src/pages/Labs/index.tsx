@@ -139,7 +139,7 @@ export  function Labs() {
                            onDelete={handleDeleteLaboratory}
                          />
                        ) : (
-                         <Link to={`/Labs/${lab.acronym.charAt(0).toUpperCase()}${lab.acronym.slice(1).toLowerCase()}`} className={styles.labLink}>
+                         <Link to={(lab.acronym || '').trim().toUpperCase() === 'LAIGA' ? '/Labs/Laiga' : `/Labs/${lab.acronym.charAt(0).toUpperCase()}${lab.acronym.slice(1).toLowerCase()}` } className={styles.labLink}>
                            <div className={styles.others}>
                              <h2>{lab.acronym}</h2>
                              <h2>{lab.name}</h2>
