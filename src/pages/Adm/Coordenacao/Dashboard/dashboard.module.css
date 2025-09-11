@@ -310,3 +310,24 @@ textarea::placeholder {
   color: #333;
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
+
+/* Event Photos Styles */
+.photoInput {
+  border: 2px dashed #e2e8f0;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  background-color: white;
+}
+
+.photoInput:hover {
+  border-color: #cbd5e0;
+}
+
+.photoCount {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}

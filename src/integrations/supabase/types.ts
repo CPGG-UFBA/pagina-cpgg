@@ -41,6 +41,62 @@ export type Database = {
         }
         Relationships: []
       }
+      event_photos: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          photo_order: number
+          photo_url: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          photo_order?: number
+          photo_url: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          photo_order?: number
+          photo_url?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "event_photos_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      events: {
+        Row: {
+          created_at: string
+          event_date: string
+          id: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          event_date: string
+          id?: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          event_date?: string
+          id?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       laboratories: {
         Row: {
           acronym: string

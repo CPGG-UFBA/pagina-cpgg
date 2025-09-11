@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
-import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus } from 'lucide-react'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus, Image } from 'lucide-react'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
@@ -60,6 +60,11 @@ export function CoordenacaoDashboard() {
   const [validityPeriod, setValidityPeriod] = useState('')
   const [coordinator, setCoordinator] = useState('')
   const [viceCoordinator, setViceCoordinator] = useState('')
+  
+  // Estados para eventos
+  const [eventName, setEventName] = useState('')
+  const [eventDate, setEventDate] = useState('')
+  const [eventPhotos, setEventPhotos] = useState<File[]>([])
   
   const [isLoading, setIsLoading] = useState(false)
   const [uploadingPhotos, setUploadingPhotos] = useState(false)
@@ -493,6 +498,91 @@ export function CoordenacaoDashboard() {
       })
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  // Função para registrar evento
+  const handleRegisterEvent = async () => {
+    if (!eventName || !eventDate || eventPhotos.length === 0) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Nome do evento, data e pelo menos uma foto são obrigatórios.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    if (eventPhotos.length > 30) {
+      toast({
+        title: "Muitas fotos",
+        description: "Máximo de 30 fotos permitido por evento.",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+    setUploadingPhotos(true)
+
+    try {
+      // Criar o evento primeiro
+      const { data: eventData, error: eventError } = await supabase
+        .from('events')
+        .insert({
+          name: eventName,
+          event_date: eventDate
+        })
+        .select()
+        .single()
+
+      if (eventError) throw eventError
+
+      // Upload das fotos
+      for (let i = 0; i < eventPhotos.length; i++) {
+        const photo = eventPhotos[i]
+        const fileName = `${eventData.id}/${Date.now()}-${i}-${photo.name}`
+        
+        const { error: uploadError } = await supabase.storage
+          .from('event-photos')
+          .upload(fileName, photo)
+
+        if (uploadError) throw uploadError
+
+        const { data: { publicUrl } } = supabase.storage
+          .from('event-photos')
+          .getPublicUrl(fileName)
+
+        // Inserir referência da foto no banco
+        const { error: photoError } = await supabase
+          .from('event_photos')
+          .insert({
+            event_id: eventData.id,
+            photo_url: publicUrl,
+            photo_order: i + 1
+          })
+
+        if (photoError) throw photoError
+      }
+
+      toast({
+        title: "Sucesso",
+        description: `Evento "${eventName}" cadastrado com sucesso com ${eventPhotos.length} fotos!`,
+      })
+
+      // Limpar campos
+      setEventName('')
+      setEventDate('')
+      setEventPhotos([])
+
+    } catch (error: any) {
+      toast({
+        title: "Erro ao cadastrar evento",
+        description: error.message,
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+      setUploadingPhotos(false)
     }
   }
 
@@ -990,6 +1080,66 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               Listar Usuários Cadastrados
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <Image size={24} />
+              <h2>Cadastrar Fotos de Eventos</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="event-name">Nome do Evento:</label>
+              <Input
+                id="event-name"
+                type="text"
+                value={eventName}
+                onChange={(e) => setEventName(e.target.value)}
+                placeholder="Digite o nome do evento"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="event-date">Data do Evento:</label>
+              <Input
+                id="event-date"
+                type="date"
+                value={eventDate}
+                onChange={(e) => setEventDate(e.target.value)}
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="event-photos">Fotos do Evento (máximo 30):</label>
+              <Input
+                id="event-photos"
+                type="file"
+                multiple
+                accept="image/*"
+                onChange={(e) => {
+                  const files = Array.from(e.target.files || [])
+                  if (files.length > 30) {
+                    toast({
+                      title: "Muitas fotos",
+                      description: "Máximo de 30 fotos permitido por evento.",
+                      variant: "destructive",
+                    })
+                    return
+                  }
+                  setEventPhotos(files)
+                }}
+                className={styles.photoInput}
+              />
+              {eventPhotos.length > 0 && (
+                <p className={styles.photoCount}>
+                  {eventPhotos.length} foto(s) selecionada(s)
+                </p>
+              )}
+            </div>
+            <Button
+              onClick={handleRegisterEvent}
+              disabled={isLoading || uploadingPhotos || !eventName || !eventDate || eventPhotos.length === 0}
+              className={styles.submitButton}
+            >
+              {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Cadastrando...' : 'Cadastrar Evento'}
             </Button>
           </div>
         </div>
