@@ -369,9 +369,15 @@ export function ReservasAdmin() {
 
   const getReservationsByUser = (reservations: Reservation[]) => {
     const userCount = reservations.reduce((acc, reservation) => {
-      const cleanedNome = reservation.nome.replace(/LAIGA/gi, '').trim()
-      const cleanedSobrenome = reservation.sobrenome.replace(/LAIGA/gi, '').trim()
-      const user = `${cleanedNome} ${cleanedSobrenome}`
+      const userRaw = `${reservation.nome} ${reservation.sobrenome}`
+      const user = userRaw
+        .replace(/\[?LAIGA\]?/gi, ' ')
+        .replace(/LAIGA\s*-\s*/gi, ' ')
+        .replace(/-\s*LAIGA/gi, ' ')
+        .replace(/LAIGA\s*:/gi, ' ')
+        .replace(/:\s*LAIGA/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
       acc[user] = (acc[user] || 0) + 1
       return acc
     }, {} as Record<string, number>)
@@ -604,7 +610,15 @@ export function ReservasAdmin() {
                               ) : (
                                 <div className="flex items-center gap-2">
                                   <User className="w-4 h-4" />
-                                  {reservation.nome} {reservation.sobrenome}
+                                  {`${reservation.nome} ${reservation.sobrenome}`
+                                    .replace(/\[?LAIGA\]?/gi, ' ')
+                                    .replace(/LAIGA\s*-\s*/gi, ' ')
+                                    .replace(/-\s*LAIGA/gi, ' ')
+                                    .replace(/LAIGA\s*:/gi, ' ')
+                                    .replace(/:\s*LAIGA/gi, ' ')
+                                    .replace(/\s+/g, ' ')
+                                    .trim()
+                                  }
                                 </div>
                               )}
                             </TableCell>
@@ -897,7 +911,15 @@ export function ReservasAdmin() {
                               ) : (
                                 <div className="flex items-center gap-2">
                                   <User className="w-4 h-4" />
-                                  {reservation.nome.replace(/LAIGA/gi, '').trim()} {reservation.sobrenome.replace(/LAIGA/gi, '').trim()}
+                                  {`${reservation.nome} ${reservation.sobrenome}`
+                                    .replace(/\[?LAIGA\]?/gi, ' ')
+                                    .replace(/LAIGA\s*-\s*/gi, ' ')
+                                    .replace(/-\s*LAIGA/gi, ' ')
+                                    .replace(/LAIGA\s*:/gi, ' ')
+                                    .replace(/:\s*LAIGA/gi, ' ')
+                                    .replace(/\s+/g, ' ')
+                                    .trim()
+                                  }
                                 </div>
                               )}
                             </TableCell>
