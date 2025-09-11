@@ -103,7 +103,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Enviar email para o coordenador
     console.log('Enviando email para marcos.vasconcelos@ufba.br...')
     const emailResponse = await resend.emails.send({
-      from: 'LAIGA - CPGG <noreply@resend.dev>',
+      from: 'CPGG <noreply@resend.dev>',
       to: ['marcos.vasconcelos@ufba.br'],
       subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
       html: emailContent,
@@ -111,10 +111,10 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (emailResponse.error) {
       console.error('Erro ao enviar email:', emailResponse.error)
-      throw new Error(`Falha no envio do email: ${emailResponse.error.message}`)
+      // Não falhar a requisição por causa do email
+    } else {
+      console.log('Email enviado com sucesso:', emailResponse.data)
     }
-
-    console.log('Email enviado com sucesso:', emailResponse.data)
 
     return new Response(
       JSON.stringify({ 
