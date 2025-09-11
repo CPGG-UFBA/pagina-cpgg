@@ -38,6 +38,8 @@ export function ReservasAdmin() {
   const [adminUser, setAdminUser] = useState<AdminUser | null>(null)
   const [reservations, setReservations] = useState<Reservation[]>([])
   const [filteredReservations, setFilteredReservations] = useState<Reservation[]>([])
+  const [physicalSpaceReservations, setPhysicalSpaceReservations] = useState<Reservation[]>([])
+  const [laboratoryReservations, setLaboratoryReservations] = useState<Reservation[]>([])
   const [searchTerm, setSearchTerm] = useState('')
   const [filterLab, setFilterLab] = useState('all')
   const [filterStatus, setFilterStatus] = useState('all')
@@ -113,6 +115,21 @@ export function ReservasAdmin() {
     }
 
     setFilteredReservations(filtered)
+
+    // Separate into physical spaces and laboratories
+    const physicalSpaces = ['auditorio', 'sala_reuniao']
+    const laboratories = ['laiga_equipments', 'lagep', 'lamod']
+
+    const physicalSpaceFiltered = filtered.filter(reservation =>
+      physicalSpaces.includes(reservation.tipo_reserva)
+    )
+
+    const laboratoryFiltered = filtered.filter(reservation =>
+      laboratories.includes(reservation.tipo_reserva)
+    )
+
+    setPhysicalSpaceReservations(physicalSpaceFiltered)
+    setLaboratoryReservations(laboratoryFiltered)
   }
 
   const handleLogout = () => {
@@ -197,19 +214,36 @@ export function ReservasAdmin() {
     }
   }
 
-  // Dados para gráficos
-  const getReservationsByLab = () => {
-    const labCount = filteredReservations.reduce((acc, reservation) => {
-      const lab = reservation.tipo_reserva || 'Não especificado'
-      acc[lab] = (acc[lab] || 0) + 1
+  // Dados para gráficos - Espaços Físicos
+  const getPhysicalSpaceReservationsByType = () => {
+    const typeCount = physicalSpaceReservations.reduce((acc, reservation) => {
+      const type = reservation.tipo_reserva || 'Não especificado'
+      acc[type] = (acc[type] || 0) + 1
       return acc
     }, {} as Record<string, number>)
 
-    return Object.entries(labCount).map(([name, value]) => ({ name, value }))
+    return Object.entries(typeCount).map(([name, value]) => ({ 
+      name: name === 'auditorio' ? 'Auditório' : name === 'sala_reuniao' ? 'Sala de Reunião' : name, 
+      value 
+    }))
   }
 
-  const getReservationsByUser = () => {
-    const userCount = filteredReservations.reduce((acc, reservation) => {
+  // Dados para gráficos - Laboratórios
+  const getLaboratoryReservationsByType = () => {
+    const typeCount = laboratoryReservations.reduce((acc, reservation) => {
+      const type = reservation.tipo_reserva || 'Não especificado'
+      acc[type] = (acc[type] || 0) + 1
+      return acc
+    }, {} as Record<string, number>)
+
+    return Object.entries(typeCount).map(([name, value]) => ({ 
+      name: name === 'laiga_equipments' ? 'LAIGA' : name.toUpperCase(), 
+      value 
+    }))
+  }
+
+  const getReservationsByUser = (reservations: Reservation[]) => {
+    const userCount = reservations.reduce((acc, reservation) => {
       const user = `${reservation.nome} ${reservation.sobrenome}`
       acc[user] = (acc[user] || 0) + 1
       return acc
@@ -221,8 +255,8 @@ export function ReservasAdmin() {
       .map(([name, value]) => ({ name, value }))
   }
 
-  const getReservationsByUsage = () => {
-    const usageCount = filteredReservations.reduce((acc, reservation) => {
+  const getReservationsByUsage = (reservations: Reservation[]) => {
+    const usageCount = reservations.reduce((acc, reservation) => {
       const usage = reservation.uso || 'Não especificado'
       acc[usage] = (acc[usage] || 0) + 1
       return acc
@@ -231,8 +265,8 @@ export function ReservasAdmin() {
     return Object.entries(usageCount).map(([name, value]) => ({ name, value }))
   }
 
-  const getReservationsByMonth = () => {
-    const monthCount = filteredReservations.reduce((acc, reservation) => {
+  const getReservationsByMonth = (reservations: Reservation[]) => {
+    const monthCount = reservations.reduce((acc, reservation) => {
       const date = new Date(reservation.created_at)
       const month = date.toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' })
       acc[month] = (acc[month] || 0) + 1
@@ -291,19 +325,24 @@ export function ReservasAdmin() {
       </div>
 
       <div className={styles.content}>
-        <Tabs defaultValue="list" className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="list">
-              <FileText className="w-4 h-4 mr-2" />
-              Lista de Reservas
+        <Tabs defaultValue="physical-spaces" className="w-full">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="physical-spaces">
+              <MapPin className="w-4 h-4 mr-2" />
+              Espaços Físicos ({physicalSpaceReservations.length})
             </TabsTrigger>
-            <TabsTrigger value="analytics">
+            <TabsTrigger value="laboratories">
+              <FileText className="w-4 h-4 mr-2" />
+              Laboratórios ({laboratoryReservations.length})
+            </TabsTrigger>
+            <TabsTrigger value="overview">
               <BarChart3 className="w-4 h-4 mr-2" />
-              Gráficos e Relatórios
+              Visão Geral
             </TabsTrigger>
           </TabsList>
 
-          <TabsContent value="list" className="space-y-4">
+          {/* Espaços Físicos Tab */}
+          <TabsContent value="physical-spaces" className="space-y-4">
             <div className={styles.filters}>
               <Input
                 placeholder="Buscar por nome, email ou uso..."
@@ -317,12 +356,9 @@ export function ReservasAdmin() {
                 onChange={(e) => setFilterLab(e.target.value)}
                 className={styles.select}
               >
-                <option value="all">Todos os Espaços Físicos</option>
+                <option value="all">Todos os Espaços</option>
                 <option value="auditorio">Auditório</option>
                 <option value="sala_reuniao">Sala de Reunião</option>
-                <option value="laiga_equipments">LAIGA</option>
-                <option value="lagep">LAGEP</option>
-                <option value="lamod">LAMOD</option>
               </select>
 
               <select
@@ -342,21 +378,73 @@ export function ReservasAdmin() {
               </Button>
             </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Reservas por Espaço Físico</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={getPhysicalSpaceReservationsByType()}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                        outerRadius={80}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        {getPhysicalSpaceReservationsByType().map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Top Usuários - Espaços Físicos</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <BarChart data={getReservationsByUser(physicalSpaceReservations)}>
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis 
+                        dataKey="name" 
+                        angle={-45}
+                        textAnchor="end"
+                        height={80}
+                        fontSize={10}
+                      />
+                      <YAxis />
+                      <Tooltip />
+                      <Bar dataKey="value" fill="#8884d8" />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </div>
+
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Calendar className="w-5 h-5" />
-                  Reservas ({filteredReservations.length})
+                  Reservas de Espaços Físicos ({physicalSpaceReservations.length})
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div id="reservations-table" className={styles.tableContainer}>
+                <div id="physical-spaces-table" className={styles.tableContainer}>
                   <Table>
                     <TableHeader>
                       <TableRow>
                         <TableHead>Nome</TableHead>
                         <TableHead>Email</TableHead>
-                        <TableHead>Laboratório/Espaço</TableHead>
+                        <TableHead>Espaço</TableHead>
                         <TableHead>Uso</TableHead>
                         <TableHead>Início</TableHead>
                         <TableHead>Término</TableHead>
@@ -366,7 +454,7 @@ export function ReservasAdmin() {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {filteredReservations.map((reservation) => (
+                      {physicalSpaceReservations.map((reservation) => (
                         <TableRow key={reservation.id}>
                           <TableCell>
                             <div className="flex items-center gap-2">
@@ -378,7 +466,7 @@ export function ReservasAdmin() {
                           <TableCell>
                             <div className="flex items-center gap-2">
                               <MapPin className="w-4 h-4" />
-                              {reservation.tipo_reserva}
+                              {reservation.tipo_reserva === 'auditorio' ? 'Auditório' : 'Sala de Reunião'}
                             </div>
                           </TableCell>
                           <TableCell>{reservation.uso}</TableCell>
@@ -430,17 +518,54 @@ export function ReservasAdmin() {
             </Card>
           </TabsContent>
 
-          <TabsContent value="analytics" className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Laboratórios Tab */}
+          <TabsContent value="laboratories" className="space-y-4">
+            <div className={styles.filters}>
+              <Input
+                placeholder="Buscar por nome, email ou uso..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="max-w-sm"
+              />
+              
+              <select
+                value={filterLab}
+                onChange={(e) => setFilterLab(e.target.value)}
+                className={styles.select}
+              >
+                <option value="all">Todos os Laboratórios</option>
+                <option value="laiga_equipments">LAIGA</option>
+                <option value="lagep">LAGEP</option>
+                <option value="lamod">LAMOD</option>
+              </select>
+
+              <select
+                value={filterStatus}
+                onChange={(e) => setFilterStatus(e.target.value)}
+                className={styles.select}
+              >
+                <option value="all">Todos os Status</option>
+                <option value="pendente">Pendente</option>
+                <option value="aprovada">Aprovada</option>
+                <option value="rejeitada">Rejeitada</option>
+              </select>
+
+              <Button onClick={generatePDF} variant="outline">
+                <Download className="w-4 h-4 mr-2" />
+                Gerar PDF
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <Card>
                 <CardHeader>
-                  <CardTitle>Reservas por Laboratório/Espaço</CardTitle>
+                  <CardTitle>Reservas por Laboratório</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <Pie
-                        data={getReservationsByLab()}
+                        data={getLaboratoryReservationsByType()}
                         cx="50%"
                         cy="50%"
                         labelLine={false}
@@ -449,7 +574,7 @@ export function ReservasAdmin() {
                         fill="#8884d8"
                         dataKey="value"
                       >
-                        {getReservationsByLab().map((entry, index) => (
+                        {getLaboratoryReservationsByType().map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                       </Pie>
@@ -461,11 +586,11 @@ export function ReservasAdmin() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Top 10 Usuários</CardTitle>
+                  <CardTitle>Top Usuários - Laboratórios</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={getReservationsByUser()}>
+                    <BarChart data={getReservationsByUser(laboratoryReservations)}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis 
                         dataKey="name" 
@@ -476,8 +601,159 @@ export function ReservasAdmin() {
                       />
                       <YAxis />
                       <Tooltip />
-                      <Bar dataKey="value" fill="#8884d8" />
+                      <Bar dataKey="value" fill="#00C49F" />
                     </BarChart>
+                  </ResponsiveContainer>
+                </CardContent>
+              </Card>
+            </div>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
+                  Reservas de Laboratórios ({laboratoryReservations.length})
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div id="laboratories-table" className={styles.tableContainer}>
+                  <Table>
+                    <TableHeader>
+                      <TableRow>
+                        <TableHead>Nome</TableHead>
+                        <TableHead>Email</TableHead>
+                        <TableHead>Laboratório</TableHead>
+                        <TableHead>Uso</TableHead>
+                        <TableHead>Início</TableHead>
+                        <TableHead>Término</TableHead>
+                        <TableHead>Status</TableHead>
+                        <TableHead>Solicitação</TableHead>
+                        <TableHead>Ações</TableHead>
+                      </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                      {laboratoryReservations.map((reservation) => (
+                        <TableRow key={reservation.id}>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <User className="w-4 h-4" />
+                              {reservation.nome} {reservation.sobrenome}
+                            </div>
+                          </TableCell>
+                          <TableCell>{reservation.email}</TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <MapPin className="w-4 h-4" />
+                              {reservation.tipo_reserva === 'laiga_equipments' ? 'LAIGA' : reservation.tipo_reserva.toUpperCase()}
+                            </div>
+                          </TableCell>
+                          <TableCell>{reservation.uso}</TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <Clock className="w-4 h-4" />
+                              {formatDate(reservation.inicio)}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <div className="flex items-center gap-2">
+                              <Clock className="w-4 h-4" />
+                              {formatDate(reservation.termino)}
+                            </div>
+                          </TableCell>
+                          <TableCell>
+                            <Badge variant={getStatusBadgeVariant(reservation.status)}>
+                              {reservation.status}
+                            </Badge>
+                          </TableCell>
+                          <TableCell>{formatDate(reservation.created_at)}</TableCell>
+                          <TableCell>
+                            <div className="flex gap-2">
+                              {reservation.status === 'pendente' && (
+                                <>
+                                  <Button
+                                    size="sm"
+                                    onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
+                                  >
+                                    Aprovar
+                                  </Button>
+                                  <Button
+                                    size="sm"
+                                    variant="destructive"
+                                    onClick={() => updateReservationStatus(reservation.id, 'rejeitada')}
+                                  >
+                                    Rejeitar
+                                  </Button>
+                                </>
+                              )}
+                            </div>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </div>
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          {/* Visão Geral Tab */}
+          <TabsContent value="overview" className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Resumo Geral</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className={styles.statCard}>
+                      <div className={styles.statNumber}>{physicalSpaceReservations.length}</div>
+                      <div className={styles.statLabel}>Espaços Físicos</div>
+                    </div>
+                    <div className={styles.statCard}>
+                      <div className={styles.statNumber}>{laboratoryReservations.length}</div>
+                      <div className={styles.statLabel}>Laboratórios</div>
+                    </div>
+                    <div className={styles.statCard}>
+                      <div className={styles.statNumber}>
+                        {filteredReservations.filter(r => r.status === 'pendente').length}
+                      </div>
+                      <div className={styles.statLabel}>Pendentes</div>
+                    </div>
+                    <div className={styles.statCard}>
+                      <div className={styles.statNumber}>
+                        {filteredReservations.filter(r => r.status === 'aprovada').length}
+                      </div>
+                      <div className={styles.statLabel}>Aprovadas</div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardHeader>
+                  <CardTitle>Distribuição por Categoria</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={[
+                          { name: 'Espaços Físicos', value: physicalSpaceReservations.length },
+                          { name: 'Laboratórios', value: laboratoryReservations.length }
+                        ]}
+                        cx="50%"
+                        cy="50%"
+                        labelLine={false}
+                        label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                        outerRadius={80}
+                        fill="#8884d8"
+                        dataKey="value"
+                      >
+                        <Cell fill="#8884d8" />
+                        <Cell fill="#00C49F" />
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
                   </ResponsiveContainer>
                 </CardContent>
               </Card>
@@ -488,7 +764,7 @@ export function ReservasAdmin() {
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={getReservationsByUsage()}>
+                    <BarChart data={getReservationsByUsage(filteredReservations)}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis 
                         dataKey="name" 
@@ -511,7 +787,7 @@ export function ReservasAdmin() {
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={getReservationsByMonth()}>
+                    <LineChart data={getReservationsByMonth(filteredReservations)}>
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis 
                         dataKey="name" 
@@ -528,38 +804,6 @@ export function ReservasAdmin() {
                 </CardContent>
               </Card>
             </div>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Estatísticas Gerais</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className={styles.statCard}>
-                    <div className={styles.statNumber}>{filteredReservations.length}</div>
-                    <div className={styles.statLabel}>Total de Reservas</div>
-                  </div>
-                  <div className={styles.statCard}>
-                    <div className={styles.statNumber}>
-                      {filteredReservations.filter(r => r.status === 'pendente').length}
-                    </div>
-                    <div className={styles.statLabel}>Pendentes</div>
-                  </div>
-                  <div className={styles.statCard}>
-                    <div className={styles.statNumber}>
-                      {filteredReservations.filter(r => r.status === 'aprovada').length}
-                    </div>
-                    <div className={styles.statLabel}>Aprovadas</div>
-                  </div>
-                  <div className={styles.statCard}>
-                    <div className={styles.statNumber}>
-                      {filteredReservations.filter(r => r.status === 'rejeitada').length}
-                    </div>
-                    <div className={styles.statLabel}>Rejeitadas</div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </TabsContent>
         </Tabs>
       </div>
