@@ -15,11 +15,10 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  margin-left: 50px;
   margin-bottom: 18rem;
 }
 
@@ -49,7 +48,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   min-height: 120px;
-  left: -500px;
   width: 350px;
   position: relative;
   overflow: hidden;
