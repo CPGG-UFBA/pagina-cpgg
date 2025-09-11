@@ -239,8 +239,8 @@ export function ReservasAdmin() {
 
       // Capturar os gráficos
       const chartsSelector = sectionType === 'physical' 
-        ? '#physical-section .grid.grid-cols-1.md\\:grid-cols-2 .gap-6'
-        : '#labs-section .grid.grid-cols-1.md\\:grid-cols-2 .gap-6'
+        ? '#physical-section .grid.grid-cols-1.md\\:grid-cols-2.gap-6.mb-6'
+        : '#labs-section .grid.grid-cols-1.md\\:grid-cols-2.gap-6.mb-6'
       
       const chartsContainer = document.querySelector(chartsSelector) as HTMLElement
       if (chartsContainer) {
@@ -260,77 +260,63 @@ export function ReservasAdmin() {
         pdf.addImage(chartsImgData, 'PNG', chartsX, marginTop, chartsWidth, chartsHeight)
       }
 
-      // Nova página para a tabela
+      // Nova página para a tabela (dados legíveis em 12pt)
       pdf.addPage()
-      pdf.setFontSize(16)
-      pdf.text(title, pdfWidth / 2, 15, { align: 'center' })
-      pdf.setFontSize(12)
-      pdf.text('Dados Detalhados', pdfWidth / 2, 22, { align: 'center' })
 
-      // Capturar apenas a tabela
-      const tableCanvas = await html2canvas(tableEl!, {
-        scale: 2,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#ffffff',
-      })
+      const autoTable = (await import('jspdf-autotable')).default as any
 
-      const tableImgData = tableCanvas.toDataURL('image/png')
-      
-      // Calcular quantas páginas são necessárias para a tabela
-      const maxTableHeight = availableHeight - 10 // Espaço extra para cabeçalho da página
-      const tableRatio = Math.min(pdfWidth / tableCanvas.width, maxTableHeight / tableCanvas.height)
-      const tableWidth = tableCanvas.width * tableRatio
-      const tableHeight = tableCanvas.height * tableRatio
+      const head = sectionType === 'physical'
+        ? [['Nome', 'Email', 'Espaço', 'Uso', 'Início', 'Término', 'Status', 'Solicitação']]
+        : [['Nome', 'Email', 'Laboratório/Espaço', 'Uso', 'Início', 'Término', 'Status', 'Solicitação', 'Equipamento']]
 
-      if (tableHeight <= maxTableHeight) {
-        // Tabela cabe em uma página
-        const tableX = (pdfWidth - tableWidth) / 2
-        pdf.addImage(tableImgData, 'PNG', tableX, marginTop + 10, tableWidth, tableHeight)
-      } else {
-        // Dividir tabela em múltiplas páginas
-        const pagesNeeded = Math.ceil(tableHeight / maxTableHeight)
-        const sliceHeight = tableCanvas.height / pagesNeeded
+      const sanitizeName = (nome: string, sobrenome: string) => `${nome} ${sobrenome}`
+        .replace(/\[?LAIGA\]?/gi, ' ')
+        .replace(/LAIGA\s*-\s*/gi, ' ')
+        .replace(/-\s*LAIGA/gi, ' ')
+        .replace(/LAIGA\s*:/gi, ' ')
+        .replace(/:\s*LAIGA/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
 
-        for (let i = 0; i < pagesNeeded; i++) {
-          if (i > 0) {
-            pdf.addPage()
-            pdf.setFontSize(16)
-            pdf.text(title, pdfWidth / 2, 15, { align: 'center' })
-            pdf.setFontSize(12)
-            pdf.text(`Dados Detalhados (Página ${i + 1}/${pagesNeeded})`, pdfWidth / 2, 22, { align: 'center' })
+      const body = (sectionType === 'physical'
+        ? physicalSpaceReservations
+        : laboratoryReservations).map((r) => {
+          const nome = sanitizeName(r.nome, r.sobrenome)
+          const inicio = formatDate(r.inicio)
+          const termino = formatDate(r.termino)
+          const solicitacao = formatDate(r.created_at)
+          if (sectionType === 'physical') {
+            const espaco = r.tipo_reserva === 'auditorio' ? 'Auditório' : 'Sala de Reunião'
+            return [nome, r.email, espaco, r.uso, inicio, termino, r.status, solicitacao]
+          } else {
+            const lab = r.tipo_reserva === 'laiga_equipments' ? 'LAIGA' : (r.tipo_reserva || '').toUpperCase()
+            return [nome, r.email, lab, r.uso, inicio, termino, r.status, solicitacao, r.equipamento || '-']
           }
+        })
 
-          // Criar canvas para esta fatia
-          const sliceCanvas = document.createElement('canvas')
-          sliceCanvas.width = tableCanvas.width
-          sliceCanvas.height = Math.min(sliceHeight, tableCanvas.height - (i * sliceHeight))
-          
-          const ctx = sliceCanvas.getContext('2d')!
-          ctx.drawImage(
-            tableCanvas,
-            0, i * sliceHeight,
-            tableCanvas.width, sliceCanvas.height,
-            0, 0,
-            tableCanvas.width, sliceCanvas.height
-          )
-
-          const sliceImgData = sliceCanvas.toDataURL('image/png')
-          const sliceScaledHeight = sliceCanvas.height * tableRatio
-          const tableX = (pdfWidth - tableWidth) / 2
-          
-          pdf.addImage(sliceImgData, 'PNG', tableX, marginTop + 10, tableWidth, sliceScaledHeight)
-        }
-      }
-
-      // Rodapé em todas as páginas
-      const totalPages = pdf.getNumberOfPages()
-      for (let i = 1; i <= totalPages; i++) {
-        pdf.setPage(i)
-        pdf.setFontSize(10)
-        pdf.text(`Data: ${new Date().toLocaleDateString('pt-BR')}`, 15, pdfHeight - 5)
-        pdf.text(`Página ${i} de ${totalPages}`, pdfWidth - 30, pdfHeight - 5)
-      }
+      autoTable(pdf, {
+        head,
+        body,
+        startY: 28,
+        theme: 'grid',
+        styles: { fontSize: 12, cellPadding: 3 },
+        headStyles: { fillColor: [230, 230, 230] },
+        columnStyles: {
+          0: { cellWidth: 45 }, // Nome
+          1: { cellWidth: 45 }, // Email
+        },
+        margin: { top: 25, bottom: 15, left: 10, right: 10 },
+        didDrawPage: (data: any) => {
+          const pageWidth = pdf.internal.pageSize.getWidth()
+          const pageHeight = pdf.internal.pageSize.getHeight()
+          pdf.setFontSize(16)
+          pdf.text(title, pageWidth / 2, 15, { align: 'center' })
+          pdf.setFontSize(10)
+          pdf.text(`Data: ${new Date().toLocaleDateString('pt-BR')}`, 15, pageHeight - 5)
+          const totalPages = pdf.getNumberOfPages()
+          pdf.text(`Página ${data.pageNumber} de ${totalPages}`, pageWidth - 30, pageHeight - 5)
+        },
+      })
 
       const filename = sectionType === 'physical' 
         ? 'relatorio-espacos-fisicos.pdf'
