@@ -77,6 +77,7 @@ import { Yeda } from './pages/HistoricalPhotos/Yeda'
 import {BlockE } from './pages/HistoricalPhotos/BlockE'
 import { FirstMeeting } from './pages/Photos/FirstMeeting'
 import { EventPhotos } from './pages/Photos/Event/EventPhotos'
+import { EventManager } from './pages/Photos/EventManager'
 import { Adm } from './pages/Adm'
 import { TI } from './pages/Adm/TI'
 import { Secretaria } from './pages/Adm/Secretaria'
@@ -166,6 +167,7 @@ export function Router() {
          <Route path='/Photos/Years' element={<Years />} /> 
          <Route path='/Photos/FirstMeeting' element={<FirstMeeting />} />
          <Route path='/Photos/Event/:id' element={<EventPhotos />} />
+         <Route path='/Photos/EventManager' element={<EventManager />} />
          <Route path='/Upload' element={<Adm />} />
          <Route path='/adm' element={<Adm />} />
          <Route path='/adm/ti' element={<TI />} />

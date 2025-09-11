@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import { Settings } from 'lucide-react'
 import styles from './Photos.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -14,9 +16,15 @@ interface Event {
 
 export function Photos() {
   const [events, setEvents] = useState<Event[]>([])
+  const [showAdminButton, setShowAdminButton] = useState(false)
 
   useEffect(() => {
     fetchEvents()
+    // Check if user has admin access
+    const savedAuth = localStorage.getItem('eventManagerAuth') || localStorage.getItem('eventPhotosAuth')
+    if (savedAuth === 'true') {
+      setShowAdminButton(true)
+    }
   }, [])
 
   const fetchEvents = async () => {
@@ -38,7 +46,20 @@ export function Photos() {
       <>
       <Header/>
           <div className={styles.photos}>
-              <h1 className={styles.title}>Fotos de eventos </h1>
+              <div className={styles.titleContainer}>
+                <h1 className={styles.title}>Fotos de eventos</h1>
+                {showAdminButton && (
+                  <Button
+                    onClick={() => window.location.href = '/Photos/EventManager'}
+                    size="sm"
+                    variant="secondary"
+                    className="flex items-center gap-2"
+                  >
+                    <Settings className="w-4 h-4" />
+                    Gerenciar Eventos
+                  </Button>
+                )}
+              </div>
 
               <div className={styles.container}>
                   <a className={styles.card} href="/Photos/HistoricalPhotos">
