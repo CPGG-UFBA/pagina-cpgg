@@ -216,6 +216,18 @@ export function ReservasAdmin() {
     const prevWidth = element.style.width
     element.style.width = `${element.clientWidth}px`
 
+    // Expandir a tabela para capturar todas as linhas (remover scroll temporariamente)
+    const tableId = sectionType === 'physical' ? 'physical-spaces-table' : 'laboratories-table'
+    const tableEl = document.getElementById(tableId) as HTMLElement | null
+    const prevMaxHeight = tableEl?.style.maxHeight
+    const prevOverflowY = tableEl?.style.overflowY
+    const prevHeight = tableEl?.style.height
+    if (tableEl) {
+      tableEl.style.maxHeight = 'none'
+      tableEl.style.overflowY = 'visible'
+      tableEl.style.height = 'auto'
+    }
+
     try {
       const canvas = await html2canvas(element, {
         scale: 2,
@@ -299,6 +311,11 @@ export function ReservasAdmin() {
       toast({ title: 'Erro', description: 'Erro ao gerar PDF', variant: 'destructive' })
     } finally {
       element.style.width = prevWidth
+      if (tableEl) {
+        tableEl.style.maxHeight = prevMaxHeight || ''
+        tableEl.style.overflowY = prevOverflowY || ''
+        tableEl.style.height = prevHeight || ''
+      }
     }
   }
 
