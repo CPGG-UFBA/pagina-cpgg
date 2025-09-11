@@ -1,6 +1,7 @@
 .container {
   min-height: 80vh;
   padding: 2rem;
+  padding-top: calc(2rem + 50px);
   background: hsl(var(--page-background));
   display: flex;
   justify-content: center;
