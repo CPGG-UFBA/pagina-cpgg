@@ -76,7 +76,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: calc(18rem + 200px);
+  margin-bottom: calc(18rem + 150px);
   position: static;
   grid-auto-rows: auto;
 }
@@ -204,7 +204,7 @@
 
   .container {
     grid-template-columns: 1fr 1fr;
-    margin-bottom: 30rem;
+    margin-bottom: calc(30rem - 50px);
   }
 }
 
@@ -215,7 +215,7 @@
   }
 
   .container {
-    margin-bottom: 27rem;
+    margin-bottom: calc(27rem - 50px);
   }
 }
 
@@ -228,6 +228,6 @@
     margin-left: 100px;
   }
   .container {
-    margin-bottom: 65rem;
+    margin-bottom: calc(65rem - 50px);
   }
 }
