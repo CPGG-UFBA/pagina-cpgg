@@ -116,7 +116,7 @@ export function EventPhotos() {
             onClick={handleEditClick}
             variant="outline"
             size="sm"
-            className="flex items-center gap-2"
+            className={`${styles.editButton} flex items-center gap-2`}
           >
             <Edit size={16} />
             Editar Fotos
