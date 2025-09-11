@@ -1,11 +1,12 @@
 .container {
   min-height: 100vh;
   background-image: url("../../../../assets/header-bg.jpg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top center;
   padding: 20px;
   padding-top: 120px;
+  position: relative;
 }
 
 .title {
