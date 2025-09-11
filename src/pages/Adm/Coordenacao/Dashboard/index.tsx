@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
-import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus, Image } from 'lucide-react'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus, Image, Calendar, FileSpreadsheet } from 'lucide-react'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
@@ -682,8 +682,17 @@ export function CoordenacaoDashboard() {
             className={styles.actionButton}
             variant="outline"
           >
-            <Settings className="w-5 h-5 mr-2" />
+            <Calendar className="w-5 h-5 mr-2" />
             Gerenciar Reservas
+          </Button>
+          
+          <Button
+            onClick={() => navigate('/adm/coordenacao/equipamentos-laiga')}
+            className={styles.actionButton}
+            variant="outline"
+          >
+            <FileSpreadsheet className="w-5 h-5 mr-2" />
+            Equipamentos LAIGA
           </Button>
         </div>
 

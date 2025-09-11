@@ -139,6 +139,60 @@ export type Database = {
         }
         Relationships: []
       }
+      laiga_equipments: {
+        Row: {
+          acquisition_date: string | null
+          brand: string | null
+          created_at: string
+          description: string | null
+          id: string
+          last_maintenance: string | null
+          location: string | null
+          model: string | null
+          name: string
+          next_maintenance: string | null
+          observations: string | null
+          responsible_person: string | null
+          serial_number: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          acquisition_date?: string | null
+          brand?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          last_maintenance?: string | null
+          location?: string | null
+          model?: string | null
+          name: string
+          next_maintenance?: string | null
+          observations?: string | null
+          responsible_person?: string | null
+          serial_number?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          acquisition_date?: string | null
+          brand?: string | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          last_maintenance?: string | null
+          location?: string | null
+          model?: string | null
+          name?: string
+          next_maintenance?: string | null
+          observations?: string | null
+          responsible_person?: string | null
+          serial_number?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       news: {
         Row: {
           content: string
