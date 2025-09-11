@@ -96,30 +96,82 @@ export function LaigaEquipmentUpload() {
 
       // Normalize field names and prepare data for database
       const normalizedData = equipmentData.map(item => {
-        const normalized = {
-          name: item.name || item['Nome'] || item['NOME'] || '',
-          description: item.description || item['Descrição'] || item['DESCRIÇÃO'] || item['Descricao'] || null,
-          model: item.model || item['Modelo'] || item['MODELO'] || null,
-          brand: item.brand || item['Marca'] || item['MARCA'] || null,
-          serial_number: item.serial_number || item['Número de Série'] || item['NUMERO_SERIE'] || item['Serial'] || null,
-          status: item.status || item['Status'] || item['STATUS'] || 'available',
-          location: item.location || item['Localização'] || item['LOCALIZACAO'] || item['Local'] || null,
-          responsible_person: item.responsible_person || item['Responsável'] || item['RESPONSAVEL'] || item['Responsavel'] || null,
-          acquisition_date: item.acquisition_date || item['Data de Aquisição'] || item['DATA_AQUISICAO'] || null,
-          last_maintenance: item.last_maintenance || item['Última Manutenção'] || item['ULTIMA_MANUTENCAO'] || null,
-          next_maintenance: item.next_maintenance || item['Próxima Manutenção'] || item['PROXIMA_MANUTENCAO'] || null,
-          observations: item.observations || item['Observações'] || item['OBSERVACOES'] || item['Obs'] || null
+        // Create a case-insensitive key mapper
+        const keys = Object.keys(item);
+        const findKey = (patterns: string[]) => {
+          for (const pattern of patterns) {
+            const found = keys.find(key => 
+              key.toLowerCase().includes(pattern.toLowerCase()) ||
+              pattern.toLowerCase().includes(key.toLowerCase())
+            );
+            if (found) return item[found as keyof typeof item];
+          }
+          return null;
         };
-        console.log('Original item:', item, 'Normalized:', normalized);
+
+        const normalized = {
+          name: findKey([
+            'name', 'nome', 'equipamento', 'equipment', 'item', 'produto', 'product',
+            'denominação', 'denominacao', 'título', 'titulo', 'descritor'
+          ]) || '',
+          description: findKey([
+            'description', 'descrição', 'descricao', 'desc', 'detalhes', 'details',
+            'especificação', 'especificacao', 'specs', 'características', 'caracteristicas'
+          ]),
+          model: findKey([
+            'model', 'modelo', 'mod', 'version', 'versão', 'versao', 'tipo', 'type'
+          ]),
+          brand: findKey([
+            'brand', 'marca', 'fabricante', 'manufacturer', 'make', 'empresa', 'company'
+          ]),
+          serial_number: findKey([
+            'serial_number', 'serial', 'série', 'serie', 'numero_serie', 'número_série',
+            'número de série', 'numero de serie', 'sn', 's/n', 'number', 'numero'
+          ]),
+          status: findKey([
+            'status', 'estado', 'situação', 'situacao', 'condition', 'condição', 'condicao',
+            'disponibilidade', 'availability', 'ativo', 'active'
+          ]) || 'available',
+          location: findKey([
+            'location', 'localização', 'localizacao', 'local', 'lugar', 'place',
+            'sala', 'room', 'setor', 'sector', 'área', 'area'
+          ]),
+          responsible_person: findKey([
+            'responsible_person', 'responsável', 'responsavel', 'responsible', 
+            'encarregado', 'supervisor', 'operador', 'operator', 'técnico', 'tecnico',
+            'usuario', 'usuário', 'user'
+          ]),
+          acquisition_date: findKey([
+            'acquisition_date', 'data_aquisição', 'data_aquisicao', 'data de aquisição',
+            'data de aquisicao', 'compra', 'purchase', 'bought', 'adquirido', 'acquired'
+          ]),
+          last_maintenance: findKey([
+            'last_maintenance', 'última_manutenção', 'ultima_manutencao', 'última manutenção',
+            'ultima manutencao', 'manutenção', 'manutencao', 'maintenance', 'revisão', 'revisao'
+          ]),
+          next_maintenance: findKey([
+            'next_maintenance', 'próxima_manutenção', 'proxima_manutencao', 'próxima manutenção',
+            'proxima manutencao', 'next', 'próximo', 'proximo', 'future', 'futuro'
+          ]),
+          observations: findKey([
+            'observations', 'observações', 'observacoes', 'obs', 'notas', 'notes',
+            'comentários', 'comentarios', 'comments', 'remarks', 'anotações', 'anotacoes'
+          ])
+        };
+        
+        console.log('Original item keys:', keys);
+        console.log('Original item:', item);
+        console.log('Normalized:', normalized);
         return normalized;
-      }).filter(item => item.name); // Remove items without name
+      }).filter(item => item.name && item.name.toString().trim() !== ''); // Remove items without valid name
 
       console.log('Normalized data:', normalizedData);
 
       if (normalizedData.length === 0) {
+        const sampleKeys = equipmentData[0] ? Object.keys(equipmentData[0]) : [];
         toast({
           title: 'Nenhum equipamento válido encontrado',
-          description: 'Verifique se o arquivo contém dados válidos com pelo menos o campo "nome". Campos detectados: ' + Object.keys(equipmentData[0] || {}).join(', '),
+          description: `Verifique se o arquivo contém dados válidos. Colunas encontradas: ${sampleKeys.join(', ')}. Certifique-se de que existe uma coluna com nome do equipamento.`,
           variant: 'destructive',
         });
         return;
