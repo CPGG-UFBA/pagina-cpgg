@@ -27,11 +27,33 @@ export function LaigaEquipmentUpload() {
   const [isUploading, setIsUploading] = useState(false);
   const { toast } = useToast();
 
+  // Normalize header/keys: remove BOM, trim, lowercase, remove accents and non-alphanumerics
+  const normalizeKey = (str: string | null | undefined) => {
+    if (!str) return '';
+    return str
+      .replace(/^\uFEFF/, '') // BOM
+      .trim()
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '') // remove diacritics
+      .replace(/[^a-z0-9]+/g, '_')
+      .replace(/^_+|_+$/g, '');
+  };
+
+  const normalizeValue = (val: unknown) => {
+    if (typeof val === 'string') return val.trim();
+    return val;
+  };
+
   const processCSV = (file: File): Promise<Equipment[]> => {
     return new Promise((resolve, reject) => {
       Papa.parse(file, {
         header: true,
-        skipEmptyLines: true,
+        skipEmptyLines: 'greedy',
+        dynamicTyping: false,
+        encoding: 'utf-8',
+        transformHeader: (header: string) => normalizeKey(header),
+        transform: (value: any) => normalizeValue(value),
         complete: (results) => {
           resolve(results.data as Equipment[]);
         },
