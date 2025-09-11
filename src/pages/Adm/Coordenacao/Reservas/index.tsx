@@ -811,7 +811,7 @@ export function ReservasAdmin() {
                               ) : (
                                 <div className="flex items-center gap-2">
                                   <User className="w-4 h-4" />
-                                  {reservation.nome} {reservation.sobrenome}
+                                  {reservation.nome.replace(/LAIGA/gi, '').trim()} {reservation.sobrenome.replace(/LAIGA/gi, '').trim()}
                                 </div>
                               )}
                             </TableCell>
