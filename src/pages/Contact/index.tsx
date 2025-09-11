@@ -3,7 +3,7 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import earth from '../../assets/earth-imgur.png'
 import Whats from '../../assets/whatsapp-icon.png'
-import { useToast } from '@/components/ui/use-toast'
+import { useToast } from '@/hooks/use-toast'
 
 export function Contact() {
   const phoneNumber = '+55(71)3283-8531'
@@ -31,18 +31,9 @@ export function Contact() {
         <p> secretaria.cpgg.ufba@gmail.com</p>
 
         <div className={styles.whatsappSection}>
-          <a
-            href={whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.whatsappLink}
-            aria-label="Abrir conversa no WhatsApp"
-          >
-            <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
-            <span>Whats app us</span>
-          </a>
           <button type="button" className={styles.whatsappLink} onClick={copyWhatsAppLink} aria-label="Copiar link do WhatsApp">
-            Copiar link
+            <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
+            <span>Copiar link</span>
           </button>
         </div>
 
