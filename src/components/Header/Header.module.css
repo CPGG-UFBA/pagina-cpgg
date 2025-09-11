@@ -42,7 +42,9 @@
   color: #FF5733;
 }
 
-nav { 
+nav {
+  position: relative;
+  z-index: 2000;
   pointer-events: auto;
 }
 
