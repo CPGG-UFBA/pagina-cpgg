@@ -139,6 +139,33 @@ export type Database = {
         }
         Relationships: []
       }
+      laiga_equipment: {
+        Row: {
+          created_at: string
+          description: string | null
+          id: string
+          is_available: boolean
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_available?: boolean
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          id?: string
+          is_available?: boolean
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       laiga_equipments: {
         Row: {
           acquisition_date: string | null

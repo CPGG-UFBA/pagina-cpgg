@@ -1,30 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { supabase } from '../../../../integrations/supabase/client'
+import { LaigaEquipmentEditor } from '../../../../components/LaigaEquipmentEditor'
 import styles from './LaigaReservation.module.css'
 import { toast } from '@/hooks/use-toast'
 
-const equipments = [
-  'Elrec Pro',
-  'Gamaespectrômetro RS125',
-  'Gerador Honda EG5500',
-  'GPR SIR 3000',
-  'GPR SIR 4000',
-  'GPR SIR 20',
-  'GPS diferencial SP60',
-  'GPS Etrex10',
-  'Gravímetro CG5',
-  'Magnetômetro Marinho G882',
-  'Magnetômetro Terrestre GSN19',
-  'Simsógrafo Geode48',
-  'Susceptibilímetro KT10',
-  'Syscal Pro',
-  'VLF T-VLF',
-  'V8 Phoenix'
-].sort()
-
 export function RF() {
+  const [equipments, setEquipments] = useState<string[]>([])
   const [formData, setFormData] = useState({
     selectedEquipments: [] as string[],
     otherEquipment: '',
@@ -39,6 +22,47 @@ export function RF() {
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Fetch equipments from database
+  useEffect(() => {
+    fetchEquipments()
+  }, [])
+
+  const fetchEquipments = async () => {
+    try {
+      const { data, error } = await supabase
+        .from('laiga_equipment')
+        .select('name')
+        .eq('is_available', true)
+        .order('name')
+
+      if (error) throw error
+
+      const equipmentNames = (data || []).map(item => item.name).sort()
+      setEquipments(equipmentNames)
+    } catch (error: any) {
+      console.error('Erro ao buscar equipamentos:', error)
+      // Fallback to hardcoded list if database fails
+      setEquipments([
+        'Elrec Pro',
+        'Gamaespectrômetro RS125', 
+        'Gerador Honda EG5500',
+        'GPR SIR 3000',
+        'GPR SIR 4000',
+        'GPR SIR 20',
+        'GPS diferencial SP60',
+        'GPS Etrex10',
+        'Gravímetro CG5',
+        'Magnetômetro Marinho G882',
+        'Magnetômetro Terrestre GSN19',
+        'Simsógrafo Geode48',
+        'Susceptibilímetro KT10',
+        'Syscal Pro',
+        'VLF T-VLF',
+        'V8 Phoenix'
+      ].sort())
+    }
+  }
 
   const handleEquipmentChange = (equipment: string, checked: boolean) => {
     if (checked) {
@@ -182,6 +206,7 @@ export function RF() {
     <div className={styles.container}>
       <Header />
       <div className={styles.content}>
+        <LaigaEquipmentEditor onEquipmentChange={setEquipments} />
         <h1 className={styles.title}>Formulário de Reserva de Equipamentos - LAIGA</h1>
         
         <div className={styles.formContainer}>
