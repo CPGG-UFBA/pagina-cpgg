@@ -52,21 +52,21 @@ export function DynamicResearcherProfile({
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
   return (
-    <>
-      {photoUrl && (
-        <div className="mb-4">
+    <div className="flex w-full items-start gap-6">
+      <div className="flex flex-col items-center gap-3 min-w-[12rem]">
+        {photoUrl && (
           <img 
             src={photoUrl} 
             alt={`Foto de ${researcherName}`}
             className="w-48 h-48 object-cover rounded-lg shadow-md"
+            loading="lazy"
           />
-        </div>
-      )}
-      {belowPhoto}
-      <div className="description">
-        <h2>Descrição</h2>
+        )}
+        {belowPhoto}
+      </div>
+      <div className="flex-1 px-4">
         <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
       </div>
-    </>
+    </div>
   )
 }
