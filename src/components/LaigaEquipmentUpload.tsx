@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { useToast } from '@/components/ui/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 import * as XLSX from 'xlsx';
 import Papa from 'papaparse';
@@ -66,6 +66,8 @@ export function LaigaEquipmentUpload() {
     const file = event.target.files?.[0];
     if (!file) return;
 
+    console.log('File selected:', file.name, 'Type:', file.type, 'Size:', file.size);
+
     const fileExtension = file.name.split('.').pop()?.toLowerCase();
     
     if (!['csv', 'xls', 'xlsx'].includes(fileExtension || '')) {
@@ -82,32 +84,42 @@ export function LaigaEquipmentUpload() {
     try {
       let equipmentData: Equipment[];
 
+      console.log('Processing file with extension:', fileExtension);
+
       if (fileExtension === 'csv') {
         equipmentData = await processCSV(file);
       } else {
         equipmentData = await processExcel(file);
       }
 
+      console.log('Raw data from file:', equipmentData);
+
       // Normalize field names and prepare data for database
-      const normalizedData = equipmentData.map(item => ({
-        name: item.name || item['Nome'] || item['NOME'] || '',
-        description: item.description || item['Descrição'] || item['DESCRIÇÃO'] || item['Descricao'] || null,
-        model: item.model || item['Modelo'] || item['MODELO'] || null,
-        brand: item.brand || item['Marca'] || item['MARCA'] || null,
-        serial_number: item.serial_number || item['Número de Série'] || item['NUMERO_SERIE'] || item['Serial'] || null,
-        status: item.status || item['Status'] || item['STATUS'] || 'available',
-        location: item.location || item['Localização'] || item['LOCALIZACAO'] || item['Local'] || null,
-        responsible_person: item.responsible_person || item['Responsável'] || item['RESPONSAVEL'] || item['Responsavel'] || null,
-        acquisition_date: item.acquisition_date || item['Data de Aquisição'] || item['DATA_AQUISICAO'] || null,
-        last_maintenance: item.last_maintenance || item['Última Manutenção'] || item['ULTIMA_MANUTENCAO'] || null,
-        next_maintenance: item.next_maintenance || item['Próxima Manutenção'] || item['PROXIMA_MANUTENCAO'] || null,
-        observations: item.observations || item['Observações'] || item['OBSERVACOES'] || item['Obs'] || null
-      })).filter(item => item.name); // Remove items without name
+      const normalizedData = equipmentData.map(item => {
+        const normalized = {
+          name: item.name || item['Nome'] || item['NOME'] || '',
+          description: item.description || item['Descrição'] || item['DESCRIÇÃO'] || item['Descricao'] || null,
+          model: item.model || item['Modelo'] || item['MODELO'] || null,
+          brand: item.brand || item['Marca'] || item['MARCA'] || null,
+          serial_number: item.serial_number || item['Número de Série'] || item['NUMERO_SERIE'] || item['Serial'] || null,
+          status: item.status || item['Status'] || item['STATUS'] || 'available',
+          location: item.location || item['Localização'] || item['LOCALIZACAO'] || item['Local'] || null,
+          responsible_person: item.responsible_person || item['Responsável'] || item['RESPONSAVEL'] || item['Responsavel'] || null,
+          acquisition_date: item.acquisition_date || item['Data de Aquisição'] || item['DATA_AQUISICAO'] || null,
+          last_maintenance: item.last_maintenance || item['Última Manutenção'] || item['ULTIMA_MANUTENCAO'] || null,
+          next_maintenance: item.next_maintenance || item['Próxima Manutenção'] || item['PROXIMA_MANUTENCAO'] || null,
+          observations: item.observations || item['Observações'] || item['OBSERVACOES'] || item['Obs'] || null
+        };
+        console.log('Original item:', item, 'Normalized:', normalized);
+        return normalized;
+      }).filter(item => item.name); // Remove items without name
+
+      console.log('Normalized data:', normalizedData);
 
       if (normalizedData.length === 0) {
         toast({
           title: 'Nenhum equipamento válido encontrado',
-          description: 'Verifique se o arquivo contém dados válidos com pelo menos o campo "nome".',
+          description: 'Verifique se o arquivo contém dados válidos com pelo menos o campo "nome". Campos detectados: ' + Object.keys(equipmentData[0] || {}).join(', '),
           variant: 'destructive',
         });
         return;
@@ -119,6 +131,7 @@ export function LaigaEquipmentUpload() {
         .insert(normalizedData);
 
       if (error) {
+        console.error('Supabase error:', error);
         throw error;
       }
 
@@ -134,7 +147,7 @@ export function LaigaEquipmentUpload() {
       console.error('Error uploading file:', error);
       toast({
         title: 'Erro no upload',
-        description: 'Ocorreu um erro ao processar o arquivo. Verifique o formato e tente novamente.',
+        description: error instanceof Error ? error.message : 'Ocorreu um erro ao processar o arquivo. Verifique o formato e tente novamente.',
         variant: 'destructive',
       });
     } finally {
