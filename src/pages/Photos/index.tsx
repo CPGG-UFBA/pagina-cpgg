@@ -32,7 +32,9 @@ export  function Photos() {
                  </div>
               </div>
           </div>
-          <Footer/>
+          <div className={styles.photosFooter}>
+            <Footer/>
+          </div>
       </>
   )
 }
