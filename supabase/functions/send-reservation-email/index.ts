@@ -1,5 +1,10 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { Resend } from "npm:resend@4.0.0";
+
+const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+const supabaseKey = Deno.env.get("SUPABASE_ANON_KEY")!;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -38,6 +43,26 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Received reservation request", { nome, sobrenome, email, uso, inicio, termino, tipoReserva });
 
+    // Salvar reserva no banco de dados
+    const { data: reservationData, error: dbError } = await supabase
+      .from('reservations')
+      .insert({
+        nome,
+        sobrenome,
+        email,
+        uso,
+        inicio: new Date(inicio).toISOString(),
+        termino: new Date(termino).toISOString(),
+        tipo_reserva: tipoReserva
+      })
+      .select()
+      .single();
+
+    if (dbError) {
+      console.error("Database error:", dbError);
+      throw new Error(`Erro ao salvar reserva no banco: ${dbError.message}`);
+    }
+
     // Email da secretária (configurável)
     const secretariaEmail = "secretaria.cpgg.ufba@gmail.com";
 
@@ -62,6 +87,7 @@ const handler = async (req: Request): Promise<Response> => {
           <li><strong>Finalidade:</strong> ${uso}</li>
           <li><strong>Data/Hora de Início:</strong> ${inicioFormatado}</li>
           <li><strong>Data/Hora de Término:</strong> ${terminoFormatado}</li>
+          <li><strong>Protocolo:</strong> ${reservationData.id}</li>
         </ul>
         <p>Entre em contato com o solicitante para confirmar a disponibilidade.</p>
       `,
@@ -72,33 +98,13 @@ const handler = async (req: Request): Promise<Response> => {
       throw new Error(`Falha ao enviar email para secretaria: ${emailSecretaria.error.message ?? emailSecretaria.error}`);
     }
 
-    // Email de confirmação para o solicitante
-    const emailSolicitante = await resend.emails.send({
-      from: "CPGG <noreply@resend.dev>",
-      to: [email],
-      subject: "Confirmação de Solicitação - CPGG",
-      html: `
-        <p>Prezado ${nome},</p>
-        <br>
-        <p>Sua requisição foi enviada com sucesso. Em breve retornaremos o contato informando sobre a disponibilidade da reserva e seus respectivos detalhes.</p>
-        <br>
-        <p>Atenciosamente,</p>
-        <br>
-        <p>Secretaria do CPGG</p>
-      `,
-    });
-
-    if (emailSolicitante?.error) {
-      console.error("Resend error (solicitante):", emailSolicitante.error);
-      throw new Error(`Falha ao enviar email de confirmação: ${emailSolicitante.error.message ?? emailSolicitante.error}`);
-    }
-
-    console.log("Emails sent via Resend:", { emailSecretaria, emailSolicitante });
+    console.log("Email sent to secretary and reservation saved:", { emailSecretaria, reservationId: reservationData.id });
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        message: "Emails enviados com sucesso" 
+        message: "Reserva salva e email enviado para secretaria",
+        reservationId: reservationData.id
       }), 
       {
         status: 200,
@@ -113,7 +119,7 @@ const handler = async (req: Request): Promise<Response> => {
     console.error("Error sending reservation emails:", error);
     return new Response(
       JSON.stringify({ 
-        error: error?.message ?? "Erro desconhecido ao enviar emails",
+        error: error?.message ?? "Erro desconhecido ao processar reserva",
         success: false 
       }),
       {

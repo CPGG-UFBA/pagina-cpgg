@@ -212,6 +212,48 @@ export type Database = {
         }
         Relationships: []
       }
+      reservations: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          inicio: string
+          nome: string
+          sobrenome: string
+          status: string
+          termino: string
+          tipo_reserva: string
+          updated_at: string
+          uso: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          inicio: string
+          nome: string
+          sobrenome: string
+          status?: string
+          termino: string
+          tipo_reserva: string
+          updated_at?: string
+          uso: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          inicio?: string
+          nome?: string
+          sobrenome?: string
+          status?: string
+          termino?: string
+          tipo_reserva?: string
+          updated_at?: string
+          uso?: string
+        }
+        Relationships: []
+      }
       user_profiles: {
         Row: {
           created_at: string

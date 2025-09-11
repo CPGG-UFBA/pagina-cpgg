@@ -22,6 +22,12 @@ export function MR() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
+    // Validar se todos os campos estão preenchidos
+    if (!formData.nome || !formData.sobrenome || !formData.email || !formData.uso || !formData.inicio || !formData.termino) {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;
+    }
+    
     try {
       const { data, error } = await supabase.functions.invoke('send-reservation-email', {
         body: {
@@ -33,8 +39,8 @@ export function MR() {
       if (error) throw error;
 
       console.log('Reserva enviada com sucesso:', data);
-      // Redirecionar para página de sucesso
-      window.location.href = "/Reservations/Success"
+      // Redirecionar para página de comprovante
+      window.location.href = `/Reservations/Receipt?id=${data.reservationId}`
     } catch (error) {
       console.error('Erro ao enviar reserva:', error);
       alert('Erro ao enviar reserva. Tente novamente.');

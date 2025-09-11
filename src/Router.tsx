@@ -63,6 +63,7 @@ import { MeetingRoom } from './pages/Spaces/MeetingRoom'
 import { RA } from './pages/Reservations/ReservationAuditory'
 import { MR } from './pages/Reservations/ReservationMeetingRoom'
 import { Success } from './pages/Reservations/Success'
+import { Receipt } from './pages/Reservations/Receipt'
 import { Successlab } from './pages/Labs/Successlab'
 
 
@@ -152,6 +153,7 @@ export function Router() {
          <Route path='/Reservations/ReservationAuditory' element={<RA />} />
          <Route path='/Reservations/ReservationMeetingRoom' element={<MR />} />
          <Route path='/Reservations/Success' element={<Success />} />
+         <Route path='/Reservations/Receipt' element={<Receipt />} />
          <Route path='/Regulations' element={<Regulations />} />  
          <Route path='/research-projects' element={<ResearchProjects />} />
          <Route path='/Photos' element={<Photos />} />
