@@ -8,9 +8,7 @@ export function Contact() {
   const phoneNumber = '+55(71)3283-8531'
   const whatsappNumber = '5571328385531'
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-  const whatsappHref = isMobile
-    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
-    : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
 
   const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     try {
@@ -47,7 +45,6 @@ export function Contact() {
             rel="noopener noreferrer"
             className={styles.whatsappLink}
             aria-label="Abrir conversa no WhatsApp"
-            onClick={handleWhatsAppClick}
           >
             <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
             <span>Whats app us</span>
