@@ -42,6 +42,10 @@
   color: #FF5733;
 }
 
+nav { 
+  pointer-events: auto;
+}
+
 nav ul {
   display: inline-flex;
   list-style: none;

@@ -10,8 +10,9 @@
   background-repeat: no-repeat;
   background-position: top center;
   padding: 20px;
-  padding-top: 120px;
+  padding-top: 140px;
   position: relative;
+  z-index: 1;
 }
 
 .title {
