@@ -4,6 +4,7 @@ import { supabase } from '../../../integrations/supabase/client'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import styles from './Receipt.module.css'
+import cpggLogo from '../../../assets/cpgg-logo-header.png'
 
 interface Reservation {
   id: string
@@ -96,6 +97,7 @@ export function Receipt() {
       <div className={styles.container}>
         <div className={styles.receipt}>
           <div className={styles.header}>
+            <img src={cpggLogo} alt="Logo CPGG" className={styles.logo} />
             <h1>COMPROVANTE DE SOLICITAÇÃO</h1>
             <h2>Centro de Pesquisa em Geofísica e Geologia - CPGG/UFBA</h2>
           </div>
