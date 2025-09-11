@@ -5,12 +5,9 @@
 
 .content {
   min-height: 100vh;
-  background-image: url("../../../../assets/header-bg.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top center;
+  /* sem background aqui, igual à Home */
   padding: 20px;
-  padding-top: 140px;
+  padding-top: 140px; /* igual à Home */
   position: relative;
 }
 
