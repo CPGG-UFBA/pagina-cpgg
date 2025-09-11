@@ -11,7 +11,6 @@ export function Contact() {
   const whatsappHref = isMobile
     ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
     : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
-  const whatsappAppHref = `whatsapp://send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
   return (
     <>
       <Header />
@@ -22,22 +21,10 @@ export function Contact() {
         <div className={styles.whatsappSection}>
           <a
             href={whatsappHref}
-            target="_blank"
+            target="_top"
             rel="noopener noreferrer"
             className={styles.whatsappLink}
             aria-label="Abrir conversa no WhatsApp"
-            onClick={(e) => {
-              if (isMobile) {
-                try {
-                  window.location.href = whatsappAppHref
-                  setTimeout(() => {
-                    window.open(whatsappHref, '_blank', 'noopener,noreferrer')
-                  }, 700)
-                } catch {
-                  window.open(whatsappHref, '_blank', 'noopener,noreferrer')
-                }
-              }
-            }}
           >
             <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
             <span>Whats app us</span>
@@ -45,7 +32,7 @@ export function Contact() {
         </div>
 
         <b> {phoneNumber}</b>
-        <p className={styles.address}> R. Barão de Jeremoabo, s/n - Ondina, Salvador - BA, 40170-290</p>
+        <p className={styles.address}> Av. Anita Garibaldi, s/n -Acesso Portão 2. Ondina, Salvador - BA, 40170-290</p>
         <p className={styles.building}> Bloco E- Anexo ao Instituto de Geociências</p>
 
         <div className={styles.staticFigure}>
