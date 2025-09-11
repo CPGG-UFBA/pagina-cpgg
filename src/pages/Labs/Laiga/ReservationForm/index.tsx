@@ -109,11 +109,20 @@ export function RF() {
     setIsSubmitting(true)
     
     try {
+      console.log('Enviando dados para a função:', formData)
+      
       const { data, error } = await supabase.functions.invoke('send-laiga-reservation', {
         body: formData
       })
 
-      if (error) throw error
+      console.log('Resposta da função:', { data, error })
+
+      if (error) {
+        console.error('Erro da função:', error)
+        throw error
+      }
+
+      console.log('Sucesso! Dados recebidos:', data)
 
       toast({
         title: "Sucesso",
@@ -121,7 +130,9 @@ export function RF() {
       })
 
       // Redirecionar para comprovante
-      window.open(`/Labs/Laiga/Receipt?id=${data.reservationId}`, '_blank')
+      if (data?.reservationId) {
+        window.open(`/Labs/Laiga/Receipt?id=${data.reservationId}`, '_blank')
+      }
       
       // Resetar formulário
       setFormData({
@@ -136,11 +147,17 @@ export function RF() {
         damageReportAgreement: false
       })
       
-    } catch (error) {
+    } catch (error: any) {
       console.error('Erro ao enviar solicitação:', error)
+      console.error('Detalhes do erro:', {
+        message: error?.message,
+        details: error?.details,
+        stack: error?.stack
+      })
+      
       toast({
         title: "Erro",
-        description: "Erro ao enviar solicitação. Tente novamente.",
+        description: `Erro ao enviar solicitação: ${error?.message || 'Erro desconhecido'}`,
         variant: "destructive"
       })
     } finally {

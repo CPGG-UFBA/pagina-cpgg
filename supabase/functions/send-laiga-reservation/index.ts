@@ -15,6 +15,7 @@ interface LaigaReservationRequest {
   returnDate: string
   purpose: string
   applicantName: string
+  applicantEmail?: string
   agreementAccepted: boolean
 }
 
@@ -52,7 +53,7 @@ const handler = async (req: Request): Promise<Response> => {
       .insert({
         nome: reservationData.applicantName,
         sobrenome: '', // Campo obrigatório mas não usado neste formulário
-        email: 'laiga@reservation.temp', // Temporário
+        email: reservationData.applicantEmail || 'laiga@reservation.temp', // Usar email fornecido ou temporário
         uso: `${reservationData.purpose} - Equipamentos: ${reservationData.selectedEquipments.join(', ')}${reservationData.otherEquipment ? `, ${reservationData.otherEquipment}` : ''}`,
         inicio: new Date(reservationData.withdrawalDate).toISOString(),
         termino: new Date(reservationData.returnDate).toISOString(),
