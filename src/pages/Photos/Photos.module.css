@@ -105,7 +105,7 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   width: 350px;
-  min-height: 120px;
+  height: 130px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -120,12 +120,12 @@
 
 .eventCard h2 {
   margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
 .eventCard p {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   opacity: 0.9;
   margin: 0;
 }
