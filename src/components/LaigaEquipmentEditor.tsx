@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Edit2, Plus, Trash2, Save, X } from 'lucide-react'
 import { supabase } from '@/integrations/supabase/client'
 import { toast } from '@/hooks/use-toast'
+import { AdminLoginLabs } from './AdminLoginLabs'
 
 interface Equipment {
   id: string
@@ -20,17 +21,48 @@ export function LaigaEquipmentEditor({ onEquipmentChange }: LaigaEquipmentEditor
   const [editingId, setEditingId] = useState<string | null>(null)
   const [newEquipment, setNewEquipment] = useState({ name: '', description: '' })
   const [isAuthenticated, setIsAuthenticated] = useState(false)
-  const [loading, setLoading] = useState(true)
+  const [showLoginDialog, setShowLoginDialog] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    checkAuthentication()
     fetchEquipments()
   }, [])
 
-  const checkAuthentication = async () => {
-    const { data: { user } } = await supabase.auth.getUser()
-    setIsAuthenticated(!!user)
-    setLoading(false)
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('email', email)
+        .eq('password', password)
+        .eq('role', 'coordenacao')
+        .single()
+
+      if (error) throw error
+
+      if (data) {
+        setIsAuthenticated(true)
+        setShowLoginDialog(false)
+        toast({
+          title: "Sucesso!",
+          description: "Login realizado com sucesso. Agora você pode editar os equipamentos.",
+        })
+      }
+    } catch (error: any) {
+      toast({
+        title: "Erro",
+        description: "Email ou senha inválidos ou você não tem permissões de coordenação",
+        variant: "destructive"
+      })
+    }
+  }
+
+  const handleEditButtonClick = () => {
+    if (isAuthenticated) {
+      setIsEditMode(true)
+    } else {
+      setShowLoginDialog(true)
+    }
   }
 
   const fetchEquipments = async () => {
@@ -167,18 +199,11 @@ export function LaigaEquipmentEditor({ onEquipmentChange }: LaigaEquipmentEditor
     }
   }
 
-  if (loading) {
-    return <div>Carregando...</div>
-  }
-
-  if (!isAuthenticated) {
-    return null
-  }
 
   return (
     <div style={{ position: 'relative' }}>
       <button
-        onClick={() => setIsEditMode(!isEditMode)}
+        onClick={handleEditButtonClick}
         style={{
           position: 'absolute',
           top: '-50px',
@@ -200,7 +225,13 @@ export function LaigaEquipmentEditor({ onEquipmentChange }: LaigaEquipmentEditor
         <Edit2 size={20} />
       </button>
 
-      {isEditMode && (
+      <AdminLoginLabs
+        isOpen={showLoginDialog}
+        onClose={() => setShowLoginDialog(false)}
+        onLogin={handleLogin}
+      />
+
+      {isEditMode && isAuthenticated && (
         <div style={{
           position: 'fixed',
           top: 0,
