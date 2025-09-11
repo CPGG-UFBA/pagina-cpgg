@@ -36,6 +36,8 @@ const handler = async (req: Request): Promise<Response> => {
   try {
     const { nome, sobrenome, email, uso, inicio, termino, tipoReserva }: ReservationRequest = await req.json();
 
+    console.log("Received reservation request", { nome, sobrenome, email, uso, inicio, termino, tipoReserva });
+
     // Email da secretária (configurável)
     const secretariaEmail = "secretaria.cpgg.ufba@gmail.com";
 
@@ -47,8 +49,8 @@ const handler = async (req: Request): Promise<Response> => {
     const espacoNome = tipoReserva === 'auditorio' ? 'Auditório' : 'Sala de Reuniões';
 
     // Email para a secretária
-    const emailSecretaria = await resend.emails.send({
-      from: "CPGG <noreply@resend.dev>",
+    const { data: secretariaData, error: secretariaError } = await resend.emails.send({
+      from: "CPGG <onboarding@resend.dev>",
       to: [secretariaEmail],
       subject: `Nova Solicitação de Reserva - ${espacoNome}`,
       html: `
@@ -65,9 +67,14 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
+    if (secretariaError) {
+      console.error("Resend error (secretaria):", secretariaError);
+      throw new Error(`Falha ao enviar email para secretaria: ${secretariaError.message ?? secretariaError}`);
+    }
+
     // Email de confirmação para o solicitante
-    const emailSolicitante = await resend.emails.send({
-      from: "CPGG <noreply@resend.dev>",
+    const { data: solicitanteData, error: solicitanteError } = await resend.emails.send({
+      from: "CPGG <onboarding@resend.dev>",
       to: [email],
       subject: "Confirmação de Solicitação - CPGG",
       html: `
@@ -81,7 +88,12 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Emails sent via Resend:", { emailSecretaria, emailSolicitante });
+    if (solicitanteError) {
+      console.error("Resend error (solicitante):", solicitanteError);
+      throw new Error(`Falha ao enviar email de confirmação: ${solicitanteError.message ?? solicitanteError}`);
+    }
+
+    console.log("Emails sent via Resend:", { secretariaData, solicitanteData });
 
     return new Response(
       JSON.stringify({ 
