@@ -13,7 +13,7 @@
   }
 
 
-.Professor p {
+.Professor > p {
   font-size: 25px;
   color: #363F5; 
   padding-left: 250px;
