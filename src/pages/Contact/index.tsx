@@ -11,6 +11,28 @@ export function Contact() {
   const whatsappHref = isMobile
     ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
     : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
+
+  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    try {
+      // Prevent default to control navigation within sandboxed preview
+      e.preventDefault()
+      const appUrl = `whatsapp://send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
+      const webUrl = isMobile
+        ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
+        : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
+
+      // Try to open the app/web in a new tab first
+      const win = window.open(isMobile ? appUrl : webUrl, '_blank', 'noopener,noreferrer')
+
+      // If blocked, fallback to navigating current context
+      if (!win) {
+        window.location.href = webUrl
+      }
+    } catch (_) {
+      // Last resort fallback
+      window.location.href = whatsappHref
+    }
+  }
   return (
     <>
       <Header />
@@ -21,10 +43,11 @@ export function Contact() {
         <div className={styles.whatsappSection}>
           <a
             href={whatsappHref}
-            target="_top"
+            target="_blank"
             rel="noopener noreferrer"
             className={styles.whatsappLink}
             aria-label="Abrir conversa no WhatsApp"
+            onClick={handleWhatsAppClick}
           >
             <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
             <span>Whats app us</span>
