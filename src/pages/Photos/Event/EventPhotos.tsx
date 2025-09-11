@@ -6,7 +6,7 @@ import { Footer } from '@/components/Footer'
 import { Button } from '@/components/ui/button'
 import { AdminLoginEventPhotos } from './components/AdminLoginEventPhotos'
 import { EventPhotoEditor } from './components/EventPhotoEditor'
-import { Edit } from 'lucide-react'
+import { Edit3 } from 'lucide-react'
 import styles from './EventPhotos.module.css'
 
 interface EventPhoto {
@@ -29,6 +29,7 @@ export function EventPhotos() {
   const [showLoginDialog, setShowLoginDialog] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [showEditor, setShowEditor] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     if (id) {
@@ -112,15 +113,25 @@ export function EventPhotos() {
       <div className={styles.Years}>
         <div className={styles.yearHeader}>
           <ul>{event.name}</ul>
-          <Button
-            onClick={handleEditClick}
-            variant="outline"
-            size="sm"
-            className={`${styles.editButton} flex items-center gap-2`}
+          <div 
+            className={styles.editButton}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            <Edit size={16} />
-            Editar Fotos
-          </Button>
+            <Button
+              onClick={handleEditClick}
+              size="sm"
+              variant="secondary"
+              className="w-10 h-10 p-0 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90 shadow-md"
+            >
+              <Edit3 className="w-4 h-4" />
+            </Button>
+            {isHovered && (
+              <div className="absolute bottom-full right-0 mb-2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap shadow-lg border">
+                Editar Fotos
+              </div>
+            )}
+          </div>
         </div>
         <div className={styles.box}>
           <div className={styles.gallery}>
