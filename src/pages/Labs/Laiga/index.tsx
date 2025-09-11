@@ -51,7 +51,7 @@ export function Laiga() {
            </nav>
           <br></br>
            <b> Chefe do LAIGA</b>
-           <span> prof. Marcos Alberto Rodrigues Vasconcelos</span> 
+           <span> Prof. Marcos Alberto Rodrigues Vasconcelos</span> 
 
             <div className={styles.box1}>
               <h4 className={styles.legend1}>Sala 1- Almoxarifado com equipamentos</h4>
