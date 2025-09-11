@@ -6,6 +6,7 @@ import { EditButtonCoordination } from './components/EditButtonCoordination'
 import { AdminLoginCoordination } from './components/AdminLoginCoordination'
 import { EditableCoordinationMember } from './components/EditableCoordinationMember'
 import { useToast } from '@/hooks/use-toast'
+import { supabase } from '@/integrations/supabase/client'
 
 interface CoordinationMember {
   name: string
@@ -61,18 +62,31 @@ export function Coordination() {
     localStorage.setItem('coordinationMembers', JSON.stringify(newMembers))
   }
 
-  const handleLogin = (email: string, password: string) => {
-    // Validação simples (em produção, isso seria feito via API)
-    if (email === 'coordenacao@cpgg.ufba.br' || email === 'secretaria@cpgg.ufba.br') {
-      setIsEditMode(true)
-      setShowLogin(false)
-      toast({ title: 'Login realizado', description: 'Modo de edição ativado.' })
-    } else {
-      toast({ 
-        title: 'Acesso negado', 
-        description: 'Apenas coordenação e secretaria podem editar.', 
-        variant: 'destructive' 
-      })
+  const handleLogin = async (email: string, password: string) => {
+    try {
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('id, role')
+        .eq('email', email)
+        .eq('password', password)
+        .in('role', ['coordenacao', 'secretaria'])
+        .maybeSingle()
+
+      if (error) throw error
+
+      if (data) {
+        setIsEditMode(true)
+        setShowLogin(false)
+        toast({ title: 'Login realizado', description: 'Modo de edição ativado.' })
+      } else {
+        toast({ 
+          title: 'Acesso negado', 
+          description: 'Apenas coordenação e secretaria podem editar. Verifique email e senha.', 
+          variant: 'destructive' 
+        })
+      }
+    } catch (err: any) {
+      toast({ title: 'Erro ao validar acesso', description: err.message ?? 'Tente novamente.', variant: 'destructive' })
     }
   }
 
