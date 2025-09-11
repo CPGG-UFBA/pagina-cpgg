@@ -285,7 +285,9 @@ export function ReservasAdmin() {
 
   const getReservationsByUser = (reservations: Reservation[]) => {
     const userCount = reservations.reduce((acc, reservation) => {
-      const user = `${reservation.nome} ${reservation.sobrenome}`
+      const cleanedNome = reservation.nome.replace(/LAIGA/gi, '').trim()
+      const cleanedSobrenome = reservation.sobrenome.replace(/LAIGA/gi, '').trim()
+      const user = `${cleanedNome} ${cleanedSobrenome}`
       acc[user] = (acc[user] || 0) + 1
       return acc
     }, {} as Record<string, number>)
