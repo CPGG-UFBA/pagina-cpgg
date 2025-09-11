@@ -47,7 +47,7 @@ export function Laiga() {
               Para saber da disponibilidade dos equipamentos e solicitá-los para uso, acesse nossa plataforma de requerimento
             </p>
             <nav>
-             <a href="/Labs/Laiga/ReservationForm" target="_blank">Requerimento de uso</a>
+             <a href="/Labs/Laiga/ReservationForm">Requerimento de uso</a>
            </nav>
           <br></br>
            <b> Chefe do LAIGA</b>

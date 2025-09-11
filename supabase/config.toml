@@ -2,3 +2,6 @@ project_id = "kbxdwrvxrnfkqvpselwz"
 
 [functions.send-reservation-email]
 verify_jwt = false
+
+[functions.send-laiga-reservation]
+verify_jwt = false

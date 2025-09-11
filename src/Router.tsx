@@ -56,6 +56,7 @@ import { Spaces } from './pages/Spaces'
 import { Labs } from './pages/Labs'
 import { Laiga } from './pages/Labs/Laiga'
 import { RF } from './pages/Labs/Laiga/ReservationForm'
+import { LaigaReceipt } from './pages/Labs/Laiga/Receipt'
 import { Lagep } from './pages/Labs/Lagep'
 import { Lamod } from './pages/Labs/Lamod'
 import { Auditory } from './pages/Spaces/Auditory'
@@ -147,6 +148,7 @@ export function Router() {
          <Route path='/Labs' element={<Labs />} />
          <Route path='/Labs/Laiga' element={<Laiga />} />
          <Route path='/Labs/Laiga/ReservationForm' element={<RF />} />
+         <Route path='/Labs/Laiga/Receipt' element={<LaigaReceipt />} />
          <Route path='/Labs/Lagep' element={<Lagep />} />
          <Route path='/Labs/Lamod' element={<Lamod />} />
          <Route path='/Labs/Successlab' element={<Successlab />} />

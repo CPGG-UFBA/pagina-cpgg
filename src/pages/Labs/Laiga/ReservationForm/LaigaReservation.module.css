@@ -1,0 +1,121 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.title {
+  text-align: center;
+  color: #2c5aa0;
+  margin-bottom: 30px;
+}
+
+.formContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #2c5aa0;
+}
+
+.equipmentList {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  background: #fafafa;
+}
+
+.equipmentItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.equipmentItem input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.dateContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f0f8ff;
+  border-radius: 5px;
+  border: 1px solid #2c5aa0;
+}
+
+.checkboxContainer input[type="checkbox"] {
+  width: auto;
+  margin-top: 3px;
+}
+
+.submitButton {
+  background: #2c5aa0;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.submitButton:hover {
+  background: #1e3d6f;
+}
+
+.submitButton:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .dateContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .formContainer {
+    padding: 20px;
+  }
+}

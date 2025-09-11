@@ -1,0 +1,157 @@
+.container {
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.receipt {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #2c5aa0;
+  padding-bottom: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 15px;
+}
+
+.header h1 {
+  color: #2c5aa0;
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.header h2 {
+  color: #333;
+  font-size: 18px;
+  margin: 5px 0;
+}
+
+.header h3 {
+  color: #666;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.content {
+  margin-bottom: 30px;
+}
+
+.section {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 5px;
+}
+
+.section h3 {
+  color: #2c5aa0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.section p {
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.signatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 40px 0;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signatureBox {
+  text-align: center;
+}
+
+.signatureLine {
+  height: 60px;
+  border-bottom: 2px solid #333;
+  margin-bottom: 10px;
+}
+
+.signatureBox p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.signatureBox p:first-of-type {
+  font-weight: bold;
+}
+
+.footer {
+  background: #e8f2ff;
+  padding: 20px;
+  border-radius: 5px;
+  border-left: 4px solid #2c5aa0;
+}
+
+.footer p {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.printButton {
+  background: #2c5aa0;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.printButton:hover {
+  background: #1e3d6f;
+}
+
+@media print {
+  .actions {
+    display: none;
+  }
+  
+  .container {
+    background: white;
+    padding: 0;
+  }
+  
+  .receipt {
+    box-shadow: none;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .signatures {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .receipt {
+    padding: 20px;
+  }
+}
