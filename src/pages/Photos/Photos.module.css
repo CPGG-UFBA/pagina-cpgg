@@ -88,7 +88,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(340px, -450px);
+  transform: translate(640px, -400px);
 }
 
 .staticFigure img {
