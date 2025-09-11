@@ -737,7 +737,11 @@ export function ReservasAdmin() {
 
               <Card>
                 <CardHeader>
-                  <CardTitle>Top Usuários - Laboratórios</CardTitle>
+                  <CardTitle>
+                    Top Usuários - {filterLab === 'all' ? 'Laboratórios' : 
+                      filterLab === 'laiga_equipments' ? 'LAIGA' : 
+                      filterLab.toUpperCase()}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <ResponsiveContainer width="100%" height={300}>
