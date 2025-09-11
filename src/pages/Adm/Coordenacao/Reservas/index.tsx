@@ -311,12 +311,12 @@ export function ReservasAdmin() {
                 onChange={(e) => setFilterLab(e.target.value)}
                 className={styles.select}
               >
-                <option value="all">Todos os Laboratórios</option>
-                <option value="Auditório">Auditório</option>
-                <option value="Sala de Reunião">Sala de Reunião</option>
-                <option value="LAIGA">LAIGA</option>
-                <option value="LAGEP">LAGEP</option>
-                <option value="LAMOD">LAMOD</option>
+                <option value="all">Todos os Espaços Físicos</option>
+                <option value="auditorio">Auditório</option>
+                <option value="sala_reuniao">Sala de Reunião</option>
+                <option value="laiga">LAIGA</option>
+                <option value="lagep">LAGEP</option>
+                <option value="lamod">LAMOD</option>
               </select>
 
               <select
