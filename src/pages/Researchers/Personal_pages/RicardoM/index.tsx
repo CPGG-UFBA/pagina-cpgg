@@ -1,17 +1,23 @@
 import styles from './RicardoM.module.css'
 import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
+import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
+import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
 import earth from '../../../../assets/earth-imgur.png'
 
 export function RicardoM() {
   return (
     <>
       <Header />
+      <ResearcherEditButton researcherName="Ricardo Piazza Meireles" />
       <div>
         <div className={styles.Professor} >
           <p> Ricardo Piazza Meireles </p>
           <div className={styles.box1}>
-          Professor e pesquisador especializado em Geologia Marinha e Costeira. Possui experiência em sedimentologia marinha, evolução costeira e oceanografia geológica. Atua principalmente em pesquisas relacionadas à dinâmica sedimentar, mudanças do nível do mar e processos costeiros.
+          <DynamicResearcherProfile 
+            researcherName="Ricardo Piazza Meireles"
+            staticDescription="Professor e pesquisador especializado em Geologia Marinha e Costeira. Possui experiência em sedimentologia marinha, evolução costeira e oceanografia geológica. Atua principalmente em pesquisas relacionadas à dinâmica sedimentar, mudanças do nível do mar e processos costeiros."
+          />
             <ul> Link para Currículo Lattes</ul>
 
             <nav>

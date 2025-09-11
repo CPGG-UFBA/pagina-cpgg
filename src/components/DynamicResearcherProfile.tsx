@@ -62,7 +62,7 @@ export function DynamicResearcherProfile({
       )}
       <div className="description">
         <h2>Descrição</h2>
-        <p>{description}</p>
+        <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
       </div>
     </>
   )

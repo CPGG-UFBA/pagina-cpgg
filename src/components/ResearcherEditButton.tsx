@@ -48,7 +48,7 @@ export function ResearcherEditButton({ researcherName }: ResearcherEditButtonPro
         .maybeSingle()
 
       if (data) {
-        setDescription(data.description || '')
+        setDescription((data as any).description || '')
         setCurrentPhotoUrl(data.photo_url)
       }
     }
