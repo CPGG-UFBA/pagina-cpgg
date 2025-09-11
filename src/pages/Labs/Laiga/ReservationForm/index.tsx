@@ -33,7 +33,8 @@ export function RF() {
     returnDate: '',
     purpose: '',
     applicantName: '',
-    agreementAccepted: false
+    agreementAccepted: false,
+    damageReportAgreement: false
   })
   
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -96,6 +97,15 @@ export function RF() {
       return
     }
 
+    if (!formData.damageReportAgreement) {
+      toast({
+        title: "Erro",
+        description: "Você deve aceitar o termo de responsabilidade sobre avarias",
+        variant: "destructive"
+      })
+      return
+    }
+
     setIsSubmitting(true)
     
     try {
@@ -122,7 +132,8 @@ export function RF() {
         returnDate: '',
         purpose: '',
         applicantName: '',
-        agreementAccepted: false
+        agreementAccepted: false,
+        damageReportAgreement: false
       })
       
     } catch (error) {
@@ -248,6 +259,19 @@ export function RF() {
               />
               <label htmlFor="agreement">
                 <strong>Estou de acordo em expressar agradecimentos ao LAIGA/CPGG pelo uso do(s) equipamento(s) utilizado(s) nos trabalhos apresentados *</strong>
+              </label>
+            </div>
+
+            <div className={styles.checkboxContainer}>
+              <input
+                type="checkbox"
+                id="damageReport"
+                checked={formData.damageReportAgreement}
+                onChange={(e) => handleInputChange('damageReportAgreement', e.target.checked)}
+                required
+              />
+              <label htmlFor="damageReport">
+                <strong>Estou de acordo em reportar no ato da entrega de possíveis problemas ou avarias que o(s) equipamento(s) tenham sofridos durante o uso *</strong>
               </label>
             </div>
 
