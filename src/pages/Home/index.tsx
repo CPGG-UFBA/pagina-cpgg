@@ -5,7 +5,7 @@ import styles from './Home.module.css'
 
 export function Home() {
   return (
-    <div className={styles.container}>
+    <div className={styles.Container}>
       <Header />
       <Middle />
       <Footer />

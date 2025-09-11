@@ -1,19 +1,18 @@
 .container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  padding-top: 100vh;
   min-height: 100vh;
-  background-image: url("../../../../assets/header-bg.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top center;
-  padding: 20px;
-  padding-top: 120px;
   position: relative;
 }
 
 .title {
   text-align: center;
-  color: white;
+  color: #333;
   margin-bottom: 30px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
   font-size: 32px;
   font-weight: 600;
 }
