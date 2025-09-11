@@ -9,7 +9,6 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import earth from '../../assets/earth-labs.png'
-import { Link } from 'react-router-dom';
 
 interface Laboratory {
   id: string
@@ -139,12 +138,12 @@ export  function Labs() {
                            onDelete={handleDeleteLaboratory}
                          />
                        ) : (
-                         <Link to={(lab.acronym || '').trim().toUpperCase() === 'LAIGA' ? '/Labs/Laiga' : `/Labs/${lab.acronym.charAt(0).toUpperCase()}${lab.acronym.slice(1).toLowerCase()}` } className={styles.labLink}>
+                         <a href={`Labs/${lab.acronym}`} className={styles.labLink}>
                            <div className={styles.others}>
                              <h2>{lab.acronym}</h2>
                              <h2>{lab.name}</h2>
                            </div>
-                         </Link>
+                         </a>
                        )}
                      </div>
                    )})}

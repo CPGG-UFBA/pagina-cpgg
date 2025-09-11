@@ -8,8 +8,6 @@
   flex-direction: row;
   display: flex;
   aspect-ratio: 1;
-  z-index: 9999;
-  pointer-events: auto;
 }
 
 
@@ -42,12 +40,6 @@
 .signup {
   margin-left: 510px;
   color: #FF5733;
-}
-
-nav {
-  position: relative;
-  z-index: 2000;
-  pointer-events: auto;
 }
 
 nav ul {

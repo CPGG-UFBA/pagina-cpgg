@@ -181,7 +181,6 @@ export function RF() {
   return (
     <div className={styles.container}>
       <Header />
-      <div className={styles.content}>
         <h1 className={styles.title}>Formulário de Reserva de Equipamentos - LAIGA</h1>
         
         <div className={styles.formContainer}>
@@ -326,7 +325,6 @@ export function RF() {
             </button>
           </form>
         </div>
-      </div>
       <Footer />
     </div>
   )
