@@ -130,6 +130,72 @@ export function EquipamentosLaiga() {
     window.location.href = '/adm/coordenacao/dashboard';
   };
 
+  const migrateToReservations = async () => {
+    if (filteredEquipments.length === 0) {
+      toast({
+        title: 'Nenhum equipamento para migrar',
+        description: 'Não há equipamentos disponíveis para migração.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    if (!confirm(`Tem certeza que deseja migrar ${filteredEquipments.length} equipamento(s) para o banco de dados de reservas? Esta ação não pode ser desfeita.`)) {
+      return;
+    }
+
+    try {
+      // Converter equipamentos para formato de reservas
+      const reservationsData = filteredEquipments.map(equipment => ({
+        nome: equipment.name || 'Equipamento',
+        sobrenome: 'LAIGA',
+        email: equipment.responsible_person || 'laiga@ufba.br',
+        uso: equipment.description || 'Uso de equipamento',
+        tipo_reserva: 'laiga_equipments',
+        inicio: equipment.acquisition_date 
+          ? new Date(equipment.acquisition_date).toISOString()
+          : new Date().toISOString(),
+        termino: equipment.next_maintenance 
+          ? new Date(equipment.next_maintenance).toISOString()
+          : new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(), // +1 dia se não tiver data
+        status: equipment.status === 'available' ? 'aprovada' : 
+                equipment.status === 'maintenance' ? 'rejeitada' : 'pendente'
+      }));
+
+      // Inserir nas reservas
+      const { error: insertError } = await supabase
+        .from('reservations')
+        .insert(reservationsData);
+
+      if (insertError) throw insertError;
+
+      // Deletar equipamentos originais após migração bem-sucedida
+      const equipmentIds = filteredEquipments.map(eq => eq.id);
+      const { error: deleteError } = await supabase
+        .from('laiga_equipments')
+        .delete()
+        .in('id', equipmentIds);
+
+      if (deleteError) throw deleteError;
+
+      // Atualizar lista local
+      await fetchEquipments();
+
+      toast({
+        title: 'Migração concluída',
+        description: `${reservationsData.length} equipamento(s) foram migrados para o banco de dados de reservas.`,
+      });
+
+    } catch (error) {
+      console.error('Error migrating equipment:', error);
+      toast({
+        title: 'Erro na migração',
+        description: 'Não foi possível migrar os equipamentos. Tente novamente.',
+        variant: 'destructive',
+      });
+    }
+  };
+
   const getStatusBadgeVariant = (status: string) => {
     switch (status) {
       case 'available':
@@ -194,7 +260,17 @@ export function EquipamentosLaiga() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Lista de Equipamentos</CardTitle>
+            <div className="flex justify-between items-center">
+              <CardTitle>Lista de Equipamentos</CardTitle>
+              <Button 
+                onClick={migrateToReservations}
+                variant="default"
+                disabled={filteredEquipments.length === 0}
+                className="bg-blue-600 hover:bg-blue-700"
+              >
+                Agregar ao banco de dados geral
+              </Button>
+            </div>
             <div className={styles.filters}>
               <div className="flex gap-4 items-center">
                 <div className="relative flex-1">
