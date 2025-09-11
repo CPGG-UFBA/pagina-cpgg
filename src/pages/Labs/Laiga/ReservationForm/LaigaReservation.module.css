@@ -4,7 +4,7 @@
 }
 
 .content {
-  padding-top: 100vh;
+  padding-top: calc(100vh - 1000px);
   min-height: 100vh;
   position: relative;
 }
