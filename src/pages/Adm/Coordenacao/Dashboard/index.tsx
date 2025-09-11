@@ -667,6 +667,26 @@ export function CoordenacaoDashboard() {
           <p>Cadastre os usuários do sistema e pesquisadores</p>
         </div>
 
+        <div className={styles.quickActions}>
+          <Button
+            onClick={() => navigate('/adm/coordenacao/usuarios')}
+            className={styles.actionButton}
+            variant="outline"
+          >
+            <Users className="w-5 h-5 mr-2" />
+            Gerenciar Usuários
+          </Button>
+          
+          <Button
+            onClick={() => navigate('/adm/coordenacao/reservas')}
+            className={styles.actionButton}
+            variant="outline"
+          >
+            <Settings className="w-5 h-5 mr-2" />
+            Gerenciar Reservas
+          </Button>
+        </div>
+
         <div className={styles.formsContainer}>
           <div className={styles.formCard}>
             <div className={styles.formHeader}>

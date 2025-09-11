@@ -1,0 +1,122 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: hsl(var(--card));
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15);
+}
+
+.logo img {
+  height: 60px;
+  width: auto;
+}
+
+.header h1 {
+  color: hsl(var(--primary));
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.content {
+  background: hsl(var(--card));
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15);
+}
+
+.filters {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.select {
+  padding: 8px 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 6px;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-size: 14px;
+  min-width: 180px;
+}
+
+.select:focus {
+  outline: none;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.tableContainer {
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  font-size: 1.2rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.statCard {
+  text-align: center;
+  padding: 20px;
+  background: hsl(var(--muted) / 0.5);
+  border-radius: 8px;
+  border: 1px solid hsl(var(--border));
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: hsl(var(--primary));
+  margin-bottom: 8px;
+}
+
+.statLabel {
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .select {
+    min-width: auto;
+  }
+
+  .tableContainer {
+    font-size: 0.875rem;
+  }
+}
