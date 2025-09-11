@@ -108,9 +108,16 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
       }
 
       setUserProfile(profile)
-      setDescription(profile.description || '')
-      setProfileEmail(profile.email || '')
-      setCurrentPhotoUrl(profile.photo_url)
+      // Preserve existing description and email if they were already loaded
+      if (!description && profile.description) {
+        setDescription(profile.description)
+      }
+      if (!profileEmail && profile.email) {
+        setProfileEmail(profile.email)
+      }
+      if (!currentPhotoUrl && profile.photo_url) {
+        setCurrentPhotoUrl(profile.photo_url)
+      }
       setIsAuthenticated(true)
       setIsLoginOpen(false)
       setIsEditOpen(true)
