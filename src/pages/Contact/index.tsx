@@ -17,11 +17,32 @@ export function Contact() {
 
         <div className={styles.whatsappSection}>
           <a
-            href={`https://web.whatsapp.com/send?phone=${whatsappNumber}`}
+            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer external"
             className={styles.whatsappLink}
-            aria-label="Abrir WhatsApp"
+            aria-label="Abrir conversa no WhatsApp em nova aba"
+            onClick={() => {
+              const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
+              try {
+                const w = window.open(url, '_blank', 'noopener,noreferrer')
+                if (!w) {
+                  if (window.top && window.top !== window) {
+                    // @ts-ignore
+                    window.top.location.href = url
+                  } else {
+                    window.location.href = url
+                  }
+                }
+              } catch {
+                if (window.top && window.top !== window) {
+                  // @ts-ignore
+                  window.top.location.href = url
+                } else {
+                  window.location.href = url
+                }
+              }
+            }}
           >
             <img src={Whats} alt="Whatsapp" className={styles.whatsappIcon} />
             <span>Whats app us</span>
