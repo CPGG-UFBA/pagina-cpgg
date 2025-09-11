@@ -3,6 +3,10 @@ import { useParams } from 'react-router-dom'
 import { supabase } from '@/integrations/supabase/client'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import { Button } from '@/components/ui/button'
+import { AdminLoginEventPhotos } from './components/AdminLoginEventPhotos'
+import { EventPhotoEditor } from './components/EventPhotoEditor'
+import { Edit } from 'lucide-react'
 import styles from './EventPhotos.module.css'
 
 interface EventPhoto {
@@ -22,6 +26,9 @@ export function EventPhotos() {
   const [event, setEvent] = useState<Event | null>(null)
   const [photos, setPhotos] = useState<EventPhoto[]>([])
   const [loading, setLoading] = useState(true)
+  const [showLoginDialog, setShowLoginDialog] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [showEditor, setShowEditor] = useState(false)
 
   useEffect(() => {
     if (id) {
@@ -58,6 +65,23 @@ export function EventPhotos() {
     }
   }
 
+  const handleLogin = () => {
+    setIsAuthenticated(true)
+    setShowLoginDialog(false)
+  }
+
+  const handleEditClick = () => {
+    if (isAuthenticated) {
+      setShowEditor(true)
+    } else {
+      setShowLoginDialog(true)
+    }
+  }
+
+  const handlePhotosChange = (updatedPhotos: EventPhoto[]) => {
+    setPhotos(updatedPhotos)
+  }
+
   if (loading) {
     return (
       <>
@@ -86,7 +110,18 @@ export function EventPhotos() {
     <>
       <Header />
       <div className={styles.Years}>
-        <ul>{event.name}</ul>
+        <div className={styles.yearHeader}>
+          <ul>{event.name}</ul>
+          <Button
+            onClick={handleEditClick}
+            variant="outline"
+            size="sm"
+            className="flex items-center gap-2"
+          >
+            <Edit size={16} />
+            Editar Fotos
+          </Button>
+        </div>
         <div className={styles.box}>
           <div className={styles.gallery}>
             {photos.map((photo, index) => (
@@ -99,6 +134,22 @@ export function EventPhotos() {
           </div>
         </div>
       </div>
+      
+      <AdminLoginEventPhotos
+        isOpen={showLoginDialog}
+        onClose={() => setShowLoginDialog(false)}
+        onLogin={handleLogin}
+      />
+      
+      {showEditor && id && (
+        <EventPhotoEditor
+          eventId={id}
+          photos={photos}
+          onPhotosChange={handlePhotosChange}
+          onClose={() => setShowEditor(false)}
+        />
+      )}
+      
       <Footer />
     </>
   )

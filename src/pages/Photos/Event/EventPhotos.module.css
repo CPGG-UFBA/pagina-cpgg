@@ -1,5 +1,6 @@
 .Years{
   display: flex;
+  flex-direction: column;
   flex: 1;
   overflow: visible;
   justify-content: center;
@@ -10,11 +11,28 @@
   padding-right: 8px;
 }
 
+.yearHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -850px;
+  margin-right: -600px;
+  margin-bottom: 20px;
+}
+
+.yearHeader ul {
+  font-size: 24px;
+  color: #363F5; 
+  margin: 0;
+  flex: 1;
+}
+
 .Years ul {
   font-size: 24px;
   color: #363F5; 
   margin-left: -850px;
   margin-top: -10px;
+  flex: 1;
 }
 
 .gallery {
