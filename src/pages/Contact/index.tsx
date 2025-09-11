@@ -3,34 +3,26 @@ import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
 import earth from '../../assets/earth-imgur.png'
 import Whats from '../../assets/whatsapp-icon.png'
+import { useToast } from '@/components/ui/use-toast'
 
 export function Contact() {
   const phoneNumber = '+55(71)3283-8531'
   const whatsappNumber = '5571328385531'
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
-
-  const handleWhatsAppClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const { toast } = useToast()
+  const copyWhatsAppLink = async () => {
     try {
-      // Prevent default to control navigation within sandboxed preview
-      e.preventDefault()
-      const appUrl = `whatsapp://send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
-      const webUrl = isMobile
-        ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
-        : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
-
-      // Try to open the app/web in a new tab first
-      const win = window.open(isMobile ? appUrl : webUrl, '_blank', 'noopener,noreferrer')
-
-      // If blocked, fallback to navigating current context
-      if (!win) {
-        window.location.href = webUrl
-      }
+      await navigator.clipboard.writeText(whatsappHref)
+      toast({
+        title: 'Link copiado',
+        description: 'Abra uma nova guia e cole o link para iniciar a conversa.',
+      })
     } catch (_) {
-      // Last resort fallback
-      window.location.href = whatsappHref
+      alert('Não foi possível copiar automaticamente. Copie manualmente: ' + whatsappHref)
     }
   }
+
   return (
     <>
       <Header />
@@ -49,6 +41,9 @@ export function Contact() {
             <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
             <span>Whats app us</span>
           </a>
+          <button type="button" className={styles.whatsappLink} onClick={copyWhatsAppLink} aria-label="Copiar link do WhatsApp">
+            Copiar link
+          </button>
         </div>
 
         <b> {phoneNumber}</b>
