@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
-import { LogOut, Download, FileText, BarChart3, Calendar, User, MapPin, Clock, ArrowLeft, Edit, Save, X } from 'lucide-react'
+import { LogOut, Download, FileText, BarChart3, Calendar, User, MapPin, Clock, ArrowLeft, Edit, Save, X, Trash2 } from 'lucide-react'
 import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts'
@@ -204,6 +204,62 @@ export function ReservasAdmin() {
   const handleCancelEdit = () => {
     setEditingId(null)
     setEditData({})
+  }
+
+  const handleDeleteReservation = async (id: string) => {
+    if (!confirm('Tem certeza que deseja apagar esta reserva? Esta ação não pode ser desfeita.')) {
+      return
+    }
+
+    try {
+      const { error } = await supabase
+        .from('reservations')
+        .delete()
+        .eq('id', id)
+
+      if (error) throw error
+
+      await fetchReservations()
+      toast({
+        title: "Sucesso",
+        description: "Reserva apagada com sucesso",
+      })
+    } catch (error: any) {
+      console.error('Erro ao apagar reserva:', error)
+      toast({
+        title: "Erro",
+        description: "Erro ao apagar reserva",
+        variant: "destructive",
+      })
+    }
+  }
+
+  const handleDeleteAllReservations = async () => {
+    if (!confirm('Tem certeza que deseja apagar TODAS as reservas? Esta ação não pode ser desfeita.')) {
+      return
+    }
+
+    try {
+      const { error } = await supabase
+        .from('reservations')
+        .delete()
+        .neq('id', '00000000-0000-0000-0000-000000000000') // Delete all records
+
+      if (error) throw error
+
+      await fetchReservations()
+      toast({
+        title: "Sucesso",
+        description: "Todas as reservas foram apagadas",
+      })
+    } catch (error: any) {
+      console.error('Erro ao apagar todas as reservas:', error)
+      toast({
+        title: "Erro",
+        description: "Erro ao apagar todas as reservas",
+        variant: "destructive",
+      })
+    }
   }
 
   const generatePDF = async (sectionType: 'physical' | 'laboratory') => {
@@ -506,6 +562,11 @@ export function ReservasAdmin() {
                 <Download className="w-4 h-4 mr-2" />
                 Gerar PDF
               </Button>
+              
+              <Button onClick={handleDeleteAllReservations} variant="destructive">
+                <Trash2 className="w-4 h-4 mr-2" />
+                Apagar Todas
+              </Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -728,20 +789,27 @@ export function ReservasAdmin() {
                                   </>
                                 ) : (
                                   <>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={() => handleEditReservation(reservation)}
-                                    >
-                                      <Edit className="w-3 h-3" />
-                                    </Button>
-                                    {reservation.status === 'pendente' && (
-                                      <>
-                                        <Button
-                                          size="sm"
-                                          onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
-                                        >
-                                          Aprovar
+                                     <Button
+                                       size="sm"
+                                       variant="outline"
+                                       onClick={() => handleEditReservation(reservation)}
+                                     >
+                                       <Edit className="w-3 h-3" />
+                                     </Button>
+                                     <Button
+                                       size="sm"
+                                       variant="destructive"
+                                       onClick={() => handleDeleteReservation(reservation.id)}
+                                     >
+                                       <Trash2 className="w-3 h-3" />
+                                     </Button>
+                                     {reservation.status === 'pendente' && (
+                                       <>
+                                         <Button
+                                           size="sm"
+                                           onClick={() => updateReservationStatus(reservation.id, 'aprovada')}
+                                         >
+                                           Aprovar
                                         </Button>
                                         <Button
                                           size="sm"
@@ -801,6 +869,11 @@ export function ReservasAdmin() {
               <Button onClick={() => generatePDF('laboratory')} variant="outline">
                 <Download className="w-4 h-4 mr-2" />
                 Gerar PDF
+              </Button>
+              
+              <Button onClick={handleDeleteAllReservations} variant="destructive">
+                <Trash2 className="w-4 h-4 mr-2" />
+                Apagar Todas
               </Button>
             </div>
 
@@ -1042,14 +1115,21 @@ export function ReservasAdmin() {
                                   </>
                                 ) : (
                                   <>
-                                    <Button
-                                      size="sm"
-                                      variant="outline"
-                                      onClick={() => handleEditReservation(reservation)}
-                                    >
-                                      <Edit className="w-3 h-3" />
-                                    </Button>
-                                    {reservation.status === 'pendente' && (
+                                     <Button
+                                       size="sm"
+                                       variant="outline"
+                                       onClick={() => handleEditReservation(reservation)}
+                                     >
+                                       <Edit className="w-3 h-3" />
+                                     </Button>
+                                     <Button
+                                       size="sm"
+                                       variant="destructive"
+                                       onClick={() => handleDeleteReservation(reservation.id)}
+                                     >
+                                       <Trash2 className="w-3 h-3" />
+                                     </Button>
+                                     {reservation.status === 'pendente' && (
                                       <>
                                         <Button
                                           size="sm"
