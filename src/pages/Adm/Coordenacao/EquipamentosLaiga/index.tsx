@@ -9,7 +9,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { LaigaEquipmentUpload } from '@/components/LaigaEquipmentUpload';
 import styles from './equipamentos.module.css';
 import logoUfba from '/src/components/Figures/LogoUfba.png';
-import { Trash2, Search, LogOut, ArrowLeft } from 'lucide-react';
+import { Trash2, Search, LogOut, ArrowLeft, Edit, Save, X } from 'lucide-react';
 
 interface Equipment {
   id: string;
@@ -41,6 +41,8 @@ export function EquipamentosLaiga() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingData, setEditingData] = useState<Partial<Equipment>>({});
   const { toast } = useToast();
 
   useEffect(() => {
@@ -119,6 +121,52 @@ export function EquipamentosLaiga() {
         variant: 'destructive',
       });
     }
+  };
+
+  const startEditing = (equipment: Equipment) => {
+    setEditingId(equipment.id);
+    setEditingData({ ...equipment });
+  };
+
+  const cancelEditing = () => {
+    setEditingId(null);
+    setEditingData({});
+  };
+
+  const saveEditing = async () => {
+    if (!editingId || !editingData) return;
+
+    try {
+      const { error } = await supabase
+        .from('laiga_equipments')
+        .update(editingData)
+        .eq('id', editingId);
+
+      if (error) throw error;
+
+      await fetchEquipments();
+      setEditingId(null);
+      setEditingData({});
+      
+      toast({
+        title: 'Equipamento atualizado',
+        description: 'As alterações foram salvas com sucesso.',
+      });
+    } catch (error) {
+      console.error('Error updating equipment:', error);
+      toast({
+        title: 'Erro ao atualizar',
+        description: 'Não foi possível salvar as alterações.',
+        variant: 'destructive',
+      });
+    }
+  };
+
+  const handleEditChange = (field: keyof Equipment, value: string) => {
+    setEditingData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
 
   const handleLogout = () => {
@@ -316,45 +364,102 @@ export function EquipamentosLaiga() {
                   {filteredEquipments.map((equipment) => (
                     <TableRow key={equipment.id}>
                       <TableCell className="font-medium">
-                        {equipment.name}
+                        {editingId === equipment.id ? (
+                          <Input
+                            value={editingData.name || ''}
+                            onChange={(e) => handleEditChange('name', e.target.value)}
+                            placeholder="Nome do equipamento"
+                          />
+                        ) : (
+                          equipment.name
+                        )}
                       </TableCell>
                       <TableCell>
-                        {equipment.responsible_person || '-'}
+                        {editingId === equipment.id ? (
+                          <Input
+                            value={editingData.responsible_person || ''}
+                            onChange={(e) => handleEditChange('responsible_person', e.target.value)}
+                            placeholder="Responsável"
+                          />
+                        ) : (
+                          equipment.responsible_person || '-'
+                        )}
                       </TableCell>
                       <TableCell>
                         LAIGA
                       </TableCell>
                       <TableCell>
-                        {equipment.description || '-'}
+                        {editingId === equipment.id ? (
+                          <Input
+                            value={editingData.description || ''}
+                            onChange={(e) => handleEditChange('description', e.target.value)}
+                            placeholder="Descrição/Uso"
+                          />
+                        ) : (
+                          equipment.description || '-'
+                        )}
                       </TableCell>
                       <TableCell>
-                        {equipment.acquisition_date 
-                          ? new Date(equipment.acquisition_date).toLocaleDateString('pt-BR', {
-                              day: '2-digit',
-                              month: '2-digit',
-                              year: 'numeric',
-                              hour: '2-digit',
-                              minute: '2-digit'
-                            })
-                          : '-'
-                        }
+                        {editingId === equipment.id ? (
+                          <Input
+                            type="datetime-local"
+                            value={editingData.acquisition_date 
+                              ? new Date(editingData.acquisition_date).toISOString().slice(0, 16)
+                              : ''
+                            }
+                            onChange={(e) => handleEditChange('acquisition_date', e.target.value)}
+                          />
+                        ) : (
+                          equipment.acquisition_date 
+                            ? new Date(equipment.acquisition_date).toLocaleDateString('pt-BR', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })
+                            : '-'
+                        )}
                       </TableCell>
                       <TableCell>
-                        {equipment.next_maintenance 
-                          ? new Date(equipment.next_maintenance).toLocaleDateString('pt-BR', {
-                              day: '2-digit',
-                              month: '2-digit',
-                              year: 'numeric',
-                              hour: '2-digit',
-                              minute: '2-digit'
-                            })
-                          : '-'
-                        }
+                        {editingId === equipment.id ? (
+                          <Input
+                            type="datetime-local"
+                            value={editingData.next_maintenance 
+                              ? new Date(editingData.next_maintenance).toISOString().slice(0, 16)
+                              : ''
+                            }
+                            onChange={(e) => handleEditChange('next_maintenance', e.target.value)}
+                          />
+                        ) : (
+                          equipment.next_maintenance 
+                            ? new Date(equipment.next_maintenance).toLocaleDateString('pt-BR', {
+                                day: '2-digit',
+                                month: '2-digit',
+                                year: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                              })
+                            : '-'
+                        )}
                       </TableCell>
                       <TableCell>
-                        <Badge variant={getStatusBadgeVariant(equipment.status)}>
-                          {getStatusLabel(equipment.status)}
-                        </Badge>
+                        {editingId === equipment.id ? (
+                          <select
+                            value={editingData.status || 'available'}
+                            onChange={(e) => handleEditChange('status', e.target.value)}
+                            className={styles.select}
+                          >
+                            <option value="available">Disponível</option>
+                            <option value="in_use">Em Uso</option>
+                            <option value="maintenance">Manutenção</option>
+                            <option value="unavailable">Indisponível</option>
+                          </select>
+                        ) : (
+                          <Badge variant={getStatusBadgeVariant(equipment.status)}>
+                            {getStatusLabel(equipment.status)}
+                          </Badge>
+                        )}
                       </TableCell>
                       <TableCell>
                         {new Date(equipment.created_at).toLocaleDateString('pt-BR', {
@@ -366,14 +471,47 @@ export function EquipamentosLaiga() {
                         })}
                       </TableCell>
                       <TableCell>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => deleteEquipment(equipment.id)}
-                          className="text-destructive hover:text-destructive"
-                        >
-                          <Trash2 className="h-4 w-4" />
-                        </Button>
+                        <div className="flex gap-2">
+                          {editingId === equipment.id ? (
+                            <>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={saveEditing}
+                                className="text-green-600 hover:text-green-700"
+                              >
+                                <Save className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={cancelEditing}
+                                className="text-gray-600 hover:text-gray-700"
+                              >
+                                <X className="h-4 w-4" />
+                              </Button>
+                            </>
+                          ) : (
+                            <>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => startEditing(equipment)}
+                                className="text-blue-600 hover:text-blue-700"
+                              >
+                                <Edit className="h-4 w-4" />
+                              </Button>
+                              <Button
+                                variant="outline"
+                                size="sm"
+                                onClick={() => deleteEquipment(equipment.id)}
+                                className="text-destructive hover:text-destructive"
+                              >
+                                <Trash2 className="h-4 w-4" />
+                              </Button>
+                            </>
+                          )}
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
