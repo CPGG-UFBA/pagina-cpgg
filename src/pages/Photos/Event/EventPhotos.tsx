@@ -35,6 +35,12 @@ export function EventPhotos() {
     if (id) {
       fetchEventData()
     }
+    // Check for persisted authentication
+    const savedAuth = localStorage.getItem('eventPhotosAuth')
+    if (savedAuth === 'true') {
+      console.log('Found persisted authentication, setting isAuthenticated to true')
+      setIsAuthenticated(true)
+    }
   }, [id])
 
   const fetchEventData = async () => {
@@ -67,14 +73,20 @@ export function EventPhotos() {
   }
 
   const handleLogin = () => {
+    console.log('Login successful, setting isAuthenticated to true')
     setIsAuthenticated(true)
     setShowLoginDialog(false)
+    // Persist authentication in localStorage
+    localStorage.setItem('eventPhotosAuth', 'true')
   }
 
   const handleEditClick = () => {
+    console.log('Edit button clicked, isAuthenticated:', isAuthenticated)
     if (isAuthenticated) {
+      console.log('User is authenticated, showing editor')
       setShowEditor(true)
     } else {
+      console.log('User not authenticated, showing login dialog')
       setShowLoginDialog(true)
     }
   }
