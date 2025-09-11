@@ -52,26 +52,55 @@ export function DynamicResearcherProfile({
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       {photoUrl && (
-        <div className="mb-4 flex justify-start">
+        <div 
+          className="absolute"
+          style={{
+            width: '180px',
+            height: '180px',
+            top: '3%', 
+            left: '2%',
+            zIndex: 10
+          }}
+        >
           <div className="flex flex-col items-center gap-2">
             <img 
               src={photoUrl} 
               alt={`Foto de ${researcherName}`}
-              className="w-48 h-48 object-cover rounded-lg shadow-md"
+              className="w-full h-full object-cover rounded-lg shadow-md"
+              style={{
+                border: '2px solid rgba(255,255,255,.2)',
+                borderRadius: '20px',
+                padding: '10px',
+                backgroundColor: 'rgba(255,255,255, 0.2)'
+              }}
               loading="lazy"
             />
-            {belowPhoto}
+            <div className="absolute bottom-[-30px]">
+              {belowPhoto}
+            </div>
           </div>
         </div>
       )}
       {!photoUrl && belowPhoto && (
-        <div className="mb-4 flex justify-start">
+        <div 
+          className="absolute"
+          style={{
+            width: '180px',
+            height: '180px',
+            top: '3%', 
+            left: '2%',
+            zIndex: 10,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
           {belowPhoto}
         </div>
       )}
-      <div className="w-full">
+      <div className="w-full" style={{ paddingLeft: 0, paddingRight: 0 }}>
         <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', paddingLeft: 0, paddingRight: 0, margin: 0 }}>{description}</div>
       </div>
     </div>
