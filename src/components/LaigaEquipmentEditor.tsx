@@ -255,18 +255,41 @@ export function LaigaEquipmentEditor({ onEquipmentChange }: LaigaEquipmentEditor
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
               <h2 style={{ margin: 0, color: '#333' }}>Gerenciar Equipamentos LAIGA</h2>
-              <button
-                onClick={() => setIsEditMode(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  fontSize: '24px',
-                  cursor: 'pointer',
-                  color: '#666'
-                }}
-              >
-                <X size={24} />
-              </button>
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <button
+                  onClick={() => {
+                    setIsAuthenticated(false)
+                    setIsEditMode(false)
+                    toast({
+                      title: "Logout realizado",
+                      description: "Você saiu do modo de edição"
+                    })
+                  }}
+                  style={{
+                    backgroundColor: '#dc3545',
+                    color: 'white',
+                    border: 'none',
+                    padding: '8px 16px',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    fontSize: '14px'
+                  }}
+                >
+                  Sair
+                </button>
+                <button
+                  onClick={() => setIsEditMode(false)}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    fontSize: '24px',
+                    cursor: 'pointer',
+                    color: '#666'
+                  }}
+                >
+                  <X size={24} />
+                </button>
+              </div>
             </div>
 
             {/* Adicionar novo equipamento */}
