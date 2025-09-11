@@ -29,16 +29,24 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
+    console.log('Iniciando processamento da solicitação LAIGA...')
+    
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
     const supabaseServiceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const resendApiKey = Deno.env.get('RESEND_API_KEY')!
+
+    if (!resendApiKey) {
+      throw new Error('RESEND_API_KEY não configurado')
+    }
 
     const supabase = createClient(supabaseUrl, supabaseServiceRoleKey)
     const resend = new Resend(resendApiKey)
 
     const reservationData: LaigaReservationRequest = await req.json()
+    console.log('Dados recebidos:', JSON.stringify(reservationData, null, 2))
 
     // Salvar no banco de dados (adaptando a tabela existente)
+    console.log('Salvando no banco de dados...')
     const { data: reservation, error: dbError } = await supabase
       .from('reservations')
       .insert({
@@ -54,8 +62,11 @@ const handler = async (req: Request): Promise<Response> => {
       .single()
 
     if (dbError) {
+      console.error('Erro no banco de dados:', dbError)
       throw new Error(`Erro no banco de dados: ${dbError.message}`)
     }
+
+    console.log('Reserva salva com sucesso:', reservation.id)
 
     // Preparar conteúdo do email
     const equipmentsList = reservationData.selectedEquipments.length > 0 
@@ -89,17 +100,20 @@ const handler = async (req: Request): Promise<Response> => {
     `
 
     // Enviar email para o coordenador
-    const { error: emailError } = await resend.emails.send({
+    console.log('Enviando email para marcos.vasconcelos@ufba.br...')
+    const emailResponse = await resend.emails.send({
       from: 'LAIGA - CPGG <noreply@resend.dev>',
       to: ['marcos.vasconcelos@ufba.br'],
       subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
       html: emailContent,
     })
 
-    if (emailError) {
-      console.error('Erro ao enviar email:', emailError)
-      // Não falhar a requisição por causa do email
+    if (emailResponse.error) {
+      console.error('Erro ao enviar email:', emailResponse.error)
+      throw new Error(`Falha no envio do email: ${emailResponse.error.message}`)
     }
+
+    console.log('Email enviado com sucesso:', emailResponse.data)
 
     return new Response(
       JSON.stringify({ 
