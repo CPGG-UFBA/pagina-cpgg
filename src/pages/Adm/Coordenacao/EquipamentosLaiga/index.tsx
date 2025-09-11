@@ -226,13 +226,13 @@ export function EquipamentosLaiga() {
                 <TableHeader>
                   <TableRow>
                     <TableHead>Nome</TableHead>
-                    <TableHead>Descrição</TableHead>
-                    <TableHead>Marca/Modelo</TableHead>
-                    <TableHead>Série</TableHead>
+                    <TableHead>Email</TableHead>
+                    <TableHead>Laboratório/Espaço</TableHead>
+                    <TableHead>Uso</TableHead>
+                    <TableHead>Início</TableHead>
+                    <TableHead>Término</TableHead>
                     <TableHead>Status</TableHead>
-                    <TableHead>Localização</TableHead>
-                    <TableHead>Responsável</TableHead>
-                    <TableHead>Data Criação</TableHead>
+                    <TableHead>Solicitação</TableHead>
                     <TableHead>Ações</TableHead>
                   </TableRow>
                 </TableHeader>
@@ -243,26 +243,50 @@ export function EquipamentosLaiga() {
                         {equipment.name}
                       </TableCell>
                       <TableCell>
+                        {equipment.responsible_person || '-'}
+                      </TableCell>
+                      <TableCell>
+                        LAIGA
+                      </TableCell>
+                      <TableCell>
                         {equipment.description || '-'}
                       </TableCell>
                       <TableCell>
-                        {equipment.brand && equipment.model
-                          ? `${equipment.brand} - ${equipment.model}`
-                          : equipment.brand || equipment.model || '-'}
+                        {equipment.acquisition_date 
+                          ? new Date(equipment.acquisition_date).toLocaleDateString('pt-BR', {
+                              day: '2-digit',
+                              month: '2-digit',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })
+                          : '-'
+                        }
                       </TableCell>
-                      <TableCell>{equipment.serial_number || '-'}</TableCell>
+                      <TableCell>
+                        {equipment.next_maintenance 
+                          ? new Date(equipment.next_maintenance).toLocaleDateString('pt-BR', {
+                              day: '2-digit',
+                              month: '2-digit',
+                              year: 'numeric',
+                              hour: '2-digit',
+                              minute: '2-digit'
+                            })
+                          : '-'
+                        }
+                      </TableCell>
                       <TableCell>
                         <Badge variant={getStatusBadgeVariant(equipment.status)}>
                           {getStatusLabel(equipment.status)}
                         </Badge>
                       </TableCell>
-                      <TableCell>{equipment.location || '-'}</TableCell>
-                      <TableCell>{equipment.responsible_person || '-'}</TableCell>
                       <TableCell>
                         {new Date(equipment.created_at).toLocaleDateString('pt-BR', {
                           day: '2-digit',
                           month: '2-digit',
-                          year: 'numeric'
+                          year: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit'
                         })}
                       </TableCell>
                       <TableCell>
