@@ -206,15 +206,56 @@ export function ReservasAdmin() {
     setEditData({})
   }
 
-  const generatePDF = async (tableId: string, filename: string, title: string) => {
-    const element = document.getElementById(tableId)
-    if (!element) return
+  const generatePDF = async (sectionType: 'physical' | 'laboratory') => {
+    // Create a container with all relevant content
+    const container = document.createElement('div')
+    container.style.backgroundColor = 'white'
+    container.style.padding = '20px'
+    container.style.fontFamily = 'Arial, sans-serif'
+    
+    if (sectionType === 'physical') {
+      // Get charts and table for physical spaces
+      const chartsContainer = document.querySelector('.grid.grid-cols-1.md\\:grid-cols-2.gap-6.mb-6')
+      const tableContainer = document.getElementById('physical-spaces-table')
+      
+      if (chartsContainer) {
+        const chartsClone = chartsContainer.cloneNode(true) as HTMLElement
+        container.appendChild(chartsClone)
+      }
+      
+      if (tableContainer) {
+        const tableClone = tableContainer.cloneNode(true) as HTMLElement
+        container.appendChild(tableClone)
+      }
+    } else {
+      // Get charts and table for laboratories
+      const allCharts = document.querySelectorAll('.grid.grid-cols-1.md\\:grid-cols-2.gap-6.mb-6')
+      const labChartsContainer = allCharts[1] // Second charts container is for laboratories
+      const tableContainer = document.getElementById('laboratories-table')
+      
+      if (labChartsContainer) {
+        const chartsClone = labChartsContainer.cloneNode(true) as HTMLElement
+        container.appendChild(chartsClone)
+      }
+      
+      if (tableContainer) {
+        const tableClone = tableContainer.cloneNode(true) as HTMLElement
+        container.appendChild(tableClone)
+      }
+    }
+    
+    // Temporarily add container to document
+    document.body.appendChild(container)
 
     try {
-      const canvas = await html2canvas(element, {
-        scale: 2,
+      const canvas = await html2canvas(container, {
+        scale: 1.5,
         useCORS: true,
         allowTaint: true,
+        width: container.scrollWidth,
+        height: container.scrollHeight,
+        scrollX: 0,
+        scrollY: 0,
       })
 
       const imgData = canvas.toDataURL('image/png')
@@ -224,21 +265,61 @@ export function ReservasAdmin() {
       const pdfHeight = pdf.internal.pageSize.getHeight()
       const imgWidth = canvas.width
       const imgHeight = canvas.height
-      const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight)
-      const imgX = (pdfWidth - imgWidth * ratio) / 2
+      
+      // Calculate scaling to fit content
+      const ratio = Math.min(pdfWidth / imgWidth, (pdfHeight - 40) / imgHeight)
+      const scaledWidth = imgWidth * ratio
+      const scaledHeight = imgHeight * ratio
+      const imgX = (pdfWidth - scaledWidth) / 2
       const imgY = 30
 
       // Header
       pdf.setFontSize(16)
+      const title = sectionType === 'physical' 
+        ? 'Relatório de Reservas - Espaços Físicos - CPGG'
+        : 'Relatório de Reservas - Laboratórios - CPGG'
       pdf.text(title, pdfWidth / 2, 20, { align: 'center' })
       
-      // Data
+      // Check if content fits in one page
+      if (scaledHeight > pdfHeight - 40) {
+        // Content is too tall, split into multiple pages
+        const pageHeight = pdfHeight - 40
+        let currentY = 0
+        
+        while (currentY < scaledHeight) {
+          if (currentY > 0) {
+            pdf.addPage()
+          }
+          
+          const remainingHeight = Math.min(pageHeight, scaledHeight - currentY)
+          
+          // Create a temporary canvas for this page
+          const pageCanvas = document.createElement('canvas')
+          const pageCtx = pageCanvas.getContext('2d')
+          pageCanvas.width = imgWidth
+          pageCanvas.height = remainingHeight / ratio
+          
+          if (pageCtx) {
+            pageCtx.drawImage(canvas, 0, -currentY / ratio)
+            const pageImgData = pageCanvas.toDataURL('image/png')
+            pdf.addImage(pageImgData, 'PNG', imgX, imgY, scaledWidth, remainingHeight)
+          }
+          
+          currentY += pageHeight
+        }
+      } else {
+        // Content fits in one page
+        pdf.addImage(imgData, 'PNG', imgX, imgY, scaledWidth, scaledHeight)
+      }
+      
+      // Footer on last page
       pdf.setFontSize(10)
       pdf.text(`Data: ${new Date().toLocaleDateString('pt-BR')}`, 20, pdfHeight - 10)
-      
-      // Table
-      pdf.addImage(imgData, 'PNG', imgX, imgY, imgWidth * ratio, imgHeight * ratio)
 
+      const filename = sectionType === 'physical' 
+        ? 'relatorio-espacos-fisicos.pdf'
+        : 'relatorio-laboratorios.pdf'
+      
       pdf.save(filename)
       
       toast({
@@ -252,6 +333,9 @@ export function ReservasAdmin() {
         description: "Erro ao gerar PDF",
         variant: "destructive",
       })
+    } finally {
+      // Remove temporary container
+      document.body.removeChild(container)
     }
   }
 
@@ -415,7 +499,7 @@ export function ReservasAdmin() {
                 <option value="rejeitada">Rejeitada</option>
               </select>
 
-              <Button onClick={() => generatePDF('physical-spaces-table', 'relatorio-espacos-fisicos.pdf', 'Relatório de Reservas - Espaços Físicos - CPGG')} variant="outline">
+              <Button onClick={() => generatePDF('physical')} variant="outline">
                 <Download className="w-4 h-4 mr-2" />
                 Gerar PDF
               </Button>
@@ -703,7 +787,7 @@ export function ReservasAdmin() {
                 <option value="rejeitada">Rejeitada</option>
               </select>
 
-              <Button onClick={() => generatePDF('laboratories-table', 'relatorio-laboratorios.pdf', 'Relatório de Reservas - Laboratórios - CPGG')} variant="outline">
+              <Button onClick={() => generatePDF('laboratory')} variant="outline">
                 <Download className="w-4 h-4 mr-2" />
                 Gerar PDF
               </Button>
