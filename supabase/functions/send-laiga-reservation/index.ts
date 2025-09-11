@@ -106,9 +106,9 @@ const handler = async (req: Request): Promise<Response> => {
     
     try {
       const emailResponse = await resend.emails.send({
-        from: 'CPGG LAIGA <onboarding@resend.dev>',
-        to: ['secretaria.cpgg.ufba@gmail.com'], // Teste temporário - mude depois para marcos.vasconcelos@ufba.br
-        subject: `[TESTE] Nova Solicitação LAIGA - ${reservationData.applicantName} (Dest: Prof. Marcos)`,
+        from: 'CPGG LAIGA <cpgg-ufba@ufba.br>',
+        to: ['marcos.vasconcelos@ufba.br'],
+        subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
         html: emailContent,
         reply_to: reservationData.applicantEmail,
       })
@@ -126,7 +126,7 @@ const handler = async (req: Request): Promise<Response> => {
       try {
         console.log('Tentando enviar para secretaria.cpgg.ufba@gmail.com como backup...')
         const backupEmail = await resend.emails.send({
-          from: 'CPGG LAIGA <onboarding@resend.dev>',
+          from: 'CPGG LAIGA <cpgg-ufba@ufba.br>',
           to: ['secretaria.cpgg.ufba@gmail.com'],
           subject: `[BACKUP] Nova Solicitação LAIGA - Encaminhar para Prof. Marcos Vasconcelos`,
           html: `
