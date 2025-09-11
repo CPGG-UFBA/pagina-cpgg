@@ -320,7 +320,7 @@ export function ReservasAdmin() {
                 <option value="all">Todos os Espaços Físicos</option>
                 <option value="auditorio">Auditório</option>
                 <option value="sala_reuniao">Sala de Reunião</option>
-                <option value="laiga">LAIGA</option>
+                <option value="laiga_equipments">LAIGA</option>
                 <option value="lagep">LAGEP</option>
                 <option value="lamod">LAMOD</option>
               </select>
