@@ -560,6 +560,9 @@ export function EquipamentosLaiga() {
                         })}
                       </TableCell>
                       <TableCell>
+                        {equipment.model || '-'}
+                      </TableCell>
+                      <TableCell>
                         <div className="flex gap-2">
                           {editingId === equipment.id ? (
                             <>

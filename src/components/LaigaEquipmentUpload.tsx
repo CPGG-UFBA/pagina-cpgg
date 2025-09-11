@@ -46,6 +46,48 @@ export function LaigaEquipmentUpload() {
     return val;
   };
 
+  // Convert date strings like 25/03/2024, 03/04/24, 2024/03/19 2:20:06 to ISO formats
+  const parseDateLike = (value: any): string | null => {
+    if (value == null) return null;
+    const str = String(value).trim();
+    if (!str) return null;
+
+    // Split date and time
+    const [datePart, timePartRaw] = str.split(/[ T]/);
+
+    // Identify separator
+    const sep = datePart.includes('/') ? '/' : (datePart.includes('-') ? '-' : null);
+    if (!sep) return null;
+
+    const parts = datePart.split(sep).map(p => p.padStart(2, '0'));
+
+    let year: number, month: number, day: number;
+    if (parts[0].length === 4) {
+      // YYYY/MM/DD
+      year = parseInt(parts[0], 10);
+      month = parseInt(parts[1], 10);
+      day = parseInt(parts[2], 10);
+    } else {
+      // DD/MM/YYYY or DD/MM/YY
+      day = parseInt(parts[0], 10);
+      month = parseInt(parts[1], 10);
+      const yy = parseInt(parts[2], 10);
+      year = parts[2].length === 2 ? (yy <= 50 ? 2000 + yy : 1900 + yy) : yy;
+    }
+
+    const pad = (n: number) => n.toString().padStart(2, '0');
+    const dateISO = `${year}-${pad(month)}-${pad(day)}`;
+
+    if (timePartRaw) {
+      const tParts = timePartRaw.split(':');
+      const hh = pad(parseInt(tParts[0] || '0', 10));
+      const mm = pad(parseInt(tParts[1] || '0', 10));
+      const ss = pad(parseInt(tParts[2] || '0', 10));
+      return `${dateISO} ${hh}:${mm}:${ss}`;
+    }
+
+    return dateISO;
+  };
   const processCSV = (file: File): Promise<Equipment[]> => {
     return new Promise((resolve, reject) => {
       Papa.parse(file, {
@@ -74,8 +116,15 @@ export function LaigaEquipmentUpload() {
           const workbook = XLSX.read(data, { type: 'array' });
           const sheetName = workbook.SheetNames[0];
           const worksheet = workbook.Sheets[sheetName];
-          const jsonData = XLSX.utils.sheet_to_json(worksheet) as Equipment[];
-          resolve(jsonData);
+          const jsonData = XLSX.utils.sheet_to_json<Record<string, any>>(worksheet, { defval: '' });
+          const normalized = jsonData.map((row) => {
+            const out: Record<string, any> = {};
+            Object.entries(row).forEach(([k, v]) => {
+              out[normalizeKey(k)] = normalizeValue(v);
+            });
+            return out as Equipment;
+          });
+          resolve(normalized);
         } catch (error) {
           reject(error);
         }
@@ -84,7 +133,6 @@ export function LaigaEquipmentUpload() {
       reader.readAsArrayBuffer(file);
     });
   };
-
   const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -181,8 +229,22 @@ export function LaigaEquipmentUpload() {
           observations: findKey([
             'observations', 'observações', 'observacoes', 'obs', 'notas', 'notes',
             'comentários', 'comentarios', 'comments', 'remarks', 'anotações', 'anotacoes'
+          ]),
+          created_at: findKey([
+            'solicitação', 'solicitacao', 'solicitacao', 'data_solicitação', 'data_solicitacao', 'request', 'solicitacao'
           ])
-        };
+        } as any;
+        
+        // Ajustar datas para ISO antes de inserir
+        const fixDate = (v: any) => (typeof v === 'string' ? (parseDateLike(v) ?? v) : v);
+        normalized.acquisition_date = fixDate(normalized.acquisition_date);
+        normalized.last_maintenance = fixDate(normalized.last_maintenance);
+        normalized.next_maintenance = fixDate(normalized.next_maintenance);
+        if (normalized.created_at) {
+          const parsed = parseDateLike(normalized.created_at);
+          if (parsed) normalized.created_at = parsed;
+          else delete normalized.created_at;
+        }
         
         console.log('Original item keys:', keys);
         console.log('Original item:', item);
@@ -244,8 +306,8 @@ export function LaigaEquipmentUpload() {
         <div className="text-sm text-muted-foreground">
           <p>Formatos aceitos: CSV, XLS, XLSX</p>
           <p className="mt-2">
-            <strong>Campos esperados:</strong> Nome (obrigatório), Descrição, Modelo, Marca, 
-            Número de Série, Status, Localização, Responsável, Data de Aquisição, 
+            <strong>Campos reconhecidos:</strong> Nome, Email, Equipamento, Uso, Início, Término, Solicitação. Além disso: 
+            Descrição, Modelo, Marca, Número de Série, Status, Localização, Responsável, Data de Aquisição, 
             Última Manutenção, Próxima Manutenção, Observações
           </p>
         </div>
