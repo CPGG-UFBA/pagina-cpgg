@@ -103,40 +103,51 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Enviar email para o coordenador
     console.log('Enviando email para marcos.vasconcelos@ufba.br...')
-    const emailResponse = await resend.emails.send({
-      from: 'CPGG <noreply@resend.dev>',
-      to: ['marcos.vasconcelos@ufba.br'],
-      subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
-      html: emailContent,
-    })
+    
+    try {
+      const emailResponse = await resend.emails.send({
+        from: 'CPGG LAIGA <onboarding@resend.dev>',
+        to: ['marcos.vasconcelos@ufba.br'],
+        subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
+        html: emailContent,
+        reply_to: reservationData.applicantEmail,
+      })
 
-    if (emailResponse.error) {
-      console.error('Erro ao enviar email:', emailResponse.error)
-      // Fallback: Resend bloqueia envios para outros destinatários sem domínio verificado (403)
-      // Envia para o e-mail permitido da conta para que a Secretaria encaminhe ao coordenador
-      // Mensagem de erro típica: "You can only send testing emails to your own email address (...)."
-      if ((emailResponse.error as any).statusCode === 403) {
-        console.log('Tentando fallback para secretaria.cpgg.ufba@gmail.com devido a domínio não verificado...')
-        const fallback = await resend.emails.send({
-          from: 'CPGG <noreply@resend.dev>',
+      if (emailResponse.error) {
+        console.error('Erro ao enviar email principal:', emailResponse.error)
+        throw emailResponse.error
+      } else {
+        console.log('Email enviado com sucesso para o coordenador:', emailResponse.data)
+      }
+    } catch (emailError: any) {
+      console.error('Falha no envio do email principal, tentando alternativas...', emailError)
+      
+      // Tentar enviar para a secretaria como backup
+      try {
+        console.log('Tentando enviar para secretaria.cpgg.ufba@gmail.com como backup...')
+        const backupEmail = await resend.emails.send({
+          from: 'CPGG LAIGA <onboarding@resend.dev>',
           to: ['secretaria.cpgg.ufba@gmail.com'],
-          subject: 'FWD: Nova Solicitação de Equipamentos LAIGA (destinatário original: marcos.vasconcelos@ufba.br)',
+          subject: `[BACKUP] Nova Solicitação LAIGA - Encaminhar para Prof. Marcos Vasconcelos`,
           html: `
-            <p><strong>Aviso:</strong> O domínio do remetente ainda não está verificado na Resend, por isso o email foi redirecionado para este endereço.</p>
-            <p><strong>Destinatário pretendido:</strong> marcos.vasconcelos@ufba.br</p>
+            <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
+              <strong>⚠️ AVISO:</strong> Este email foi redirecionado para a secretaria pois houve problema no envio direto para o coordenador.
+              <br><strong>Destinatário original:</strong> marcos.vasconcelos@ufba.br
+              <br><strong>Ação necessária:</strong> Por favor, encaminhe este email para o Prof. Marcos Vasconcelos.
+            </div>
             ${emailContent}
           `,
           reply_to: reservationData.applicantEmail,
         })
-        if (fallback.error) {
-          console.error('Falha também no fallback:', fallback.error)
+        
+        if (backupEmail.error) {
+          console.error('Falha também no email de backup:', backupEmail.error)
         } else {
-          console.log('Fallback enviado com sucesso:', fallback.data)
+          console.log('Email de backup enviado com sucesso:', backupEmail.data)
         }
+      } catch (backupError) {
+        console.error('Erro total no envio de emails:', backupError)
       }
-      // Não falhar a requisição por causa do email
-    } else {
-      console.log('Email enviado com sucesso:', emailResponse.data)
     }
 
     return new Response(
