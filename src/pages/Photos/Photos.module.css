@@ -19,6 +19,7 @@
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
+  margin-left: -100px;
   margin-bottom: 18rem;
 }
 
@@ -83,8 +84,8 @@
   height: 500px;
   width: 500px;
   object-fit: contain;
-  margin-left: 1000px;
-  margin-bottom: 50px;
+  margin-left: 600px;
+  margin-bottom: 550px;
   margin-top: 150px;
 }
 
