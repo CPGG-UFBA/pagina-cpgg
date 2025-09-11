@@ -236,7 +236,13 @@ export function LaigaEquipmentUpload() {
         } as any;
         
         // Ajustar datas para ISO antes de inserir
-        const fixDate = (v: any) => (typeof v === 'string' ? (parseDateLike(v) ?? v) : v);
+        const fixDate = (v: any) => {
+          if (v == null) return null;
+          const s = String(v).trim();
+          if (!s) return null;
+          const parsed = parseDateLike(s);
+          return parsed ?? null;
+        };
         normalized.acquisition_date = fixDate(normalized.acquisition_date);
         normalized.last_maintenance = fixDate(normalized.last_maintenance);
         normalized.next_maintenance = fixDate(normalized.next_maintenance);
@@ -284,9 +290,10 @@ export function LaigaEquipmentUpload() {
 
     } catch (error) {
       console.error('Error uploading file:', error);
+      const msg = (error as any)?.message || (error instanceof Error ? error.message : 'Ocorreu um erro ao processar o arquivo. Verifique o formato e tente novamente.');
       toast({
         title: 'Erro no upload',
-        description: error instanceof Error ? error.message : 'Ocorreu um erro ao processar o arquivo. Verifique o formato e tente novamente.',
+        description: msg,
         variant: 'destructive',
       });
     } finally {
