@@ -207,114 +207,145 @@ export function ReservasAdmin() {
   }
 
   const generatePDF = async (sectionType: 'physical' | 'laboratory') => {
-    // Capture o conteúdo visível da aba (inclui gráficos e tabela)
     const targetId = sectionType === 'physical' ? 'physical-section' : 'labs-section'
     const element = document.getElementById(targetId)
     if (!element) return
 
-    // Garanta largura estável durante a captura
-    const prevWidth = element.style.width
-    element.style.width = `${element.clientWidth}px`
-
-    // Expandir a tabela para capturar todas as linhas (remover scroll temporariamente)
+    // Expandir a tabela para capturar todas as linhas
     const tableId = sectionType === 'physical' ? 'physical-spaces-table' : 'laboratories-table'
     const tableEl = document.getElementById(tableId) as HTMLElement | null
     const prevMaxHeight = tableEl?.style.maxHeight
     const prevOverflowY = tableEl?.style.overflowY
-    const prevHeight = tableEl?.style.height
     if (tableEl) {
       tableEl.style.maxHeight = 'none'
       tableEl.style.overflowY = 'visible'
-      tableEl.style.height = 'auto'
     }
 
     try {
-      const canvas = await html2canvas(element, {
+      const pdf = new jsPDF('l', 'mm', 'a4')
+      const pdfWidth = pdf.internal.pageSize.getWidth()
+      const pdfHeight = pdf.internal.pageSize.getHeight()
+      const marginTop = 25
+      const marginBottom = 20
+      const availableHeight = pdfHeight - marginTop - marginBottom
+
+      const title = sectionType === 'physical' 
+        ? 'Relatório de Reservas - Espaços Físicos - CPGG'
+        : 'Relatório de Reservas - Laboratórios - CPGG'
+
+      // Primeira página - Cabeçalho e Gráficos
+      pdf.setFontSize(16)
+      pdf.text(title, pdfWidth / 2, 15, { align: 'center' })
+
+      // Capturar os gráficos
+      const chartsSelector = sectionType === 'physical' 
+        ? '#physical-section .grid.grid-cols-1.md\\:grid-cols-2 .gap-6'
+        : '#labs-section .grid.grid-cols-1.md\\:grid-cols-2 .gap-6'
+      
+      const chartsContainer = document.querySelector(chartsSelector) as HTMLElement
+      if (chartsContainer) {
+        const chartsCanvas = await html2canvas(chartsContainer, {
+          scale: 1.5,
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: '#ffffff',
+        })
+
+        const chartsImgData = chartsCanvas.toDataURL('image/png')
+        const chartsRatio = Math.min(pdfWidth / chartsCanvas.width, (availableHeight * 0.6) / chartsCanvas.height)
+        const chartsWidth = chartsCanvas.width * chartsRatio
+        const chartsHeight = chartsCanvas.height * chartsRatio
+        const chartsX = (pdfWidth - chartsWidth) / 2
+
+        pdf.addImage(chartsImgData, 'PNG', chartsX, marginTop, chartsWidth, chartsHeight)
+      }
+
+      // Nova página para a tabela
+      pdf.addPage()
+      pdf.setFontSize(16)
+      pdf.text(title, pdfWidth / 2, 15, { align: 'center' })
+      pdf.setFontSize(12)
+      pdf.text('Dados Detalhados', pdfWidth / 2, 22, { align: 'center' })
+
+      // Capturar apenas a tabela
+      const tableCanvas = await html2canvas(tableEl!, {
         scale: 2,
         useCORS: true,
         allowTaint: true,
         backgroundColor: '#ffffff',
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: document.documentElement.clientWidth,
       })
 
-      const imgData = canvas.toDataURL('image/png')
-      const pdf = new jsPDF('l', 'mm', 'a4')
-      const pdfWidth = pdf.internal.pageSize.getWidth()
-      const pdfHeight = pdf.internal.pageSize.getHeight()
+      const tableImgData = tableCanvas.toDataURL('image/png')
+      
+      // Calcular quantas páginas são necessárias para a tabela
+      const maxTableHeight = availableHeight - 10 // Espaço extra para cabeçalho da página
+      const tableRatio = Math.min(pdfWidth / tableCanvas.width, maxTableHeight / tableCanvas.height)
+      const tableWidth = tableCanvas.width * tableRatio
+      const tableHeight = tableCanvas.height * tableRatio
 
-      const imgWidth = canvas.width
-      const imgHeight = canvas.height
-
-      // Escala para caber em largura e considerar margem superior/rodapé
-      const marginTop = 25
-      const marginBottom = 15
-      const availableHeight = pdfHeight - marginTop - marginBottom
-      const ratio = Math.min(pdfWidth / imgWidth, availableHeight / imgHeight)
-      const scaledWidth = imgWidth * ratio
-      const scaledHeight = imgHeight * ratio
-
-      // Cabeçalho
-      pdf.setFontSize(16)
-      const title = sectionType === 'physical' 
-        ? 'Relatório de Reservas - Espaços Físicos - CPGG'
-        : 'Relatório de Reservas - Laboratórios - CPGG'
-      pdf.text(title, pdfWidth / 2, 15, { align: 'center' })
-
-      if (scaledHeight <= availableHeight) {
-        const imgX = (pdfWidth - scaledWidth) / 2
-        pdf.addImage(imgData, 'PNG', imgX, marginTop, scaledWidth, scaledHeight)
+      if (tableHeight <= maxTableHeight) {
+        // Tabela cabe em uma página
+        const tableX = (pdfWidth - tableWidth) / 2
+        pdf.addImage(tableImgData, 'PNG', tableX, marginTop + 10, tableWidth, tableHeight)
       } else {
-        // Quebra em múltiplas páginas gerando "fatias" verticais
-        let yOffset = 0
-        const sliceHeight = availableHeight / ratio // altura em px do canvas por página
+        // Dividir tabela em múltiplas páginas
+        const pagesNeeded = Math.ceil(tableHeight / maxTableHeight)
+        const sliceHeight = tableCanvas.height / pagesNeeded
 
-        while (yOffset < imgHeight) {
-          const remaining = Math.min(sliceHeight, imgHeight - yOffset)
+        for (let i = 0; i < pagesNeeded; i++) {
+          if (i > 0) {
+            pdf.addPage()
+            pdf.setFontSize(16)
+            pdf.text(title, pdfWidth / 2, 15, { align: 'center' })
+            pdf.setFontSize(12)
+            pdf.text(`Dados Detalhados (Página ${i + 1}/${pagesNeeded})`, pdfWidth / 2, 22, { align: 'center' })
+          }
 
-          const pageCanvas = document.createElement('canvas')
-          pageCanvas.width = imgWidth
-          pageCanvas.height = remaining
-          const ctx = pageCanvas.getContext('2d')!
+          // Criar canvas para esta fatia
+          const sliceCanvas = document.createElement('canvas')
+          sliceCanvas.width = tableCanvas.width
+          sliceCanvas.height = Math.min(sliceHeight, tableCanvas.height - (i * sliceHeight))
+          
+          const ctx = sliceCanvas.getContext('2d')!
           ctx.drawImage(
-            canvas,
-            0, yOffset,              // origem
-            imgWidth, remaining,     // tamanho da fatia de origem
-            0, 0,                    // destino
-            imgWidth, remaining      // tamanho da fatia de destino
+            tableCanvas,
+            0, i * sliceHeight,
+            tableCanvas.width, sliceCanvas.height,
+            0, 0,
+            tableCanvas.width, sliceCanvas.height
           )
 
-          const pageImg = pageCanvas.toDataURL('image/png')
-          const pageScaledHeight = remaining * ratio
-          const imgX = (pdfWidth - scaledWidth) / 2
-
-          if (yOffset > 0) pdf.addPage()
-          pdf.addImage(pageImg, 'PNG', imgX, marginTop, scaledWidth, pageScaledHeight)
-
-          yOffset += remaining
+          const sliceImgData = sliceCanvas.toDataURL('image/png')
+          const sliceScaledHeight = sliceCanvas.height * tableRatio
+          const tableX = (pdfWidth - tableWidth) / 2
+          
+          pdf.addImage(sliceImgData, 'PNG', tableX, marginTop + 10, tableWidth, sliceScaledHeight)
         }
       }
 
-      // Rodapé
-      pdf.setFontSize(10)
-      pdf.text(`Data: ${new Date().toLocaleDateString('pt-BR')}`, 15, pdfHeight - 5)
+      // Rodapé em todas as páginas
+      const totalPages = pdf.getNumberOfPages()
+      for (let i = 1; i <= totalPages; i++) {
+        pdf.setPage(i)
+        pdf.setFontSize(10)
+        pdf.text(`Data: ${new Date().toLocaleDateString('pt-BR')}`, 15, pdfHeight - 5)
+        pdf.text(`Página ${i} de ${totalPages}`, pdfWidth - 30, pdfHeight - 5)
+      }
 
       const filename = sectionType === 'physical' 
         ? 'relatorio-espacos-fisicos.pdf'
         : 'relatorio-laboratorios.pdf'
+      
       pdf.save(filename)
-
       toast({ title: 'Sucesso', description: 'PDF gerado com sucesso!' })
+
     } catch (error) {
       console.error('Erro ao gerar PDF:', error)
       toast({ title: 'Erro', description: 'Erro ao gerar PDF', variant: 'destructive' })
     } finally {
-      element.style.width = prevWidth
       if (tableEl) {
         tableEl.style.maxHeight = prevMaxHeight || ''
         tableEl.style.overflowY = prevOverflowY || ''
-        tableEl.style.height = prevHeight || ''
       }
     }
   }
