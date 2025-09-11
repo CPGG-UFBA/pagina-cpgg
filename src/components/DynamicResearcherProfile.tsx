@@ -44,10 +44,6 @@ export function DynamicResearcherProfile({
     }
   }
 
-  if (isLoading) {
-    return <div>Carregando perfil...</div>
-  }
-
   // Usa dados do usuário se disponível, senão usa dados estáticos
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
@@ -64,6 +60,10 @@ export function DynamicResearcherProfile({
       }
     }
   }, [photoUrl])
+
+  if (isLoading) {
+    return <div>Carregando perfil...</div>
+  }
 
   return (
     <div className="w-full" ref={rootRef}>
