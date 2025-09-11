@@ -92,12 +92,11 @@ export function EventPhotos() {
         <div className={styles.box}>
           <div className={styles.gallery}>
             {photos.map((photo, index) => (
-              <div key={photo.id} className={styles[`photo${index + 1}`]}>
-                <img 
-                  src={photo.photo_url} 
-                  alt={`Foto ${index + 1} do evento ${event.name}`}
-                />
-              </div>
+              <img 
+                key={photo.id}
+                src={photo.photo_url} 
+                alt={`Foto ${index + 1} do evento ${event.name}`}
+              />
             ))}
           </div>
         </div>
