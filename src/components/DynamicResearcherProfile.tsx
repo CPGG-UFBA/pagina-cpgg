@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 
 interface DynamicResearcherProfileProps {
@@ -16,6 +16,7 @@ export function DynamicResearcherProfile({
 }: DynamicResearcherProfileProps) {
   const [userProfile, setUserProfile] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const rootRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     fetchUserProfile()
@@ -29,7 +30,7 @@ export function DynamicResearcherProfile({
         .from('user_profiles')
         .select('*')
         .ilike('first_name', firstName)
-        .single()
+        .maybeSingle()
 
       if (error && error.code !== 'PGRST116') {
         throw error
@@ -51,8 +52,21 @@ export function DynamicResearcherProfile({
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
+  useEffect(() => {
+    const root = rootRef.current
+    const parent = root?.parentElement
+    const box2 = parent?.querySelector('[class*="box2"]') as HTMLElement | null
+    if (box2) {
+      if (photoUrl) {
+        box2.style.display = 'none'
+      } else {
+        box2.style.display = ''
+      }
+    }
+  }, [photoUrl])
+
   return (
-    <div className="w-full relative">
+    <div className="w-full" ref={rootRef}>
       {photoUrl && (
         <div 
           className="absolute"
@@ -77,7 +91,7 @@ export function DynamicResearcherProfile({
               }}
               loading="lazy"
             />
-            <div className="absolute bottom-[-30px]">
+            <div className="mt-2 flex justify-center">
               {belowPhoto}
             </div>
           </div>
