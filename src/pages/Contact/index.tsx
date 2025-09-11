@@ -7,7 +7,10 @@ import Whats from '../../assets/whatsapp-icon.png'
 export function Contact() {
   const phoneNumber = '+55(71)3283-8531'
   const whatsappNumber = '5571328385531'
-  
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+  const whatsappHref = isMobile
+    ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
+    : `https://web.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent('Olá!')}`
   return (
     <>
       <Header />
@@ -17,34 +20,13 @@ export function Contact() {
 
         <div className={styles.whatsappSection}>
           <a
-            href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`}
-            target="_blank"
-            rel="noopener noreferrer external"
+            href={whatsappHref}
+            target="_top"
+            rel="noopener noreferrer"
             className={styles.whatsappLink}
-            aria-label="Abrir conversa no WhatsApp em nova aba"
-            onClick={() => {
-              const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent('Olá!')}`
-              try {
-                const w = window.open(url, '_blank', 'noopener,noreferrer')
-                if (!w) {
-                  if (window.top && window.top !== window) {
-                    // @ts-ignore
-                    window.top.location.href = url
-                  } else {
-                    window.location.href = url
-                  }
-                }
-              } catch {
-                if (window.top && window.top !== window) {
-                  // @ts-ignore
-                  window.top.location.href = url
-                } else {
-                  window.location.href = url
-                }
-              }
-            }}
+            aria-label="Abrir conversa no WhatsApp"
           >
-            <img src={Whats} alt="Whatsapp" className={styles.whatsappIcon} />
+            <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
             <span>Whats app us</span>
           </a>
         </div>
