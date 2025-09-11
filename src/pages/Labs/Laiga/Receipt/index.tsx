@@ -110,6 +110,24 @@ export function LaigaReceipt() {
               <p><strong>Data da Solicitação:</strong> {formatDate(reservation.created_at)}</p>
             </div>
 
+            <div className={styles.section}>
+              <h3>Reporte de Problemas ou Avarias</h3>
+              <p><strong>Reporte problemas ou avarias que o equipamento reservado sofreu na devolução:</strong></p>
+              <div style={{ 
+                border: '1px solid #ddd', 
+                minHeight: '80px', 
+                marginTop: '10px',
+                backgroundColor: 'white',
+                borderRadius: '5px',
+                padding: '10px'
+              }}>
+                <div style={{ borderBottom: '1px solid #ccc', height: '20px', marginBottom: '8px' }}></div>
+                <div style={{ borderBottom: '1px solid #ccc', height: '20px', marginBottom: '8px' }}></div>
+                <div style={{ borderBottom: '1px solid #ccc', height: '20px', marginBottom: '8px' }}></div>
+                <div style={{ borderBottom: '1px solid #ccc', height: '20px', marginBottom: '8px' }}></div>
+              </div>
+            </div>
+
             <div className={styles.signatures}>
               <div className={styles.signatureBox}>
                 <div className={styles.signatureLine}></div>
@@ -125,6 +143,7 @@ export function LaigaReceipt() {
             </div>
 
             <div className={styles.footer}>
+              <p><strong>Data da Solicitação:</strong> {formatDate(reservation.created_at)}</p>
               <p><strong>Importante:</strong> Esta solicitação foi enviada para análise do coordenador do LAIGA. 
               Você receberá um retorno por e-mail sobre a aprovação da sua reserva.</p>
               <p><strong>Coordenador do LAIGA:</strong> Prof. Marcos Alberto Rodrigues Vasconcelos</p>
