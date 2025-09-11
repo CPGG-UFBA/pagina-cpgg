@@ -111,6 +111,28 @@ const handler = async (req: Request): Promise<Response> => {
 
     if (emailResponse.error) {
       console.error('Erro ao enviar email:', emailResponse.error)
+      // Fallback: Resend bloqueia envios para outros destinatários sem domínio verificado (403)
+      // Envia para o e-mail permitido da conta para que a Secretaria encaminhe ao coordenador
+      // Mensagem de erro típica: "You can only send testing emails to your own email address (...)."
+      if ((emailResponse.error as any).statusCode === 403) {
+        console.log('Tentando fallback para secretaria.cpgg.ufba@gmail.com devido a domínio não verificado...')
+        const fallback = await resend.emails.send({
+          from: 'CPGG <noreply@resend.dev>',
+          to: ['secretaria.cpgg.ufba@gmail.com'],
+          subject: 'FWD: Nova Solicitação de Equipamentos LAIGA (destinatário original: marcos.vasconcelos@ufba.br)',
+          html: `
+            <p><strong>Aviso:</strong> O domínio do remetente ainda não está verificado na Resend, por isso o email foi redirecionado para este endereço.</p>
+            <p><strong>Destinatário pretendido:</strong> marcos.vasconcelos@ufba.br</p>
+            ${emailContent}
+          `,
+          reply_to: reservationData.applicantEmail || undefined,
+        })
+        if (fallback.error) {
+          console.error('Falha também no fallback:', fallback.error)
+        } else {
+          console.log('Fallback enviado com sucesso:', fallback.data)
+        }
+      }
       // Não falhar a requisição por causa do email
     } else {
       console.log('Email enviado com sucesso:', emailResponse.data)
