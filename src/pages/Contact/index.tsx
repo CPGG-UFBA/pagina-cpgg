@@ -27,7 +27,7 @@ export function Contact() {
     <>
       <Header />
       <div className={styles.contact}>
-        <ul> Contact us by e-mail </ul>
+        <ul> E-mail us at </ul>
         <p> secretaria.cpgg.ufba@gmail.com</p>
 
         <div className={styles.whatsappSection}>
