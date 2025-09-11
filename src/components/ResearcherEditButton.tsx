@@ -52,14 +52,24 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
         .maybeSingle()
 
       if (data) {
-        setDescription(data.description || '')
+        const dbDesc = (data as any).description?.trim?.() || ''
+        setDescription(dbDesc || staticDescription || '')
         setProfileEmail(data.email || '')
         setCurrentPhotoUrl(data.photo_url)
+      } else {
+        if (staticDescription) setDescription(staticDescription)
       }
     }
 
     loadResearcherProfile()
   }, [researcherName])
+
+  // Fallback: se não há descrição dinâmica, usar a estática
+  useEffect(() => {
+    if (!description && staticDescription) {
+      setDescription(staticDescription)
+    }
+  }, [staticDescription])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -113,6 +123,9 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
       // Preserve existing description and email if they were already loaded
       if (!description && profile.description) {
         setDescription(profile.description)
+      }
+      if (!description && !profile.description && staticDescription) {
+        setDescription(staticDescription)
       }
       if (!profileEmail && profile.email) {
         setProfileEmail(profile.email)
@@ -227,9 +240,9 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
           <DialogHeader>
             <DialogTitle>Login do Pesquisador</DialogTitle>
           </DialogHeader>
-          <p className="text-sm text-muted-foreground mb-4">
+          <DialogDescription className="mb-4">
             Faça login com suas credenciais para editar seu perfil
-          </p>
+          </DialogDescription>
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <Label htmlFor="email">Email</Label>
@@ -273,9 +286,9 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
           <DialogHeader>
             <DialogTitle>Editar Perfil - {researcherName}</DialogTitle>
           </DialogHeader>
-          <p className="text-sm text-muted-foreground mb-4">
+          <DialogDescription className="mb-4">
             Edite sua descrição e foto do perfil
-          </p>
+          </DialogDescription>
           <div className="space-y-4">
             <div>
               <Label htmlFor="description">Descrição</Label>
