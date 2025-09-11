@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Edit3 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { supabase } from '@/integrations/supabase/client'
 import { useToast } from '@/hooks/use-toast'
+import { useResearcherProfile } from '@/components/ResearcherProfileContext'
 
 interface ResearcherEditButtonProps {
   researcherName: string
@@ -26,6 +27,7 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userProfile, setUserProfile] = useState<any>(null)
   const { toast } = useToast()
+  const { staticDescription } = useResearcherProfile()
 
   // Função para extrair primeiro nome do nome completo
   const getFirstName = (fullName: string) => {

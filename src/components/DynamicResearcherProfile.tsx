@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { supabase } from '@/integrations/supabase/client'
+import { ResearcherProfileProvider } from './ResearcherProfileContext'
 
 interface DynamicResearcherProfileProps {
   researcherName: string
@@ -66,67 +67,69 @@ export function DynamicResearcherProfile({
   }
 
   return (
-    <div className="w-full" ref={rootRef}>
-      {photoUrl && (
-        <>
-          <div 
-            className="absolute"
-            style={{
-              width: '180px',
-              height: '180px',
-              top: '3%', 
-              left: '2%',
-              zIndex: 10
-            }}
-          >
-            <img 
-              src={photoUrl} 
-              alt={`Foto de ${researcherName}`}
-              className="w-full h-full object-cover rounded-lg shadow-md"
-              style={{
-                border: '2px solid rgba(255,255,255,.2)',
-                borderRadius: '20px',
-                padding: '10px',
-                backgroundColor: 'rgba(255,255,255, 0.2)'
-              }}
-              loading="lazy"
-            />
-          </div>
-          {belowPhoto && (
+    <ResearcherProfileProvider value={{ staticDescription }}>
+      <div className="w-full" ref={rootRef}>
+        {photoUrl && (
+          <>
             <div 
               className="absolute"
               style={{
                 width: '180px',
-                top: 'calc(3% + 190px)', 
+                height: '180px',
+                top: '3%', 
                 left: '2%',
-                zIndex: 10,
-                display: 'flex',
-                justifyContent: 'center'
+                zIndex: 10
               }}
             >
-              {belowPhoto}
+              <img 
+                src={photoUrl} 
+                alt={`Foto de ${researcherName}`}
+                className="w-full h-full object-cover rounded-lg shadow-md"
+                style={{
+                  border: '2px solid rgba(255,255,255,.2)',
+                  borderRadius: '20px',
+                  padding: '10px',
+                  backgroundColor: 'rgba(255,255,255, 0.2)'
+                }}
+                loading="lazy"
+              />
             </div>
-          )}
-        </>
-      )}
-      {!photoUrl && belowPhoto && (
-        <div 
-          className="absolute"
-          style={{
-            width: '180px',
-            top: 'calc(3% + 190px)', 
-            left: '2%',
-            zIndex: 10,
-            display: 'flex',
-            justifyContent: 'center'
-          }}
-        >
-          {belowPhoto}
+            {belowPhoto && (
+              <div 
+                className="absolute"
+                style={{
+                  width: '180px',
+                  top: 'calc(3% + 190px)', 
+                  left: '2%',
+                  zIndex: 10,
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                {belowPhoto}
+              </div>
+            )}
+          </>
+        )}
+        {!photoUrl && belowPhoto && (
+          <div 
+            className="absolute"
+            style={{
+              width: '180px',
+              top: 'calc(3% + 190px)', 
+              left: '2%',
+              zIndex: 10,
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            {belowPhoto}
+          </div>
+        )}
+        <div className="w-full" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', paddingLeft: 0, paddingRight: 0, margin: 0 }}>{description}</div>
         </div>
-      )}
-      <div className="w-full" style={{ paddingLeft: 0, paddingRight: 0 }}>
-        <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', paddingLeft: 0, paddingRight: 0, margin: 0 }}>{description}</div>
       </div>
-    </div>
+    </ResearcherProfileProvider>
   )
 }
