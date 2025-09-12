@@ -156,106 +156,205 @@ nav ul li:hover .submenu2 ul li a {
 
 
 
-@media (max-width: 1500px) {
+/* Grandes Telas/4K - ≥ 1601px */
+@media (min-width: 1601px) {
   .header {
-    width: 1400px;
-  }
-  .signup {
-    margin-left: 410px;
+    width: 100%;
+    height: 100vh;
   }
   
+  .signup {
+    margin-left: 700px;
+  }
+  
+  nav ul li {
+    font-size: 18px;
+  }
+  
+  .header .logoufba img {
+    height: 80px;
+  }
+  
+  .header .figure img {
+    height: 70px;
+  }
 }
 
-@media (max-width: 1400px) {
+/* Desktop/HD - 1201px - 1600px */
+@media (min-width: 1201px) and (max-width: 1600px) {
   .header {
-    width: 1400px;
+    width: 100%;
+    height: 100vh;
   }
+  
+  .signup {
+    margin-left: 510px;
+  }
+  
+  nav ul li {
+    font-size: 16px;
+  }
+}
+
+/* Laptop - 1025px - 1200px */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .header {
+    width: 100%;
+    height: 100vh;
+  }
+  
   .signup {
     margin-left: 250px;
   }
-}
-
-@media (max-width: 1200px) {
-  .header {
-    width: 1300px;
+  
+  nav ul li {
+    font-size: 15px;
+    width: 110px;
+    margin: 10px;
+    padding: 10px;
   }
-  .signup {
-    margin-left: -30px;
-  }
-  .block1 h1 {
-    margin-top: 1px;
-  }
+  
   .header .logoufba img {
-    height: 50px;
-    margin-top: 10px;
-  }
-
-  .header .figure img {
-    height: 50px;
-  }
-}
-
-@media (max-width: 900px) {
-  .header {
-    width: 1300px;
-    background-image: url("../../assets/header-bg.jpg");
-    background-size: contain;
-    background-repeat: no-repeat;
-    height: 100vh;
-    position: absolute;
-    flex-direction: row;
-    display: flex;
-  }
-
-  .signup {
-    margin-left: 50px;
-  }
-
-  .block1 h1 {
-    margin-top: 1px;
-  }
-  .header .figure img {
     height: 60px;
   }
-
-  nav ul li{
-    font-size: 14px;
+  
+  .header .figure img {
+    height: 55px;
   }
 }
 
-@media (max-width: 400px) {
-  .block1 h1 {
-    padding-top: 6px;
-    padding-left: 3px;
-    margin-left: 5px;
-    margin-top: 3px;
-    font-size: 9px;
-    text-align: center;
-    white-space: nowrap;
+/* Tablet - 769px - 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    width: 100%;
+    height: 100vh;
   }
-
-  .header img {
-    height: 2.5rem;
-    margin-top: 15px;
-    margin-left: 10px;
-  }
-
+  
   .signup {
     margin-left: 100px;
   }
-
-  .block1 h1 {
-    margin-top: 1px;
+  
+  nav ul li {
+    font-size: 14px;
+    width: 100px;
+    margin: 8px;
+    padding: 8px;
   }
- 
+  
+  .header .logoufba img {
+    height: 55px;
+  }
+  
+  .header .figure img {
+    height: 50px;
+  }
+  
+  nav ul li:hover .submenu1 {
+    width: 170px;
+  }
+  
+  nav ul li:hover .submenu1 ul li {
+    width: 170px;
+  }
+}
+
+/* Mobile (Médio) - 481px - 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+  .header {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+  
+  .signup {
+    margin-left: 20px;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 20px;
+    background-color: rgba(89, 44, 187, 0.95);
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+  }
+  
+  nav ul li {
+    font-size: 13px;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px;
+    text-align: center;
+  }
+  
   .header .logoufba img {
     height: 50px;
-    margin-top: 10px;
   }
-
+  
   .header .figure img {
-    height: 60px;
+    height: 45px;
   }
+  
+  .block1 h1 {
+    font-size: 12px;
+    text-align: left;
+  }
+  
+  /* Simplificar submenus */
+  nav ul li:hover .submenu1 {
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    background-color: rgba(89, 44, 187, 0.9);
+  }
+}
 
+/* Mobile (Pequeno) - 320px - 480px */
+@media (max-width: 480px) {
+  .header {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    padding: 10px;
+  }
+  
+  .signup {
+    margin-left: 10px;
+  }
+  
+  nav {
+    display: none; /* Menu hambúrguer seria ideal aqui */
+  }
+  
+  .header .logoufba img {
+    height: 40px;
+    margin-top: 5px;
+  }
+  
+  .header .figure img {
+    height: 35px;
+  }
+  
+  .header img {
+    height: 2rem;
+    margin-top: 10px;
+    margin-left: 15px;
+  }
+  
+  .block1 h1 {
+    font-size: 10px;
+    padding-top: 3px;
+    padding-left: 5px;
+    margin-left: 3px;
+    margin-top: 2px;
+    white-space: normal;
+    line-height: 1.2;
+  }
+  
+  .logo {
+    margin-left: 10px;
+  }
 }
 
