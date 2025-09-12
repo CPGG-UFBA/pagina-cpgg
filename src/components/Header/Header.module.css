@@ -61,7 +61,6 @@
 nav ul {
   display: inline-flex;
   list-style: none;
-  margin-left: -100px;
 }
 
 nav ul li {
@@ -127,7 +126,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   display: block;
   position: absolute;
   margin-top: -47px;
-  margin-left: -190px; /* voltar ao posicionamento original para colar no submenu1 */
+  margin-left: -190px; /* colado ao menu primário, à esquerda */
   background-color: #592cbb;
   width: 190px;
   z-index: 1000;
