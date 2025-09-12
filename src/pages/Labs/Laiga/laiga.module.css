@@ -217,10 +217,13 @@
 
 
 .staticFigure img {
+  width: auto;
   height: 40rem;
-  margin-top: -83px;
-  padding-left: 710px;
-  margin-bottom: -500px;
+  max-width: 100%;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 
@@ -240,8 +243,10 @@
   }
   
   .staticFigure img {
+    width: auto;
     height: 45rem;
-    padding-left: 850px;
+    max-width: 100%;
+    object-fit: contain;
   }
 }
 
@@ -261,8 +266,10 @@
   }
   
   .staticFigure img {
+    width: auto;
     height: 40rem;
-    padding-left: 710px;
+    max-width: 100%;
+    object-fit: contain;
   }
 }
 
@@ -285,9 +292,10 @@
   }
   
   .staticFigure img {
+    width: auto;
     height: 35rem;
-    padding-left: 550px;
-    margin-top: -100px;
+    max-width: 100%;
+    object-fit: contain;
   }
   
   .Title ul {
@@ -320,9 +328,10 @@
   }
   
   .staticFigure img {
+    width: auto;
     height: 28rem;
-    padding-left: 400px;
-    margin-top: -120px;
+    max-width: 100%;
+    object-fit: contain;
   }
   
   .Title ul {

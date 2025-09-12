@@ -175,8 +175,11 @@
 }
 
 .staticFigure img {
-  width: min(520px, 40vw);
+  width: auto;
   height: auto;
+  max-width: 520px;
+  max-height: 520px;
+  object-fit: contain;
   margin: 0;
   padding: 0;
   display: block;
@@ -209,7 +212,9 @@
   }
   
   .staticFigure img {
-    width: min(600px, 35vw);
+    max-width: 600px;
+    max-height: 600px;
+    object-fit: contain;
   }
 }
 
@@ -261,7 +266,9 @@
   }
   
   .staticFigure img {
-    width: min(450px, 35vw);
+    max-width: 450px;
+    max-height: 450px;
+    object-fit: contain;
   }
   
   .dynamicLab, .others, .Laiga, .Lamod, .Lagep {
@@ -299,7 +306,9 @@
   }
   
   .staticFigure img {
-    width: min(350px, 30vw);
+    max-width: 350px;
+    max-height: 350px;
+    object-fit: contain;
   }
   
   .dynamicLab, .others, .Laiga, .Lamod, .Lagep {
