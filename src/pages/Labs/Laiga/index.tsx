@@ -39,12 +39,15 @@ export function Laiga() {
             <p> 
               Para saber da disponibilidade dos equipamentos e solicitá-los para uso, acesse nossa plataforma de requerimento
             </p>
-            <nav>
-             <a href="/Labs/Laiga/ReservationForm">Requerimento de uso</a>
-           </nav>
-          <br></br>
+           <br></br>
            <b> Chefe do LAIGA</b>
            <span> Prof. Marcos Alberto Rodrigues Vasconcelos</span> 
+           
+           <div className={styles.requerimentoButton}>
+             <a href="/Labs/Laiga/ReservationForm" className={styles.buttonLink}>
+               Requerimento
+             </a>
+           </div>
 
             <div className={styles.box1}>
               <h4 className={styles.legend1}>Sala 1- Almoxarifado com equipamentos</h4>
