@@ -13,15 +13,28 @@ export function Footer() {
             Linkedin
           </a>
           <a
-            href='https://www.instagram.com/cpgg.ufba'
+            href='https://instagram.com/cpgg.ufba/'
             target="_blank"
-            rel="noopener noreferrer"
+            rel="external noopener noreferrer"
+            referrerPolicy="no-referrer"
             className={styles.socialLink}
             aria-label="Instagram do CPGG"
+            title="Instagram do CPGG"
             onClick={(e) => {
-              e.stopPropagation();
               e.preventDefault();
-              window.open('https://www.instagram.com/cpgg.ufba', '_blank', 'noopener,noreferrer');
+              const url = 'https://instagram.com/cpgg.ufba/';
+              const w = window.open(url, '_blank');
+              if (!w) {
+                try {
+                  // Tenta navegar a janela principal (fora do iframe) por ativação do usuário
+                  // Alguns ambientes de preview bloqueiam a navegação dentro do iframe
+                  // isso evita o erro de conexão recusada no iframe
+                  // @ts-ignore - window.top pode ser cross-origin
+                  window.top.location.href = url;
+                } catch (_) {
+                  window.location.href = url;
+                }
+              }
             }}
           >
             <Instagram size={16} />
