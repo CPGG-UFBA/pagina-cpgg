@@ -383,8 +383,33 @@ nav ul li:hover .submenu2 ul li a {
     margin-left: 10px;
   }
   
-  nav {
-    display: none; /* Menu hambúrguer seria ideal aqui */
+  nav ul {
+    position: fixed;
+    top: 60px;
+    right: 10px;
+    background-color: rgba(89, 44, 187, 0.95);
+    border-radius: 8px;
+    padding: 8px;
+    width: 150px;
+    flex-direction: column;
+    z-index: 1000;
+  }
+  
+  nav ul li {
+    font-size: 11px;
+    width: 100%;
+    margin: 3px 0;
+    padding: 6px;
+    text-align: center;
+  }
+  
+  /* Garante que submenus estejam visíveis */
+  nav ul li:hover .submenu1 {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    background-color: rgba(89, 44, 187, 0.9);
+    border-radius: 5px;
   }
   
   .header .logoufba img {

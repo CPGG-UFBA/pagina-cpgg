@@ -142,6 +142,9 @@
 }
 
 .staticFigure img {
+  width: 35rem;
   height: 35rem;
-  width: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
 }

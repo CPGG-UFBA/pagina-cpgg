@@ -72,7 +72,11 @@
 }
 
 .staticFigure img {
+  width: 40rem;
   height: 40rem;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
   margin-top: -83px;
   padding-left: 300px;
   margin-bottom: -500px;
