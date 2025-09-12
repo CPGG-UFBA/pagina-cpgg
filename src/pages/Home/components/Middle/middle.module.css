@@ -132,7 +132,6 @@
 }
 
 .staticFigure img {
-  width: calc(40rem - 50px);
   height: calc(40rem - 50px);
   aspect-ratio: 1 / 1;
   object-fit: contain;
