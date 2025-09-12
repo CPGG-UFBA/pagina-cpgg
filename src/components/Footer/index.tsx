@@ -12,11 +12,10 @@ export function Footer() {
             <Linkedin size={16} />
             Linkedin
           </a>
-          {/* Link do Instagram removido temporariamente - perfil não encontrado */}
-          {/* <a href='https://www.instagram.com/cpgg.ufba' target="_blank" className={styles.socialLink}>
+          <a href='https://www.instagram.com/cpgg.ufba' target="_blank" className={styles.socialLink}>
             <Instagram size={16} />
             Instagram
-          </a> */}
+          </a>
           <a href='http://www.pggeofisica.ufba.br/' target="_blank">Pós-Graduação em Geofísica</a>
           <a href='https://pggeologia.ufba.br/' target="_blank" >Pós-Graduação em Geologia</a>
         </nav>
