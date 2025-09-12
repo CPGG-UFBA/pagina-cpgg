@@ -87,6 +87,7 @@ nav ul li:hover .submenu1 {
   position: absolute;
   background-color: #592cbb;
   margin-top: -30px;
+  margin-left: -50px; /* ajustado para acompanhar o deslocamento do menu principal */
   font-size: 18px;
   z-index: 100;
   width: 190px;
