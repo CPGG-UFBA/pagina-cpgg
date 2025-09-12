@@ -1,16 +1,19 @@
 import styles from './Footer.module.css'
 import { Linkedin, Instagram } from 'lucide-react'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function Footer() {
+  const { t } = useLanguage();
+  
   return (
     <footer className={styles.footer}>
       <div className={styles.image} />
       <div className={styles.bar}>
         <nav>
-          <a href='http://www.cpgg.ufba.br' target="_blank" >Página Antiga-CPGG</a>
+          <a href='http://www.cpgg.ufba.br' target="_blank" >{t('footer.oldPage')}</a>
           <a href='https://www.linkedin.com/in/cpgg-centro-de-pesquisa-94768a304/' target="_blank" className={styles.socialLink} rel="noopener noreferrer">
             <Linkedin size={16} />
-            Linkedin
+            {t('footer.linkedin')}
           </a>
           <a
             href='https://instagram.com/cpgg.ufba/'
@@ -38,13 +41,13 @@ export function Footer() {
             }}
           >
             <Instagram size={16} />
-            Instagram
+            {t('footer.instagram')}
           </a>
-          <a href='http://www.pggeofisica.ufba.br/' target="_blank">Pós-Graduação em Geofísica</a>
-          <a href='https://pggeologia.ufba.br/' target="_blank" >Pós-Graduação em Geologia</a>
+          <a href='http://www.pggeofisica.ufba.br/' target="_blank">{t('footer.postGradGeophysics')}</a>
+          <a href='https://pggeologia.ufba.br/' target="_blank" >{t('footer.postGradGeology')}</a>
         </nav>
         <div className={styles.copyright}>
-          © Todos os direitos reservados
+          {t('footer.rights')}
         </div>
       </div>
     </footer>

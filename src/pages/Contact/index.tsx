@@ -4,8 +4,10 @@ import { Footer } from '../../components/Footer'
 import earth from '../../assets/earth-imgur.png'
 import Whats from '../../assets/whatsapp-icon.png'
 import { useToast } from '@/hooks/use-toast'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function Contact() {
+  const { t } = useLanguage();
   const phoneNumber = '+55(71)3283-8531'
   const whatsappNumber = '5571328385531'
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
@@ -15,8 +17,8 @@ export function Contact() {
     try {
       await navigator.clipboard.writeText(whatsappHref)
       toast({
-        title: 'Link copiado',
-        description: 'Abra uma nova guia e cole o link para iniciar a conversa.',
+        title: t('toast.linkCopied'),
+        description: t('toast.linkCopiedDesc'),
       })
     } catch (_) {
       alert('Não foi possível copiar automaticamente. Copie manualmente: ' + whatsappHref)
@@ -27,19 +29,19 @@ export function Contact() {
     <>
       <Header />
       <div className={styles.contact}>
-        <ul> E-mail us at </ul>
+        <ul> {t('contact.emailUs')} </ul>
         <p> secretaria.cpgg.ufba@gmail.com</p>
 
         <div className={styles.whatsappSection}>
           <button type="button" className={styles.whatsappLink} onClick={copyWhatsAppLink} aria-label="Copiar link do WhatsApp">
             <img src={Whats} alt="WhatsApp ícone" className={styles.whatsappIcon} />
-            <span>Copiar link</span>
+            <span>{t('contact.copyLink')}</span>
           </button>
         </div>
 
         <b> {phoneNumber}</b>
-        <p className={styles.address}> Av. Anita Garibaldi, s/n -Acesso Portão 2. Ondina, Salvador - BA, 40170-290</p>
-        <p className={styles.building}> Bloco E- Anexo ao Instituto de Geociências</p>
+        <p className={styles.address}> {t('contact.address')}</p>
+        <p className={styles.building}> {t('contact.building')}</p>
 
         <div className={styles.staticFigure}>
           <img src={earth} alt="Terra" />

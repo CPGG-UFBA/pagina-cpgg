@@ -1,8 +1,12 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
+import { useLanguage } from '@/contexts/LanguageContext';
+import { LanguageSelector } from '@/components/LanguageSelector';
 const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
+  const { t } = useLanguage();
+  
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -10,63 +14,68 @@ export function Header() {
       </div>
       
       <div className={styles.block1}>
-        <h1>Centro de Pesquisa em Geofísica e Geologia</h1>
-        <h1>Instituto de Geociências/Instituto de Física</h1>
-        <h1>Universidade Federal da Bahia</h1>
+        <h1>{t('header.institutionTitle1')}</h1>
+        <h1>{t('header.institutionTitle2')}</h1>
+        <h1>{t('header.institutionTitle3')}</h1>
       </div>
 
       <div className={styles.logoufba}>
         <img src={logoufba} alt='UFBA' />
       </div>
+
+      <div className={styles.languageContainer}>
+        <LanguageSelector />
+      </div>
+      
       <nav>
         <ul className={styles.signup}>
           <li>
             <NavLink to='/adm' className={styles.navLink}>
-              Adm
+              {t('nav.admin')}
             </NavLink>
           </li>
           <li>
             <NavLink to='/Contact' className={styles.navLink}>
-              Contact us
+              {t('nav.contact')}
             </NavLink>
           </li>
           <li>
             <NavLink to='/' className={styles.navLink}>
-              Home
+              {t('nav.home')}
             </NavLink>
           </li>
           <li>
             <NavLink to='/sign' className={styles.navLink}>
-              Signin
+              {t('nav.signin')}
             </NavLink>
           </li>
           <li>
-            <a href='#' className={styles.navLink}>About us</a>
+            <a href='#' className={styles.navLink}>{t('nav.about')}</a>
             
             <div className={styles.submenu1}>
               <ul>
                 <li className={styles.hoversub}> 
-                  <a href='#'>Instituição</a>
+                  <a href='#'>{t('nav.institution')}</a>
                   <div className={styles.submenu2}>
                     <ul>
                       <li>
                         <NavLink to='/cpgg' className={styles.navLink}>
-                          O CPGG
+                          {t('nav.cpgg')}
                         </NavLink>
                       </li>
                       <li>
                         <NavLink to='/history' className={styles.navLink}>
-                          Nossa História
+                          {t('nav.history')}
                         </NavLink>
                       </li>
                       <li>
                         <NavLink to='/Regulations' className={styles.navLink}>
-                          Regimento e Normas
+                          {t('nav.regulations')}
                         </NavLink>
                       </li>
                       <li>
                         <NavLink to='/Photos' className={styles.navLink}>
-                          Fotos
+                          {t('nav.photos')}
                         </NavLink>
                       </li>
                     </ul>
@@ -74,22 +83,22 @@ export function Header() {
                 </li>
 
                 <li className={styles.hoversub}> 
-                  <a href='#'>Pessoal</a>
+                  <a href='#'>{t('nav.personnel')}</a>
                   <div className={styles.submenu2}>
                     <ul>
                       <li>
                         <NavLink to='/Coordination' className={styles.navLink}>
-                          Coordenação e Conselhos
+                          {t('nav.coordination')}
                         </NavLink>
                       </li>
                       <li>
                         <NavLink to='/researchers' className={styles.navLink}>
-                          Pesquisadores
+                          {t('nav.researchers')}
                         </NavLink>
                       </li>
                       <li>
                         <NavLink to='/Technicians' className={styles.navLink}>
-                          Corpo Técnico
+                          {t('nav.technicians')}
                         </NavLink>
                       </li>
                     </ul>
@@ -97,25 +106,25 @@ export function Header() {
                 </li>
                 <li>
                   <NavLink to='/Labs' className={styles.navLink}>
-                    Laboratórios e reservas
+                    {t('nav.labsReservations')}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to='/Spaces' className={styles.navLink}>
-                    Espaços e Reservas
+                    {t('nav.spacesReservations')}
                   </NavLink>
                 </li>
                 <li>
                   <NavLink to='/research-projects' className={styles.navLink}>
-                    Projetos de Pesquisa
+                    {t('nav.researchProjects')}
                   </NavLink>
                 </li>
                 <li>
-                  <a href='#'>Produção Científica</a>
+                  <a href='#'>{t('nav.scientificProduction')}</a>
                 </li>
                 <li>
                   <NavLink to='/Recipes' className={styles.navLink}>
-                    Receitas
+                    {t('nav.recipes')}
                   </NavLink>
                 </li>
               </ul>

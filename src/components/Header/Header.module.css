@@ -8,6 +8,15 @@
   flex-direction: row;
   display: flex;
   aspect-ratio: 1;
+  position: relative;
+  z-index: 2000;
+}
+
+.languageContainer {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2001;
 }
 
 
@@ -384,7 +393,13 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav {
-    display: none; /* Menu hambúrguer seria ideal aqui */
+    display: block; /* Manter seletor de idioma visível */
+    z-index: 2100;
+    flex-wrap: wrap;
+  }
+  
+  nav ul {
+    display: none; /* Apenas o menu principal fica oculto no mobile pequeno */
   }
   
   .header .logoufba img {
@@ -426,6 +441,21 @@ nav ul li:hover .submenu2 ul li a {
   
   .logo {
     margin-left: 10px;
+  }
+}
+
+/* Language Selector Responsivity */
+@media (max-width: 768px) {
+  .languageContainer {
+    top: 5px;
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .languageContainer {
+    top: 2px;
+    right: 2px;
   }
 }
 
