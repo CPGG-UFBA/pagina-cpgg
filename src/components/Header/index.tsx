@@ -6,7 +6,6 @@ const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
   const { t } = useLanguage();
-  console.log('Header renderizando com idioma:', t('nav.home')); // Debug temporário
   
   return (
     <header className={styles.header}>

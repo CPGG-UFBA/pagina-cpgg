@@ -8,8 +8,6 @@
   flex-direction: row;
   display: flex;
   aspect-ratio: 1;
-  position: relative;
-  z-index: 2000;
 }
 
 .languageContainer {
@@ -393,13 +391,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav {
-    display: block; /* Manter seletor de idioma visível */
-    z-index: 2100;
-    flex-wrap: wrap;
-  }
-  
-  nav ul {
-    display: none; /* Apenas o menu principal fica oculto no mobile pequeno */
+    display: none; /* Menu hambúrguer seria ideal aqui */
   }
   
   .header .logoufba img {
