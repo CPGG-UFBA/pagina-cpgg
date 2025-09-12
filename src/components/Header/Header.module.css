@@ -22,6 +22,9 @@
   font-family: Roboto;
   font-weight: 500;
   color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 300px;
 }
 
 .logo {
@@ -177,6 +180,11 @@ nav ul li:hover .submenu2 ul li a {
     font-size: 18px;
   }
   
+  .block1 h1 {
+    font-size: 16px;
+    max-width: 400px;
+  }
+  
   .header .logoufba img {
     height: 80px;
     object-fit: contain;
@@ -206,6 +214,11 @@ nav ul li:hover .submenu2 ul li a {
   nav ul li {
     font-size: 16px;
   }
+  
+  .block1 h1 {
+    font-size: 14px;
+    max-width: 300px;
+  }
 }
 
 /* Laptop - 1025px - 1200px */
@@ -224,6 +237,11 @@ nav ul li:hover .submenu2 ul li a {
     width: 110px;
     margin: 10px;
     padding: 10px;
+  }
+  
+  .block1 h1 {
+    font-size: 12px;
+    max-width: 250px;
   }
   
   .header .logoufba img {
@@ -257,6 +275,11 @@ nav ul li:hover .submenu2 ul li a {
     width: 100px;
     margin: 8px;
     padding: 8px;
+  }
+  
+  .block1 h1 {
+    font-size: 11px;
+    max-width: 200px;
   }
   
   .header .logoufba img {
@@ -328,13 +351,14 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 h1 {
-    font-size: 12px;
+    font-size: 10px;
     text-align: left;
     padding-top: 5px;
     margin-top: 8px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    max-width: 150px;
   }
   
   /* Simplificar submenus */
@@ -388,7 +412,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 h1 {
-    font-size: 9px;
+    font-size: 8px;
     padding-top: 3px;
     padding-left: 5px;
     margin-left: 3px;
@@ -397,7 +421,7 @@ nav ul li:hover .submenu2 ul li a {
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.1;
-    max-width: 120px;
+    max-width: 100px;
   }
   
   .logo {
