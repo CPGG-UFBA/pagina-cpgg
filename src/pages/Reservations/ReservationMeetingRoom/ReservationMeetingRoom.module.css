@@ -145,6 +145,6 @@
   width: 35rem;
   height: 35rem;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 50%;
 }
