@@ -127,7 +127,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   display: block;
   position: absolute;
   margin-top: -47px;
-  margin-left: -290px; /* ajustado para acompanhar o deslocamento do menu principal */
+  margin-left: -190px; /* voltar ao posicionamento original para colar no submenu1 */
   background-color: #592cbb;
   width: 190px;
   z-index: 1000;
