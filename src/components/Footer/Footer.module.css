@@ -1,7 +1,7 @@
 .footer {
   display: flex;
   flex-direction: column;
-  margin-top: 150px;
+  margin-top: 80px;
   width: 100%;
   position: relative;
   justify-content: flex-end; /* Alinhar conteúdo ao final, incluindo a barra */
