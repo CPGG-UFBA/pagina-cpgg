@@ -67,8 +67,53 @@
 .earthGlobe {
   width: 24rem;
   height: 24rem;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 50%;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+  
+  .leftSide {
+    width: 100%;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .imageContainer {
+    height: 8rem;
+  }
+  
+  .centerContent {
+    margin: 0;
+    order: 3;
+  }
+  
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+  
+  .subtitle {
+    font-size: 2rem;
+  }
+  
+  .rightSide {
+    width: 100%;
+    order: 2;
+  }
+  
+  .earthGlobe {
+    width: 16rem;
+    height: 16rem;
+  }
+  
+  .wavePattern {
+    height: 8rem;
+  }
 }
 
 .wavePattern {

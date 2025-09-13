@@ -141,8 +141,8 @@ nav a:hover {
   
   .staticFigure img {
     height: 20rem !important;
-    width: auto !important;
-    padding-left: 10px !important;
+    object-fit: contain !important;
+    padding-left: 5vw !important;
     margin-bottom: -200px !important;
   }
 }
