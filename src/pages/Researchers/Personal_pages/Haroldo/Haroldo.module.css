@@ -126,23 +126,26 @@ nav a:hover {
   }
   
   .box1.box1 {
-    width: 90vw !important;
-    height: 60vh !important;
-    padding-left: 80px !important;
-    left: 5% !important;
-    font-size: 14px !important;
+    width: 80vw !important;
+    height: 45vh !important;
+    padding-left: 60px !important;
+    left: 10% !important;
+    font-size: 12px !important;
   }
   
   .box2.box2 {
     width: 100px !important;
     height: 100px !important;
+    left: 10% !important;
   }
   
   .staticFigure.staticFigure img {
-    height: 15rem !important;
-    width: auto !important;
+    height: 12rem !important;
+    width: 12rem !important;
     object-fit: contain !important;
-    padding-left: 10px !important;
-    margin-bottom: -150px !important;
+    padding-left: 5px !important;
+    margin-bottom: -100px !important;
+    position: relative !important;
+    z-index: 1 !important;
   }
 }

@@ -109,6 +109,7 @@
   .earthGlobe.earthGlobe {
     width: 16rem !important;
     height: 16rem !important;
+    object-fit: contain !important;
   }
   
   .wavePattern.wavePattern {
