@@ -65,7 +65,7 @@
 
 .staticFigure {
   position: absolute;
-  left: 510px;
+  right: 50px;
   top: 100px;
   z-index: 0;
   pointer-events: none;
@@ -74,25 +74,12 @@
 .staticFigure img {
   height: 40rem;
   margin-top: -83px;
-  padding-left: 300px;
   margin-bottom: -500px;
-}
-
-@media (max-width: 1500px) {
-  .staticFigure {
-    left: 410px;
-  }
-}
-
-@media (max-width: 1400px) {
-  .staticFigure {
-    left: 250px;
-  }
 }
 
 @media (max-width: 1200px) {
   .staticFigure {
-    left: -30px;
+    right: 20px;
   }
 
   .history h1{
@@ -100,28 +87,35 @@
   }
 
    .headers {
-
     margin-left: 100px;
   }
 
   .document {
-
     margin-left: 30px;
   }
-
-   
 }
-
 
 @media (max-width: 900px) {
   .staticFigure {
-    left: 50px;
+    right: 10px;
+  }
+  
+  .staticFigure img {
+    height: 30rem;
   }
 }
 
-
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .staticFigure {
-    left: 100px;
+    position: relative;
+    right: auto;
+    top: auto;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .staticFigure img {
+    height: 20rem;
+    margin-top: 0;
   }
 }
