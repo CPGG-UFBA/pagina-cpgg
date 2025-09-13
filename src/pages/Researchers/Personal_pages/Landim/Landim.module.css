@@ -119,3 +119,17 @@ nav a:hover {
   padding-left: 300px;
   margin-bottom: -500px;
 }
+
+@media (max-width: 1000px) {
+  .box1 {
+    width: 600px;
+    height: 400px;
+    padding-left: 150px;
+  }
+  
+  .staticFigure img {
+    height: 25rem;
+    padding-left: 50px;
+    margin-bottom: -300px;
+  }
+}
