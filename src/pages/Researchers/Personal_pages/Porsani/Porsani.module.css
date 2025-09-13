@@ -14,13 +14,11 @@
 
 
 .Professor > p {
-  position: absolute;
-  left: calc(2% + 475px);
   font-size: 25px;
   color: #363F5; 
+  padding-left: 475px;
   margin-top: -50px;
   white-space: nowrap;
-  transform: translateX(-50%);
 }
 
 
@@ -116,6 +114,6 @@ nav a:hover {
 .staticFigure img {
   height: 40rem;
   margin-top: -83px;
-  padding-left: 300px;
+  padding-left: 500px;
   margin-bottom: -500px;
 }
