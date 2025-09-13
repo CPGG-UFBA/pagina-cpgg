@@ -127,26 +127,30 @@ nav a:hover {
   }
   
   .box1.box1 {
-    width: 80vw !important;
-    height: 45vh !important;
-    padding-left: 60px !important;
-    left: 10% !important;
+    width: 75vw !important;
+    height: 40vh !important;
+    padding-left: 50px !important;
+    left: 5% !important;
     font-size: 12px !important;
+    z-index: 10 !important;
   }
   
   .box2.box2 {
-    width: 100px !important;
-    height: 100px !important;
-    left: 10% !important;
+    width: 80px !important;
+    height: 80px !important;
+    left: 5% !important;
+    z-index: 10 !important;
   }
   
   .staticFigure.staticFigure img {
-    height: 12rem !important;
-    width: 12rem !important;
+    height: auto !important;
+    width: 10rem !important;
+    max-width: 10rem !important;
+    max-height: 10rem !important;
     object-fit: contain !important;
-    padding-left: 5px !important;
-    margin-bottom: -100px !important;
-    position: relative !important;
+    padding-left: 85vw !important;
+    margin-bottom: -80px !important;
+    position: fixed !important;
     z-index: 1 !important;
   }
 }

@@ -120,28 +120,37 @@ nav a:hover {
   margin-bottom: -510px;
 }
 
-@media (max-width: 1000px) {
-  .Professor {
-    padding-left: 50px;
-    padding-right: 50px;
+@media screen and (max-width: 1000px) {
+  .Professor.Professor {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   
-  .box1 {
-    width: 70vw !important;
-    height: 50vh !important;
-    padding-left: 120px !important;
+  .box1.box1 {
+    width: 75vw !important;
+    height: 40vh !important;
+    padding-left: 50px !important;
     left: 5% !important;
+    font-size: 12px !important;
+    z-index: 10 !important;
   }
   
-  .box2 {
-    width: 120px !important;
-    height: 120px !important;
+  .box2.box2 {
+    width: 80px !important;
+    height: 80px !important;
+    left: 5% !important;
+    z-index: 10 !important;
   }
   
-  .staticFigure img {
-    height: 20rem !important;
+  .staticFigure.staticFigure img {
+    height: auto !important;
+    width: 10rem !important;
+    max-width: 10rem !important;
+    max-height: 10rem !important;
     object-fit: contain !important;
-    padding-left: 5vw !important;
-    margin-bottom: -200px !important;
+    padding-left: 85vw !important;
+    margin-bottom: -80px !important;
+    position: fixed !important;
+    z-index: 1 !important;
   }
 }
