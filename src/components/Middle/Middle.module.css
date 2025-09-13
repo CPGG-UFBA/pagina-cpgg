@@ -71,48 +71,48 @@
   border-radius: 50%;
 }
 
-@media (max-width: 1000px) {
-  .container {
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 2rem;
+@media screen and (max-width: 1000px) {
+  .container.container {
+    flex-direction: column !important;
+    padding: 2rem 1rem !important;
+    gap: 2rem !important;
   }
   
-  .leftSide {
-    width: 100%;
-    flex-direction: row;
-    gap: 1rem;
+  .leftSide.leftSide {
+    width: 100% !important;
+    flex-direction: row !important;
+    gap: 1rem !important;
   }
   
-  .imageContainer {
-    height: 8rem;
+  .imageContainer.imageContainer {
+    height: 8rem !important;
   }
   
-  .centerContent {
-    margin: 0;
-    order: 3;
+  .centerContent.centerContent {
+    margin: 0 !important;
+    order: 3 !important;
   }
   
-  .mainTitle {
-    font-size: 2.5rem;
+  .mainTitle.mainTitle {
+    font-size: 2.5rem !important;
   }
   
-  .subtitle {
-    font-size: 2rem;
+  .subtitle.subtitle {
+    font-size: 2rem !important;
   }
   
-  .rightSide {
-    width: 100%;
-    order: 2;
+  .rightSide.rightSide {
+    width: 100% !important;
+    order: 2 !important;
   }
   
-  .earthGlobe {
-    width: 16rem;
-    height: 16rem;
+  .earthGlobe.earthGlobe {
+    width: 16rem !important;
+    height: 16rem !important;
   }
   
-  .wavePattern {
-    height: 8rem;
+  .wavePattern.wavePattern {
+    height: 8rem !important;
   }
 }
 

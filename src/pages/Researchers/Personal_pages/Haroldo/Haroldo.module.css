@@ -119,28 +119,30 @@ nav a:hover {
   margin-bottom: -500px;
 }
 
-@media (max-width: 1000px) {
-  .Professor {
-    padding-left: 50px;
-    padding-right: 50px;
+@media screen and (max-width: 1000px) {
+  .Professor.Professor {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
   
-  .box1 {
-    width: 70vw !important;
-    height: 50vh !important;
-    padding-left: 120px !important;
+  .box1.box1 {
+    width: 90vw !important;
+    height: 60vh !important;
+    padding-left: 80px !important;
     left: 5% !important;
+    font-size: 14px !important;
   }
   
-  .box2 {
-    width: 120px !important;
-    height: 120px !important;
+  .box2.box2 {
+    width: 100px !important;
+    height: 100px !important;
   }
   
-  .staticFigure img {
-    height: 20rem !important;
+  .staticFigure.staticFigure img {
+    height: 15rem !important;
+    width: auto !important;
     object-fit: contain !important;
-    padding-left: 5vw !important;
-    margin-bottom: -200px !important;
+    padding-left: 10px !important;
+    margin-bottom: -150px !important;
   }
 }
