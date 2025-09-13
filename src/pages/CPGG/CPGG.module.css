@@ -16,7 +16,7 @@
 .Title ul {
     font-size: 35px;
     color: #363F5;
-    margin-top: -80px; 
+    margin-top: -10px; 
     padding-left: 300px;
     padding-bottom: 50px;
     white-space: nowrap;
@@ -32,7 +32,7 @@
     position: absolute;
     width: 900px;
     height: 500px;
-    top: 30%; 
+    top: 20%; 
     left:2%;
     padding: 20px;
     padding-left: 350px;
@@ -131,7 +131,7 @@
 
 .staticFigure img {
   height: 40rem;
-  margin-top: -95px;
+  margin-top: -83px;
   padding-left: 710px;
   margin-bottom: -500px;
 }

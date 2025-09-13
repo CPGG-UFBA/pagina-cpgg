@@ -1,13 +1,13 @@
 .header {
   width: 100%;
   background-image: url("../../assets/header-bg.jpg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
-  height: 120px;
-  position: relative;
+  height: 100vh;
+  position: absolute;
   flex-direction: row;
   display: flex;
+  aspect-ratio: 1;
 }
 
 .languageContainer {
@@ -67,7 +67,7 @@ nav ul li {
   width: 120px;
   margin: 15px;
   padding: 15px;
-  margin-top: 25px;
+  margin-top: 15px;
   font-size: 16px;
 }
 
@@ -176,7 +176,7 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 1601px) {
   .header {
     width: 100%;
-    height: 160px;
+    height: 100vh;
   }
   
   .signup {
@@ -211,7 +211,7 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 1201px) and (max-width: 1600px) {
   .header {
     width: 100%;
-    height: 140px;
+    height: 100vh;
   }
   
   .signup {
@@ -232,7 +232,7 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 1025px) and (max-width: 1200px) {
   .header {
     width: 100%;
-    height: 130px;
+    height: 100vh;
   }
   
   .signup {
@@ -270,7 +270,7 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 769px) and (max-width: 1024px) {
   .header {
     width: 100%;
-    height: 120px;
+    height: 100vh;
   }
   
   .signup {
@@ -316,7 +316,7 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
     width: 100%;
-    height: 110px;
+    height: 100vh;
     background-size: cover;
   }
   
@@ -381,7 +381,7 @@ nav ul li:hover .submenu2 ul li a {
 @media (max-width: 480px) {
   .header {
     width: 100%;
-    height: 100px;
+    height: 100vh;
     background-size: cover;
     padding: 10px;
   }

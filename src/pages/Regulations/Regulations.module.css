@@ -8,7 +8,7 @@
   align-items: center;
   margin-bottom: 2rem;
   margin-left: 300px;
-  margin-top: calc(7rem - 150px);
+  margin-top: 7rem;
   font-size: 24px;
   color: white;
 }
@@ -20,7 +20,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: calc(18rem - 150px);
+  margin-bottom: 18rem;
 }
 
 
@@ -107,15 +107,14 @@
   height: 37rem;
   padding-left: 970px;
   margin-bottom: 20px;
-  margin-top: -690px;
+  margin-top: -650px;
 }
 
 .earthFigure img {
   height: calc(25rem + 180px);
   margin-left: 1030px;
   margin-bottom: 20px;
-  margin-top: calc(-37rem - 40px - 30px);
-  transform: translateY(50px) !important;
+  margin-top: calc(-37rem - 40px);
 }
 
 
@@ -132,7 +131,7 @@
     height: calc(20rem + 180px);
     margin-left: 490px;
     margin-bottom: -50px;
-    margin-top: calc(-34rem - 40px + 50px);
+    margin-top: calc(-34rem - 40px);
   }
 }
 
@@ -149,7 +148,7 @@
     height: calc(18rem + 180px);
     margin-left: 340px;
     margin-bottom: -30px;
-    margin-top: calc(-31rem - 40px + 50px);
+    margin-top: calc(-31rem - 40px);
   }
 }
 
