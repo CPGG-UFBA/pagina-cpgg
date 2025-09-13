@@ -10,6 +10,14 @@
   aspect-ratio: 1;
 }
 
+@media (max-width: 1150px) {
+  .header {
+    background-size: cover;
+    background-position: center top;
+    height: 300px;
+  }
+}
+
 .languageContainer {
   position: absolute;
   top: 10px;
@@ -229,11 +237,12 @@ nav ul li:hover .submenu2 ul li a {
 }
 
 /* Laptop - 1025px - 1200px */
-@media (min-width: 1025px) and (max-width: 1200px) {
+@media (min-width: 1151px) and (max-width: 1200px) {
   .header {
     width: 100%;
     height: 100vh;
   }
+}
   
   .signup {
     margin-left: 250px;
