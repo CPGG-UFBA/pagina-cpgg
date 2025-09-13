@@ -13,8 +13,9 @@
   .header {
     background-size: cover;
     background-position: center top;
-    height: 250px;
+    height: 150px;
     aspect-ratio: unset;
+    max-height: 150px;
   }
 }
 
