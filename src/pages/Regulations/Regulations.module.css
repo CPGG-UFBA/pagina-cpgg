@@ -115,6 +115,7 @@
   margin-left: 1030px;
   margin-bottom: 20px;
   margin-top: calc(-37rem - 40px - 30px);
+  transform: translateY(50px);
 }
 
 
