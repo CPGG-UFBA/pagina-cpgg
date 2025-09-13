@@ -284,7 +284,7 @@ export function Researchers() {
           <ul>Programas de Pesquisa e Corpo Científico </ul>
           <div className={styles.box}>
             <div className={styles.Oil}>
-              <h1>Exploração de Petróleo</h1>
+              <h1>Exploração e Produção de Petróleo</h1>
               {getCombinedResearchers('oil').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
@@ -299,7 +299,7 @@ export function Researchers() {
             </div>
             
             <div className={styles.Environment}> 
-              <h1>Recursos Hidricos e Ambientais</h1>
+              <h1>Recursos Hidricos e Problemas Ambientais</h1>
               {getCombinedResearchers('environment').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
