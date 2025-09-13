@@ -31,8 +31,12 @@
   gap: 2rem;
   max-width: 1000px;
   margin: 0 auto;
-  margin-left: 50;
+  margin-left: 0;
   margin-bottom: 18rem;
+}
+
+.container h1{
+  margin-left: -50;
 }
 
 .historical {
