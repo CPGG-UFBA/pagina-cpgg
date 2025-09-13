@@ -7,14 +7,14 @@
   position: absolute;
   flex-direction: row;
   display: flex;
-  aspect-ratio: 1;
 }
 
 @media (max-width: 1150px) {
   .header {
     background-size: cover;
     background-position: center top;
-    height: 300px;
+    height: 250px;
+    aspect-ratio: unset;
   }
 }
 
