@@ -14,12 +14,9 @@
 
 
 .Professor > p {
-  position: absolute;
-  left: 2%;
-  width: 950px;
-  text-align: center;
   font-size: 25px;
   color: #363F5; 
+  padding-left: 475px;
   margin-top: -50px;
   white-space: nowrap;
 }
