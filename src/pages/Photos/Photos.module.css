@@ -33,8 +33,7 @@
   max-width: 1000px;
   margin: 0 auto;
   margin-left: 0;
-  position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: 18rem;
 }
 
 
@@ -104,9 +103,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
   transform: translate(810px, -400px);
-  pointer-events: none;
 }
 
 .staticFigure img {
@@ -137,7 +134,7 @@
 }
 
 .photosFooter {
-  margin-top: 0;
+  margin-top: -700px;
   margin-bottom: 0;
 }
 
