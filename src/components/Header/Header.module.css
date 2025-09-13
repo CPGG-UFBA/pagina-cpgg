@@ -61,6 +61,7 @@
 nav ul {
   display: inline-flex;
   list-style: none;
+  margin-left: -100px;
 }
 
 nav ul li {
