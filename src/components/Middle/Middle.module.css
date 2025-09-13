@@ -107,8 +107,8 @@
   }
   
   .earthGlobe.earthGlobe {
-    width: 16rem !important;
-    height: 16rem !important;
+    width: 12rem !important;
+    height: 12rem !important;
     object-fit: contain !important;
   }
   
