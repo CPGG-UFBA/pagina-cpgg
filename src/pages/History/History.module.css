@@ -72,7 +72,7 @@
 }
 
 .staticFigure img {
-  height: 40rem;
+  height: calc(40rem - 50px);
   margin-top: -83px;
   margin-bottom: -500px;
 }
