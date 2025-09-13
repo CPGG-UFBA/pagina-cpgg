@@ -54,22 +54,20 @@
 }
 
 .signup {
-  margin-left: 300px;
+  margin-left: 510px;
   color: #FF5733;
 }
 
 nav ul {
   display: inline-flex;
   list-style: none;
-  margin-left: -100px;
 }
 
 nav ul li {
   width: 120px;
-  margin: 5px;
-  margin-left:-15px;
+  margin: 15px;
   padding: 15px;
-  margin-top: 35px;
+  margin-top: 15px;
   font-size: 16px;
 }
 
