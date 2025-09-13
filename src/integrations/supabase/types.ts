@@ -100,7 +100,9 @@ export type Database = {
       laboratories: {
         Row: {
           acronym: string
+          chief_alternative_email: string | null
           chief_name: string
+          chief_user_id: string | null
           created_at: string
           description: string | null
           id: string
@@ -113,7 +115,9 @@ export type Database = {
         }
         Insert: {
           acronym: string
+          chief_alternative_email?: string | null
           chief_name: string
+          chief_user_id?: string | null
           created_at?: string
           description?: string | null
           id?: string
@@ -126,7 +130,9 @@ export type Database = {
         }
         Update: {
           acronym?: string
+          chief_alternative_email?: string | null
           chief_name?: string
+          chief_user_id?: string | null
           created_at?: string
           description?: string | null
           id?: string
@@ -137,7 +143,15 @@ export type Database = {
           pnipe_address?: string | null
           updated_at?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "laboratories_chief_user_id_fkey"
+            columns: ["chief_user_id"]
+            isOneToOne: false
+            referencedRelation: "user_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       laiga_equipment: {
         Row: {

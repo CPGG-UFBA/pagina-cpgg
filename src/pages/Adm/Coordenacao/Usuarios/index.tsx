@@ -12,6 +12,7 @@ import {
   DialogDescription,
   DialogFooter,
 } from '@/components/ui/dialog'
+import { LabChiefSelector } from '@/components/LabChiefSelector'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './usuarios.module.css'
 
@@ -266,14 +267,20 @@ export function UsuariosAdmin() {
                 <td>{user.institution}</td>
                 <td>{user.phone}</td>
                 <td>
-                  <Button
-                    onClick={() => openDeleteDialog(user)}
-                    variant="destructive"
-                    size="sm"
-                    className={styles.deleteButton}
-                  >
-                    <Trash2 size={16} />
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <LabChiefSelector 
+                      userId={user.id} 
+                      userName={user.full_name} 
+                    />
+                    <Button
+                      onClick={() => openDeleteDialog(user)}
+                      variant="destructive"
+                      size="sm"
+                      className={styles.deleteButton}
+                    >
+                      <Trash2 size={16} />
+                    </Button>
+                  </div>
                 </td>
               </tr>
             ))}
