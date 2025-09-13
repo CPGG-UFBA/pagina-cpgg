@@ -8,7 +8,7 @@
   align-items: center;
   margin-bottom: 2rem;
   margin-left: 300px;
-  margin-top: 7rem;
+  margin-top: calc(7rem - 150px);
   font-size: 24px;
   color: white;
 }
@@ -20,7 +20,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: 18rem;
+  margin-bottom: calc(18rem - 150px);
 }
 
 
@@ -114,7 +114,7 @@
   height: calc(25rem + 180px);
   margin-left: 1030px;
   margin-bottom: 20px;
-  margin-top: calc(-37rem - 40px);
+  margin-top: calc(-37rem - 40px - 150px);
 }
 
 
