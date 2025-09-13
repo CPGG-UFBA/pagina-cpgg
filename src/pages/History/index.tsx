@@ -1,7 +1,7 @@
 import styles from './History.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-const earth = 'https://imgur.com/z6pTgZ1'
+const earth = 'https://i.imgur.com/z6pTgZ1.png'
 
 export  function History() {
   return (
