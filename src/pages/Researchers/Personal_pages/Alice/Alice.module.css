@@ -35,13 +35,12 @@
   width: 950px;
   height: 600px;
   top: 20%; 
-  left:2%;
+  left: 50%;
+  transform: translateX(-50%);
   border-radius: 20px;
   padding-top: 6px;
   padding-left: 230px;
   padding-right: 15px;
-  overflow-y: scroll;
-
 }
 
 .box1 ul {
@@ -81,7 +80,8 @@
   width: 180px;
   height: 180px;
   top: 3%; 
-  left:2%;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 10px;
   border-radius: 20px;
   gap: 5px;
@@ -112,12 +112,6 @@ nav a:hover {
   transition: 0.1s;
 }
 
-.staticFigure img {
-  height: 40rem;
-  margin-top: -83px;
-  padding-left: 300px;
-  margin-bottom: -500px;
-}
 
 @media screen and (max-width: 1000px) {
   .Professor.Professor {
@@ -129,8 +123,9 @@ nav a:hover {
     width: 90vw !important;
     height: 50vh !important;
     padding: 20px !important;
-    left: 5% !important;
-    top: 15% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 25% !important;
     font-size: 14px !important;
     z-index: 10 !important;
   }
@@ -138,20 +133,9 @@ nav a:hover {
   .box2.box2 {
     width: 100px !important;
     height: 100px !important;
-    left: 5% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     top: 5% !important;
     z-index: 10 !important;
-  }
-  
-  .staticFigure.staticFigure img {
-    width: 8rem !important;
-    height: 8rem !important;
-    object-fit: contain !important;
-    position: absolute !important;
-    right: 5% !important; 
-    top: 70% !important;
-    padding-left: 0 !important;
-    margin: 0 !important;
-    z-index: 1 !important;
   }
 }
