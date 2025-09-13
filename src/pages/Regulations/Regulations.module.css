@@ -1,6 +1,7 @@
 .regulations {
   flex: 1;
   padding: 2rem;
+  margin-bottom: -30px;
 }
 
 .title {
