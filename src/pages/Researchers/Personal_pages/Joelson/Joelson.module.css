@@ -14,11 +14,13 @@
 
 
 .Professor > p {
+  position: absolute;
+  left: calc(2% + 475px);
   font-size: 25px;
   color: #363F5; 
-  padding-left: 475px;
   margin-top: -50px;
   white-space: nowrap;
+  transform: translateX(-50%);
 }
 
 
