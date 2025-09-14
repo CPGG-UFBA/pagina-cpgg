@@ -120,6 +120,17 @@ All colors MUST be HSL.
     background: hsl(var(--page-background));
   }
 
+  /* Portrait orientation - ensure footers stay at bottom */
+  @media (orientation: portrait) {
+    .Container,
+    .container {
+      min-height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+    }
+  }
+
   /* Form elements styling from global.css */
   input,
   textarea,

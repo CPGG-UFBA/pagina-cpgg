@@ -7,6 +7,13 @@
   justify-content: flex-end; /* Alinhar conteúdo ao final, incluindo a barra */
 }
 
+/* Portrait orientation - ensure footer stays at bottom */
+@media (orientation: portrait) {
+  .footer {
+    margin-top: auto;
+  }
+}
+
 .image {
   width: 100%;
   background-image: url('../../assets/footer-figure.png');
