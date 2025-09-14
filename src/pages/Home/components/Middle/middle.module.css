@@ -142,6 +142,21 @@
 .staticFigure { margin-left: 0; }
 
 /* Media Queries */
+/* Specific fix for 1366x1024 screens */
+@media (min-width: 1201px) and (max-width: 1400px) and (max-height: 1100px) {
+  .staticFigure img {
+    height: 28rem;
+    margin-left: 200px;
+    margin-top: 20px;
+    object-fit: contain;
+  }
+
+  .static {
+    margin-top: -450px;
+    margin-left: 4rem;
+  }
+}
+
 @media (max-width: 1200px) {
   .staticFigure { margin-left: 100px; }
   .middle {
