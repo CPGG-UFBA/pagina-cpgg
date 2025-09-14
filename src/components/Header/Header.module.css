@@ -400,7 +400,31 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav {
-    display: none; /* Menu hambúrguer seria ideal aqui */
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: rgba(89, 44, 187, 0.95);
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  
+  nav ul li {
+    width: 100%;
+    margin: 2px 0;
+    padding: 8px;
+    text-align: center;
+    font-size: 14px;
   }
   
   .header .logoufba img {
