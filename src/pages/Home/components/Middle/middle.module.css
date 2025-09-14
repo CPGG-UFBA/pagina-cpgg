@@ -145,14 +145,13 @@
 /* Specific fix for 1366x1024 screens */
 @media (min-width: 1201px) and (max-width: 1400px) and (max-height: 1100px) {
   .staticFigure img {
-    margin-left: 200px;
+    padding-left: 150px;
     margin-top: 20px;
-    object-fit: contain;
   }
 
   .static {
     margin-top: -450px;
-    margin-left: 4rem;
+    margin-left: 3rem;
   }
 }
 
