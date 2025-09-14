@@ -188,10 +188,31 @@
 
 
 
-@media (max-width: 780px) {
-
+/* Media query for tablets and small screens 768x1024 and similar */
+@media (max-width: 768px) and (min-height: 900px) {
   .static {
+    font-size: 28px; /* Reduzido de 35px */
+    margin-left: 3.5rem; /* Ajustado para manter posição */
+  }
+  
+  .static > strong {
+    font-size: 70px; /* Reduzido de 90px */
+    line-height: 1.4; /* Ajustado para melhor espaçamento */
+  }
 
+  .enjoy {
+    font-size: 15px; /* Reduzido de 18px */
+    line-height: 1.1; /* Compactado */
+  }
+
+  .enjoy > strong {
+    font-size: 24px; /* Reduzido de 30px */
+    line-height: 1.4;
+  }
+}
+
+@media (max-width: 780px) {
+  .static {
     margin-right: -100px;
   }
   .static > strong {
@@ -205,7 +226,6 @@
     margin-top: 20px;
     margin-right: -100px;
   }
-
 }
 
 
