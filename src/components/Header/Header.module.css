@@ -237,7 +237,7 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
-/* Laptop - 1025px - 1200px */
+/* Laptop - 1151px - 1200px */
 @media (min-width: 1151px) and (max-width: 1200px) {
   .header {
     width: 100%;
@@ -245,14 +245,14 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 250px;
+    margin-left: 180px;
   }
   
   nav ul li {
-    font-size: 15px;
-    width: 110px;
-    margin: 10px;
-    padding: 10px;
+    font-size: 14px;
+    width: 100px;
+    margin: 8px 6px;
+    padding: 8px;
   }
   
   .block1 h1 {
@@ -283,14 +283,21 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 100px;
+    margin-left: 50px;
+  }
+  
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   nav ul li {
-    font-size: 14px;
-    width: 100px;
-    margin: 8px;
-    padding: 8px;
+    font-size: 13px;
+    width: auto;
+    min-width: 70px;
+    margin: 6px 4px;
+    padding: 6px 8px;
   }
   
   .block1 h1 {
@@ -321,6 +328,30 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
+/* Medium Laptop - 1025px - 1150px */
+@media (min-width: 1025px) and (max-width: 1150px) {
+  .header {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .signup {
+    margin-left: 150px;
+  }
+  
+  nav ul li {
+    font-size: 14px;
+    width: 100px;
+    margin: 8px;
+    padding: 8px;
+  }
+  
+  .block1 h1 {
+    font-size: 10px;
+    max-width: 250px;
+  }
+}
+
 /* Mobile (Médio) - 481px - 768px */
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
@@ -334,22 +365,27 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     position: absolute;
     top: 80px;
-    right: 20px;
+    left: 10px;
+    right: 10px;
     background-color: rgba(89, 44, 187, 0.95);
     border-radius: 10px;
     padding: 10px;
-    width: 200px;
+    z-index: 1000;
   }
   
   nav ul li {
     font-size: 13px;
-    width: 100%;
-    margin: 5px 0;
-    padding: 8px;
+    width: auto;
+    min-width: 80px;
+    margin: 3px;
+    padding: 8px 12px;
     text-align: center;
+    flex: 1;
   }
   
   .header .logoufba img {
