@@ -138,5 +138,51 @@
   margin-bottom: 0;
 }
 
+@media (max-width: 768px) {
+  .titleContainer {
+    transform: none !important;
+    margin: 5rem auto 2rem !important;
+    text-align: center !important;
+    padding: 0 20px !important;
+  }
+
+  .container {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    max-width: 90vw !important;
+  }
+
+  .historical,
+  .fifthy,
+  .reopen,
+  .eventCard {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+    padding: 1.5rem !important;
+    min-height: 100px !important;
+    height: auto !important;
+    font-size: 14px !important;
+  }
+
+  .staticFigure {
+    transform: none !important;
+    position: relative !important;
+    margin: 2rem auto !important;
+    text-align: center !important;
+  }
+
+  .staticFigure img {
+    height: 300px !important;
+    width: 300px !important;
+  }
+
+  .photosFooter {
+    margin-top: 2rem !important;
+  }
+}
+
 
 

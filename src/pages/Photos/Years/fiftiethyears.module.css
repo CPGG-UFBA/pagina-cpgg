@@ -338,6 +338,37 @@
   grid-row-end: 10;
 }
 
+@media (max-width: 768px) {
+  .Years {
+    padding: 20px !important;
+    padding-top: 100px !important;
+    padding-bottom: 200px !important;
+  }
+
+  .Years ul {
+    margin-left: 0 !important;
+    text-align: center !important;
+    font-size: 20px !important;
+    margin-top: 20px !important;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr !important;
+    grid-gap: 15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  [class*="photo"] img {
+    width: 90vw !important;
+    max-width: 300px !important;
+    height: auto !important;
+    grid-column-start: 1 !important;
+    grid-column-end: 1 !important;
+    margin: 0 auto !important;
+  }
+}
+
 .photo31 img {
   width:500px;
   height: 400px;
