@@ -55,7 +55,7 @@ export function CPGG() {
               <h4 className={styles.legend3}>Fachada da sede do CGG em primeiro ângulo</h4>
             </div>
           </div>
-          <div className={styles.staticFigure}>
+          <div className={styles.earthFixed}>
             <img src={earth} alt='Terra' />
           </div>
         </div>

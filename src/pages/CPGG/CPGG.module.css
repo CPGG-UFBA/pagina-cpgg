@@ -122,18 +122,19 @@
   position: absolute;
 }
 
-.staticFigure {
+.earthFixed {
   position: fixed !important;
   top: 120px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  z-index: 999 !important;
+  z-index: 1000 !important;
   width: 250px !important;
   height: 250px !important;
   display: block !important;
+  visibility: visible !important;
 }
 
-.staticFigure img {
+.earthFixed img {
   width: 250px !important;
   height: 250px !important;
   object-fit: contain !important;
@@ -142,7 +143,20 @@
   padding: 0 !important;
 }
 
+.staticFigure {
+  display: none !important;
+}
+
+.staticFigure img {
+  display: none !important;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
+  .earthFixed {
+    display: none !important;
+  }
+
   .staticFigure {
     display: none !important;
   }
