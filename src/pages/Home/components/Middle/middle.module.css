@@ -17,13 +17,14 @@
 }
 
 .News {
-  height: calc(100% - 50px); /* Reduz a altura em 50px mantendo o topo */
+  height: auto; /* Altere de fixo para auto para melhor responsividade */
   width: 100%; /* Altere de percentual fixo para ocupar toda a largura disponível */
   max-width: 400px; /* Defina um max-width para telas maiores */
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
+  margin-bottom: 50px; /* Move a base 50px para cima */
 }
 
 .NewsTrack {
