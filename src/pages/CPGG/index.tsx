@@ -8,9 +8,9 @@ export function CPGG() {
   const totalResearchers = getTotalResearchersCount()
   
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
-      <div className={styles.cpgg}>
+      <main className={styles.cpgg}>
         <div className={styles.Title} >
           <ul> O CPGG </ul>
           <div className={styles.box}>
@@ -59,11 +59,9 @@ export function CPGG() {
             <img src={earth} alt='Terra' />
           </div>
         </div>
-      </div>
-      <div style={{ marginTop: '-50px' }}>
-        <Footer />
-      </div>
-    </>
+      </main>
+      <Footer />
+    </div>
   )
 }
 
