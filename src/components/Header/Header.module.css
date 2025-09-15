@@ -1,8 +1,9 @@
 .header {
   width: 100%;
   background-image: url("../../assets/header-bg.jpg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   height: 100vh;
   position: absolute;
   flex-direction: row;
