@@ -120,15 +120,34 @@ All colors MUST be HSL.
     background: hsl(var(--page-background));
   }
 
-  /* Portrait orientation - ensure footers stay at bottom */
-  @media (orientation: portrait) {
-    .Container,
-    .container {
-      min-height: 100vh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: space-between !important;
-    }
+  /* Ensure all pages have proper layout for sticky footer */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* All page containers should be flex containers with full height */
+  body > div,
+  .Container,
+  .container {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Main content should expand to fill available space */
+  main,
+  .main-content,
+  body > div > *:not(header):not(footer),
+  .Container > *:not(header):not(footer),
+  .container > *:not(header):not(footer) {
+    flex: 1;
+  }
+
+  /* Footer should stick to bottom */
+  footer {
+    margin-top: auto !important;
   }
 
   /* Form elements styling from global.css */
