@@ -229,10 +229,9 @@ All colors MUST be HSL.
       display: none !important;
     }
     
-    /* Keep Earth figure visible only on Home page */
-    [class*="Home"] .staticFigure img,
-    [class*="Home"] .earthFigure img,
-    [class*="Middle"] .earthGlobe {
+    /* Keep Earth figure visible only on Home page - Middle component */
+    [class*="Middle"] .earthGlobe,
+    [class*="middle"] .earthGlobe {
       display: block !important;
     }
   }

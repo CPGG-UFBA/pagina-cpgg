@@ -63,6 +63,8 @@
   width: 33.333333%;
   display: flex;
   justify-content: center;
+  z-index: 2;
+  position: relative;
 }
 
 .earthGlobe {
@@ -70,6 +72,8 @@
   height: 16rem;
   object-fit: contain;
   border-radius: 50%;
+  z-index: 2;
+  position: relative;
 }
 
 @media screen and (max-width: 1000px) {
@@ -126,16 +130,19 @@
   height: 8rem;
   background-size: cover;
   background-position: center;
+  z-index: 1;
 }
 
 .newsContainer {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
+  z-index: 3;
 }
 
 .newsText {
   color: white;
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
