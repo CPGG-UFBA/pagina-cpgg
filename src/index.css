@@ -219,7 +219,7 @@ All colors MUST be HSL.
   .global-earth-container {
     position: fixed !important;
     top: 135px !important;
-    left: calc(50% + 200px) !important;
+    left: calc(50% + 450px) !important;
     transform: translateX(-50%) !important;
     z-index: 99999 !important;
     width: 500px !important;
