@@ -8,11 +8,12 @@ export function GlobalEarth() {
         top: '140px',
         left: '50%',
         transform: 'translateX(-50%)',
-        zIndex: 999,
+        zIndex: 9999,
         width: '250px',
         height: '250px',
         display: 'block',
-        visibility: 'visible'
+        visibility: 'visible',
+        pointerEvents: 'none'
       }}
     >
       <img 
@@ -25,7 +26,9 @@ export function GlobalEarth() {
           borderRadius: '50%',
           margin: '0',
           padding: '0',
-          display: 'block'
+          display: 'block',
+          maxWidth: 'none',
+          maxHeight: 'none'
         }}
       />
     </div>
