@@ -215,10 +215,26 @@ All colors MUST be HSL.
     transform: translateZ(20px);
   }
 
-  /* Esconde a Terra na página Researchers */
-  .hide-earth ~ header .earthFigure,
-  .hide-earth .earthFigure {
-    display: none !important;
+  /* Global Earth Figure positioning - 250px and centered below "início" */
+  .earthFigure {
+    position: fixed !important;
+    top: 120px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    z-index: 999 !important;
+    width: 250px !important;
+    height: 250px !important;
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .earthFigure img,
+  .staticFigure img,
+  .earthGlobe {
+    width: 250px !important;
+    height: 250px !important;
+    object-fit: contain !important;
+    border-radius: 50% !important;
   }
 
   /* Hide Earth figure on screens ≤1124px for all pages except Home */

@@ -67,12 +67,17 @@
 }
 
 .earthGlobe {
-  width: 16rem;
-  height: 16rem;
+  width: 250px;
+  height: 250px;
   object-fit: contain;
   border-radius: 50%;
   display: block !important;
   visibility: visible !important;
+  position: fixed;
+  top: 120px; /* Position below header/navigation */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
 }
 
 @media screen and (max-width: 1000px) {
@@ -111,9 +116,13 @@
   }
   
   .earthGlobe.earthGlobe {
-    width: 12rem !important;
-    height: 12rem !important;
+    width: 200px !important;
+    height: 200px !important;
     object-fit: contain !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
   }
   
   .wavePattern.wavePattern {
