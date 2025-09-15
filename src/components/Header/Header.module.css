@@ -24,7 +24,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 2001;
+  z-index: 100002;
 }
 
 
@@ -97,7 +97,7 @@ nav ul li:hover .submenu1 {
   background-color: #592cbb;
   margin-top: -30px;
   font-size: 16px;
-  z-index: 100;
+  z-index: 100000;
   width: 160px;
   right: 0;
   max-width: calc(100vw - 20px);
@@ -139,7 +139,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   margin-left: -190px; /* colado ao menu primário, à esquerda */
   background-color: #592cbb;
   width: 190px;
-  z-index: 1000;
+  z-index: 100001;
 }
 
 nav ul li:hover .submenu2 ul li {
@@ -376,7 +376,7 @@ nav ul li:hover .submenu2 ul li a {
     background-color: rgba(89, 44, 187, 0.95);
     border-radius: 10px;
     padding: 10px;
-    z-index: 1000;
+    z-index: 100000;
   }
   
   nav ul li {
@@ -444,7 +444,7 @@ nav ul li:hover .submenu2 ul li a {
     right: 0;
     background-color: rgba(89, 44, 187, 0.95);
     padding: 10px;
-    z-index: 1000;
+    z-index: 100000;
   }
   
   nav ul {
