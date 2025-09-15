@@ -18,9 +18,10 @@
   background-image: url('../../assets/footer-figure.png');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 500px; /* Reduced height for compact footer */
+  height: 530px; /* Increased by 30px */
   position: relative;
   z-index: 1;
+  margin-top: -30px; /* Moved up by 30px */
 }
 
 .bar {
@@ -33,6 +34,7 @@
   justify-content: space-between;
   padding: 0 20px;
   z-index: 2;
+  margin-top: -30px; /* Moved up by 30px */
 }
 
 .copyright {
