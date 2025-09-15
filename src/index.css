@@ -215,30 +215,38 @@ All colors MUST be HSL.
     transform: translateZ(20px);
   }
 
-  /* Global Earth Figure positioning - 250px and centered below "início" */
-  .earthFigure {
+  /* Force Global Earth visibility */
+  .global-earth-container {
     position: fixed !important;
-    top: 120px !important;
+    top: 135px !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
-    z-index: 999 !important;
+    z-index: 99999 !important;
     width: 250px !important;
     height: 250px !important;
     display: block !important;
     visibility: visible !important;
+    pointer-events: none !important;
   }
 
-  .earthFigure img,
-  .staticFigure img,
-  .earthGlobe {
+  .global-earth-image {
     width: 250px !important;
     height: 250px !important;
     object-fit: contain !important;
     border-radius: 50% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+    max-width: none !important;
+    max-height: none !important;
   }
 
   /* Hide Earth figure on screens ≤1124px for all pages except Home */
   @media (max-width: 1124px) {
+    .global-earth-container {
+      display: none !important;
+    }
+    
     .staticFigure img,
     .earthFigure img {
       display: none !important;

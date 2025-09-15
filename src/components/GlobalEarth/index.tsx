@@ -3,29 +3,34 @@ import earth from '../../assets/earth-imgur.png'
 export function GlobalEarth() {
   return (
     <div 
+      className="global-earth-container"
       style={{
-        position: 'fixed',
-        top: '135px',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 1000,
-        width: '250px',
-        height: '250px',
-        display: 'block',
-        visibility: 'visible'
+        position: 'fixed !important' as any,
+        top: '135px !important' as any,
+        left: '50% !important' as any,
+        transform: 'translateX(-50%) !important' as any,
+        zIndex: '99999 !important' as any,
+        width: '250px !important' as any,
+        height: '250px !important' as any,
+        display: 'block !important' as any,
+        visibility: 'visible !important' as any,
+        pointerEvents: 'none !important' as any
       }}
     >
       <img 
         src={earth} 
         alt='Terra Global CPGG' 
+        className="global-earth-image"
         style={{
-          width: '250px',
-          height: '250px',
-          objectFit: 'contain',
-          borderRadius: '50%',
-          margin: '0',
-          padding: '0',
-          display: 'block'
+          width: '250px !important' as any,
+          height: '250px !important' as any,
+          objectFit: 'contain !important' as any,
+          borderRadius: '50% !important' as any,
+          margin: '0 !important' as any,
+          padding: '0 !important' as any,
+          display: 'block !important' as any,
+          maxWidth: 'none !important' as any,
+          maxHeight: 'none !important' as any
         }}
       />
     </div>
