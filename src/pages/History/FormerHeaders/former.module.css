@@ -546,3 +546,118 @@
   height: 180px;
 }
 
+/* Responsividade para telas pequenas */
+@media (max-width: 1200px) {
+  .Headers {
+    padding-left: 100px !important;
+    padding-bottom: 600px !important;
+  }
+
+  .boxzero {
+    grid-template-columns: repeat(3, 280px) !important;
+    left: 8% !important;
+    right: 8% !important;
+    height: 800px !important;
+  }
+
+  .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
+    width: 280px !important;
+    height: 280px !important;
+    padding: 10px !important;
+  }
+
+  .photobox1, .photobox2, .photobox3, .photobox4, .photobox5, .photobox6, .photobox7, .photobox8, .photobox9 {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  [class*="Header"] h1 {
+    font-size: 16px !important;
+    margin-left: 0 !important;
+    padding-left: 10px !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  [class*="Header"] a {
+    font-size: 12px !important;
+    margin-left: 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .Headers {
+    padding: 20px !important;
+    padding-top: 100px !important;
+    padding-bottom: 400px !important;
+  }
+
+  .Headers ul {
+    margin-left: 0 !important;
+    text-align: center !important;
+    font-size: 20px !important;
+    margin-top: 20px !important;
+  }
+
+  .boxzero {
+    grid-template-columns: repeat(2, 200px) !important;
+    left: 10% !important;
+    right: 10% !important;
+    height: 1200px !important;
+    gap: 10px !important;
+    padding: 10px !important;
+  }
+
+  .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
+    width: 200px !important;
+    height: 220px !important;
+    padding: 8px !important;
+  }
+
+  .photobox1, .photobox2, .photobox3, .photobox4, .photobox5, .photobox6, .photobox7, .photobox8, .photobox9 {
+    width: 100px !important;
+    height: 100px !important;
+    transform: translate(-50%, calc(-50% + 20px)) !important;
+  }
+
+  [class*="Header"] h1 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    padding: 5px !important;
+    white-space: normal !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+  }
+
+  [class*="Header"] a {
+    font-size: 10px !important;
+    margin: 5px 0 !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .boxzero {
+    grid-template-columns: 1fr !important;
+    left: 5% !important;
+    right: 5% !important;
+    height: auto !important;
+    padding: 15px !important;
+  }
+
+  .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
+    width: 90vw !important;
+    max-width: 250px !important;
+    height: 180px !important;
+    margin: 0 auto !important;
+  }
+
+  .photobox1, .photobox2, .photobox3, .photobox4, .photobox5, .photobox6, .photobox7, .photobox8, .photobox9 {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
