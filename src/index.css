@@ -171,12 +171,14 @@ All colors MUST be HSL.
 
   /* Hide Earth figure on screens ≤1124px for all pages except Home */
   @media (max-width: 1124px) {
-    .staticFigure img {
+    .staticFigure img,
+    .earthFigure img {
       display: none !important;
     }
     
     /* Keep Earth figure visible only on Home page */
     [class*="Home"] .staticFigure img,
+    [class*="Home"] .earthFigure img,
     [class*="Middle"] .earthGlobe {
       display: block !important;
     }
