@@ -18,7 +18,7 @@
   background-image: url('../../assets/footer-figure.png');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 250px; /* Reduced height for compact footer */
+  height: 500px; /* Reduced height for compact footer */
   position: relative;
   z-index: 1;
 }
@@ -26,7 +26,7 @@
 .bar {
   background: #00249c;
   display: flex;
-  height: 30vh;
+  height: 5vh;
   width: 100%;
   position: relative;
   align-items: center;
