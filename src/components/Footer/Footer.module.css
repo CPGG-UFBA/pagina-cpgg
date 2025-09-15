@@ -105,7 +105,7 @@
   }
   
   .bar {
-    height: 8vh;
+    height: calc(8vh + 30px);
     padding: 0 30px;
   }
 }
@@ -126,7 +126,7 @@
   }
   
   .bar {
-    height: 7vh;
+    height: calc(7vh + 30px);
   }
 }
 
@@ -147,7 +147,7 @@
   }
   
   .bar {
-    height: 6vh;
+    height: calc(6vh + 30px);
     padding: 0 15px;
   }
 }
@@ -170,7 +170,7 @@
   }
   
   .bar {
-    height: 6vh;
+    height: calc(6vh + 30px);
     width: 100%;
     padding: 0 15px;
   }
@@ -202,7 +202,7 @@
   }
   
   .bar {
-    height: 5vh;
+    height: calc(5vh + 30px);
     width: 100%;
     padding: 0 10px;
     flex-direction: column;
@@ -250,7 +250,7 @@
   }
   
   .bar {
-    height: 5vh;
+    height: calc(5vh + 30px);
     width: 100%;
     padding: 5px;
     flex-direction: column;
