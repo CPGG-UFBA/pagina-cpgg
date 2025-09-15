@@ -550,14 +550,18 @@
 @media (max-width: 1200px) {
   .Headers {
     padding-left: 100px !important;
-    padding-bottom: 600px !important;
+    padding-bottom: 100px !important;
+    min-height: 100vh !important;
   }
 
   .boxzero {
     grid-template-columns: repeat(3, 280px) !important;
     left: 8% !important;
     right: 8% !important;
-    height: 800px !important;
+    height: 80vh !important;
+    max-height: 900px !important;
+    overflow-y: auto !important;
+    margin-bottom: 100px !important;
   }
 
   .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
@@ -591,7 +595,8 @@
   .Headers {
     padding: 20px !important;
     padding-top: 100px !important;
-    padding-bottom: 400px !important;
+    padding-bottom: 50px !important;
+    min-height: 100vh !important;
   }
 
   .Headers ul {
@@ -603,11 +608,15 @@
 
   .boxzero {
     grid-template-columns: repeat(2, 200px) !important;
-    left: 10% !important;
-    right: 10% !important;
-    height: 1200px !important;
+    left: 5% !important;
+    right: 5% !important;
+    width: 90vw !important;
+    height: 70vh !important;
+    max-height: 600px !important;
+    overflow-y: auto !important;
     gap: 10px !important;
     padding: 10px !important;
+    margin-bottom: 80px !important;
   }
 
   .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
@@ -640,24 +649,40 @@
 }
 
 @media (max-width: 480px) {
+  .Headers {
+    padding: 15px !important;
+    padding-top: 80px !important;
+    padding-bottom: 30px !important;
+    min-height: 100vh !important;
+  }
+
   .boxzero {
     grid-template-columns: 1fr !important;
     left: 5% !important;
     right: 5% !important;
-    height: auto !important;
+    width: 90vw !important;
+    height: 60vh !important;
+    max-height: 500px !important;
+    overflow-y: auto !important;
     padding: 15px !important;
+    margin-bottom: 60px !important;
   }
 
   .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
     width: 90vw !important;
     max-width: 250px !important;
     height: 180px !important;
-    margin: 0 auto !important;
+    margin: 0 auto 10px auto !important;
   }
 
   .photobox1, .photobox2, .photobox3, .photobox4, .photobox5, .photobox6, .photobox7, .photobox8, .photobox9 {
     width: 80px !important;
     height: 80px !important;
+  }
+
+  .Headers ul {
+    font-size: 18px !important;
+    margin-top: 10px !important;
   }
 }
 
