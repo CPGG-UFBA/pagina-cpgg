@@ -7,7 +7,9 @@ export function Home() {
   return (
     <div className={styles.Container}>
       <Header />
-      <Middle />
+      <main>
+        <Middle />
+      </main>
       <Footer />
     </div>
   )

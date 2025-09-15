@@ -1,10 +1,9 @@
 .footer {
   display: flex;
   flex-direction: column;
-  margin-top: 50px;
   width: 100%;
   position: relative;
-  justify-content: flex-end; /* Alinhar conteúdo ao final, incluindo a barra */
+  justify-content: flex-end;
 }
 
 /* Portrait orientation - ensure footer stays at bottom */
@@ -17,23 +16,23 @@
 .image {
   width: 100%;
   background-image: url('../../assets/footer-figure.png');
-  background-size: cover; /* Use "cover" se quiser que a imagem ocupe todo o espaço */
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 300px; /* Definir uma altura mínima para a div ficar visível */
-  position: relative; /* Manter a imagem no fluxo normal */
-  z-index: 1; /* Garantir que a imagem fique acima da barra */
+  height: 150px; /* Reduced height for compact footer */
+  position: relative;
+  z-index: 1;
 }
 
 .bar {
   background: #00249c;
   display: flex;
-  height: 7vh;
+  height: 5vh;
   width: 100%;
-  position: relative; /* Mantendo a barra dentro do fluxo */
+  position: relative;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  z-index: 2; /* Garantindo que a barra esteja acima de outros elementos, exceto a imagem */
+  z-index: 2;
 }
 
 .copyright {

@@ -120,34 +120,68 @@ All colors MUST be HSL.
     background: hsl(var(--page-background));
   }
 
-  /* Ensure all pages have proper layout for sticky footer */
+  /* Global layout: no page scroll, everything fits in viewport */
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden; /* Prevent page-level scrolling */
   }
 
-  /* All page containers should be flex containers with full height */
-  body > div,
-  .Container,
-  .container {
-    min-height: 100vh !important;
+  /* Main app container */
+  body > div {
+    height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
+    overflow: hidden !important;
   }
 
-  /* Main content should expand to fill available space */
+  /* All page containers */
+  .Container,
+  .container,
+  .pageContainer {
+    height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  /* Header should have fixed height */
+  header {
+    flex-shrink: 0 !important;
+    height: auto !important;
+    max-height: 12vh !important;
+    min-height: 60px !important;
+  }
+
+  /* Main content area should be scrollable and fill remaining space */
   main,
   .main-content,
-  body > div > *:not(header):not(footer),
-  .Container > *:not(header):not(footer),
-  .container > *:not(header):not(footer) {
-    flex: 1;
+  .photos,
+  .regulations,
+  .spaces,
+  .cpgg,
+  .contact,
+  .history,
+  .researchers,
+  .labs,
+  .coordination,
+  .technicians,
+  .institution,
+  .production,
+  .recipes {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: 0 !important; /* Forces flex to work properly */
   }
 
-  /* Footer should stick to bottom */
+  /* Footer should have fixed height at bottom */
   footer {
-    margin-top: auto !important;
+    flex-shrink: 0 !important;
+    margin-top: 0 !important;
+    height: auto !important;
+    max-height: 15vh !important;
   }
 
   /* Form elements styling from global.css */
