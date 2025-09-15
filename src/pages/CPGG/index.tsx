@@ -55,8 +55,30 @@ export function CPGG() {
               <h4 className={styles.legend3}>Fachada da sede do CGG em primeiro ângulo</h4>
             </div>
           </div>
-          <div className={styles.earthFixed}>
-            <img src={earth} alt='Terra' />
+          <div 
+            style={{
+              position: 'fixed',
+              top: '120px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              zIndex: 1000,
+              width: '250px',
+              height: '250px',
+              display: 'block'
+            }}
+          >
+            <img 
+              src={earth} 
+              alt='Terra' 
+              style={{
+                width: '250px',
+                height: '250px',
+                objectFit: 'contain',
+                borderRadius: '50%',
+                margin: '0',
+                padding: '0'
+              }}
+            />
           </div>
         </div>
       </main>
