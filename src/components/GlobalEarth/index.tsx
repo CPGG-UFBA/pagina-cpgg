@@ -5,13 +5,14 @@ export function GlobalEarth() {
     <div 
       style={{
         position: 'fixed',
-        top: '120px',
+        top: '140px',
         left: '50%',
         transform: 'translateX(-50%)',
-        zIndex: 1000,
+        zIndex: 999,
         width: '250px',
         height: '250px',
-        display: 'block'
+        display: 'block',
+        visibility: 'visible'
       }}
     >
       <img 
@@ -23,7 +24,8 @@ export function GlobalEarth() {
           objectFit: 'contain',
           borderRadius: '50%',
           margin: '0',
-          padding: '0'
+          padding: '0',
+          display: 'block'
         }}
       />
     </div>
