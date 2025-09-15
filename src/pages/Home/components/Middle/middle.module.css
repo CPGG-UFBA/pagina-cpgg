@@ -17,7 +17,7 @@
 }
 
 .News {
-  height: auto; /* Altere de fixo para auto para melhor responsividade */
+  height: calc(100% - 50px); /* Reduz a altura em 50px mantendo o topo */
   width: 100%; /* Altere de percentual fixo para ocupar toda a largura disponível */
   max-width: 400px; /* Defina um max-width para telas maiores */
   position: relative;
