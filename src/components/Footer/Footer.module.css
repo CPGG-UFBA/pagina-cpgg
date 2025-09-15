@@ -27,14 +27,14 @@
 .bar {
   background: #00249c;
   display: flex;
-  height: calc(5vh + 30px); /* Increased height by 30px */
+  height: 80px; /* Fixed height increased by 30px from original ~50px */
   width: 100%;
   position: relative;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   z-index: 2;
-  margin-top: -60px; /* Moved up more to compensate for increased height */
+  margin-top: -30px; /* Moved up by 30px */
 }
 
 .copyright {
