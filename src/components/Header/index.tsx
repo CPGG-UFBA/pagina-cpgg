@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSelector } from '@/components/LanguageSelector';
+import { GlobalEarth } from '@/components/GlobalEarth';
 const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
@@ -132,6 +133,7 @@ export function Header() {
           </li>
         </ul>
       </nav>
+      <GlobalEarth />
     </header>
   );
 }
