@@ -43,9 +43,6 @@ export  function Recipes() {
                       </div>
                   </a>
 
-                  <div className={styles.staticFigure}>
-                  <img src={earth} alt='Terra' />
-                  </div>
               </div>
           </div>
           <div className={styles.footerRecipes}>

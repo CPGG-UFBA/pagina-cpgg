@@ -62,9 +62,6 @@ export function Laiga() {
               <h4 className={styles.legend4}>Sala de apoio do LAIGA</h4>
             </div>
           </div>
-          <div className={styles.staticFigure}>
-            <img src={earth} alt="Terra" />
-          </div>
         </div>
       </div>
       <Footer />

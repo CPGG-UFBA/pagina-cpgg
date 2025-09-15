@@ -32,9 +32,6 @@ export function Alanna() {
             <div className={styles.box2}>
             </div>
           </div>
-          <div className={styles.staticFigure}>
-            <img src={earth} alt='Terra' />
-          </div>
         </div>
       </div>
       

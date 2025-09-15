@@ -156,9 +156,6 @@ export  function Labs() {
               </div>
               
               {/* Imagem da Terra movida para fora do container para evitar sobreposição */}
-              <div className={styles.staticFigure}>
-                <img src={earth} alt='Terra' />
-              </div>
           </div>
 
           <AdminLoginLabs

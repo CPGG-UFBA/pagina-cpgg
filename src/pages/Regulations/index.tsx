@@ -138,9 +138,6 @@ export function Regulations() {
                   ))}
 
               </div>
-              <div className={styles.earthFigure}>
-                  <img src={earthImage} alt='Figura da Terra do CPGG' />
-              </div>
           </div>
 
           <EditButton 

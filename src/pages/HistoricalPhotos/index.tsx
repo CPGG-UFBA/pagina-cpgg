@@ -41,9 +41,6 @@ export  function HP() {
                           <h2> Outras</h2>
                       </div>
                   </a>
-                  <div className={styles.staticFigure}>
-                    <img src={earthCorrect} alt='Terra' />
-                 </div>
               </div>
           </div>
           <Footer/>

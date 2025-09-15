@@ -43,9 +43,6 @@ export function Contact() {
         <p className={styles.address}> {t('contact.address')}</p>
         <p className={styles.building}> {t('contact.building')}</p>
 
-        <div className={styles.staticFigure}>
-          <img src={earth} alt="Terra" />
-        </div>
       </div>
 
       <Footer />
