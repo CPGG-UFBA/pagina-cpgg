@@ -7,11 +7,11 @@ export function GlobalEarth() {
       style={{
         position: 'fixed !important' as any,
         top: '135px !important' as any,
-        left: '50% !important' as any,
+        left: 'calc(50% + 200px) !important' as any,
         transform: 'translateX(-50%) !important' as any,
         zIndex: '99999 !important' as any,
-        width: '250px !important' as any,
-        height: '250px !important' as any,
+        width: '500px !important' as any,
+        height: '500px !important' as any,
         display: 'block !important' as any,
         visibility: 'visible !important' as any,
         pointerEvents: 'none !important' as any
@@ -22,8 +22,8 @@ export function GlobalEarth() {
         alt='Terra Global CPGG' 
         className="global-earth-image"
         style={{
-          width: '250px !important' as any,
-          height: '250px !important' as any,
+          width: '500px !important' as any,
+          height: '500px !important' as any,
           objectFit: 'contain !important' as any,
           borderRadius: '50% !important' as any,
           margin: '0 !important' as any,
