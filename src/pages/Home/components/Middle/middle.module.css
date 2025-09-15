@@ -47,7 +47,7 @@
 }
 
 .slide {
-  height: 100%; /* Ajuste a altura para ocupar o espaço disponível */
+  height: 90%; /* Ajuste a altura para ocupar o espaço disponível */
   width: 100%; /* Ajuste para ocupar o espaço disponível */
   display: flex;
   padding: 15px;
