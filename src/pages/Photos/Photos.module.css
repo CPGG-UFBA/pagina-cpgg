@@ -1,3 +1,9 @@
+.pageContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .photos {
   flex: 1;
   padding: 2rem;
@@ -33,7 +39,7 @@
   max-width: 1000px;
   margin: 0 auto;
   margin-left: 0;
-  margin-bottom: 18rem;
+  margin-bottom: 4rem;
 }
 
 
@@ -133,10 +139,6 @@
   transform: translateY(-5px);
 }
 
-.photosFooter {
-  margin-top: -700px;
-  margin-bottom: 0;
-}
 
 @media (max-width: 768px) {
   .titleContainer {
@@ -179,9 +181,6 @@
     width: 300px !important;
   }
 
-  .photosFooter {
-    margin-top: 2rem !important;
-  }
 }
 
 
