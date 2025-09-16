@@ -22,9 +22,6 @@ export  function Spaces() {
               <h2>Sala de reuniões</h2>
             </div>
           </a>
-          <div className={styles.staticFigure}>
-            <img src={earthImage} alt='Terra' />
-         </div>
         </div>
       </main>
       <Footer/>
