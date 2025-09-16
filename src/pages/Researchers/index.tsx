@@ -277,9 +277,9 @@ export function Researchers() {
   }
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <div className={`${styles.researchers} hide-earth`}>
+      <div className={`${styles.researchers} hide-earth`} style={{ flex: 1 }}>
         <div className={styles.Programs}>
           <ul>Programas de Pesquisa e Corpo Científico </ul>
           <div className={styles.box}>
@@ -398,6 +398,6 @@ export function Researchers() {
         />
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

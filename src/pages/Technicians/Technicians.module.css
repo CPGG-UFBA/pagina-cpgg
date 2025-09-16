@@ -1,6 +1,5 @@
 .technicians {
-  background: hsl(var(--page-background));
-  min-height: 100vh;
+  background: transparent;
   padding: 2rem;
 }
 
