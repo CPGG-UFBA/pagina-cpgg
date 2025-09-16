@@ -24,9 +24,9 @@
   padding-bottom: 15px;
   white-space: nowrap;
   font-weight: bold;
-  position: absolute;
-  left: calc(50% - 445px);
-  top: calc(130px - 28px);
+  position: absolute !important;
+  left: calc(50% - 445px) !important;
+  top: calc(130px - 28px) !important;
   transform: translateX(-50%);
 }
 
@@ -168,8 +168,10 @@
   }
 
   .Title ul {
-    padding-left: 100px;
+    left: calc(50% - 445px) !important;
     font-size: 24px;
+    position: absolute !important;
+    top: calc(130px - 28px) !important;
   }
 
   .box {
@@ -195,8 +197,10 @@
   }
 
   .Title ul {
-    padding-left: 20px;
+    left: calc(50% - 445px) !important;
     font-size: 20px;
+    position: absolute !important;
+    top: calc(130px - 28px) !important;
     text-align: center;
     white-space: normal;
   }
@@ -228,8 +232,10 @@
 
 @media (max-width: 400px) {
   .Title ul {
+    left: calc(50% - 445px) !important;
     font-size: 18px;
-    padding-left: 10px;
+    position: absolute !important;
+    top: calc(130px - 28px) !important;
   }
 
   .box {
