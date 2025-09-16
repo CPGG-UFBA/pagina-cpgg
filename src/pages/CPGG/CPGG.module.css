@@ -25,7 +25,7 @@
   white-space: nowrap;
   font-weight: bold;
   position: absolute;
-  left: calc(50% - 460px);
+  left: calc(50% - 445px);
   top: calc(130px - 28px);
   transform: translateX(-50%);
 }
