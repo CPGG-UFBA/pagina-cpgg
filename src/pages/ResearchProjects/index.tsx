@@ -37,14 +37,6 @@ export function ResearchProjects() {
     if (savedAuth === 'true') {
       setIsAuthenticated(true)
     }
-
-    // Override the global Earth background for this page
-    document.body.style.backgroundImage = 'none'
-    
-    // Cleanup function to restore background when leaving page
-    return () => {
-      document.body.style.backgroundImage = "url('https://imgur.com/zBzhTLu')"
-    }
   }, [])
 
   const fetchProjects = async () => {
@@ -117,7 +109,7 @@ export function ResearchProjects() {
   }
 
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div className={`${styles.container} research-projects-page`}>
         <div className={styles.header}>
@@ -186,22 +178,21 @@ export function ResearchProjects() {
             )}
           </>
         )}
+
+        <EditButtonProjects
+          onClick={() => setShowLoginDialog(true)}
+          isEditMode={isAuthenticated}
+          onLogout={handleLogout}
+        />
+
+        <AdminLoginProjects
+          isOpen={showLoginDialog}
+          onClose={() => setShowLoginDialog(false)}
+          onLogin={handleLogin}
+          isLoading={loginLoading}
+        />
       </div>
-
-      <EditButtonProjects
-        onClick={() => setShowLoginDialog(true)}
-        isEditMode={isAuthenticated}
-        onLogout={handleLogout}
-      />
-
-      <AdminLoginProjects
-        isOpen={showLoginDialog}
-        onClose={() => setShowLoginDialog(false)}
-        onLogin={handleLogin}
-        isLoading={loginLoading}
-      />
-
       <Footer />
-    </>
+    </div>
   )
 }

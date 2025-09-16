@@ -1,10 +1,21 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Portrait orientation - when height > width */
+@media (orientation: portrait) {
+  .Container {
+    justify-content: space-between;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  min-height: 100vh;
-  background: transparent !important;
-  background-image: none !important;
+  flex: 1;
 }
 
 .header {
