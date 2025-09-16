@@ -1,6 +1,6 @@
 .heads {
-  padding-bottom: 625px;
-  
+  padding-bottom: 50px;
+  min-height: calc(100vh - 200px);
 }
 .coordination{
   column-count: 1;
@@ -171,7 +171,7 @@
   }
 
   .heads {
-    margin-bottom: 120px;
+    margin-bottom: 50px;
   }
 }
 
@@ -196,7 +196,7 @@
   }
 
   .heads {
-    margin-bottom: 90px;
+    margin-bottom: 50px;
   }
 }
 
@@ -222,7 +222,7 @@
 
 
   .heads {
-    margin-bottom: 750px;
+    margin-bottom: 50px;
   }
 }
 

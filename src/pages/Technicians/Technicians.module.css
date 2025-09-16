@@ -10,7 +10,8 @@
   align-items: center;
   color: white;
   padding-top: 100px;
-  margin-bottom: -300px;
+  margin-bottom: 50px;
+  min-height: calc(100vh - 300px);
   }
 
   .Employees ul {
@@ -115,7 +116,7 @@
 @media (max-width: 800px) {
   .Employees {
     padding-top: 50px;
-    margin-bottom: -150px;
+    margin-bottom: 50px;
   }
   
   .techniciansGrid {
@@ -137,7 +138,7 @@
     padding-top: 30px;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-bottom: -150px;
+    margin-bottom: 50px;
   }
   
   .box1,
