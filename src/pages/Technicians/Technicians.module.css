@@ -3,14 +3,14 @@
   padding: 2rem;
 }
 
-.Employees{
+  .Employees{
   display: flex;
   flex-direction: column;
   align-items: center;
   color: white;
   padding-top: 100px;
-  margin-bottom: 50px;
-  min-height: calc(100vh - 300px);
+  margin-bottom: 100px;
+  min-height: calc(100vh - 200px);
   }
 
   .Employees ul {
