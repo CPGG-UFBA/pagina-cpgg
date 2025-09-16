@@ -31,24 +31,42 @@
 }
 
 /* Responsivity */
-@media (max-width: 768px) {
+@media (min-width: 1151px) and (max-width: 1200px) {
   .flagButton {
-    font-size: 16px;
-    min-width: 36px;
+    font-size: 15px;
+    min-width: 35px;
+    height: 30px;
+    padding: 3px 7px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1150px) {
+  .flagButton {
+    font-size: 14px;
+    min-width: 34px;
     height: 28px;
     padding: 2px 6px;
   }
 }
 
+@media (min-width: 481px) and (max-width: 768px) {
+  .flagButton {
+    font-size: 13px;
+    min-width: 32px;
+    height: 26px;
+    padding: 2px 5px;
+  }
+}
+
 @media (max-width: 480px) {
   .languageSelector {
-    gap: 4px;
+    gap: 3px;
   }
   
   .flagButton {
-    font-size: 14px;
-    min-width: 32px;
-    height: 24px;
-    padding: 1px 4px;
+    font-size: 12px;
+    min-width: 28px;
+    height: 22px;
+    padding: 1px 3px;
   }
 }

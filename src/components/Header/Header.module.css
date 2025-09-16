@@ -22,9 +22,9 @@
 
 .languageContainer {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 100002;
+  top: 15px;
+  right: 15px;
+  z-index: 99999;
 }
 
 
@@ -507,17 +507,33 @@ nav ul li:hover .submenu2 ul li a {
 }
 
 /* Language Selector Responsivity */
-@media (max-width: 768px) {
+@media (min-width: 1151px) and (max-width: 1200px) {
   .languageContainer {
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1150px) {
+  .languageContainer {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .languageContainer {
+    top: 8px;
+    right: 8px;
+    z-index: 99998;
   }
 }
 
 @media (max-width: 480px) {
   .languageContainer {
-    top: 2px;
-    right: 2px;
+    top: 5px;
+    right: 5px;
+    z-index: 99998;
   }
 }
 
