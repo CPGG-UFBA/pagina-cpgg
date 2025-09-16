@@ -69,10 +69,6 @@
 }
 
 @media (max-width: 1200px) {
-  .staticFigure {
-    right: 20px;
-  }
-
   .history h1{
     padding-left: 120px;
   }
@@ -87,13 +83,6 @@
 }
 
 @media (max-width: 900px) {
-  .staticFigure {
-    right: 10px;
-  }
-  
-  .staticFigure img {
-    height: 30rem;
-  }
 }
 
 @media (max-width: 1000px) {

@@ -11,7 +11,9 @@ export function GlobalEarth() {
     '/technicians', 
     '/Technicians', 
     '/coordination', 
-    '/Coordination'
+    '/Coordination',
+    '/history',
+    '/History'
   ]
   
   // Also hide on all researcher personal pages
