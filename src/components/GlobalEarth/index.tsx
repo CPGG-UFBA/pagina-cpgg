@@ -1,6 +1,29 @@
 import earth from '../../assets/earth-imgur.png'
+import { useLocation } from 'react-router-dom'
 
 export function GlobalEarth() {
+  const location = useLocation()
+  
+  // Hide on specific pages
+  const hideOnRoutes = [
+    '/researchers', 
+    '/Researchers',
+    '/technicians', 
+    '/Technicians', 
+    '/coordination', 
+    '/Coordination'
+  ]
+  
+  // Also hide on all researcher personal pages
+  const isResearcherPage = location.pathname.includes('/researchers/') || 
+                          location.pathname.includes('/Researchers/')
+  
+  const shouldHide = hideOnRoutes.includes(location.pathname) || isResearcherPage
+  
+  if (shouldHide) {
+    return null
+  }
+  
   return (
     <div 
       className="global-earth-container"
