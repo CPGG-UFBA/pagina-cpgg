@@ -65,17 +65,7 @@
 
 
 .staticFigure {
-  position: absolute;
-  right: -740px;
-  top: 20px;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.staticFigure img {
-  height: calc(40rem - 50px);
-  margin-top: -83px;
-  margin-bottom: -500px;
+  display: none !important;
 }
 
 @media (max-width: 1200px) {
