@@ -13,7 +13,9 @@ export function GlobalEarth() {
     '/coordination', 
     '/Coordination',
     '/history',
-    '/History'
+    '/History',
+    '/history/Former',
+    '/History/Former'
   ]
   
   // Also hide on all researcher personal pages
