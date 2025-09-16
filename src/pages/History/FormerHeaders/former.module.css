@@ -224,9 +224,9 @@
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  left: 5%;
-  right: 5%;
-  width: auto; /* ocupa a largura disponível */
+  left: calc(5% + 5px);
+  right: calc(5% + 5px);
+  width: calc(auto - 10px); /* subtrai as margens de 5px de cada lado */
   height: 1000px;
   top: 16%;
   padding: 0; /* sem padding para manter o mesmo espaço das bordas */
