@@ -9,8 +9,8 @@
   align-items: center;
   color: white;
   padding-top: 100px;
-  margin-bottom: 100px;
-  min-height: calc(100vh - 200px);
+  margin-bottom: 200px;
+  min-height: calc(100vh - 300px);
   }
 
   .Employees ul {

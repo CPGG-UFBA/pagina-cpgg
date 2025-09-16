@@ -17,6 +17,13 @@ export function Technicians() {
                 <a>Alcirlene Cruz da Fonseca</a>
               </div>
             </div>
+            <div className={styles.box2}>
+              <div className={styles.photobox2}></div>
+              <div className={styles.TI}>
+                <h1>Técnica em T.I.</h1>
+                <a>Bianca Santos de Andrade</a>
+              </div>
+            </div>
             <div className={styles.box3}>
               <div className={styles.photobox3}></div>
               <div className={styles.Driver}>
@@ -29,13 +36,6 @@ export function Technicians() {
               <div className={styles.Lab}>
                 <h1>Técnico de Laboratório</h1>
                 <a>Michel Nascimento da Silva</a>
-              </div>
-            </div>
-            <div className={styles.box2}>
-              <div className={styles.photobox2}></div>
-              <div className={styles.TI}>
-                <h1>Técnica em T.I.</h1>
-                <a>Bianca Santos de Andrade</a>
               </div>
             </div>
           </div>
