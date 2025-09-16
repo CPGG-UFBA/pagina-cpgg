@@ -224,14 +224,16 @@
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  left: calc(5% + 5px);
-  right: calc(5% + 5px);
-  width: calc(auto - 10px); /* subtrai as margens de 5px de cada lado */
+  left: 5%;
+  right: 5%;
+  width: auto; /* ocupa a largura disponível */
   height: 1000px;
   top: 16%;
   padding: 0; /* sem padding para manter o mesmo espaço das bordas */
   border-radius: 20px;
   margin-bottom: -100px;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
   overflow-y: auto;
 }
 
@@ -562,6 +564,8 @@
     max-height: 900px !important;
     overflow-y: auto !important;
     margin-bottom: 100px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
   }
 
   .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
@@ -617,6 +621,8 @@
     gap: 10px !important;
     padding: 10px !important;
     margin-bottom: 80px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
   }
 
   .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
@@ -666,6 +672,8 @@
     overflow-y: auto !important;
     padding: 15px !important;
     margin-bottom: 60px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
   }
 
   .box1, .box2, .box3, .box4, .box5, .box6, .box7, .box8, .box9 {
