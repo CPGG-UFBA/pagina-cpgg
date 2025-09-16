@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem 1rem;
   min-height: 100vh;
+  background: transparent !important;
+  background-image: none !important;
 }
 
 .header {

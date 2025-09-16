@@ -37,6 +37,14 @@ export function ResearchProjects() {
     if (savedAuth === 'true') {
       setIsAuthenticated(true)
     }
+
+    // Override the global Earth background for this page
+    document.body.style.backgroundImage = 'none'
+    
+    // Cleanup function to restore background when leaving page
+    return () => {
+      document.body.style.backgroundImage = "url('https://imgur.com/zBzhTLu')"
+    }
   }, [])
 
   const fetchProjects = async () => {
