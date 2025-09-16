@@ -8,7 +8,7 @@ import earth from '../../../../assets/earth-imgur.png'
 export function Eduardo() {
   console.log('[Researchers] Eduardo page render');
   return (
-    <>
+    <div className="hide-earth">
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -35,6 +35,6 @@ export function Eduardo() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

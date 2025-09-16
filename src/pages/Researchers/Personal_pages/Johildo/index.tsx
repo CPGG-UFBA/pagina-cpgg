@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Johildo() {
   return (
-    <>
+    <div className="hide-earth">
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -34,6 +34,6 @@ export function Johildo() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

@@ -241,6 +241,35 @@ All colors MUST be HSL.
     max-height: none !important;
   }
 
+  /* Hide Earth figure completely on specific pages and all researcher pages */
+  .hide-earth .global-earth-container,
+  .hide-earth .staticFigure,
+  .hide-earth .staticFigure img,
+  .hide-earth .earthFigure,
+  .hide-earth .earthFigure img {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* Hide GlobalEarth component on researcher, technician, and coordination pages */
+  body:has([class*="researchers"]) .global-earth-container,
+  body:has([class*="Researchers"]) .global-earth-container,
+  body:has([class*="technicians"]) .global-earth-container,
+  body:has([class*="Technicians"]) .global-earth-container,
+  body:has([class*="coordination"]) .global-earth-container,
+  body:has([class*="Coordination"]) .global-earth-container,
+  body:has([class*="Professor"]) .global-earth-container {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  
+  /* Also hide staticFigure on all researcher personal pages */
+  body:has([class*="Professor"]) .staticFigure,
+  body:has([class*="Professor"]) .staticFigure img {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
   /* Hide Earth figure on screens ≤1124px for all pages except Home */
   @media (max-width: 1124px) {
     .global-earth-container {
