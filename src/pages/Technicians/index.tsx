@@ -4,9 +4,9 @@ import { Footer } from '../../components/Footer'
 
 export function Technicians() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div className={styles.Container}>
       <Header />
-      <div className={styles.technicians} style={{ flex: 1 }}>
+      <div className={styles.technicians}>
         <div className={styles.Employees}>
           <ul>Corpo Administrativo e Técnico</ul>
           <div className={styles.techniciansGrid}>
