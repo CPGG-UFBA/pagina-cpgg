@@ -37,7 +37,7 @@ const photo32 = 'https://i.imgur.com/0hFHadj.jpg'
 
 export function Latin() {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.Latin}>
           <ul> 1<sup>a</sup>  Reunião Latino-americana (1974) </ul>
@@ -74,7 +74,7 @@ export function Latin() {
               <img src={photo10} alt='Foto10' />
             </div>
             <div className={styles.photo11}>
-              <img src={photo11} alt='Fot11' />
+              <img src={photo11} alt='Foto11' />
             </div>
             <div className={styles.photo12}>
               <img src={photo12} alt='Foto12' />
@@ -133,18 +133,17 @@ export function Latin() {
             <div className={styles.photo30}>
               <img src={photo30} alt='Foto30' />
             </div>
-             <div className={styles.photo31}>
-              <img src={photo30} alt='Foto31' />
+            <div className={styles.photo31}>
+              <img src={photo31} alt='Foto31' />
             </div>
-             <div className={styles.photo32}>
-              <img src={photo30} alt='Foto32' />
+            <div className={styles.photo32}>
+              <img src={photo32} alt='Foto32' />
             </div>
-         
           </div>
           </div>
         </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

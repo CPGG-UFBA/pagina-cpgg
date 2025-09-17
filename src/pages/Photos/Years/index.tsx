@@ -36,7 +36,7 @@ import photo30 from '../../../assets/Photos/Years/Foto30.png'
 
 export function Years() {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.Years}>
           <ul> 50 anos do Programa de Pós-Graduação em Geofísica </ul>
@@ -140,6 +140,6 @@ export function Years() {
         </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

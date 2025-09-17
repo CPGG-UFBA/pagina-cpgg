@@ -7,7 +7,7 @@ const photo2 = 'https://i.imgur.com/okukHvA.jpg'
 
 export function Yeda() {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.Yeda}>
           <ul> Professora Yeda </ul>
@@ -24,6 +24,6 @@ export function Yeda() {
         </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

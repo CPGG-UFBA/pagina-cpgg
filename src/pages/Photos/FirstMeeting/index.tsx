@@ -30,7 +30,7 @@ const photo22 = 'https://imgur.com/DbgG0FT.jpg'
 
 export function FirstMeeting() {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.FirstMeeting}>
           <ul> Primeira reunião geral de retorno do CPGG (março de 2024)</ul>
@@ -109,6 +109,6 @@ export function FirstMeeting() {
         </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

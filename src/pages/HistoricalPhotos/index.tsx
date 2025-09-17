@@ -5,7 +5,7 @@ import earthCorrect from '../../assets/earth-correct.jpg'
 
 export  function HP() {
   return (
-      <>
+      <div className={styles.pageContainer}>
       <Header/>
           <div className={styles.hp}>
               <h1 className={styles.title}>Fotos Históricas </h1>
@@ -44,6 +44,6 @@ export  function HP() {
               </div>
           </div>
           <Footer/>
-      </>
+      </div>
   )
 }

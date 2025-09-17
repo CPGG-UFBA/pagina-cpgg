@@ -16,7 +16,7 @@ const photo11 = 'https://i.imgur.com/WmRNCYV.jpg'
 
 export function BlockE() {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.BlockE}>
           <ul> Inauguração da Sede do CPGG (2013) </ul>
@@ -60,6 +60,6 @@ export function BlockE() {
         </div>
 
       <Footer />
-    </>
+    </div>
   )
 }

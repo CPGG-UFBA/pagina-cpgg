@@ -97,30 +97,30 @@ export function EventPhotos() {
 
   if (loading) {
     return (
-      <>
+      <div className={styles.pageContainer}>
         <Header />
         <div style={{ padding: '150px 20px', textAlign: 'center' }}>
           Carregando...
         </div>
         <Footer />
-      </>
+      </div>
     )
   }
 
   if (!event) {
     return (
-      <>
+      <div className={styles.pageContainer}>
         <Header />
         <div style={{ padding: '150px 20px', textAlign: 'center' }}>
           Evento não encontrado
         </div>
         <Footer />
-      </>
+      </div>
     )
   }
 
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.Years}>
         <div className={styles.yearHeader}>
@@ -174,6 +174,6 @@ export function EventPhotos() {
       )}
       
       <Footer />
-    </>
+    </div>
   )
 }
