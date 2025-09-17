@@ -1,0 +1,38 @@
+.counter {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 1000;
+  background: rgba(0, 36, 156, 0.8);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: Roboto, sans-serif;
+  font-weight: 300;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text {
+  white-space: nowrap;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .counter {
+    bottom: 8px;
+    left: 8px;
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .counter {
+    bottom: 6px;
+    left: 6px;
+    font-size: 8px;
+    padding: 2px 5px;
+  }
+}

@@ -3,7 +3,6 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
-import earth from '../../../../assets/earth-imgur.png'
 
 export function Carlson() {
   return (
@@ -27,9 +26,6 @@ export function Carlson() {
            <p>cmml@ufba.br</p> 
             <div className={styles.box2}>
             </div>
-          </div>
-          <div className={styles.staticFigure}>
-            <img src={earth} alt="Terra" />
           </div>
         </div>
       </div>

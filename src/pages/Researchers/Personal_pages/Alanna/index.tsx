@@ -3,7 +3,6 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
-import earth from '../../../../assets/earth-imgur.png'
 
 export function Alanna() {
   console.log('[Researchers] Alanna page render');
