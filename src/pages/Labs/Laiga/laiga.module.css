@@ -69,6 +69,20 @@
   }
 
 
+  .box p {
+    font-size: 16px;
+    color: #fff;
+    text-align: justify;
+    margin-bottom: 15px;
+    line-height: 1.6;
+  }
+
+  .box span {
+    font-size: 16px;
+    color: #fff;
+    margin-left: 20px;
+  }
+
   .box ul {
     font-size: 14px;
     olor: #363F5;
