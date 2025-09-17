@@ -2,7 +2,6 @@ import styles from './meetingroom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { Button } from '../../../components/ui/button'
-import earth from '../../../components/Figures/earth-new.jpg'
 
 import meeting1 from '../../../assets/Photos/Meetingroom/Meetings1-new.jpg'
 import meeting2 from '../../../assets/Photos/Meetingroom/Meetings2-new.jpg'
@@ -42,9 +41,6 @@ export function MeetingRoom() {
              </Button>
           </nav>
           
-          </div>
-          <div className={styles.staticFigure}>
-            <img src={earth} alt='Terra' />
           </div>
         </div>
         
