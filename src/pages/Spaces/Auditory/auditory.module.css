@@ -12,10 +12,8 @@
 }
 
 .Auditory{
-  display: flex;
   flex: 1;
-  min-height: 100vh;
-  overflow: hidden;
+  display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
