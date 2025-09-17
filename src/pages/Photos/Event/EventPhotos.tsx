@@ -123,27 +123,25 @@ export function EventPhotos() {
     <div className={styles.pageContainer}>
       <Header />
       <div className={styles.Years}>
-        <div className={styles.yearHeader}>
-          <ul>{event.name}</ul>
-          <div 
-            className={styles.editButton}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+        <ul>{event.name}</ul>
+        <div 
+          className="absolute top-4 right-4 z-10"
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <Button
+            onClick={handleEditClick}
+            size="sm"
+            variant="secondary"
+            className="w-10 h-10 p-0 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90 shadow-md"
           >
-            <Button
-              onClick={handleEditClick}
-              size="sm"
-              variant="secondary"
-              className="w-10 h-10 p-0 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90 shadow-md"
-            >
-              <Edit3 className="w-4 h-4" />
-            </Button>
-            {isHovered && (
-              <div className="absolute bottom-full right-0 mb-2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap shadow-lg border">
-                Editar Fotos
-              </div>
-            )}
-          </div>
+            <Edit3 className="w-4 h-4" />
+          </Button>
+          {isHovered && (
+            <div className="absolute bottom-full right-0 mb-2 bg-popover text-popover-foreground px-2 py-1 rounded text-xs whitespace-nowrap shadow-lg border">
+              Editar Fotos
+            </div>
+          )}
         </div>
         <div className={styles.box}>
           <div className={styles.gallery}>
