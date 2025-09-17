@@ -40,13 +40,17 @@
   max-width: 800px;
   height: 60vh;
   margin: 0 auto;
-  margin-left: calc(50% - 400px - 250px + 229px);
+  margin-left: calc(50% - 400px - 250px);
   margin-top: 130px;
   padding: 20px;
   border-radius: 20px;
   gap: 5px;
   overflow-y: auto;
   margin-bottom: 2rem;
+}
+
+.box p {
+  margin-left: 225px;
 }
 
 .box1 {
