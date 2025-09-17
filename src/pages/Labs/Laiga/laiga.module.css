@@ -154,7 +154,7 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  top: calc(3% + 310px);
+  top: calc(3% + 325px);
   left: calc(2% + 60px);
   padding: 10px;
   border-radius: 20px;
@@ -183,7 +183,7 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  top: calc(3% + 620px); 
+  top: calc(3% + 650px); 
   left: calc(2% + 60px);
   padding: 10px;
   border-radius: 20px;
@@ -211,7 +211,7 @@
   position: absolute;
   width: 300px;
   height: 300px;
-  top: calc(3% + 930px); 
+  top: calc(3% + 975px); 
   left: calc(2% + 60px);
   padding: 10px;
   border-radius: 20px;
