@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Eduardo() {
   console.log('[Researchers] Eduardo page render');
@@ -11,6 +12,7 @@ export function Eduardo() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Eduardo Reis Viana Rocha Junior </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

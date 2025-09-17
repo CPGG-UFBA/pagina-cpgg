@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { BackButton } from '../../../../components/BackButton'
 
 export function LRogerio() {
   return (
@@ -10,6 +11,7 @@ export function LRogerio() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Luiz Rogério Bastos Leal </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

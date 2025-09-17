@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Alanna() {
   console.log('[Researchers] Alanna page render');
@@ -14,6 +15,7 @@ export function Alanna() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Alanna Costa Dutra </p>
           <div className={styles.box1}>
             <DynamicResearcherProfile 

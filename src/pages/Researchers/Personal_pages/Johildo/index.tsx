@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Johildo() {
   return (
@@ -10,6 +11,7 @@ export function Johildo() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Johildo Salomão Figuerêdo Barbosa </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

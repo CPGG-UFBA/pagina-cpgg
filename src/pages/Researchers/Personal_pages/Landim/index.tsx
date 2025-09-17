@@ -3,14 +3,15 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
-import earth from '../../../../assets/earth-imgur.png'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Landim() {
   return (
-    <div>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> José Maria Dominguez Landim </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

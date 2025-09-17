@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Marcos() {
   return (
@@ -10,6 +11,7 @@ export function Marcos() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Marcos Alberto Rodrigues Vasconcelos </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

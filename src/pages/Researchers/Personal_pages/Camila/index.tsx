@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Camila() {
   return (
@@ -10,6 +11,7 @@ export function Camila() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Camila Brasil Louro da Silveira </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

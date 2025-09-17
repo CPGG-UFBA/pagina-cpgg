@@ -3,7 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
-import earth from '../../../../assets/earth-imgur.png'
+import { BackButton } from '../../../../components/BackButton'
 
 export function Alexandre() {
   console.log('[Researchers] Alexandre page render');
@@ -12,6 +12,7 @@ export function Alexandre() {
       <Header />
       <div>
         <div className={styles.Professor} >
+          <BackButton />
           <p> Alexandre Barreto Costa </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 
