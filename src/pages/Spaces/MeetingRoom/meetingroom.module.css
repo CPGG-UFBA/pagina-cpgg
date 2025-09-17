@@ -1,38 +1,63 @@
-.MeetingRoom{
+.Container {
   display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Portrait orientation - when height > width */
+@media (orientation: portrait) {
+  .Container {
+    justify-content: space-between;
+  }
+}
+
+.MeetingRoom{
   flex: 1;
-  overflow: visible;
+  display: flex;
   justify-content: center;
+  align-items: center;
   color: #fff;
-  padding-top: 150px;
-  padding-bottom: 450px;
-  padding-left: 700px;
-  padding-right: 8px;
+  position: relative;
   }
 
 .MeetingRoom ul {
     font-size: 24px;
     color: #363F5;
     position: absolute; 
-    margin-left: -1600px;
-    margin-top: -30px;
+    top: calc(10% + 25px);
+    left: 50%;
+    transform: translateX(calc(-50% - 200px));
+    margin: 0;
   }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    grid-template-rows: repeat(1, 25vw);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 18vw);
     grid-gap: 10px;
-    margin-top: 80px;
-    margin-left: -200px;
-    margin-bottom: 500px;
+    margin-bottom: 20px;
+}
+
+.textContent {
+  font-size: 14px;
+  text-align: justify;
+  line-height: 20px;
+  color: #fff;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .meetingroom1 img {
-    width: 50%;
-    height: 70%;
-    margin-left: 230px;
-    margin-top: -55px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
 }
 
 .meetingroom1 img {
@@ -43,10 +68,10 @@
 }
 
 .meetingroom2 img {
-  width: 80%;
-  height: 70%;
-  margin-left: 60px;
-  margin-top: -55px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
 }
 
 .meetingroom2 img {
@@ -59,181 +84,86 @@
 .box {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  width: 800px;
-  height: 615px;
-  top: 18%; 
-  left:5%;
-  padding: 10px;
+  width: 600px;
+  height: 600px;
+  top: calc(50% + 65px);
+  left: 50%;
+  transform: translate(calc(-50% - 200px), -50%);
+  padding: 20px;
   border-radius: 20px;
-  margin-bottom: -500px;
-}
-
-.box ul {
-  font-size: 16px;
-  text-align: justify;
-  margin-left: 30px;
-  margin-top: 350px;
-  margin-right: 50px;
-  line-height: 30px;
+  margin: 0;
 }
 
 .box nav a {
   color: #fff;
-  padding-right: 40px;
   font-size: 14px;
-  margin-left: 25px;
-  top: -500px;
-  position: relative;
-  cursor:pointer;
+  cursor: pointer;
   font-family: Roboto;
   font-weight: 500;
-}
-
-.staticFigure img {
-  height: 40rem;
-  left: 200px;
-  padding-left: 270px;
-  margin-bottom: -400px;
 }
 
 
 
 @media (max-width: 1200px) {
-
-  .staticFigure {
-    display: none;
-  }
-
   .box {
-    width: 800px;
-    height: 730px;
-    top: 15%;
-    bottom: 50%;
-    left: 15%;
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    min-height: 600px;
+    top: calc(50% + 65px);
+    transform: translate(calc(-50% - 100px), -50%);
   }
 
-  .MeetingRoom  {
-    margin-bottom: 30%;
-  } 
-
-
-  .MeetingRoom > ul {
-    margin-left: -750px;
-  } 
-
-  .box ul {
-    margin-top: 500px;
-    margin-right: 50px;
-    line-height: 30px;
+  .MeetingRoom ul {
+    font-size: 20px;
+    transform: translateX(calc(-50% - 100px));
   }
 
-  .box nav a {
-    top: -150px;
-    margin-left: 350px;
+  .gallery {
+    grid-template-rows: repeat(1, 22vw);
   }
-
-  .meetingroom1 img {
-    height: 160%;
-  }
-
-.meetingroom2 img {
-  height: 160%;
 }
-
-}
-
-
 
 @media (max-width: 800px) {
-
-  .staticFigure {
-    display: none;
-  }
-
   .box {
-    width: 800px;
-    height: 730px;
-    top: 20%;
-    bottom: 50%;
-    left: 18%;
+    width: 95%;
+    max-width: 500px;
+    height: auto;
+    min-height: 550px;
+    top: calc(50% + 65px);
+    transform: translate(calc(-50% - 50px), -50%);
   }
 
-  .MeetingRoom  {
-    margin-bottom: 38%;
-  } 
-
-
-  .MeetingRoom > ul {
-    margin-left: -500px;
-  } 
-
-  .box ul {
-    margin-top: 500px;
-    margin-right: 50px;
-    line-height: 30px;
+  .MeetingRoom ul {
+    font-size: 18px;
+    transform: translateX(calc(-50% - 50px));
   }
 
-  .box nav a {
-    top: -100px;
-    margin-left: 350px;
+  .gallery {
+    grid-template-rows: repeat(1, 28vw);
   }
-
-  .meetingroom1 img {
-    height: 200%;
-  }
-
-.meetingroom2 img {
-  height: 200%;
 }
-
-}
-
-
-
 
 @media (max-width: 400px) {
-
-  .staticFigure {
-    display: none;
-  }
-
   .box {
-    width: 800px;
-    height: 730px;
-    top: 25%;
-    bottom: 50%;
-    left: 25%;
+    width: 95%;
+    max-width: 350px;
+    height: auto;
+    min-height: 500px;
+    top: calc(50% + 65px);
+    transform: translate(-50%, -50%);
   }
 
-  .MeetingRoom  {
-    margin-bottom: 260%;
-  } 
-
-
-  .MeetingRoom > ul {
-    margin-left: -400px;
-  } 
-
-  .box ul {
-    margin-top: 500px;
-    margin-right: 50px;
-    line-height: 30px;
+  .MeetingRoom ul {
+    font-size: 16px;
+    transform: translateX(-50%);
   }
 
-  .box nav a {
-    top: -10px;
-    margin-left: 350px;
+  .gallery {
+    grid-template-rows: repeat(1, 35vw);
   }
-
-  .meetingroom1 img {
-    height: 450%;
-  }
-
-.meetingroom2 img {
-  height: 450%;
-}
-
 }
