@@ -128,6 +128,11 @@ export function Header() {
                     {t('nav.recipes')}
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink to='/Map' className={styles.navLink}>
+                    Map
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </li>

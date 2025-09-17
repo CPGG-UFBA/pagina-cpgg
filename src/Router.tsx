@@ -47,6 +47,7 @@ import { Coordination } from './pages/Coordination'
 import { Technicians } from './pages/Technicians'
 import { Recipes } from './pages/Recipes'
 import { Calendars } from './pages/Recipes/Calendars'
+import { Map } from './pages/Map'
 import { Sign } from './pages/Sign'
 import { Login } from './pages/Login'
 import { Register } from './pages/Register'
@@ -135,8 +136,9 @@ export function Router() {
 
         <Route path='/coordination' element={<Coordination />} />
         <Route path='/technicians' element={<Technicians />} />
-        <Route path='/recipes' element={<Recipes />} />
-        <Route path='/recipes/Calendars' element={<Calendars />} />
+         <Route path='/recipes' element={<Recipes />} />
+         <Route path='/recipes/Calendars' element={<Calendars />} />
+         <Route path='/map' element={<Map />} />
         <Route path='/sign' element={<Sign />} />
         <Route path='/login' element={<Login />} />
         <Route path='/register' element={<Register />} />

@@ -453,6 +453,39 @@ export type Database = {
         }
         Relationships: []
       }
+      visitor_locations: {
+        Row: {
+          city: string
+          country: string
+          created_at: string
+          id: string
+          latitude: number
+          longitude: number
+          updated_at: string
+          visitor_count: number
+        }
+        Insert: {
+          city: string
+          country: string
+          created_at?: string
+          id?: string
+          latitude: number
+          longitude: number
+          updated_at?: string
+          visitor_count?: number
+        }
+        Update: {
+          city?: string
+          country?: string
+          created_at?: string
+          id?: string
+          latitude?: number
+          longitude?: number
+          updated_at?: string
+          visitor_count?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
