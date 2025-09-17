@@ -19,11 +19,10 @@
   margin-bottom: 30px;
   font-size: 32px;
   font-weight: 600;
-  transform: translateX(-250px);
 }
 
 .formContainer {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -31,7 +30,8 @@
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  transform: translateX(-250px);
+  width: calc(100vw - 40px);
+  max-width: none;
 }
 
 .form {
@@ -142,6 +142,5 @@
   
   .title {
     font-size: 24px;
-    transform: translateX(-250px);
   }
 }
