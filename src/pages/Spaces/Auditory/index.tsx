@@ -2,7 +2,6 @@ import styles from './auditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { Button } from '../../../components/ui/button'
-import earth from '../../../components/Figures/earth-new.jpg'
 
 import auditory1 from '../../../assets/Photos/Auditory/Auditorio1-new.jpg'
 import auditory2 from '../../../assets/Photos/Auditory/Auditorio2-new.jpg'
@@ -44,9 +43,6 @@ export function Auditory() {
              </Button>
           </nav>
           
-          </div>
-          <div className={styles.staticFigure}>
-            <img src={earth} alt='Terra' />
           </div>
         </div>
         
