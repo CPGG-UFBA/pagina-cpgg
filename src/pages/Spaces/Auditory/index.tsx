@@ -8,7 +8,7 @@ import auditory2 from '../../../assets/Photos/Auditory/Auditorio2-new.jpg'
 
 export function Auditory() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div className={styles.Container}>
       <Header />
       <div className={styles.Auditory}>
           <ul> Auditório do CPGG </ul>
