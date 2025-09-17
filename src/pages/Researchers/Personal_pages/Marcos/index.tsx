@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Marcos() {
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -34,6 +34,6 @@ export function Marcos() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

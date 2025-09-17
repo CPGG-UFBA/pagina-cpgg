@@ -7,7 +7,7 @@ import { DynamicResearcherProfile } from '../../../../components/DynamicResearch
 
 export function Aroldo() {
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -30,6 +30,6 @@ export function Aroldo() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

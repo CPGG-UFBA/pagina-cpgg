@@ -8,7 +8,7 @@ import earth from '../../../../assets/earth-imgur.png'
 export function Alexsandro() {
   console.log('[Researchers] Alexsandro page render');
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -32,6 +32,6 @@ export function Alexsandro() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

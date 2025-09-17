@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Marilia() {
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -16,8 +16,8 @@ export function Marilia() {
             <DynamicResearcherProfile 
               researcherName="Marília de Dirceu Machado de Oliveira"
               staticDescription="Possui graduação Ciências Biológicas, Bacharelado em Organismos Aquáticos pela Universidade Federal da Bahia (1989), mestrado em Geologia pela Universidade Federal da Bahia (2002) e doutorado em Geologia pela Universidade Federal da Bahia (2007). Atualmente é pesquisador colaborador da Universidade Federal da Bahia, no Grupo de Pesquisas Recifes de Corais e Mudanças Globais (RECOR). Tem trabalhado na conservação e impacto das mudanças climáticas em ecossistemas de recifes de corais desde 2000. Responsável pelo desenvolvimento de experimentos em aquários no Laboratório de Recifes de Corais. Tem experiência na área de Oceanografia, com ênfase em estudos da Interação entre os Organismos Marinhos (corais) e os Parâmetros Ambientais, atuando principalmente nos seguintes temas: recifes de corais, calcificação em corais, avaliação de impactos ambientais, hidrocorais e resiliência dos recifes de corais."
-            belowPhoto={<ResearcherEditButton researcherName="Marília de Dirceu Machado de Oliveira" inline />}
-          />
+              belowPhoto={<ResearcherEditButton researcherName="Marília de Dirceu Machado de Oliveira" inline />}
+            />
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
@@ -34,6 +34,6 @@ export function Marilia() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Wilson() {
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -34,6 +34,6 @@ export function Wilson() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

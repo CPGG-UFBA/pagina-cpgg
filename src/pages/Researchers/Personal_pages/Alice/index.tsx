@@ -8,7 +8,7 @@ import earth from '../../../../assets/earth-imgur.png'
 export function Alice() {
   console.log('[Researchers] Alice page render');
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -35,6 +35,6 @@ export function Alice() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }

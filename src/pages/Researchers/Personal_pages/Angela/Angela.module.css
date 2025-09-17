@@ -1,3 +1,16 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Portrait orientation - when height > width */
+@media (orientation: portrait) {
+  .Container {
+    justify-content: space-between;
+  }
+}
+
 .Professor{
   column-count: 5;
   column-gap: 3rem;

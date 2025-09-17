@@ -5,7 +5,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Suzan() {
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -28,6 +28,6 @@ export function Suzan() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
