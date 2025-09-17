@@ -13,7 +13,7 @@ export function Laiga() {
           <a> Laboratório Integrado de Geofísica Aplicada </a>
           <div className={styles.box}>
           <p>
-              O Laboratório Integrado de Geofísica Aplicada -LAIGA- foi criado no ano de 2023 com a reunião de equipamentos adquiridos por pesquisadores do CPGG. Localiza-se na sala 112 do Bloco D do Instituto de Geociências. Atualmente é um dos Laboratórios de Geofísica mais completos do Brasil em termos de variedade de equipamentos reunidos no mesmo espaço físico, contando em seu acervo com mais de 80 equipamentos e periféricos associados disponíveis para uso.
+              O Laboratório Integrado de Geofísica Aplicada -LAIGA- foi criado no ano de 2023 com a reunião de equipamentos adquiridos ao longo da história do CPGG. Localiza-se na sala 112 do Bloco D do Instituto de Geociências. Atualmente é um dos Laboratórios de Geofísica mais completos do Brasil em termos de variedade de equipamentos reunidos no mesmo espaço físico, contando em seu acervo com mais de 80 equipamentos e periféricos associados disponíveis para uso.
             </p>
             <br></br>
             <p>
