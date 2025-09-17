@@ -13,16 +13,15 @@
 
 .Years{
   display: flex;
-  flex-direction: column;
   flex: 1;
   overflow: visible;
   justify-content: center;
   color: #fff;
   padding-top: 150px;
   padding-bottom: 50px;
-  padding-left: 0;
+  padding-left: 700px;
   padding-right: 8px;
-}
+  }
 
 .yearHeader {
   position: relative;
@@ -49,30 +48,29 @@
 
 .Years ul {
   font-size: 24px;
-  color: #fff; 
-  margin-left: 0;
-  margin-top: 0;
-  flex: 1;
-  text-align: center;
+  color: #363F5; 
+  margin-left: -850px;
+  margin-top: -10px;
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 30px;
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-  max-width: 1200px;
-  justify-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat (8, 100px 1fr);
+    grid-gap: 30px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    max-width: 1200px;
+    justify-items: center;
 }
 
 .gallery img {
-  width: 350px;
-  height: 280px;
+  width: 400px;
+  height: 350px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .box {
@@ -82,9 +80,9 @@
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
-  width: 1420px;
+  width: 1400px;
   height: 500px;
-  top: 30%; 
+  top: 20%; 
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
@@ -95,48 +93,55 @@
 }
 
 @media (max-width: 1200px) {
-  .box {
-    top: 200px;
-    width: 800px;
-    height: 700px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+
   .gallery {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
-  
-.Years ul {
-    margin-left: 0;
-    margin-bottom: 100px;
+
+  .box {
+  width: 750px;
+  margin-bottom: 100px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 700px;
+  }
+
+  .Years {
+    padding-bottom: 50px;
   }
 }
 
 @media (max-width: 800px) {
-  .box {
-    margin-left: 30px;
-  }
-  .gallery {
-    grid-template-columns: 1fr;
-  }
-  
+
+.box{
+  left: 18%;
+  top:23%;
+  height: 600px;
+  padding: 30%;
+}
+
 .Years ul {
-    margin-left: 0;
-  }
+  margin-left: -570px;
+  margin-bottom: -50px;
+}
 }
 
 @media (max-width: 400px) {
-  .box {
-    margin-left: 80px;
-    height: 1200px;
-  }
 
-  .gallery {
-    grid-template-columns: 1fr;
+  .box{
+    left: 25%;
+    top:35%;
+    height: 1200px;
+    padding-left: 60%;
+    padding-right: 60%;
+    padding-top: 10%;
+
   }
   
-.Years ul {
-    margin-bottom: 750px;
-    margin-left: 0;
+  .Years ul {
+    margin-left: -600px;
+    margin-bottom: 600px;
   }
+
 }
