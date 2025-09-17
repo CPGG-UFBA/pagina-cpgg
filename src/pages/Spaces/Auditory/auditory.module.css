@@ -26,7 +26,7 @@
     position: absolute; 
     top: 10%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 200px));
     margin: 0;
   }
 
@@ -78,7 +78,7 @@
   height: 650px;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(calc(-50% - 200px), -50%);
   padding: 10px;
   border-radius: 20px;
   margin: 0;
@@ -105,10 +105,12 @@
     max-width: 600px;
     height: auto;
     min-height: 650px;
+    transform: translate(calc(-50% - 100px), -50%);
   }
 
   .Auditory ul {
     font-size: 20px;
+    transform: translateX(calc(-50% - 100px));
   }
 
   .gallery {
@@ -122,10 +124,12 @@
     max-width: 500px;
     height: auto;
     min-height: 600px;
+    transform: translate(calc(-50% - 50px), -50%);
   }
 
   .Auditory ul {
     font-size: 18px;
+    transform: translateX(calc(-50% - 50px));
   }
 
   .gallery {
@@ -139,10 +143,12 @@
     max-width: 350px;
     height: auto;
     min-height: 550px;
+    transform: translate(-50%, -50%);
   }
 
   .Auditory ul {
     font-size: 16px;
+    transform: translateX(-50%);
   }
 
   .gallery {
