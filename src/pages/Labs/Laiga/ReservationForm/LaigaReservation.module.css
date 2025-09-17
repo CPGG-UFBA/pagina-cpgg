@@ -1,12 +1,16 @@
 .container {
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
+  min-width: 100vw;
 }
 
 .content {
   padding-top: calc(100vh - 750px);
   min-height: 100vh;
   position: relative;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .title {
