@@ -33,7 +33,7 @@
 .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 12vw);
+    grid-template-rows: repeat(1, 18vw);
     grid-gap: 10px;
     margin-top: 15px;
     margin-left: 0;
@@ -76,7 +76,7 @@
   position: absolute;
   width: 600px;
   height: 600px;
-  top: calc(50% + 25px);
+  top: calc(50% + 45px);
   left: 50%;
   transform: translate(calc(-50% - 200px), -50%);
   padding: 10px;
@@ -105,7 +105,7 @@
     max-width: 600px;
     height: auto;
     min-height: 600px;
-    top: calc(50% + 25px);
+    top: calc(50% + 45px);
     transform: translate(calc(-50% - 100px), -50%);
   }
 
@@ -115,7 +115,7 @@
   }
 
   .gallery {
-    grid-template-rows: repeat(1, 18vw);
+    grid-template-rows: repeat(1, 22vw);
   }
 }
 
@@ -125,7 +125,7 @@
     max-width: 500px;
     height: auto;
     min-height: 550px;
-    top: calc(50% + 25px);
+    top: calc(50% + 45px);
     transform: translate(calc(-50% - 50px), -50%);
   }
 
@@ -135,7 +135,7 @@
   }
 
   .gallery {
-    grid-template-rows: repeat(1, 22vw);
+    grid-template-rows: repeat(1, 28vw);
   }
 }
 
@@ -145,7 +145,7 @@
     max-width: 350px;
     height: auto;
     min-height: 500px;
-    top: calc(50% + 25px);
+    top: calc(50% + 45px);
     transform: translate(-50%, -50%);
   }
 
@@ -155,6 +155,6 @@
   }
 
   .gallery {
-    grid-template-rows: repeat(1, 28vw);
+    grid-template-rows: repeat(1, 35vw);
   }
 }
