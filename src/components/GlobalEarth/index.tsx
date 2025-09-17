@@ -18,11 +18,14 @@ export function GlobalEarth() {
     '/History/Former'
   ]
   
+  // Also hide on reservation pages
+  const isReservationPage = location.pathname.includes('/Reservations/')
+  
   // Also hide on all researcher personal pages
   const isResearcherPage = location.pathname.includes('/researchers/') || 
                           location.pathname.includes('/Researchers/')
   
-  const shouldHide = hideOnRoutes.includes(location.pathname) || isResearcherPage
+  const shouldHide = hideOnRoutes.includes(location.pathname) || isResearcherPage || isReservationPage
   
   if (shouldHide) {
     return null
