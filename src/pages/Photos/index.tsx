@@ -17,6 +17,8 @@ export function Photos() {
   const [events, setEvents] = useState<Event[]>([])
   const [showAdminButton, setShowAdminButton] = useState(false)
 
+  console.log('Photos page loaded - footer should now match Home page layout')
+
   useEffect(() => {
     fetchEvents()
     // Check if user has admin access
