@@ -242,7 +242,6 @@ All colors MUST be HSL.
   }
 
   /* Hide Earth figure completely on specific pages and all researcher pages */
-  .hide-earth .global-earth-container,
   .hide-earth .staticFigure,
   .hide-earth .staticFigure img,
   .hide-earth .earthFigure,
@@ -251,20 +250,17 @@ All colors MUST be HSL.
     visibility: hidden !important;
   }
   
-  /* Hide GlobalEarth component on researcher, technician, and coordination pages */
-  body:has([class*="researchers"]) .global-earth-container,
-  body:has([class*="Researchers"]) .global-earth-container,
+  /* Hide GlobalEarth component on specific pages */
   body:has([class*="technicians"]) .global-earth-container,
   body:has([class*="Technicians"]) .global-earth-container,
   body:has([class*="coordination"]) .global-earth-container,
   body:has([class*="Coordination"]) .global-earth-container,
-  body:has([class*="Professor"]) .global-earth-container,
   body:has(.research-projects-page) .global-earth-container {
     display: none !important;
     visibility: hidden !important;
   }
   
-  /* Also hide staticFigure on all researcher personal pages */
+  /* Keep staticFigure on researcher personal pages hidden to avoid duplicate earth */
   body:has([class*="Professor"]) .staticFigure,
   body:has([class*="Professor"]) .staticFigure img {
     display: none !important;

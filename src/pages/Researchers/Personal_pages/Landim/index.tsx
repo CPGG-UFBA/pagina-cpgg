@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Landim() {
   return (
-    <div className="hide-earth">
+    <div>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -27,9 +27,6 @@ export function Landim() {
            <p>landim@ufba.br</p> 
             <div className={styles.box2}>
             </div>
-          </div>
-          <div className={styles.staticFigure}>
-            <img src={earth} alt="Terra" />
           </div>
         </div>
       </div>

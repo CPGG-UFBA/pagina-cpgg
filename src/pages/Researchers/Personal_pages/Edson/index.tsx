@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Edson() {
   return (
-    <div className="hide-earth">
+    <div>
       <Header />
       <div>
         <div className={styles.Professor} >

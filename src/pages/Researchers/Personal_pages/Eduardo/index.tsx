@@ -8,7 +8,7 @@ import earth from '../../../../assets/earth-imgur.png'
 export function Eduardo() {
   console.log('[Researchers] Eduardo page render');
   return (
-    <div className="hide-earth">
+    <div>
       <Header />
       <div>
         <div className={styles.Professor} >
