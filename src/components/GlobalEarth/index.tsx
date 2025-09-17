@@ -15,14 +15,18 @@ export function GlobalEarth() {
     '/history',
     '/History',
     '/history/Former',
-    '/History/Former'
+    '/History/Former',
+    '/Photos',
+    '/photos'
   ]
   
-  // Also hide on all researcher personal pages
+  // Also hide on all researcher personal pages and photo pages
   const isResearcherPage = location.pathname.includes('/researchers/') || 
                           location.pathname.includes('/Researchers/')
+  const isPhotoPage = location.pathname.includes('/Photos/') || 
+                     location.pathname.includes('/photos/')
   
-  const shouldHide = hideOnRoutes.includes(location.pathname) || isResearcherPage
+  const shouldHide = hideOnRoutes.includes(location.pathname) || isResearcherPage || isPhotoPage
   
   if (shouldHide) {
     return null

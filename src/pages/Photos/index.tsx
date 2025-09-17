@@ -5,7 +5,6 @@ import styles from './Photos.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { supabase } from '../../integrations/supabase/client'
-import earth from '../../assets/earth-regulations.jpg'
 
 interface Event {
   id: string
