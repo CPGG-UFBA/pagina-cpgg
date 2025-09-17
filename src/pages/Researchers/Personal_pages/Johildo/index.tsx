@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Johildo() {
   return (
-    <div>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >

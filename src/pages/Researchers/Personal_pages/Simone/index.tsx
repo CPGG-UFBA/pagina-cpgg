@@ -7,7 +7,7 @@ import earth from '../../../../assets/earth-imgur.png'
 
 export function Simone() {
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor} >
@@ -33,6 +33,6 @@ export function Simone() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
