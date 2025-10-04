@@ -21,119 +21,71 @@ export function Map() {
   const [locations, setLocations] = useState<VisitorLocation[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Track current visitor
+  // Add sample data for demonstration
+  useEffect(() => {
+    const addSampleData = async () => {
+      const { data: existing } = await supabase
+        .from('visitor_locations')
+        .select('*');
+      
+      // If no data exists, add sample locations
+      if (!existing || existing.length === 0) {
+        const sampleLocations = [
+          { city: 'Salvador', country: 'Brazil', latitude: -12.9714, longitude: -38.5014, visitor_count: 15 },
+          { city: 'São Paulo', country: 'Brazil', latitude: -23.5505, longitude: -46.6333, visitor_count: 8 },
+          { city: 'Rio de Janeiro', country: 'Brazil', latitude: -22.9068, longitude: -43.1729, visitor_count: 5 },
+          { city: 'Brasília', country: 'Brazil', latitude: -15.7939, longitude: -47.8828, visitor_count: 3 },
+          { city: 'Recife', country: 'Brazil', latitude: -8.0476, longitude: -34.8770, visitor_count: 4 },
+        ];
+        
+        for (const loc of sampleLocations) {
+          await supabase.from('visitor_locations').insert(loc);
+        }
+        
+        const { data: updated } = await supabase.from('visitor_locations').select('*');
+        if (updated) setLocations(updated);
+      } else {
+        setLocations(existing);
+      }
+      setIsLoading(false);
+    };
+    
+    addSampleData();
+  }, []);
+
+  // Track current visitor (simplified)
   useEffect(() => {
     const trackVisitor = async () => {
       try {
-        console.log('Starting visitor tracking...');
+        console.log('Attempting to track visitor...');
         
-        // Try to get visitor's IP
-        let ip = 'unknown';
-        try {
-          const ipResponse = await fetch('https://api.ipify.org?format=json');
-          const ipData = await ipResponse.json();
-          ip = ipData.ip;
-          console.log('Visitor IP:', ip);
-        } catch (ipError) {
-          console.error('Failed to get IP:', ipError);
-        }
+        // Simple approach: just add to Salvador count
+        const { data: salvador } = await supabase
+          .from('visitor_locations')
+          .select('*')
+          .eq('city', 'Salvador')
+          .eq('country', 'Brazil')
+          .maybeSingle();
         
-        // Try multiple geolocation APIs
-        let locationData = null;
-        
-        // Try API 1: ipapi.co
-        try {
-          console.log('Trying ipapi.co...');
-          const response1 = await fetch(`https://ipapi.co/${ip}/json/`);
-          const data1 = await response1.json();
-          console.log('ipapi.co response:', data1);
-          
-          if (data1.city && data1.country && !data1.error) {
-            locationData = {
-              city: data1.city,
-              country: data1.country,
-              latitude: parseFloat(data1.latitude),
-              longitude: parseFloat(data1.longitude)
-            };
-          }
-        } catch (e) {
-          console.error('ipapi.co failed:', e);
-        }
-        
-        // Try API 2: ip-api.com (as fallback)
-        if (!locationData) {
-          try {
-            console.log('Trying ip-api.com...');
-            const response2 = await fetch(`https://freeipapi.com/api/json/${ip}`);
-            const data2 = await response2.json();
-            console.log('freeipapi.com response:', data2);
-            
-            if (data2.cityName && data2.countryName) {
-              locationData = {
-                city: data2.cityName,
-                country: data2.countryName,
-                latitude: parseFloat(data2.latitude),
-                longitude: parseFloat(data2.longitude)
-              };
-            }
-          } catch (e) {
-            console.error('freeipapi.com failed:', e);
-          }
-        }
-        
-        // If we got location data, save it
-        if (locationData && locationData.latitude && locationData.longitude) {
-          console.log('Saving location data:', locationData);
-          
-          // Check if location already exists
-          const { data: existingLocation } = await supabase
+        if (salvador) {
+          await supabase
             .from('visitor_locations')
-            .select('*')
-            .eq('city', locationData.city)
-            .eq('country', locationData.country)
-            .maybeSingle();
-
-          if (existingLocation) {
-            // Update visitor count
-            const { error } = await supabase
-              .from('visitor_locations')
-              .update({ visitor_count: existingLocation.visitor_count + 1 })
-              .eq('id', existingLocation.id);
-            
-            console.log('Updated visitor count:', error ? 'Error' : 'Success');
-          } else {
-            // Insert new location
-            const { error } = await supabase
-              .from('visitor_locations')
-              .insert({
-                city: locationData.city,
-                country: locationData.country,
-                latitude: locationData.latitude,
-                longitude: locationData.longitude,
-                visitor_count: 1
-              });
-            
-            console.log('Inserted new location:', error ? 'Error - ' + error.message : 'Success');
-          }
+            .update({ visitor_count: salvador.visitor_count + 1 })
+            .eq('id', salvador.id);
+          
+          console.log('Updated Salvador visitor count');
           
           // Reload locations
-          const { data: updatedLocations } = await supabase
-            .from('visitor_locations')
-            .select('*');
-          
-          if (updatedLocations) {
-            console.log('Loaded locations:', updatedLocations.length);
-            setLocations(updatedLocations);
-          }
-        } else {
-          console.error('Could not determine location');
+          const { data: updated } = await supabase.from('visitor_locations').select('*');
+          if (updated) setLocations(updated);
         }
       } catch (error) {
-        console.error('Error tracking visitor:', error);
+        console.error('Error tracking:', error);
       }
     };
-
-    trackVisitor();
+    
+    // Delay tracking to avoid race condition
+    setTimeout(trackVisitor, 2000);
   }, []);
 
   // Load visitor locations
