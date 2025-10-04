@@ -52,7 +52,12 @@ export function Map() {
 
   // Track visitor location using edge function
   useEffect(() => {
+    let tracked = false;
+    
     const trackLocation = async () => {
+      if (tracked) return;
+      tracked = true;
+      
       try {
         console.log('Calling track-visitor-location function...');
         
@@ -68,14 +73,20 @@ export function Map() {
         // Update locations with the returned data
         if (data?.locations) {
           setLocations(data.locations);
+          setIsLoading(false);
         }
       } catch (error) {
         console.error('Error calling track-visitor-location:', error);
+        setIsLoading(false);
       }
     };
 
     // Track location after a short delay to ensure map is loaded
-    setTimeout(trackLocation, 1000);
+    const timer = setTimeout(trackLocation, 1000);
+    
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   // Initialize map
