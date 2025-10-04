@@ -46,13 +46,8 @@ export function Map() {
     loadLocations();
   }, []);
 
-  // Track visitor location (only once per session)
+  // Track visitor location on every page load
   useEffect(() => {
-    const sessionKey = 'cpgg_map_tracked';
-    if (sessionStorage.getItem(sessionKey)) return;
-    
-    sessionStorage.setItem(sessionKey, 'true');
-    
     const trackLocation = async () => {
       try {
         const { data, error } = await supabase.functions.invoke('track-visitor-location');
