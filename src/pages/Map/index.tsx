@@ -91,51 +91,67 @@ export function Map() {
 
   // Initialize map
   useEffect(() => {
-    if (!mapContainer.current || map.current) return;
+    if (!mapContainer.current) {
+      console.error('Map container ref is null');
+      return;
+    }
+    
+    if (map.current) {
+      console.log('Map already initialized');
+      return;
+    }
 
     console.log('Initializing map...');
+    console.log('Map container:', mapContainer.current);
 
-    // Initialize map with a basic style
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: {
-        version: 8,
-        sources: {
-          'simple-tiles': {
-            type: 'raster',
-            tiles: [
-              'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-            ],
-            tileSize: 256,
-            attribution: '© OpenStreetMap contributors'
-          }
+    try {
+      // Initialize map with a basic style
+      map.current = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: {
+          version: 8,
+          sources: {
+            'simple-tiles': {
+              type: 'raster',
+              tiles: [
+                'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
+              ],
+              tileSize: 256,
+              attribution: '© OpenStreetMap contributors'
+            }
+          },
+          layers: [
+            {
+              id: 'simple-tiles',
+              type: 'raster',
+              source: 'simple-tiles'
+            }
+          ]
         },
-        layers: [
-          {
-            id: 'simple-tiles',
-            type: 'raster',
-            source: 'simple-tiles'
-          }
-        ]
-      },
-      center: [-43, -15], // Centered on Brazil
-      zoom: 3,
-    });
+        center: [-43, -15], // Centered on Brazil
+        zoom: 3,
+      });
 
-    // Add navigation controls
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+      console.log('Map instance created');
 
-    // Wait for map to load
-    map.current.on('load', () => {
-      console.log('Map loaded successfully');
-    });
+      // Add navigation controls
+      map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
-    map.current.on('error', (e) => {
-      console.error('Map error:', e);
-    });
+      // Wait for map to load
+      map.current.on('load', () => {
+        console.log('Map loaded successfully');
+      });
+
+      map.current.on('error', (e) => {
+        console.error('Map error:', e);
+      });
+    } catch (error) {
+      console.error('Error initializing map:', error);
+    }
 
     return () => {
       if (map.current) {
+        console.log('Cleaning up map');
         map.current.remove();
         map.current = null;
       }
