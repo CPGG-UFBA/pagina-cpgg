@@ -1,23 +1,13 @@
 import styles from './calendars.module.css';
 import { Header } from '../../../components/Header';
 import { Footer } from '../../../components/Footer';
-import { useNavigate } from 'react-router-dom';
 
 
 export  function Calendars() {
-  const navigate = useNavigate();
-
   return (
       <>
       <Header/>
           <div className={styles.calendars}>
-              <button 
-                onClick={() => navigate('/recipes')}
-                className={styles.backButton}
-                aria-label="Voltar para Receitas"
-              >
-                ← Voltar
-              </button>
               <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>
