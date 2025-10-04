@@ -9,9 +9,11 @@ import { EditButton } from './components/EditButton'
 import { AdminLogin } from './components/AdminLogin'
 import { EditableResearcher } from './components/EditableResearcher'
 import { useToast } from '@/hooks/use-toast'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function Researchers() {
   const { oil, environment, mineral, oceanography, coast } = getOrderedResearchersData()
+  const { t } = useLanguage()
   const [dbResearchers, setDbResearchers] = useState<any[]>([])
   const [isEditMode, setIsEditMode] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
@@ -281,10 +283,10 @@ export function Researchers() {
       <Header />
       <div className={`${styles.researchers} hide-earth`} style={{ flex: 1 }}>
         <div className={styles.Programs}>
-          <ul>Programas de Pesquisa e Corpo Científico </ul>
+          <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
             <div className={styles.Oil}>
-              <h1>Exploração e Produção de Petróleo</h1>
+              <h1>{t('researchers.oil')}</h1>
               {getCombinedResearchers('oil').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
@@ -299,7 +301,7 @@ export function Researchers() {
             </div>
             
             <div className={styles.Environment}> 
-              <h1>Recursos Hidricos e Problemas Ambientais</h1>
+              <h1>{t('researchers.environment')}</h1>
               {getCombinedResearchers('environment').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
@@ -314,7 +316,7 @@ export function Researchers() {
             </div>
 
             <div className={styles.Mineral}>
-              <h1> Petrologia, Metalogênese e Exp. Mineral</h1>
+              <h1>{t('researchers.mineral')}</h1>
               {getCombinedResearchers('mineral').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
@@ -329,7 +331,7 @@ export function Researchers() {
             </div>
 
             <div className={styles.Oceanography}> 
-              <h1>Oceanografia Física</h1>
+              <h1>{t('researchers.oceanography')}</h1>
               {getCombinedResearchers('oceanography').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
@@ -344,7 +346,7 @@ export function Researchers() {
             </div>
 
             <div className={styles.Coast}> 
-              <h1>Geologia Marinha e Costeira</h1>
+              <h1>{t('researchers.coast')}</h1>
               {getCombinedResearchers('coast').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
