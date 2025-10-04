@@ -116,6 +116,14 @@
     transition: 0.1s;
   }
 
+  .purpleLink {
+    color: rgba(147, 106, 235) !important;
+  }
+
+  .purpleText {
+    color: rgba(147, 106, 235) !important;
+  }
+
 
 .box1 {
   text-align: center;

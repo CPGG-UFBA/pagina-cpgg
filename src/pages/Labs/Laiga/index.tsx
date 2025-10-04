@@ -34,13 +34,13 @@ export function Laiga() {
             </p>
 
              <nav>
-              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank">Site do PNIPE</a>
+              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank" className={styles.purpleLink}>Site do PNIPE</a>
             </nav>
             <p> 
               Para saber da disponibilidade dos equipamentos e solicitá-los para uso, acesse nossa plataforma de requerimento
             </p>
            <br></br>
-           <b> Chefe do LAIGA</b>
+           <b className={styles.purpleText}> Chefe do LAIGA</b>
            <span> Prof. Marcos Alberto Rodrigues Vasconcelos</span> 
            
            <div className={styles.requerimentoButton}>
