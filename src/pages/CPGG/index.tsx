@@ -49,10 +49,10 @@ export function CPGG() {
               <h4 className={styles.legend1}>Hall de acesso da sede do CPGG</h4>
             </div>
             <div className={styles.box2}>
-              <h4 className={styles.legend2}>Fachada da sede do CGG em segundo ângulo</h4>
+              <h4 className={styles.legend2}>Fachada da sede do CGG em primeiro ângulo</h4>
             </div>
             <div className={styles.box3}>
-              <h4 className={styles.legend3}>Fachada da sede do CGG em primeiro ângulo</h4>
+              <h4 className={styles.legend3}>Fachada da sede do CGG em segundo ângulo</h4>
             </div>
           </div>
         </div>
