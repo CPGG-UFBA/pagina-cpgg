@@ -55,6 +55,11 @@
   border: 2px solid rgba(255,255,255,0.1);
 }
 
+.map {
+  width: 100%;
+  height: 100%;
+}
+
 .earthSide {
   display: flex;
   flex-direction: column;
@@ -92,11 +97,6 @@
   text-shadow: 0 2px 4px rgba(0,0,0,0.3);
   margin: 0;
   padding: 0 1rem;
-}
-
-.map {
-  width: 100%;
-  height: 100%;
 }
 
 .loading {

@@ -186,12 +186,6 @@ export function Map() {
                   <p>Carregando mapa...</p>
                 </div>
               )}
-              {!isLoading && locations.length === 0 && (
-                <div className={styles.noData}>
-                  <p>Nenhuma localização geográfica registrada ainda.</p>
-                  <p className={styles.smallText}>O rastreamento de localizações será implementado em breve.</p>
-                </div>
-              )}
             </div>
 
             <div className={styles.stats}>
