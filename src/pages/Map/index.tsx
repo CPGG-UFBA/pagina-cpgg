@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-import 'mapbox-gl/dist/mapbox-gl.css';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { supabase } from '@/integrations/supabase/client';
@@ -17,12 +17,13 @@ interface VisitorLocation {
 
 export function Map() {
   const mapContainer = useRef<HTMLDivElement>(null);
-  const map = useRef<mapboxgl.Map | null>(null);
+  const map = useRef<L.Map | null>(null);
+  const markersRef = useRef<L.Marker[]>([]);
   const [locations, setLocations] = useState<VisitorLocation[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [visitorCount, setVisitorCount] = useState<number>(0);
 
-  // Get visitor count from localStorage (same as footer)
+  // Get visitor count from localStorage
   useEffect(() => {
     const storageKey = 'cpgg_unique_visitors';
     const existingVisitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
@@ -50,7 +51,7 @@ export function Map() {
     loadLocations();
   }, []);
 
-  // Track visitor location using edge function (only once per session)
+  // Track visitor location (only once per session)
   useEffect(() => {
     const sessionKey = 'cpgg_map_tracked';
     if (sessionStorage.getItem(sessionKey)) return;
@@ -83,36 +84,19 @@ export function Map() {
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
 
-    // Initialize map with OpenStreetMap tiles
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: {
-        version: 8,
-        sources: {
-          'osm-tiles': {
-            type: 'raster',
-            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
-            tileSize: 256,
-            attribution: '© OpenStreetMap contributors'
-          }
-        },
-        layers: [
-          {
-            id: 'osm-tiles',
-            type: 'raster',
-            source: 'osm-tiles',
-            minzoom: 0,
-            maxzoom: 19
-          }
-        ]
-      },
-      center: [-43, -15],
+    // Create map
+    map.current = L.map(mapContainer.current, {
+      center: [-15, -43],
       zoom: 3,
-      attributionControl: true
+      scrollWheelZoom: true,
+      zoomControl: true
     });
 
-    // Add navigation controls
-    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors',
+      maxZoom: 19,
+    }).addTo(map.current);
 
     return () => {
       if (map.current) {
@@ -122,58 +106,52 @@ export function Map() {
     };
   }, []);
 
-  // Add markers when locations are loaded
+  // Add markers when locations change
   useEffect(() => {
-    if (!map.current || isLoading || locations.length === 0) return;
+    if (!map.current || locations.length === 0) return;
 
-    const addMarkers = () => {
-      if (!map.current?.loaded()) {
-        setTimeout(addMarkers, 100);
-        return;
-      }
+    // Clear existing markers
+    markersRef.current.forEach(marker => marker.remove());
+    markersRef.current = [];
 
-      // Clear existing markers
-      document.querySelectorAll('.visitor-marker').forEach(m => m.remove());
+    // Add new markers
+    locations.forEach(location => {
+      if (!map.current) return;
 
-      // Add new markers
-      locations.forEach(location => {
-        const size = Math.max(20, Math.min(50, location.visitor_count * 5));
-        
-        const el = document.createElement('div');
-        el.className = 'visitor-marker';
-        el.style.cssText = `
+      const size = Math.max(20, Math.min(50, location.visitor_count * 5));
+      
+      const icon = L.divIcon({
+        className: 'custom-marker',
+        html: `<div style="
           width: ${size}px;
           height: ${size}px;
           background: radial-gradient(circle, #ff6b6b, #ee5a52);
           border: 2px solid #fff;
           border-radius: 50%;
-          cursor: pointer;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
           display: flex;
           align-items: center;
           justify-content: center;
           color: white;
           font-weight: bold;
           font-size: 12px;
-        `;
-        el.textContent = location.visitor_count.toString();
-
-        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
-          <div style="padding: 10px;">
-            <h3 style="margin: 0 0 5px 0; color: #333;">${location.city}, ${location.country}</h3>
-            <p style="margin: 0; color: #666;">Visitantes: ${location.visitor_count}</p>
-          </div>
-        `);
-
-        new mapboxgl.Marker(el)
-          .setLngLat([location.longitude, location.latitude])
-          .setPopup(popup)
-          .addTo(map.current!);
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        ">${location.visitor_count}</div>`,
+        iconSize: [size, size],
+        iconAnchor: [size / 2, size / 2]
       });
-    };
 
-    addMarkers();
-  }, [locations, isLoading]);
+      const marker = L.marker([location.latitude, location.longitude], { icon })
+        .bindPopup(`
+          <div style="padding: 5px;">
+            <h3 style="margin: 0 0 5px 0; color: #333; font-size: 14px;">${location.city}, ${location.country}</h3>
+            <p style="margin: 0; color: #666; font-size: 12px;">Visitantes: ${location.visitor_count}</p>
+          </div>
+        `)
+        .addTo(map.current);
+
+      markersRef.current.push(marker);
+    });
+  }, [locations]);
 
   return (
     <div className={styles.container}>
