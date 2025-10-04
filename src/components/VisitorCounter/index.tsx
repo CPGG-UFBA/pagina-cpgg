@@ -1,64 +1,34 @@
 import { useEffect, useState } from 'react';
+import { supabase } from '@/integrations/supabase/client';
 import styles from './VisitorCounter.module.css';
 
 export function VisitorCounter() {
   const [visitorCount, setVisitorCount] = useState<number>(0);
 
   useEffect(() => {
-    // Função para gerar um hash simples do IP (simulado com fingerprint do browser)
-    const generateVisitorId = (): string => {
-      // Usa informações do browser para criar um ID único aproximado
-      const navigator = window.navigator;
-      const screen = window.screen;
-      
-      const fingerprint = [
-        navigator.userAgent,
-        navigator.language,
-        screen.width + 'x' + screen.height,
-        screen.colorDepth,
-        new Date().getTimezoneOffset(),
-        navigator.platform
-      ].join('|');
-      
-      // Hash simples
-      let hash = 0;
-      for (let i = 0; i < fingerprint.length; i++) {
-        const char = fingerprint.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash; // Convert to 32bit integer
-      }
-      
-      return Math.abs(hash).toString();
-    };
+    const fetchVisitorCount = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('visitor_locations')
+          .select('visitor_count');
 
-    const trackVisitor = () => {
-      const visitorId = generateVisitorId();
-      const storageKey = 'cpgg_unique_visitors';
-      const sessionKey = `cpgg_session_${visitorId}`;
-      
-      // Verifica se já visitou nesta sessão
-      if (!sessionStorage.getItem(sessionKey)) {
-        // Marca como visitou nesta sessão
-        sessionStorage.setItem(sessionKey, 'true');
-        
-        // Recupera visitantes únicos do localStorage
-        const existingVisitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
-        
-        // Adiciona se não existir
-        if (!existingVisitors.includes(visitorId)) {
-          existingVisitors.push(visitorId);
-          localStorage.setItem(storageKey, JSON.stringify(existingVisitors));
-        }
-        
-        setVisitorCount(existingVisitors.length);
-      } else {
-        // Apenas mostra o count atual
-        const existingVisitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
-        setVisitorCount(existingVisitors.length);
+        if (error) throw error;
+
+        // Sum all visitor counts from all locations
+        const total = data?.reduce((sum, location) => sum + location.visitor_count, 0) || 0;
+        setVisitorCount(total);
+      } catch (error) {
+        console.error('Error fetching visitor count:', error);
+        setVisitorCount(0);
       }
     };
 
-    trackVisitor();
+    fetchVisitorCount();
+
+    // Refresh count every 30 seconds
+    const interval = setInterval(fetchVisitorCount, 30000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
