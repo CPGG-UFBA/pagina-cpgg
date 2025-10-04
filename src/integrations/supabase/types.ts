@@ -408,6 +408,42 @@ export type Database = {
         }
         Relationships: []
       }
+      scientific_publications: {
+        Row: {
+          article_title: string
+          authors: string
+          created_at: string
+          id: string
+          journal_name: string
+          pages: string
+          updated_at: string
+          volume: string
+          year: string
+        }
+        Insert: {
+          article_title: string
+          authors: string
+          created_at?: string
+          id?: string
+          journal_name: string
+          pages: string
+          updated_at?: string
+          volume: string
+          year: string
+        }
+        Update: {
+          article_title?: string
+          authors?: string
+          created_at?: string
+          id?: string
+          journal_name?: string
+          pages?: string
+          updated_at?: string
+          volume?: string
+          year?: string
+        }
+        Relationships: []
+      }
       user_profiles: {
         Row: {
           created_at: string
