@@ -109,7 +109,7 @@ export function Regulations() {
               <h1 className={styles.title}>Regimento e Normas </h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="https://drive.google.com/file/d/1lKeG0fAc_HzBDP-C8WaaBIM5vOhVurBB/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Regimento.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.regulation}>
                           <h2>Regimento</h2>
                       </div>
