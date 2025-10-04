@@ -121,7 +121,9 @@ export function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <a href='#'>{t('nav.scientificProduction')}</a>
+                  <NavLink to='/production' className={styles.navLink}>
+                    {t('nav.scientificProduction')}
+                  </NavLink>
                 </li>
                 <li>
                   <NavLink to='/Recipes' className={styles.navLink}>
