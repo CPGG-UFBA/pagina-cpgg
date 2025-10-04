@@ -50,6 +50,34 @@ export function Map() {
     loadLocations();
   }, []);
 
+  // Track visitor location using edge function
+  useEffect(() => {
+    const trackLocation = async () => {
+      try {
+        console.log('Calling track-visitor-location function...');
+        
+        const { data, error } = await supabase.functions.invoke('track-visitor-location');
+        
+        if (error) {
+          console.error('Error tracking location:', error);
+          return;
+        }
+        
+        console.log('Location tracked:', data);
+        
+        // Update locations with the returned data
+        if (data?.locations) {
+          setLocations(data.locations);
+        }
+      } catch (error) {
+        console.error('Error calling track-visitor-location:', error);
+      }
+    };
+
+    // Track location after a short delay to ensure map is loaded
+    setTimeout(trackLocation, 1000);
+  }, []);
+
   // Initialize map
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
