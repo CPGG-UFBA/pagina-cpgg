@@ -16,7 +16,7 @@ export function GmtCodes() {
             </div>
           </a>
 
-          <a className={styles.card} href="#">
+          <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/radargrama1.zip">
             <div className={styles.radargrama1}>
               <h2>Radargrama1</h2>
             </div>
