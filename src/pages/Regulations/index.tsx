@@ -120,7 +120,7 @@ export function Regulations() {
                           <h2> Deliberação Normativa para (re)credenciamento</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="https://drive.google.com/file/d/1lNFAxiARsoaADdfVeagH3Dcn3DpYR0w2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_Normativa_2_2023.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.senior}>
                           <h2> Deliberação Normativa para pesquisadores seniores</h2>
                       </div>
