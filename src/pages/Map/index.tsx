@@ -20,72 +20,34 @@ export function Map() {
   const map = useRef<mapboxgl.Map | null>(null);
   const [locations, setLocations] = useState<VisitorLocation[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [visitorCount, setVisitorCount] = useState<number>(0);
 
-  // Add sample data for demonstration
+  // Get visitor count from localStorage (same as footer)
   useEffect(() => {
-    const addSampleData = async () => {
-      const { data: existing } = await supabase
-        .from('visitor_locations')
-        .select('*');
-      
-      // If no data exists, add sample locations
-      if (!existing || existing.length === 0) {
-        const sampleLocations = [
-          { city: 'Salvador', country: 'Brazil', latitude: -12.9714, longitude: -38.5014, visitor_count: 15 },
-          { city: 'São Paulo', country: 'Brazil', latitude: -23.5505, longitude: -46.6333, visitor_count: 8 },
-          { city: 'Rio de Janeiro', country: 'Brazil', latitude: -22.9068, longitude: -43.1729, visitor_count: 5 },
-          { city: 'Brasília', country: 'Brazil', latitude: -15.7939, longitude: -47.8828, visitor_count: 3 },
-          { city: 'Recife', country: 'Brazil', latitude: -8.0476, longitude: -34.8770, visitor_count: 4 },
-        ];
-        
-        for (const loc of sampleLocations) {
-          await supabase.from('visitor_locations').insert(loc);
-        }
-        
-        const { data: updated } = await supabase.from('visitor_locations').select('*');
-        if (updated) setLocations(updated);
-      } else {
-        setLocations(existing);
-      }
-      setIsLoading(false);
-    };
-    
-    addSampleData();
+    const storageKey = 'cpgg_unique_visitors';
+    const existingVisitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    setVisitorCount(existingVisitors.length);
   }, []);
 
-  // Track current visitor (simplified)
+  // Load visitor locations from database
   useEffect(() => {
-    const trackVisitor = async () => {
+    const loadLocations = async () => {
       try {
-        console.log('Attempting to track visitor...');
-        
-        // Simple approach: just add to Salvador count
-        const { data: salvador } = await supabase
+        const { data, error } = await supabase
           .from('visitor_locations')
-          .select('*')
-          .eq('city', 'Salvador')
-          .eq('country', 'Brazil')
-          .maybeSingle();
+          .select('*');
+
+        if (error) throw error;
         
-        if (salvador) {
-          await supabase
-            .from('visitor_locations')
-            .update({ visitor_count: salvador.visitor_count + 1 })
-            .eq('id', salvador.id);
-          
-          console.log('Updated Salvador visitor count');
-          
-          // Reload locations
-          const { data: updated } = await supabase.from('visitor_locations').select('*');
-          if (updated) setLocations(updated);
-        }
+        setLocations(data || []);
       } catch (error) {
-        console.error('Error tracking:', error);
+        console.error('Error loading locations:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
-    
-    // Delay tracking to avoid race condition
-    setTimeout(trackVisitor, 2000);
+
+    loadLocations();
   }, []);
 
   // Initialize map
@@ -214,21 +176,25 @@ export function Map() {
               {isLoading && (
                 <div className={styles.loading}>
                   <div className={styles.spinner}></div>
-                  <p>Carregando dados dos visitantes...</p>
+                  <p>Carregando mapa...</p>
+                </div>
+              )}
+              {!isLoading && locations.length === 0 && (
+                <div className={styles.noData}>
+                  <p>Nenhuma localização geográfica registrada ainda.</p>
+                  <p className={styles.smallText}>O rastreamento de localizações será implementado em breve.</p>
                 </div>
               )}
             </div>
 
             <div className={styles.stats}>
               <div className={styles.statCard}>
-                <h3>Total de Localizações</h3>
-                <p className={styles.statNumber}>{locations.length}</p>
+                <h3>Total de Visitantes</h3>
+                <p className={styles.statNumber}>{visitorCount.toLocaleString()}</p>
               </div>
               <div className={styles.statCard}>
-                <h3>Total de Visitantes</h3>
-                <p className={styles.statNumber}>
-                  {locations.reduce((sum, loc) => sum + loc.visitor_count, 0)}
-                </p>
+                <h3>Localizações Rastreadas</h3>
+                <p className={styles.statNumber}>{locations.length}</p>
               </div>
             </div>
           </div>
