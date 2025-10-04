@@ -47,6 +47,7 @@ import { Coordination } from './pages/Coordination'
 import { Technicians } from './pages/Technicians'
 import { Recipes } from './pages/Recipes'
 import { Calendars } from './pages/Recipes/Calendars'
+import { GmtCodes } from './pages/Recipes/GmtCodes'
 import { Map } from './pages/Map'
 import { Sign } from './pages/Sign'
 import { Login } from './pages/Login'
@@ -138,6 +139,7 @@ export function Router() {
         <Route path='/technicians' element={<Technicians />} />
          <Route path='/recipes' element={<Recipes />} />
          <Route path='/recipes/Calendars' element={<Calendars />} />
+         <Route path='/recipes/gmt-codes' element={<GmtCodes />} />
          <Route path='/map' element={<Map />} />
         <Route path='/sign' element={<Sign />} />
         <Route path='/login' element={<Login />} />

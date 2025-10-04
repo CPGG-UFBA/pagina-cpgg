@@ -32,7 +32,7 @@ export  function Recipes() {
                           <h2> Latex-modelo para slides</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="https://drive.google.com/file/d/1LUCRVgZod5710Kchs_sHzG0nrjgxqNKJ/view?usp=drive_link">
+                  <a className={styles.card} href="/recipes/gmt-codes">
                       <div className={styles.gmt}>
                           <h2> GMT-códigos</h2>
                       </div>
