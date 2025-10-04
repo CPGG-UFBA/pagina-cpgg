@@ -64,11 +64,44 @@
 }
 
 
+.earthFixed {
+  position: fixed !important;
+  top: 120px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 1000 !important;
+  width: 250px !important;
+  height: 250px !important;
+  display: block !important;
+  visibility: visible !important;
+}
+
+.earthFixed img {
+  width: 250px !important;
+  height: 250px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .staticFigure {
   display: none !important;
 }
 
+.staticFigure img {
+  display: none !important;
+}
+
 @media (max-width: 1200px) {
+  .earthFixed {
+    display: none !important;
+  }
+
+  .staticFigure {
+    display: none !important;
+  }
+
   .history h1{
     padding-left: 120px;
   }

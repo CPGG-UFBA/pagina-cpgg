@@ -1,11 +1,15 @@
 import styles from './History.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import earth from '../../components/Figures/earth-new.jpg';
 
 export  function History() {
   return (
       <>
       <Header/>
+          <div className={styles.earthFixed}>
+            <img src={earth} alt="Terra" />
+          </div>
           <div className={styles.history}>
               <h1 className={styles.title}>Nossa História </h1>
 
