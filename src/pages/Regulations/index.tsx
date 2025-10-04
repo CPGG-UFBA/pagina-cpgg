@@ -115,7 +115,7 @@ export function Regulations() {
                       </div>
                   </a>
 
-                  <a className={styles.card} href="https://drive.google.com/file/d/1gYKCWZw-1Io5FCGRtjPKBZNoWDKnMAmE/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_normativa_1_2023.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.accreditation}>
                           <h2> Deliberação Normativa para (re)credenciamento</h2>
                       </div>
