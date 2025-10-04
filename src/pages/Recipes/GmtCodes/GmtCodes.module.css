@@ -11,6 +11,7 @@
   text-align: center;
   margin-bottom: 2rem;
   margin-top: 2rem;
+  margin-left: -150px;
   font-size: 24px;
   color: white;
 }
@@ -24,7 +25,7 @@
   justify-items: start;
   max-width: 1200px;
   margin: 0 auto;
-  margin-left: -100px;
+  margin-left: 50px;
   margin-bottom: 4rem;
 }
 
