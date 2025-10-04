@@ -7,9 +7,6 @@ export  function History() {
   return (
       <>
       <Header/>
-          <div className={styles.earthFixed}>
-            <img src={earth} alt="Terra" />
-          </div>
           <div className={styles.history}>
               <h1 className={styles.title}>Nossa História </h1>
 
@@ -27,6 +24,10 @@ export  function History() {
                   </a>
 
               </div>
+          </div>
+
+          <div className={styles.staticFigure}>
+            <img src={earth} alt="Terra" />
           </div>
          
           <Footer/>

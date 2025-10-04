@@ -64,42 +64,26 @@
 }
 
 
-.earthFixed {
-  position: fixed !important;
-  top: 120px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  z-index: 1000 !important;
-  width: 250px !important;
-  height: 250px !important;
-  display: block !important;
-  visibility: visible !important;
-}
-
-.earthFixed img {
-  width: 250px !important;
-  height: 250px !important;
-  object-fit: contain !important;
-  border-radius: 50% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.staticFigure {
-  display: none !important;
-}
-
 .staticFigure img {
-  display: none !important;
+  height: calc(36rem - 50px);
+  margin-top: -3px;
+  padding-left: 970px;
+  margin-bottom: -500px;
+}
+
+.staticFigure { 
+  margin-left: 0; 
 }
 
 @media (max-width: 1200px) {
-  .earthFixed {
-    display: none !important;
+  .staticFigure { 
+    margin-left: 100px; 
   }
 
-  .staticFigure {
-    display: none !important;
+  .staticFigure img {
+    margin-top: 10px;
+    height: 30rem;
+    margin-left: 580px;
   }
 
   .history h1{
