@@ -54,7 +54,9 @@ export function Map() {
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
 
-    // Initialize map with a basic style (no token needed for basic styles)
+    console.log('Initializing map...');
+
+    // Initialize map with a basic style
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: {
@@ -77,22 +79,27 @@ export function Map() {
           }
         ]
       },
-      center: [-43, -15],
-      zoom: 4,
-      projection: 'globe'
+      center: [-43, -15], // Centered on Brazil
+      zoom: 3,
     });
 
     // Add navigation controls
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
-    // Wait for map to load before allowing markers
+    // Wait for map to load
     map.current.on('load', () => {
       console.log('Map loaded successfully');
     });
 
+    map.current.on('error', (e) => {
+      console.error('Map error:', e);
+    });
+
     return () => {
-      map.current?.remove();
-      map.current = null;
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
     };
   }, []);
 
