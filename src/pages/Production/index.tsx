@@ -112,7 +112,7 @@ export function Production() {
       <Header />
       <div className={`${styles.container} scientific-publications-page`}>
         <div className={styles.header}>
-          <BookOpen size={32} />
+          <BookOpen size={32} color="white" />
           <h1>Produção Científica</h1>
           <p>Conheça os artigos publicados por nossos pesquisadores com apoio do centro</p>
         </div>
