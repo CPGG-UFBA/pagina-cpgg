@@ -31,13 +31,18 @@ export function Map() {
         
         console.log('Visitor IP:', ip);
         
-        // Get location from IP using ip-api.com (more reliable and has higher limits)
-        const locationResponse = await fetch(`http://ip-api.com/json/${ip}`);
+        // Get location from IP using ipapi.co (free tier, HTTPS)
+        const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+        
+        if (!locationResponse.ok) {
+          throw new Error('Location API failed');
+        }
+        
         const locationData = await locationResponse.json();
         
         console.log('Location data:', locationData);
         
-        if (locationData.status === 'success' && locationData.city && locationData.country) {
+        if (locationData.city && locationData.country && locationData.latitude && locationData.longitude) {
           // Check if location already exists
           const { data: existingLocation, error: selectError } = await supabase
             .from('visitor_locations')
@@ -63,8 +68,8 @@ export function Map() {
               .insert({
                 city: locationData.city,
                 country: locationData.country,
-                latitude: locationData.lat,
-                longitude: locationData.lon,
+                latitude: parseFloat(locationData.latitude),
+                longitude: parseFloat(locationData.longitude),
                 visitor_count: 1
               });
             
@@ -80,7 +85,7 @@ export function Map() {
             setLocations(updatedLocations);
           }
         } else {
-          console.error('Location API returned error:', locationData);
+          console.error('Location data incomplete:', locationData);
         }
       } catch (error) {
         console.error('Error tracking visitor:', error);
