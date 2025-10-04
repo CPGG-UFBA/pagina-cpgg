@@ -48,14 +48,6 @@ export  function Calendars() {
                           </div>
                       </a>
                   </div>
-                  
-                  <div className={styles.earthContainer}>
-                      <img 
-                          src="https://i.imgur.com/z6pTgZ1.jpg" 
-                          alt="Terra" 
-                          className={styles.earthImage}
-                      />
-                  </div>
               </div>
           </div>
           <div className={styles.footerCalendars}>
