@@ -184,7 +184,7 @@ export function Map() {
               alt="Terra CPGG" 
               className={styles.earthImage}
             />
-            <p className={styles.earthText}>Conectando o mundo através da Geofísica</p>
+            <p className={styles.earthText}>Conectando o mundo através das Geociências</p>
           </div>
         </div>
       </main>
