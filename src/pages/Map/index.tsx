@@ -180,32 +180,45 @@ export function Map() {
       <Header />
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Mapa de Visitantes</h1>
+          <h1 className={styles.title}>Mapa de Visitantes do CPGG</h1>
           <p className={styles.subtitle}>
-            Visualize a localização de todos os visitantes do site
+            Visualize a localização de todos os visitantes do site ao redor do mundo
           </p>
         </div>
         
-        <div className={styles.mapContainer}>
-          <div ref={mapContainer} className={styles.map} />
-          {isLoading && (
-            <div className={styles.loading}>
-              <div className={styles.spinner}></div>
-              <p>Carregando dados dos visitantes...</p>
+        <div className={styles.contentWrapper}>
+          <div className={styles.mapWrapper}>
+            <div className={styles.mapContainer}>
+              <div ref={mapContainer} className={styles.map} />
+              {isLoading && (
+                <div className={styles.loading}>
+                  <div className={styles.spinner}></div>
+                  <p>Carregando dados dos visitantes...</p>
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        <div className={styles.stats}>
-          <div className={styles.statCard}>
-            <h3>Total de Localizações</h3>
-            <p className={styles.statNumber}>{locations.length}</p>
+            <div className={styles.stats}>
+              <div className={styles.statCard}>
+                <h3>Total de Localizações</h3>
+                <p className={styles.statNumber}>{locations.length}</p>
+              </div>
+              <div className={styles.statCard}>
+                <h3>Total de Visitantes</h3>
+                <p className={styles.statNumber}>
+                  {locations.reduce((sum, loc) => sum + loc.visitor_count, 0)}
+                </p>
+              </div>
+            </div>
           </div>
-          <div className={styles.statCard}>
-            <h3>Total de Visitantes</h3>
-            <p className={styles.statNumber}>
-              {locations.reduce((sum, loc) => sum + loc.visitor_count, 0)}
-            </p>
+
+          <div className={styles.earthSide}>
+            <img 
+              src="https://i.imgur.com/z6pTgZ1.jpg" 
+              alt="Terra CPGG" 
+              className={styles.earthImage}
+            />
+            <p className={styles.earthText}>Conectando o mundo através da Geofísica</p>
           </div>
         </div>
       </main>
