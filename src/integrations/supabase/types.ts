@@ -461,6 +461,7 @@ export type Database = {
           id: string
           latitude: number
           longitude: number
+          unique_ip_hashes: string[] | null
           updated_at: string
           visitor_count: number
         }
@@ -471,6 +472,7 @@ export type Database = {
           id?: string
           latitude: number
           longitude: number
+          unique_ip_hashes?: string[] | null
           updated_at?: string
           visitor_count?: number
         }
@@ -481,6 +483,7 @@ export type Database = {
           id?: string
           latitude?: number
           longitude?: number
+          unique_ip_hashes?: string[] | null
           updated_at?: string
           visitor_count?: number
         }

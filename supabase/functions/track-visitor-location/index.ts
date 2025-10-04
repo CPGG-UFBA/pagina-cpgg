@@ -12,6 +12,17 @@ interface LocationData {
   longitude: number
 }
 
+// Simple hash function for IP addresses
+function hashIP(ip: string): string {
+  let hash = 0;
+  for (let i = 0; i < ip.length; i++) {
+    const char = ip.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
+  }
+  return Math.abs(hash).toString(36);
+}
+
 Deno.serve(async (req) => {
   // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
@@ -36,6 +47,10 @@ Deno.serve(async (req) => {
         { headers: { ...corsHeaders, 'Content-Type': 'application/json' }, status: 200 }
       )
     }
+
+    // Create hash of IP for privacy
+    const ipHash = hashIP(ip);
+    console.log('IP Hash:', ipHash);
 
     // Try to get location data from IP
     let locationData: LocationData | null = null
@@ -98,9 +113,9 @@ Deno.serve(async (req) => {
     const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
     const supabase = createClient(supabaseUrl, supabaseKey)
 
-    console.log('Saving location to database:', locationData)
+    console.log('Checking if IP already visited this location...')
 
-    // Check if location already exists
+    // Check if location exists
     const { data: existingLocation, error: selectError } = await supabase
       .from('visitor_locations')
       .select('*')
@@ -114,20 +129,32 @@ Deno.serve(async (req) => {
     }
 
     if (existingLocation) {
-      // Update visitor count
-      console.log('Updating existing location, current count:', existingLocation.visitor_count)
-      const { error: updateError } = await supabase
-        .from('visitor_locations')
-        .update({ visitor_count: existingLocation.visitor_count + 1 })
-        .eq('id', existingLocation.id)
+      // Check if this IP hash already visited this location
+      const uniqueIpHashes = existingLocation.unique_ip_hashes || [];
+      
+      if (uniqueIpHashes.includes(ipHash)) {
+        console.log('IP already visited this location, not incrementing count');
+      } else {
+        // Add IP hash to the array and increment count
+        console.log('New IP for this location, incrementing count');
+        const updatedIpHashes = [...uniqueIpHashes, ipHash];
+        
+        const { error: updateError } = await supabase
+          .from('visitor_locations')
+          .update({ 
+            visitor_count: updatedIpHashes.length,
+            unique_ip_hashes: updatedIpHashes 
+          })
+          .eq('id', existingLocation.id)
 
-      if (updateError) {
-        console.error('Error updating location:', updateError)
-        throw updateError
+        if (updateError) {
+          console.error('Error updating location:', updateError)
+          throw updateError
+        }
+        console.log('Successfully updated location')
       }
-      console.log('Successfully updated location')
     } else {
-      // Insert new location
+      // Insert new location with first IP
       console.log('Inserting new location')
       const { error: insertError } = await supabase
         .from('visitor_locations')
@@ -136,7 +163,8 @@ Deno.serve(async (req) => {
           country: locationData.country,
           latitude: locationData.latitude,
           longitude: locationData.longitude,
-          visitor_count: 1
+          visitor_count: 1,
+          unique_ip_hashes: [ipHash]
         })
 
       if (insertError) {
