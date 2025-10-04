@@ -12,37 +12,37 @@ export  function Calendars() {
 
               <div className={styles.container}>
                   <div className={styles.buttonsGrid}>
-                      <a className={styles.card} href="https://drive.google.com/file/d/1HCYNtR6-Su2mbSAbbMKh8rYgJIIsYOWk/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/cal2025.pdf" target="_blank" rel="noopener noreferrer">
                           <div className={`${styles.calendarCard} ${styles.calendar2025}`}>
                               <h2>Calendário de 2025</h2>
                           </div>
                       </a>
 
-                      <a className={styles.card} href="https://drive.google.com/file/d/1UbaOdBxcqlvDY3v_a08b9rgEGahxRf0_/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/cal2024.pdf" target="_blank" rel="noopener noreferrer">
                           <div className={`${styles.calendarCard} ${styles.calendar2024}`}>
                               <h2>Calendário de 2024</h2>
                           </div>
                       </a>
                       
-                      <a className={styles.card} href="https://drive.google.com/file/d/11UYvunAfYl3oij3toYaIY8jJzsEE-bcD/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/cal2023.pdf" target="_blank" rel="noopener noreferrer">
                           <div className={`${styles.calendarCard} ${styles.calendar2023}`}>
                               <h2>Calendário de 2023</h2>
                           </div>
                       </a>
                       
-                      <a className={styles.card} href="https://drive.google.com/file/d/1plx9hvCJSz-_81HxMb72BIWaI7ZyU17q/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/cal2022.pdf" target="_blank" rel="noopener noreferrer">
                           <div className={`${styles.calendarCard} ${styles.calendar2022}`}>
                               <h2>Calendário de 2022</h2>
                           </div>
                       </a>
                       
-                      <a className={styles.card} href="https://drive.google.com/file/d/1suCYamkdt0flvMuuYzy3j4of8WUKrD3k/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/cal2021.pdf" target="_blank" rel="noopener noreferrer">
                           <div className={`${styles.calendarCard} ${styles.calendar2021}`}>
                               <h2>Calendário de 2021</h2>
                           </div>
                       </a>
                       
-                      <a className={styles.card} href="https://drive.google.com/file/d/1H-e1JFNm2dthU8porSI8bn-S5fpRIF3h/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/cal2020.pdf" target="_blank" rel="noopener noreferrer">
                           <div className={`${styles.calendarCard} ${styles.calendar2020}`}>
                               <h2>Calendário de 2020</h2>
                           </div>
