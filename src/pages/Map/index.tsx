@@ -25,41 +25,62 @@ export function Map() {
   useEffect(() => {
     const trackVisitor = async () => {
       try {
-        // Get visitor's IP and location
+        // Get visitor's IP
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         const { ip } = await ipResponse.json();
         
-        // Get location from IP
-        const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
+        console.log('Visitor IP:', ip);
+        
+        // Get location from IP using ip-api.com (more reliable and has higher limits)
+        const locationResponse = await fetch(`http://ip-api.com/json/${ip}`);
         const locationData = await locationResponse.json();
         
-        if (locationData.city && locationData.country) {
+        console.log('Location data:', locationData);
+        
+        if (locationData.status === 'success' && locationData.city && locationData.country) {
           // Check if location already exists
-          const { data: existingLocation } = await supabase
+          const { data: existingLocation, error: selectError } = await supabase
             .from('visitor_locations')
             .select('*')
             .eq('city', locationData.city)
             .eq('country', locationData.country)
-            .single();
+            .maybeSingle();
+
+          console.log('Existing location:', existingLocation, 'Error:', selectError);
 
           if (existingLocation) {
             // Update visitor count
-            await supabase
+            const { error: updateError } = await supabase
               .from('visitor_locations')
               .update({ visitor_count: existingLocation.visitor_count + 1 })
               .eq('id', existingLocation.id);
+            
+            console.log('Updated visitor count. Error:', updateError);
           } else {
             // Insert new location
-            await supabase
+            const { error: insertError } = await supabase
               .from('visitor_locations')
               .insert({
                 city: locationData.city,
                 country: locationData.country,
-                latitude: locationData.latitude,
-                longitude: locationData.longitude,
+                latitude: locationData.lat,
+                longitude: locationData.lon,
                 visitor_count: 1
               });
+            
+            console.log('Inserted new location. Error:', insertError);
           }
+          
+          // Reload locations after tracking
+          const { data: updatedLocations } = await supabase
+            .from('visitor_locations')
+            .select('*');
+          
+          if (updatedLocations) {
+            setLocations(updatedLocations);
+          }
+        } else {
+          console.error('Location API returned error:', locationData);
         }
       } catch (error) {
         console.error('Error tracking visitor:', error);
