@@ -21,14 +21,9 @@ export function Map() {
   const markersRef = useRef<L.Marker[]>([]);
   const [locations, setLocations] = useState<VisitorLocation[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [visitorCount, setVisitorCount] = useState<number>(0);
 
-  // Get visitor count from localStorage
-  useEffect(() => {
-    const storageKey = 'cpgg_unique_visitors';
-    const existingVisitors = JSON.parse(localStorage.getItem(storageKey) || '[]');
-    setVisitorCount(existingVisitors.length);
-  }, []);
+  // Calculate total visitors from all locations
+  const totalVisitors = locations.reduce((sum, loc) => sum + loc.visitor_count, 0);
 
   // Load visitor locations from database
   useEffect(() => {
@@ -179,7 +174,7 @@ export function Map() {
             <div className={styles.stats}>
               <div className={styles.statCard}>
                 <h3>Total de Visitantes</h3>
-                <p className={styles.statNumber}>{visitorCount.toLocaleString()}</p>
+                <p className={styles.statNumber}>{totalVisitors.toLocaleString()}</p>
               </div>
               <div className={styles.statCard}>
                 <h3>Localizações Rastreadas</h3>
