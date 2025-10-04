@@ -50,13 +50,18 @@ export function Map() {
     loadLocations();
   }, []);
 
-  // Track visitor location using edge function
+  // Track visitor location using edge function (only once per session)
   useEffect(() => {
-    let tracked = false;
-    
     const trackLocation = async () => {
-      if (tracked) return;
-      tracked = true;
+      // Check if already tracked in this session
+      const sessionKey = 'cpgg_map_tracked';
+      if (sessionStorage.getItem(sessionKey)) {
+        console.log('Already tracked in this session, skipping...');
+        return;
+      }
+      
+      // Mark as tracked for this session
+      sessionStorage.setItem(sessionKey, 'true');
       
       try {
         console.log('Calling track-visitor-location function...');
@@ -81,12 +86,7 @@ export function Map() {
       }
     };
 
-    // Track location after a short delay to ensure map is loaded
-    const timer = setTimeout(trackLocation, 1000);
-    
-    return () => {
-      clearTimeout(timer);
-    };
+    trackLocation();
   }, []);
 
   // Initialize map
