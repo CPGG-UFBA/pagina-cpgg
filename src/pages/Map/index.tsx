@@ -88,27 +88,6 @@ export function Map() {
     setTimeout(trackVisitor, 2000);
   }, []);
 
-  // Load visitor locations
-  useEffect(() => {
-    const loadLocations = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('visitor_locations')
-          .select('*');
-
-        if (error) throw error;
-        
-        setLocations(data || []);
-      } catch (error) {
-        console.error('Error loading locations:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadLocations();
-  }, []);
-
   // Initialize map
   useEffect(() => {
     if (!mapContainer.current || map.current) return;
@@ -136,16 +115,22 @@ export function Map() {
           }
         ]
       },
-      center: [0, 0],
-      zoom: 2,
+      center: [-43, -15],
+      zoom: 4,
       projection: 'globe'
     });
 
     // Add navigation controls
     map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
+    // Wait for map to load before allowing markers
+    map.current.on('load', () => {
+      console.log('Map loaded successfully');
+    });
+
     return () => {
       map.current?.remove();
+      map.current = null;
     };
   }, []);
 
@@ -153,45 +138,62 @@ export function Map() {
   useEffect(() => {
     if (!map.current || isLoading || locations.length === 0) return;
 
-    // Clear existing markers
-    const existingMarkers = document.querySelectorAll('.visitor-marker');
-    existingMarkers.forEach(marker => marker.remove());
+    // Wait for map to be fully loaded
+    const addMarkers = () => {
+      if (!map.current || !map.current.loaded()) {
+        console.log('Map not ready yet, waiting...');
+        setTimeout(addMarkers, 100);
+        return;
+      }
 
-    locations.forEach(location => {
-      // Create marker element
-      const markerElement = document.createElement('div');
-      markerElement.className = 'visitor-marker';
-      markerElement.style.cssText = `
-        width: ${Math.max(20, Math.min(50, location.visitor_count * 5))}px;
-        height: ${Math.max(20, Math.min(50, location.visitor_count * 5))}px;
-        background: radial-gradient(circle, #ff6b6b, #ee5a52);
-        border: 2px solid #fff;
-        border-radius: 50%;
-        cursor: pointer;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: bold;
-        font-size: 12px;
-      `;
-      markerElement.textContent = location.visitor_count.toString();
+      console.log('Adding markers for', locations.length, 'locations');
 
-      // Create popup
-      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
-        <div style="padding: 10px;">
-          <h3 style="margin: 0 0 5px 0; color: #333;">${location.city}, ${location.country}</h3>
-          <p style="margin: 0; color: #666;">Visitantes: ${location.visitor_count}</p>
-        </div>
-      `);
+      // Clear existing markers
+      const existingMarkers = document.querySelectorAll('.visitor-marker');
+      existingMarkers.forEach(marker => marker.remove());
 
-      // Add marker to map
-      new mapboxgl.Marker(markerElement)
-        .setLngLat([location.longitude, location.latitude])
-        .setPopup(popup)
-        .addTo(map.current!);
-    });
+      locations.forEach(location => {
+        try {
+          // Create marker element
+          const markerElement = document.createElement('div');
+          markerElement.className = 'visitor-marker';
+          markerElement.style.cssText = `
+            width: ${Math.max(20, Math.min(50, location.visitor_count * 5))}px;
+            height: ${Math.max(20, Math.min(50, location.visitor_count * 5))}px;
+            background: radial-gradient(circle, #ff6b6b, #ee5a52);
+            border: 2px solid #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+          `;
+          markerElement.textContent = location.visitor_count.toString();
+
+          // Create popup
+          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+            <div style="padding: 10px;">
+              <h3 style="margin: 0 0 5px 0; color: #333;">${location.city}, ${location.country}</h3>
+              <p style="margin: 0; color: #666;">Visitantes: ${location.visitor_count}</p>
+            </div>
+          `);
+
+          // Add marker to map
+          new mapboxgl.Marker(markerElement)
+            .setLngLat([location.longitude, location.latitude])
+            .setPopup(popup)
+            .addTo(map.current!);
+        } catch (error) {
+          console.error('Error adding marker:', error, location);
+        }
+      });
+    };
+
+    addMarkers();
   }, [locations, isLoading]);
 
   return (
