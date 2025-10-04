@@ -27,7 +27,7 @@ export  function Recipes() {
                           <h2> Power Point para apresentações</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="https://drive.google.com/file/d/1mGcNgXecjEIS_A9FuppyDv8ak-m85fIg/view?usp=drive_link">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/slide.zip">
                       <div className={styles.latex}>
                           <h2> Latex-modelo para slides</h2>
                       </div>
