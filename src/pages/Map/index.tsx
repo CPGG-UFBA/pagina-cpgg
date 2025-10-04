@@ -25,67 +25,108 @@ export function Map() {
   useEffect(() => {
     const trackVisitor = async () => {
       try {
-        // Get visitor's IP
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        const { ip } = await ipResponse.json();
+        console.log('Starting visitor tracking...');
         
-        console.log('Visitor IP:', ip);
-        
-        // Get location from IP using ipapi.co (free tier, HTTPS)
-        const locationResponse = await fetch(`https://ipapi.co/${ip}/json/`);
-        
-        if (!locationResponse.ok) {
-          throw new Error('Location API failed');
+        // Try to get visitor's IP
+        let ip = 'unknown';
+        try {
+          const ipResponse = await fetch('https://api.ipify.org?format=json');
+          const ipData = await ipResponse.json();
+          ip = ipData.ip;
+          console.log('Visitor IP:', ip);
+        } catch (ipError) {
+          console.error('Failed to get IP:', ipError);
         }
         
-        const locationData = await locationResponse.json();
+        // Try multiple geolocation APIs
+        let locationData = null;
         
-        console.log('Location data:', locationData);
+        // Try API 1: ipapi.co
+        try {
+          console.log('Trying ipapi.co...');
+          const response1 = await fetch(`https://ipapi.co/${ip}/json/`);
+          const data1 = await response1.json();
+          console.log('ipapi.co response:', data1);
+          
+          if (data1.city && data1.country && !data1.error) {
+            locationData = {
+              city: data1.city,
+              country: data1.country,
+              latitude: parseFloat(data1.latitude),
+              longitude: parseFloat(data1.longitude)
+            };
+          }
+        } catch (e) {
+          console.error('ipapi.co failed:', e);
+        }
         
-        if (locationData.city && locationData.country && locationData.latitude && locationData.longitude) {
+        // Try API 2: ip-api.com (as fallback)
+        if (!locationData) {
+          try {
+            console.log('Trying ip-api.com...');
+            const response2 = await fetch(`https://freeipapi.com/api/json/${ip}`);
+            const data2 = await response2.json();
+            console.log('freeipapi.com response:', data2);
+            
+            if (data2.cityName && data2.countryName) {
+              locationData = {
+                city: data2.cityName,
+                country: data2.countryName,
+                latitude: parseFloat(data2.latitude),
+                longitude: parseFloat(data2.longitude)
+              };
+            }
+          } catch (e) {
+            console.error('freeipapi.com failed:', e);
+          }
+        }
+        
+        // If we got location data, save it
+        if (locationData && locationData.latitude && locationData.longitude) {
+          console.log('Saving location data:', locationData);
+          
           // Check if location already exists
-          const { data: existingLocation, error: selectError } = await supabase
+          const { data: existingLocation } = await supabase
             .from('visitor_locations')
             .select('*')
             .eq('city', locationData.city)
             .eq('country', locationData.country)
             .maybeSingle();
 
-          console.log('Existing location:', existingLocation, 'Error:', selectError);
-
           if (existingLocation) {
             // Update visitor count
-            const { error: updateError } = await supabase
+            const { error } = await supabase
               .from('visitor_locations')
               .update({ visitor_count: existingLocation.visitor_count + 1 })
               .eq('id', existingLocation.id);
             
-            console.log('Updated visitor count. Error:', updateError);
+            console.log('Updated visitor count:', error ? 'Error' : 'Success');
           } else {
             // Insert new location
-            const { error: insertError } = await supabase
+            const { error } = await supabase
               .from('visitor_locations')
               .insert({
                 city: locationData.city,
                 country: locationData.country,
-                latitude: parseFloat(locationData.latitude),
-                longitude: parseFloat(locationData.longitude),
+                latitude: locationData.latitude,
+                longitude: locationData.longitude,
                 visitor_count: 1
               });
             
-            console.log('Inserted new location. Error:', insertError);
+            console.log('Inserted new location:', error ? 'Error - ' + error.message : 'Success');
           }
           
-          // Reload locations after tracking
+          // Reload locations
           const { data: updatedLocations } = await supabase
             .from('visitor_locations')
             .select('*');
           
           if (updatedLocations) {
+            console.log('Loaded locations:', updatedLocations.length);
             setLocations(updatedLocations);
           }
         } else {
-          console.error('Location data incomplete:', locationData);
+          console.error('Could not determine location');
         }
       } catch (error) {
         console.error('Error tracking visitor:', error);
