@@ -52,20 +52,13 @@ export function Map() {
 
   // Track visitor location using edge function (only once per session)
   useEffect(() => {
+    const sessionKey = 'cpgg_map_tracked';
+    if (sessionStorage.getItem(sessionKey)) return;
+    
+    sessionStorage.setItem(sessionKey, 'true');
+    
     const trackLocation = async () => {
-      // Check if already tracked in this session
-      const sessionKey = 'cpgg_map_tracked';
-      if (sessionStorage.getItem(sessionKey)) {
-        console.log('Already tracked in this session, skipping...');
-        return;
-      }
-      
-      // Mark as tracked for this session
-      sessionStorage.setItem(sessionKey, 'true');
-      
       try {
-        console.log('Calling track-visitor-location function...');
-        
         const { data, error } = await supabase.functions.invoke('track-visitor-location');
         
         if (error) {
@@ -73,9 +66,6 @@ export function Map() {
           return;
         }
         
-        console.log('Location tracked:', data);
-        
-        // Update locations with the returned data
         if (data?.locations) {
           setLocations(data.locations);
           setIsLoading(false);
@@ -91,67 +81,41 @@ export function Map() {
 
   // Initialize map
   useEffect(() => {
-    if (!mapContainer.current) {
-      console.error('Map container ref is null');
-      return;
-    }
-    
-    if (map.current) {
-      console.log('Map already initialized');
-      return;
-    }
+    if (!mapContainer.current || map.current) return;
 
-    console.log('Initializing map...');
-    console.log('Map container:', mapContainer.current);
-
-    try {
-      // Initialize map with a basic style
-      map.current = new mapboxgl.Map({
-        container: mapContainer.current,
-        style: {
-          version: 8,
-          sources: {
-            'simple-tiles': {
-              type: 'raster',
-              tiles: [
-                'https://tile.openstreetmap.org/{z}/{x}/{y}.png'
-              ],
-              tileSize: 256,
-              attribution: '© OpenStreetMap contributors'
-            }
-          },
-          layers: [
-            {
-              id: 'simple-tiles',
-              type: 'raster',
-              source: 'simple-tiles'
-            }
-          ]
+    // Initialize map with OpenStreetMap tiles
+    map.current = new mapboxgl.Map({
+      container: mapContainer.current,
+      style: {
+        version: 8,
+        sources: {
+          'osm-tiles': {
+            type: 'raster',
+            tiles: ['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],
+            tileSize: 256,
+            attribution: '© OpenStreetMap contributors'
+          }
         },
-        center: [-43, -15], // Centered on Brazil
-        zoom: 3,
-      });
+        layers: [
+          {
+            id: 'osm-tiles',
+            type: 'raster',
+            source: 'osm-tiles',
+            minzoom: 0,
+            maxzoom: 19
+          }
+        ]
+      },
+      center: [-43, -15],
+      zoom: 3,
+      attributionControl: true
+    });
 
-      console.log('Map instance created');
-
-      // Add navigation controls
-      map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
-
-      // Wait for map to load
-      map.current.on('load', () => {
-        console.log('Map loaded successfully');
-      });
-
-      map.current.on('error', (e) => {
-        console.error('Map error:', e);
-      });
-    } catch (error) {
-      console.error('Error initializing map:', error);
-    }
+    // Add navigation controls
+    map.current.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
     return () => {
       if (map.current) {
-        console.log('Cleaning up map');
         map.current.remove();
         map.current = null;
       }
@@ -162,58 +126,49 @@ export function Map() {
   useEffect(() => {
     if (!map.current || isLoading || locations.length === 0) return;
 
-    // Wait for map to be fully loaded
     const addMarkers = () => {
-      if (!map.current || !map.current.loaded()) {
-        console.log('Map not ready yet, waiting...');
+      if (!map.current?.loaded()) {
         setTimeout(addMarkers, 100);
         return;
       }
 
-      console.log('Adding markers for', locations.length, 'locations');
-
       // Clear existing markers
-      const existingMarkers = document.querySelectorAll('.visitor-marker');
-      existingMarkers.forEach(marker => marker.remove());
+      document.querySelectorAll('.visitor-marker').forEach(m => m.remove());
 
+      // Add new markers
       locations.forEach(location => {
-        try {
-          // Create marker element
-          const markerElement = document.createElement('div');
-          markerElement.className = 'visitor-marker';
-          markerElement.style.cssText = `
-            width: ${Math.max(20, Math.min(50, location.visitor_count * 5))}px;
-            height: ${Math.max(20, Math.min(50, location.visitor_count * 5))}px;
-            background: radial-gradient(circle, #ff6b6b, #ee5a52);
-            border: 2px solid #fff;
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-          `;
-          markerElement.textContent = location.visitor_count.toString();
+        const size = Math.max(20, Math.min(50, location.visitor_count * 5));
+        
+        const el = document.createElement('div');
+        el.className = 'visitor-marker';
+        el.style.cssText = `
+          width: ${size}px;
+          height: ${size}px;
+          background: radial-gradient(circle, #ff6b6b, #ee5a52);
+          border: 2px solid #fff;
+          border-radius: 50%;
+          cursor: pointer;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          font-size: 12px;
+        `;
+        el.textContent = location.visitor_count.toString();
 
-          // Create popup
-          const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
-            <div style="padding: 10px;">
-              <h3 style="margin: 0 0 5px 0; color: #333;">${location.city}, ${location.country}</h3>
-              <p style="margin: 0; color: #666;">Visitantes: ${location.visitor_count}</p>
-            </div>
-          `);
+        const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(`
+          <div style="padding: 10px;">
+            <h3 style="margin: 0 0 5px 0; color: #333;">${location.city}, ${location.country}</h3>
+            <p style="margin: 0; color: #666;">Visitantes: ${location.visitor_count}</p>
+          </div>
+        `);
 
-          // Add marker to map
-          new mapboxgl.Marker(markerElement)
-            .setLngLat([location.longitude, location.latitude])
-            .setPopup(popup)
-            .addTo(map.current!);
-        } catch (error) {
-          console.error('Error adding marker:', error, location);
-        }
+        new mapboxgl.Marker(el)
+          .setLngLat([location.longitude, location.latitude])
+          .setPopup(popup)
+          .addTo(map.current!);
       });
     };
 
