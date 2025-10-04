@@ -22,7 +22,7 @@ export  function Recipes() {
                           <h2> Calendários</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="https://docs.google.com/presentation/d/1-k457ENHYhMNecgI2nmW9fFJWUolk7qq/edit?usp=drive_link&ouid=118013741197621606781&rtpof=true&sd=true">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/modelo-cpgg.ppt">
                       <div className={styles.power}>
                           <h2> Power Point para apresentações</h2>
                       </div>
