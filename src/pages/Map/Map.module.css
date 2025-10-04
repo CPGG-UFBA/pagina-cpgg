@@ -15,6 +15,7 @@
   margin-bottom: 2rem;
   margin-top: calc(3rem + 25px);
   color: white;
+  transform: translateX(-150px);
 }
 
 .title {
