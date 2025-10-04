@@ -11,7 +11,7 @@ export  function Recipes() {
               <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="https://drive.google.com/file/d/16SeK8KT4ObIwUuOviBSdicowrfQ5eRrx/view?usp=drive_link">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/marcas.zip">
                       <div className={styles.logos}>
                           <h2>Marcas do CPGG</h2>
                       </div>
