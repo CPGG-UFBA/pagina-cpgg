@@ -22,7 +22,7 @@ export function GmtCodes() {
             </div>
           </a>
 
-          <a className={styles.card} href="#">
+          <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/radargrama2.zip">
             <div className={styles.radargrama2}>
               <h2>Radargrama2</h2>
             </div>
