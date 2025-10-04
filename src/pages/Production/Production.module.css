@@ -4,76 +4,96 @@
   min-height: 100vh;
 }
 
+/* Portrait orientation - when height > width */
+@media (orientation: portrait) {
+  .Container {
+    justify-content: space-between;
+  }
+}
+
 .container {
   max-width: 1200px;
-  margin: 150px auto 0;
-  margin-left: calc(50% - 600px - 100px);
-  padding: 2rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  padding-bottom: 2rem;
   flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
   text-align: center;
   margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  margin-top: 50px;
+}
+
+.header svg {
+  color: white;
+  margin-bottom: 1rem;
 }
 
 .header h1 {
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   color: white;
-  margin: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .header p {
-  font-size: 1.125rem;
+  font-size: 1.1rem;
   color: hsl(var(--muted-foreground));
   max-width: 600px;
+  margin: 0 auto;
 }
 
 .loading {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 400px;
-  font-size: 1.25rem;
+  min-height: 50vh;
+  font-size: 1.1rem;
   color: hsl(var(--muted-foreground));
 }
 
 .emptyState {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 2rem;
   text-align: center;
-  gap: 1rem;
+  padding: 4rem 2rem;
   color: hsl(var(--muted-foreground));
 }
 
+.emptyState svg {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  font-size: 1.1rem;
+}
+
 .scrollArea {
-  height: calc(100vh - 300px);
   width: 100%;
+  max-height: 70vh;
 }
 
 .publicationsGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  padding-bottom: 2rem;
+  gap: 2rem;
+  padding-right: 1rem;
 }
 
 .publicationCard {
   border: 1px solid hsl(var(--border));
-  transition: all 0.2s ease;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .publicationCard:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: hsl(var(--primary) / 0.3);
 }
 
 .publicationText {
@@ -84,22 +104,18 @@
 
 @media (max-width: 768px) {
   .container {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
   }
 
   .header h1 {
-    font-size: 1.875rem;
-  }
-
-  .header p {
-    font-size: 1rem;
-  }
-
-  .scrollArea {
-    height: calc(100vh - 250px);
+    font-size: 2rem;
   }
 
   .publicationsGrid {
     gap: 1rem;
+  }
+
+  .publicationCard {
+    margin: 0 0.5rem;
   }
 }
