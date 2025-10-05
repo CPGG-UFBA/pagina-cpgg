@@ -28,7 +28,6 @@ export function EditableResearcher({
   onSetChief,
   dbResearchers 
 }: EditableResearcherProps) {
-  console.log('EditableResearcher render:', { name: researcher.name, route: researcher.route, isEditMode })
   const [editedName, setEditedName] = useState(researcher.name)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -77,21 +76,10 @@ export function EditableResearcher({
 
   if (!isEditMode) {
     return (
-      <nav style={{ display: 'block', margin: 0, padding: 0 }}>
+      <nav>
         <Link 
           to={researcher.route}
           className={researcher.isChief ? "text-yellow-400 font-semibold" : ""}
-          style={{
-            display: 'block',
-            fontSize: '0.9rem',
-            color: 'rgba(255, 255, 255, 0.95)',
-            lineHeight: '1.6',
-            padding: '0.5rem 0.75rem',
-            margin: '0.25rem 0',
-            borderRadius: '8px',
-            cursor: 'pointer',
-            textDecoration: 'none'
-          }}
         >
           {researcher.name}
           {researcher.isChief && <span className="ml-2 text-sm">(Chefe)</span>}
