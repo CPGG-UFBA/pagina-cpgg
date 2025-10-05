@@ -646,6 +646,15 @@ export function CoordenacaoDashboard() {
           </Button>
           
           <Button
+            onClick={() => navigate('/adm/coordenacao/laboratorios')}
+            className={styles.actionButton}
+            variant="outline"
+          >
+            <FlaskConical className="w-5 h-5 mr-2" />
+            Gerenciar Laboratórios
+          </Button>
+          
+          <Button
             onClick={() => navigate('/adm/coordenacao/reservas')}
             className={styles.actionButton}
             variant="outline"
@@ -1042,37 +1051,6 @@ export function CoordenacaoDashboard() {
             </Button>
           </div>
 
-          <div className={styles.formCard}>
-            <div className={styles.formHeader}>
-              <UserMinus size={24} />
-              <h2>Administrar Usuários</h2>
-            </div>
-            <div className={styles.formGroup}>
-              <p>Gerencie os usuários cadastrados no sistema</p>
-            </div>
-            <Button
-              onClick={() => navigate('/adm/coordenacao/usuarios')}
-              className={styles.submitButton}
-            >
-              Listar Usuários Cadastrados
-            </Button>
-          </div>
-
-          <div className={styles.formCard}>
-            <div className={styles.formHeader}>
-              <FlaskConical size={24} />
-              <h2>Gerenciar Laboratórios</h2>
-            </div>
-            <div className={styles.formGroup}>
-              <p>Edite informações dos laboratórios cadastrados</p>
-            </div>
-            <Button
-              onClick={() => navigate('/adm/coordenacao/laboratorios')}
-              className={styles.submitButton}
-            >
-              Gerenciar Laboratórios
-            </Button>
-          </div>
 
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
