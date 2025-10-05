@@ -149,14 +149,16 @@ export function DynamicResearcher() {
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
               <ResearcherEditButton researcherName={researcher.name} inline />
             </div>
-            <ul>Link para Currículo Lattes</ul>
-            <nav>
-              {researcher.lattes_link && (
-                <a href={researcher.lattes_link} target="_blank" rel="noopener noreferrer">
-                  Currículo
-                </a>
-              )}
-            </nav>
+            {researcher.lattes_link && (
+              <>
+                <ul>Link para Currículo Lattes</ul>
+                <nav>
+                  <a href={researcher.lattes_link} target="_blank" rel="noopener noreferrer">
+                    Currículo
+                  </a>
+                </nav>
+              </>
+            )}
             <b>e-mail</b>
             <p>{researcher.email}</p>
           </div>
