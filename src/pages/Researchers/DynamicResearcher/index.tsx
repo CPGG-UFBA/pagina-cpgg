@@ -22,12 +22,45 @@ export function DynamicResearcher() {
   const { id } = useParams<{ id: string }>()
   const [researcher, setResearcher] = useState<Researcher | null>(null)
   const [loading, setLoading] = useState(true)
+  const [canEdit, setCanEdit] = useState(false)
 
   useEffect(() => {
     if (id) {
       fetchResearcher(id)
     }
   }, [id])
+
+  useEffect(() => {
+    checkEditPermission()
+  }, [researcher])
+
+  const checkEditPermission = async () => {
+    if (!researcher) return
+
+    try {
+      const { data: { user } } = await supabase.auth.getUser()
+      
+      if (!user) {
+        setCanEdit(false)
+        return
+      }
+
+      const { data: profile } = await supabase
+        .from('user_profiles')
+        .select('full_name')
+        .eq('user_id', user.id)
+        .maybeSingle()
+
+      if (profile && profile.full_name.toLowerCase() === researcher.name.toLowerCase()) {
+        setCanEdit(true)
+      } else {
+        setCanEdit(false)
+      }
+    } catch (error) {
+      console.error('Erro ao verificar permissão:', error)
+      setCanEdit(false)
+    }
+  }
 
   const fetchResearcher = async (researcherId: string) => {
     try {
@@ -79,13 +112,57 @@ export function DynamicResearcher() {
       <div>
         <div className={styles.Professor}>
           <BackButton />
+          {photoUrl && (
+            <>
+              <div 
+                style={{
+                  position: 'absolute',
+                  width: '180px',
+                  height: '180px',
+                  top: '3%',
+                  left: '2%',
+                  border: '2px solid rgba(255,255,255,.2)',
+                  borderRadius: '20px',
+                  padding: '10px',
+                  backgroundColor: 'rgba(255,255,255, 0.2)',
+                  zIndex: 10
+                }}
+              >
+                <img 
+                  src={photoUrl} 
+                  alt={`Foto de ${researcher.name}`}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    borderRadius: '10px'
+                  }}
+                  loading="lazy"
+                />
+              </div>
+              {canEdit && (
+                <div 
+                  style={{
+                    position: 'absolute',
+                    width: '180px',
+                    top: 'calc(3% + 200px)',
+                    left: '2%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    zIndex: 10
+                  }}
+                >
+                  <ResearcherEditButton researcherName={researcher.name} inline />
+                </div>
+              )}
+            </>
+          )}
           <p>{researcher.name}</p>
           <div className={styles.box1}>
             <DynamicResearcherProfile 
               researcherName={researcher.name}
               staticDescription={researcher.description}
               staticPhotoUrl={photoUrl}
-              belowPhoto={<ResearcherEditButton researcherName={researcher.name} inline />}
             />
             <ul>Link para Currículo Lattes</ul>
             <nav>
