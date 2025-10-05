@@ -50,6 +50,76 @@ export function Researchers() {
   }
 
   const { toast } = useToast()
+  const [isMigrating, setIsMigrating] = useState(false)
+
+  const handleMigrateAllResearchers = async () => {
+    if (!adminCreds) {
+      toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
+      return
+    }
+
+    setIsMigrating(true)
+    
+    try {
+      const allStaticResearchers = [
+        ...oil.map(r => ({ ...r, program: 'oil' })),
+        ...environment.map(r => ({ ...r, program: 'environment' })),
+        ...mineral.map(r => ({ ...r, program: 'mineral' })),
+        ...oceanography.map(r => ({ ...r, program: 'oceanography' })),
+        ...coast.map(r => ({ ...r, program: 'coast' }))
+      ]
+
+      let successCount = 0
+      let skipCount = 0
+      
+      for (const researcher of allStaticResearchers) {
+        // Verifica se já existe no banco
+        const { data: existing } = await supabase
+          .from('researchers')
+          .select('id')
+          .eq('name', researcher.name)
+          .eq('program', researcher.program)
+          .maybeSingle()
+
+        if (existing) {
+          skipCount++
+          continue
+        }
+
+        // Insere no banco
+        const { error } = await supabase
+          .from('researchers')
+          .insert({
+            name: researcher.name,
+            email: `${researcher.name.toLowerCase().replace(/\s+/g, '.')}@ufba.br`,
+            program: researcher.program,
+            is_chief: researcher.chief || false,
+            description: `Pesquisador do programa de ${researcher.program}`
+          })
+
+        if (error) {
+          console.error(`Erro ao migrar ${researcher.name}:`, error)
+        } else {
+          successCount++
+        }
+      }
+
+      await fetchDbResearchers()
+      
+      toast({ 
+        title: 'Migração concluída', 
+        description: `${successCount} pesquisadores migrados, ${skipCount} já existiam no banco.` 
+      })
+    } catch (error: any) {
+      toast({ 
+        title: 'Erro na migração', 
+        description: error.message, 
+        variant: 'destructive' 
+      })
+    } finally {
+      setIsMigrating(false)
+    }
+  }
 
   const handleLogin = (email: string, password: string) => {
     setIsEditMode(true)
@@ -396,6 +466,19 @@ export function Researchers() {
           isEditMode={isEditMode}
           onLogout={handleLogout}
         />
+        
+        {/* Botão de Migração */}
+        {isEditMode && (
+          <div className="fixed bottom-4 left-4 z-50">
+            <button
+              onClick={handleMigrateAllResearchers}
+              disabled={isMigrating}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isMigrating ? 'Migrando...' : 'Migrar Todos para BD'}
+            </button>
+          </div>
+        )}
         
         {/* Botão de Desfazer */}
         {isEditMode && showUndo && lastAction && (
