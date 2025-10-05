@@ -1,7 +1,7 @@
 /* Container Principal */
 .heads {
-  padding: 2rem 2rem 4rem 2rem;
-  min-height: calc(100vh - 200px);
+  padding: 2rem 2rem 6rem 2rem;
+  min-height: auto;
   width: 100%;
   max-width: 1400px;
   margin: 100px auto 0 auto;
