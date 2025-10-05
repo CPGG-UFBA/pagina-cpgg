@@ -2,6 +2,9 @@
   flex: 1;
   padding: 2rem;
   margin-bottom: -30px;
+  min-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
 }
 
 .title {
@@ -18,10 +21,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  margin-left: 50px;
-  margin-bottom: 18rem;
+  padding: 0 50px;
+  margin-bottom: 4rem;
+  max-height: calc(100vh - 400px);
+  overflow-y: auto;
+  padding-bottom: 2rem;
 }
 
 
@@ -69,9 +75,7 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 130px;
-  margin-left: -760px;
-  margin-top: 150px;
+  min-height: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   position: relative;
