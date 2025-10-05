@@ -88,19 +88,38 @@ export function Researchers() {
   const { toast } = useToast()
 
   const handleLogin = (email: string, password: string) => {
+    console.log('=== HANDLELOGIN CHAMADO ===')
     setIsEditMode(true)
     setAdminCreds({ email, password })
     setShowLogin(false)
     
-    // Forçar remoção do bloqueio de scroll
+    // Debug completo
     setTimeout(() => {
-      document.body.style.overflow = 'auto'
-      document.body.style.pointerEvents = 'auto'
-      const scrollLocked = document.querySelector('[data-scroll-locked]')
-      if (scrollLocked) {
-        scrollLocked.removeAttribute('data-scroll-locked')
+      console.log('=== DEBUG DE SCROLL ===')
+      console.log('Body overflow:', window.getComputedStyle(document.body).overflow)
+      console.log('Body position:', window.getComputedStyle(document.body).position)
+      console.log('Body height:', window.getComputedStyle(document.body).height)
+      console.log('HTML overflow:', window.getComputedStyle(document.documentElement).overflow)
+      console.log('Scroll height:', document.documentElement.scrollHeight)
+      console.log('Client height:', document.documentElement.clientHeight)
+      console.log('Pode rolar?', document.documentElement.scrollHeight > document.documentElement.clientHeight)
+      
+      // Verificar todos os elementos no caminho
+      let el = document.body
+      while (el) {
+        const computed = window.getComputedStyle(el)
+        if (computed.overflow !== 'visible' || computed.position === 'fixed') {
+          console.log('Elemento com overflow/position especial:', el.tagName, {
+            overflow: computed.overflow,
+            position: computed.position,
+            height: computed.height
+          })
+        }
+        el = el.parentElement as HTMLElement
       }
-    }, 100)
+      
+      console.log('=== FIM DEBUG ===')
+    }, 200)
   }
 
   const handleLogout = () => {
