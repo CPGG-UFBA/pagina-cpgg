@@ -30,24 +30,34 @@ serve(async (req) => {
   }
 
   try {
-    const { email, password, action, id, name, data } = await req.json();
-
-    if (!email || !password) {
-      return json({ error: "Credenciais ausentes" }, { status: 400 });
+    // Get the authorization header
+    const authHeader = req.headers.get('Authorization');
+    if (!authHeader) {
+      return json({ error: "Token de autenticação ausente" }, { status: 401 });
     }
 
-    // Validação de admin (secretaria ou coordenacao)
+    // Verify the user is authenticated and get their user ID
+    const { data: { user }, error: authError } = await supabase.auth.getUser(
+      authHeader.replace('Bearer ', '')
+    );
+
+    if (authError || !user) {
+      return json({ error: "Não autenticado" }, { status: 401 });
+    }
+
+    // Check if user is admin with coordenacao role
     const { data: admin, error: adminErr } = await supabase
       .from("admin_users")
       .select("id, role")
-      .eq("email", email)
-      .eq("password", password)
-      .in("role", ["secretaria", "coordenacao"]) // papéis válidos
+      .eq("user_id", user.id)
+      .in("role", ["secretaria", "coordenacao"])
       .maybeSingle();
 
     if (adminErr || !admin) {
-      return json({ error: "Não autorizado" }, { status: 401 });
+      return json({ error: "Não autorizado - apenas coordenação e secretaria" }, { status: 401 });
     }
+
+    const { action, id, name, data } = await req.json();
 
     if (action === "delete") {
       if (!id) return json({ error: "ID obrigatório" }, { status: 400 });

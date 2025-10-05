@@ -143,8 +143,6 @@ export function Researchers() {
         // Restaura pesquisador excluído
         const { error } = await supabase.functions.invoke('admin-researchers', {
           body: {
-            email: adminCreds.email,
-            password: adminCreds.password,
             action: 'restore',
             data: lastAction.data,
           },
@@ -158,8 +156,6 @@ export function Researchers() {
         // Restaura nome anterior
         const { error } = await supabase.functions.invoke('admin-researchers', {
           body: {
-            email: adminCreds.email,
-            password: adminCreds.password,
             action: 'update',
             id: lastAction.data.id,
             name: lastAction.data.oldName,
@@ -191,8 +187,6 @@ export function Researchers() {
     try {
       const { error } = await supabase.functions.invoke('admin-researchers', {
         body: {
-          email: adminCreds.email,
-          password: adminCreds.password,
           action: 'delete',
           id,
         },
@@ -246,8 +240,6 @@ export function Researchers() {
     try {
       const { error } = await supabase.functions.invoke('admin-researchers', {
         body: {
-          email: adminCreds.email,
-          password: adminCreds.password,
           action: 'update',
           id,
           name,
