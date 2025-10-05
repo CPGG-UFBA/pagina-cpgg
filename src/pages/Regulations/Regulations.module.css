@@ -28,6 +28,7 @@
   max-height: calc(100vh - 400px);
   overflow-y: auto;
   padding-bottom: 2rem;
+  margin-left: calc(50% - 600px - 150px);
 }
 
 
