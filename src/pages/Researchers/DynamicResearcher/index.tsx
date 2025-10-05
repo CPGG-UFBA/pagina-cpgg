@@ -136,10 +136,9 @@ export function DynamicResearcher() {
                   ? `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url('${photoUrl}') center/cover`
                   : undefined
               }}
-            >
-              <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)' }}>
-                <ResearcherEditButton researcherName={researcher.name} inline />
-              </div>
+            />
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+              <ResearcherEditButton researcherName={researcher.name} inline />
             </div>
           </div>
         </div>
