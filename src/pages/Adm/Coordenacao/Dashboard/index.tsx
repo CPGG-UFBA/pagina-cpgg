@@ -786,16 +786,25 @@ export function CoordenacaoDashboard() {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-program">Programa:</label>
-              <Select value={researcherProgram} onValueChange={setResearcherProgram}>
-                <SelectTrigger>
+              <Select 
+                value={researcherProgram} 
+                onValueChange={(value) => {
+                  console.log('Programa selecionado:', value);
+                  setResearcherProgram(value);
+                }}
+              >
+                <SelectTrigger id="researcher-program">
                   <SelectValue placeholder="Selecione o programa" />
                 </SelectTrigger>
                 <SelectContent>
-                  {Object.entries(programMapping).map(([key, value]) => (
-                    <SelectItem key={key} value={key}>
-                      {value}
-                    </SelectItem>
-                  ))}
+                  {Object.entries(programMapping).map(([key, value]) => {
+                    console.log('Renderizando opção:', key, value);
+                    return (
+                      <SelectItem key={key} value={key}>
+                        {value}
+                      </SelectItem>
+                    );
+                  })}
                 </SelectContent>
               </Select>
             </div>
