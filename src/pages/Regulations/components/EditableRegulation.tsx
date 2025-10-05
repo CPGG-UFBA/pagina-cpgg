@@ -61,7 +61,7 @@ export function EditableRegulation({
         rel="noopener noreferrer"
         className={styles.card}
       >
-        <div className={styles.dynamicRegulation}>
+        <div className={styles.regulation}>
           <h2>{regulation.name}</h2>
         </div>
       </a>
@@ -71,7 +71,7 @@ export function EditableRegulation({
   return (
     <>
       <div className={styles.card}>
-        <div className={`${styles.dynamicRegulation} border-2 border-dashed border-primary`}>
+        <div className={`${styles.regulation} border-2 border-dashed border-primary`}>
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-lg font-semibold">{regulation.name}</h2>
             <div className="flex gap-2">
