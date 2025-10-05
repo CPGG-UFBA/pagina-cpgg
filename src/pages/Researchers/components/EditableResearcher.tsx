@@ -75,19 +75,10 @@ export function EditableResearcher({
   }
 
   const handleSetChief = async () => {
-    if (!onSetChief) return
+    if (!isDatabaseResearcher || !researcherId || !onSetChief) return
     
     setIsSettingChief(true)
     try {
-      // Se for estático, primeiro migra para o banco
-      if (!isDatabaseResearcher) {
-        await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
-        // Aguarda um pouco para garantir que o banco foi atualizado
-        await new Promise(resolve => setTimeout(resolve, 500))
-        window.location.reload() // Recarrega para pegar o novo ID do banco
-        return
-      }
-      
       await onSetChief(researcherId, researcher.programKey || '')
     } finally {
       setIsSettingChief(false)
@@ -111,7 +102,7 @@ export function EditableResearcher({
   return (
     <>
       <nav className="flex items-center gap-2 group">
-        {onSetChief && (
+        {isDatabaseResearcher && onSetChief && (
           <Button
             size="sm"
             variant={researcher.isChief ? "default" : "outline"}
