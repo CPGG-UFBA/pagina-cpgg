@@ -27,13 +27,18 @@ export function Researchers() {
 
   const fetchDbResearchers = async () => {
     try {
+      console.log('Fetching researchers from database...')
       const { data, error } = await supabase
         .from('researchers')
         .select('*')
         .order('name')
 
-      if (error) throw error
+      if (error) {
+        console.error('Error fetching researchers:', error)
+        throw error
+      }
 
+      console.log('Researchers fetched:', data?.length, data)
       setDbResearchers(data || [])
     } catch (error) {
       console.error('Erro ao buscar pesquisadores:', error)
@@ -222,6 +227,24 @@ export function Researchers() {
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
       <div className={`${styles.researchers} hide-earth`} style={{ flex: 1 }}>
+        {/* Debug info */}
+        <div style={{ 
+          position: 'fixed', 
+          top: '100px', 
+          right: '20px', 
+          background: 'rgba(255,255,255,0.9)', 
+          padding: '10px', 
+          borderRadius: '8px',
+          color: 'black',
+          zIndex: 9999,
+          fontSize: '12px'
+        }}>
+          <div>Total DB Researchers: {dbResearchers.length}</div>
+          <div>Oil: {getResearchersByProgram('oil').length}</div>
+          <div>Environment: {getResearchersByProgram('environment').length}</div>
+          <div>Mineral: {getResearchersByProgram('mineral').length}</div>
+        </div>
+        
         <div className={styles.Programs}>
           <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
