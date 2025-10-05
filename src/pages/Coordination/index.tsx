@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './Coordination.module.css'
 import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
 import { EditButtonCoordination } from './components/EditButtonCoordination'
 import { AdminLoginCoordination } from './components/AdminLoginCoordination'
 import { EditableCoordinationMember } from './components/EditableCoordinationMember'
@@ -258,8 +257,6 @@ export function Coordination() {
         onClose={() => setShowLogin(false)}
         onLogin={handleLogin}
       />
-      
-      <Footer />
     </div>
   )
 }
