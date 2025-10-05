@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  margin-left: 400px;
+  margin-left: 450px;
   margin-top: 7rem;
   font-size: 24px;
   color: white;
@@ -103,6 +103,10 @@
   transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)),
     url('/src/components/Figures/laws.jpg') center/cover;
+}
+
+.dynamicRegulation:hover {
+  transform: translateY(-5px);
 }
 
 .dynamicRegulation:hover {

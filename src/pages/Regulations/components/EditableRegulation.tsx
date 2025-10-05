@@ -60,8 +60,12 @@ export function EditableRegulation({
         rel="noopener noreferrer"
         className="block"
       >
-        <div className="p-8 border-radius-12 text-center shadow-md text-white relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 bg-gradient-to-br from-slate-900/85 to-purple-900/85 bg-cover bg-center rounded-xl" 
-             style={{ backgroundImage: "url('/src/components/Figures/laws.jpg')", width: '350px', height: '120px' }}>
+        <div className="p-8 border-radius-12 text-center shadow-md text-white relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-xl bg-cover bg-center" 
+             style={{ 
+               backgroundImage: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg')", 
+               width: '350px', 
+               height: '120px' 
+             }}>
           <h2 className="text-lg font-semibold">{regulation.name}</h2>
         </div>
       </a>
@@ -71,8 +75,12 @@ export function EditableRegulation({
   return (
     <>
       <div className="block">
-        <div className="p-8 border-radius-12 text-center shadow-md text-white relative overflow-hidden bg-gradient-to-br from-slate-900/85 to-purple-900/85 bg-cover bg-center rounded-xl border-2 border-dashed border-primary" 
-             style={{ backgroundImage: "url('/src/components/Figures/laws.jpg')", width: '350px', height: '120px' }}>
+        <div className="p-8 border-radius-12 text-center shadow-md text-white relative overflow-hidden rounded-xl border-2 border-dashed border-primary bg-cover bg-center" 
+             style={{ 
+               backgroundImage: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg')", 
+               width: '350px', 
+               height: '120px' 
+             }}>
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-lg font-semibold">{regulation.name}</h2>
             <div className="flex gap-2">
