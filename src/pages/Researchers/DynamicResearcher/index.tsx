@@ -112,51 +112,6 @@ export function DynamicResearcher() {
       <div>
         <div className={styles.Professor}>
           <BackButton />
-          {photoUrl && (
-            <>
-              <div 
-                style={{
-                  position: 'absolute',
-                  width: '180px',
-                  height: '180px',
-                  top: '3%',
-                  left: '2%',
-                  border: '2px solid rgba(255,255,255,.2)',
-                  borderRadius: '20px',
-                  padding: '10px',
-                  backgroundColor: 'rgba(255,255,255, 0.2)',
-                  zIndex: 10
-                }}
-              >
-                <img 
-                  src={photoUrl} 
-                  alt={`Foto de ${researcher.name}`}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    borderRadius: '10px'
-                  }}
-                  loading="lazy"
-                />
-              </div>
-              {canEdit && (
-                <div 
-                  style={{
-                    position: 'absolute',
-                    width: '180px',
-                    top: 'calc(3% + 200px)',
-                    left: '2%',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    zIndex: 10
-                  }}
-                >
-                  <ResearcherEditButton researcherName={researcher.name} inline />
-                </div>
-              )}
-            </>
-          )}
           <p>{researcher.name}</p>
           <div className={styles.box1}>
             <DynamicResearcherProfile 
@@ -181,7 +136,13 @@ export function DynamicResearcher() {
                   ? `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url('${photoUrl}') center/cover`
                   : undefined
               }}
-            ></div>
+            >
+              {canEdit && (
+                <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)' }}>
+                  <ResearcherEditButton researcherName={researcher.name} inline />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
