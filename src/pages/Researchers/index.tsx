@@ -285,9 +285,11 @@ export function Researchers() {
       .filter(r => !hiddenStaticResearchers.includes(r.name))
       .map(r => ({
         ...r,
+        chief: r.chief || false,
+        isChief: r.chief || false,
         isDatabase: false,
         originalName: r.name,
-        programKey: programKey // adiciona a chave do programa
+        programKey: programKey
       }))
 
     // Combinar e ordenar alfabeticamente (mantendo chefe primeiro se existir)
