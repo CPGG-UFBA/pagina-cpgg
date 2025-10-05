@@ -10,23 +10,26 @@
   border-left: none !important;
 }
 
-/* Fix para Radix Dialog bloqueando scroll */
+/* Fix AGRESSIVO para Radix Dialog bloqueando scroll */
 body[data-scroll-locked] {
   margin-right: 0px !important;
   margin-left: 0px !important;
-  overflow: auto !important;
+  overflow: visible !important;
+  overflow-y: visible !important;
 }
 
 html body[data-scroll-locked] {
   margin-right: 0px !important;
   margin-left: 0px !important;
-  overflow: auto !important;
+  overflow: visible !important;
+  overflow-y: visible !important;
 }
 
 html, body {
   height: 100%;
   border: none !important;
   box-shadow: none !important;
+  overflow-y: auto !important;
 }
 
 body {

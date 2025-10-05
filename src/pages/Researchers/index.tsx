@@ -28,22 +28,45 @@ export function Researchers() {
   useEffect(() => {
     // Garantir que o scroll esteja desbloqueado quando em modo de edição
     if (isEditMode) {
-      document.body.style.overflow = 'auto'
-      document.body.style.pointerEvents = 'auto'
-      document.documentElement.style.overflow = 'auto'
-      document.documentElement.style.pointerEvents = 'auto'
+      console.log('Modo de edição ativado, desbloqueando scroll...')
       
-      // Remover qualquer atributo de bloqueio de scroll
-      const scrollLocked = document.querySelectorAll('[data-scroll-locked]')
-      scrollLocked.forEach(el => el.removeAttribute('data-scroll-locked'))
+      // Forçar desbloqueio em múltiplos elementos
+      const unlockScroll = () => {
+        document.body.style.overflow = ''
+        document.body.style.pointerEvents = ''
+        document.body.removeAttribute('data-scroll-locked')
+        document.documentElement.style.overflow = ''
+        document.documentElement.style.pointerEvents = ''
+        
+        // Remover qualquer atributo de bloqueio de scroll
+        const scrollLocked = document.querySelectorAll('[data-scroll-locked]')
+        console.log('Elementos com scroll locked:', scrollLocked.length)
+        scrollLocked.forEach(el => {
+          el.removeAttribute('data-scroll-locked')
+          if (el instanceof HTMLElement) {
+            el.style.overflow = ''
+            el.style.pointerEvents = ''
+          }
+        })
+        
+        // Remover spans com position fixed que podem estar bloqueando
+        const fixedElements = document.querySelectorAll('[style*="position: fixed"][style*="overflow: hidden"]')
+        console.log('Elementos fixed bloqueando:', fixedElements.length)
+        fixedElements.forEach(el => {
+          if (el instanceof HTMLElement) {
+            el.style.display = 'none'
+          }
+        })
+        
+        console.log('Body overflow:', document.body.style.overflow)
+        console.log('Body data-scroll-locked:', document.body.getAttribute('data-scroll-locked'))
+      }
       
-      // Remover spans com position fixed que podem estar bloqueando
-      const fixedSpans = document.querySelectorAll('span[style*="position: fixed"]')
-      fixedSpans.forEach(span => {
-        if (span.getAttribute('style')?.includes('overflow: hidden')) {
-          (span as HTMLElement).style.display = 'none'
-        }
-      })
+      // Executar múltiplas vezes para garantir
+      unlockScroll()
+      setTimeout(unlockScroll, 100)
+      setTimeout(unlockScroll, 300)
+      setTimeout(unlockScroll, 500)
     }
   }, [isEditMode])
 
