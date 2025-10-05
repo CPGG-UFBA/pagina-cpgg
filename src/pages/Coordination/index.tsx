@@ -193,8 +193,8 @@ export function Coordination() {
           </div>
           
           <div className={styles.box2}>
+            <h1>Conselho Científico</h1>
             <div className={styles.scientific}>
-              <h1>Conselho Científico</h1>
               {getMembersBySection('scientific').map((member, index) => (
                 <EditableCoordinationMember
                   key={`scientific-${index}`}
@@ -208,8 +208,8 @@ export function Coordination() {
           </div>
           
           <div className={styles.box3}>
+            <h1>Conselho Deliberativo</h1>
             <div className={styles.deliberative}>
-              <h1>Conselho Deliberativo</h1>
               {getMembersBySection('deliberative').map((member, index) => (
                 <EditableCoordinationMember
                   key={`deliberative-${index}`}
