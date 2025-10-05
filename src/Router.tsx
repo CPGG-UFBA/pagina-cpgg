@@ -58,6 +58,7 @@ import { Production } from './pages/Production'
 import { Spaces } from './pages/Spaces'
 import { Labs } from './pages/Labs'
 import { Laiga } from './pages/Labs/Laiga'
+import { DynamicLab } from './pages/Labs/DynamicLab'
 import { RF } from './pages/Labs/Laiga/ReservationForm'
 import { LaigaReceipt } from './pages/Labs/Laiga/Receipt'
 import { Lagep } from './pages/Labs/Lagep'
@@ -155,6 +156,7 @@ export function Router() {
          <Route path='/Spaces' element={<Spaces />} />
          <Route path='/Labs' element={<Labs />} />
          <Route path='/Labs/Laiga' element={<Laiga />} />
+         <Route path='/Labs/:acronym' element={<DynamicLab />} />
          <Route path='/Labs/Laiga/ReservationForm' element={<RF />} />
          <Route path='/Labs/Laiga/Receipt' element={<LaigaReceipt />} />
          <Route path='/Labs/Lagep' element={<Lagep />} />
