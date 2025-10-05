@@ -58,6 +58,7 @@ export function UsuariosAdmin() {
 
   const loadUsers = async () => {
     console.log('🔄 loadUsers chamado')
+    console.trace('Stack trace de loadUsers:')
     try {
       // Load regular users
       const { data: profilesData, error: profilesError } = await supabase
@@ -66,6 +67,7 @@ export function UsuariosAdmin() {
       if (profilesError) throw profilesError
       
       console.log('📊 Usuários carregados de user_profiles:', profilesData?.length || 0)
+      console.log('📋 Lista completa:', profilesData)
 
       // Load admin users (secretaria, TI, and coordenacao)
       const { data: adminData, error: adminError } = await supabase
@@ -96,6 +98,7 @@ export function UsuariosAdmin() {
 
       const allUsers = [...regularUsers, ...adminUsers]
       console.log('✅ Total de usuários combinados:', allUsers.length)
+      console.log('✅ Usuários finais:', allUsers.map(u => u.full_name))
       setUsers(allUsers)
     } catch (error: any) {
       console.error('Erro ao carregar usuários:', error)
