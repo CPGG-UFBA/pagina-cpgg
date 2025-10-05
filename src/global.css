@@ -7,10 +7,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-left: none !important;
 }
 
 html, body {
   height: 100%;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 body {

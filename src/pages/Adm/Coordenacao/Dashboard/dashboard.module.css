@@ -2,6 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  border-left: none !important;
+  outline: none;
 }
 
 .dashboard {
@@ -13,6 +15,8 @@
   height: auto;
   padding: 20px;
   overflow-y: auto;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .container {
