@@ -1,10 +1,12 @@
 /* Container Principal */
 .heads {
-  padding: 4rem 2rem;
+  padding: 2rem 2rem 4rem 2rem;
   min-height: calc(100vh - 200px);
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 /* Grid de Cards */
@@ -221,7 +223,7 @@
 
 /* Estilos para modo de edição */
 .editMode .box1 {
-  z-index: 2;
+  position: relative;
 }
 
 .editMode .chief,
