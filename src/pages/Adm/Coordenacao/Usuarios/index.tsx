@@ -24,6 +24,7 @@ interface UserProfile {
   phone: string
   user_id: string
   researcher_route: string | null
+  role?: string
 }
 
 interface AdminUser {
@@ -58,12 +59,38 @@ export function UsuariosAdmin() {
 
   const loadUsers = async () => {
     try {
-      const { data, error } = await supabase
+      // Load regular users
+      const { data: profilesData, error: profilesError } = await supabase
         .rpc('list_all_user_profiles')
 
-      if (error) throw error
+      if (profilesError) throw profilesError
 
-      setUsers(data || [])
+      // Load admin users (secretaria and TI)
+      const { data: adminData, error: adminError } = await supabase
+        .from('admin_users')
+        .select('id, email, role')
+        .in('role', ['secretaria', 'ti'])
+      
+      if (adminError) throw adminError
+
+      // Combine both lists
+      const regularUsers = (profilesData || []).map((user: UserProfile) => ({
+        ...user,
+        role: 'usuario'
+      }))
+
+      const adminUsers = (adminData || []).map((admin: any) => ({
+        id: admin.id,
+        full_name: admin.email.split('@')[0],
+        email: admin.email,
+        institution: admin.role === 'secretaria' ? 'Secretaria' : 'T.I.',
+        phone: '-',
+        user_id: admin.id,
+        researcher_route: null,
+        role: admin.role
+      }))
+
+      setUsers([...regularUsers, ...adminUsers])
     } catch (error: any) {
       console.error('Erro ao carregar usuários:', error)
       toast({
@@ -256,6 +283,7 @@ export function UsuariosAdmin() {
               <th>Email</th>
               <th>Instituição</th>
               <th>Telefone</th>
+              <th>Cargo</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -267,20 +295,43 @@ export function UsuariosAdmin() {
                 <td>{user.institution}</td>
                 <td>{user.phone}</td>
                 <td>
-                  <div className="flex items-center gap-2">
-                    <LabChiefSelector 
-                      userId={user.id} 
-                      userName={user.full_name} 
-                    />
-                    <Button
-                      onClick={() => openDeleteDialog(user)}
-                      variant="destructive"
-                      size="sm"
-                      className={styles.deleteButton}
-                    >
-                      <Trash2 size={16} />
-                    </Button>
-                  </div>
+                  <span style={{
+                    padding: '4px 12px',
+                    borderRadius: '16px',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    backgroundColor: user.role === 'secretaria' ? '#9C27B0' : 
+                                   user.role === 'ti' ? '#2196F3' : 
+                                   user.role === 'coordenacao' ? '#FF9800' : '#4CAF50',
+                    color: 'white',
+                    display: 'inline-block'
+                  }}>
+                    {user.role === 'secretaria' ? 'Secretária' : 
+                     user.role === 'ti' ? 'T.I.' : 
+                     user.role === 'coordenacao' ? 'Coordenação' : 'Usuário'}
+                  </span>
+                </td>
+                <td>
+                  {user.role === 'usuario' ? (
+                    <div className="flex items-center gap-2">
+                      <LabChiefSelector 
+                        userId={user.id} 
+                        userName={user.full_name} 
+                      />
+                      <Button
+                        onClick={() => openDeleteDialog(user)}
+                        variant="destructive"
+                        size="sm"
+                        className={styles.deleteButton}
+                      >
+                        <Trash2 size={16} />
+                      </Button>
+                    </div>
+                  ) : (
+                    <span style={{ color: '#666', fontSize: '14px', fontStyle: 'italic' }}>
+                      Admin
+                    </span>
+                  )}
                 </td>
               </tr>
             ))}
