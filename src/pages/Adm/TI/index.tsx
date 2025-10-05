@@ -24,31 +24,50 @@ export function TI() {
     setIsLoading(true)
     
     try {
-      const { data, error } = await supabase
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({
+          title: "Erro de login",
+          description: "Email ou senha incorretos.",
+          variant: "destructive"
+        })
+        return
+      }
+
+      // Verificar se é TI
+      const { data: adminData, error: adminError } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('email', email)
-        .eq('password', password)
+        .eq('user_id', authData.user.id)
         .eq('role', 'ti')
         .single()
 
-      if (error || !data) {
+      if (adminError || !adminData) {
+        await supabase.auth.signOut()
         toast({
-          title: "Erro de login",
-          description: "Email ou senha incorretos, ou usuário não cadastrado.",
+          title: "Acesso negado",
+          description: "Você não tem permissão de T.I.",
           variant: "destructive"
         })
         return
       }
 
       // Login bem-sucedido
-      sessionStorage.setItem('admin_user', JSON.stringify(data))
+      sessionStorage.setItem('admin_user', JSON.stringify({
+        id: authData.user.id,
+        email: authData.user.email,
+        role: adminData.role
+      }))
       toast({
         title: "Login realizado!",
         description: "Bem-vindo à área de T.I.",
       })
-      // Aqui poderia navegar para uma dashboard específica do TI se necessário
-      console.log('Login TI bem-sucedido:', data)
+      console.log('Login TI bem-sucedido')
     } catch (error) {
       toast({
         title: "Erro",
@@ -64,28 +83,23 @@ export function TI() {
     e.preventDefault()
     
     try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('email, password')
-        .eq('email', resetEmail)
-        .eq('role', 'ti')
-        .single()
+      // Usar o sistema de reset de senha do Supabase Auth
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/adm/ti`,
+      })
 
-      if (error || !data) {
+      if (error) {
         toast({
           title: "Erro",
-          description: "Email não encontrado. Verifique o email digitado.",
+          description: "Erro ao enviar email de recuperação. Verifique o email digitado.",
           variant: "destructive"
         })
         return
       }
-
-      // Simular envio de email com a senha
-      console.log(`Enviando senha para ${resetEmail}: ${data.password}`)
       
       toast({
         title: "Email enviado!",
-        description: "Sua senha foi enviada para o email cadastrado.",
+        description: "Instruções para redefinir sua senha foram enviadas para o email cadastrado.",
       })
       
       setResetEmail('')

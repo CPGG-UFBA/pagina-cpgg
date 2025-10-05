@@ -64,11 +64,26 @@ export function Coordination() {
 
   const handleLogin = async (email: string, password: string) => {
     try {
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({ 
+          title: 'Acesso negado', 
+          description: 'Email ou senha incorretos.', 
+          variant: 'destructive' 
+        })
+        return
+      }
+
+      // Verificar se é coordenação ou secretaria
       const { data, error } = await supabase
         .from('admin_users')
         .select('id, role')
-        .eq('email', email)
-        .eq('password', password)
+        .eq('user_id', authData.user.id)
         .in('role', ['coordenacao', 'secretaria'])
         .maybeSingle()
 
@@ -79,9 +94,10 @@ export function Coordination() {
         setShowLogin(false)
         toast({ title: 'Login realizado', description: 'Modo de edição ativado.' })
       } else {
+        await supabase.auth.signOut()
         toast({ 
           title: 'Acesso negado', 
-          description: 'Apenas coordenação e secretaria podem editar. Verifique email e senha.', 
+          description: 'Apenas coordenação e secretaria podem editar.', 
           variant: 'destructive' 
         })
       }

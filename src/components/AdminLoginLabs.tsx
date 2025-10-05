@@ -19,43 +19,55 @@ export function AdminLoginLabs({ isOpen, onClose, onLogin }: AdminLoginLabsProps
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    
-    if (!email || !password) {
-      toast({
-        title: "Erro",
-        description: "Email e senha são obrigatórios",
-        variant: "destructive",
-      })
-      return
-    }
-
     setIsLoading(true)
 
     try {
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({
+          title: "Erro de autenticação",
+          description: "Email ou senha incorretos.",
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Verificar se é coordenação ou secretaria
       const { data, error } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('email', email)
-        .eq('password', password)
+        .eq('user_id', authData.user.id)
         .in('role', ['secretaria', 'coordenacao'])
         .single()
 
-      if (error) throw error
-
-      if (data) {
+      if (error || !data) {
+        await supabase.auth.signOut()
         toast({
-          title: "Sucesso!",
-          description: "Login realizado com sucesso.",
+          title: "Erro de autenticação",
+          description: "Usuário sem permissão.",
+          variant: "destructive",
         })
-        onLogin(email, password)
-        onClose()
-        setEmail('')
-        setPassword('')
+        return
       }
-    } catch (error: any) {
+
+      toast({
+        title: "Login realizado",
+        description: "Modo de edição ativado.",
+      })
+      
+      setEmail('')
+      setPassword('')
+      onLogin(email, password)
+    } catch (error) {
+      console.error('Erro no login:', error)
       toast({
         title: "Erro",
-        description: "Email ou senha inválidos",
+        description: "Ocorreu um erro ao fazer login.",
         variant: "destructive",
       })
     } finally {

@@ -23,18 +23,34 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
     setLoading(true)
 
     try {
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({
+          title: "Erro de autenticação",
+          description: "Email ou senha incorretos.",
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Verificar se é coordenação ou secretaria
       const { data, error } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('email', email)
-        .eq('password', password)
+        .eq('user_id', authData.user.id)
         .in('role', ['secretaria', 'coordenacao'])
         .single()
 
       if (error || !data) {
+        await supabase.auth.signOut()
         toast({
           title: "Erro de autenticação",
-          description: "Email ou senha incorretos, ou usuário sem permissão.",
+          description: "Usuário sem permissão.",
           variant: "destructive",
         })
         return

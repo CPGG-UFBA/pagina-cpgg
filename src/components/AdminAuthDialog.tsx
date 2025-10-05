@@ -1,17 +1,26 @@
 import { useState } from 'react'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { supabase } from '@/integrations/supabase/client'
 import { useToast } from '@/hooks/use-toast'
 
-interface AdminLoginProps {
+interface AdminAuthDialogProps {
   isOpen: boolean
   onClose: () => void
-  onSuccess: () => void
+  onSuccess: (role: string) => void
+  requiredRole?: 'coordenacao' | 'secretaria' | 'ti' | 'any'
+  title?: string
 }
 
-export function AdminLogin({ isOpen, onClose, onSuccess }: AdminLoginProps) {
+export function AdminAuthDialog({ 
+  isOpen, 
+  onClose, 
+  onSuccess,
+  requiredRole = 'coordenacao',
+  title = 'Login Administrativo'
+}: AdminAuthDialogProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isLoading, setIsLoading] = useState(false)
@@ -47,34 +56,61 @@ export function AdminLogin({ isOpen, onClose, onSuccess }: AdminLoginProps) {
         return
       }
 
-      // Verificar se o usuário é admin coordenação
-      const { data: adminData, error: adminError } = await supabase
-        .from('admin_users')
-        .select('role')
-        .eq('user_id', authData.user.id)
-        .eq('role', 'coordenacao')
-        .single()
-
-      if (adminError || !adminData) {
-        await supabase.auth.signOut()
+      if (!authData.user) {
         toast({
-          title: "Erro de Login",
-          description: "Você não tem permissão de coordenação",
+          title: "Erro",
+          description: "Usuário não encontrado",
           variant: "destructive",
         })
         return
       }
 
+      // Verificar se o usuário é admin e obter sua role
+      const { data: adminData, error: adminError } = await supabase
+        .from('admin_users')
+        .select('role')
+        .eq('user_id', authData.user.id)
+        .single()
+
+      if (adminError || !adminData) {
+        await supabase.auth.signOut()
+        toast({
+          title: "Acesso Negado",
+          description: "Você não tem permissão de administrador",
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Verificar se a role é adequada
+      if (requiredRole !== 'any' && adminData.role !== requiredRole) {
+        await supabase.auth.signOut()
+        toast({
+          title: "Acesso Negado",
+          description: `Esta área requer permissão de ${requiredRole}`,
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Armazenar informações de admin na sessão
+      sessionStorage.setItem('admin_user', JSON.stringify({
+        id: authData.user.id,
+        email: authData.user.email,
+        role: adminData.role
+      }))
+
       toast({
         title: "Login realizado",
-        description: "Bem-vindo ao modo de edição!",
+        description: "Bem-vindo ao modo administrativo!",
       })
 
-      onSuccess()
+      onSuccess(adminData.role)
       onClose()
       setEmail('')
       setPassword('')
     } catch (error) {
+      console.error('Erro no login:', error)
       toast({
         title: "Erro",
         description: "Erro interno do sistema",
@@ -85,38 +121,51 @@ export function AdminLogin({ isOpen, onClose, onSuccess }: AdminLoginProps) {
     }
   }
 
+  const handleClose = () => {
+    setEmail('')
+    setPassword('')
+    onClose()
+  }
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Login Administrativo</DialogTitle>
+          <DialogTitle>{title}</DialogTitle>
+          <DialogDescription>
+            Entre com suas credenciais de administrador para continuar
+          </DialogDescription>
         </DialogHeader>
         <form onSubmit={handleLogin} className="space-y-4">
-          <div>
-            <label className="text-sm font-medium">Email:</label>
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
             <Input
+              id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Digite seu email"
               required
+              autoComplete="email"
             />
           </div>
-          <div>
-            <label className="text-sm font-medium">Senha:</label>
+          <div className="space-y-2">
+            <Label htmlFor="password">Senha</Label>
             <Input
+              id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Digite sua senha"
               required
+              autoComplete="current-password"
             />
           </div>
           <div className="flex gap-2">
             <Button
               type="button"
               variant="outline"
-              onClick={onClose}
+              onClick={handleClose}
               disabled={isLoading}
               className="flex-1"
             >

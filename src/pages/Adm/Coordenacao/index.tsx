@@ -24,15 +24,13 @@ export function Coordenacao() {
     setIsLoading(true)
     
     try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('*')
-        .eq('email', email)
-        .eq('password', password)
-        .eq('role', 'coordenacao')
-        .single()
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
 
-      if (error || !data) {
+      if (authError) {
         toast({
           title: "Erro de login",
           description: "Email ou senha incorretos.",
@@ -41,8 +39,30 @@ export function Coordenacao() {
         return
       }
 
+      // Verificar se é coordenação
+      const { data: adminData, error: adminError } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('user_id', authData.user.id)
+        .eq('role', 'coordenacao')
+        .single()
+
+      if (adminError || !adminData) {
+        await supabase.auth.signOut()
+        toast({
+          title: "Acesso negado",
+          description: "Você não tem permissão de coordenação.",
+          variant: "destructive"
+        })
+        return
+      }
+
       // Login bem-sucedido - salvar dados na sessão e navegar
-      sessionStorage.setItem('admin_user', JSON.stringify(data))
+      sessionStorage.setItem('admin_user', JSON.stringify({
+        id: authData.user.id,
+        email: authData.user.email,
+        role: adminData.role
+      }))
       toast({
         title: "Login realizado!",
         description: "Bem-vindo à área administrativa.",
@@ -63,28 +83,23 @@ export function Coordenacao() {
     e.preventDefault()
     
     try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('email, password')
-        .eq('email', resetEmail)
-        .eq('role', 'coordenacao')
-        .single()
+      // Usar o sistema de reset de senha do Supabase Auth
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/adm/coordenacao`,
+      })
 
-      if (error || !data) {
+      if (error) {
         toast({
           title: "Erro",
-          description: "Email não encontrado. Verifique o email digitado.",
+          description: "Erro ao enviar email de recuperação. Verifique o email digitado.",
           variant: "destructive"
         })
         return
       }
-
-      // Simular envio de email com a senha
-      console.log(`Enviando senha para ${resetEmail}: ${data.password}`)
       
       toast({
         title: "Email enviado!",
-        description: "Sua senha foi enviada para o email cadastrado.",
+        description: "Instruções para redefinir sua senha foram enviadas para o email cadastrado.",
       })
       
       setResetEmail('')
