@@ -65,11 +65,11 @@ export function UsuariosAdmin() {
 
       if (profilesError) throw profilesError
 
-      // Load admin users (secretaria and TI)
+      // Load admin users (secretaria, TI, and coordenacao)
       const { data: adminData, error: adminError } = await supabase
         .from('admin_users')
         .select('id, email, role')
-        .in('role', ['secretaria', 'ti'])
+        .in('role', ['secretaria', 'ti', 'coordenacao'])
       
       if (adminError) throw adminError
 
@@ -83,7 +83,8 @@ export function UsuariosAdmin() {
         id: admin.id,
         full_name: admin.email.split('@')[0],
         email: admin.email,
-        institution: admin.role === 'secretaria' ? 'Secretaria' : 'T.I.',
+        institution: admin.role === 'coordenacao' ? 'Coordenação' : 
+                     admin.role === 'secretaria' ? 'Secretaria' : 'T.I.',
         phone: '-',
         user_id: admin.id,
         researcher_route: null,
