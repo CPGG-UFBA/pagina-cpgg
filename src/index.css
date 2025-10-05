@@ -132,7 +132,7 @@ All colors MUST be HSL.
     height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   /* All page containers */
@@ -283,5 +283,18 @@ All colors MUST be HSL.
     [class*="middle"] .earthGlobe {
       display: block !important;
     }
+  }
+
+  /* Ensure Radix UI Portals (like Select dropdowns) are visible */
+  [data-radix-portal] {
+    z-index: 999999 !important;
+    position: fixed !important;
+  }
+
+  [data-radix-select-content] {
+    z-index: 999999 !important;
+    background: white !important;
+    border: 1px solid hsl(var(--border)) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
   }
 }
