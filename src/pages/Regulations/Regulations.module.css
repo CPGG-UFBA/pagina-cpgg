@@ -109,6 +109,11 @@
   transform: translateY(-5px);
 }
 
+.card {
+  text-decoration: none;
+  display: block;
+}
+
 .dynamicRegulation:hover {
   transform: translateY(-5px);
 }

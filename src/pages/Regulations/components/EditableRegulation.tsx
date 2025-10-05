@@ -3,7 +3,7 @@ import { Minus, Edit, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
-import lawsImage from '@/components/Figures/laws.jpg'
+import styles from '../Regulations.module.css'
 
 interface EditableRegulationProps {
   regulation: {
@@ -59,35 +59,22 @@ export function EditableRegulation({
         href={regulation.pdf_url} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="p-8 text-center shadow-md text-white relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-xl block"
-        style={{ 
-          width: '350px', 
-          height: '120px',
-          background: `linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url(${lawsImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
+        className={styles.card}
       >
-        <h2 className="text-lg font-semibold">{regulation.name}</h2>
+        <div className={styles.dynamicRegulation}>
+          <h2>{regulation.name}</h2>
+        </div>
       </a>
     )
   }
 
   return (
     <>
-      <div 
-        className="p-8 text-center shadow-md text-white relative overflow-hidden rounded-xl border-2 border-dashed border-primary block" 
-        style={{ 
-          width: '350px', 
-          height: '120px',
-          background: `linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url(${lawsImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      >
-        <div className="flex flex-col items-center gap-2">
-          <h2 className="text-lg font-semibold">{regulation.name}</h2>
-          <div className="flex gap-2">
+      <div className={styles.card}>
+        <div className={`${styles.dynamicRegulation} border-2 border-dashed border-primary`}>
+          <div className="flex flex-col items-center gap-2">
+            <h2 className="text-lg font-semibold">{regulation.name}</h2>
+            <div className="flex gap-2">
               <Button
                 size="sm"
                 variant="secondary"
@@ -115,6 +102,7 @@ export function EditableRegulation({
               >
                 <Minus className="w-3 h-3" />
               </Button>
+            </div>
           </div>
         </div>
       </div>
