@@ -16,6 +16,7 @@ Deno.serve(async (req) => {
   const headers = Object.fromEntries(req.headers)
   const wh = new Webhook(hookSecret)
   
+  try {
     const {
       user,
       email_data: { token, token_hash, redirect_to, email_action_type },
@@ -72,10 +73,4 @@ Deno.serve(async (req) => {
       }
     )
   }
-
-  return new Response(JSON.stringify({ success: true }), {
-    status: 200,
-    headers: { 'Content-Type': 'application/json' },
-  })
-}
 })
