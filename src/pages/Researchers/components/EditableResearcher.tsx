@@ -12,10 +12,10 @@ interface Researcher {
 }
 
 interface EditableResearcherProps {
-  researcher: any // Mudança para aceitar mais propriedades
+  researcher: any
   isEditMode: boolean
-  onUpdate: (id: string, name: string, isStatic?: boolean, originalName?: string, programKey?: string) => Promise<void>
-  onDelete: (id: string, isStatic?: boolean, name?: string) => Promise<void>
+  onUpdate: (id: string, name: string) => Promise<void>
+  onDelete: (id: string) => Promise<void>
   onSetChief?: (id: string, programKey: string) => Promise<void>
   dbResearchers: any[]
 }
@@ -33,21 +33,15 @@ export function EditableResearcher({
   const [isLoading, setIsLoading] = useState(false)
   const [isSettingChief, setIsSettingChief] = useState(false)
 
-  // Verifica se é um pesquisador do banco de dados
-  const isDatabaseResearcher = researcher.isDatabase || researcher.route.includes('/researchers/dynamic/')
-  const researcherId = isDatabaseResearcher ? (researcher.id || researcher.route.split('/').pop()) : null
+  // Todos os pesquisadores agora são do banco de dados
+  const researcherId = researcher.id || researcher.route.split('/').pop()
 
   const handleNameChange = async () => {
     if (editedName === researcher.name) return
 
     setIsLoading(true)
     try {
-      if (isDatabaseResearcher && researcherId) {
-        await onUpdate(researcherId, editedName)
-      } else {
-        // Pesquisador estático - migra para o banco
-        await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
-      }
+      await onUpdate(researcherId, editedName)
     } finally {
       setIsLoading(false)
     }
@@ -56,12 +50,7 @@ export function EditableResearcher({
   const handleDelete = async () => {
     setIsLoading(true)
     try {
-      if (isDatabaseResearcher && researcherId) {
-        await onDelete(researcherId)
-      } else {
-        // Pesquisador estático - apenas oculta
-        await onDelete('', true, researcher.originalName || researcher.name)
-      }
+      await onDelete(researcherId)
       setShowDeleteConfirm(false)
     } finally {
       setIsLoading(false)
@@ -75,7 +64,7 @@ export function EditableResearcher({
   }
 
   const handleSetChief = async () => {
-    if (!isDatabaseResearcher || !researcherId || !onSetChief) return
+    if (!researcherId || !onSetChief) return
     
     setIsSettingChief(true)
     try {
@@ -102,7 +91,7 @@ export function EditableResearcher({
   return (
     <>
       <nav className="flex items-center gap-2 group">
-        {isDatabaseResearcher && onSetChief && (
+        {onSetChief && (
           <Button
             size="sm"
             variant={researcher.isChief ? "default" : "outline"}
@@ -136,9 +125,6 @@ export function EditableResearcher({
         >
           <Minus className="w-3 h-3" />
         </Button>
-        {!isDatabaseResearcher && (
-          <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded shrink-0">(estático)</span>
-        )}
       </nav>
 
       <Dialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
