@@ -786,27 +786,28 @@ export function CoordenacaoDashboard() {
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-program">Programa:</label>
-              <Select 
-                value={researcherProgram} 
-                onValueChange={(value) => {
-                  console.log('Programa selecionado:', value);
-                  setResearcherProgram(value);
+              <select
+                id="researcher-program"
+                value={researcherProgram}
+                onChange={(e) => setResearcherProgram(e.target.value)}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  borderRadius: '8px',
+                  border: '1px solid #ccc',
+                  backgroundColor: 'white',
+                  color: '#000',
+                  fontSize: '14px',
+                  cursor: 'pointer'
                 }}
               >
-                <SelectTrigger id="researcher-program">
-                  <SelectValue placeholder="Selecione o programa" />
-                </SelectTrigger>
-                <SelectContent>
-                  {Object.entries(programMapping).map(([key, value]) => {
-                    console.log('Renderizando opção:', key, value);
-                    return (
-                      <SelectItem key={key} value={key}>
-                        {value}
-                      </SelectItem>
-                    );
-                  })}
-                </SelectContent>
-              </Select>
+                <option value="">Selecione o programa</option>
+                {Object.entries(programMapping).map(([key, value]) => (
+                  <option key={key} value={key}>
+                    {value}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-lattes">Link do Lattes:</label>
