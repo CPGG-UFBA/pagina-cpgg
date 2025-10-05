@@ -1,4 +1,5 @@
 import styles from './Researchers.module.css'
+import './researchers-scroll-fix.css'
 import { Header } from '../../components/Header'
 import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
@@ -291,9 +292,9 @@ export function Researchers() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflow: 'visible' }}>
       <Header />
-      <div className={`${styles.researchers} hide-earth`} style={{ flex: 1 }}>
+      <div className={`${styles.researchers} hide-earth`} style={{ flex: 1, overflow: 'visible', position: 'relative' }}>
         <div className={styles.Programs}>
           <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
