@@ -225,24 +225,16 @@ export function Researchers() {
           <div className={styles.box}>
             <div className={styles.Oil}>
               <h1>{t('researchers.oil')}</h1>
-              <div style={{ color: 'white', padding: '10px', background: 'red' }}>
-                TESTE: {getResearchersByProgram('oil').length} pesquisadores
-              </div>
               {getResearchersByProgram('oil').map((r, index) => (
-                <>
-                  <div key={`test-${index}`} style={{ color: 'white', background: 'blue', padding: '5px', margin: '5px' }}>
-                    TESTE DIRETO: {r.name}
-                  </div>
-                  <EditableResearcher 
-                    key={r.route || index}
-                    researcher={r}
-                    isEditMode={isEditMode}
-                    onUpdate={(id, name) => handleUpdateResearcher(id, name)}
-                    onDelete={handleDeleteResearcher}
-                    onSetChief={handleSetChief}
-                    dbResearchers={dbResearchers}
-                  />
-                </>
+                <EditableResearcher 
+                  key={r.route || index}
+                  researcher={r}
+                  isEditMode={isEditMode}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
+                  onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
+                  dbResearchers={dbResearchers}
+                />
               ))}
             </div>
             
