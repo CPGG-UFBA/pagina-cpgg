@@ -216,6 +216,20 @@ export function UsuariosAdmin() {
           if (error) throw error
 
           console.log('Deletado com sucesso de user_profiles')
+          
+          // Sempre tentar deletar de researchers também (usando nome como chave)
+          console.log('Tentando deletar de researchers com nome:', userToDelete.full_name)
+          const { error: researcherError } = await supabase
+            .from('researchers')
+            .delete()
+            .eq('name', userToDelete.full_name)
+
+          if (researcherError) {
+            console.error('Erro ao deletar da tabela researchers:', researcherError)
+          } else {
+            console.log('Deletado com sucesso de researchers (ou não existia)')
+          }
+
           // Adicionar à lista de deletados para possível desfazer
           setDeletedUsers(prev => [...prev, userToDelete])
         }
