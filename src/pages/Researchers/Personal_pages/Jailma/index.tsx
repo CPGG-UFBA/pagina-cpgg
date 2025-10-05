@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { ResearcherPhoto } from '../../../../components/ResearcherPhoto'
 import { BackButton } from '../../../../components/BackButton'
 
 export function Jailma() {
@@ -12,6 +13,7 @@ export function Jailma() {
       <div>
         <div className={styles.Professor} >
           <BackButton />
+          <ResearcherPhoto researcherName="Jailma Santos de Souza de Oliveira" />
           <p> Jailma Santos de Souza de Oliveira </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 
