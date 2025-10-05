@@ -119,16 +119,6 @@ export function DynamicResearcher() {
               staticDescription={researcher.description}
               staticPhotoUrl={photoUrl}
             />
-            <ul>Link para Currículo Lattes</ul>
-            <nav>
-              {researcher.lattes_link && (
-                <a href={researcher.lattes_link} target="_blank" rel="noopener noreferrer">
-                  Currículo
-                </a>
-              )}
-            </nav>
-            <b>e-mail</b>
-            <p>{researcher.email}</p>
             <div 
               className={styles.box2}
               style={{
@@ -140,6 +130,16 @@ export function DynamicResearcher() {
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
               <ResearcherEditButton researcherName={researcher.name} inline />
             </div>
+            <ul>Link para Currículo Lattes</ul>
+            <nav>
+              {researcher.lattes_link && (
+                <a href={researcher.lattes_link} target="_blank" rel="noopener noreferrer">
+                  Currículo
+                </a>
+              )}
+            </nav>
+            <b>e-mail</b>
+            <p>{researcher.email}</p>
           </div>
         </div>
       </div>
