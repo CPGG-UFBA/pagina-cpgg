@@ -29,8 +29,6 @@ export function CoordenacaoDashboard() {
   // Estados para cadastro de pesquisador
   const [researcherName, setResearcherName] = useState('')
   const [researcherProgram, setResearcherProgram] = useState('')
-  const [researcherEmail, setResearcherEmail] = useState('')
-  const [researcherDescription, setResearcherDescription] = useState('')
   const [researcherLattes, setResearcherLattes] = useState('')
   
   // Estados para laboratórios
@@ -184,7 +182,7 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterResearcher = async () => {
-    if (!researcherName || !researcherProgram || !researcherEmail || !researcherDescription || !researcherLattes) {
+    if (!researcherName || !researcherProgram || !researcherLattes) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
@@ -201,26 +199,19 @@ export function CoordenacaoDashboard() {
         .insert({
           name: researcherName,
           program: researcherProgram,
-          email: researcherEmail,
-          description: researcherDescription,
           lattes_link: researcherLattes,
         })
 
       if (error) throw error
 
-      // Criar página pessoal do pesquisador
-      await createResearcherPage(researcherName, researcherEmail, researcherDescription, researcherLattes)
-
       toast({
         title: "Sucesso",
-        description: "Pesquisador cadastrado com sucesso!",
+        description: "Pesquisador cadastrado com sucesso! O pesquisador poderá editar seu email e descrição posteriormente.",
       })
 
       // Limpar formulário
       setResearcherName('')
       setResearcherProgram('')
-      setResearcherEmail('')
-      setResearcherDescription('')
       setResearcherLattes('')
     } catch (error: any) {
       console.error('Erro ao cadastrar pesquisador:', error)
@@ -604,11 +595,6 @@ export function CoordenacaoDashboard() {
     }
   }
 
-  const createResearcherPage = async (name: string, email: string, description: string, lattes: string) => {
-    // Aqui será implementada a criação automática da página do pesquisador
-    // Por enquanto, apenas um console.log para indicar que a função foi chamada
-    console.log(`Criando página para ${name}`)
-  }
 
   if (!adminUser) {
     return <div>Carregando...</div>
@@ -782,26 +768,6 @@ export function CoordenacaoDashboard() {
               </Select>
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher-email">E-mail:</label>
-              <Input
-                id="researcher-email"
-                type="email"
-                value={researcherEmail}
-                onChange={(e) => setResearcherEmail(e.target.value)}
-                placeholder="Digite o e-mail do pesquisador"
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="researcher-description">Descrição:</label>
-              <Textarea
-                id="researcher-description"
-                value={researcherDescription}
-                onChange={(e) => setResearcherDescription(e.target.value)}
-                placeholder="Digite uma descrição sobre o pesquisador"
-                rows={4}
-              />
-            </div>
-            <div className={styles.formGroup}>
               <label htmlFor="researcher-lattes">Link do Lattes:</label>
               <Input
                 id="researcher-lattes"
@@ -811,9 +777,12 @@ export function CoordenacaoDashboard() {
                 placeholder="Digite o link do currículo Lattes"
               />
             </div>
+            <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
+              * O email e descrição serão editados posteriormente pelo próprio pesquisador
+            </p>
             <Button
               onClick={handleRegisterResearcher}
-              disabled={isLoading || !researcherName || !researcherProgram || !researcherEmail || !researcherDescription || !researcherLattes}
+              disabled={isLoading || !researcherName || !researcherProgram || !researcherLattes}
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Pesquisador'}
