@@ -120,9 +120,22 @@ export function DynamicLab() {
 
           {laboratory.photo1_url && (
             <div 
-              className={styles.box1}
               style={{
-                backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo1_url})`,
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '2px solid rgba(255,255,255,.2)',
+                backgroundColor: 'rgba(255,255,255, 0.2)',
+                position: 'absolute',
+                width: '300px',
+                height: '300px',
+                top: '3%',
+                left: 'calc(2% + 60px)',
+                padding: '10px',
+                borderRadius: '20px',
+                gap: '5px',
+                marginBottom: '-100px',
+                background: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo1_url})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
@@ -133,9 +146,22 @@ export function DynamicLab() {
           
           {laboratory.photo2_url && (
             <div 
-              className={styles.box2}
               style={{
-                backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo2_url})`,
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '2px solid rgba(255,255,255,.2)',
+                backgroundColor: 'rgba(255,255,255, 0.2)',
+                position: 'absolute',
+                width: '300px',
+                height: '300px',
+                top: 'calc(3% + 340px)',
+                left: 'calc(2% + 60px)',
+                padding: '10px',
+                borderRadius: '20px',
+                gap: '5px',
+                marginBottom: '-100px',
+                background: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo2_url})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
@@ -146,9 +172,22 @@ export function DynamicLab() {
           
           {laboratory.photo3_url && (
             <div 
-              className={styles.box3}
               style={{
-                backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo3_url})`,
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                border: '2px solid rgba(255,255,255,.2)',
+                backgroundColor: 'rgba(255,255,255, 0.2)',
+                position: 'absolute',
+                width: '300px',
+                height: '300px',
+                top: 'calc(3% + 680px)',
+                left: 'calc(2% + 60px)',
+                padding: '10px',
+                borderRadius: '20px',
+                gap: '5px',
+                marginBottom: '-100px',
+                background: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo3_url})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center'
               }}
