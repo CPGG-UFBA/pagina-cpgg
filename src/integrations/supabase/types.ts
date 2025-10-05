@@ -473,6 +473,7 @@ export type Database = {
           institution: string
           phone: string
           photo_url: string | null
+          public_id: string | null
           researcher_route: string | null
           updated_at: string
           user_id: string | null
@@ -487,6 +488,7 @@ export type Database = {
           institution: string
           phone: string
           photo_url?: string | null
+          public_id?: string | null
           researcher_route?: string | null
           updated_at?: string
           user_id?: string | null
@@ -501,6 +503,7 @@ export type Database = {
           institution?: string
           phone?: string
           photo_url?: string | null
+          public_id?: string | null
           researcher_route?: string | null
           updated_at?: string
           user_id?: string | null
@@ -577,6 +580,10 @@ export type Database = {
           researcher_route: string
           user_id: string
         }[]
+      }
+      generate_public_id: {
+        Args: Record<PropertyKey, never>
+        Returns: string
       }
       get_admin_role: {
         Args: Record<PropertyKey, never>
