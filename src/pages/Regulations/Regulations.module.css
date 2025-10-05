@@ -39,7 +39,7 @@
   color: white;
   text-align: center;
   width: 350px;
-  min-height: 120px;
+  height: 150px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -56,10 +56,10 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
+  height: 150px;
   margin-left: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
-  min-height: 120px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -76,7 +76,7 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  min-height: 120px;
+  height: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   position: relative;
@@ -95,9 +95,9 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
+  height: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
-  min-height: 120px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
