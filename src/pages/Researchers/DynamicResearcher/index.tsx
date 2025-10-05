@@ -3,7 +3,11 @@ import { useParams } from 'react-router-dom'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { supabase } from '@/integrations/supabase/client'
-import styles from '../Personal_pages/researcher.module.css'
+import { DynamicResearcherProfile } from '../../../components/DynamicResearcherProfile'
+import { ResearcherPhoto } from '../../../components/ResearcherPhoto'
+import { ResearcherEditButton } from '../../../components/ResearcherEditButton'
+import { BackButton } from '../../../components/BackButton'
+import styles from '../Personal_pages/Landim/Landim.module.css'
 
 interface Researcher {
   id: string
@@ -68,39 +72,34 @@ export function DynamicResearcher() {
   }
 
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
-      <div className={`${styles.researcher} hide-earth`}>
-        <div className={styles.container}>
-          <div className={styles.profile}>
-            <div className={styles.photoSection}>
-              <div className={styles.photoPlaceholder}>
-                <span>Foto não disponível</span>
-              </div>
-            </div>
-            
-            <div className={styles.info}>
-              <h1>{researcher.name}</h1>
-              <div className={styles.contact}>
-                <p><strong>Email:</strong> <a href={`mailto:${researcher.email}`}>{researcher.email}</a></p>
-                {researcher.lattes_link && (
-                  <p>
-                    <strong>Currículo Lattes:</strong> 
-                    <a href={researcher.lattes_link} target="_blank" rel="noopener noreferrer">
-                      Ver Currículo
-                    </a>
-                  </p>
-                )}
-              </div>
-              
-              <div className={`${styles.description} w-full px-4`}>
-                <p style={{ whiteSpace: 'pre-line' }}>{researcher.description}</p>
-              </div>
-            </div>
+      <div>
+        <div className={styles.Professor}>
+          <BackButton />
+          <ResearcherPhoto researcherName={researcher.name} />
+          <p>{researcher.name}</p>
+          <div className={styles.box1}>
+            <DynamicResearcherProfile 
+              researcherName={researcher.name}
+              staticDescription={researcher.description}
+              belowPhoto={<ResearcherEditButton researcherName={researcher.name} inline />}
+            />
+            <ul>Link para Currículo Lattes</ul>
+            <nav>
+              {researcher.lattes_link && (
+                <a href={researcher.lattes_link} target="_blank" rel="noopener noreferrer">
+                  Currículo
+                </a>
+              )}
+            </nav>
+            <b>e-mail</b>
+            <p>{researcher.email}</p>
+            <div className={styles.box2}></div>
           </div>
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
