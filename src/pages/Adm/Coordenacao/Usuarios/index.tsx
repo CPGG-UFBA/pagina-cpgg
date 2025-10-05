@@ -189,7 +189,7 @@ export function UsuariosAdmin() {
           // Adicionar à lista de deletados para possível desfazer
           setDeletedUsers(prev => [...prev, userToDelete])
         } else {
-          // Apenas perfil de pesquisador sem autenticação - deletar apenas de user_profiles
+          // Apenas perfil de pesquisador sem autenticação - deletar de user_profiles
           const { error } = await supabase
             .from('user_profiles')
             .delete()
@@ -199,6 +199,18 @@ export function UsuariosAdmin() {
 
           // Adicionar à lista de deletados para possível desfazer
           setDeletedUsers(prev => [...prev, userToDelete])
+        }
+
+        // Se for pesquisador, deletar também da tabela researchers
+        if (userToDelete.researcher_route) {
+          const { error: researcherError } = await supabase
+            .from('researchers')
+            .delete()
+            .eq('email', userToDelete.email)
+
+          if (researcherError) {
+            console.error('Erro ao deletar da tabela researchers:', researcherError)
+          }
         }
 
         // Remover da lista atual
