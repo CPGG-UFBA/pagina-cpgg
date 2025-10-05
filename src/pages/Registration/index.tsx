@@ -61,17 +61,6 @@ export function Registration() {
     setIsLoading(true)
 
     try {
-      // Valida se o primeiro nome existe
-      if (!validateFirstName(formData.fullName)) {
-        toast({
-          title: 'Nome errado do usuário',
-          description: 'O primeiro nome não corresponde a nenhum pesquisador cadastrado.',
-          variant: 'destructive'
-        })
-        setIsLoading(false)
-        return
-      }
-
       // Verifica se já existe usuário com este email ou nome (usando função SQL que bypassa RLS)
       const { data: duplicateCheck, error: dupCheckError } = await supabase
         .rpc('check_user_profile_duplicates', {
@@ -96,7 +85,8 @@ export function Registration() {
       // Cria conta no Supabase Auth se email e senha foram fornecidos
       if (email && password) {
         const firstName = formData.fullName.trim().split(' ')[0]
-        const researcherRoute = findResearcherRoute(formData.fullName)
+        // Tenta encontrar rota específica do pesquisador, ou usa rota genérica
+        const researcherRoute = findResearcherRoute(formData.fullName) || 'pesquisador'
 
         const { data: authData, error: authError } = await supabase.auth.signUp({
           email,
