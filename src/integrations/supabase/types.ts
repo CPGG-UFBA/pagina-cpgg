@@ -348,6 +348,7 @@ export type Database = {
           description: string | null
           email: string | null
           id: string
+          institution: string
           is_chief: boolean
           lattes_link: string | null
           name: string
@@ -359,6 +360,7 @@ export type Database = {
           description?: string | null
           email?: string | null
           id?: string
+          institution?: string
           is_chief?: boolean
           lattes_link?: string | null
           name: string
@@ -370,6 +372,7 @@ export type Database = {
           description?: string | null
           email?: string | null
           id?: string
+          institution?: string
           is_chief?: boolean
           lattes_link?: string | null
           name?: string

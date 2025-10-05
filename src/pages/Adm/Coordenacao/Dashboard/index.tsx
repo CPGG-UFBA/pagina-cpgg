@@ -30,6 +30,7 @@ export function CoordenacaoDashboard() {
   const [researcherName, setResearcherName] = useState('')
   const [researcherProgram, setResearcherProgram] = useState('')
   const [researcherLattes, setResearcherLattes] = useState('')
+  const [researcherInstitution, setResearcherInstitution] = useState('UFBA')
   
   // Estados para laboratórios
   const [labName, setLabName] = useState('')
@@ -182,7 +183,7 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterResearcher = async () => {
-    if (!researcherName || !researcherProgram || !researcherLattes) {
+    if (!researcherName || !researcherProgram || !researcherLattes || !researcherInstitution) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
@@ -200,6 +201,7 @@ export function CoordenacaoDashboard() {
           name: researcherName,
           program: researcherProgram,
           lattes_link: researcherLattes,
+          institution: researcherInstitution,
         })
 
       if (error) throw error
@@ -213,6 +215,7 @@ export function CoordenacaoDashboard() {
       setResearcherName('')
       setResearcherProgram('')
       setResearcherLattes('')
+      setResearcherInstitution('UFBA')
     } catch (error: any) {
       console.error('Erro ao cadastrar pesquisador:', error)
       toast({
@@ -753,6 +756,16 @@ export function CoordenacaoDashboard() {
               />
             </div>
             <div className={styles.formGroup}>
+              <label htmlFor="researcher-institution">Instituição:</label>
+              <Input
+                id="researcher-institution"
+                type="text"
+                value={researcherInstitution}
+                onChange={(e) => setResearcherInstitution(e.target.value)}
+                placeholder="Digite a instituição"
+              />
+            </div>
+            <div className={styles.formGroup}>
               <label htmlFor="researcher-program">Programa:</label>
               <Select value={researcherProgram} onValueChange={setResearcherProgram}>
                 <SelectTrigger>
@@ -782,7 +795,7 @@ export function CoordenacaoDashboard() {
             </p>
             <Button
               onClick={handleRegisterResearcher}
-              disabled={isLoading || !researcherName || !researcherProgram || !researcherLattes}
+              disabled={isLoading || !researcherName || !researcherInstitution || !researcherProgram || !researcherLattes}
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Pesquisador'}
