@@ -37,6 +37,7 @@ export function CoordenacaoDashboard() {
   const [labName, setLabName] = useState('')
   const [labAcronym, setLabAcronym] = useState('')
   const [labChief, setLabChief] = useState('')
+  const [labChiefEmail, setLabChiefEmail] = useState('')
   const [labDescription, setLabDescription] = useState('')
   const [labPnipe, setLabPnipe] = useState('')
   const [labPhoto1, setLabPhoto1] = useState<File | null>(null)
@@ -231,10 +232,31 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterLaboratory = async () => {
-    if (!labName || !labAcronym || !labChief || !labDescription || !labPnipe) {
+    if (!labName || !labAcronym || !labChief || !labChiefEmail || !labDescription || !labPnipe) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
+        variant: "destructive",
+      })
+      return
+    }
+
+    // Validar email do chefe - não aceitar @ufba.br
+    if (labChiefEmail.toLowerCase().includes('@ufba.br')) {
+      toast({
+        title: "Erro",
+        description: "O email do chefe não pode ter domínio @ufba.br. Use um email alternativo (Gmail, Outlook, etc.)",
+        variant: "destructive",
+      })
+      return
+    }
+
+    // Validar formato do email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(labChiefEmail)) {
+      toast({
+        title: "Erro",
+        description: "Por favor, insira um email válido",
         variant: "destructive",
       })
       return
@@ -309,6 +331,7 @@ export function CoordenacaoDashboard() {
           name: labName,
           acronym: labAcronym,
           chief_name: labChief,
+          chief_alternative_email: labChiefEmail,
           description: labDescription,
           pnipe_address: labPnipe,
           photo1_url,
@@ -327,6 +350,7 @@ export function CoordenacaoDashboard() {
       setLabName('')
       setLabAcronym('')
       setLabChief('')
+      setLabChiefEmail('')
       setLabDescription('')
       setLabPnipe('')
       setLabPhoto1(null)
@@ -805,6 +829,19 @@ export function CoordenacaoDashboard() {
               />
             </div>
             <div className={styles.formGroup}>
+              <label htmlFor="lab-chief-email">E-mail do Chefe (não @ufba.br):</label>
+              <Input
+                id="lab-chief-email"
+                type="email"
+                value={labChiefEmail}
+                onChange={(e) => setLabChiefEmail(e.target.value)}
+                placeholder="Digite um email alternativo (Gmail, Outlook, etc.)"
+              />
+              <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '0.25rem' }}>
+                ⚠️ Não use email @ufba.br. Este email receberá as demandas de serviço dos usuários.
+              </p>
+            </div>
+            <div className={styles.formGroup}>
               <label htmlFor="lab-description">Descrição:</label>
               <Textarea
                 id="lab-description"
@@ -847,7 +884,7 @@ export function CoordenacaoDashboard() {
             />
             <Button
               onClick={handleRegisterLaboratory}
-              disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labDescription || !labPnipe}
+              disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labChiefEmail || !labDescription || !labPnipe}
               className={styles.submitButton}
             >
               {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Cadastrando...' : 'Cadastrar Laboratório'}
