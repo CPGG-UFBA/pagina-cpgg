@@ -19,25 +19,25 @@ export type Database = {
           created_at: string
           email: string
           id: string
-          password: string
           role: string
           updated_at: string
+          user_id: string | null
         }
         Insert: {
           created_at?: string
           email: string
           id?: string
-          password: string
           role: string
           updated_at?: string
+          user_id?: string | null
         }
         Update: {
           created_at?: string
           email?: string
           id?: string
-          password?: string
           role?: string
           updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }
@@ -551,6 +551,14 @@ export type Database = {
           researcher_route: string
           user_id: string
         }[]
+      }
+      get_admin_role: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
       }
       list_all_user_profiles: {
         Args: Record<PropertyKey, never>
