@@ -25,6 +25,7 @@ interface UserProfile {
   user_id: string
   researcher_route: string | null
   role?: string
+  public_id?: string
 }
 
 interface AdminUser {
@@ -379,6 +380,7 @@ export function UsuariosAdmin() {
         <table className={styles.usersTable}>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Nome</th>
               <th>Email</th>
               <th>Instituição</th>
@@ -390,6 +392,9 @@ export function UsuariosAdmin() {
           <tbody>
             {users.map(user => (
               <tr key={user.id}>
+                <td style={{ fontFamily: 'monospace', fontWeight: 'bold', color: '#666' }}>
+                  {user.public_id || '-'}
+                </td>
                 <td>{user.full_name}</td>
                 <td>{user.email}</td>
                 <td>{user.institution}</td>
