@@ -16,6 +16,9 @@ interface Laboratory {
   photo1_url: string | null;
   photo2_url: string | null;
   photo3_url: string | null;
+  photo1_legend: string | null;
+  photo2_legend: string | null;
+  photo3_legend: string | null;
 }
 
 export function DynamicLab() {
@@ -126,7 +129,7 @@ export function DynamicLab() {
                   backgroundPosition: 'center'
                 }}
               >
-                <h4 className={styles.legend1}></h4>
+                <h4 className={styles.legend1}>{laboratory.photo1_legend || ''}</h4>
               </div>
             )}
             
@@ -139,7 +142,7 @@ export function DynamicLab() {
                   backgroundPosition: 'center'
                 }}
               >
-                <h4 className={styles.legend2}></h4>
+                <h4 className={styles.legend2}>{laboratory.photo2_legend || ''}</h4>
               </div>
             )}
             
@@ -152,7 +155,7 @@ export function DynamicLab() {
                   backgroundPosition: 'center'
                 }}
               >
-                <h4 className={styles.legend3}></h4>
+                <h4 className={styles.legend3}>{laboratory.photo3_legend || ''}</h4>
               </div>
             )}
           </div>

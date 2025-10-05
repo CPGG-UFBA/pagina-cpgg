@@ -43,6 +43,9 @@ export function CoordenacaoDashboard() {
   const [labPhoto1, setLabPhoto1] = useState<File | null>(null)
   const [labPhoto2, setLabPhoto2] = useState<File | null>(null)
   const [labPhoto3, setLabPhoto3] = useState<File | null>(null)
+  const [labPhoto1Legend, setLabPhoto1Legend] = useState('')
+  const [labPhoto2Legend, setLabPhoto2Legend] = useState('')
+  const [labPhoto3Legend, setLabPhoto3Legend] = useState('')
   
   // Estados para notícias
   const [newsTitle, setNewsTitle] = useState('')
@@ -337,6 +340,9 @@ export function CoordenacaoDashboard() {
           photo1_url,
           photo2_url,
           photo3_url,
+          photo1_legend: labPhoto1Legend || null,
+          photo2_legend: labPhoto2Legend || null,
+          photo3_legend: labPhoto3Legend || null,
         })
 
       if (error) throw error
@@ -356,6 +362,9 @@ export function CoordenacaoDashboard() {
       setLabPhoto1(null)
       setLabPhoto2(null)
       setLabPhoto3(null)
+      setLabPhoto1Legend('')
+      setLabPhoto2Legend('')
+      setLabPhoto3Legend('')
     } catch (error: any) {
       console.error('Erro ao cadastrar laboratório:', error)
       toast({
@@ -868,6 +877,15 @@ export function CoordenacaoDashboard() {
               onChange={setLabPhoto1}
               className={styles.photoDropZone}
             />
+            <div className={styles.inputGroup}>
+              <label>Legenda da Foto 1:</label>
+              <input
+                type="text"
+                value={labPhoto1Legend}
+                onChange={(e) => setLabPhoto1Legend(e.target.value)}
+                placeholder="Digite a legenda da foto 1"
+              />
+            </div>
             <PhotoDropZone
               id="lab-photo2"
               label="Foto 2:"
@@ -875,6 +893,15 @@ export function CoordenacaoDashboard() {
               onChange={setLabPhoto2}
               className={styles.photoDropZone}
             />
+            <div className={styles.inputGroup}>
+              <label>Legenda da Foto 2:</label>
+              <input
+                type="text"
+                value={labPhoto2Legend}
+                onChange={(e) => setLabPhoto2Legend(e.target.value)}
+                placeholder="Digite a legenda da foto 2"
+              />
+            </div>
             <PhotoDropZone
               id="lab-photo3"
               label="Foto 3:"
@@ -882,6 +909,15 @@ export function CoordenacaoDashboard() {
               onChange={setLabPhoto3}
               className={styles.photoDropZone}
             />
+            <div className={styles.inputGroup}>
+              <label>Legenda da Foto 3:</label>
+              <input
+                type="text"
+                value={labPhoto3Legend}
+                onChange={(e) => setLabPhoto3Legend(e.target.value)}
+                placeholder="Digite a legenda da foto 3"
+              />
+            </div>
             <Button
               onClick={handleRegisterLaboratory}
               disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labChiefEmail || !labDescription || !labPnipe}

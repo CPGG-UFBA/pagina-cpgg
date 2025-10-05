@@ -107,8 +107,11 @@ export type Database = {
           description: string | null
           id: string
           name: string
+          photo1_legend: string | null
           photo1_url: string | null
+          photo2_legend: string | null
           photo2_url: string | null
+          photo3_legend: string | null
           photo3_url: string | null
           pnipe_address: string | null
           updated_at: string
@@ -122,8 +125,11 @@ export type Database = {
           description?: string | null
           id?: string
           name: string
+          photo1_legend?: string | null
           photo1_url?: string | null
+          photo2_legend?: string | null
           photo2_url?: string | null
+          photo3_legend?: string | null
           photo3_url?: string | null
           pnipe_address?: string | null
           updated_at?: string
@@ -137,8 +143,11 @@ export type Database = {
           description?: string | null
           id?: string
           name?: string
+          photo1_legend?: string | null
           photo1_url?: string | null
+          photo2_legend?: string | null
           photo2_url?: string | null
+          photo3_legend?: string | null
           photo3_url?: string | null
           pnipe_address?: string | null
           updated_at?: string
