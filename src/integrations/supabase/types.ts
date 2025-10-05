@@ -601,6 +601,7 @@ export type Database = {
           id: string
           institution: string
           phone: string
+          public_id: string
           researcher_route: string
           user_id: string
         }[]
