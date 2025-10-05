@@ -201,12 +201,12 @@ export function UsuariosAdmin() {
           setDeletedUsers(prev => [...prev, userToDelete])
         }
 
-        // Se for pesquisador, deletar também da tabela researchers
-        if (userToDelete.researcher_route) {
+        // Se for pesquisador, deletar também da tabela researchers (usando nome como chave)
+        if (userToDelete.role === 'pesquisador' || userToDelete.researcher_route) {
           const { error: researcherError } = await supabase
             .from('researchers')
             .delete()
-            .eq('email', userToDelete.email)
+            .eq('name', userToDelete.full_name)
 
           if (researcherError) {
             console.error('Erro ao deletar da tabela researchers:', researcherError)
