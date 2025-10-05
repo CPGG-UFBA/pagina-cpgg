@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Minus } from 'lucide-react'
+import { Minus, Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
@@ -16,6 +16,7 @@ interface EditableResearcherProps {
   isEditMode: boolean
   onUpdate: (id: string, name: string, isStatic?: boolean, originalName?: string, programKey?: string) => Promise<void>
   onDelete: (id: string, isStatic?: boolean, name?: string) => Promise<void>
+  onSetChief?: (id: string, programKey: string) => Promise<void>
   dbResearchers: any[]
 }
 
@@ -24,11 +25,13 @@ export function EditableResearcher({
   isEditMode, 
   onUpdate, 
   onDelete,
+  onSetChief,
   dbResearchers 
 }: EditableResearcherProps) {
   const [editedName, setEditedName] = useState(researcher.name)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [isSettingChief, setIsSettingChief] = useState(false)
 
   // Verifica se é um pesquisador do banco de dados
   const isDatabaseResearcher = researcher.isDatabase || researcher.route.includes('/researchers/dynamic/')
@@ -71,10 +74,24 @@ export function EditableResearcher({
     }
   }
 
+  const handleSetChief = async () => {
+    if (!isDatabaseResearcher || !researcherId || !onSetChief) return
+    
+    setIsSettingChief(true)
+    try {
+      await onSetChief(researcherId, researcher.programKey || '')
+    } finally {
+      setIsSettingChief(false)
+    }
+  }
+
   if (!isEditMode) {
     return (
       <nav>
-        <Link to={researcher.route}> {researcher.name}</Link>
+        <Link to={researcher.route}>
+          {researcher.isChief && <Star className="inline w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />}
+          {researcher.name}
+        </Link>
       </nav>
     )
   }
@@ -91,6 +108,18 @@ export function EditableResearcher({
           disabled={isLoading}
           placeholder="Nome do pesquisador"
         />
+        {isDatabaseResearcher && onSetChief && (
+          <Button
+            size="sm"
+            variant={researcher.isChief ? "default" : "outline"}
+            className="h-8 w-8 p-0"
+            onClick={handleSetChief}
+            disabled={isLoading || isSettingChief}
+            title={researcher.isChief ? "Coordenador do programa" : "Marcar como coordenador"}
+          >
+            <Star className={`w-3 h-3 ${researcher.isChief ? 'fill-current' : ''}`} />
+          </Button>
+        )}
         <Button
           size="sm"
           variant="destructive"

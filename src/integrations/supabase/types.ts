@@ -345,6 +345,7 @@ export type Database = {
           description: string | null
           email: string
           id: string
+          is_chief: boolean
           lattes_link: string | null
           name: string
           program: string
@@ -355,6 +356,7 @@ export type Database = {
           description?: string | null
           email: string
           id?: string
+          is_chief?: boolean
           lattes_link?: string | null
           name: string
           program: string
@@ -365,6 +367,7 @@ export type Database = {
           description?: string | null
           email?: string
           id?: string
+          is_chief?: boolean
           lattes_link?: string | null
           name?: string
           program?: string
@@ -597,6 +600,10 @@ export type Database = {
           _user_id: string
         }
         Returns: Json
+      }
+      set_researcher_as_chief: {
+        Args: { _program: string; _researcher_id: string }
+        Returns: undefined
       }
       sync_auth_users_to_profiles: {
         Args: Record<PropertyKey, never>

@@ -172,6 +172,27 @@ export function Researchers() {
     }
   }
 
+  const handleSetChief = async (id: string, programKey: string) => {
+    if (!adminCreds) {
+      toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
+      return
+    }
+
+    try {
+      const { error } = await supabase.rpc('set_researcher_as_chief', {
+        _researcher_id: id,
+        _program: programKey
+      })
+
+      if (error) throw error
+
+      await fetchDbResearchers()
+      toast({ title: 'Atualizado', description: 'Coordenador do programa definido com sucesso.' })
+    } catch (error: any) {
+      toast({ title: 'Erro ao definir coordenador', description: error.message, variant: 'destructive' })
+    }
+  }
+
   const handleUpdateResearcher = async (id: string, name: string, isStatic: boolean = false, originalName: string = '', programKey: string = '') => {
     if (!adminCreds) {
       toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
@@ -252,9 +273,11 @@ export function Researchers() {
       .map(r => ({
         name: r.name,
         route: `/researchers/dynamic/${r.id}`,
-        chief: false,
+        chief: r.is_chief || false,
+        isChief: r.is_chief || false,
         id: r.id,
-        isDatabase: true
+        isDatabase: true,
+        programKey: programKey
       }))
 
     // Filtra pesquisadores estáticos ocultos e adiciona informações extras
@@ -294,6 +317,7 @@ export function Researchers() {
                   onUpdate={(id, name, isStatic, originalName) => 
                     handleUpdateResearcher(id, name, isStatic, originalName, 'oil')}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
@@ -309,6 +333,7 @@ export function Researchers() {
                   onUpdate={(id, name, isStatic, originalName) => 
                     handleUpdateResearcher(id, name, isStatic, originalName, 'environment')}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
@@ -324,6 +349,7 @@ export function Researchers() {
                   onUpdate={(id, name, isStatic, originalName) => 
                     handleUpdateResearcher(id, name, isStatic, originalName, 'mineral')}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
@@ -339,6 +365,7 @@ export function Researchers() {
                   onUpdate={(id, name, isStatic, originalName) => 
                     handleUpdateResearcher(id, name, isStatic, originalName, 'oceanography')}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
@@ -354,6 +381,7 @@ export function Researchers() {
                   onUpdate={(id, name, isStatic, originalName) => 
                     handleUpdateResearcher(id, name, isStatic, originalName, 'coast')}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
