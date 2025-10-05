@@ -140,30 +140,49 @@ export function UsuariosAdmin() {
     if (!userToDelete) return
 
     try {
-      // Usar função SQL para deletar do banco e auth
-      const { data, error } = await supabase
-        .rpc('delete_user_complete', {
-          _user_profile_id: userToDelete.id
+      // Verificar se é admin user (secretaria ou ti)
+      if (userToDelete.role === 'secretaria' || userToDelete.role === 'ti') {
+        // Deletar da tabela admin_users
+        const { error } = await supabase
+          .from('admin_users')
+          .delete()
+          .eq('id', userToDelete.id)
+
+        if (error) throw error
+
+        // Remover da lista atual
+        setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
+
+        toast({
+          title: 'Administrador removido',
+          description: `${userToDelete.full_name} foi removido com sucesso.`,
         })
+      } else {
+        // Usar função SQL para deletar do banco e auth (usuários normais)
+        const { data, error } = await supabase
+          .rpc('delete_user_complete', {
+            _user_profile_id: userToDelete.id
+          })
 
-      if (error) throw error
+        if (error) throw error
 
-      const result = data as { success: boolean; error?: string; message?: string }
-      
-      if (!result.success) {
-        throw new Error(result.error || 'Erro ao deletar usuário')
+        const result = data as { success: boolean; error?: string; message?: string }
+        
+        if (!result.success) {
+          throw new Error(result.error || 'Erro ao deletar usuário')
+        }
+
+        // Adicionar à lista de deletados para possível desfazer
+        setDeletedUsers(prev => [...prev, userToDelete])
+
+        // Remover da lista atual
+        setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
+
+        toast({
+          title: 'Usuário removido',
+          description: `${userToDelete.full_name} foi removido com sucesso.`,
+        })
       }
-
-      // Adicionar à lista de deletados para possível desfazer
-      setDeletedUsers(prev => [...prev, userToDelete])
-
-      // Remover da lista atual
-      setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
-
-      toast({
-        title: 'Usuário removido',
-        description: `${userToDelete.full_name} foi removido com sucesso.`,
-      })
 
       setDeleteDialogOpen(false)
       setUserToDelete(null)
@@ -314,26 +333,22 @@ export function UsuariosAdmin() {
                   </span>
                 </td>
                 <td>
-                  {user.role === 'usuario' ? (
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2">
+                    {(user.role === 'usuario' || user.role === 'pesquisador') && (
                       <LabChiefSelector 
                         userId={user.id} 
                         userName={user.full_name} 
                       />
-                      <Button
-                        onClick={() => openDeleteDialog(user)}
-                        variant="destructive"
-                        size="sm"
-                        className={styles.deleteButton}
-                      >
-                        <Trash2 size={16} />
-                      </Button>
-                    </div>
-                  ) : (
-                    <span style={{ color: '#666', fontSize: '14px', fontStyle: 'italic' }}>
-                      Admin
-                    </span>
-                  )}
+                    )}
+                    <Button
+                      onClick={() => openDeleteDialog(user)}
+                      variant="destructive"
+                      size="sm"
+                      className={styles.deleteButton}
+                    >
+                      <Trash2 size={16} />
+                    </Button>
+                  </div>
                 </td>
               </tr>
             ))}
