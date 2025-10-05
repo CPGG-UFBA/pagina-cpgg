@@ -39,35 +39,19 @@ export function Registration() {
     path: ['confirmPassword']
   })
 
-  // Função para validar se o primeiro nome existe nos pesquisadores
-  const validateFirstName = (fullName: string) => {
-    const firstName = fullName.trim().split(' ')[0]
-    const normalizedFirstName = normalize(firstName)
+  // Função para verificar se o nome foi pré-cadastrado pelo administrador
+  const checkPreRegisteredName = async (fullName: string) => {
+    const { data, error } = await supabase
+      .rpc('find_user_profile_by_name', {
+        _search_name: fullName.trim()
+      })
     
-    // Busca em todos os programas
-    const allResearchers = Object.values(researcherData).flat()
+    if (error) {
+      console.error('Erro ao buscar perfil:', error)
+      return null
+    }
     
-    return allResearchers.some(researcher => {
-      const researcherFirstName = researcher.name.trim().split(' ')[0]
-      const normalizedResearcherName = normalize(researcherFirstName)
-      return normalizedResearcherName === normalizedFirstName
-    })
-  }
-
-  // Função para encontrar a rota do pesquisador baseada no primeiro nome
-  const findResearcherRoute = (fullName: string) => {
-    const firstName = fullName.trim().split(' ')[0]
-    const normalizedFirstName = normalize(firstName)
-    
-    const allResearchers = Object.values(researcherData).flat()
-    
-    const researcher = allResearchers.find(researcher => {
-      const researcherFirstName = researcher.name.trim().split(' ')[0]
-      const normalizedResearcherName = normalize(researcherFirstName)
-      return normalizedResearcherName === normalizedFirstName
-    })
-    
-    return researcher?.route || null
+    return data && data.length > 0 ? data[0] : null
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -88,20 +72,21 @@ export function Registration() {
         setIsLoading(false)
         return
       }
-      // Verifica se já existe usuário com este email ou nome (usando função SQL que bypassa RLS)
-      const { data: duplicateCheck, error: dupCheckError } = await supabase
+
+      // Verificar se o email já está em uso
+      const { data: emailCheck } = await supabase
         .rpc('check_user_profile_duplicates', {
           _email: formData.email,
-          _full_name: formData.fullName
+          _full_name: ''
         })
 
-      if (!dupCheckError && duplicateCheck) {
-        const { email_in_auth, email_exists, name_exists } = duplicateCheck as { email_in_auth: boolean; email_exists: boolean; name_exists: boolean }
+      if (emailCheck) {
+        const { email_in_auth, email_exists } = emailCheck as { email_in_auth: boolean; email_exists: boolean; name_exists: boolean }
         
-        if (email_in_auth || email_exists || name_exists) {
+        if (email_in_auth || email_exists) {
           toast({
-            title: 'Usuário já cadastrado',
-            description: 'Já existe um usuário com este email ou nome completo.',
+            title: 'Email já cadastrado',
+            description: 'Este email já está sendo utilizado.',
             variant: 'destructive'
           })
           setIsLoading(false)
@@ -109,11 +94,31 @@ export function Registration() {
         }
       }
 
-      // Cria conta no Supabase Auth
-      const firstName = formData.fullName.trim().split(' ')[0]
-      // Tenta encontrar rota específica do pesquisador, ou usa rota genérica
-      const researcherRoute = findResearcherRoute(formData.fullName) || 'pesquisador'
+      // Verificar se o nome foi pré-cadastrado pelo administrador
+      const preRegisteredProfile = await checkPreRegisteredName(formData.fullName)
+      
+      if (!preRegisteredProfile) {
+        toast({
+          title: 'Acesso não autorizado',
+          description: 'Seu nome não foi encontrado no sistema. Entre em contato com o administrador para ser adicionado primeiro.',
+          variant: 'destructive'
+        })
+        setIsLoading(false)
+        return
+      }
 
+      // Verificar se o perfil já tem user_id (já foi registrado)
+      if (preRegisteredProfile.user_id) {
+        toast({
+          title: 'Usuário já registrado',
+          description: 'Este pesquisador já completou o registro.',
+          variant: 'destructive'
+        })
+        setIsLoading(false)
+        return
+      }
+
+      // Criar conta no Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
@@ -123,29 +128,43 @@ export function Registration() {
             full_name: formData.fullName,
             institution: 'UFBA',
             phone: formData.phone,
-            researcher_route: researcherRoute
+            researcher_route: preRegisteredProfile.researcher_route || 'pesquisador',
+            profile_id: preRegisteredProfile.id
           }
         }
       })
 
       if (authError) {
-        const msg = (authError as any)?.message || ''
-        if (
-          msg.includes('Usuário já cadastrado') ||
-          msg.includes('duplicate key value') ||
-          msg.toLowerCase().includes('already registered') ||
-          msg.toLowerCase().includes('already exists')
-        ) {
-          toast({
-            title: 'Usuário já cadastrado',
-            description: 'Já existe um usuário com este email ou nome completo.',
-            variant: 'destructive'
-          })
-        } else {
-          throw authError
-        }
+        toast({
+          title: 'Erro no registro',
+          description: authError.message,
+          variant: 'destructive'
+        })
         setIsLoading(false)
         return
+      }
+
+      // Atualizar o perfil pré-cadastrado com os dados do auth
+      if (authData.user) {
+        const { error: updateError } = await supabase
+          .from('user_profiles')
+          .update({
+            user_id: authData.user.id,
+            email: formData.email,
+            phone: formData.phone
+          })
+          .eq('id', preRegisteredProfile.id)
+
+        if (updateError) {
+          console.error('Erro ao atualizar perfil:', updateError)
+          toast({
+            title: 'Erro',
+            description: 'Houve um problema ao completar o registro. Contate o administrador.',
+            variant: 'destructive'
+          })
+          setIsLoading(false)
+          return
+        }
       }
 
       setSuccess(true)
