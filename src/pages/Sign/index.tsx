@@ -119,21 +119,21 @@ export function Sign() {
     
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/sign`,
+        redirectTo: `${window.location.origin}/reset-password`,
       });
 
       if (error) {
         toast({
           title: "Erro",
-          description: "Erro ao enviar email de recuperação. Tente novamente.",
+          description: "Erro ao enviar email de recuperação. Verifique o email digitado.",
           variant: "destructive"
         });
         return;
       }
 
       toast({
-        title: "Email enviado!",
-        description: "Verifique sua caixa de entrada para redefinir sua senha.",
+        title: "Link enviado com sucesso!",
+        description: "Um link para redefinir sua senha foi enviado para o email cadastrado. Verifique sua caixa de entrada.",
       });
       
       setResetEmail('');
@@ -207,9 +207,9 @@ export function Sign() {
                       required
                     />
                   </div>
-                  <Button type="submit" className={styles.resetButton}>
-                    Enviar link de recuperação
-                  </Button>
+              <Button type="submit" className={styles.resetButton}>
+                Enviar link de redefinição
+              </Button>
                 </form>
               </DialogContent>
             </Dialog>

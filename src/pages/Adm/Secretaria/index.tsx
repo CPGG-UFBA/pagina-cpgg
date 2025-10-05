@@ -83,9 +83,8 @@ export function Secretaria() {
     e.preventDefault()
     
     try {
-      // Usar o sistema de reset de senha do Supabase Auth
       const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/adm/secretaria`,
+        redirectTo: `${window.location.origin}/reset-password`,
       })
 
       if (error) {
@@ -98,8 +97,8 @@ export function Secretaria() {
       }
       
       toast({
-        title: "Email enviado!",
-        description: "Instruções para redefinir sua senha foram enviadas para o email cadastrado.",
+        title: "Link enviado com sucesso!",
+        description: "Um link para redefinir sua senha foi enviado para o email cadastrado. Verifique sua caixa de entrada.",
       })
       
       setResetEmail('')
@@ -177,7 +176,7 @@ export function Secretaria() {
                 />
               </div>
               <Button type="submit" className={styles.resetButton}>
-                Enviar senha por email
+                Enviar link de redefinição
               </Button>
             </form>
           </DialogContent>

@@ -51,6 +51,7 @@ import { GmtCodes } from './pages/Recipes/GmtCodes'
 import { Map } from './pages/Map'
 import { Sign } from './pages/Sign'
 import { Login } from './pages/Login'
+import { ResetPassword } from './pages/ResetPassword'
 import { Register } from './pages/Register'
 import { Registration } from './pages/Registration'
 import { Production } from './pages/Production'
@@ -141,8 +142,9 @@ export function Router() {
          <Route path='/recipes/Calendars' element={<Calendars />} />
          <Route path='/recipes/gmt-codes' element={<GmtCodes />} />
          <Route path='/map' element={<Map />} />
-        <Route path='/sign' element={<Sign />} />
+         <Route path='/sign' element={<Sign />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/register' element={<Register />} />
         <Route path='/registration' element={<Registration />} />
         <Route path='/institution' element={<Institution />} />
