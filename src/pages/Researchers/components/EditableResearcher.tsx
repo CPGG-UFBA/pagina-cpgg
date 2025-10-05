@@ -79,17 +79,37 @@ export function EditableResearcher({
     
     setIsSettingChief(true)
     try {
-      // Se for estático, primeiro migra para o banco
+      let targetId = researcherId
+      
+      // Se for estático, verifica se já existe no banco antes de migrar
       if (!isDatabaseResearcher) {
-        await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
-        // Aguarda um momento para o banco atualizar
-        await new Promise(resolve => setTimeout(resolve, 500))
+        // Procura no banco se já existe um pesquisador com esse nome
+        const existingResearcher = dbResearchers.find(
+          (r: any) => r.name.toLowerCase() === (researcher.name || '').toLowerCase() && 
+          r.program === researcher.programKey
+        )
+        
+        if (existingResearcher) {
+          // Já existe no banco, usa o ID existente
+          targetId = existingResearcher.id
+        } else {
+          // Não existe, migra primeiro
+          await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
+          // Aguarda um momento para o banco atualizar
+          await new Promise(resolve => setTimeout(resolve, 500))
+          
+          // Busca o ID do pesquisador recém-criado
+          const newResearcher = dbResearchers.find(
+            (r: any) => r.name.toLowerCase() === editedName.toLowerCase() && 
+            r.program === researcher.programKey
+          )
+          targetId = newResearcher?.id
+        }
       }
       
-      // Depois marca como coordenador
-      const id = isDatabaseResearcher ? researcherId : researcher.id
-      if (id) {
-        await onSetChief(id, researcher.programKey || '')
+      // Marca como coordenador
+      if (targetId) {
+        await onSetChief(targetId, researcher.programKey || '')
       }
     } finally {
       setIsSettingChief(false)
