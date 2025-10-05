@@ -56,12 +56,15 @@ export function UsuariosAdmin() {
   }, [navigate])
 
   const loadUsers = async () => {
+    console.log('🔄 loadUsers chamado')
     try {
       // Load regular users
       const { data: profilesData, error: profilesError } = await supabase
         .rpc('list_all_user_profiles')
 
       if (profilesError) throw profilesError
+      
+      console.log('📊 Usuários carregados de user_profiles:', profilesData?.length || 0)
 
       // Load admin users (secretaria, TI, and coordenacao)
       const { data: adminData, error: adminError } = await supabase
@@ -70,6 +73,8 @@ export function UsuariosAdmin() {
         .in('role', ['secretaria', 'ti', 'coordenacao'])
       
       if (adminError) throw adminError
+      
+      console.log('📊 Admins carregados:', adminData?.length || 0)
 
       // Combine both lists
       const regularUsers = (profilesData || []).map((user: UserProfile) => ({
@@ -88,7 +93,9 @@ export function UsuariosAdmin() {
         role: admin.role
       }))
 
-      setUsers([...regularUsers, ...adminUsers])
+      const allUsers = [...regularUsers, ...adminUsers]
+      console.log('✅ Total de usuários combinados:', allUsers.length)
+      setUsers(allUsers)
     } catch (error: any) {
       console.error('Erro ao carregar usuários:', error)
       toast({
