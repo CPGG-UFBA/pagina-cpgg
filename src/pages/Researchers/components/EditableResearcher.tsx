@@ -99,38 +99,42 @@ export function EditableResearcher({
   return (
     <>
       <nav className="flex items-center gap-2 group">
+        {isDatabaseResearcher && onSetChief && (
+          <Button
+            size="sm"
+            variant={researcher.isChief ? "default" : "outline"}
+            className={`h-8 w-8 p-0 shrink-0 ${
+              researcher.isChief 
+                ? 'bg-yellow-500 hover:bg-yellow-600 text-white border-yellow-600' 
+                : 'bg-background text-foreground border-border hover:bg-muted'
+            }`}
+            onClick={handleSetChief}
+            disabled={isLoading || isSettingChief}
+            title={researcher.isChief ? "Coordenador do programa" : "Marcar como coordenador"}
+          >
+            <Star className={`w-4 h-4 ${researcher.isChief ? 'fill-current' : ''}`} />
+          </Button>
+        )}
         <Input
           value={editedName}
           onChange={(e) => setEditedName(e.target.value)}
           onBlur={handleNameChange}
           onKeyPress={handleKeyPress}
-          className="h-8 text-sm bg-background text-foreground border-border focus:border-ring"
+          className="h-8 text-sm bg-background text-foreground border-border focus:border-ring flex-1"
           disabled={isLoading}
           placeholder="Nome do pesquisador"
         />
-        {isDatabaseResearcher && onSetChief && (
-          <Button
-            size="sm"
-            variant={researcher.isChief ? "default" : "outline"}
-            className="h-8 w-8 p-0"
-            onClick={handleSetChief}
-            disabled={isLoading || isSettingChief}
-            title={researcher.isChief ? "Coordenador do programa" : "Marcar como coordenador"}
-          >
-            <Star className={`w-3 h-3 ${researcher.isChief ? 'fill-current' : ''}`} />
-          </Button>
-        )}
         <Button
           size="sm"
           variant="destructive"
-          className="h-8 w-8 p-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
+          className="h-8 w-8 p-0 shrink-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
           onClick={() => setShowDeleteConfirm(true)}
           disabled={isLoading}
         >
           <Minus className="w-3 h-3" />
         </Button>
         {!isDatabaseResearcher && (
-          <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">(estático)</span>
+          <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded shrink-0">(estático)</span>
         )}
       </nav>
 
