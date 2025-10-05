@@ -754,7 +754,7 @@ export function CoordenacaoDashboard() {
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
               <Users size={24} />
-              <h2>Cadastrar Pesquisador</h2>
+              <h2>Credenciar Pesquisador</h2>
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-name">Nome:</label>
