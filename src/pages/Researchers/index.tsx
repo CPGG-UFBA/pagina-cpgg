@@ -25,6 +25,28 @@ export function Researchers() {
     fetchDbResearchers()
   }, [])
 
+  useEffect(() => {
+    // Garantir que o scroll esteja desbloqueado quando em modo de edição
+    if (isEditMode) {
+      document.body.style.overflow = 'auto'
+      document.body.style.pointerEvents = 'auto'
+      document.documentElement.style.overflow = 'auto'
+      document.documentElement.style.pointerEvents = 'auto'
+      
+      // Remover qualquer atributo de bloqueio de scroll
+      const scrollLocked = document.querySelectorAll('[data-scroll-locked]')
+      scrollLocked.forEach(el => el.removeAttribute('data-scroll-locked'))
+      
+      // Remover spans com position fixed que podem estar bloqueando
+      const fixedSpans = document.querySelectorAll('span[style*="position: fixed"]')
+      fixedSpans.forEach(span => {
+        if (span.getAttribute('style')?.includes('overflow: hidden')) {
+          (span as HTMLElement).style.display = 'none'
+        }
+      })
+    }
+  }, [isEditMode])
+
   const fetchDbResearchers = async () => {
     try {
       const { data, error } = await supabase
@@ -46,6 +68,16 @@ export function Researchers() {
     setIsEditMode(true)
     setAdminCreds({ email, password })
     setShowLogin(false)
+    
+    // Forçar remoção do bloqueio de scroll
+    setTimeout(() => {
+      document.body.style.overflow = 'auto'
+      document.body.style.pointerEvents = 'auto'
+      const scrollLocked = document.querySelector('[data-scroll-locked]')
+      if (scrollLocked) {
+        scrollLocked.removeAttribute('data-scroll-locked')
+      }
+    }, 100)
   }
 
   const handleLogout = () => {
