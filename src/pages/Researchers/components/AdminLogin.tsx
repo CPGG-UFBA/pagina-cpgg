@@ -77,7 +77,7 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={onClose} modal={false}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle>Login Administrativo</DialogTitle>
