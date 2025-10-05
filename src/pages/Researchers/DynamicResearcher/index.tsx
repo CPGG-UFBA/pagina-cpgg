@@ -7,6 +7,7 @@ import { DynamicResearcherProfile } from '../../../components/DynamicResearcherP
 import { ResearcherPhoto } from '../../../components/ResearcherPhoto'
 import { ResearcherEditButton } from '../../../components/ResearcherEditButton'
 import { BackButton } from '../../../components/BackButton'
+import { getResearcherPhoto } from '../../../data/researcher-photos'
 import styles from '../Personal_pages/Landim/Landim.module.css'
 
 interface Researcher {
@@ -83,6 +84,7 @@ export function DynamicResearcher() {
             <DynamicResearcherProfile 
               researcherName={researcher.name}
               staticDescription={researcher.description}
+              staticPhotoUrl={getResearcherPhoto(researcher.name)}
               belowPhoto={<ResearcherEditButton researcherName={researcher.name} inline />}
             />
             <ul>Link para Currículo Lattes</ul>
