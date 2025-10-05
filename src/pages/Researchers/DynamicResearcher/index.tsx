@@ -126,15 +126,22 @@ export function DynamicResearcher() {
                 background: photoUrl 
                   ? `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url('${photoUrl}') center/cover`
                   : '#f5f5f5',
-                minHeight: '300px',
-                border: photoUrl ? 'none' : '2px dashed #d0d0d0',
+                minHeight: '180px',
+                border: photoUrl ? '2px solid rgba(255,255,255,.2)' : '2px dashed #999',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
               }}
             >
               {!photoUrl && (
-                <span style={{ color: '#999', fontSize: '14px', fontStyle: 'italic' }}>
+                <span style={{ 
+                  color: '#666', 
+                  fontSize: '12px', 
+                  fontStyle: 'italic',
+                  textAlign: 'center'
+                }}>
                   Sem foto
                 </span>
               )}
