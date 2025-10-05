@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 import { ResearcherProfileProvider } from './ResearcherProfileContext'
 
@@ -17,7 +17,6 @@ export function DynamicResearcherProfile({
 }: DynamicResearcherProfileProps) {
   const [userProfile, setUserProfile] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const rootRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     fetchUserProfile()
@@ -49,18 +48,6 @@ export function DynamicResearcherProfile({
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
-  useEffect(() => {
-    const root = rootRef.current
-    const parent = root?.parentElement
-    const box2 = parent?.querySelector('[class*="box2"]') as HTMLElement | null
-    if (box2) {
-      if (photoUrl) {
-        box2.style.display = 'none'
-      } else {
-        box2.style.display = ''
-      }
-    }
-  }, [photoUrl])
 
   if (isLoading) {
     return <div>Carregando perfil...</div>
@@ -68,7 +55,7 @@ export function DynamicResearcherProfile({
 
   return (
     <ResearcherProfileProvider value={{ staticDescription }}>
-      <div className="w-full" ref={rootRef}>
+      <>
         {photoUrl && (
           <>
             <div 
@@ -126,10 +113,8 @@ export function DynamicResearcherProfile({
             {belowPhoto}
           </div>
         )}
-        <div className="w-full" style={{ paddingLeft: 0, paddingRight: 0 }}>
-          <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', paddingLeft: 0, paddingRight: 0, margin: 0 }}>{description}</div>
-        </div>
-      </div>
+        <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
+      </>
     </ResearcherProfileProvider>
   )
 }
