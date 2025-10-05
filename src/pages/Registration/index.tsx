@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { supabase } from '@/integrations/supabase/client'
-import { researcherData, normalize } from '../../data/researchers'
 import { useToast } from '@/hooks/use-toast'
 import { HomeButton } from '../../components/HomeButton'
 import { z } from 'zod'
@@ -142,29 +141,6 @@ export function Registration() {
         })
         setIsLoading(false)
         return
-      }
-
-      // Atualizar o perfil pré-cadastrado com os dados do auth
-      if (authData.user) {
-        const { error: updateError } = await supabase
-          .from('user_profiles')
-          .update({
-            user_id: authData.user.id,
-            email: formData.email,
-            phone: formData.phone
-          })
-          .eq('id', preRegisteredProfile.id)
-
-        if (updateError) {
-          console.error('Erro ao atualizar perfil:', updateError)
-          toast({
-            title: 'Erro',
-            description: 'Houve um problema ao completar o registro. Contate o administrador.',
-            variant: 'destructive'
-          })
-          setIsLoading(false)
-          return
-        }
       }
 
       setSuccess(true)
