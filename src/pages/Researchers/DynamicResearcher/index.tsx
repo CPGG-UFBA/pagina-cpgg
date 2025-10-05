@@ -128,7 +128,7 @@ export function DynamicResearcher() {
                   : undefined
               }}
             />
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
               <ResearcherEditButton researcherName={researcher.name} inline />
             </div>
             <ul>Link para Currículo Lattes</ul>
