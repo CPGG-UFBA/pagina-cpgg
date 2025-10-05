@@ -168,6 +168,17 @@
   word-wrap: break-word;
 }
 
+/* Nav containers */
+.Oil nav,
+.Environment nav,
+.Mineral nav,
+.Oceanography nav,
+.Coast nav {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
 /* Links dos Pesquisadores */
 .Oil a,
 .Environment a,
