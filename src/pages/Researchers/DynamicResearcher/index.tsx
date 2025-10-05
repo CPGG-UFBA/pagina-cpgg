@@ -24,6 +24,7 @@ export function DynamicResearcher() {
   const [researcher, setResearcher] = useState<Researcher | null>(null)
   const [loading, setLoading] = useState(true)
   const [canEdit, setCanEdit] = useState(false)
+  const [userEmail, setUserEmail] = useState<string | null>(null)
 
   useEffect(() => {
     if (id) {
@@ -74,6 +75,18 @@ export function DynamicResearcher() {
       if (error) throw error
 
       setResearcher(data)
+
+      // Buscar email do perfil do usuário se existir
+      const firstName = data.name.split(' ')[0].toLowerCase()
+      const { data: userProfile } = await supabase
+        .from('user_profiles')
+        .select('email')
+        .ilike('first_name', firstName)
+        .maybeSingle()
+
+      if (userProfile?.email) {
+        setUserEmail(userProfile.email)
+      }
     } catch (error) {
       console.error('Erro ao buscar pesquisador:', error)
     } finally {
@@ -160,7 +173,7 @@ export function DynamicResearcher() {
               </>
             )}
             <b>e-mail</b>
-            <p>{researcher.email}</p>
+            <p>{userEmail || researcher.email}</p>
           </div>
         </div>
       </div>
