@@ -219,14 +219,25 @@ export function UsuariosAdmin() {
         } else {
           console.log('Deletando perfil sem autenticação (user_id: null)')
           // Apenas perfil de pesquisador sem autenticação - deletar de user_profiles
-          const { error } = await supabase
+          const { error, data } = await supabase
             .from('user_profiles')
             .delete()
             .eq('id', userToDelete.id)
+            .select()
 
-          if (error) throw error
+          console.log('🔍 Resultado da deleção:', { error, data, deleted: data?.length })
 
-          console.log('Deletado com sucesso de user_profiles')
+          if (error) {
+            console.error('❌ ERRO ao deletar:', error)
+            throw error
+          }
+
+          if (!data || data.length === 0) {
+            console.error('⚠️ Nenhuma linha foi deletada! Possível problema de RLS.')
+            throw new Error('Não foi possível deletar o usuário. Verifique as permissões.')
+          }
+
+          console.log('✅ Deletado com sucesso de user_profiles:', data)
           
           // Sempre tentar deletar de researchers também (usando nome como chave)
           console.log('Tentando deletar de researchers com nome:', userToDelete.full_name)
