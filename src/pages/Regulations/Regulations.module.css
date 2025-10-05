@@ -19,16 +19,16 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 50px;
   margin-bottom: 4rem;
   max-height: calc(100vh - 400px);
   overflow-y: auto;
   padding-bottom: 2rem;
-  margin-left: calc(50% - 600px - 250px);
+  margin-left: calc(50% - 400px - 250px);
 }
 
 
