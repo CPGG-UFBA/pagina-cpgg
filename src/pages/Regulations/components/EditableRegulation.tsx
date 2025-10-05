@@ -60,12 +60,13 @@ export function EditableRegulation({
         rel="noopener noreferrer"
         className="block"
       >
-        <div className="p-8 border-radius-12 text-center shadow-md text-white relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-xl bg-cover bg-center" 
-             style={{ 
-               backgroundImage: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg')", 
-               width: '350px', 
-               height: '120px' 
-             }}>
+        <div 
+          className="p-8 text-center shadow-md text-white relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 rounded-xl" 
+          style={{ 
+            width: '350px', 
+            height: '120px',
+            background: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg') center/cover"
+          }}>
           <h2 className="text-lg font-semibold">{regulation.name}</h2>
         </div>
       </a>
@@ -75,12 +76,13 @@ export function EditableRegulation({
   return (
     <>
       <div className="block">
-        <div className="p-8 border-radius-12 text-center shadow-md text-white relative overflow-hidden rounded-xl border-2 border-dashed border-primary bg-cover bg-center" 
-             style={{ 
-               backgroundImage: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg')", 
-               width: '350px', 
-               height: '120px' 
-             }}>
+        <div 
+          className="p-8 text-center shadow-md text-white relative overflow-hidden rounded-xl border-2 border-dashed border-primary" 
+          style={{ 
+            width: '350px', 
+            height: '120px',
+            background: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg') center/cover"
+          }}>
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-lg font-semibold">{regulation.name}</h2>
             <div className="flex gap-2">
