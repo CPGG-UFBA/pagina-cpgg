@@ -139,6 +139,18 @@ export function UsuariosAdmin() {
   const handleDeleteUser = async () => {
     if (!userToDelete) return
 
+    // Impedir secretária de deletar coordenador
+    if (adminUser?.role === 'secretaria' && userToDelete.role === 'coordenacao') {
+      toast({
+        title: 'Ação não permitida',
+        description: 'Secretária não pode remover o coordenador.',
+        variant: 'destructive'
+      })
+      setDeleteDialogOpen(false)
+      setUserToDelete(null)
+      return
+    }
+
     try {
       // Verificar se é admin user (secretaria ou ti)
       if (userToDelete.role === 'secretaria' || userToDelete.role === 'ti') {
@@ -345,6 +357,7 @@ export function UsuariosAdmin() {
                       variant="destructive"
                       size="sm"
                       className={styles.deleteButton}
+                      disabled={adminUser?.role === 'secretaria' && user.role === 'coordenacao'}
                     >
                       <Trash2 size={16} />
                     </Button>
