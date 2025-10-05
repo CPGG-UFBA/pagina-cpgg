@@ -113,24 +113,15 @@ export function DynamicResearcher() {
       <div>
         <div className={styles.Professor}>
           <BackButton />
+          <ResearcherPhoto researcherName={researcher.name} />
           <p>{researcher.name}</p>
           <div className={styles.box1}>
             <DynamicResearcherProfile 
               researcherName={researcher.name}
               staticDescription={researcher.description}
               staticPhotoUrl={photoUrl}
+              belowPhoto={<ResearcherEditButton researcherName={researcher.name} inline />}
             />
-            <div 
-              className={styles.box2}
-              style={{
-                background: photoUrl 
-                  ? `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url('${photoUrl}') center/cover`
-                  : undefined
-              }}
-            />
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
-              <ResearcherEditButton researcherName={researcher.name} inline />
-            </div>
             <ul>Link para Currículo Lattes</ul>
             <nav>
               {researcher.lattes_link && (
@@ -141,6 +132,7 @@ export function DynamicResearcher() {
             </nav>
             <b>e-mail</b>
             <p>{researcher.email}</p>
+            <div className={styles.box2} />
           </div>
         </div>
       </div>
