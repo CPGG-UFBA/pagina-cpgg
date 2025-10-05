@@ -137,11 +137,9 @@ export function DynamicResearcher() {
                   : undefined
               }}
             >
-              {canEdit && (
-                <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)' }}>
-                  <ResearcherEditButton researcherName={researcher.name} inline />
-                </div>
-              )}
+              <div style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)' }}>
+                <ResearcherEditButton researcherName={researcher.name} inline />
+              </div>
             </div>
           </div>
         </div>
