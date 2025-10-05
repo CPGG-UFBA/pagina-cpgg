@@ -97,9 +97,12 @@ export function EditableResearcher({
   if (!isEditMode) {
     return (
       <nav>
-        <Link to={researcher.route}>
-          {researcher.isChief && <Star className="inline w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />}
+        <Link 
+          to={researcher.route}
+          className={researcher.isChief ? "text-yellow-600 dark:text-yellow-400 font-semibold" : ""}
+        >
           {researcher.name}
+          {researcher.isChief && <span className="ml-2 text-sm">(Chefe)</span>}
         </Link>
       </nav>
     )
