@@ -340,8 +340,8 @@ export function UsuariosAdmin() {
                   }}>
                     {user.role === 'secretaria' ? 'Secretária' : 
                      user.role === 'ti' ? 'T.I.' : 
-                     user.role === 'coordenacao' ? 'Coordenação' : 
-                     user.role === 'pesquisador' ? 'Pesquisador' : 'Usuário'}
+                     user.role === 'coordenacao' ? 'Pesquisador' : 
+                     user.role === 'pesquisador' ? 'Pesquisador' : 'Coordenação'}
                   </span>
                 </td>
                 <td>
