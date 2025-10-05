@@ -343,7 +343,7 @@ export type Database = {
         Row: {
           created_at: string
           description: string | null
-          email: string
+          email: string | null
           id: string
           is_chief: boolean
           lattes_link: string | null
@@ -354,7 +354,7 @@ export type Database = {
         Insert: {
           created_at?: string
           description?: string | null
-          email: string
+          email?: string | null
           id?: string
           is_chief?: boolean
           lattes_link?: string | null
@@ -365,7 +365,7 @@ export type Database = {
         Update: {
           created_at?: string
           description?: string | null
-          email?: string
+          email?: string | null
           id?: string
           is_chief?: boolean
           lattes_link?: string | null
