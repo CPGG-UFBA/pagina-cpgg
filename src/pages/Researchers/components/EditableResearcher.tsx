@@ -76,23 +76,24 @@ export function EditableResearcher({
 
   if (!isEditMode) {
     return (
-      <div style={{ 
-        color: 'white', 
-        padding: '8px', 
-        margin: '4px 0',
-        fontSize: '14px',
-        backgroundColor: 'rgba(255, 0, 0, 0.3)'
-      }}>
-        <a 
-          href={researcher.route}
+      <nav style={{ margin: '0.25rem 0' }}>
+        <Link 
+          to={researcher.route}
           style={{
-            color: 'white',
-            textDecoration: 'none'
+            display: 'block',
+            color: researcher.isChief ? '#facc15' : 'rgba(255, 255, 255, 0.95)',
+            fontWeight: researcher.isChief ? '600' : 'normal',
+            fontSize: '0.9rem',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            transition: 'all 0.2s ease'
           }}
         >
           {researcher.name}
-        </a>
-      </div>
+          {researcher.isChief && <span style={{ marginLeft: '0.5rem', fontSize: '0.875rem' }}>(Chefe)</span>}
+        </Link>
+      </nav>
     )
   }
 

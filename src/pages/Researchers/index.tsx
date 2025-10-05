@@ -223,33 +223,18 @@ export function Researchers() {
         <div className={styles.Programs}>
           <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
-            <div className={styles.Oil} style={{ 
-              minHeight: '200px', 
-              overflow: 'visible',
-              backgroundColor: 'rgba(255, 0, 0, 0.3)'
-            }}>
+            <div className={styles.Oil}>
               <h1>{t('researchers.oil')}</h1>
-              <div style={{ 
-                color: 'yellow', 
-                fontSize: '20px', 
-                fontWeight: 'bold',
-                padding: '20px',
-                backgroundColor: 'blue'
-              }}>
-                TESTE VISÍVEL: {getResearchersByProgram('oil').length} pesquisadores encontrados
-              </div>
               {getResearchersByProgram('oil').map((r, index) => (
-                <div key={index} style={{ 
-                  color: 'white', 
-                  padding: '10px', 
-                  backgroundColor: 'green', 
-                  margin: '5px',
-                  fontSize: '16px',
-                  fontWeight: 'bold',
-                  border: '2px solid yellow'
-                }}>
-                  NOME: {r.name}
-                </div>
+                <EditableResearcher 
+                  key={r.route || index}
+                  researcher={r}
+                  isEditMode={isEditMode}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
+                  onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
+                  dbResearchers={dbResearchers}
+                />
               ))}
             </div>
             
