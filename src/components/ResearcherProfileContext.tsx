@@ -2,6 +2,8 @@ import React, { createContext, useContext } from 'react'
 
 interface ResearcherProfileContextValue {
   staticDescription?: string
+  photoUrl?: string
+  belowPhoto?: React.ReactNode
 }
 
 const ResearcherProfileContext = createContext<ResearcherProfileContextValue | undefined>(undefined)
