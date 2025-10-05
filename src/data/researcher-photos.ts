@@ -37,8 +37,6 @@ export const researcherPhotos: Record<string, string> = {
 
   // Programa Coast
   'José Maria Dominguez Landim': 'https://i.imgur.com/uvpyYg7.png',
-  'Marília de Dirceu Machado de Oliveira': 'https://i.imgur.com/uvpyYg7.png',
-  'Ricardo Piazza Meireles': 'https://i.imgur.com/uvpyYg7.png',
   'Ruy Kenji Papa de Kikuchi': 'https://i.imgur.com/8tBcXOz.png',
 }
 
