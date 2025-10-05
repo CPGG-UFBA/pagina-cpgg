@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  margin-left: 300px;
+  margin-left: 400px;
   margin-top: 7rem;
   font-size: 24px;
   color: white;
@@ -28,7 +28,7 @@
   max-height: calc(100vh - 400px);
   overflow-y: auto;
   padding-bottom: 2rem;
-  margin-left: calc(50% - 400px - 250px);
+  margin-left: calc(50% - 400px - 350px);
 }
 
 
@@ -39,7 +39,7 @@
   color: white;
   text-align: center;
   width: 350px;
-  height: 150px;
+  height: 120px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -56,7 +56,7 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 150px;
+  height: 120px;
   margin-left: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
@@ -76,7 +76,7 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 150px;
+  height: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   position: relative;
@@ -95,7 +95,7 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 150px;
+  height: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   position: relative;
