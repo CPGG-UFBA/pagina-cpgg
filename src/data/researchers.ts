@@ -1,7 +1,7 @@
 // Dados dos pesquisadores organizados por programa
 export const researcherData = {
   oil: [
-    { name: 'Milton José Porsani', route: '/researchers/personal/Porsani', chief: true },
+    { name: 'Milton José Porsani (Chefe)', route: '/researchers/personal/Porsani', chief: true },
     { name: 'Alexsandro Guerra Cerqueira', route: '/researchers/personal/Alexsandro' },
     { name: 'Amin Bassrei', route: '/researchers/personal/Amin' },
     { name: 'Ana Virgínia Alves de Santana', route: '/researchers/personal/AnaV' },
@@ -12,7 +12,7 @@ export const researcherData = {
   ],
 
   environment: [
-    { name: 'Alanna Costa Dutra', route: '/researchers/personal/Alanna', chief: true },
+    { name: 'Alanna Costa Dutra (Chefe)', route: '/researchers/personal/Alanna', chief: true },
     { name: 'Alexandre Barreto Costa', route: '/researchers/personal/Alexandre' },
     { name: 'Eduardo Reis Viana Rocha Junior', route: '/researchers/personal/Eduardo' },
     { name: 'Luiz Rogério Bastos Leal', route: '/researchers/personal/LRogerio' },
@@ -22,7 +22,7 @@ export const researcherData = {
   ],
 
   mineral: [
-    { name: 'Edson Emanuel Starteri Sampaio', route: '/researchers/personal/Edson', chief: true },
+    { name: 'Edson Emanuel Starteri Sampaio (Chefe)', route: '/researchers/personal/Edson', chief: true },
     { name: 'Alice Marques Pereira Lau', route: '/researchers/personal/Alice' },
     { name: 'Angela Beatriz de Menezes Leal', route: '/researchers/personal/Angela' },
     { name: 'Carlson de Matos Maia Leite', route: '/researchers/personal/Carlson' },
@@ -35,12 +35,12 @@ export const researcherData = {
   ],
 
   oceanography: [
-    { name: 'Camila Brasil Louro da Silveira', route: '/researchers/personal/Camila', chief: true },
+    { name: 'Camila Brasil Louro da Silveira (Chefe)', route: '/researchers/personal/Camila', chief: true },
     { name: 'Arthur Antonio Machado', route: '/researchers/personal/Arthur' },
   ],
 
   coast: [
-    { name: 'José Maria Dominguez Landim', route: '/researchers/personal/Landim', chief: true },
+    { name: 'José Maria Dominguez Landim (Chefe)', route: '/researchers/personal/Landim', chief: true },
     { name: 'Marília de Dirceu Machado de Oliveira', route: '/researchers/personal/Marilia' },
     { name: 'Ricardo Piazza Meireles', route: '/researchers/personal/RicardoM' },
     { name: 'Ruy Kenji Papa de Kikuchi', route: '/researchers/personal/Ruy' },

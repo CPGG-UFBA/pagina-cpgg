@@ -75,42 +75,11 @@ export function EditableResearcher({
   }
 
   const handleSetChief = async () => {
-    if (!onSetChief) return
+    if (!isDatabaseResearcher || !researcherId || !onSetChief) return
     
     setIsSettingChief(true)
     try {
-      let targetId = researcherId
-      
-      // Se for estático, verifica se já existe no banco antes de migrar
-      if (!isDatabaseResearcher) {
-        // Procura no banco se já existe um pesquisador com esse nome
-        const existingResearcher = dbResearchers.find(
-          (r: any) => r.name.toLowerCase() === (researcher.name || '').toLowerCase() && 
-          r.program === researcher.programKey
-        )
-        
-        if (existingResearcher) {
-          // Já existe no banco, usa o ID existente
-          targetId = existingResearcher.id
-        } else {
-          // Não existe, migra primeiro
-          await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
-          // Aguarda um momento para o banco atualizar
-          await new Promise(resolve => setTimeout(resolve, 500))
-          
-          // Busca o ID do pesquisador recém-criado
-          const newResearcher = dbResearchers.find(
-            (r: any) => r.name.toLowerCase() === editedName.toLowerCase() && 
-            r.program === researcher.programKey
-          )
-          targetId = newResearcher?.id
-        }
-      }
-      
-      // Marca como coordenador
-      if (targetId) {
-        await onSetChief(targetId, researcher.programKey || '')
-      }
+      await onSetChief(researcherId, researcher.programKey || '')
     } finally {
       setIsSettingChief(false)
     }
@@ -119,12 +88,9 @@ export function EditableResearcher({
   if (!isEditMode) {
     return (
       <nav>
-        <Link 
-          to={researcher.route}
-          className={researcher.isChief ? 'text-yellow-600 dark:text-yellow-400 font-semibold' : ''}
-        >
+        <Link to={researcher.route}>
+          {researcher.isChief && <Star className="inline w-4 h-4 mr-1 fill-yellow-400 text-yellow-400" />}
           {researcher.name}
-          {researcher.isChief && <span className="ml-1">(Chefe)</span>}
         </Link>
       </nav>
     )
@@ -133,7 +99,7 @@ export function EditableResearcher({
   return (
     <>
       <nav className="flex items-center gap-2 group">
-        {onSetChief && (
+        {isDatabaseResearcher && onSetChief && (
           <Button
             size="sm"
             variant={researcher.isChief ? "default" : "outline"}
