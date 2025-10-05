@@ -1,5 +1,8 @@
 project_id = "kbxdwrvxrnfkqvpselwz"
 
+[functions.send-custom-email]
+verify_jwt = false
+
 [functions.send-reservation-email]
 verify_jwt = false
 
