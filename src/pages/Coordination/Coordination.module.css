@@ -4,7 +4,7 @@
   min-height: calc(100vh - 200px);
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 100px auto 0 auto;
   position: relative;
   z-index: 1;
 }
