@@ -83,8 +83,7 @@ export function UsuariosAdmin() {
         id: admin.id,
         full_name: admin.email.split('@')[0],
         email: admin.email,
-        institution: admin.role === 'coordenacao' ? 'Coordenação' : 
-                     admin.role === 'secretaria' ? 'Secretaria' : 'T.I.',
+        institution: 'UFBA',
         phone: '-',
         user_id: admin.id,
         researcher_route: null,
