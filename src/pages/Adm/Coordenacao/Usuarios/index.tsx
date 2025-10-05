@@ -170,22 +170,36 @@ export function UsuariosAdmin() {
           description: `${userToDelete.full_name} foi removido com sucesso.`,
         })
       } else {
-        // Usar função SQL para deletar do banco e auth (usuários normais)
-        const { data, error } = await supabase
-          .rpc('delete_user_complete', {
-            _user_profile_id: userToDelete.id
-          })
+        // Verificar se tem user_id (usuário autenticado) ou não (apenas perfil de pesquisador)
+        if (userToDelete.user_id) {
+          // Usuário autenticado - deletar do banco e auth
+          const { data, error } = await supabase
+            .rpc('delete_user_complete', {
+              _user_profile_id: userToDelete.id
+            })
 
-        if (error) throw error
+          if (error) throw error
 
-        const result = data as { success: boolean; error?: string; message?: string }
-        
-        if (!result.success) {
-          throw new Error(result.error || 'Erro ao deletar usuário')
+          const result = data as { success: boolean; error?: string; message?: string }
+          
+          if (!result.success) {
+            throw new Error(result.error || 'Erro ao deletar usuário')
+          }
+
+          // Adicionar à lista de deletados para possível desfazer
+          setDeletedUsers(prev => [...prev, userToDelete])
+        } else {
+          // Apenas perfil de pesquisador sem autenticação - deletar apenas de user_profiles
+          const { error } = await supabase
+            .from('user_profiles')
+            .delete()
+            .eq('id', userToDelete.id)
+
+          if (error) throw error
+
+          // Adicionar à lista de deletados para possível desfazer
+          setDeletedUsers(prev => [...prev, userToDelete])
         }
-
-        // Adicionar à lista de deletados para possível desfazer
-        setDeletedUsers(prev => [...prev, userToDelete])
 
         // Remover da lista atual
         setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
