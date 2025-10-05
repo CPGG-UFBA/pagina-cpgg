@@ -27,7 +27,6 @@ export function ResearchProjects() {
   const [isLoading, setIsLoading] = useState(true)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [showLoginDialog, setShowLoginDialog] = useState(false)
-  const [loginLoading, setLoginLoading] = useState(false)
   const { toast } = useToast()
 
   useEffect(() => {
@@ -56,43 +55,14 @@ export function ResearchProjects() {
     }
   }
 
-  const handleLogin = async (email: string, password: string) => {
-    setLoginLoading(true)
-    try {
-      const { data, error } = await supabase
-        .from('admin_users')
-        .select('*')
-        .eq('email', email)
-        .eq('password', password)
-        .in('role', ['secretaria', 'coordenacao'])
-        .single()
-
-      if (error || !data) {
-        toast({
-          title: "Erro de autenticação",
-          description: "Email ou senha incorretos, ou usuário sem permissão.",
-          variant: "destructive"
-        })
-        return
-      }
-
-      setIsAuthenticated(true)
-      setShowLoginDialog(false)
-      localStorage.setItem('researchProjectsAuth', 'true')
-      toast({
-        title: "Login realizado com sucesso",
-        description: "Agora você pode gerenciar os projetos de pesquisa."
-      })
-    } catch (error) {
-      console.error('Erro no login:', error)
-      toast({
-        title: "Erro",
-        description: "Erro interno do servidor.",
-        variant: "destructive"
-      })
-    } finally {
-      setLoginLoading(false)
-    }
+  const handleLogin = () => {
+    setIsAuthenticated(true)
+    setShowLoginDialog(false)
+    localStorage.setItem('researchProjectsAuth', 'true')
+    toast({
+      title: "Login realizado com sucesso",
+      description: "Agora você pode gerenciar os projetos de pesquisa."
+    })
   }
 
   const handleLogout = () => {
@@ -189,7 +159,6 @@ export function ResearchProjects() {
           isOpen={showLoginDialog}
           onClose={() => setShowLoginDialog(false)}
           onLogin={handleLogin}
-          isLoading={loginLoading}
         />
       </div>
       <Footer />
