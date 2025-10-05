@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 import { ResearcherProfileProvider } from './ResearcherProfileContext'
 
@@ -17,6 +17,7 @@ export function DynamicResearcherProfile({
 }: DynamicResearcherProfileProps) {
   const [userProfile, setUserProfile] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     fetchUserProfile()
@@ -48,6 +49,20 @@ export function DynamicResearcherProfile({
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
+  // Hide box2 if we have a custom photo
+  useEffect(() => {
+    if (!containerRef.current) return
+    
+    const box1 = containerRef.current.closest('[class*="box1"]')
+    if (!box1) return
+    
+    const box2 = box1.parentElement?.querySelector('[class*="box2"]') as HTMLElement
+    if (box2 && photoUrl) {
+      box2.style.display = 'none'
+    } else if (box2 && !photoUrl) {
+      box2.style.display = ''
+    }
+  }, [photoUrl])
 
   if (isLoading) {
     return <div>Carregando perfil...</div>
@@ -55,24 +70,26 @@ export function DynamicResearcherProfile({
 
   return (
     <ResearcherProfileProvider value={{ staticDescription }}>
-      <>
+      <div ref={containerRef} style={{ position: 'relative' }}>
         {photoUrl && (
           <>
             <div 
-              className="absolute"
               style={{
+                position: 'absolute',
                 width: '180px',
                 height: '180px',
-                top: '3%', 
-                left: '2%',
+                top: '-90px',
+                left: '-210px',
                 zIndex: 10
               }}
             >
               <img 
                 src={photoUrl} 
                 alt={`Foto de ${researcherName}`}
-                className="w-full h-full object-cover rounded-lg shadow-md"
                 style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
                   border: '2px solid rgba(255,255,255,.2)',
                   borderRadius: '20px',
                   padding: '10px',
@@ -83,11 +100,11 @@ export function DynamicResearcherProfile({
             </div>
             {belowPhoto && (
               <div 
-                className="absolute"
                 style={{
+                  position: 'absolute',
                   width: '180px',
-                  top: 'calc(3% + 190px)', 
-                  left: '2%',
+                  top: '100px',
+                  left: '-210px',
                   zIndex: 10,
                   display: 'flex',
                   justifyContent: 'center'
@@ -100,11 +117,11 @@ export function DynamicResearcherProfile({
         )}
         {!photoUrl && belowPhoto && (
           <div 
-            className="absolute"
             style={{
+              position: 'absolute',
               width: '180px',
-              top: 'calc(3% + 190px)', 
-              left: '2%',
+              top: '100px',
+              left: '-210px',
               zIndex: 10,
               display: 'flex',
               justifyContent: 'center'
@@ -113,8 +130,16 @@ export function DynamicResearcherProfile({
             {belowPhoto}
           </div>
         )}
-        <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
-      </>
+        <p style={{ 
+          whiteSpace: 'pre-line',
+          textAlign: 'justify',
+          lineHeight: '35px',
+          margin: 0,
+          padding: 0
+        }}>
+          {description}
+        </p>
+      </div>
     </ResearcherProfileProvider>
   )
 }
