@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 import { ResearcherProfileProvider } from './ResearcherProfileContext'
 
@@ -17,7 +17,6 @@ export function DynamicResearcherProfile({
 }: DynamicResearcherProfileProps) {
   const [userProfile, setUserProfile] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
-  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     fetchUserProfile()
@@ -51,16 +50,17 @@ export function DynamicResearcherProfile({
 
   // Hide box2 if we have a custom photo
   useEffect(() => {
-    if (!containerRef.current) return
-    
-    const box1 = containerRef.current.closest('[class*="box1"]')
-    if (!box1) return
-    
-    const box2 = box1.parentElement?.querySelector('[class*="box2"]') as HTMLElement
-    if (box2 && photoUrl) {
-      box2.style.display = 'none'
-    } else if (box2 && !photoUrl) {
-      box2.style.display = ''
+    if (photoUrl) {
+      // Find the box2 sibling
+      const boxes = document.querySelectorAll('[class*="box2"]')
+      boxes.forEach(box => {
+        const htmlBox = box as HTMLElement
+        const parent = htmlBox.parentElement
+        const box1 = parent?.querySelector('[class*="box1"]')
+        if (box1 && box1.querySelector('[data-researcher-profile]')) {
+          htmlBox.style.display = 'none'
+        }
+      })
     }
   }, [photoUrl])
 
@@ -70,7 +70,7 @@ export function DynamicResearcherProfile({
 
   return (
     <ResearcherProfileProvider value={{ staticDescription }}>
-      <div ref={containerRef} style={{ position: 'relative' }}>
+      <div data-researcher-profile>
         {photoUrl && (
           <>
             <div 
@@ -78,8 +78,12 @@ export function DynamicResearcherProfile({
                 position: 'absolute',
                 width: '180px',
                 height: '180px',
-                top: '-90px',
-                left: '-210px',
+                top: '3%',
+                left: '2%',
+                border: '2px solid rgba(255,255,255,.2)',
+                borderRadius: '20px',
+                padding: '10px',
+                backgroundColor: 'rgba(255,255,255, 0.2)',
                 zIndex: 10
               }}
             >
@@ -90,10 +94,7 @@ export function DynamicResearcherProfile({
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  border: '2px solid rgba(255,255,255,.2)',
-                  borderRadius: '20px',
-                  padding: '10px',
-                  backgroundColor: 'rgba(255,255,255, 0.2)'
+                  borderRadius: '10px'
                 }}
                 loading="lazy"
               />
@@ -103,11 +104,11 @@ export function DynamicResearcherProfile({
                 style={{
                   position: 'absolute',
                   width: '180px',
-                  top: '100px',
-                  left: '-210px',
-                  zIndex: 10,
+                  top: 'calc(3% + 200px)',
+                  left: '2%',
                   display: 'flex',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  zIndex: 10
                 }}
               >
                 {belowPhoto}
@@ -120,11 +121,11 @@ export function DynamicResearcherProfile({
             style={{
               position: 'absolute',
               width: '180px',
-              top: '100px',
-              left: '-210px',
-              zIndex: 10,
+              top: 'calc(3% + 200px)',
+              left: '2%',
               display: 'flex',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              zIndex: 10
             }}
           >
             {belowPhoto}
@@ -134,8 +135,7 @@ export function DynamicResearcherProfile({
           whiteSpace: 'pre-line',
           textAlign: 'justify',
           lineHeight: '35px',
-          margin: 0,
-          padding: 0
+          margin: 0
         }}>
           {description}
         </p>
