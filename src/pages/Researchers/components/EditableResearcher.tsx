@@ -79,7 +79,7 @@ export function EditableResearcher({
       <nav>
         <Link 
           to={researcher.route}
-          className={researcher.isChief ? "text-yellow-600 dark:text-yellow-400 font-semibold" : "text-foreground hover:text-foreground/80"}
+          className={researcher.isChief ? "text-yellow-400 font-semibold" : ""}
         >
           {researcher.name}
           {researcher.isChief && <span className="ml-2 text-sm">(Chefe)</span>}
