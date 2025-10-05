@@ -49,7 +49,7 @@ export function DynamicResearcherProfile({
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
   if (isLoading) {
-    return <p>Carregando perfil...</p>
+    return <div>Carregando perfil...</div>
   }
 
   return (
@@ -115,7 +115,9 @@ export function DynamicResearcherProfile({
             {belowPhoto}
           </div>
         )}
-        <p>{description}</p>
+        <div style={{ fontSize: '16px' }}>
+          {description}
+        </div>
       </>
     </ResearcherProfileProvider>
   )
