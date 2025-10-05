@@ -223,11 +223,32 @@ export function Researchers() {
         <div className={styles.Programs}>
           <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
-            <div className={styles.Oil}>
+            <div className={styles.Oil} style={{ 
+              minHeight: '200px', 
+              overflow: 'visible',
+              backgroundColor: 'rgba(255, 0, 0, 0.3)'
+            }}>
               <h1>{t('researchers.oil')}</h1>
+              <div style={{ 
+                color: 'yellow', 
+                fontSize: '20px', 
+                fontWeight: 'bold',
+                padding: '20px',
+                backgroundColor: 'blue'
+              }}>
+                TESTE VISÍVEL: {getResearchersByProgram('oil').length} pesquisadores encontrados
+              </div>
               {getResearchersByProgram('oil').map((r, index) => (
-                <div key={index} style={{ color: 'white', padding: '5px', backgroundColor: 'green', margin: '2px' }}>
-                  {r.name} - EditMode: {isEditMode.toString()}
+                <div key={index} style={{ 
+                  color: 'white', 
+                  padding: '10px', 
+                  backgroundColor: 'green', 
+                  margin: '5px',
+                  fontSize: '16px',
+                  fontWeight: 'bold',
+                  border: '2px solid yellow'
+                }}>
+                  NOME: {r.name}
                 </div>
               ))}
             </div>
