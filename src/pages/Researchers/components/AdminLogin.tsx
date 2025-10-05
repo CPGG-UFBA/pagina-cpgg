@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { supabase } from '@/integrations/supabase/client'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
+import { X } from 'lucide-react'
 
 interface AdminLoginProps {
   isOpen: boolean
@@ -17,6 +17,8 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
+
+  if (!isOpen) return null
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -77,45 +79,110 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose} modal={false}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>Login Administrativo</DialogTitle>
-        </DialogHeader>
+    <div 
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999,
+        padding: '1rem'
+      }}
+      onClick={onClose}
+    >
+      <div 
+        style={{
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          padding: '2rem',
+          maxWidth: '28rem',
+          width: '100%',
+          position: 'relative',
+          boxShadow: '0 10px 40px rgba(0, 0, 0, 0.2)'
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            right: '1rem',
+            top: '1rem',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '4px',
+            opacity: 0.7,
+            transition: 'opacity 0.2s'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
+        >
+          <X size={20} color="#000" />
+        </button>
+
+        <h2 style={{ 
+          fontSize: '1.5rem', 
+          fontWeight: 'bold', 
+          marginBottom: '1.5rem',
+          color: '#000'
+        }}>
+          Login Administrativo
+        </h2>
         
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <Label htmlFor="email" style={{ color: '#000' }}>Email</Label>
             <Input
               id="email"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              style={{ color: '#000' }}
             />
           </div>
           
-          <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <Label htmlFor="password" style={{ color: '#000' }}>Senha</Label>
             <Input
               id="password"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              style={{ color: '#000' }}
             />
           </div>
           
-          <div className="flex gap-2 pt-2">
-            <Button type="button" variant="outline" onClick={onClose} className="flex-1 bg-background text-foreground border-border hover:bg-muted">
+          <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.5rem' }}>
+            <Button 
+              type="button" 
+              variant="outline" 
+              onClick={onClose} 
+              style={{ flex: 1 }}
+            >
               Cancelar
             </Button>
-            <Button type="submit" disabled={loading} className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
+            <Button 
+              type="submit" 
+              disabled={loading} 
+              style={{ flex: 1 }}
+            >
               {loading ? 'Entrando...' : 'Entrar'}
             </Button>
           </div>
         </form>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   )
 }
