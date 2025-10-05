@@ -1,0 +1,124 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+.labsTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.labsTable thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.labsTable th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: white;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.labsTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+  color: #333;
+}
+
+.labsTable tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+.editInput {
+  width: 100%;
+  min-width: 150px;
+}
+
+.saveButton {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.saveButton:hover {
+  opacity: 0.9;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 1.2rem;
+  }
+
+  .tableContainer {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .labsTable {
+    font-size: 0.875rem;
+  }
+
+  .labsTable th,
+  .labsTable td {
+    padding: 0.75rem 0.5rem;
+  }
+}

@@ -1060,6 +1060,22 @@ export function CoordenacaoDashboard() {
 
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
+              <FlaskConical size={24} />
+              <h2>Gerenciar Laboratórios</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <p>Edite informações dos laboratórios cadastrados</p>
+            </div>
+            <Button
+              onClick={() => navigate('/adm/coordenacao/laboratorios')}
+              className={styles.submitButton}
+            >
+              Gerenciar Laboratórios
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
               <Image size={24} />
               <h2>Cadastrar Fotos de Eventos</h2>
             </div>
