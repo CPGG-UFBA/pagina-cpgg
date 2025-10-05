@@ -69,30 +69,32 @@ export function Spaces() {
             </div>
           </a>
 
-          {/* Cards dinâmicos de laboratórios */}
+          {/* Cards dinâmicos de laboratórios - excluindo LAIGA */}
           {loading ? (
             <div className={styles.loadingMessage}>Carregando laboratórios...</div>
           ) : (
-            laboratories.map((lab) => (
-              <div 
-                key={lab.id} 
-                className={styles.card}
-                onClick={() => handleLabClick(lab.acronym)}
-                style={{ cursor: 'pointer' }}
-              >
+            laboratories
+              .filter((lab) => lab.acronym.toUpperCase() !== 'LAIGA')
+              .map((lab) => (
                 <div 
-                  className={styles.laboratory}
-                  style={{
-                    backgroundImage: lab.photo1_url 
-                      ? `linear-gradient(135deg, rgba(2,0,36,0.75), rgba(9,94,121,0.75)), url(${lab.photo1_url})`
-                      : 'linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85))'
-                  }}
+                  key={lab.id} 
+                  className={styles.card}
+                  onClick={() => handleLabClick(lab.acronym)}
+                  style={{ cursor: 'pointer' }}
                 >
-                  <h2>{lab.acronym}</h2>
-                  <p className={styles.labName}>{lab.name}</p>
+                  <div 
+                    className={styles.laboratory}
+                    style={{
+                      backgroundImage: lab.photo1_url 
+                        ? `linear-gradient(135deg, rgba(2,0,36,0.75), rgba(9,94,121,0.75)), url(${lab.photo1_url})`
+                        : 'linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85))'
+                    }}
+                  >
+                    <h2>{lab.acronym}</h2>
+                    <p className={styles.labName}>{lab.name}</p>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))
           )}
         </div>
       </main>
