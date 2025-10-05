@@ -207,8 +207,14 @@ export function CoordenacaoDashboard() {
 
       if (researcherError) throw researcherError
 
-      // Also insert into user_profiles table
+      // Also insert into user_profiles table with researcher_route
       const firstName = researcherName.split(' ')[0]
+      // Gerar researcher_route baseado no nome (formato: primeiro-ultimo-nome)
+      const nameParts = researcherName.toLowerCase().split(' ')
+      const researcherRoute = nameParts.length > 1 
+        ? `/pesquisadores/${nameParts[0]}-${nameParts[nameParts.length - 1]}`
+        : `/pesquisadores/${nameParts[0]}`
+      
       const { error: profileError } = await supabase
         .from('user_profiles')
         .insert({
@@ -217,7 +223,7 @@ export function CoordenacaoDashboard() {
           institution: researcherInstitution,
           phone: '(00) 00000-0000',
           first_name: firstName,
-          researcher_route: null,
+          researcher_route: researcherRoute,
         })
 
       if (profileError) {
