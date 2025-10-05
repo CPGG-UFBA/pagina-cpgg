@@ -125,9 +125,20 @@ export function DynamicResearcher() {
               style={{
                 background: photoUrl 
                   ? `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url('${photoUrl}') center/cover`
-                  : undefined
+                  : '#f5f5f5',
+                minHeight: '300px',
+                border: photoUrl ? 'none' : '2px dashed #d0d0d0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
-            />
+            >
+              {!photoUrl && (
+                <span style={{ color: '#999', fontSize: '14px', fontStyle: 'italic' }}>
+                  Sem foto
+                </span>
+              )}
+            </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
               <ResearcherEditButton researcherName={researcher.name} inline />
             </div>
