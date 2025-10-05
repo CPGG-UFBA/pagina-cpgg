@@ -560,6 +560,10 @@ export type Database = {
         Args: { _user_profile_id: string }
         Returns: Json
       }
+      delete_user_profile: {
+        Args: { _profile_id: string }
+        Returns: Json
+      }
       find_user_profile_by_name: {
         Args: { _search_name: string }
         Returns: {
