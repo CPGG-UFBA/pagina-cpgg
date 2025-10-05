@@ -143,6 +143,12 @@ export function Registration() {
         return
       }
 
+      toast({
+        title: 'Cadastro realizado!',
+        description: 'Um email de confirmação foi enviado para ' + formData.email + '. Por favor, confirme seu email para poder fazer login e editar suas informações.',
+        duration: 8000,
+      })
+      
       setSuccess(true)
     } catch (error: any) {
       toast({
@@ -173,9 +179,16 @@ export function Registration() {
           <div className={styles.successBox}>
             <h1>Registration</h1>
             <div className={styles.successMessage}>
-              <h2>Registro completado com sucesso!</h2>
-              <p>Acesse seu email para completar o registro</p>
-              <p>Retorne para a página de Login</p>
+              <h2>Cadastro realizado com sucesso!</h2>
+              <p style={{ fontSize: '16px', marginBottom: '15px' }}>
+                <strong>Um email de confirmação foi enviado para o endereço cadastrado.</strong>
+              </p>
+              <p style={{ marginBottom: '10px' }}>
+                Por favor, verifique sua caixa de entrada (e também a pasta de spam) e clique no link de confirmação.
+              </p>
+              <p style={{ marginBottom: '20px', color: '#666' }}>
+                Após confirmar seu email, você poderá fazer login e editar suas informações pessoais na plataforma.
+              </p>
               <button 
                 onClick={() => { window.location.href = '/sign' }}
                 className={styles.backButton}
