@@ -51,7 +51,6 @@ export function PesquisadoresAdmin() {
   const [researcherToDelete, setResearcherToDelete] = useState<Researcher | null>(null)
   const [editingId, setEditingId] = useState<string | null>(null)
   const [editName, setEditName] = useState('')
-  const [editEmail, setEditEmail] = useState('')
   const [editProgram, setEditProgram] = useState('')
   const { toast } = useToast()
   const navigate = useNavigate()
@@ -180,7 +179,6 @@ export function PesquisadoresAdmin() {
   const handleEdit = (researcher: Researcher) => {
     setEditingId(researcher.id)
     setEditName(researcher.name)
-    setEditEmail(researcher.email)
     setEditProgram(researcher.program)
   }
 
@@ -190,7 +188,6 @@ export function PesquisadoresAdmin() {
         .from('researchers')
         .update({
           name: editName,
-          email: editEmail,
           program: editProgram
         })
         .eq('id', id)
@@ -306,12 +303,6 @@ export function PesquisadoresAdmin() {
                               placeholder="Nome"
                               className={styles.editInput}
                             />
-                            <Input
-                              value={editEmail}
-                              onChange={(e) => setEditEmail(e.target.value)}
-                              placeholder="Email"
-                              className={styles.editInput}
-                            />
                             <Select value={editProgram} onValueChange={setEditProgram}>
                               <SelectTrigger className={styles.editSelect}>
                                 <SelectValue />
@@ -343,7 +334,6 @@ export function PesquisadoresAdmin() {
                                 <strong>{researcher.name}</strong>
                                 {researcher.is_chief && <span className={styles.chiefBadge}>(Chefe)</span>}
                               </div>
-                              <div className={styles.researcherEmail}>{researcher.email}</div>
                             </div>
                             <div className={styles.researcherActions}>
                               <Button
