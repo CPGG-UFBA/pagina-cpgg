@@ -28,6 +28,7 @@ export function EditableResearcher({
   onSetChief,
   dbResearchers 
 }: EditableResearcherProps) {
+  console.log('EditableResearcher render:', { name: researcher.name, route: researcher.route, isEditMode })
   const [editedName, setEditedName] = useState(researcher.name)
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)

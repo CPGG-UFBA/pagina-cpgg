@@ -207,6 +207,8 @@ export function Researchers() {
         programKey: programKey
       }))
 
+    console.log(`[${programKey}] Total researchers:`, programResearchers.length, programResearchers)
+
     // Ordenar alfabeticamente, mantendo chefe primeiro se existir
     const chief = programResearchers.find(r => r.chief)
     const rest = programResearchers
