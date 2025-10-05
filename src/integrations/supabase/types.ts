@@ -534,6 +534,10 @@ export type Database = {
         Args: { _email: string; _full_name: string }
         Returns: Json
       }
+      create_admin_user: {
+        Args: { _email: string; _password: string; _role?: string }
+        Returns: Json
+      }
       delete_user_complete: {
         Args: { _user_profile_id: string }
         Returns: Json
