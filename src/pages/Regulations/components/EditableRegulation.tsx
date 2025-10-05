@@ -3,6 +3,7 @@ import { Minus, Edit, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
+import lawsImage from '@/components/Figures/laws.jpg'
 
 interface EditableRegulationProps {
   regulation: {
@@ -65,7 +66,7 @@ export function EditableRegulation({
           style={{ 
             width: '350px', 
             height: '120px',
-            background: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg') center/cover"
+            background: `linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url(${lawsImage}) center/cover`
           }}>
           <h2 className="text-lg font-semibold">{regulation.name}</h2>
         </div>
@@ -81,7 +82,7 @@ export function EditableRegulation({
           style={{ 
             width: '350px', 
             height: '120px',
-            background: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg') center/cover"
+            background: `linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url(${lawsImage}) center/cover`
           }}>
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-lg font-semibold">{regulation.name}</h2>
