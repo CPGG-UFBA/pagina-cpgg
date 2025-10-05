@@ -646,6 +646,15 @@ export function CoordenacaoDashboard() {
           </Button>
           
           <Button
+            onClick={() => navigate('/adm/coordenacao/pesquisadores')}
+            className={styles.actionButton}
+            variant="outline"
+          >
+            <UserCheck className="w-5 h-5 mr-2" />
+            Gerenciar Pesquisadores
+          </Button>
+          
+          <Button
             onClick={() => navigate('/adm/coordenacao/laboratorios')}
             className={styles.actionButton}
             variant="outline"

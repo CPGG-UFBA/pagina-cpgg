@@ -89,6 +89,7 @@ import { Secretaria } from './pages/Adm/Secretaria'
 import { Coordenacao } from './pages/Adm/Coordenacao'
 import { CoordenacaoDashboard } from './pages/Adm/Coordenacao/Dashboard'
 import { UsuariosAdmin } from './pages/Adm/Coordenacao/Usuarios'
+import { PesquisadoresAdmin } from './pages/Adm/Coordenacao/Pesquisadores'
 import { LaboratoriosAdmin } from './pages/Adm/Coordenacao/Laboratorios'
 import { ReservasAdmin } from './pages/Adm/Coordenacao/Reservas'
 import { EquipamentosLaiga } from './pages/Adm/Coordenacao/EquipamentosLaiga'
@@ -187,6 +188,7 @@ export function Router() {
          <Route path='/adm/coordenacao' element={<Coordenacao />} />
          <Route path='/adm/coordenacao/dashboard' element={<CoordenacaoDashboard />} />
          <Route path='/adm/coordenacao/usuarios' element={<UsuariosAdmin />} />
+         <Route path='/adm/coordenacao/pesquisadores' element={<PesquisadoresAdmin />} />
          <Route path='/adm/coordenacao/laboratorios' element={<LaboratoriosAdmin />} />
          <Route path='/adm/coordenacao/reservas' element={<ReservasAdmin />} />
          <Route path='/adm/coordenacao/equipamentos-laiga' element={<EquipamentosLaiga />} />
