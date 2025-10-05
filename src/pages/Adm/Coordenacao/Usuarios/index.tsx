@@ -68,7 +68,7 @@ export function UsuariosAdmin() {
       // Load admin users (secretaria, TI, and coordenacao)
       const { data: adminData, error: adminError } = await supabase
         .from('admin_users')
-        .select('id, email, role')
+        .select('id, email, role, full_name')
         .in('role', ['secretaria', 'ti', 'coordenacao'])
       
       if (adminError) throw adminError
@@ -81,7 +81,7 @@ export function UsuariosAdmin() {
 
       const adminUsers = (adminData || []).map((admin: any) => ({
         id: admin.id,
-        full_name: admin.email.split('@')[0],
+        full_name: admin.full_name || admin.email.split('@')[0],
         email: admin.email,
         institution: 'UFBA',
         phone: '-',
