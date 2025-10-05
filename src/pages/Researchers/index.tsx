@@ -1,6 +1,5 @@
 import styles from './Researchers.module.css'
 import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
@@ -399,7 +398,6 @@ export function Researchers() {
           onLogin={handleLogin}
         />
       </div>
-      <Footer />
     </div>
   )
 }
