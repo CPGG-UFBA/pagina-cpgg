@@ -345,23 +345,15 @@ export function UsuariosAdmin() {
                   </span>
                 </td>
                 <td>
-                  <div className="flex items-center gap-2">
-                    {(user.role === 'usuario' || user.role === 'pesquisador') && (
-                      <LabChiefSelector 
-                        userId={user.id} 
-                        userName={user.full_name} 
-                      />
-                    )}
-                    <Button
-                      onClick={() => openDeleteDialog(user)}
-                      variant="destructive"
-                      size="sm"
-                      className={styles.deleteButton}
-                      disabled={adminUser?.role === 'secretaria' && user.role === 'coordenacao'}
-                    >
-                      <Trash2 size={16} />
-                    </Button>
-                  </div>
+                  <Button
+                    onClick={() => openDeleteDialog(user)}
+                    variant="destructive"
+                    size="sm"
+                    className={styles.deleteButton}
+                    disabled={adminUser?.role === 'secretaria' && user.role === 'coordenacao'}
+                  >
+                    <Trash2 size={16} />
+                  </Button>
                 </td>
               </tr>
             ))}
