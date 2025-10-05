@@ -195,7 +195,8 @@ export function CoordenacaoDashboard() {
     setIsLoading(true)
 
     try {
-      const { error } = await supabase
+      // Insert into researchers table
+      const { error: researcherError } = await supabase
         .from('researchers')
         .insert({
           name: researcherName,
@@ -204,7 +205,25 @@ export function CoordenacaoDashboard() {
           institution: researcherInstitution,
         })
 
-      if (error) throw error
+      if (researcherError) throw researcherError
+
+      // Also insert into user_profiles table
+      const firstName = researcherName.split(' ')[0]
+      const { error: profileError } = await supabase
+        .from('user_profiles')
+        .insert({
+          full_name: researcherName,
+          email: 'a_definir@temporario.com',
+          institution: researcherInstitution,
+          phone: '(00) 00000-0000',
+          first_name: firstName,
+          researcher_route: null,
+        })
+
+      if (profileError) {
+        console.error('Erro ao criar perfil de usuário:', profileError)
+        // Continue even if profile creation fails
+      }
 
       toast({
         title: "Sucesso",
