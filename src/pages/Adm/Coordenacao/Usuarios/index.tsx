@@ -48,10 +48,8 @@ export function UsuariosAdmin() {
     const userData = sessionStorage.getItem('admin_user')
     if (userData) {
       setAdminUser(JSON.parse(userData))
-      // Sincroniza auth.users -> user_profiles antes de listar
-      supabase.rpc('sync_auth_users_to_profiles').then(() => {
-        loadUsers()
-      })
+      // Carregar usuários sem sincronizar automaticamente
+      loadUsers()
     } else {
       navigate('/adm/coordenacao')
     }
@@ -152,6 +150,8 @@ export function UsuariosAdmin() {
     }
 
     try {
+      console.log('Deletando usuário:', userToDelete)
+      
       // Verificar se é admin user (secretaria ou ti)
       if (userToDelete.role === 'secretaria' || userToDelete.role === 'ti') {
         // Deletar da tabela admin_users
@@ -170,8 +170,24 @@ export function UsuariosAdmin() {
           description: `${userToDelete.full_name} foi removido com sucesso.`,
         })
       } else {
+        // Primeiro, deletar da tabela researchers se for pesquisador
+        if (userToDelete.role === 'pesquisador' || userToDelete.researcher_route) {
+          console.log('Deletando de researchers com nome:', userToDelete.full_name)
+          const { error: researcherError } = await supabase
+            .from('researchers')
+            .delete()
+            .eq('name', userToDelete.full_name)
+
+          if (researcherError) {
+            console.error('Erro ao deletar da tabela researchers:', researcherError)
+          } else {
+            console.log('Deletado com sucesso de researchers')
+          }
+        }
+
         // Verificar se tem user_id (usuário autenticado) ou não (apenas perfil de pesquisador)
         if (userToDelete.user_id) {
+          console.log('Deletando usuário autenticado com user_id:', userToDelete.user_id)
           // Usuário autenticado - deletar do banco e auth
           const { data, error } = await supabase
             .rpc('delete_user_complete', {
@@ -186,9 +202,11 @@ export function UsuariosAdmin() {
             throw new Error(result.error || 'Erro ao deletar usuário')
           }
 
+          console.log('Resultado de delete_user_complete:', result)
           // Adicionar à lista de deletados para possível desfazer
           setDeletedUsers(prev => [...prev, userToDelete])
         } else {
+          console.log('Deletando perfil sem autenticação (user_id: null)')
           // Apenas perfil de pesquisador sem autenticação - deletar de user_profiles
           const { error } = await supabase
             .from('user_profiles')
@@ -197,20 +215,9 @@ export function UsuariosAdmin() {
 
           if (error) throw error
 
+          console.log('Deletado com sucesso de user_profiles')
           // Adicionar à lista de deletados para possível desfazer
           setDeletedUsers(prev => [...prev, userToDelete])
-        }
-
-        // Se for pesquisador, deletar também da tabela researchers (usando nome como chave)
-        if (userToDelete.role === 'pesquisador' || userToDelete.researcher_route) {
-          const { error: researcherError } = await supabase
-            .from('researchers')
-            .delete()
-            .eq('name', userToDelete.full_name)
-
-          if (researcherError) {
-            console.error('Erro ao deletar da tabela researchers:', researcherError)
-          }
         }
 
         // Remover da lista atual
