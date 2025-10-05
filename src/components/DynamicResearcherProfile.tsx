@@ -48,29 +48,13 @@ export function DynamicResearcherProfile({
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
-  // Hide box2 if we have a custom photo
-  useEffect(() => {
-    if (photoUrl) {
-      // Find the box2 sibling
-      const boxes = document.querySelectorAll('[class*="box2"]')
-      boxes.forEach(box => {
-        const htmlBox = box as HTMLElement
-        const parent = htmlBox.parentElement
-        const box1 = parent?.querySelector('[class*="box1"]')
-        if (box1 && box1.querySelector('[data-researcher-profile]')) {
-          htmlBox.style.display = 'none'
-        }
-      })
-    }
-  }, [photoUrl])
-
   if (isLoading) {
-    return <div>Carregando perfil...</div>
+    return <p>Carregando perfil...</p>
   }
 
   return (
     <ResearcherProfileProvider value={{ staticDescription }}>
-      <div data-researcher-profile>
+      <>
         {photoUrl && (
           <>
             <div 
@@ -131,15 +115,8 @@ export function DynamicResearcherProfile({
             {belowPhoto}
           </div>
         )}
-        <p style={{ 
-          whiteSpace: 'pre-line',
-          textAlign: 'justify',
-          lineHeight: '35px',
-          margin: 0
-        }}>
-          {description}
-        </p>
-      </div>
+        <p>{description}</p>
+      </>
     </ResearcherProfileProvider>
   )
 }
