@@ -13,6 +13,9 @@ interface Laboratory {
   chief_name: string;
   description: string | null;
   pnipe_address: string | null;
+  photo1_url: string | null;
+  photo2_url: string | null;
+  photo3_url: string | null;
 }
 
 export function DynamicLab() {
@@ -114,6 +117,45 @@ export function DynamicLab() {
               </a>
             </div>
           </div>
+
+          {laboratory.photo1_url && (
+            <div 
+              className={styles.box1}
+              style={{
+                backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo1_url})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <h4 className={styles.legend1}></h4>
+            </div>
+          )}
+          
+          {laboratory.photo2_url && (
+            <div 
+              className={styles.box2}
+              style={{
+                backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo2_url})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <h4 className={styles.legend2}></h4>
+            </div>
+          )}
+          
+          {laboratory.photo3_url && (
+            <div 
+              className={styles.box3}
+              style={{
+                backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.1) 0%, rgba(63,9,121,0.1)), url(${laboratory.photo3_url})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <h4 className={styles.legend3}></h4>
+            </div>
+          )}
         </div>
       </div>
       <Footer />
