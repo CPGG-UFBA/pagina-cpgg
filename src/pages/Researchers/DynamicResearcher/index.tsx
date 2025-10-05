@@ -4,7 +4,6 @@ import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { supabase } from '@/integrations/supabase/client'
 import { DynamicResearcherProfile } from '../../../components/DynamicResearcherProfile'
-import { ResearcherPhoto } from '../../../components/ResearcherPhoto'
 import { ResearcherEditButton } from '../../../components/ResearcherEditButton'
 import { BackButton } from '../../../components/BackButton'
 import { getResearcherPhoto } from '../../../data/researcher-photos'
@@ -72,19 +71,48 @@ export function DynamicResearcher() {
     )
   }
 
+  const photoUrl = getResearcherPhoto(researcher.name)
+
   return (
     <div className={styles.Container}>
       <Header />
       <div>
         <div className={styles.Professor}>
           <BackButton />
-          <ResearcherPhoto researcherName={researcher.name} />
+          {photoUrl && (
+            <div 
+              style={{
+                position: 'absolute',
+                width: '180px',
+                height: '180px',
+                top: '3%',
+                left: '2%',
+                border: '2px solid rgba(255,255,255,.2)',
+                borderRadius: '20px',
+                padding: '10px',
+                backgroundColor: 'rgba(255,255,255, 0.2)',
+                zIndex: 10
+              }}
+            >
+              <img 
+                src={photoUrl} 
+                alt={`Foto de ${researcher.name}`}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  borderRadius: '10px'
+                }}
+                loading="lazy"
+              />
+            </div>
+          )}
           <p>{researcher.name}</p>
           <div className={styles.box1}>
             <DynamicResearcherProfile 
               researcherName={researcher.name}
               staticDescription={researcher.description}
-              staticPhotoUrl={getResearcherPhoto(researcher.name)}
+              staticPhotoUrl={photoUrl}
               belowPhoto={<ResearcherEditButton researcherName={researcher.name} inline />}
             />
             <ul>Link para Currículo Lattes</ul>
