@@ -115,7 +115,12 @@ export function DynamicResearcherProfile({
             {belowPhoto}
           </div>
         )}
-        <div style={{ fontSize: '16px' }}>
+        <div style={{ 
+          textAlign: 'justify',
+          lineHeight: '35px',
+          fontSize: '16px',
+          color: '#363F5'
+        }}>
           {description}
         </div>
       </>
