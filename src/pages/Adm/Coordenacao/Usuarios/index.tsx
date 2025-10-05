@@ -76,7 +76,7 @@ export function UsuariosAdmin() {
       // Combine both lists
       const regularUsers = (profilesData || []).map((user: UserProfile) => ({
         ...user,
-        role: 'usuario'
+        role: user.researcher_route ? 'pesquisador' : 'usuario'
       }))
 
       const adminUsers = (adminData || []).map((admin: any) => ({
@@ -302,13 +302,15 @@ export function UsuariosAdmin() {
                     fontWeight: '600',
                     backgroundColor: user.role === 'secretaria' ? '#9C27B0' : 
                                    user.role === 'ti' ? '#2196F3' : 
-                                   user.role === 'coordenacao' ? '#FF9800' : '#4CAF50',
+                                   user.role === 'coordenacao' ? '#FF9800' : 
+                                   user.role === 'pesquisador' ? '#673AB7' : '#4CAF50',
                     color: 'white',
                     display: 'inline-block'
                   }}>
                     {user.role === 'secretaria' ? 'Secretária' : 
                      user.role === 'ti' ? 'T.I.' : 
-                     user.role === 'coordenacao' ? 'Coordenação' : 'Usuário'}
+                     user.role === 'coordenacao' ? 'Coordenação' : 
+                     user.role === 'pesquisador' ? 'Pesquisador' : 'Usuário'}
                   </span>
                 </td>
                 <td>
