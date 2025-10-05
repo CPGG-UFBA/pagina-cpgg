@@ -76,10 +76,21 @@ export function EditableResearcher({
 
   if (!isEditMode) {
     return (
-      <nav>
+      <nav style={{ display: 'block', margin: '0.25rem 0' }}>
         <Link 
           to={researcher.route}
           className={researcher.isChief ? "text-yellow-400 font-semibold" : ""}
+          style={{
+            display: 'block',
+            fontSize: '0.9rem',
+            color: 'rgba(255, 255, 255, 0.95)',
+            lineHeight: '1.6',
+            padding: '0.5rem 0.75rem',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            visibility: 'visible',
+            opacity: 1
+          }}
         >
           {researcher.name}
           {researcher.isChief && <span className="ml-2 text-sm">(Chefe)</span>}
