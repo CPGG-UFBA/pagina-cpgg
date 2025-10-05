@@ -65,7 +65,9 @@ export function EditableRegulation({
           style={{ 
             width: '350px', 
             height: '120px',
-            background: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg') center/cover"
+            backgroundImage: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}>
           <h2 className="text-lg font-semibold">{regulation.name}</h2>
         </div>
@@ -81,7 +83,9 @@ export function EditableRegulation({
           style={{ 
             width: '350px', 
             height: '120px',
-            background: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg') center/cover"
+            backgroundImage: "linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)), url('/src/components/Figures/laws.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center'
           }}>
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-lg font-semibold">{regulation.name}</h2>
