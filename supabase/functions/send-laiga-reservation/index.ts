@@ -107,7 +107,7 @@ const handler = async (req: Request): Promise<Response> => {
     try {
       const emailResponse = await resend.emails.send({
         from: 'CPGG LAIGA <no-reply@cpgg-ufba.ufba.br>',
-        to: ['marcos.vasconcelos@ufba.br'],
+        to: ['marquinhos.arv@gmail.com'],
         subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
         html: emailContent,
         reply_to: reservationData.applicantEmail,
@@ -132,7 +132,7 @@ const handler = async (req: Request): Promise<Response> => {
           html: `
             <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
               <strong>⚠️ AVISO:</strong> Este email foi redirecionado para a secretaria pois houve problema no envio direto para o coordenador.
-              <br><strong>Destinatário original:</strong> marcos.vasconcelos@ufba.br
+              <br><strong>Destinatário original:</strong> marquinhos.arv@gmail.com
               <br><strong>Ação necessária:</strong> Por favor, encaminhe este email para o Prof. Marcos Vasconcelos.
             </div>
             ${emailContent}
