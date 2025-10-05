@@ -226,15 +226,9 @@ export function Researchers() {
             <div className={styles.Oil}>
               <h1>{t('researchers.oil')}</h1>
               {getResearchersByProgram('oil').map((r, index) => (
-                <EditableResearcher 
-                  key={r.route || index}
-                  researcher={r}
-                  isEditMode={isEditMode}
-                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
-                  onDelete={handleDeleteResearcher}
-                  onSetChief={handleSetChief}
-                  dbResearchers={dbResearchers}
-                />
+                <div key={index} style={{ color: 'white', padding: '5px', backgroundColor: 'green', margin: '2px' }}>
+                  {r.name} - EditMode: {isEditMode.toString()}
+                </div>
               ))}
             </div>
             
