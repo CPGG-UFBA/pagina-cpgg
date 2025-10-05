@@ -30,6 +30,8 @@ export function Sign() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isResending, setIsResending] = useState(false);
+  const [registeredEmail, setRegisteredEmail] = useState('');
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   
@@ -170,6 +172,7 @@ export function Sign() {
         duration: 8000,
       });
       
+      setRegisteredEmail(formData.email);
       setSuccess(true);
     } catch (error: any) {
       toast({
@@ -187,6 +190,41 @@ export function Sign() {
       ...prev,
       [e.target.name]: e.target.value
     }));
+  };
+
+  const handleResendEmail = async () => {
+    setIsResending(true);
+    
+    try {
+      const { error } = await supabase.auth.resend({
+        type: 'signup',
+        email: registeredEmail,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`,
+        }
+      });
+
+      if (error) {
+        toast({
+          title: 'Erro ao reenviar email',
+          description: error.message,
+          variant: 'destructive'
+        });
+      } else {
+        toast({
+          title: 'Email reenviado!',
+          description: 'Um novo email de confirmação foi enviado para ' + registeredEmail,
+        });
+      }
+    } catch (error: any) {
+      toast({
+        title: 'Erro',
+        description: 'Não foi possível reenviar o email. Tente novamente.',
+        variant: 'destructive'
+      });
+    } finally {
+      setIsResending(false);
+    }
   };
 
   if (success) {
@@ -211,6 +249,24 @@ export function Sign() {
               <p style={{ marginBottom: '20px', color: '#666' }}>
                 Após confirmar seu email, você poderá fazer login e editar suas informações pessoais na plataforma.
               </p>
+              <button 
+                onClick={handleResendEmail}
+                disabled={isResending}
+                style={{
+                  padding: '12px 24px',
+                  backgroundColor: '#2563eb',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: isResending ? 'not-allowed' : 'pointer',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  opacity: isResending ? 0.6 : 1,
+                  transition: 'all 0.2s'
+                }}
+              >
+                {isResending ? 'Reenviando...' : 'Reenviar email de confirmação'}
+              </button>
             </div>
           </div>
         </div>
