@@ -26,6 +26,7 @@ export function DynamicResearcher() {
   const [canEdit, setCanEdit] = useState(false)
   const [userEmail, setUserEmail] = useState<string | null>(null)
   const [userPhotoUrl, setUserPhotoUrl] = useState<string | null>(null)
+  const [refreshKey, setRefreshKey] = useState(0)
 
   useEffect(() => {
     if (id) {
@@ -119,6 +120,8 @@ export function DynamicResearcher() {
   const handleRefreshProfile = async () => {
     if (researcher) {
       await loadUserProfileData(researcher.name)
+      // Força o DynamicResearcherProfile a recarregar
+      setRefreshKey(prev => prev + 1)
     }
   }
 
@@ -157,6 +160,7 @@ export function DynamicResearcher() {
           <p>{researcher.name}</p>
           <div className={styles.box1}>
             <DynamicResearcherProfile 
+              key={refreshKey}
               researcherName={researcher.name}
               staticDescription={researcher.description}
               staticPhotoUrl={photoUrl}
