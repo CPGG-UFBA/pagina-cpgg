@@ -26,6 +26,8 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
   const [loading, setLoading] = useState(false)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [userProfile, setUserProfile] = useState<any>(null)
+  const [isForgotPassword, setIsForgotPassword] = useState(false)
+  const [resetEmail, setResetEmail] = useState('')
   const { toast } = useToast()
   const { staticDescription } = useResearcherProfile()
 
@@ -220,6 +222,36 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
     setIsEditOpen(false)
   }
 
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      })
+
+      if (error) throw error
+
+      toast({
+        title: "Email enviado",
+        description: "Verifique sua caixa de entrada para redefinir sua senha.",
+      })
+      
+      setResetEmail('')
+      setIsForgotPassword(false)
+    } catch (error: any) {
+      console.error('Erro ao enviar email de reset:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao enviar email de recuperação.",
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
     <>
       {/* Botão discreto de edição */}
@@ -237,45 +269,92 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
       <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Login do Pesquisador</DialogTitle>
+            <DialogTitle>{isForgotPassword ? 'Recuperar Senha' : 'Login do Pesquisador'}</DialogTitle>
           </DialogHeader>
           <DialogDescription className="mb-4">
-            Faça login com suas credenciais para editar seu perfil
+            {isForgotPassword 
+              ? 'Digite seu email para receber um link de recuperação de senha.'
+              : 'Faça login com suas credenciais para editar seu perfil'
+            }
           </DialogDescription>
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <Label htmlFor="password">Senha</Label>
-              <Input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button type="submit" disabled={loading}>
-                {loading ? 'Entrando...' : 'Entrar'}
-              </Button>
-              <Button 
-                type="button" 
-                variant="outline" 
-                onClick={() => setIsLoginOpen(false)}
+          
+          {!isForgotPassword ? (
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <Label htmlFor="password">Senha</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <Button
+                type="button"
+                variant="link"
+                onClick={() => setIsForgotPassword(true)}
+                className="p-0 h-auto text-sm"
               >
-                Cancelar
+                Esqueci minha senha
               </Button>
-            </div>
-          </form>
+              <div className="flex gap-2">
+                <Button type="submit" disabled={loading}>
+                  {loading ? 'Entrando...' : 'Entrar'}
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={() => setIsLoginOpen(false)}
+                >
+                  Cancelar
+                </Button>
+              </div>
+            </form>
+          ) : (
+            <form onSubmit={handleForgotPassword} className="space-y-4">
+              <div>
+                <Label htmlFor="reset-email">Email</Label>
+                <Input
+                  id="reset-email"
+                  type="email"
+                  value={resetEmail}
+                  onChange={(e) => setResetEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <Button
+                type="button"
+                variant="link"
+                onClick={() => setIsForgotPassword(false)}
+                className="p-0 h-auto text-sm"
+              >
+                Voltar para o login
+              </Button>
+              <div className="flex gap-2">
+                <Button type="submit" disabled={loading}>
+                  {loading ? 'Enviando...' : 'Enviar'}
+                </Button>
+                <Button 
+                  type="button" 
+                  variant="outline" 
+                  onClick={() => setIsLoginOpen(false)}
+                >
+                  Cancelar
+                </Button>
+              </div>
+            </form>
+          )}
         </DialogContent>
       </Dialog>
 
