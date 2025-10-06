@@ -32,6 +32,7 @@ export function Middle() {
 
       if (error) throw error
 
+      console.log('Notícias carregadas:', data)
       setNewsArticles(data || [])
     } catch (error) {
       console.error('Erro ao carregar notícias:', error)
@@ -114,6 +115,22 @@ export function Middle() {
               </div>
             )
           })}
+
+          {/* Show default slides if no news articles are found */}
+          {!loading && newsArticles.length === 0 && (
+            <>
+              {[0, 1, 2, 0, 1, 2].map((index, i) => (
+                <div key={`fallback-${i}`} className={styles.slide}>
+                  <a href={`/News/News${index + 1}`} className={styles.slideContainer}>
+                    <img src={fallbackImages[index]} alt={`Notícia ${index + 1}`} />
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>Notícia {index + 1}</span>
+                    </div>
+                  </a>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
 
