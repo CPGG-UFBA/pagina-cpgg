@@ -197,10 +197,6 @@ export function Middle() {
         </div>
       </div>
 
-      <div className={styles.staticFigure}>
-        <img src={earth} alt="Earth" />
-      </div>
-
     </main>
   )
 }

@@ -17,14 +17,13 @@
 }
 
 .News {
-  height: auto; /* Altere de fixo para auto para melhor responsividade */
-  width: 100%; /* Altere de percentual fixo para ocupar toda a largura disponível */
-  max-width: 400px; /* Defina um max-width para telas maiores */
+  height: 600px;
+  width: 28%;
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
-  margin-bottom: 50px; /* Move a base 50px para cima */
+  margin-bottom: 50px;
 }
 
 .NewsTrack {
@@ -48,8 +47,8 @@
 }
 
 .slide {
-  height: 70%; /* Ajuste a altura para ocupar o espaço disponível */
-  width: 100%; /* Ajuste para ocupar o espaço disponível */
+  height: 200px;
+  width: 100%;
   display: flex;
   padding: 15px;
   align-items: center;
