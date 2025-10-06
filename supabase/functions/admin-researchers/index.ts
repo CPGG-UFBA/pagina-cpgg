@@ -62,12 +62,38 @@ serve(async (req) => {
     if (action === "delete") {
       if (!id) return json({ error: "ID obrigatório" }, { status: 400 });
 
+      // First get the researcher's email to find associated user_profile
+      const { data: researcher, error: fetchErr } = await supabase
+        .from("researchers")
+        .select("email")
+        .eq("id", id)
+        .single();
+
+      if (fetchErr && fetchErr.code !== 'PGRST116') {
+        return json({ error: fetchErr.message }, { status: 400 });
+      }
+
+      // Delete from researchers table
       const { error: delErr } = await supabase
         .from("researchers")
         .delete()
         .eq("id", id);
 
       if (delErr) return json({ error: delErr.message }, { status: 400 });
+
+      // If researcher has an email, try to delete associated user_profile
+      if (researcher?.email) {
+        const { error: profileDelErr } = await supabase
+          .from("user_profiles")
+          .delete()
+          .eq("email", researcher.email);
+
+        // Ignore error if no profile exists
+        if (profileDelErr && profileDelErr.code !== 'PGRST116') {
+          console.log("Warning: Could not delete user_profile:", profileDelErr.message);
+        }
+      }
+
       return json({ ok: true });
     }
 
