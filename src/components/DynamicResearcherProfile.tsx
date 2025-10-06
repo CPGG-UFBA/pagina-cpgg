@@ -65,19 +65,19 @@ export function DynamicResearcherProfile({
     <ResearcherProfileProvider value={{ staticDescription, photoUrl, belowPhoto }}>
       {description ? (
         <p style={{ 
-          fontSize: '10pt', 
+          fontSize: '12pt', 
           textAlign: 'justify',
           marginBottom: '20px',
           lineHeight: '1.6',
-          color: '#333'
+          color: '#fff'
         }}>
           {description}
         </p>
       ) : (
         <p style={{ 
-          fontSize: '10pt', 
+          fontSize: '12pt', 
           fontStyle: 'italic',
-          color: '#999',
+          color: '#fff',
           marginBottom: '20px'
         }}>
           Descrição não disponível
