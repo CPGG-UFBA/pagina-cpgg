@@ -29,8 +29,8 @@
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  height: calc(240px * 3);
+  gap: 60px;
+  height: calc(260px * 3);
   animation: scroll-vertical 15s linear infinite;
 }
 
@@ -43,7 +43,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(calc(-240px * 3 - 80px));
+    transform: translateY(calc(-260px * 3 - 120px));
   }
 }
 
