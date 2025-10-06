@@ -16,6 +16,8 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [isForgotPassword, setIsForgotPassword] = useState(false)
+  const [resetEmail, setResetEmail] = useState('')
   const { toast } = useToast()
 
   if (!isOpen) return null
@@ -71,6 +73,36 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
       toast({
         title: "Erro",
         description: "Ocorreu um erro ao fazer login.",
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      })
+
+      if (error) throw error
+
+      toast({
+        title: "Email enviado",
+        description: "Verifique sua caixa de entrada para redefinir sua senha.",
+      })
+      
+      setResetEmail('')
+      setIsForgotPassword(false)
+    } catch (error: any) {
+      console.error('Erro ao enviar email de reset:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao enviar email de recuperação.",
         variant: "destructive",
       })
     } finally {
@@ -136,52 +168,108 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
           marginBottom: '1.5rem',
           color: '#000'
         }}>
-          Login Administrativo
+          {isForgotPassword ? 'Recuperar Senha' : 'Login Administrativo'}
         </h2>
         
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <Label htmlFor="email" style={{ color: '#000' }}>Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              style={{ color: '#000' }}
-            />
-          </div>
-          
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            <Label htmlFor="password" style={{ color: '#000' }}>Senha</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-              style={{ color: '#000' }}
-            />
-          </div>
-          
-          <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.5rem' }}>
-            <Button 
-              type="button" 
-              variant="outline" 
-              onClick={onClose} 
-              style={{ flex: 1 }}
+        {!isForgotPassword ? (
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <Label htmlFor="email" style={{ color: '#000' }}>Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={{ color: '#000' }}
+              />
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <Label htmlFor="password" style={{ color: '#000' }}>Senha</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                style={{ color: '#000' }}
+              />
+            </div>
+            
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => setIsForgotPassword(true)}
+              style={{ padding: 0, height: 'auto', textAlign: 'left', justifyContent: 'flex-start' }}
             >
-              Cancelar
+              Esqueci minha senha
             </Button>
-            <Button 
-              type="submit" 
-              disabled={loading} 
-              style={{ flex: 1 }}
+            
+            <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.5rem' }}>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={onClose} 
+                style={{ flex: 1 }}
+              >
+                Cancelar
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={loading} 
+                style={{ flex: 1 }}
+              >
+                {loading ? 'Entrando...' : 'Entrar'}
+              </Button>
+            </div>
+          </form>
+        ) : (
+          <form onSubmit={handleForgotPassword} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <p style={{ color: '#666', fontSize: '0.875rem', marginBottom: '0.5rem' }}>
+              Digite seu email para receber um link de recuperação de senha.
+            </p>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <Label htmlFor="reset-email" style={{ color: '#000' }}>Email</Label>
+              <Input
+                id="reset-email"
+                type="email"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                required
+                style={{ color: '#000' }}
+              />
+            </div>
+            
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => setIsForgotPassword(false)}
+              style={{ padding: 0, height: 'auto', textAlign: 'left', justifyContent: 'flex-start' }}
             >
-              {loading ? 'Entrando...' : 'Entrar'}
+              Voltar para o login
             </Button>
-          </div>
-        </form>
+            
+            <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.5rem' }}>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={onClose} 
+                style={{ flex: 1 }}
+              >
+                Cancelar
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={loading} 
+                style={{ flex: 1 }}
+              >
+                {loading ? 'Enviando...' : 'Enviar'}
+              </Button>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   )
