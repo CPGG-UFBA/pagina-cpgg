@@ -555,6 +555,10 @@ export type Database = {
         Args: { _email: string; _full_name: string }
         Returns: Json
       }
+      create_admin_from_panel: {
+        Args: { _email: string; _role?: string }
+        Returns: Json
+      }
       create_admin_user: {
         Args: { _email: string; _password: string; _role?: string }
         Returns: Json
