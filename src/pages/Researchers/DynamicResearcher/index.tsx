@@ -25,6 +25,7 @@ export function DynamicResearcher() {
   const [loading, setLoading] = useState(true)
   const [canEdit, setCanEdit] = useState(false)
   const [userEmail, setUserEmail] = useState<string | null>(null)
+  const [userPhotoUrl, setUserPhotoUrl] = useState<string | null>(null)
 
   useEffect(() => {
     if (id) {
@@ -75,22 +76,37 @@ export function DynamicResearcher() {
       if (error) throw error
 
       setResearcher(data)
+      await loadUserProfileData(data.name)
+    } catch (error) {
+      console.error('Erro ao buscar pesquisador:', error)
+    } finally {
+      setLoading(false)
+    }
+  }
 
-      // Buscar email do perfil do usuário se existir
-      const firstName = data.name.split(' ')[0].toLowerCase()
+  const loadUserProfileData = async (researcherName: string) => {
+    try {
+      const firstName = researcherName.split(' ')[0].toLowerCase()
       const { data: userProfile } = await supabase
         .from('user_profiles')
-        .select('email')
+        .select('email, photo_url')
         .ilike('first_name', firstName)
         .maybeSingle()
 
       if (userProfile?.email) {
         setUserEmail(userProfile.email)
       }
+      if (userProfile?.photo_url) {
+        setUserPhotoUrl(userProfile.photo_url)
+      }
     } catch (error) {
-      console.error('Erro ao buscar pesquisador:', error)
-    } finally {
-      setLoading(false)
+      console.error('Erro ao carregar dados do perfil:', error)
+    }
+  }
+
+  const handleRefreshProfile = async () => {
+    if (researcher) {
+      await loadUserProfileData(researcher.name)
     }
   }
 
@@ -118,7 +134,7 @@ export function DynamicResearcher() {
     )
   }
 
-  const photoUrl = getResearcherPhoto(researcher.name)
+  const photoUrl = userPhotoUrl || getResearcherPhoto(researcher.name)
 
   return (
     <div className={styles.Container}>
@@ -160,7 +176,11 @@ export function DynamicResearcher() {
               )}
             </div>
             <div style={{ display: 'flex', justifyContent: 'center', marginTop: '10px', marginBottom: '20px' }}>
-              <ResearcherEditButton researcherName={researcher.name} inline />
+              <ResearcherEditButton 
+                researcherName={researcher.name} 
+                inline 
+                onSave={handleRefreshProfile}
+              />
             </div>
             {researcher.lattes_link && (
               <>

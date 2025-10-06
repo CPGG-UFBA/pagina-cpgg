@@ -12,9 +12,10 @@ import { useResearcherProfile } from '@/components/ResearcherProfileContext'
 interface ResearcherEditButtonProps {
   researcherName: string
   inline?: boolean
+  onSave?: () => void
 }
 
-export function ResearcherEditButton({ researcherName, inline = false }: ResearcherEditButtonProps) {
+export function ResearcherEditButton({ researcherName, inline = false, onSave }: ResearcherEditButtonProps) {
   const [isLoginOpen, setIsLoginOpen] = useState(false)
   const [isEditOpen, setIsEditOpen] = useState(false)
   const [email, setEmail] = useState('')
@@ -197,6 +198,11 @@ export function ResearcherEditButton({ researcherName, inline = false }: Researc
         title: "Perfil atualizado",
         description: "Suas informações foram salvas com sucesso",
       })
+
+      // Chama callback para recarregar dados no componente pai
+      if (onSave) {
+        onSave()
+      }
     } catch (error: any) {
       toast({
         title: "Erro ao salvar",
