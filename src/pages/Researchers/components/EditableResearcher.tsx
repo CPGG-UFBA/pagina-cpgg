@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Minus, Star } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 
 interface Researcher {
   name: string
@@ -29,7 +28,6 @@ export function EditableResearcher({
   dbResearchers 
 }: EditableResearcherProps) {
   const [editedName, setEditedName] = useState(researcher.name)
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [isSettingChief, setIsSettingChief] = useState(false)
 
@@ -42,16 +40,6 @@ export function EditableResearcher({
     setIsLoading(true)
     try {
       await onUpdate(researcherId, editedName)
-    } finally {
-      setIsLoading(false)
-    }
-  }
-
-  const handleDelete = async () => {
-    setIsLoading(true)
-    try {
-      await onDelete(researcherId)
-      setShowDeleteConfirm(false)
     } finally {
       setIsLoading(false)
     }
@@ -125,47 +113,7 @@ export function EditableResearcher({
           disabled={isLoading}
           placeholder="Nome do pesquisador"
         />
-        <Button
-          size="sm"
-          variant="destructive"
-          className="h-8 w-8 p-0 shrink-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
-          onClick={() => setShowDeleteConfirm(true)}
-          disabled={isLoading}
-        >
-          <Minus className="w-3 h-3" />
-        </Button>
       </nav>
-
-      <Dialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
-        <DialogContent className="sm:max-w-md">
-          <DialogHeader>
-            <DialogTitle>Confirmar Exclusão</DialogTitle>
-            <DialogDescription>
-              Você tem certeza de que quer apagar este pesquisador?
-              <br />
-              <strong>{researcher.name}</strong>
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className="gap-2">
-            <Button
-              variant="outline"
-              onClick={() => setShowDeleteConfirm(false)}
-              disabled={isLoading}
-              className="bg-background text-foreground border-border hover:bg-muted"
-            >
-              NÃO
-            </Button>
-            <Button
-              variant="destructive"
-              onClick={handleDelete}
-              disabled={isLoading}
-              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-            >
-              {isLoading ? 'Excluindo...' : 'SIM'}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </>
   )
 }
