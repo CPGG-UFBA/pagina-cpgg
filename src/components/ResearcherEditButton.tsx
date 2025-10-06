@@ -21,7 +21,6 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [description, setDescription] = useState('')
-  const [profileEmail, setProfileEmail] = useState('')
   const [photo, setPhoto] = useState<File | null>(null)
   const [currentPhotoUrl, setCurrentPhotoUrl] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -55,7 +54,6 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
       if (data) {
         const dbDesc = (data as any).description?.trim?.() || ''
         setDescription(dbDesc || staticDescription || '')
-        setProfileEmail(data.email || '')
         setCurrentPhotoUrl(data.photo_url)
       } else {
         if (staticDescription) setDescription(staticDescription)
@@ -121,15 +119,12 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
       }
 
       setUserProfile(profile)
-      // Preserve existing description and email if they were already loaded
+      // Preserve existing description if it was already loaded
       if (!description && profile.description) {
         setDescription(profile.description)
       }
       if (!description && !profile.description && staticDescription) {
         setDescription(staticDescription)
-      }
-      if (!profileEmail && profile.email) {
-        setProfileEmail(profile.email)
       }
       if (!currentPhotoUrl && profile.photo_url) {
         setCurrentPhotoUrl(profile.photo_url)
@@ -179,12 +174,11 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
         photoUrl = publicUrl
       }
 
-      // Atualiza o perfil
+      // Atualiza o perfil (sem alterar o email, que deve vir sempre do auth.users)
       const { error } = await supabase
         .from('user_profiles')
         .update({
           description,
-          email: profileEmail,
           photo_url: photoUrl,
         })
         .eq('user_id', userProfile.user_id)
@@ -221,7 +215,6 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
     setEmail('')
     setPassword('')
     setDescription('')
-    setProfileEmail('')
     setCurrentPhotoUrl(null)
     setPhoto(null)
     setIsEditOpen(false)
@@ -304,16 +297,6 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
                 onChange={(e) => setDescription(e.target.value)}
                 rows={6}
                 placeholder="Digite sua descrição profissional..."
-              />
-            </div>
-            <div>
-              <Label htmlFor="profileEmail">Email</Label>
-              <Input
-                id="profileEmail"
-                type="email"
-                value={profileEmail}
-                onChange={(e) => setProfileEmail(e.target.value)}
-                placeholder="Digite seu email..."
               />
             </div>
             <div>

@@ -89,13 +89,25 @@ export function DynamicResearcher() {
       const firstName = researcherName.split(' ')[0].toLowerCase()
       const { data: userProfile } = await supabase
         .from('user_profiles')
-        .select('email, photo_url')
+        .select('email, photo_url, user_id')
         .ilike('first_name', firstName)
         .maybeSingle()
 
-      if (userProfile?.email) {
+      // Se o perfil tem user_id, tentar buscar email do usuário autenticado
+      if (userProfile?.user_id) {
+        const { data: { user } } = await supabase.auth.getUser()
+        
+        // Se o usuário logado é o dono do perfil, usar seu email
+        if (user?.id === userProfile.user_id && user?.email) {
+          setUserEmail(user.email)
+        } else {
+          // Caso contrário, usar o email do perfil
+          setUserEmail(userProfile.email || 'Email não disponível')
+        }
+      } else if (userProfile?.email) {
         setUserEmail(userProfile.email)
       }
+
       if (userProfile?.photo_url) {
         setUserPhotoUrl(userProfile.photo_url)
       }
