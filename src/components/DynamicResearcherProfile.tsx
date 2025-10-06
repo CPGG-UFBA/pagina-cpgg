@@ -54,7 +54,7 @@ export function DynamicResearcherProfile({
 
   return (
     <ResearcherProfileProvider value={{ staticDescription, photoUrl, belowPhoto }}>
-      <p>{description}</p>
+      <p style={{ fontSize: '10pt', textAlign: 'justify' }}>{description}</p>
     </ResearcherProfileProvider>
   )
 }
