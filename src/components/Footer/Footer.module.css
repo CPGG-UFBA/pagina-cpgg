@@ -24,7 +24,7 @@
   height: 530px;
   position: relative;
   z-index: 1;
-  margin-top: -80px;
+  margin-top: -130px;
 }
 
 .bar {
@@ -37,7 +37,7 @@
   justify-content: space-between;
   padding: 0 20px;
   z-index: 2;
-  margin-top: -80px;
+  margin-top: -130px;
   margin-bottom: 0 !important;
 }
 
