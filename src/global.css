@@ -10,9 +10,11 @@
   border-left: none !important;
 }
 
-/* Prevent any space after footer */
+/* Prevent any space after footer and last elements */
 body > *:last-child,
-#root > *:last-child {
+#root > *:last-child,
+footer,
+footer * {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
@@ -25,17 +27,23 @@ body > *:last-child,
   min-height: 100vh;
 }
 
-/* Ensure footer is always at bottom */
+/* Ensure footer is always at bottom and nothing after it */
 footer {
   margin-top: auto !important;
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
 }
 
-/* Remove any extra space after body or root */
+/* Absolutely prevent any content or space after footer */
+footer::after,
 body::after,
-#root::after {
+#root::after,
+html::after {
+  content: none !important;
   display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Fix AGRESSIVO para Radix Dialog bloqueando scroll */
