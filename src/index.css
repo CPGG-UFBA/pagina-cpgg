@@ -175,12 +175,12 @@ All colors MUST be HSL.
     height: 0 !important;
   }
 
-  /* Footer should have flexible height at bottom */
+  /* Footer should have fixed height at bottom */
   footer {
     flex-shrink: 0 !important;
     margin-top: 0 !important;
     height: auto !important;
-    max-height: none !important;
+    max-height: 20vh !important;
   }
 
   /* Form elements styling from global.css */
