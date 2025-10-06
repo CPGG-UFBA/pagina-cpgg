@@ -4,7 +4,7 @@
   padding-top: 140px;
   padding-left: 24px;
   padding-right: 24px;
-  padding-bottom: 10px; /* Corrigido aqui */
+  padding-bottom: 10px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -50,31 +50,31 @@
   height: 200px;
   width: 100%;
   display: flex;
-  padding: 10px 15px;
+  padding: 15px;
   align-items: center;
   perspective: 100px;
+}
+
+.slide img {
+  width: 100%;
+  transition: transform 1s;
+}
+
+.slide img:hover {
+  transform: translateZ(20px);
 }
 
 .slideContainer {
   position: relative;
   width: 100%;
-  height: 100%;
   overflow: hidden;
   border-radius: 8px;
-  display: block;
-  text-decoration: none;
 }
 
 .slideContainer img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.slideContainer:hover img {
-  transform: scale(1.05);
+  height: auto;
 }
 
 .titleOverlay {
@@ -85,7 +85,7 @@
   background: rgba(0, 0, 0, 0.55);
   padding: 10px 12px;
   min-height: 56px;
-  z-index: 10;
+  z-index: 2;
   display: flex;
   align-items: flex-end;
   pointer-events: none;
@@ -142,7 +142,6 @@
 .staticFigure { margin-left: 0; }
 
 /* Media Queries */
-/* Specific fix for 1366x1024 screens */
 @media (min-width: 1201px) and (max-width: 1400px) and (max-height: 1100px) {
   .staticFigure img {
     padding-left: 150px;
@@ -158,7 +157,7 @@
 @media (max-width: 1200px) {
   .staticFigure { margin-left: 100px; }
   .middle {
-    flex-direction: column; /* Muda para coluna em telas menores */
+    flex-direction: column;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -169,13 +168,13 @@
   } 
 
   .News {
-    width: 90%; /* Altera a largura para 90% em telas menores */
+    width: 90%;
   }
 
   .staticFigure img {
     margin-top: 10px;
     height: 30rem;
-    margin-left: 580px; /* +100px à direita */
+    margin-left: 580px;
   }
 
   .static {
@@ -186,12 +185,8 @@
   }
 }
 
-
-
 @media (max-width: 780px) {
-
   .static {
-
     margin-right: -100px;
   }
   .static > strong {
@@ -205,23 +200,17 @@
     margin-top: 20px;
     margin-right: -100px;
   }
-
 }
 
-
-
 @media (max-width: 400px) {
-
   .static {
     margin-right: -500px;
     margin-top:-450px;
   }
-  
 
   .staticFigure img {
     margin-top: 100px;
     height: 48rem;
     margin-left: 150px; 
   }
-
 }

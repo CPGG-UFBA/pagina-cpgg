@@ -83,15 +83,17 @@ export function Middle() {
             
             return (
               <div key={article.id} className={styles.slide}>
-                <a href={route} className={styles.slideContainer}>
-                  <img 
-                    src={coverImage || fallbackImages[index]} 
-                    alt={article.title || `Notícia ${index + 1}`}
-                  />
+                <div className={styles.slideContainer}>
+                  <a href={route}>
+                    <img 
+                      src={coverImage || fallbackImages[index]} 
+                      alt={article.title || `Notícia ${index + 1}`}
+                    />
+                  </a>
                   <div className={styles.titleOverlay}>
                     <span className={styles.titleText}>{article.title || `Notícia ${index + 1}`}</span>
                   </div>
-                </a>
+                </div>
               </div>
             )
           })}
@@ -103,15 +105,17 @@ export function Middle() {
             
             return (
               <div key={`duplicate-${article.id}`} className={styles.slide}>
-                <a href={route} className={styles.slideContainer}>
-                  <img 
-                    src={coverImage || fallbackImages[index]} 
-                    alt={article.title || `Notícia ${index + 1}`}
-                  />
+                <div className={styles.slideContainer}>
+                  <a href={route}>
+                    <img 
+                      src={coverImage || fallbackImages[index]} 
+                      alt={article.title || `Notícia ${index + 1}`}
+                    />
+                  </a>
                   <div className={styles.titleOverlay}>
                     <span className={styles.titleText}>{article.title}</span>
                   </div>
-                </a>
+                </div>
               </div>
             )
           })}
@@ -121,12 +125,14 @@ export function Middle() {
             <>
               {[0, 1, 2, 0, 1, 2].map((index, i) => (
                 <div key={`fallback-${i}`} className={styles.slide}>
-                  <a href={`/News/News${index + 1}`} className={styles.slideContainer}>
-                    <img src={fallbackImages[index]} alt={`Notícia ${index + 1}`} />
+                  <div className={styles.slideContainer}>
+                    <a href={`/News/News${index + 1}`}>
+                      <img src={fallbackImages[index]} alt={`Notícia ${index + 1}`} />
+                    </a>
                     <div className={styles.titleOverlay}>
                       <span className={styles.titleText}>Notícia {index + 1}</span>
                     </div>
-                  </a>
+                  </div>
                 </div>
               ))}
             </>
