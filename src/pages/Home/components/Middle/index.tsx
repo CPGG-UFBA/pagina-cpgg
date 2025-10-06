@@ -32,7 +32,6 @@ export function Middle() {
 
       if (error) throw error
 
-      console.log('Notícias carregadas:', data)
       setNewsArticles(data || [])
     } catch (error) {
       console.error('Erro ao carregar notícias:', error)
@@ -83,17 +82,17 @@ export function Middle() {
             
             return (
               <div key={article.id} className={styles.slide}>
-                <div className={styles.slideContainer}>
-                  <a href={route}>
+                <a href={route}>
+                  <div className={styles.slideContainer}>
                     <img 
                       src={coverImage || fallbackImages[index]} 
                       alt={article.title || `Notícia ${index + 1}`}
                     />
-                  </a>
-                  <div className={styles.titleOverlay}>
-                    <span className={styles.titleText}>{article.title || `Notícia ${index + 1}`}</span>
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>{article.title || `Notícia ${index + 1}`}</span>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             )
           })}
@@ -105,17 +104,17 @@ export function Middle() {
             
             return (
               <div key={`duplicate-${article.id}`} className={styles.slide}>
-                <div className={styles.slideContainer}>
-                  <a href={route}>
+                <a href={route}>
+                  <div className={styles.slideContainer}>
                     <img 
                       src={coverImage || fallbackImages[index]} 
                       alt={article.title || `Notícia ${index + 1}`}
                     />
-                  </a>
-                  <div className={styles.titleOverlay}>
-                    <span className={styles.titleText}>{article.title}</span>
+                    <div className={styles.titleOverlay}>
+                      <span className={styles.titleText}>{article.title}</span>
+                    </div>
                   </div>
-                </div>
+                </a>
               </div>
             )
           })}
@@ -125,14 +124,14 @@ export function Middle() {
             <>
               {[0, 1, 2, 0, 1, 2].map((index, i) => (
                 <div key={`fallback-${i}`} className={styles.slide}>
-                  <div className={styles.slideContainer}>
-                    <a href={`/News/News${index + 1}`}>
+                  <a href={`/News/News${index + 1}`}>
+                    <div className={styles.slideContainer}>
                       <img src={fallbackImages[index]} alt={`Notícia ${index + 1}`} />
-                    </a>
-                    <div className={styles.titleOverlay}>
-                      <span className={styles.titleText}>Notícia {index + 1}</span>
+                      <div className={styles.titleOverlay}>
+                        <span className={styles.titleText}>Notícia {index + 1}</span>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
               ))}
             </>
