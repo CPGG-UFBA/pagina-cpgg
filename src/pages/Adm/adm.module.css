@@ -50,7 +50,8 @@
 .optionsContainer {
   display: grid;
   grid-template-columns: repeat(2, 200px);
-  gap: 20px;
+  column-gap: 20px;
+  row-gap: 10px;
   justify-content: center;
 }
 
