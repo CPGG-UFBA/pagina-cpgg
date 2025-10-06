@@ -64,6 +64,12 @@ export function CoordenacaoDashboard() {
   const [eventDate, setEventDate] = useState('')
   const [eventPhotos, setEventPhotos] = useState<File[]>([])
   
+  // Estados para atualização de credenciais
+  const [currentEmail, setCurrentEmail] = useState('')
+  const [newEmail, setNewEmail] = useState('')
+  const [currentPassword, setCurrentPassword] = useState('')
+  const [newPassword, setNewPassword] = useState('')
+  
   const [isLoading, setIsLoading] = useState(false)
   const [uploadingPhotos, setUploadingPhotos] = useState(false)
   const { toast } = useToast()
@@ -94,6 +100,91 @@ export function CoordenacaoDashboard() {
       description: "Até logo!",
     })
     navigate('/adm')
+  }
+
+  const handleUpdateCredentials = async () => {
+    if (!currentEmail || !currentPassword) {
+      toast({
+        title: "Erro",
+        description: "Email atual e senha atual são obrigatórios",
+        variant: "destructive",
+      })
+      return
+    }
+
+    if (!newEmail && !newPassword) {
+      toast({
+        title: "Erro",
+        description: "Informe pelo menos um novo valor (email ou senha)",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      // Validar credenciais atuais fazendo login
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email: currentEmail,
+        password: currentPassword,
+      })
+
+      if (signInError) {
+        throw new Error('Email ou senha atual incorretos')
+      }
+
+      // Preparar objeto de atualização
+      const updates: { email?: string; password?: string } = {}
+      if (newEmail && newEmail !== currentEmail) {
+        updates.email = newEmail
+      }
+      if (newPassword) {
+        updates.password = newPassword
+      }
+
+      // Atualizar credenciais no Supabase Auth
+      const { error: updateError } = await supabase.auth.updateUser(updates)
+
+      if (updateError) throw updateError
+
+      // Se o email foi alterado, atualizar também na tabela admin_users
+      if (updates.email) {
+        const { error: adminUpdateError } = await supabase
+          .from('admin_users')
+          .update({ email: newEmail })
+          .eq('email', currentEmail)
+
+        if (adminUpdateError) {
+          console.error('Erro ao atualizar admin_users:', adminUpdateError)
+        }
+      }
+
+      toast({
+        title: "Sucesso!",
+        description: "Credenciais atualizadas com sucesso. Você será redirecionado para fazer login novamente.",
+      })
+
+      // Limpar campos
+      setCurrentEmail('')
+      setNewEmail('')
+      setCurrentPassword('')
+      setNewPassword('')
+
+      // Fazer logout após 2 segundos
+      setTimeout(() => {
+        handleLogout()
+      }, 2000)
+    } catch (error: any) {
+      console.error('Erro ao atualizar credenciais:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao atualizar credenciais",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleRegisterSecretaria = async () => {
@@ -728,6 +819,60 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Secretária'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <Settings size={24} />
+              <h2>Atualizar Credenciais da Coordenação</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="current-email">E-mail Atual:</label>
+              <Input
+                id="current-email"
+                type="email"
+                value={currentEmail}
+                onChange={(e) => setCurrentEmail(e.target.value)}
+                placeholder="Digite seu e-mail atual"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="new-email">Novo E-mail (opcional):</label>
+              <Input
+                id="new-email"
+                type="email"
+                value={newEmail}
+                onChange={(e) => setNewEmail(e.target.value)}
+                placeholder="Digite o novo e-mail ou deixe em branco"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="current-password">Senha Atual:</label>
+              <Input
+                id="current-password"
+                type="password"
+                value={currentPassword}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+                placeholder="Digite sua senha atual"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="new-password">Nova Senha (opcional):</label>
+              <Input
+                id="new-password"
+                type="password"
+                value={newPassword}
+                onChange={(e) => setNewPassword(e.target.value)}
+                placeholder="Digite a nova senha ou deixe em branco"
+              />
+            </div>
+            <Button
+              onClick={handleUpdateCredentials}
+              disabled={isLoading || !currentEmail || !currentPassword || (!newEmail && !newPassword)}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Atualizando...' : 'Atualizar Credenciais'}
             </Button>
           </div>
 
