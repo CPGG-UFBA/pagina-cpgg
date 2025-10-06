@@ -10,6 +10,34 @@
   border-left: none !important;
 }
 
+/* Prevent any space after footer */
+body > *:last-child,
+#root > *:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Ensure all page containers use flexbox layout properly */
+[class*="Container"],
+[class*="container"] {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Ensure footer is always at bottom */
+footer {
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Remove any extra space after body or root */
+body::after,
+#root::after {
+  display: none !important;
+}
+
 /* Fix AGRESSIVO para Radix Dialog bloqueando scroll */
 body[data-scroll-locked] {
   margin-right: 0px !important;
@@ -30,6 +58,8 @@ html, body {
   border: none !important;
   box-shadow: none !important;
   overflow-y: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 body {
@@ -37,9 +67,12 @@ body {
   background-size: cover;
   -webkit-font-smoothing: antialised;
   color: #fff;
+}
+
+#root {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 body,

@@ -4,6 +4,9 @@
   width: 100%;
   position: relative;
   justify-content: flex-end;
+  margin-top: auto;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 /* Portrait orientation - ensure footer stays at bottom */
@@ -35,6 +38,7 @@
   padding: 0 20px;
   z-index: 2;
   margin-top: -30px; /* Moved up by 30px */
+  margin-bottom: 0 !important;
 }
 
 .copyright {
