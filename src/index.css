@@ -129,7 +129,7 @@ All colors MUST be HSL.
 
   /* Main app container */
   body > div {
-    min-height: 100vh !important;
+    height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: visible !important;
@@ -139,18 +139,18 @@ All colors MUST be HSL.
   .Container,
   .container,
   .pageContainer {
-    min-height: 100vh !important;
+    height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   /* Header should have fixed height */
   header {
     flex-shrink: 0 !important;
     height: auto !important;
-    max-height: 15vh !important;
-    min-height: 80px !important;
+    max-height: 12vh !important;
+    min-height: 60px !important;
   }
 
   /* Main content area should be scrollable and fill remaining space */
@@ -172,7 +172,7 @@ All colors MUST be HSL.
     flex: 1 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    height: 0 !important;
+    height: 0 !important; /* Forces flex to work properly */
   }
 
   /* Footer should have fixed height at bottom */
@@ -180,7 +180,7 @@ All colors MUST be HSL.
     flex-shrink: 0 !important;
     margin-top: 0 !important;
     height: auto !important;
-    max-height: 20vh !important;
+    max-height: 15vh !important;
   }
 
   /* Form elements styling from global.css */

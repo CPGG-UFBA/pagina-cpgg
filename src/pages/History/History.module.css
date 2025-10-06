@@ -1,8 +1,7 @@
 .history {
   flex: 1;
   padding: 2rem;
-  padding-bottom: 2rem;
-  overflow-y: auto;
+  margin-bottom: 40px;
 }
 
 .title {
@@ -22,7 +21,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: 2rem;
+  margin-bottom: calc(18rem + 40px);
   position: relative;
 }
 
