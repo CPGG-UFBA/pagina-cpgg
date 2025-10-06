@@ -31,6 +31,7 @@ export function CoordenacaoDashboard() {
   const [researcherProgram, setResearcherProgram] = useState('')
   const [researcherLattes, setResearcherLattes] = useState('')
   const [researcherInstitution, setResearcherInstitution] = useState('UFBA')
+  const [researcherDescription, setResearcherDescription] = useState('')
   
   // Estados para laboratórios
   const [labName, setLabName] = useState('')
@@ -274,7 +275,7 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterResearcher = async () => {
-    if (!researcherName || !researcherProgram || !researcherLattes || !researcherInstitution) {
+    if (!researcherName || !researcherProgram || !researcherLattes || !researcherInstitution || !researcherDescription) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
@@ -315,6 +316,7 @@ export function CoordenacaoDashboard() {
           phone: '(00) 00000-0000',
           first_name: firstName,
           researcher_route: researcherRoute,
+          description: researcherDescription,
         })
 
       if (profileError) {
@@ -332,6 +334,7 @@ export function CoordenacaoDashboard() {
       setResearcherProgram('')
       setResearcherLattes('')
       setResearcherInstitution('UFBA')
+      setResearcherDescription('')
     } catch (error: any) {
       console.error('Erro ao cadastrar pesquisador:', error)
       toast({
@@ -970,12 +973,27 @@ export function CoordenacaoDashboard() {
                 placeholder="Digite o link do currículo Lattes"
               />
             </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="researcher-description">Descrição:</label>
+              <Textarea
+                id="researcher-description"
+                value={researcherDescription}
+                onChange={(e) => setResearcherDescription(e.target.value)}
+                placeholder="Digite uma breve descrição sobre o pesquisador"
+                rows={4}
+                style={{
+                  fontSize: '12pt',
+                  fontFamily: 'inherit',
+                  lineHeight: '1.6',
+                }}
+              />
+            </div>
             <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
-              * O email e descrição serão editados posteriormente pelo próprio pesquisador
+              * O email e descrição poderão ser editados posteriormente pelo próprio pesquisador
             </p>
             <Button
               onClick={handleRegisterResearcher}
-              disabled={isLoading || !researcherName || !researcherInstitution || !researcherProgram || !researcherLattes}
+              disabled={isLoading || !researcherName || !researcherInstitution || !researcherProgram || !researcherLattes || !researcherDescription}
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Pesquisador'}
