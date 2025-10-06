@@ -29,7 +29,6 @@ html, body {
   height: 100%;
   border: none !important;
   box-shadow: none !important;
-  overflow-y: auto !important;
 }
 
 body {

@@ -120,40 +120,36 @@ All colors MUST be HSL.
     background: hsl(var(--page-background));
   }
 
-  /* Global layout: no page scroll, everything fits in viewport */
+  /* Global layout: no extra scroll beyond footer */
   html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
 
-  /* Main app container */
+  /* Main app container - allow natural height */
   body > div {
-    height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    overflow: visible !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* All page containers */
+  /* All page containers - allow natural height */
   .Container,
   .container,
   .pageContainer {
-    height: 100vh !important;
-    display: flex !important;
-    flex-direction: column !important;
-    overflow: hidden !important;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 
   /* Header should have fixed height */
   header {
-    flex-shrink: 0 !important;
-    height: auto !important;
-    max-height: 12vh !important;
-    min-height: 60px !important;
+    flex-shrink: 0;
   }
 
-  /* Main content area should be scrollable and fill remaining space */
+  /* Main content area should grow to fill space */
   main,
   .main-content,
   .photos,
@@ -169,18 +165,13 @@ All colors MUST be HSL.
   .institution,
   .production,
   .recipes {
-    flex: 1 !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    height: 0 !important; /* Forces flex to work properly */
+    flex: 1;
   }
 
-  /* Footer should have fixed height at bottom */
+  /* Footer should be at bottom */
   footer {
-    flex-shrink: 0 !important;
-    margin-top: 0 !important;
-    height: auto !important;
-    max-height: 15vh !important;
+    flex-shrink: 0;
+    margin-top: auto;
   }
 
   /* Form elements styling from global.css */
