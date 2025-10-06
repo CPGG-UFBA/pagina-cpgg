@@ -76,10 +76,10 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.55); /* preta com 55% de opacidade */
+  background: rgba(0, 0, 0, 0.55);
   padding: 10px 12px;
   min-height: 56px;
-  z-index: 2;
+  z-index: 10;
   display: flex;
   align-items: flex-end;
   pointer-events: none;
