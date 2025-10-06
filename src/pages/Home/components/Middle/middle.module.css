@@ -55,15 +55,6 @@
   perspective: 100px;
 }
 
-.slide img {
-  width: 100%;
-  transition: transform 1s;
-}
-
-.slide img:hover {
-  transform: translateZ(20px);
-}
-
 .slideContainer {
   position: relative;
   width: 100%;
