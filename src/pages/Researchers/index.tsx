@@ -88,42 +88,71 @@ export function Researchers() {
 
   const { toast } = useToast()
 
-  const handleLogin = (email: string, password: string) => {
+  const handleLogin = async (email: string, password: string) => {
     console.log('=== HANDLELOGIN CHAMADO ===')
-    setIsEditMode(true)
-    setAdminCreds({ email, password })
-    setShowLogin(false)
     
-    // Debug completo
-    setTimeout(() => {
-      console.log('=== DEBUG DE SCROLL ===')
-      console.log('Body overflow:', window.getComputedStyle(document.body).overflow)
-      console.log('Body position:', window.getComputedStyle(document.body).position)
-      console.log('Body height:', window.getComputedStyle(document.body).height)
-      console.log('HTML overflow:', window.getComputedStyle(document.documentElement).overflow)
-      console.log('Scroll height:', document.documentElement.scrollHeight)
-      console.log('Client height:', document.documentElement.clientHeight)
-      console.log('Pode rolar?', document.documentElement.scrollHeight > document.documentElement.clientHeight)
-      
-      // Verificar todos os elementos no caminho
-      let el = document.body
-      while (el) {
-        const computed = window.getComputedStyle(el)
-        if (computed.overflow !== 'visible' || computed.position === 'fixed') {
-          console.log('Elemento com overflow/position especial:', el.tagName, {
-            overflow: computed.overflow,
-            position: computed.position,
-            height: computed.height
-          })
-        }
-        el = el.parentElement as HTMLElement
+    try {
+      // Autenticar no Supabase primeiro
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (signInError) {
+        toast({ 
+          title: 'Erro ao fazer login', 
+          description: signInError.message, 
+          variant: 'destructive' 
+        })
+        return
       }
+
+      setIsEditMode(true)
+      setAdminCreds({ email, password })
+      setShowLogin(false)
       
-      console.log('=== FIM DEBUG ===')
-    }, 200)
+      toast({ title: 'Login realizado', description: 'Modo de edição ativado.' })
+      
+      // Debug completo
+      setTimeout(() => {
+        console.log('=== DEBUG DE SCROLL ===')
+        console.log('Body overflow:', window.getComputedStyle(document.body).overflow)
+        console.log('Body position:', window.getComputedStyle(document.body).position)
+        console.log('Body height:', window.getComputedStyle(document.body).height)
+        console.log('HTML overflow:', window.getComputedStyle(document.documentElement).overflow)
+        console.log('Scroll height:', document.documentElement.scrollHeight)
+        console.log('Client height:', document.documentElement.clientHeight)
+        console.log('Pode rolar?', document.documentElement.scrollHeight > document.documentElement.clientHeight)
+        
+        // Verificar todos os elementos no caminho
+        let el = document.body
+        while (el) {
+          const computed = window.getComputedStyle(el)
+          if (computed.overflow !== 'visible' || computed.position === 'fixed') {
+            console.log('Elemento com overflow/position especial:', el.tagName, {
+              overflow: computed.overflow,
+              position: computed.position,
+              height: computed.height
+            })
+          }
+          el = el.parentElement as HTMLElement
+        }
+        
+        console.log('=== FIM DEBUG ===')
+      }, 200)
+    } catch (error: any) {
+      toast({ 
+        title: 'Erro ao fazer login', 
+        description: error.message, 
+        variant: 'destructive' 
+      })
+    }
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    // Fazer logout do Supabase também
+    await supabase.auth.signOut()
+    
     setIsEditMode(false)
     setAdminCreds(null)
     setLastAction(null)
