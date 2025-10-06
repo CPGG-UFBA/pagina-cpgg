@@ -129,7 +129,7 @@ All colors MUST be HSL.
 
   /* Main app container */
   body > div {
-    height: 100vh !important;
+    min-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: visible !important;
@@ -139,10 +139,10 @@ All colors MUST be HSL.
   .Container,
   .container,
   .pageContainer {
-    height: 100vh !important;
+    min-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   /* Header should have fixed height */
