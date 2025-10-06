@@ -8,9 +8,9 @@ export  function History() {
   const { t } = useLanguage();
   
   return (
-      <>
+      <div className="pageContainer">
       <Header/>
-          <div className={styles.history}>
+          <main className={styles.history}>
               <h1 className={styles.title}>{t('history.title')}</h1>
 
               <div className={styles.container}>
@@ -27,13 +27,13 @@ export  function History() {
                   </a>
 
               </div>
-          </div>
 
-          <div className={styles.staticFigure}>
-            <img src={earth} alt="Terra" />
-          </div>
+              <div className={styles.staticFigure}>
+                <img src={earth} alt="Terra" />
+              </div>
+          </main>
          
           <Footer/>
-      </>
+      </div>
   )
 }
