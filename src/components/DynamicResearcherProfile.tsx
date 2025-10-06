@@ -48,13 +48,41 @@ export function DynamicResearcherProfile({
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
+  // Debug log
+  console.log('DynamicResearcherProfile:', {
+    researcherName,
+    hasUserProfile: !!userProfile,
+    hasUserDescription: !!userProfile?.description,
+    hasStaticDescription: !!staticDescription,
+    descriptionLength: description?.length || 0
+  })
+
   if (isLoading) {
     return <p>Carregando perfil...</p>
   }
 
   return (
     <ResearcherProfileProvider value={{ staticDescription, photoUrl, belowPhoto }}>
-      <p style={{ fontSize: '10pt', textAlign: 'justify' }}>{description}</p>
+      {description ? (
+        <p style={{ 
+          fontSize: '10pt', 
+          textAlign: 'justify',
+          marginBottom: '20px',
+          lineHeight: '1.6',
+          color: '#333'
+        }}>
+          {description}
+        </p>
+      ) : (
+        <p style={{ 
+          fontSize: '10pt', 
+          fontStyle: 'italic',
+          color: '#999',
+          marginBottom: '20px'
+        }}>
+          Descrição não disponível
+        </p>
+      )}
     </ResearcherProfileProvider>
   )
 }
