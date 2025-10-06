@@ -1,0 +1,33 @@
+-- Continuar atualizando mais descrições dos pesquisadores
+
+UPDATE researchers 
+SET description = 'Possui graduação em Geologia pela Universidade Federal da Bahia (1978), mestrado em Geologia pela Universidade Federal do Rio de Janeiro (1982) e doutorado em Geologia Sedimentar pela Universidade Federal da Bahia (1987). Atualmente é professor titular da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Geologia Marinha e Costeira, atuando principalmente nos seguintes temas: evolução quaternária da costa, mudanças do nível do mar, sedimentologia e estratigrafia de sequências.'
+WHERE name = 'José Maria Dominguez Landim';
+
+UPDATE researchers 
+SET description = 'Possui graduação em Geologia pela Universidade Federal da Bahia (1982), mestrado em Geologia pela Universidade Federal da Bahia (1986) e doutorado em Geologia pela Universidade Federal da Bahia (1993). Atualmente é professora associada da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Recursos Hídricos e Ambientais, atuando principalmente nos seguintes temas: hidrogeologia, geologia ambiental, geofísica aplicada e gestão de recursos naturais.'
+WHERE name = 'Maria do Rosário Zucchi';
+
+UPDATE researchers 
+SET description = 'é geólogo pela Universidade de Brasília (2005), possui mestrado em Geofísica pela Universidade de São Paulo (2007), doutorado (2012), pós-doutorado em Geociências pela Universidade de Campinas (2012), e pós-doutorado em Geofísica Aplicada pela Universidade da Bahia (2018) É especialista no estudo de estruturas de impacto meteorítico, trabalhando em parceria com pesquisadores do Museum für Naturkunde/Alemanha, onde realizou parte do seu doutorado, e no desenvolvimento de modelos numéricos de formação de crateras de impacto meteorítico. Tem experiência na área de Geociências, com ênfase em métodos potenciais, eletromagnéticos, e radiométricos, aplicados à Exploração Mineral. Atualmente é professor Adjunto da Universidade Federal da Bahia-UFBA, onde já foi chefe do Departamento de Geofísica (2016-2018), coordenador do Programa de Pós-Graduação em Geofísica (2019-2022), e atualmente é coordenador do Centro de Pesquisas em Geofísica e Geologia-CPGG/UFBA e vice coordenador do curso de Geofísica. É também chefe do Laboratório Integrado de Geofísica Aplicada(LAIGA/CPGG).'
+WHERE name = 'Marcos Alberto Rodrigues Vasconcelos';
+
+UPDATE researchers 
+SET description = 'Possui graduação Ciências Biológicas, Bacharelado em Organismos Aquáticos pela Universidade Federal da Bahia (1989), mestrado em Geologia pela Universidade Federal da Bahia (2002) e doutorado em Geologia pela Universidade Federal da Bahia (2007). Atualmente é pesquisador colaborador da Universidade Federal da Bahia, no Grupo de Pesquisas Recifes de Corais e Mudanças Globais (RECOR). Tem trabalhado na conservação e impacto das mudanças climáticas em ecossistemas de recifes de corais desde 2000. Responsável pelo desenvolvimento de experimentos em aquários no Laboratório de Recifes de Corais. Tem experiência na área de Oceanografia, com ênfase em estudos da Interação entre os Organismos Marinhos (corais) e os Parâmetros Ambientais, atuando principalmente nos seguintes temas: recifes de corais, calcificação em corais, avaliação de impactos ambientais, hidrocorais e resiliência dos recifes de corais.'
+WHERE name = 'Marília de Dirceu Machado de Oliveira';
+
+UPDATE researchers 
+SET description = 'Possui graduação em Geologia pela Universidade de São Paulo (1976), graduação em Educação pela Faculdade de Educação pela Universidade de São Paulo (1978), mestrado em Geofísica pela Universidade Federal do Pará (1981), doutorado em Geofísica pela Universidade Federal da Bahia (1986) e realizou estágio de pós-doutorado no Institute of Geophysics da Universidade do Texas (setembro de 1992 a março de 1994). Professor do Departamento de Geologia e Geofísica Aplicada da UFBA desde janeiro de 1990 e Professor Titular desde 2000. Pesquisador do CNPQ desde 1990 e Pesquisador 1A desde 2004. Foi cordenador da Rede Cooperativa de Pesquisa NNE (FINEP) de 2003 a junho de 2009. Atualmente é coordenador do projeto Instituto Nacional de Ciência e Tecnologia de Geofísica do Petróleo do CNPq (INCT-GP). É Membro Titular da Academia de Ciências da Bahia (2011), e Membro Titular da Academia Brasileira de Ciência (2018). Em 2017 recebeu o prêmio Nero Passos da Sociedade Brasileira de Geofísica. As áreas de interesse compreendem: estudo de problemas inversos em geofísica, processamento sísmico, desenvolvimento de métodos e algoritmos de inversão e filtragem de dados sísmicos, exploração de água subterrânea e estudos geofísicos voltados para o monitoramento de plumas de contaminação e controle da qualidade do meio ambiente.'
+WHERE name = 'Milton José Porsani';
+
+UPDATE researchers 
+SET description = 'Possui graduação em Geofísica pela Universidade Federal da Bahia (1987), mestrado em Geofísica pela Universidade Federal da Bahia (1994) e doutorado em Geofísica pela Universidade Federal da Bahia (2000). Atualmente é professor associado da Universidade Federal da Bahia. Tem experiência na área de Geociências, com ênfase em Geofísica, atuando principalmente nos seguintes temas: processamento sísmico, migração sísmica, inversão geofísica e exploração petrolífera.'
+WHERE name = 'Reynam da Cruz Pestana';
+
+UPDATE researchers 
+SET description = 'Professor Titular aposentado do Instituto de Geociências da Universidade Federal da Bahia. Possui graduação em Geologia pela Universidade Federal da Bahia (1978), mestrado em Geologia pela Universidade Federal da Bahia (1982) e doutorado em Geologia Marinha pela Universidade de São Paulo (1989). Tem experiência na área de Geociências, com ênfase em Geologia e Geoquímica Marinha, atuando principalmente nos seguintes temas: geoquímica dos sedimentos, sedimentologia, oceanografia geológica, recifes de coral e corais.'
+WHERE name = 'Ruy Kenji Papa de Kikuchi';
+
+UPDATE researchers 
+SET description = 'Possui graduação em Bacharelado em Geologia pela Universidade Federal da Bahia (1997), mestrado em Evolução Crustal e Recursos Naturais pela Universidade Federal de Ouro Preto (2000) e doutorado em Evolução Crustal e Recursos Naturais pela Universidade Federal de Ouro Preto (2004), ambas com ênfase em Geologia Estrutural / Tectônica. Fez Pós-Doutotarado em Petrologia, Metalogênese e Exploração Mineral. Atualmente é professora Associada do Departamento de Geologia da Universidade Federal da Bahia, é Presidenta da Sociedade Brasileira de Geologia. Tem experiência na área de Geociências, com ênfase em Geologia Estrutural, Geotectônica e Recursos Minerais.'
+WHERE name = 'Simone Cerqueira Pereira Cruz';
