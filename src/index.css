@@ -149,8 +149,8 @@ All colors MUST be HSL.
   header {
     flex-shrink: 0 !important;
     height: auto !important;
-    max-height: 12vh !important;
-    min-height: 60px !important;
+    max-height: 15vh !important;
+    min-height: 80px !important;
   }
 
   /* Main content area should be scrollable and fill remaining space */
@@ -172,15 +172,15 @@ All colors MUST be HSL.
     flex: 1 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    height: 0 !important; /* Forces flex to work properly */
+    height: 0 !important;
   }
 
-  /* Footer should have fixed height at bottom */
+  /* Footer should have flexible height at bottom */
   footer {
     flex-shrink: 0 !important;
     margin-top: 0 !important;
     height: auto !important;
-    max-height: 15vh !important;
+    max-height: none !important;
   }
 
   /* Form elements styling from global.css */
