@@ -29,8 +29,8 @@
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  height: calc(220px * 3);
+  gap: 35px;
+  height: calc(235px * 3);
   animation: scroll-vertical 15s linear infinite;
 }
 
@@ -43,7 +43,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(calc(-220px * 3 - 40px));
+    transform: translateY(calc(-235px * 3 - 70px));
   }
 }
 
@@ -68,6 +68,7 @@
 .slideContainer {
   position: relative;
   width: 100%;
+  height: 200px;
   overflow: hidden;
   border-radius: 8px;
 }
