@@ -66,6 +66,7 @@ html, body {
   border: none !important;
   box-shadow: none !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -75,6 +76,8 @@ body {
   background-size: cover;
   -webkit-font-smoothing: antialised;
   color: #fff;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 #root {
