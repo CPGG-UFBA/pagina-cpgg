@@ -24,14 +24,13 @@
   place-items: center;
   overflow: hidden;
   margin-bottom: 50px;
-  padding: 10px 0;
 }
 
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  height: calc(250px * 3);
+  gap: 60px;
+  height: calc(260px * 3);
   animation: scroll-vertical 15s linear infinite;
 }
 
@@ -44,7 +43,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(calc(-250px * 3 - 100px));
+    transform: translateY(calc(-260px * 3 - 120px));
   }
 }
 
@@ -55,7 +54,6 @@
   padding: 0;
   align-items: center;
   perspective: 100px;
-  flex-shrink: 0;
 }
 
 .slide img {
@@ -70,7 +68,6 @@
 .slideContainer {
   position: relative;
   width: 100%;
-  height: 200px;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -78,8 +75,7 @@
 .slideContainer img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .titleOverlay {
@@ -141,7 +137,7 @@
   height: calc(36rem - 50px);
   margin-top: -3px;
   padding-left: 300px;
-  margin-bottom: 0;
+  margin-bottom: -500px;
 }
 
 .staticFigure { margin-left: 0; }
