@@ -1,14 +1,11 @@
 .pageContainer {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 .cpgg {
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
   padding: 1rem;
   text-align: justify;
   font-size: 16px;
@@ -46,7 +43,7 @@
   border-radius: 20px;
   gap: 5px;
   overflow-y: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .box p {
