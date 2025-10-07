@@ -129,17 +129,18 @@ All colors MUST be HSL.
 
   /* Main app container */
   body > div {
-    height: 100vh !important;
+    min-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   /* All page containers */
   .Container,
   .container,
   .pageContainer {
-    height: 100vh !important;
+    min-height: 100vh !important;
+    max-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: hidden !important;
@@ -179,8 +180,8 @@ All colors MUST be HSL.
   footer {
     flex-shrink: 0 !important;
     margin-top: 0 !important;
+    margin-bottom: 0 !important;
     height: auto !important;
-    max-height: 15vh !important;
   }
 
   /* Form elements styling from global.css */
