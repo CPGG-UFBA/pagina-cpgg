@@ -24,13 +24,14 @@
   place-items: center;
   overflow: hidden;
   margin-bottom: 50px;
+  padding: 10px 0;
 }
 
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  gap: 35px;
-  height: calc(235px * 3);
+  gap: 50px;
+  height: calc(250px * 3);
   animation: scroll-vertical 15s linear infinite;
 }
 
@@ -43,7 +44,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(calc(-235px * 3 - 70px));
+    transform: translateY(calc(-250px * 3 - 100px));
   }
 }
 
