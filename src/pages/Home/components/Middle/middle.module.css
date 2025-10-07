@@ -137,7 +137,7 @@
   height: calc(36rem - 50px);
   margin-top: -3px;
   padding-left: 300px;
-  margin-bottom: -500px;
+  margin-bottom: 0;
 }
 
 .staticFigure { margin-left: 0; }
