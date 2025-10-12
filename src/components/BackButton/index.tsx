@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 import styles from './BackButton.module.css'
 
 export function BackButton() {
@@ -10,7 +11,8 @@ export function BackButton() {
       onClick={() => navigate('/researchers')}
       aria-label="Voltar para lista de pesquisadores"
     >
-      ←
+      <ArrowLeft className="w-5 h-5" />
+      <span>Voltar</span>
     </button>
   )
 }
