@@ -93,12 +93,14 @@
   text-align: center;
   width: 350px;
   height: 100px;
-  position: relative;
+  position: absolute;
+  top: 150px;
+  left: -470px;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/LogoLaiga.png') center/cover;
-  margin-top: -3500px;
+  z-index: 10;
 }
 
 .Laiga:hover {
