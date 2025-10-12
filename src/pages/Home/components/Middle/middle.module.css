@@ -31,9 +31,9 @@
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  gap: 150px;
-  height: calc(260px * 3 + 300px);
-  animation: scroll-vertical 15s linear infinite;
+  gap: 200px;
+  padding-bottom: 200px;
+  animation: scroll-vertical 20s linear infinite;
 }
 
 .NewsTrack:hover {
@@ -45,7 +45,7 @@
     transform: translateY(0);
   }
   100% {
-    transform: translateY(calc(-260px * 3 - 180px));
+    transform: translateY(calc(-50%));
   }
 }
 
