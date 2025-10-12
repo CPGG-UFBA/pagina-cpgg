@@ -69,6 +69,23 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Reserva salva com sucesso:', reservation.id)
 
+    // Buscar email do chefe do LAIGA
+    console.log('Buscando informações do laboratório LAIGA...')
+    const { data: labData, error: labError } = await supabase
+      .from('laboratories')
+      .select('chief_alternative_email, chief_name')
+      .eq('acronym', 'LAIGA')
+      .single()
+
+    if (labError) {
+      console.error('Erro ao buscar dados do laboratório:', labError)
+    }
+
+    const chiefEmail = labData?.chief_alternative_email || 'marquinhos.arv@gmail.com'
+    const chiefName = labData?.chief_name || 'Prof. Marcos Alberto Rodrigues Vasconcelos'
+    
+    console.log('Email do chefe encontrado:', chiefEmail)
+
     // Preparar conteúdo do email
     const equipmentsList = reservationData.selectedEquipments.length > 0 
       ? reservationData.selectedEquipments.join(', ')
@@ -101,23 +118,23 @@ const handler = async (req: Request): Promise<Response> => {
       <p><strong>Data da Solicitação:</strong> ${new Date().toLocaleString('pt-BR')}</p>
     `
 
-    // Enviar email para o coordenador do LAIGA
-    console.log('Enviando email para marcos.vasconcelos@ufba.br...')
+    // Enviar email para o chefe do laboratório LAIGA
+    console.log(`Enviando email para o chefe do LAIGA: ${chiefEmail}...`)
     
     try {
       const emailResponse = await resend.emails.send({
         from: 'CPGG LAIGA <onboarding@resend.dev>',
-        to: ['marquinhos.arv@gmail.com'],
+        to: [chiefEmail],
         subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
         html: emailContent,
         reply_to: reservationData.applicantEmail,
       })
 
       if (emailResponse.error) {
-        console.error('Erro ao enviar email principal:', emailResponse.error)
+        console.error('Erro ao enviar email para o chefe:', emailResponse.error)
         throw emailResponse.error
       } else {
-        console.log('Email enviado com sucesso para o coordenador:', emailResponse.data)
+        console.log('Email enviado com sucesso para o chefe do LAIGA:', emailResponse.data)
       }
     } catch (emailError: any) {
       console.error('Falha no envio do email principal, tentando alternativas...', emailError)
@@ -131,9 +148,9 @@ const handler = async (req: Request): Promise<Response> => {
           subject: `[BACKUP] Nova Solicitação LAIGA - Encaminhar para Prof. Marcos Vasconcelos`,
           html: `
             <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
-              <strong>⚠️ AVISO:</strong> Este email foi redirecionado para a secretaria pois houve problema no envio direto para o coordenador.
-              <br><strong>Destinatário original:</strong> marquinhos.arv@gmail.com
-              <br><strong>Ação necessária:</strong> Por favor, encaminhe este email para o Prof. Marcos Vasconcelos.
+              <strong>⚠️ AVISO:</strong> Este email foi redirecionado para a secretaria pois houve problema no envio direto para o chefe do laboratório.
+              <br><strong>Destinatário original:</strong> ${chiefEmail} (${chiefName})
+              <br><strong>Ação necessária:</strong> Por favor, encaminhe este email para o chefe do LAIGA.
             </div>
             ${emailContent}
           `,
