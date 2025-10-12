@@ -64,17 +64,12 @@ html body[data-scroll-locked] {
 }
 
 html, body {
-  height: 100vh;
-  max-height: 100vh;
+  height: 100%;
   border: none !important;
   box-shadow: none !important;
   overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
 }
 
 body {
@@ -85,12 +80,10 @@ body {
 }
 
 #root {
-  height: 100vh;
-  max-height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 100%;
 }
 
 body,

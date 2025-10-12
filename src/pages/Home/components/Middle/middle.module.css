@@ -1,34 +1,31 @@
 .middle {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 120px 24px 0 24px;
+  padding-top: 140px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 0;
   font-family: 'Poppins', sans-serif;
-  height: 100%;
-  width: 100%;
+  margin-bottom: 0;
   overflow: hidden;
-  position: relative;
 }
 
 .middle ul {
-  position: fixed;
-  bottom: 620px;
-  left: 42px;
+  position: absolute;
+  top: 78%;
   font-size: 12px;
+  padding-left: 42px;
   color: #fff;
-  z-index: 100;
 }
 
 .News {
-  height: 400px;
+  height: 600px;
   width: 28%;
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
   margin-bottom: 0;
-  flex-shrink: 0;
 }
 
 .NewsTrack {
@@ -108,15 +105,14 @@
 
 .static {
   color: #fff;
-  margin-top: 20px;
+  margin-top: 50px;
   line-height: 0.5;
   margin-left: 4.5rem;
-  font-size: 40px;
-  flex-shrink: 0;
+  font-size: 45px;
 }
 
 .static > strong {
-  font-size: 70px;
+  font-size: 90px;
   line-height: 1.6;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
@@ -126,13 +122,13 @@
 .enjoy {
   line-height: 1.6;
   color: #fff;
-  padding-top: 20px;
+  padding-top: 30px;
   line-height: 1.2;
-  font-size: 26px;
+  font-size: 30px;
 }
 
 .enjoy > strong {
-  font-size: 26px; 
+  font-size: 30px; 
   line-height: 1.6;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
