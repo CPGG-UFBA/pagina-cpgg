@@ -51,7 +51,10 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  left: -500px;
+}
+
+.buttonContainer .a {
+  left: 20px;
 }
 
 .auditory1 img {
