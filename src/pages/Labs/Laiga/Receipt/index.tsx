@@ -4,7 +4,6 @@ import { supabase } from '../../../../integrations/supabase/client'
 import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import styles from './LaigaReceipt.module.css'
-import laigaLogo from '../../../../assets/earth-labs.png'
 
 interface LaigaReservation {
   id: string
@@ -85,7 +84,6 @@ export function LaigaReceipt() {
       <div className={styles.container}>
         <div className={styles.receipt}>
           <div className={styles.header}>
-            <img src={laigaLogo} alt="Logo LAIGA" className={styles.logo} />
             <h1>COMPROVANTE DE SOLICITAÇÃO</h1>
             <h2>Laboratório Integrado de Geofísica Aplicada - LAIGA</h2>
             <h3>Centro de Pesquisa em Geofísica e Geologia - CPGG/UFBA</h3>
