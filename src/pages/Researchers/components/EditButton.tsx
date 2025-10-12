@@ -16,29 +16,29 @@ export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
     const button = document.createElement('button')
     button.id = 'floating-edit-button'
     button.innerHTML = isEditMode 
-      ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sair`
-      : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>`
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>Sair do Modo Edição`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"></path><path d="m15 5 4 4"></path></svg>Modo Edição`
     
     button.style.cssText = `
       position: fixed !important;
       bottom: 16px !important;
       right: 16px !important;
       z-index: 999999999 !important;
-      ${isEditMode ? 'padding: 12px 24px;' : 'width: 60px; height: 60px;'}
-      border-radius: ${isEditMode ? '8px' : '50%'} !important;
-      background-color: ${isEditMode ? '#ef4444' : '#3b82f6'} !important;
-      color: white !important;
+      padding: 12px 20px !important;
+      border-radius: 8px !important;
+      background-color: ${isEditMode ? 'hsl(var(--destructive))' : 'hsl(var(--primary))'} !important;
+      color: ${isEditMode ? 'hsl(var(--destructive-foreground))' : 'hsl(var(--primary-foreground))'} !important;
       border: none !important;
       cursor: pointer !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      gap: 8px !important;
       pointer-events: auto !important;
       font-family: system-ui, -apple-system, sans-serif !important;
-      font-size: 14px !important;
+      font-size: 16px !important;
       font-weight: 500 !important;
+      transition: all 0.2s ease !important;
     `
 
     button.addEventListener('click', (e) => {
@@ -53,11 +53,11 @@ export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
     })
 
     button.addEventListener('mouseenter', () => {
-      button.style.backgroundColor = isEditMode ? '#dc2626' : '#2563eb'
+      button.style.opacity = '0.9'
     })
 
     button.addEventListener('mouseleave', () => {
-      button.style.backgroundColor = isEditMode ? '#ef4444' : '#3b82f6'
+      button.style.opacity = '1'
     })
 
     document.body.appendChild(button)
