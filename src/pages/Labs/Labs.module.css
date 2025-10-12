@@ -29,7 +29,7 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85));
+  background: linear-gradient(135deg, rgba(2, 0, 36, 0.85), rgba(9, 94, 121, 0.85));
   text-decoration: none;
 }
 
@@ -40,7 +40,6 @@
   box-shadow: none;
   padding: 0;
 }
-
 
 .dynamicLab:hover {
   transform: translateY(-5px);
@@ -76,7 +75,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: calc(18rem + 100px);
+  margin-bottom: calc(18rem + 10px);
   position: relative;
   grid-auto-rows: auto;
 }
@@ -104,8 +103,9 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
-    url('/src/components/Figures/LogoLaiga.png') center/cover;
+  background:
+    linear-gradient(90deg, rgba(2, 0, 36, 0.85) 0%, rgba(63, 9, 121, 0.85)),
+    url("/src/components/Figures/LogoLaiga.png") center/cover;
 }
 
 .Laiga:hover {
@@ -123,8 +123,9 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
-    url('/src/components/Figures/congrats.jpg') center/cover;
+  background:
+    linear-gradient(135deg, rgba(2, 0, 36, 0.85), rgba(9, 94, 121, 0.85)),
+    url("/src/components/Figures/congrats.jpg") center/cover;
 }
 
 .Lagep {
@@ -138,8 +139,9 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
-    url('/src/components/Figures/congrats.jpg') center/cover;
+  background:
+    linear-gradient(135deg, rgba(2, 0, 36, 0.85), rgba(9, 94, 121, 0.85)),
+    url("/src/components/Figures/congrats.jpg") center/cover;
   grid-column: 1;
   grid-row: 2;
 }
@@ -163,8 +165,9 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
-    url('/src/components/Figures/meeting.jpg') center/cover;
+  background:
+    linear-gradient(135deg, rgba(2, 0, 36, 0.85), rgba(9, 94, 121, 0.85)),
+    url("/src/components/Figures/meeting.jpg") center/cover;
   grid-column: 2;
   grid-row: 2;
 }
@@ -198,27 +201,27 @@
   .labs {
     padding: 3rem;
   }
-  
+
   .titleContainer {
     margin-left: -350px;
     margin-top: 8rem;
   }
-  
+
   .title {
     font-size: 28px;
   }
-  
+
   .container {
     max-width: 1000px;
     margin-left: 100px;
     gap: 3rem;
   }
-  
+
   .staticFigure {
     right: 200px;
     top: 120px;
   }
-  
+
   .staticFigure img {
     max-width: 600px;
     max-height: 600px;
@@ -231,16 +234,16 @@
   .labs {
     padding: 2rem;
   }
-  
+
   .titleContainer {
     margin-left: -470px;
     margin-top: 7rem;
   }
-  
+
   .container {
     margin-left: 50px;
   }
-  
+
   .staticFigure {
     right: 150px;
     top: 150px;
@@ -252,34 +255,38 @@
   .labs {
     padding: 1.5rem;
   }
-  
+
   .titleContainer {
     margin-left: 200px;
     margin-top: 6rem;
   }
-  
+
   .title {
     font-size: 22px;
   }
-  
+
   .container {
     max-width: 700px;
     margin-left: 30px;
     gap: 1.5rem;
   }
-  
+
   .staticFigure {
     right: 100px;
     top: 180px;
   }
-  
+
   .staticFigure img {
     max-width: 450px;
     max-height: 450px;
     object-fit: contain;
   }
-  
-  .dynamicLab, .others, .Laiga, .Lamod, .Lagep {
+
+  .dynamicLab,
+  .others,
+  .Laiga,
+  .Lamod,
+  .Lagep {
     width: 300px;
     height: 90px;
   }
@@ -290,36 +297,40 @@
   .labs {
     padding: 1rem;
   }
-  
+
   .titleContainer {
     margin-left: 100px;
     margin-top: 5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .title {
     font-size: 20px;
   }
-  
+
   .container {
     max-width: 600px;
     margin-left: 20px;
     gap: 1rem;
     margin-bottom: calc(20rem + 50px);
   }
-  
+
   .staticFigure {
     right: 50px;
     top: 220px;
   }
-  
+
   .staticFigure img {
     max-width: 350px;
     max-height: 350px;
     object-fit: contain;
   }
-  
-  .dynamicLab, .others, .Laiga, .Lamod, .Lagep {
+
+  .dynamicLab,
+  .others,
+  .Laiga,
+  .Lamod,
+  .Lagep {
     width: 250px;
     height: 80px;
     font-size: 14px;
@@ -331,7 +342,7 @@
   .labs {
     padding: 1rem;
   }
-  
+
   .titleContainer {
     margin-left: 20px;
     margin-top: 4rem;
@@ -340,11 +351,11 @@
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .title {
     font-size: 18px;
   }
-  
+
   .container {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -352,12 +363,16 @@
     gap: 1rem;
     margin-bottom: calc(15rem + 50px);
   }
-  
+
   .staticFigure {
     display: none; /* Terra desaparece */
   }
-  
-  .dynamicLab, .others, .Laiga, .Lamod, .Lagep {
+
+  .dynamicLab,
+  .others,
+  .Laiga,
+  .Lamod,
+  .Lagep {
     width: 100%;
     max-width: 400px;
     height: 70px;
@@ -371,7 +386,7 @@
   .labs {
     padding: 0.5rem;
   }
-  
+
   .titleContainer {
     margin-left: 10px;
     margin-top: 3rem;
@@ -381,11 +396,11 @@
     text-align: center;
     gap: 0.5rem;
   }
-  
+
   .title {
     font-size: 16px;
   }
-  
+
   .container {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -394,12 +409,16 @@
     gap: 0.5rem;
     margin-bottom: calc(10rem + 30px);
   }
-  
+
   .staticFigure {
     display: none; /* Terra desaparece */
   }
-  
-  .dynamicLab, .others, .Laiga, .Lamod, .Lagep {
+
+  .dynamicLab,
+  .others,
+  .Laiga,
+  .Lamod,
+  .Lagep {
     width: 100%;
     max-width: 320px;
     height: 60px;
@@ -407,7 +426,7 @@
     margin: 0 auto;
     padding: 0.5rem;
   }
-  
+
   .labLink {
     font-size: 12px;
   }
