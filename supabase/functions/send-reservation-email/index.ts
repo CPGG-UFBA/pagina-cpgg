@@ -42,6 +42,7 @@ const handler = async (req: Request): Promise<Response> => {
     const { nome, sobrenome, email, uso, inicio, termino, tipoReserva }: ReservationRequest = await req.json();
 
     console.log("Received reservation request", { nome, sobrenome, email, uso, inicio, termino, tipoReserva });
+    console.log("Using SERVICE_ROLE_KEY for database access");
 
     // Salvar reserva no banco de dados
     const { data: reservationData, error: dbError } = await supabase
