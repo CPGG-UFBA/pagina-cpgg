@@ -83,7 +83,7 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  margin-left: 85px;
+  margin-left: 45px;
   margin-top: -900px;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('/src/components/Figures/congrats.png') center/cover;
@@ -140,7 +140,7 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  margin-left: 85px;
+  margin-left: 45px;
   margin-top: -1200px;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(63,9,121,0.85)),
     url('/src/assets/earth-regulations.jpg') center/cover;
