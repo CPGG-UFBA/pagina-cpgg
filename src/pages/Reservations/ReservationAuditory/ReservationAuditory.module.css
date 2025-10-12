@@ -30,7 +30,7 @@
   width: 600px;
   height: 520px;
   top: 18%; 
-  left:10%;
+  left: calc(10% - 250px);
   padding: 10px;
   border-radius: 20px;
   margin-bottom: -500px;
