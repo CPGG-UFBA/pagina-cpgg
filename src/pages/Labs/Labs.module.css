@@ -87,9 +87,10 @@
 
 .laigaCard {
   position: absolute !important;
-  top: 190px !important;
+  top: 210px !important;
   left: -470px !important;
   z-index: 10 !important;
+  margin: 0 !important;
 }
 
 .Laiga {
