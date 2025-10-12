@@ -24,6 +24,7 @@ footer * {
 [class*="container"] {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Ensure footer is always at bottom and nothing after it */
@@ -64,6 +65,7 @@ html, body {
   height: 100%;
   border: none !important;
   box-shadow: none !important;
+  overflow-y: auto !important;
   margin: 0 !important;
   padding: 0 !important;
 }

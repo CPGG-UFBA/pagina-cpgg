@@ -122,24 +122,17 @@ All colors MUST be HSL.
 
   /* Global layout: no page scroll, everything fits in viewport */
   html, body {
-    height: 100vh;
-    max-height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
   }
 
   /* Main app container */
   body > div {
     height: 100vh !important;
-    max-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: hidden !important;
+    overflow: visible !important;
   }
 
   /* All page containers */
@@ -147,7 +140,6 @@ All colors MUST be HSL.
   .container,
   .pageContainer {
     height: 100vh !important;
-    max-height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: hidden !important;
@@ -156,22 +148,14 @@ All colors MUST be HSL.
   /* Header should have fixed height */
   header {
     flex-shrink: 0 !important;
-    height: 100px !important;
-    max-height: 100px !important;
-    min-height: 100px !important;
-    overflow: hidden !important;
+    height: auto !important;
+    max-height: 12vh !important;
+    min-height: 60px !important;
   }
 
-  /* Main content area - NO SCROLL for home page */
+  /* Main content area should be scrollable and fill remaining space */
   main,
-  .main-content {
-    flex: 1 !important;
-    overflow: hidden !important;
-    height: 0 !important;
-    position: relative !important;
-  }
-  
-  /* Other pages can scroll */
+  .main-content,
   .photos,
   .regulations,
   .spaces,
@@ -188,17 +172,21 @@ All colors MUST be HSL.
     flex: 1 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
-    height: 0 !important;
-    padding-bottom: 610px !important;
+    height: 0 !important; /* Forces flex to work properly */
+    padding-bottom: 610px !important; /* Space for fixed footer */
+  }
+  
+  /* Home page specific - no scroll */
+  .Container:has(+ *) {
+    overflow: hidden !important;
   }
 
   /* Footer should have fixed height at bottom */
   footer {
     flex-shrink: 0 !important;
     margin-top: 0 !important;
-    margin-bottom: 0 !important;
     height: auto !important;
-    overflow: hidden !important;
+    max-height: 15vh !important;
   }
 
   /* Form elements styling from global.css */

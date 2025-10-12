@@ -7,8 +7,6 @@
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
-  padding-top: 100px;
-  padding-bottom: 0;
   margin-top: 0;
   overflow: hidden;
   background: var(--gradient-main-bg);

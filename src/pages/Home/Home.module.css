@@ -3,28 +3,13 @@
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
-  overflow: hidden !important;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
+  overflow: hidden;
 }
 
-.Container * {
-  overflow-x: hidden !important;
-}
-
-.Container main {
-  flex: 1;
-  overflow: hidden !important;
-  min-height: 0;
-}
-
-/* Override portrait orientation */
+/* Portrait orientation - when height > width */
 @media (orientation: portrait) {
   .Container {
-    height: 100vh;
-    overflow: hidden;
+    justify-content: space-between;
   }
 }
 

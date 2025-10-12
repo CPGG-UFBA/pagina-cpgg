@@ -2,10 +2,12 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  position: relative;
-  justify-content: flex-end;
-  margin-top: auto;
-  margin-bottom: 0 !important;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin: 0 !important;
   padding-bottom: 0 !important;
 }
 
@@ -14,23 +16,23 @@
   background-image: url('../../assets/footer-figure.png');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 265px;
+  height: 530px; /* Increased by 30px */
   position: relative;
   z-index: 1;
-  margin-top: -15px;
+  margin-top: -30px; /* Moved up by 30px */
 }
 
 .bar {
   background: #00249c;
   display: flex;
-  height: 55px;
+  height: 110px; /* Increased another 30px */
   width: 100%;
   position: relative;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   z-index: 2;
-  margin-top: -15px;
+  margin-top: -30px; /* Moved up by 30px */
   margin-bottom: 0 !important;
 }
 
@@ -98,11 +100,11 @@
   }
   
   .image {
-    height: 175px;
+    height: 350px;
   }
   
   .bar {
-    height: calc(4vh + 30px);
+    height: calc(8vh + 60px);
     padding: 0 30px;
   }
 }
@@ -119,11 +121,11 @@
   }
   
   .image {
-    height: 150px;
+    height: 300px;
   }
   
   .bar {
-    height: calc(3.5vh + 30px);
+    height: calc(7vh + 60px);
   }
 }
 
@@ -140,11 +142,11 @@
   }
   
   .image {
-    height: 140px;
+    height: 280px;
   }
   
   .bar {
-    height: calc(3vh + 30px);
+    height: calc(6vh + 60px);
     padding: 0 15px;
   }
 }
@@ -162,12 +164,12 @@
   }
   
   .image {
-    height: 125px;
+    height: 250px;
     width: 100%;
   }
   
   .bar {
-    height: calc(3vh + 30px);
+    height: calc(6vh + 60px);
     width: 100%;
     padding: 0 15px;
   }
@@ -191,12 +193,12 @@
   }
   
   .image {
-    height: 100px;
+    height: 200px;
     width: 100%;
   }
   
   .bar {
-    height: calc(2.5vh + 30px);
+    height: calc(5vh + 60px);
     width: 100%;
     padding: 0 10px;
     flex-direction: column;
@@ -235,13 +237,13 @@
   }
   
   .image {
-    height: 75px;
+    height: 150px;
     width: 100%;
     background-size: contain;
   }
   
   .bar {
-    height: calc(2.5vh + 30px);
+    height: calc(5vh + 60px);
     width: 100%;
     padding: 5px;
     flex-direction: column;
