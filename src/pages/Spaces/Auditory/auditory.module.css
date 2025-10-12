@@ -1,7 +1,7 @@
 .Container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 /* Portrait orientation - when height > width */
@@ -11,31 +11,31 @@
   }
 }
 
-.Auditory{
+.Auditory {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
   position: relative;
-  }
+}
 
 .Auditory ul {
-    font-size: 24px;
-    color: #363F5;
-    position: absolute; 
-    top: calc(10% + 25px);
-    left: 50%;
-    transform: translateX(calc(-50% - 200px));
-    margin: 0;
-  }
+  font-size: 24px;
+  color: #363F5;
+  position: absolute;
+  top: calc(10% + 25px);
+  left: 50%;
+  transform: translateX(calc(-50% - 200px));
+  margin: 0;
+}
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(1, 18vw);
-    grid-gap: 10px;
-    margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 18vw);
+  grid-gap: 10px;
+  margin-bottom: 20px;
 }
 
 .textContent {
@@ -54,10 +54,10 @@
 }
 
 .auditory1 img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    margin: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
 }
 
 .auditory1 img {
@@ -85,8 +85,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
   height: 600px;
