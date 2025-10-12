@@ -55,7 +55,7 @@
   height: 200px;
   width: 100%;
   display: flex;
-  padding: 10;
+  padding: 50px;
   align-items: center;
   perspective: 100px;
 }
