@@ -6,10 +6,11 @@
   overflow: hidden;
 }
 
-/* Portrait orientation - when height > width */
+/* Override portrait orientation */
 @media (orientation: portrait) {
   .Container {
-    justify-content: space-between;
+    height: 100vh;
+    overflow: hidden;
   }
 }
 
