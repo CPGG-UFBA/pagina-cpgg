@@ -11,7 +11,7 @@ export function BackButton() {
       onClick={() => navigate('/researchers')}
       aria-label="Voltar para lista de pesquisadores"
     >
-      <ArrowLeft className="w-5 h-5" />
+      <ArrowLeft className="w-4 h-4" />
       <span>Voltar</span>
     </button>
   )
