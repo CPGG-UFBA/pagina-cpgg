@@ -250,7 +250,7 @@ export function Sign() {
         return;
       }
 
-      // Buscar perfil pelo email, incluindo description e photo_url
+      // Buscar perfil pelo email
       const { data: profiles, error: profileError } = await supabase
         .from('user_profiles')
         .select('*')
@@ -269,22 +269,14 @@ export function Sign() {
 
       const profile = profiles[0];
 
-      // Se o perfil tem user_id, apenas limpar o user_id (preservando description e photo_url)
+      // Se o perfil tem user_id, resetar apenas os dados de autenticação (preservando description e photo_url)
       if (profile.user_id) {
-        // Deletar do auth.users
-        const { error: deleteAuthError } = await supabase.auth.admin.deleteUser(profile.user_id);
+        const { data: resetResult, error: resetError } = await supabase
+          .rpc('reset_user_keep_profile_data', {
+            _user_profile_id: profile.id
+          });
         
-        if (deleteAuthError) {
-          console.error('Erro ao deletar usuário do auth:', deleteAuthError);
-        }
-
-        // Limpar apenas o user_id do perfil, mantendo description e photo_url
-        const { error: updateError } = await supabase
-          .from('user_profiles')
-          .update({ user_id: null })
-          .eq('id', profile.id);
-        
-        if (updateError) {
+        if (resetError || (resetResult && !(resetResult as any).success)) {
           toast({
             title: 'Erro',
             description: 'Não foi possível limpar o registro anterior.',
@@ -295,7 +287,7 @@ export function Sign() {
         }
       }
 
-      // Preencher o formulário com os dados existentes (email será o mesmo que foi digitado)
+      // Preencher o formulário com os dados existentes
       setFormData(prev => ({
         ...prev,
         fullName: profile.full_name,

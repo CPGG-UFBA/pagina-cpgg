@@ -610,6 +610,10 @@ export type Database = {
           user_id: string
         }[]
       }
+      reset_user_keep_profile_data: {
+        Args: { _user_profile_id: string }
+        Returns: Json
+      }
       restore_user_profile: {
         Args: {
           _email: string
