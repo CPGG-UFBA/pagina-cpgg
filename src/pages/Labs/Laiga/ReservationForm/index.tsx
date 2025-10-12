@@ -86,6 +86,7 @@ export function RF() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Updated: 2025-10-12 20:40 - Fixed redirect and email
 
     // Validações
     if (formData.selectedEquipments.length === 0 && !formData.otherEquipment) {
