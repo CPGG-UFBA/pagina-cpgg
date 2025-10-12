@@ -14,7 +14,7 @@
 
 .middle ul {
   position: absolute;
-  top: 78%;
+  top: calc(78% + 50px);
   font-size: 12px;
   padding-left: 42px;
   color: #fff;
