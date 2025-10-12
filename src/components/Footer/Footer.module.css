@@ -14,23 +14,23 @@
   background-image: url('../../assets/footer-figure.png');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 530px; /* Increased by 30px */
+  height: 265px;
   position: relative;
   z-index: 1;
-  margin-top: -30px; /* Moved up by 30px */
+  margin-top: -15px;
 }
 
 .bar {
   background: #00249c;
   display: flex;
-  height: 110px; /* Increased another 30px */
+  height: 55px;
   width: 100%;
   position: relative;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
   z-index: 2;
-  margin-top: -30px; /* Moved up by 30px */
+  margin-top: -15px;
   margin-bottom: 0 !important;
 }
 
@@ -98,11 +98,11 @@
   }
   
   .image {
-    height: 350px;
+    height: 175px;
   }
   
   .bar {
-    height: calc(8vh + 60px);
+    height: calc(4vh + 30px);
     padding: 0 30px;
   }
 }
@@ -119,11 +119,11 @@
   }
   
   .image {
-    height: 300px;
+    height: 150px;
   }
   
   .bar {
-    height: calc(7vh + 60px);
+    height: calc(3.5vh + 30px);
   }
 }
 
@@ -140,11 +140,11 @@
   }
   
   .image {
-    height: 280px;
+    height: 140px;
   }
   
   .bar {
-    height: calc(6vh + 60px);
+    height: calc(3vh + 30px);
     padding: 0 15px;
   }
 }
@@ -162,12 +162,12 @@
   }
   
   .image {
-    height: 250px;
+    height: 125px;
     width: 100%;
   }
   
   .bar {
-    height: calc(6vh + 60px);
+    height: calc(3vh + 30px);
     width: 100%;
     padding: 0 15px;
   }
@@ -191,12 +191,12 @@
   }
   
   .image {
-    height: 200px;
+    height: 100px;
     width: 100%;
   }
   
   .bar {
-    height: calc(5vh + 60px);
+    height: calc(2.5vh + 30px);
     width: 100%;
     padding: 0 10px;
     flex-direction: column;
@@ -235,13 +235,13 @@
   }
   
   .image {
-    height: 150px;
+    height: 75px;
     width: 100%;
     background-size: contain;
   }
   
   .bar {
-    height: calc(5vh + 60px);
+    height: calc(2.5vh + 30px);
     width: 100%;
     padding: 5px;
     flex-direction: column;
