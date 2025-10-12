@@ -88,9 +88,6 @@ export function Middle() {
                       src={coverImage || fallbackImages[index]} 
                       alt={article.title || `Notícia ${index + 1}`}
                     />
-                    <div className={styles.titleOverlay}>
-                      <span className={styles.titleText}>{article.title || `Notícia ${index + 1}`}</span>
-                    </div>
                   </div>
                 </a>
               </div>
@@ -110,9 +107,6 @@ export function Middle() {
                       src={coverImage || fallbackImages[index]} 
                       alt={article.title || `Notícia ${index + 1}`}
                     />
-                    <div className={styles.titleOverlay}>
-                      <span className={styles.titleText}>{article.title}</span>
-                    </div>
                   </div>
                 </a>
               </div>
@@ -127,9 +121,6 @@ export function Middle() {
                   <a href={`/News/News${index + 1}`}>
                     <div className={styles.slideContainer}>
                       <img src={fallbackImages[index]} alt={`Notícia ${index + 1}`} />
-                      <div className={styles.titleOverlay}>
-                        <span className={styles.titleText}>Notícia {index + 1}</span>
-                      </div>
                     </div>
                   </a>
                 </div>
