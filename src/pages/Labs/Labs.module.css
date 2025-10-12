@@ -77,7 +77,7 @@
   margin: 0 auto;
   margin-left: 50px;
   margin-bottom: calc(18rem + 100px);
-  position: static;
+  position: relative;
   grid-auto-rows: auto;
 }
 
@@ -93,14 +93,16 @@
   text-align: center;
   width: 350px;
   height: 100px;
-  position: absolute;
-  top: 150px;
-  left: -470px;
+  position: absolute !important;
+  top: 180px !important;
+  left: -470px !important;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/LogoLaiga.png') center/cover;
   z-index: 10;
+  grid-column: unset !important;
+  grid-row: unset !important;
 }
 
 .Laiga:hover {
