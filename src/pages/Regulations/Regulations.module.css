@@ -18,8 +18,8 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
@@ -29,6 +29,18 @@
   overflow-y: auto;
   padding-bottom: 2rem;
   margin-left: calc(50% - 400px - 350px);
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 
