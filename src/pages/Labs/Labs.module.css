@@ -98,11 +98,11 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/LogoLaiga.png') center/cover;
-  transform: translateY(-3500px);
+  margin-top: -3500px;
 }
 
 .Laiga:hover {
-  transform: translateY(-3505px);
+  transform: translateY(-5px);
 }
 
 .Lamod {
