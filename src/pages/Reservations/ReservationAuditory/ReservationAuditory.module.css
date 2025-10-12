@@ -30,7 +30,7 @@
   width: 600px;
   height: 520px;
   top: 18%; 
-  left: calc(10% - 250px);
+  left:10%;
   padding: 10px;
   border-radius: 20px;
   margin-bottom: -500px;
@@ -86,7 +86,7 @@
   margin-left:2.5rem;
   background-color: #BEB6B6;
   margin-left:9rem;
-  margin-top:4.75rem;
+  margin-top: -825px;
   border: none;
   transition: 500ms linear;
 }
@@ -114,6 +114,11 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+}
+
+.dateField:last-child {
+  margin-top: -1000px;
+  margin-left: 270px;
 }
 
 .dateField label {
