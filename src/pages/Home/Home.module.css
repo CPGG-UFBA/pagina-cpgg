@@ -1,9 +1,23 @@
 .Container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
   max-height: 100vh;
-  overflow: hidden;
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.Container * {
+  overflow-x: hidden !important;
+}
+
+.Container main {
+  flex: 1;
+  overflow: hidden !important;
+  min-height: 0;
 }
 
 /* Override portrait orientation */
