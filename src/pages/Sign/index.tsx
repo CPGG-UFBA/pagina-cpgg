@@ -35,6 +35,8 @@ export function Sign() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [showPasswordResetForm, setShowPasswordResetForm] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
   
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -228,6 +230,88 @@ export function Sign() {
     }
   };
 
+  const handleVerifyEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      // Validar email
+      const emailSchema = z.string().trim().email('Email inválido');
+      const validationResult = emailSchema.safeParse(resetEmail);
+      
+      if (!validationResult.success) {
+        toast({
+          title: 'Email inválido',
+          description: 'Por favor, insira um email válido.',
+          variant: 'destructive'
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      // Buscar perfil pelo email
+      const { data: profiles, error: profileError } = await supabase
+        .from('user_profiles')
+        .select('*')
+        .eq('email', resetEmail)
+        .limit(1);
+
+      if (profileError || !profiles || profiles.length === 0) {
+        toast({
+          title: 'Email não encontrado',
+          description: 'Este email não está cadastrado no sistema.',
+          variant: 'destructive'
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      const profile = profiles[0];
+
+      // Se o perfil tem user_id, deletar o usuário antigo
+      if (profile.user_id) {
+        const { data: deleteResult, error: deleteError } = await supabase
+          .rpc('delete_user_complete', {
+            _user_profile_id: profile.id
+          });
+        
+        if (deleteError || (deleteResult && !(deleteResult as any).success)) {
+          toast({
+            title: 'Erro',
+            description: 'Não foi possível limpar o registro anterior.',
+            variant: 'destructive'
+          });
+          setIsLoading(false);
+          return;
+        }
+      }
+
+      // Preencher o nome completo automaticamente
+      setFormData(prev => ({
+        ...prev,
+        fullName: profile.full_name,
+        phone: profile.phone || ''
+      }));
+
+      toast({
+        title: 'Email verificado!',
+        description: 'Agora preencha seus novos dados para redefinir sua senha.',
+      });
+
+      // Ir para o formulário de redefinição
+      setShowPasswordResetForm(true);
+      setShowForgotPassword(false);
+    } catch (error: any) {
+      toast({
+        title: 'Erro',
+        description: 'Não foi possível verificar o email. Tente novamente.',
+        variant: 'destructive'
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -260,23 +344,6 @@ export function Sign() {
         return;
       }
 
-      // Se o perfil já tem user_id (já foi registrado), deletar o usuário antigo
-      if (preRegisteredProfile.user_id) {
-        const { data: deleteResult, error: deleteError } = await supabase
-          .rpc('delete_user_complete', {
-            _user_profile_id: preRegisteredProfile.id
-          });
-        
-        if (deleteError || (deleteResult && !(deleteResult as any).success)) {
-          toast({
-            title: 'Erro',
-            description: 'Não foi possível limpar o registro anterior.',
-            variant: 'destructive'
-          });
-          setIsLoading(false);
-          return;
-        }
-      }
 
       // Criar nova conta no Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
@@ -313,6 +380,7 @@ export function Sign() {
       setRegisteredEmail(formData.email);
       setSuccess(true);
       setShowForgotPassword(false);
+      setShowPasswordResetForm(false);
     } catch (error: any) {
       toast({
         title: 'Erro',
@@ -365,6 +433,76 @@ export function Sign() {
                 {isResending ? 'Reenviando...' : 'Reenviar email de confirmação'}
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (showPasswordResetForm) {
+    return (
+      <div className={styles.sign}>
+        <HomeButton />
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <img src={logocpgg} alt="CPGG" />
+          </div>
+          
+          <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <div style={{ 
+              backgroundColor: '#fef3c7', 
+              padding: '15px', 
+              borderRadius: '8px', 
+              marginBottom: '20px',
+              border: '1px solid #fbbf24'
+            }}>
+              <p style={{ 
+                fontSize: '14px', 
+                color: '#92400e', 
+                textAlign: 'center',
+                fontWeight: '500',
+                margin: 0
+              }}>
+                Para redefinir sua senha, preencha novamente seus dados e a nova senha
+              </p>
+            </div>
+            
+            <div className={styles.formTitle}>
+              <p>Recuperar Senha</p>
+            </div>
+
+            <form onSubmit={handleVerifyEmail} className={styles.form}>
+              <p style={{ marginBottom: '20px', fontSize: '14px', color: '#666', textAlign: 'center' }}>
+                Digite seu email cadastrado para iniciar a redefinição de senha.
+              </p>
+              <input
+                type="email"
+                placeholder="Email cadastrado"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                required
+                disabled={isLoading}
+              />
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Verificando...' : 'Enviar'}
+              </button>
+              <button 
+                type="button"
+                onClick={() => {
+                  setShowForgotPassword(false);
+                  setResetEmail('');
+                }}
+                disabled={isLoading}
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#6b7280',
+                  cursor: isLoading ? 'not-allowed' : 'pointer',
+                  opacity: isLoading ? 0.6 : 1
+                }}
+              >
+                Voltar
+              </button>
+            </form>
           </div>
         </div>
       </div>
