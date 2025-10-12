@@ -93,10 +93,12 @@ nav ul li a {
 
 .submenu1 {
   display: none;
+  pointer-events: none;
 }
 
 nav ul li:hover .submenu1 {
   display: block;
+  pointer-events: auto;
   position: absolute;
   background-color: #592cbb;
   margin-top: -30px;
@@ -105,6 +107,7 @@ nav ul li:hover .submenu1 {
   width: 160px;
   right: 0;
   max-width: calc(100vw - 20px);
+  left: auto;
 }
 
 nav ul li:hover .submenu1 ul {
