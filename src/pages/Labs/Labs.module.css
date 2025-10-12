@@ -75,7 +75,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: 100px;
+  margin-bottom: calc(18rem + 100px);
   position: relative;
   grid-auto-rows: auto;
 }
