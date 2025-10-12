@@ -24,9 +24,6 @@ footer * {
 [class*="container"] {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  max-height: 100vh;
-  overflow: hidden;
 }
 
 /* Ensure footer is always at bottom and nothing after it */
@@ -67,7 +64,6 @@ html, body {
   height: 100%;
   border: none !important;
   box-shadow: none !important;
-  overflow: hidden !important;
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -83,7 +79,6 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 }
 
 body,
