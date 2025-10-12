@@ -111,38 +111,34 @@ export function Regulations() {
               <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
-                  <div className={styles.leftColumn}>
-                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Regimento.pdf" target="_blank" rel="noopener noreferrer">
-                          <div className={styles.regulation}>
-                              <h2>{t('regulations.regulation')}</h2>
-                          </div>
-                      </a>
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Regimento.pdf" target="_blank" rel="noopener noreferrer">
+                      <div className={styles.regulation}>
+                          <h2>{t('regulations.regulation')}</h2>
+                      </div>
+                  </a>
 
-                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_Normativa_2_2023.pdf" target="_blank" rel="noopener noreferrer">
-                          <div className={styles.senior}>
-                              <h2>{t('regulations.senior')}</h2>
-                          </div>
-                      </a>
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_normativa_1_2023.pdf" target="_blank" rel="noopener noreferrer">
+                      <div className={styles.accreditation}>
+                          <h2>{t('regulations.accreditation')}</h2>
+                      </div>
+                  </a>
 
-                      {/* Normas dinâmicas do banco de dados */}
-                      {dynamicRegulations.map((regulation) => (
-                        <EditableRegulation
-                          key={regulation.id}
-                          regulation={regulation}
-                          isEditMode={isEditMode}
-                          onUpdate={handleUpdateRegulation}
-                          onDelete={handleDeleteRegulation}
-                        />
-                      ))}
-                  </div>
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_Normativa_2_2023.pdf" target="_blank" rel="noopener noreferrer">
+                      <div className={styles.senior}>
+                          <h2>{t('regulations.senior')}</h2>
+                      </div>
+                  </a>
 
-                  <div className={styles.rightColumn}>
-                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_normativa_1_2023.pdf" target="_blank" rel="noopener noreferrer">
-                          <div className={styles.accreditation}>
-                              <h2>{t('regulations.accreditation')}</h2>
-                          </div>
-                      </a>
-                  </div>
+                  {/* Normas dinâmicas do banco de dados */}
+                  {dynamicRegulations.map((regulation) => (
+                    <EditableRegulation
+                      key={regulation.id}
+                      regulation={regulation}
+                      isEditMode={isEditMode}
+                      onUpdate={handleUpdateRegulation}
+                      onDelete={handleDeleteRegulation}
+                    />
+                  ))}
 
               </div>
           </div>
