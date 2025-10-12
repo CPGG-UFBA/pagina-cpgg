@@ -161,18 +161,19 @@ export function RF() {
       }
 
       console.log("Sucesso! Dados recebidos:", data);
+      console.log("ID da reserva:", data?.reservationId);
 
       toast({
         title: "Sucesso",
-        description: "Solicitação enviada com sucesso!",
+        description: "Solicitação enviada! Redirecionando para o comprovante...",
       });
 
-      // Redirecionar para comprovante
+      // Redirecionar para comprovante imediatamente
       if (data?.reservationId) {
-        // Usar navigate em vez de window.open para evitar bloqueio do popup
-        setTimeout(() => {
-          window.location.href = `/Labs/Laiga/Receipt?id=${data.reservationId}`;
-        }, 1500);
+        console.log("Redirecionando para:", `/Labs/Laiga/Receipt?id=${data.reservationId}`);
+        window.location.href = `/Labs/Laiga/Receipt?id=${data.reservationId}`;
+      } else {
+        console.error("Nenhum reservationId retornado!");
       }
 
       // Resetar formulário
