@@ -85,6 +85,13 @@
   text-decoration: none;
 }
 
+.laigaCard {
+  position: absolute !important;
+  top: 190px !important;
+  left: -470px !important;
+  z-index: 10 !important;
+}
+
 .Laiga {
   padding: 1rem;
   border-radius: 12px;
@@ -93,16 +100,11 @@
   text-align: center;
   width: 350px;
   height: 100px;
-  position: absolute !important;
-  top: 190px !important;
-  left: -470px !important;
+  position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/LogoLaiga.png') center/cover;
-  z-index: 10;
-  grid-column: unset !important;
-  grid-row: unset !important;
 }
 
 .Laiga:hover {

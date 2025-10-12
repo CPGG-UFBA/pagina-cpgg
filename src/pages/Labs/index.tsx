@@ -128,8 +128,9 @@ export  function Labs() {
                    {/* Laboratórios dinâmicos do banco de dados */}
                    {laboratories.map((lab, index) => {
                      console.log('Rendering lab:', lab.name, 'isEditing:', isEditing)
+                     const isLaiga = lab.acronym === 'LAIGA'
                      return (
-                     <div key={lab.id} className={`${styles.card} ${isEditing ? styles.dynamicLab : ''} ${isEditing ? styles.dynamicLabEditing : ''}`}>
+                     <div key={lab.id} className={`${styles.card} ${isEditing ? styles.dynamicLab : ''} ${isEditing ? styles.dynamicLabEditing : ''} ${isLaiga ? styles.laigaCard : ''}`}>
                        {isEditing ? (
                          <EditableLaboratory
                            laboratory={lab}
@@ -139,7 +140,7 @@ export  function Labs() {
                          />
                        ) : (
                          <a href={`Labs/${lab.acronym}`} className={styles.labLink}>
-                           <div className={styles.others}>
+                           <div className={isLaiga ? styles.Laiga : styles.others}>
                              <h2>{lab.acronym}</h2>
                              <h2>{lab.name}</h2>
                            </div>
