@@ -34,6 +34,9 @@ export function Sign() {
   const [registeredEmail, setRegisteredEmail] = useState('');
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState('');
+  const [isResettingPassword, setIsResettingPassword] = useState(false);
   
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -227,6 +230,54 @@ export function Sign() {
     }
   };
 
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsResettingPassword(true);
+
+    try {
+      // Validar email
+      const emailSchema = z.string().trim().email('Email inválido');
+      const validationResult = emailSchema.safeParse(resetEmail);
+      
+      if (!validationResult.success) {
+        toast({
+          title: 'Email inválido',
+          description: 'Por favor, insira um email válido.',
+          variant: 'destructive'
+        });
+        setIsResettingPassword(false);
+        return;
+      }
+
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      });
+
+      if (error) {
+        toast({
+          title: 'Erro ao enviar email',
+          description: error.message,
+          variant: 'destructive'
+        });
+      } else {
+        toast({
+          title: 'Email enviado!',
+          description: 'Verifique sua caixa de entrada para redefinir sua senha.',
+        });
+        setShowForgotPassword(false);
+        setResetEmail('');
+      }
+    } catch (error: any) {
+      toast({
+        title: 'Erro',
+        description: 'Não foi possível enviar o email. Tente novamente.',
+        variant: 'destructive'
+      });
+    } finally {
+      setIsResettingPassword(false);
+    }
+  };
+
   if (success) {
     return (
       <div className={styles.sign}>
@@ -268,6 +319,55 @@ export function Sign() {
                 {isResending ? 'Reenviando...' : 'Reenviar email de confirmação'}
               </button>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (showForgotPassword) {
+    return (
+      <div className={styles.sign}>
+        <HomeButton />
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <img src={logocpgg} alt="CPGG" />
+          </div>
+          
+          <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <div className={styles.formTitle}>
+              <p>Recuperar Senha</p>
+            </div>
+
+            <form onSubmit={handleForgotPassword} className={styles.form}>
+              <p style={{ marginBottom: '20px', fontSize: '14px', color: '#666', textAlign: 'center' }}>
+                Digite seu email cadastrado para receber um link de redefinição de senha.
+              </p>
+              <input
+                type="email"
+                placeholder="Email cadastrado"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                required
+                disabled={isResettingPassword}
+              />
+              <button type="submit" disabled={isResettingPassword}>
+                {isResettingPassword ? 'Enviando...' : 'Enviar link de recuperação'}
+              </button>
+              <button 
+                type="button"
+                onClick={() => setShowForgotPassword(false)}
+                disabled={isResettingPassword}
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#6b7280',
+                  cursor: isResettingPassword ? 'not-allowed' : 'pointer',
+                  opacity: isResettingPassword ? 0.6 : 1
+                }}
+              >
+                Voltar
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -336,6 +436,19 @@ export function Sign() {
             />
             <button type="submit" disabled={isLoading}>
               {isLoading ? 'Registrando...' : 'Criar Conta'}
+            </button>
+            <button 
+              type="button"
+              onClick={() => setShowForgotPassword(true)}
+              disabled={isLoading}
+              style={{
+                marginTop: '10px',
+                backgroundColor: '#059669',
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                opacity: isLoading ? 0.6 : 1
+              }}
+            >
+              Esqueci minha senha
             </button>
           </form>
         </div>
