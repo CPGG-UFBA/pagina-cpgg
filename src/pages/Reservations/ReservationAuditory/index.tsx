@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './ReservationAuditory.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { supabase } from '../../../integrations/supabase/client'
 
 export function RA() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     nome: '',
     sobrenome: '',
@@ -38,8 +40,8 @@ export function RA() {
       if (error) throw error;
 
       console.log('Reserva enviada com sucesso:', data);
-      // Redirecionar para página de sucesso
-      window.location.href = '/Reservations/Success'
+      // Redirecionar para página de sucesso usando React Router
+      navigate('/Reservations/Success')
     } catch (error) {
       console.error('Erro ao enviar reserva:', error);
       alert('Erro ao enviar reserva. Tente novamente.');
