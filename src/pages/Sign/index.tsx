@@ -35,8 +35,6 @@ export function Sign() {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
-  const [resetEmail, setResetEmail] = useState('');
-  const [isResettingPassword, setIsResettingPassword] = useState(false);
   
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -230,51 +228,99 @@ export function Sign() {
     }
   };
 
-  const handleForgotPassword = async (e: React.FormEvent) => {
+  const handlePasswordReset = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsResettingPassword(true);
+    setIsLoading(true);
 
     try {
-      // Validar email
-      const emailSchema = z.string().trim().email('Email inválido');
-      const validationResult = emailSchema.safeParse(resetEmail);
+      // Validar dados do formulário
+      const validationResult = registrationSchema.safeParse(formData);
       
       if (!validationResult.success) {
+        const firstError = validationResult.error.errors[0];
         toast({
-          title: 'Email inválido',
-          description: 'Por favor, insira um email válido.',
+          title: 'Erro de validação',
+          description: firstError.message,
           variant: 'destructive'
         });
-        setIsResettingPassword(false);
+        setIsLoading(false);
         return;
       }
 
-      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      });
-
-      if (error) {
+      // Verificar se o nome foi pré-cadastrado pelo administrador
+      const preRegisteredProfile = await checkPreRegisteredName(formData.fullName);
+      
+      if (!preRegisteredProfile) {
         toast({
-          title: 'Erro ao enviar email',
-          description: error.message,
+          title: 'Acesso não autorizado',
+          description: 'Seu nome não foi encontrado no sistema. Entre em contato com o administrador.',
           variant: 'destructive'
         });
-      } else {
-        toast({
-          title: 'Email enviado!',
-          description: 'Verifique sua caixa de entrada para redefinir sua senha.',
-        });
-        setShowForgotPassword(false);
-        setResetEmail('');
+        setIsLoading(false);
+        return;
       }
+
+      // Se o perfil já tem user_id (já foi registrado), deletar o usuário antigo
+      if (preRegisteredProfile.user_id) {
+        const { data: deleteResult, error: deleteError } = await supabase
+          .rpc('delete_user_complete', {
+            _user_profile_id: preRegisteredProfile.id
+          });
+        
+        if (deleteError || (deleteResult && !(deleteResult as any).success)) {
+          toast({
+            title: 'Erro',
+            description: 'Não foi possível limpar o registro anterior.',
+            variant: 'destructive'
+          });
+          setIsLoading(false);
+          return;
+        }
+      }
+
+      // Criar nova conta no Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+        options: {
+          emailRedirectTo: `${window.location.origin}/`,
+          data: {
+            full_name: formData.fullName,
+            institution: 'UFBA',
+            phone: formData.phone,
+            researcher_route: preRegisteredProfile.researcher_route || 'pesquisador',
+            profile_id: preRegisteredProfile.id
+          }
+        }
+      });
+
+      if (authError) {
+        toast({
+          title: 'Erro no registro',
+          description: authError.message,
+          variant: 'destructive'
+        });
+        setIsLoading(false);
+        return;
+      }
+
+      toast({
+        title: 'Senha redefinida com sucesso!',
+        description: 'Um email de confirmação foi enviado para ' + formData.email + '. Por favor, confirme seu email.',
+        duration: 8000,
+      });
+      
+      setRegisteredEmail(formData.email);
+      setSuccess(true);
+      setShowForgotPassword(false);
     } catch (error: any) {
       toast({
         title: 'Erro',
-        description: 'Não foi possível enviar o email. Tente novamente.',
+        description: error.message,
         variant: 'destructive'
       });
     } finally {
-      setIsResettingPassword(false);
+      setIsLoading(false);
     }
   };
 
@@ -335,34 +381,87 @@ export function Sign() {
           </div>
           
           <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <div style={{ 
+              backgroundColor: '#fef3c7', 
+              padding: '15px', 
+              borderRadius: '8px', 
+              marginBottom: '20px',
+              border: '1px solid #fbbf24'
+            }}>
+              <p style={{ 
+                fontSize: '14px', 
+                color: '#92400e', 
+                textAlign: 'center',
+                fontWeight: '500',
+                margin: 0
+              }}>
+                Para redefinir sua senha, preencha novamente seus dados e a nova senha
+              </p>
+            </div>
+            
             <div className={styles.formTitle}>
-              <p>Recuperar Senha</p>
+              <p>Redefinir Senha - Novo Cadastro</p>
             </div>
 
-            <form onSubmit={handleForgotPassword} className={styles.form}>
-              <p style={{ marginBottom: '20px', fontSize: '14px', color: '#666', textAlign: 'center' }}>
-                Digite seu email cadastrado para receber um link de redefinição de senha.
-              </p>
+            <form onSubmit={handlePasswordReset} className={styles.form}>
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Nome completo"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required
+                disabled={isLoading}
+              />
               <input
                 type="email"
-                placeholder="Email cadastrado"
-                value={resetEmail}
-                onChange={(e) => setResetEmail(e.target.value)}
+                name="email"
+                placeholder="Novo email"
+                value={formData.email}
+                onChange={handleInputChange}
                 required
-                disabled={isResettingPassword}
+                disabled={isLoading}
               />
-              <button type="submit" disabled={isResettingPassword}>
-                {isResettingPassword ? 'Enviando...' : 'Enviar link de recuperação'}
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Telefone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                disabled={isLoading}
+              />
+              <input
+                type="password"
+                name="password"
+                placeholder="Nova senha (mínimo 6 caracteres)"
+                value={formData.password}
+                onChange={handleInputChange}
+                required
+                disabled={isLoading}
+                minLength={6}
+              />
+              <input
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirmar nova senha"
+                value={formData.confirmPassword}
+                onChange={handleInputChange}
+                required
+                disabled={isLoading}
+              />
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Redefinindo...' : 'Redefinir Senha e Criar Nova Conta'}
               </button>
               <button 
                 type="button"
                 onClick={() => setShowForgotPassword(false)}
-                disabled={isResettingPassword}
+                disabled={isLoading}
                 style={{
                   marginTop: '10px',
                   backgroundColor: '#6b7280',
-                  cursor: isResettingPassword ? 'not-allowed' : 'pointer',
-                  opacity: isResettingPassword ? 0.6 : 1
+                  cursor: isLoading ? 'not-allowed' : 'pointer',
+                  opacity: isLoading ? 0.6 : 1
                 }}
               >
                 Voltar
