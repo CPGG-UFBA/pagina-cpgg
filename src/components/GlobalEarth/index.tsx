@@ -42,9 +42,8 @@ export function GlobalEarth() {
       style={{
         position: 'fixed !important' as any,
         top: '135px !important' as any,
-        left: 'calc(50% + 500px) !important' as any,
-        transform: 'translateX(-50%) !important' as any,
-        zIndex: '99999 !important' as any,
+        right: '50px !important' as any,
+        zIndex: '1 !important' as any,
         width: '500px !important' as any,
         height: '500px !important' as any,
         display: 'block !important' as any,
