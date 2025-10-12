@@ -1,12 +1,14 @@
 .middle {
   display: flex;
   flex-direction: row;
-  padding-top: 140px;
+  padding-top: 120px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 0;
   font-family: 'Poppins', sans-serif;
   margin-bottom: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .middle ul {
@@ -18,13 +20,14 @@
 }
 
 .News {
-  height: 600px;
+  height: 400px;
   width: 28%;
   position: relative;
   display: grid;
   place-items: center;
   overflow: hidden;
   margin-bottom: 0;
+  flex-shrink: 0;
 }
 
 .NewsTrack {
@@ -104,14 +107,15 @@
 
 .static {
   color: #fff;
-  margin-top: 50px;
+  margin-top: 20px;
   line-height: 0.5;
   margin-left: 4.5rem;
-  font-size: 45px;
+  font-size: 40px;
+  flex-shrink: 0;
 }
 
 .static > strong {
-  font-size: 90px;
+  font-size: 70px;
   line-height: 1.6;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
@@ -121,13 +125,13 @@
 .enjoy {
   line-height: 1.6;
   color: #fff;
-  padding-top: 30px;
+  padding-top: 20px;
   line-height: 1.2;
-  font-size: 30px;
+  font-size: 26px;
 }
 
 .enjoy > strong {
-  font-size: 30px; 
+  font-size: 26px; 
   line-height: 1.6;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
