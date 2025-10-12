@@ -50,7 +50,7 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  margin-top: 20px;
 }
 
 .auditory1 img {
