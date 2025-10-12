@@ -71,7 +71,37 @@ body:has(.heads) {
     0 20px 60px -15px rgba(0, 0, 0, 0.15);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideUp 0.6s ease-out backwards;
-  overflow: hidden;
+  overflow-y: auto;
+  max-height: calc((100vh - 150px) / 1);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar personalizada */
+.coordination::-webkit-scrollbar,
+.box2::-webkit-scrollbar,
+.box3::-webkit-scrollbar {
+  width: 6px;
+}
+
+.coordination::-webkit-scrollbar-track,
+.box2::-webkit-scrollbar-track,
+.box3::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.coordination::-webkit-scrollbar-thumb,
+.box2::-webkit-scrollbar-thumb,
+.box3::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+.coordination::-webkit-scrollbar-thumb:hover,
+.box2::-webkit-scrollbar-thumb:hover,
+.box3::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
 }
 
 .coordination {
