@@ -5,7 +5,7 @@
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   margin-bottom: 0;
   min-height: calc(100vh - 200px);
   max-height: calc(100vh - 200px);
@@ -16,7 +16,7 @@
   position: absolute;
   top: 78%;
   font-size: 12px;
-  padding-left: 42px;
+  padding-left: 200px;
   color: #fff;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .enjoy > strong {
-  font-size: 30px; 
+  font-size: 30px;
   line-height: 1.6;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
@@ -145,7 +145,9 @@
   margin-bottom: 0;
 }
 
-.staticFigure { margin-left: 0; }
+.staticFigure {
+  margin-left: 0;
+}
 
 /* Media Queries */
 @media (min-width: 1201px) and (max-width: 1400px) and (max-height: 1100px) {
@@ -161,7 +163,9 @@
 }
 
 @media (max-width: 1200px) {
-  .staticFigure { margin-left: 100px; }
+  .staticFigure {
+    margin-left: 100px;
+  }
   .middle {
     flex-direction: column;
     padding-left: 10px;
@@ -171,7 +175,7 @@
   .middle ul {
     top: 58%;
     padding-left: 80px;
-  } 
+  }
 
   .News {
     width: 90%;
@@ -187,7 +191,7 @@
     margin-top: -600px;
     line-height: 0.5;
     margin-left: 30.5rem;
-    font-size: 35px; 
+    font-size: 35px;
   }
 }
 
@@ -197,11 +201,11 @@
   }
   .static > strong {
     line-height: 5px;
-    font-size: 70px; 
+    font-size: 70px;
     margin-right: -100px;
   }
 
-  .static h1{
+  .static h1 {
     line-height: 55px;
     margin-top: 20px;
     margin-right: -100px;
@@ -211,12 +215,12 @@
 @media (max-width: 400px) {
   .static {
     margin-right: -500px;
-    margin-top:-450px;
+    margin-top: -450px;
   }
 
   .staticFigure img {
     margin-top: 100px;
     height: 48rem;
-    margin-left: 150px; 
+    margin-left: 150px;
   }
 }
