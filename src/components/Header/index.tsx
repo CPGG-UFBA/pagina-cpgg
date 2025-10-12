@@ -54,7 +54,7 @@ export function Header() {
             <a href='#' className={styles.navLink}>{t('nav.about')}</a>
             
             <div className={styles.submenu1}>
-              <ul>
+              <ul className={styles.submenuList}>
                 <li className={styles.hoversub}> 
                   <a href='#'>{t('nav.institution')}</a>
                   <div className={styles.submenu2}>

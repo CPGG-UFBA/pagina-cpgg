@@ -109,11 +109,13 @@ nav ul li:hover > .submenu1 {
   padding: 0;
 }
 
+.submenu1 .submenuList,
 .submenu1 ul {
   list-style: none;
   padding: 0;
   margin: 0;
   width: 100%;
+  display: block;
 }
 
 .submenu1 ul li {
