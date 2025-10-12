@@ -297,7 +297,7 @@ export function Sign() {
 
       toast({
         title: 'Email verificado!',
-        description: 'Agora preencha seus novos dados para redefinir sua senha.',
+        description: 'Agora preencha seus novos dados para redefinir sua senha. Sua descrição e foto de perfil serão mantidas.',
       });
 
       console.log('Email verificado, mudando para formulário de redefinição');
