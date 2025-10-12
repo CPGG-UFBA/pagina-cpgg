@@ -360,14 +360,14 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
 
       {/* Dialog de Edição */}
       <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-        <DialogContent className="max-w-2xl max-h-[calc(50vh-100px)] overflow-y-auto !translate-x-[calc(-50%-150px)] !translate-y-[calc(-50%-100px)] bg-white z-[100]">
+        <DialogContent className="max-w-2xl max-h-[calc(50vh-100px)] overflow-y-auto !translate-x-[calc(-50%-150px)] !translate-y-[calc(-50%-100px)] !bg-white z-[100]">
           <DialogHeader>
             <DialogTitle>Editar Perfil - {researcherName}</DialogTitle>
           </DialogHeader>
           <DialogDescription className="mb-4">
             Edite sua descrição e foto do perfil
           </DialogDescription>
-          <div className="space-y-4">
+          <div className="space-y-4 bg-white p-4 rounded-lg">
             <div>
               <Label htmlFor="description">Descrição</Label>
               <Textarea
