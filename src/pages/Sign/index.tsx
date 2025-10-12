@@ -471,77 +471,6 @@ export function Sign() {
             </div>
             
             <div className={styles.formTitle}>
-              <p>Recuperar Senha</p>
-            </div>
-
-            <form onSubmit={handleVerifyEmail} className={styles.form}>
-              <p style={{ marginBottom: '20px', fontSize: '14px', color: '#666', textAlign: 'center' }}>
-                Digite seu email cadastrado para iniciar a redefinição de senha.
-              </p>
-              <input
-                type="email"
-                placeholder="Email cadastrado"
-                value={resetEmail}
-                onChange={(e) => setResetEmail(e.target.value)}
-                required
-                disabled={isLoading}
-              />
-              <button type="submit" disabled={isLoading}>
-                {isLoading ? 'Verificando...' : 'Enviar'}
-              </button>
-              <button 
-                type="button"
-                onClick={() => {
-                  setShowForgotPassword(false);
-                  setResetEmail('');
-                }}
-                disabled={isLoading}
-                style={{
-                  marginTop: '10px',
-                  backgroundColor: '#6b7280',
-                  cursor: isLoading ? 'not-allowed' : 'pointer',
-                  opacity: isLoading ? 0.6 : 1
-                }}
-              >
-                Voltar
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (showForgotPassword) {
-    console.log('Renderizando formulário de verificação de email');
-    return (
-      <div className={styles.sign}>
-        <HomeButton />
-        <div className={styles.container}>
-          <div className={styles.logo}>
-            <img src={logocpgg} alt="CPGG" />
-          </div>
-          
-          <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
-            <div style={{ 
-              backgroundColor: '#fef3c7', 
-              padding: '15px', 
-              borderRadius: '8px', 
-              marginBottom: '20px',
-              border: '1px solid #fbbf24'
-            }}>
-              <p style={{ 
-                fontSize: '14px', 
-                color: '#92400e', 
-                textAlign: 'center',
-                fontWeight: '500',
-                margin: 0
-              }}>
-                Para redefinir sua senha, preencha novamente seus dados e a nova senha
-              </p>
-            </div>
-            
-            <div className={styles.formTitle}>
               <p>Redefinir Senha - Novo Cadastro</p>
             </div>
 
@@ -597,7 +526,63 @@ export function Sign() {
               </button>
               <button 
                 type="button"
-                onClick={() => setShowForgotPassword(false)}
+                onClick={() => {
+                  setShowPasswordResetForm(false);
+                  setShowForgotPassword(false);
+                }}
+                disabled={isLoading}
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#6b7280',
+                  cursor: isLoading ? 'not-allowed' : 'pointer',
+                  opacity: isLoading ? 0.6 : 1
+                }}
+              >
+                Voltar
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (showForgotPassword) {
+    console.log('Renderizando formulário de verificação de email');
+    return (
+      <div className={styles.sign}>
+        <HomeButton />
+        <div className={styles.container}>
+          <div className={styles.logo}>
+            <img src={logocpgg} alt="CPGG" />
+          </div>
+          
+          <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <div className={styles.formTitle}>
+              <p>Recuperar Senha</p>
+            </div>
+
+            <form onSubmit={handleVerifyEmail} className={styles.form}>
+              <p style={{ marginBottom: '20px', fontSize: '14px', color: '#666', textAlign: 'center' }}>
+                Digite seu email cadastrado para iniciar a redefinição de senha.
+              </p>
+              <input
+                type="email"
+                placeholder="Email cadastrado"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                required
+                disabled={isLoading}
+              />
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Verificando...' : 'Enviar'}
+              </button>
+              <button 
+                type="button"
+                onClick={() => {
+                  setShowForgotPassword(false);
+                  setResetEmail('');
+                }}
                 disabled={isLoading}
                 style={{
                   marginTop: '10px',
