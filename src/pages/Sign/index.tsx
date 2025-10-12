@@ -271,10 +271,21 @@ export function Sign() {
 
       // Se o perfil tem user_id, resetar apenas os dados de autenticação (preservando description e photo_url)
       if (profile.user_id) {
+        console.log('Perfil encontrado:', {
+          id: profile.id,
+          full_name: profile.full_name,
+          has_description: !!profile.description,
+          has_photo: !!profile.photo_url,
+          email: profile.email,
+          phone: profile.phone
+        });
+
         const { data: resetResult, error: resetError } = await supabase
           .rpc('reset_user_keep_profile_data', {
             _user_profile_id: profile.id
           });
+        
+        console.log('Resultado do reset:', resetResult, resetError);
         
         if (resetError || (resetResult && !(resetResult as any).success)) {
           toast({
@@ -285,6 +296,23 @@ export function Sign() {
           setIsLoading(false);
           return;
         }
+
+        // Verificar estado do perfil após reset
+        const { data: updatedProfile } = await supabase
+          .from('user_profiles')
+          .select('*')
+          .eq('id', profile.id)
+          .single();
+        
+        console.log('Perfil após reset:', {
+          id: updatedProfile?.id,
+          full_name: updatedProfile?.full_name,
+          has_description: !!updatedProfile?.description,
+          has_photo: !!updatedProfile?.photo_url,
+          email: updatedProfile?.email,
+          phone: updatedProfile?.phone,
+          user_id: updatedProfile?.user_id
+        });
       }
 
       // Preencher apenas o nome completo - email e telefone devem ser preenchidos novamente
