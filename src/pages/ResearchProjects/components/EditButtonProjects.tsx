@@ -12,7 +12,7 @@ export function EditButtonProjects({ onClick, isEditMode, onLogout }: EditButton
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4" style={{ zIndex: 9999 }}>
       {!isEditMode ? (
         <div 
           className="relative"
