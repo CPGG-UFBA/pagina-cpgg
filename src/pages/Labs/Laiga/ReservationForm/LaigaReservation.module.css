@@ -90,6 +90,10 @@
   margin-bottom: 12px;
 }
 
+.dateContainer .form {
+  margin-bottom: 0;
+}
+
 .checkboxContainer {
   display: flex;
   align-items: flex-start;
