@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  transform: translateX(-100px) translateY(-400px);
+  transform: translateX(-100px) translateY(-250px);
 }
 
 .card {
