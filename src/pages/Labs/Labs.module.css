@@ -75,7 +75,7 @@
   max-width: 800px;
   margin: 0 auto;
   margin-left: 50px;
-  margin-bottom: calc(18rem + 10px);
+  margin-bottom: calc(18rem + 100px);
   position: relative;
   grid-auto-rows: auto;
 }
@@ -87,7 +87,7 @@
 .laigaCard {
   position: absolute !important;
   top: 250px !important;
-  left: -470px !important;
+  left: 400px !important;
   z-index: 10 !important;
   margin: 0 !important;
 }
