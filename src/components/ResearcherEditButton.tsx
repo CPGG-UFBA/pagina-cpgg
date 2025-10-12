@@ -267,7 +267,7 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
 
       {/* Dialog de Login */}
       <Dialog open={isLoginOpen} onOpenChange={setIsLoginOpen}>
-        <DialogContent>
+        <DialogContent className="max-h-[calc(100vh-200px)] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{isForgotPassword ? 'Recuperar Senha' : 'Login do Pesquisador'}</DialogTitle>
           </DialogHeader>
@@ -360,7 +360,7 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
 
       {/* Dialog de Edição */}
       <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-        <DialogContent className="max-w-2xl">
+        <DialogContent className="max-w-2xl max-h-[calc(100vh-200px)] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>Editar Perfil - {researcherName}</DialogTitle>
           </DialogHeader>
