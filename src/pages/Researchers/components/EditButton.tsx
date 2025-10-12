@@ -29,6 +29,19 @@ export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
     `
     document.body.appendChild(debugDiv)
     
+    // Verificar elementos no ponto do botão
+    setTimeout(() => {
+      const buttonArea = { x: window.innerWidth - 50, y: window.innerHeight - 50 }
+      const elementsAtPoint = document.elementsFromPoint(buttonArea.x, buttonArea.y)
+      console.log('🔍 Elementos no ponto do botão:', elementsAtPoint.map(el => ({
+        tag: el.tagName,
+        id: el.id,
+        classes: el.className,
+        zIndex: window.getComputedStyle(el).zIndex,
+        pointerEvents: window.getComputedStyle(el).pointerEvents
+      })))
+    }, 500)
+    
     return () => {
       const el = document.getElementById('edit-button-debug')
       if (el) el.remove()
