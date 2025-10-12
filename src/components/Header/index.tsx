@@ -54,11 +54,11 @@ export function Header() {
           <li>
             <a href='#' className={styles.navLink}>{t('nav.about')}</a>
             
-            <div className={styles.submenu1}>
-              <ul className={styles.submenuList}>
-                <li className={styles.hoversub}> 
+            <div className="header-submenu1">
+              <ul>
+                <li className="header-hoversub"> 
                   <a href='#'>{t('nav.institution')}</a>
-                  <div className={styles.submenu2}>
+                  <div className="header-submenu2">
                     <ul>
                       <li>
                         <NavLink to='/cpgg' className={styles.navLink}>
@@ -84,9 +84,9 @@ export function Header() {
                   </div> 
                 </li>
 
-                <li className={styles.hoversub}> 
+                <li className="header-hoversub"> 
                   <a href='#'>{t('nav.personnel')}</a>
-                  <div className={styles.submenu2}>
+                  <div className="header-submenu2">
                     <ul>
                       <li>
                         <NavLink to='/Coordination' className={styles.navLink}>
