@@ -72,7 +72,6 @@
 .slideContainer {
   position: relative;
   width: 100%;
-  height: 250px;
   overflow: hidden;
   border-radius: 8px;
 }
@@ -80,8 +79,7 @@
 .slideContainer img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
 }
 
 .titleOverlay {
