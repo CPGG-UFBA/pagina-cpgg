@@ -9,7 +9,7 @@ const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
   const { t } = useLanguage();
-  const [showSubmenu, setShowSubmenu] = useState(false);
+  const [showSubmenu, setShowSubmenu] = useState(true); // FORÇADO PARA TRUE TEMPORARIAMENTE
   
   return (
     <header className={styles.header}>
@@ -63,16 +63,18 @@ export function Header() {
             <div 
               className="header-submenu1"
               style={{
-                display: showSubmenu ? 'block' : 'none',
-                position: 'absolute',
-                backgroundColor: '#592cbb',
+                display: 'block', // FORÇADO
+                position: 'fixed',
+                backgroundColor: '#ff0000', // VERMELHO PARA SER SUPER VISÍVEL
                 zIndex: 999999,
-                width: '200px',
-                left: 0,
-                top: '100%',
-                padding: 0,
+                width: '300px',
+                left: '50%',
+                top: '200px',
+                transform: 'translateX(-50%)',
+                padding: '20px',
                 margin: 0,
-                border: '3px solid yellow'
+                border: '5px solid yellow',
+                boxShadow: '0 0 30px rgba(255, 255, 0, 1)'
               }}
             >
               <ul>
