@@ -360,7 +360,7 @@ export function ResearcherEditButton({ researcherName, inline = false, onSave }:
 
       {/* Dialog de Edição */}
       <Dialog open={isEditOpen} onOpenChange={setIsEditOpen}>
-        <DialogContent className="max-w-2xl max-h-[calc(50vh-100px)] overflow-y-auto translate-x-[-150px]">
+        <DialogContent className="max-w-2xl max-h-[calc(50vh-100px)] overflow-y-auto !translate-x-[calc(-50%-150px)]">
           <DialogHeader>
             <DialogTitle>Editar Perfil - {researcherName}</DialogTitle>
           </DialogHeader>
