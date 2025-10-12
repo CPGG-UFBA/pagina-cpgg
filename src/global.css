@@ -7,65 +7,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  border-left: none !important;
-}
-
-/* Prevent any space after footer and last elements */
-body > *:last-child,
-#root > *:last-child,
-footer,
-footer * {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* Ensure all page containers use flexbox layout properly */
-[class*="Container"],
-[class*="container"] {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Ensure footer is always at bottom and nothing after it */
-footer {
-  margin-top: auto !important;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-}
-
-/* Absolutely prevent any content or space after footer */
-footer::after,
-body::after,
-#root::after,
-html::after {
-  content: none !important;
-  display: none !important;
-  height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Fix AGRESSIVO para Radix Dialog bloqueando scroll */
-body[data-scroll-locked] {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-  overflow: visible !important;
-  overflow-y: visible !important;
-}
-
-html body[data-scroll-locked] {
-  margin-right: 0px !important;
-  margin-left: 0px !important;
-  overflow: visible !important;
-  overflow-y: visible !important;
 }
 
 html, body {
   height: 100%;
-  border: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
 }
 
 body {
@@ -73,12 +18,9 @@ body {
   background-size: cover;
   -webkit-font-smoothing: antialised;
   color: #fff;
-}
-
-#root {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 body,

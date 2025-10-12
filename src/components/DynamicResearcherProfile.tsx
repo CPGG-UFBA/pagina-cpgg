@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { supabase } from '@/integrations/supabase/client'
 import { ResearcherProfileProvider } from './ResearcherProfileContext'
 
@@ -17,6 +17,7 @@ export function DynamicResearcherProfile({
 }: DynamicResearcherProfileProps) {
   const [userProfile, setUserProfile] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const rootRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     fetchUserProfile()
@@ -48,41 +49,87 @@ export function DynamicResearcherProfile({
   const description = userProfile?.description || staticDescription
   const photoUrl = userProfile?.photo_url || staticPhotoUrl
 
-  // Debug log
-  console.log('DynamicResearcherProfile:', {
-    researcherName,
-    hasUserProfile: !!userProfile,
-    hasUserDescription: !!userProfile?.description,
-    hasStaticDescription: !!staticDescription,
-    descriptionLength: description?.length || 0
-  })
+  useEffect(() => {
+    const root = rootRef.current
+    const parent = root?.parentElement
+    const box2 = parent?.querySelector('[class*="box2"]') as HTMLElement | null
+    if (box2) {
+      if (photoUrl) {
+        box2.style.display = 'none'
+      } else {
+        box2.style.display = ''
+      }
+    }
+  }, [photoUrl])
 
   if (isLoading) {
-    return <p>Carregando perfil...</p>
+    return <div>Carregando perfil...</div>
   }
 
   return (
-    <ResearcherProfileProvider value={{ staticDescription, photoUrl, belowPhoto }}>
-      {description ? (
-        <p style={{ 
-          fontSize: '12pt', 
-          textAlign: 'justify',
-          marginBottom: '20px',
-          lineHeight: '1.6',
-          color: '#fff'
-        }}>
-          {description}
-        </p>
-      ) : (
-        <p style={{ 
-          fontSize: '12pt', 
-          fontStyle: 'italic',
-          color: '#fff',
-          marginBottom: '20px'
-        }}>
-          Descrição não disponível
-        </p>
-      )}
+    <ResearcherProfileProvider value={{ staticDescription }}>
+      <div className="w-full" ref={rootRef}>
+        {photoUrl && (
+          <>
+            <div 
+              className="absolute"
+              style={{
+                width: '180px',
+                height: '180px',
+                top: '3%', 
+                left: '2%',
+                zIndex: 10
+              }}
+            >
+              <img 
+                src={photoUrl} 
+                alt={`Foto de ${researcherName}`}
+                className="w-full h-full object-cover rounded-lg shadow-md"
+                style={{
+                  border: '2px solid rgba(255,255,255,.2)',
+                  borderRadius: '20px',
+                  padding: '10px',
+                  backgroundColor: 'rgba(255,255,255, 0.2)'
+                }}
+                loading="lazy"
+              />
+            </div>
+            {belowPhoto && (
+              <div 
+                className="absolute"
+                style={{
+                  width: '180px',
+                  top: 'calc(3% + 190px)', 
+                  left: '2%',
+                  zIndex: 10,
+                  display: 'flex',
+                  justifyContent: 'center'
+                }}
+              >
+                {belowPhoto}
+              </div>
+            )}
+          </>
+        )}
+        {!photoUrl && belowPhoto && (
+          <div 
+            className="absolute"
+            style={{
+              width: '180px',
+              top: 'calc(3% + 190px)', 
+              left: '2%',
+              zIndex: 10,
+              display: 'flex',
+              justifyContent: 'center'
+            }}
+          >
+            {belowPhoto}
+          </div>
+        )}
+        <div className="w-full" style={{ paddingLeft: 0, paddingRight: 0 }}>
+          <div style={{ whiteSpace: 'pre-line', textAlign: 'justify', paddingLeft: 0, paddingRight: 0, margin: 0 }}>{description}</div>
+        </div>
+      </div>
     </ResearcherProfileProvider>
   )
 }

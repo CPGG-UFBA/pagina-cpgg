@@ -30,6 +30,6 @@
 .staticFigure img {
   height: 40rem;
   padding-left: 100px;
-  margin-bottom: 0;
+  margin-bottom: -350px;
   margin-top: -30px;
 }

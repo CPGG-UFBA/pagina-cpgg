@@ -24,13 +24,15 @@ export function Coordenacao() {
     setIsLoading(true)
     
     try {
-      // Autenticar com Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      })
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('*')
+        .eq('email', email)
+        .eq('password', password)
+        .eq('role', 'coordenacao')
+        .single()
 
-      if (authError) {
+      if (error || !data) {
         toast({
           title: "Erro de login",
           description: "Email ou senha incorretos.",
@@ -39,30 +41,8 @@ export function Coordenacao() {
         return
       }
 
-      // Verificar se é coordenação
-      const { data: adminData, error: adminError } = await supabase
-        .from('admin_users')
-        .select('*')
-        .eq('user_id', authData.user.id)
-        .eq('role', 'coordenacao')
-        .single()
-
-      if (adminError || !adminData) {
-        await supabase.auth.signOut()
-        toast({
-          title: "Acesso negado",
-          description: "Você não tem permissão de coordenação.",
-          variant: "destructive"
-        })
-        return
-      }
-
       // Login bem-sucedido - salvar dados na sessão e navegar
-      sessionStorage.setItem('admin_user', JSON.stringify({
-        id: authData.user.id,
-        email: authData.user.email,
-        role: adminData.role
-      }))
+      sessionStorage.setItem('admin_user', JSON.stringify(data))
       toast({
         title: "Login realizado!",
         description: "Bem-vindo à área administrativa.",
@@ -83,22 +63,28 @@ export function Coordenacao() {
     e.preventDefault()
     
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      })
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('email, password')
+        .eq('email', resetEmail)
+        .eq('role', 'coordenacao')
+        .single()
 
-      if (error) {
+      if (error || !data) {
         toast({
           title: "Erro",
-          description: "Erro ao enviar email de recuperação. Verifique o email digitado.",
+          description: "Email não encontrado. Verifique o email digitado.",
           variant: "destructive"
         })
         return
       }
+
+      // Simular envio de email com a senha
+      console.log(`Enviando senha para ${resetEmail}: ${data.password}`)
       
       toast({
-        title: "Link enviado com sucesso!",
-        description: "Um link para redefinir sua senha foi enviado para o email cadastrado. Verifique sua caixa de entrada.",
+        title: "Email enviado!",
+        description: "Sua senha foi enviada para o email cadastrado.",
       })
       
       setResetEmail('')
@@ -177,7 +163,7 @@ export function Coordenacao() {
                 />
               </div>
               <Button type="submit" className={styles.resetButton}>
-                Enviar link de redefinição
+                Enviar senha por email
               </Button>
             </form>
           </DialogContent>

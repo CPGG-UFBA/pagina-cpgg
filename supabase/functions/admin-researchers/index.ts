@@ -30,70 +30,34 @@ serve(async (req) => {
   }
 
   try {
-    // Get the authorization header
-    const authHeader = req.headers.get('Authorization');
-    if (!authHeader) {
-      return json({ error: "Token de autenticação ausente" }, { status: 401 });
+    const { email, password, action, id, name, data } = await req.json();
+
+    if (!email || !password) {
+      return json({ error: "Credenciais ausentes" }, { status: 400 });
     }
 
-    // Verify the user is authenticated and get their user ID
-    const { data: { user }, error: authError } = await supabase.auth.getUser(
-      authHeader.replace('Bearer ', '')
-    );
-
-    if (authError || !user) {
-      return json({ error: "Não autenticado" }, { status: 401 });
-    }
-
-    // Check if user is admin with coordenacao role
+    // Validação de admin (secretaria ou coordenacao)
     const { data: admin, error: adminErr } = await supabase
       .from("admin_users")
       .select("id, role")
-      .eq("user_id", user.id)
-      .in("role", ["secretaria", "coordenacao"])
+      .eq("email", email)
+      .eq("password", password)
+      .in("role", ["secretaria", "coordenacao"]) // papéis válidos
       .maybeSingle();
 
     if (adminErr || !admin) {
-      return json({ error: "Não autorizado - apenas coordenação e secretaria" }, { status: 401 });
+      return json({ error: "Não autorizado" }, { status: 401 });
     }
-
-    const { action, id, name, data } = await req.json();
 
     if (action === "delete") {
       if (!id) return json({ error: "ID obrigatório" }, { status: 400 });
 
-      // First get the researcher's email to find associated user_profile
-      const { data: researcher, error: fetchErr } = await supabase
-        .from("researchers")
-        .select("email")
-        .eq("id", id)
-        .single();
-
-      if (fetchErr && fetchErr.code !== 'PGRST116') {
-        return json({ error: fetchErr.message }, { status: 400 });
-      }
-
-      // Delete from researchers table
       const { error: delErr } = await supabase
         .from("researchers")
         .delete()
         .eq("id", id);
 
       if (delErr) return json({ error: delErr.message }, { status: 400 });
-
-      // If researcher has an email, try to delete associated user_profile
-      if (researcher?.email) {
-        const { error: profileDelErr } = await supabase
-          .from("user_profiles")
-          .delete()
-          .eq("email", researcher.email);
-
-        // Ignore error if no profile exists
-        if (profileDelErr && profileDelErr.code !== 'PGRST116') {
-          console.log("Warning: Could not delete user_profile:", profileDelErr.message);
-        }
-      }
-
       return json({ ok: true });
     }
 

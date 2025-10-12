@@ -2,16 +2,13 @@
   flex: 1;
   padding: 2rem;
   margin-bottom: -30px;
-  min-height: calc(100vh - 200px);
-  display: flex;
-  flex-direction: column;
 }
 
 .title {
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
-  margin-left: 500px;
+  margin-left: 300px;
   margin-top: 7rem;
   font-size: 24px;
   color: white;
@@ -19,16 +16,12 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 50px;
-  margin-bottom: 4rem;
-  max-height: calc(100vh - 400px);
-  overflow-y: auto;
-  padding-bottom: 2rem;
-  margin-left: calc(50% - 400px - 350px);
+  margin-left: 50px;
+  margin-bottom: 18rem;
 }
 
 
@@ -39,7 +32,7 @@
   color: white;
   text-align: center;
   width: 350px;
-  height: 100px;
+  min-height: 120px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -56,10 +49,10 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 100px;
   margin-left: 0px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
+  min-height: 120px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -76,7 +69,9 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 100px;
+  height: 130px;
+  margin-left: -760px;
+  margin-top: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   position: relative;
@@ -95,23 +90,18 @@
   border-radius: 12px;
   text-align: center;
   width: 350px;
-  height: 100px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
+  min-height: 120px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(121,9,94,0.85)),
     url('/src/components/Figures/laws.jpg') center/cover;
 }
 
 .dynamicRegulation:hover {
   transform: translateY(-5px);
-}
-
-.card {
-  text-decoration: none;
-  display: block;
 }
 
 .staticFigure img {

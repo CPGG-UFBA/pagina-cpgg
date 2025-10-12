@@ -4,177 +4,100 @@
   min-height: 100vh;
 }
 
-/* Container Principal */
+/* Portrait orientation - when height > width */
+@media (orientation: portrait) {
+  .Container {
+    justify-content: space-between;
+  }
+}
+
 .technicians {
-  padding: 2rem 2rem 4rem 2rem;
-  min-height: calc(100vh - 200px);
-  width: 100%;
-  max-width: 1400px;
-  margin: 100px auto 0 auto;
-  position: relative;
-  z-index: 1;
+  background: transparent;
+  padding: 2rem;
   flex: 1;
 }
 
-.Employees {
+  .Employees{
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 2rem;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Título Principal */
-.Employees ul {
-  font-size: 2rem;
-  font-weight: 700;
-  color: hsl(0 0% 100%);
-  margin: 0 0 3rem 0;
+  .Employees ul {
+    font-size: 24px;
+    color: white; 
+    margin-bottom: 40px;
+    white-space: nowrap;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .techniciansGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    width: 100%;
+  }
+
+.Secretary h1,
+.TI h1,
+.Driver h1,
+.Lab h1 {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
   text-align: center;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  margin: 10px 0;
+  white-space: nowrap;
 }
 
-/* Grid de Técnicos */
-.techniciansGrid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  width: 100%;
-  animation: slideUp 0.6s ease-out;
+.Secretary a,
+.TI a,
+.Driver a,
+.Lab a {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin: 5px 0;
+  white-space: nowrap;
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Cards Base - Premium Glassmorphism */
+
 .box1,
 .box2,
 .box3,
 .box4 {
-  position: relative;
-  padding: 2rem;
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 20px 60px -15px rgba(0, 0, 0, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  gap: 1rem;
+  justify-content: flex-start;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border-radius: 20px;
+  gap: 10px;
+  position: relative;
 }
 
-.box1 {
-  animation-delay: 0.1s;
-}
-
-.box2 {
-  animation-delay: 0.2s;
-}
-
-.box3 {
-  animation-delay: 0.3s;
-}
-
-.box4 {
-  animation-delay: 0.4s;
-}
-
-/* Gradient Border Effect */
-.box1::before,
-.box2::before,
-.box3::before,
-.box4::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 24px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.1)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Hover Effects */
-.box1:hover,
-.box2:hover,
-.box3:hover,
-.box4:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
-    0 24px 80px -20px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.box1:hover::before,
-.box2:hover::before,
-.box3:hover::before,
-.box4:hover::before {
-  opacity: 1;
-}
-
-/* Fotos */
 .photobox1,
 .photobox2,
 .photobox3,
 .photobox4 {
   width: 150px;
   height: 150px;
-  border-radius: 50%;
+  border-radius: 10px;
+  margin: 10px 0;
   background-size: cover;
   background-position: center;
-  border: 3px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.box1:hover .photobox1,
-.box2:hover .photobox2,
-.box3:hover .photobox3,
-.box4:hover .photobox4 {
-  transform: scale(1.05);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  border: 3px solid rgba(255,255,255,.3);
 }
 
 .photobox1 {
@@ -193,30 +116,8 @@
   background-image: url('/src/assets/Photos/Technicians/Michel.png');
 }
 
-/* Títulos e Nomes */
-.Secretary h1,
-.TI h1,
-.Driver h1,
-.Lab h1 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: hsl(0 0% 100%);
-  margin: 0.5rem 0 0.25rem 0;
-  letter-spacing: 0.3px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
 
-.Secretary a,
-.TI a,
-.Driver a,
-.Lab a {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  margin: 0;
-}
 
-/* Responsive Design */
 @media (max-width: 1200px) {
   .techniciansGrid {
     grid-template-columns: repeat(2, 1fr);
@@ -224,46 +125,42 @@
   }
 }
 
-@media (max-width: 768px) {
-  .technicians {
-    padding: 2rem 1rem 4rem 1rem;
-    margin: 60px auto 0 auto;
+@media (max-width: 800px) {
+  .Employees {
+    padding-top: 50px;
+    padding-bottom: 2rem;
   }
-
-  .Employees ul {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
+  
   .techniciansGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
   }
-
+  
   .box1,
   .box2,
   .box3,
   .box4 {
-    padding: 1.5rem;
+    width: 280px;
+    height: 350px;
   }
 }
 
 @media (max-width: 400px) {
-  .technicians {
-    padding: 1.5rem 0.75rem 3rem 0.75rem;
+  .Employees {
+    padding-top: 30px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 2rem;
   }
-
-  .Employees ul {
-    font-size: 1.25rem;
-  }
-
+  
   .box1,
   .box2,
   .box3,
   .box4 {
-    padding: 1.25rem;
+    width: 250px;
+    height: 320px;
   }
-
+  
   .photobox1,
   .photobox2,
   .photobox3,

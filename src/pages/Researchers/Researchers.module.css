@@ -1,280 +1,140 @@
-/* Container Principal */
-.researchers {
-  padding: 2rem 2rem 4rem 2rem;
-  min-height: calc(100vh - 100px);
-  width: 100%;
-  max-width: 1600px;
-  margin: 120px auto 0 auto;
-  position: relative;
-  z-index: 1;
-  overflow: visible !important;
-}
-
-.Programs {
+.Programs{
+  column-count: 5;
+  column-gap: 3rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 170px;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 200px);
+  padding-left: 200px;
+  padding-right: 8px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-/* Título Principal */
+/* Grid-based layout - old individual styles removed */
+
+
 .Programs ul {
-  font-size: 2rem;
-  font-weight: 700;
-  color: hsl(0 0% 100%);
-  margin: 0 0 2.375rem 0;
-  text-align: center;
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  font-size: 25px;
+  color: #363F5; 
+  margin-left: -400px;
+  margin-top: -50px;
+  white-space: nowrap;
 }
 
-/* Grid de Programas */
+
 .box {
+  text-align: left;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  width: 100%;
-  animation: slideUp 0.6s ease-out;
-  transform: translateY(-10px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  justify-items: start;
+  gap: 24px 120px;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 1750px;
+  height: 530px;
+  top: 20%; 
+  left:1%;
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: -100px;
 }
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Cards Base - Premium Glassmorphism */
-.Oil,
-.Environment,
-.Mineral,
-.Oceanography,
-.Coast {
-  position: relative;
-  padding: 1.5rem;
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 20px 60px -15px rgba(0, 0, 0, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  margin: 0;
-}
-
-.Oil {
-  animation-delay: 0.1s;
-}
-
-.Environment {
-  animation-delay: 0.2s;
-}
-
-.Mineral {
-  animation-delay: 0.3s;
+/* Normalize columns for perfect vertical alignment */
+.Oil, .Environment, .Mineral, .Coast {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .Oceanography {
-  animation-delay: 0.4s;
+  margin: 0 0 0 50px !important;
+  padding: 0 !important;
 }
 
-.Coast {
-  animation-delay: 0.5s;
+.Oil h1, .Environment h1, .Mineral h1, .Oceanography h1, .Coast h1 {
+  margin: 0 0 8px 0 !important;
+  padding: 0 !important;
 }
 
-/* Gradient Border Effect */
-.Oil::before,
-.Environment::before,
-.Mineral::before,
-.Oceanography::before,
-.Coast::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 24px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.1)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.Oil nav, .Environment nav, .Mineral nav, .Oceanography nav, .Coast nav {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Hover Effects */
-.Oil:hover,
-.Environment:hover,
-.Mineral:hover,
-.Oceanography:hover,
-.Coast:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
-    0 24px 80px -20px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.Oil:hover::before,
-.Environment:hover::before,
-.Mineral:hover::before,
-.Oceanography:hover::before,
-.Coast:hover::before {
-  opacity: 1;
-}
-
-/* Títulos dos Cards */
-.Oil h1,
-.Environment h1,
-.Mineral h1,
-.Oceanography h1,
-.Coast h1 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: hsl(0 0% 100%);
-  margin: 0 0 1rem 0;
-  padding-bottom: 0.75rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.3px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  word-wrap: break-word;
-}
-
-/* Nav containers */
-.Oil nav,
-.Environment nav,
-.Mineral nav,
-.Oceanography nav,
-.Coast nav {
+.Oil a, .Environment a, .Mineral a, .Oceanography a, .Coast a {
+  margin: 0 0 12px 0 !important;
   display: block;
-  margin: 0;
-  padding: 0;
-}
-
-/* Links dos Pesquisadores */
-.Oil a,
-.Environment a,
-.Mineral a,
-.Oceanography a,
-.Coast a {
-  display: block;
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.6;
-  padding: 0.5rem 0.75rem;
-  margin: 0.25rem 0;
-  transition: all 0.2s ease;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
   cursor: pointer;
-  word-wrap: break-word;
+  color: #fff;
+  font-size: 14px;
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: all 0.3s ease;
 }
 
-.Oil a:hover,
-.Environment a:hover,
-.Mineral a:hover,
-.Oceanography a:hover,
-.Coast a:hover {
-  color: hsl(0 0% 100%);
-  background: rgba(255, 255, 255, 0.1);
-  padding-left: 1rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+.Oil a:hover, .Environment a:hover, .Mineral a:hover, .Oceanography a:hover, .Coast a:hover {
+  color: rgba(147, 106, 235, 1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Responsive Design */
-@media (max-width: 1400px) {
-  .box {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.Oil h1, .Environment h1, .Mineral h1, .Oceanography h1, .Coast h1 {
+  font-size: 18px;
+  color: #363F5;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-@media (max-width: 1024px) {
-  .researchers {
-    padding: 2rem 1.5rem 4rem 1.5rem;
-    margin: 80px auto 0 auto;
-  }
-
-  .box {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
+@media (max-width: 1200px) {
+ .box {
+  width: 940px;
+  left: 5%;
+  overflow-y: scroll;
+  height: 700px;
+  top: 200px;
+ }
+ 
+ 
+.Oceanography  h1{
+  margin-top: 70px;
+  margin-left: 300rem;
 }
 
-@media (max-width: 768px) {
-  .researchers {
-    padding: 2rem 1rem 4rem 1rem;
-    margin: 60px auto 0 auto;
-  }
-
-  .Programs ul {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-
-  .box {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .Oil,
-  .Environment,
-  .Mineral,
-  .Oceanography,
-  .Coast {
-    padding: 1.25rem;
-  }
-
-  .Oil h1,
-  .Environment h1,
-  .Mineral h1,
-  .Oceanography h1,
-  .Coast h1 {
-    font-size: 1.1rem;
-  }
+.Oceanography   a{
+  margin-left: 30rem;
+  margin-top: 20px;
+  line-height: 1px;
 }
+
+
+.Coast  h1{
+  margin-top: -170px;
+  margin-left: 25rem;
+}
+
+.Coast   a{
+  margin-left: 25rem;
+}
+ .Programs {
+  margin-bottom: 50px;
+  padding-left: 400px;
+ }
+
+}
+
 
 @media (max-width: 400px) {
-  .researchers {
-    padding: 1.5rem 0.75rem 3rem 0.75rem;
-  }
 
-  .Programs ul {
-    font-size: 1.25rem;
-  }
+  .Programs {
+    margin-bottom: 50px;
+    padding-left: 700px;
+   }
 
-  .Oil,
-  .Environment,
-  .Mineral,
-  .Oceanography,
-  .Coast {
-    padding: 1rem;
-  }
+   .box {
+    height: 900px;
+   }
 }

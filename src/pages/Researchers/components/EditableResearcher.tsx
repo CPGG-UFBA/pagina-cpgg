@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Star } from 'lucide-react'
+import { Minus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 
 interface Researcher {
   name: string
@@ -11,11 +12,10 @@ interface Researcher {
 }
 
 interface EditableResearcherProps {
-  researcher: any
+  researcher: any // Mudança para aceitar mais propriedades
   isEditMode: boolean
-  onUpdate: (id: string, name: string) => Promise<void>
-  onDelete: (id: string) => Promise<void>
-  onSetChief?: (id: string, programKey: string) => Promise<void>
+  onUpdate: (id: string, name: string, isStatic?: boolean, originalName?: string, programKey?: string) => Promise<void>
+  onDelete: (id: string, isStatic?: boolean, name?: string) => Promise<void>
   dbResearchers: any[]
 }
 
@@ -24,22 +24,42 @@ export function EditableResearcher({
   isEditMode, 
   onUpdate, 
   onDelete,
-  onSetChief,
   dbResearchers 
 }: EditableResearcherProps) {
   const [editedName, setEditedName] = useState(researcher.name)
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-  const [isSettingChief, setIsSettingChief] = useState(false)
 
-  // Todos os pesquisadores agora são do banco de dados
-  const researcherId = researcher.id || researcher.route.split('/').pop()
+  // Verifica se é um pesquisador do banco de dados
+  const isDatabaseResearcher = researcher.isDatabase || researcher.route.includes('/researchers/dynamic/')
+  const researcherId = isDatabaseResearcher ? (researcher.id || researcher.route.split('/').pop()) : null
 
   const handleNameChange = async () => {
     if (editedName === researcher.name) return
 
     setIsLoading(true)
     try {
-      await onUpdate(researcherId, editedName)
+      if (isDatabaseResearcher && researcherId) {
+        await onUpdate(researcherId, editedName)
+      } else {
+        // Pesquisador estático - migra para o banco
+        await onUpdate('', editedName, true, researcher.originalName || researcher.name, researcher.programKey)
+      }
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleDelete = async () => {
+    setIsLoading(true)
+    try {
+      if (isDatabaseResearcher && researcherId) {
+        await onDelete(researcherId)
+      } else {
+        // Pesquisador estático - apenas oculta
+        await onDelete('', true, researcher.originalName || researcher.name)
+      }
+      setShowDeleteConfirm(false)
     } finally {
       setIsLoading(false)
     }
@@ -51,36 +71,10 @@ export function EditableResearcher({
     }
   }
 
-  const handleSetChief = async () => {
-    if (!researcherId || !onSetChief) return
-    
-    setIsSettingChief(true)
-    try {
-      await onSetChief(researcherId, researcher.programKey || '')
-    } finally {
-      setIsSettingChief(false)
-    }
-  }
-
   if (!isEditMode) {
     return (
-      <nav style={{ margin: '0.25rem 0' }}>
-        <Link 
-          to={researcher.route}
-          style={{
-            display: 'block',
-            color: researcher.isChief ? '#facc15' : 'rgba(255, 255, 255, 0.95)',
-            fontWeight: researcher.isChief ? '600' : 'normal',
-            fontSize: '0.9rem',
-            padding: '0.5rem 0.75rem',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            transition: 'all 0.2s ease'
-          }}
-        >
-          {researcher.name}
-          {researcher.isChief && <span style={{ marginLeft: '0.5rem', fontSize: '0.875rem' }}>(Chefe)</span>}
-        </Link>
+      <nav>
+        <Link to={researcher.route}> {researcher.name}</Link>
       </nav>
     )
   }
@@ -88,32 +82,59 @@ export function EditableResearcher({
   return (
     <>
       <nav className="flex items-center gap-2 group">
-        {onSetChief && (
-          <Button
-            size="sm"
-            variant={researcher.isChief ? "default" : "outline"}
-            className={`h-8 w-8 p-0 shrink-0 ${
-              researcher.isChief 
-                ? 'bg-yellow-500 hover:bg-yellow-600 text-white border-yellow-600' 
-                : 'bg-background text-foreground border-border hover:bg-muted'
-            }`}
-            onClick={handleSetChief}
-            disabled={isLoading || isSettingChief}
-            title={researcher.isChief ? "Coordenador do programa" : "Marcar como coordenador"}
-          >
-            <Star className={`w-4 h-4 ${researcher.isChief ? 'fill-current' : ''}`} />
-          </Button>
-        )}
         <Input
           value={editedName}
           onChange={(e) => setEditedName(e.target.value)}
           onBlur={handleNameChange}
           onKeyPress={handleKeyPress}
-          className="h-8 text-sm bg-background text-foreground border-border focus:border-ring flex-1"
+          className="h-8 text-sm bg-background text-foreground border-border focus:border-ring"
           disabled={isLoading}
           placeholder="Nome do pesquisador"
         />
+        <Button
+          size="sm"
+          variant="destructive"
+          className="h-8 w-8 p-0 bg-destructive text-destructive-foreground hover:bg-destructive/90 opacity-70 hover:opacity-100"
+          onClick={() => setShowDeleteConfirm(true)}
+          disabled={isLoading}
+        >
+          <Minus className="w-3 h-3" />
+        </Button>
+        {!isDatabaseResearcher && (
+          <span className="text-xs text-muted-foreground bg-muted px-2 py-1 rounded">(estático)</span>
+        )}
       </nav>
+
+      <Dialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Confirmar Exclusão</DialogTitle>
+            <DialogDescription>
+              Você tem certeza de que quer apagar este pesquisador?
+              <br />
+              <strong>{researcher.name}</strong>
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="gap-2">
+            <Button
+              variant="outline"
+              onClick={() => setShowDeleteConfirm(false)}
+              disabled={isLoading}
+              className="bg-background text-foreground border-border hover:bg-muted"
+            >
+              NÃO
+            </Button>
+            <Button
+              variant="destructive"
+              onClick={handleDelete}
+              disabled={isLoading}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              {isLoading ? 'Excluindo...' : 'SIM'}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

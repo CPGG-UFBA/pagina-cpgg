@@ -3,7 +3,6 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
-import { ResearcherPhoto } from '../../../../components/ResearcherPhoto'
 import { BackButton } from '../../../../components/BackButton'
 
 export function MZucchi() {
@@ -13,7 +12,6 @@ export function MZucchi() {
       <div>
         <div className={styles.Professor} >
           <BackButton />
-          <ResearcherPhoto researcherName="Maria do Rosário Zucchi" />
           <p> Maria do Rosário Zucchi </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

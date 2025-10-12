@@ -24,50 +24,31 @@ export function Secretaria() {
     setIsLoading(true)
     
     try {
-      // Autenticar com Supabase Auth
-      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      })
-
-      if (authError) {
-        toast({
-          title: "Erro de login",
-          description: "Email ou senha incorretos.",
-          variant: "destructive"
-        })
-        return
-      }
-
-      // Verificar se é secretaria
-      const { data: adminData, error: adminError } = await supabase
+      const { data, error } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('user_id', authData.user.id)
+        .eq('email', email)
+        .eq('password', password)
         .eq('role', 'secretaria')
         .single()
 
-      if (adminError || !adminData) {
-        await supabase.auth.signOut()
+      if (error || !data) {
         toast({
-          title: "Acesso negado",
-          description: "Você não tem permissão de secretaria.",
+          title: "Erro de login",
+          description: "Email ou senha incorretos, ou usuário não cadastrado.",
           variant: "destructive"
         })
         return
       }
 
       // Login bem-sucedido
-      sessionStorage.setItem('admin_user', JSON.stringify({
-        id: authData.user.id,
-        email: authData.user.email,
-        role: adminData.role
-      }))
+      sessionStorage.setItem('admin_user', JSON.stringify(data))
       toast({
         title: "Login realizado!",
         description: "Bem-vinda à área da secretaria.",
       })
-      console.log('Login Secretaria bem-sucedido')
+      // Aqui poderia navegar para uma dashboard específica da secretaria se necessário
+      console.log('Login Secretaria bem-sucedido:', data)
     } catch (error) {
       toast({
         title: "Erro",
@@ -83,22 +64,28 @@ export function Secretaria() {
     e.preventDefault()
     
     try {
-      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/reset-password`,
-      })
+      const { data, error } = await supabase
+        .from('admin_users')
+        .select('email, password')
+        .eq('email', resetEmail)
+        .eq('role', 'secretaria')
+        .single()
 
-      if (error) {
+      if (error || !data) {
         toast({
           title: "Erro",
-          description: "Erro ao enviar email de recuperação. Verifique o email digitado.",
+          description: "Email não encontrado. Verifique o email digitado.",
           variant: "destructive"
         })
         return
       }
+
+      // Simular envio de email com a senha
+      console.log(`Enviando senha para ${resetEmail}: ${data.password}`)
       
       toast({
-        title: "Link enviado com sucesso!",
-        description: "Um link para redefinir sua senha foi enviado para o email cadastrado. Verifique sua caixa de entrada.",
+        title: "Email enviado!",
+        description: "Sua senha foi enviada para o email cadastrado.",
       })
       
       setResetEmail('')
@@ -176,7 +163,7 @@ export function Secretaria() {
                 />
               </div>
               <Button type="submit" className={styles.resetButton}>
-                Enviar link de redefinição
+                Enviar senha por email
               </Button>
             </form>
           </DialogContent>

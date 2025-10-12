@@ -1,239 +1,251 @@
-/* Container Principal */
 .heads {
-  padding: 2rem 2rem 2rem 2rem;
-  min-height: auto;
-  width: 100%;
-  max-width: 1400px;
-  margin: 100px auto 2rem auto;
-  position: relative;
-  z-index: 1;
+  padding-bottom: 50px;
+  min-height: calc(100vh - 200px);
 }
-
-/* Grid de Cards */
-.box1 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  width: 100%;
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Card Base - Premium Glassmorphism */
-.coordination,
-.box2,
-.box3 {
-  position: relative;
-  padding: 2rem;
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 100%
-  );
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.1),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-    0 20px 60px -15px rgba(0, 0, 0, 0.15);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  animation: slideUp 0.6s ease-out backwards;
-  overflow: hidden;
-}
-
-.coordination {
-  animation-delay: 0.1s;
-}
-
-.box2 {
-  animation-delay: 0.2s;
-}
-
-.box3 {
-  animation-delay: 0.3s;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Gradient Border Effect */
-.coordination::before,
-.box2::before,
-.box3::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 24px;
-  padding: 1px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.4),
-    rgba(255, 255, 255, 0.1)
-  );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Hover Effects */
-.coordination:hover,
-.box2:hover,
-.box3:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.15),
-    0 0 0 1px rgba(255, 255, 255, 0.2) inset,
-    0 24px 80px -20px rgba(0, 0, 0, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.coordination:hover::before,
-.box2:hover::before,
-.box3:hover::before {
-  opacity: 1;
-}
-
-/* Títulos dos Cards */
-.coordination ul,
-.box2 > h1,
-.box3 > h1 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: hsl(0 0% 100%);
-  margin: 0 0 1.5rem 0;
-  padding-bottom: 1rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  letter-spacing: 0.5px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-
-.scientific h1,
-.deliberative h1 {
-  display: none;
-}
-
-/* Conteúdo */
-.chief,
-.scientific,
-.deliberative {
+.coordination{
+  column-count: 1;
   display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  color: hsl(0 0% 100%);
+  padding-top: 15px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  padding-left: 730px;
+  padding-right: 8px;
+  }
+
+.coordination ul{
+  postion: absolute;
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: -600px;
+  margin-top: -20px;
+  color: hsl(0 0% 100%);
+}
+.chief h1{
+  postion: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 18px;
+  color: hsl(0 0% 100%);
+  font-weight: bold;
+  margin-top: 30px;
+  margin-left:-205px;
+}
+
+.chief a{
+  postion: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: -175px;
+  margin-top: 20px;
+  white-space: nowrap;
+  color: hsl(0 0% 100%);
+}
+
+.chief b{
+  postion: absolute;
+  justify-content: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: -190px;
+  margin-top: 20px;
+  white-space: nowrap;
+  color: hsl(0 0% 100%);
 }
 
 .scientific {
-  padding: 0;
+  padding-left: 30px;
+}
+.scientific  h1{
+  postion: absolute;
+  display: flex;
+  font-size: 22px;
+  color: hsl(0 0% 100%);
+  font-weight: bold;
+  margin-top: -6px;
+  margin-left: 100px;
+  white-space: nowrap;
 }
 
-.chief h1,
-.chief a,
-.chief b,
-.scientific a,
-.deliberative a {
-  font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.95);
-  line-height: 1.6;
-  padding: 0.5rem 0;
-  margin: 0;
-  transition: all 0.2s ease;
+
+.scientific   a{
   text-align: left;
   display: block;
-  position: static;
-  font-weight: 400;
-}
-
-.chief a,
-.scientific a,
-.deliberative a {
-  white-space: normal;
-  word-wrap: break-word;
-}
-
-/* Hover em membros */
-.chief a:hover,
-.scientific a:hover,
-.deliberative a:hover {
-  color: hsl(0 0% 100%);
-  padding-left: 0.5rem;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Destaque para cargos */
-.chief h1 {
-  font-weight: 600;
-  font-size: 1.05rem;
+  font-size: 14px;
+  margin-left: 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
   color: hsl(0 0% 100%);
 }
 
-/* Responsive Design */
+
+.deliberative  h1{
+  display: flex;
+  font-size: 22px;
+  color: hsl(0 0% 100%);
+  font-weight: bold;
+  margin-top:-5px;
+  margin-left: 100px;
+}
+
+.deliberative   a{
+  text-align: center;
+  display: flex;
+  font-size: 14px;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: hsl(0 0% 100%);
+}
+
+.box1 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 400px;
+  height: 250px;
+  top: 15%; 
+  left:5%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+
+.box2 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 400px;
+  height: 550px;
+  top: -1%; 
+  left:120%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+  margin-bottom: -100px;
+}
+
+
+.box3 {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255,255,255,.2);
+  background-color: rgba(255,255,255, 0.2);
+  position: absolute;
+  width: 400px;
+  height: 450px;
+  top: -1%; 
+  left:240%;
+  padding: 10px;
+  border-radius: 20px;
+  gap: 5px;
+}
+
+
 @media (max-width: 1200px) {
+
   .box1 {
-    grid-template-columns: repeat(2, 1fr);
+    left: 30%;
   }
 
-  .coordination {
-    grid-column: 1 / -1;
+  .box2{
+    left: -55%;
+    top: 115%;
+
+  }
+
+  .box3 {
+    left: 55%;
+    top: 115%;
+    height: 500px;
+  }
+
+  .heads {
+    margin-bottom: 50px;
   }
 }
 
-@media (max-width: 768px) {
-  .heads {
-    padding: 2rem 1rem;
-  }
+
+
+
+@media (max-width: 800px) {
 
   .box1 {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    left: 40%;
   }
 
-  .coordination,
-  .box2,
+  .box2{
+    left: -60%;
+
+  }
+
   .box3 {
-    padding: 1.5rem;
+    left: 55%;
+    top: 115%;
+
   }
 
-  .coordination ul,
-  .box2 > h1,
-  .box3 > h1 {
-    font-size: 1.25rem;
+  .heads {
+    margin-bottom: 50px;
+  }
+}
+
+
+
+
+@media (max-width: 400px) {
+
+  .box1 {
+    left: 80%;
+    top: 20%;
+  }
+
+  .box2 {
+    left: 1%;
+    top: 110%;
+  }
+
+  .box3 {
+    left: 1%;
+    top:330%;
+  }
+
+
+  .heads {
+    margin-bottom: 50px;
   }
 }
 
 /* Estilos para modo de edição */
+.editMode .coordination {
+  padding-left: 120px !important;
+}
+
+.editMode .chief h1,
+.editMode .chief a,
+.editMode .chief b {
+  margin-left: 0 !important;
+  margin-top: 0 !important;
+  position: static !important;
+  display: block !important;
+  text-align: left !important;
+}
+
 .editMode .box1 {
-  position: relative;
+  z-index: 2;
 }
 
-.editMode .chief,
-.editMode .scientific,
-.editMode .deliberative {
-  gap: 0.5rem;
-}
-
-.coordination-member.editable,
-.coordination-member.editing {
+.coordination-member.editable {
   margin: 0.5rem 0;
   transition: all 0.3s ease;
   display: block;
@@ -241,14 +253,33 @@
 }
 
 .coordination-member.editing {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 0.75rem;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0.5rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem;
+  border-radius: 8px;
+  display: block;
+  width: 100%;
 }
 
 .coordination-member h1 {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+}
+
+/* Reposiciona corretamente os elementos no modo de edição */
+.editMode .coordination ul {
+  position: static !important;
+  margin: 0 0 1rem 0 !important;
+  text-align: left !important;
+}
+
+.editMode .chief {
+  display: grid;
+  grid-auto-rows: min-content;
+  gap: 12px;
+}
+
+.editMode .chief span {
+  margin: 0 !important;
 }
 

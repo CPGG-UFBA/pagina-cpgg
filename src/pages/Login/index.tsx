@@ -181,21 +181,21 @@ export function Login() {
     
     try {
       const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
-        redirectTo: `${window.location.origin}/reset-password`,
+        redirectTo: `${window.location.origin}/login`,
       });
 
       if (error) {
         toast({
           title: "Erro",
-          description: "Erro ao enviar email de recuperação. Verifique o email digitado.",
+          description: "Erro ao enviar email de recuperação. Tente novamente.",
           variant: "destructive"
         });
         return;
       }
 
       toast({
-        title: "Link enviado com sucesso!",
-        description: "Um link para redefinir sua senha foi enviado para o email cadastrado. Verifique sua caixa de entrada.",
+        title: "Email enviado!",
+        description: "Verifique sua caixa de entrada para redefinir sua senha.",
       });
       
       setResetEmail('');
@@ -270,7 +270,7 @@ export function Login() {
                     />
                   </div>
                   <Button type="submit" className={styles.resetButton}>
-                    Enviar link de redefinição
+                    Enviar link de recuperação
                   </Button>
                 </form>
               </DialogContent>

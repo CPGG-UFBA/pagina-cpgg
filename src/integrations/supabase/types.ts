@@ -18,29 +18,26 @@ export type Database = {
         Row: {
           created_at: string
           email: string
-          full_name: string | null
           id: string
+          password: string
           role: string
           updated_at: string
-          user_id: string | null
         }
         Insert: {
           created_at?: string
           email: string
-          full_name?: string | null
           id?: string
+          password: string
           role: string
           updated_at?: string
-          user_id?: string | null
         }
         Update: {
           created_at?: string
           email?: string
-          full_name?: string | null
           id?: string
+          password?: string
           role?: string
           updated_at?: string
-          user_id?: string | null
         }
         Relationships: []
       }
@@ -110,11 +107,8 @@ export type Database = {
           description: string | null
           id: string
           name: string
-          photo1_legend: string | null
           photo1_url: string | null
-          photo2_legend: string | null
           photo2_url: string | null
-          photo3_legend: string | null
           photo3_url: string | null
           pnipe_address: string | null
           updated_at: string
@@ -128,11 +122,8 @@ export type Database = {
           description?: string | null
           id?: string
           name: string
-          photo1_legend?: string | null
           photo1_url?: string | null
-          photo2_legend?: string | null
           photo2_url?: string | null
-          photo3_legend?: string | null
           photo3_url?: string | null
           pnipe_address?: string | null
           updated_at?: string
@@ -146,11 +137,8 @@ export type Database = {
           description?: string | null
           id?: string
           name?: string
-          photo1_legend?: string | null
           photo1_url?: string | null
-          photo2_legend?: string | null
           photo2_url?: string | null
-          photo3_legend?: string | null
           photo3_url?: string | null
           pnipe_address?: string | null
           updated_at?: string
@@ -346,10 +334,8 @@ export type Database = {
         Row: {
           created_at: string
           description: string | null
-          email: string | null
+          email: string
           id: string
-          institution: string
-          is_chief: boolean
           lattes_link: string | null
           name: string
           program: string
@@ -358,10 +344,8 @@ export type Database = {
         Insert: {
           created_at?: string
           description?: string | null
-          email?: string | null
+          email: string
           id?: string
-          institution?: string
-          is_chief?: boolean
           lattes_link?: string | null
           name: string
           program: string
@@ -370,10 +354,8 @@ export type Database = {
         Update: {
           created_at?: string
           description?: string | null
-          email?: string | null
+          email?: string
           id?: string
-          institution?: string
-          is_chief?: boolean
           lattes_link?: string | null
           name?: string
           program?: string
@@ -426,42 +408,6 @@ export type Database = {
         }
         Relationships: []
       }
-      scientific_publications: {
-        Row: {
-          article_title: string
-          authors: string
-          created_at: string
-          id: string
-          journal_name: string
-          pages: string
-          updated_at: string
-          volume: string
-          year: string
-        }
-        Insert: {
-          article_title: string
-          authors: string
-          created_at?: string
-          id?: string
-          journal_name: string
-          pages: string
-          updated_at?: string
-          volume: string
-          year: string
-        }
-        Update: {
-          article_title?: string
-          authors?: string
-          created_at?: string
-          id?: string
-          journal_name?: string
-          pages?: string
-          updated_at?: string
-          volume?: string
-          year?: string
-        }
-        Relationships: []
-      }
       user_profiles: {
         Row: {
           created_at: string
@@ -473,7 +419,6 @@ export type Database = {
           institution: string
           phone: string
           photo_url: string | null
-          public_id: string | null
           researcher_route: string | null
           updated_at: string
           user_id: string | null
@@ -488,7 +433,6 @@ export type Database = {
           institution: string
           phone: string
           photo_url?: string | null
-          public_id?: string | null
           researcher_route?: string | null
           updated_at?: string
           user_id?: string | null
@@ -503,7 +447,6 @@ export type Database = {
           institution?: string
           phone?: string
           photo_url?: string | null
-          public_id?: string | null
           researcher_route?: string | null
           updated_at?: string
           user_id?: string | null
@@ -518,7 +461,6 @@ export type Database = {
           id: string
           latitude: number
           longitude: number
-          unique_ip_hashes: string[] | null
           updated_at: string
           visitor_count: number
         }
@@ -529,7 +471,6 @@ export type Database = {
           id?: string
           latitude: number
           longitude: number
-          unique_ip_hashes?: string[] | null
           updated_at?: string
           visitor_count?: number
         }
@@ -540,7 +481,6 @@ export type Database = {
           id?: string
           latitude?: number
           longitude?: number
-          unique_ip_hashes?: string[] | null
           updated_at?: string
           visitor_count?: number
         }
@@ -555,20 +495,8 @@ export type Database = {
         Args: { _email: string; _full_name: string }
         Returns: Json
       }
-      create_admin_from_panel: {
-        Args: { _email: string; _role?: string }
-        Returns: Json
-      }
-      create_admin_user: {
-        Args: { _email: string; _password: string; _role?: string }
-        Returns: Json
-      }
       delete_user_complete: {
         Args: { _user_profile_id: string }
-        Returns: Json
-      }
-      delete_user_profile: {
-        Args: { _profile_id: string }
         Returns: Json
       }
       find_user_profile_by_name: {
@@ -585,18 +513,6 @@ export type Database = {
           user_id: string
         }[]
       }
-      generate_public_id: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-      get_admin_role: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-      is_admin: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
       list_all_user_profiles: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -605,7 +521,6 @@ export type Database = {
           id: string
           institution: string
           phone: string
-          public_id: string
           researcher_route: string
           user_id: string
         }[]
@@ -622,10 +537,6 @@ export type Database = {
           _user_id: string
         }
         Returns: Json
-      }
-      set_researcher_as_chief: {
-        Args: { _program: string; _researcher_id: string }
-        Returns: undefined
       }
       sync_auth_users_to_profiles: {
         Args: Record<PropertyKey, never>

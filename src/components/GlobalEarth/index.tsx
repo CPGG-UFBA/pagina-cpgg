@@ -15,11 +15,7 @@ export function GlobalEarth() {
     '/history',
     '/History',
     '/history/Former',
-    '/History/Former',
-    '/Map',
-    '/map',
-    '/production',
-    '/Production'
+    '/History/Former'
   ]
   
   // Also hide on photo subpages (but not /Photos root or /Photos/HistoricalPhotos root)

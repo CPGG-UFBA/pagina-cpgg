@@ -29,23 +29,19 @@ export function CoordenacaoDashboard() {
   // Estados para cadastro de pesquisador
   const [researcherName, setResearcherName] = useState('')
   const [researcherProgram, setResearcherProgram] = useState('')
-  const [researcherLattes, setResearcherLattes] = useState('')
-  const [researcherInstitution, setResearcherInstitution] = useState('UFBA')
+  const [researcherEmail, setResearcherEmail] = useState('')
   const [researcherDescription, setResearcherDescription] = useState('')
+  const [researcherLattes, setResearcherLattes] = useState('')
   
   // Estados para laboratórios
   const [labName, setLabName] = useState('')
   const [labAcronym, setLabAcronym] = useState('')
   const [labChief, setLabChief] = useState('')
-  const [labChiefEmail, setLabChiefEmail] = useState('')
   const [labDescription, setLabDescription] = useState('')
   const [labPnipe, setLabPnipe] = useState('')
   const [labPhoto1, setLabPhoto1] = useState<File | null>(null)
   const [labPhoto2, setLabPhoto2] = useState<File | null>(null)
   const [labPhoto3, setLabPhoto3] = useState<File | null>(null)
-  const [labPhoto1Legend, setLabPhoto1Legend] = useState('')
-  const [labPhoto2Legend, setLabPhoto2Legend] = useState('')
-  const [labPhoto3Legend, setLabPhoto3Legend] = useState('')
   
   // Estados para notícias
   const [newsTitle, setNewsTitle] = useState('')
@@ -59,17 +55,18 @@ export function CoordenacaoDashboard() {
   // Estados para normas/regulamentos
   const [regulationName, setRegulationName] = useState('')
   const [regulationPdfUrl, setRegulationPdfUrl] = useState('')
+
+  // Estados para projetos de pesquisa
+  const [projectTitle, setProjectTitle] = useState('')
+  const [fundingAgency, setFundingAgency] = useState('')
+  const [validityPeriod, setValidityPeriod] = useState('')
+  const [coordinator, setCoordinator] = useState('')
+  const [viceCoordinator, setViceCoordinator] = useState('')
   
   // Estados para eventos
   const [eventName, setEventName] = useState('')
   const [eventDate, setEventDate] = useState('')
   const [eventPhotos, setEventPhotos] = useState<File[]>([])
-  
-  // Estados para atualização de credenciais
-  const [currentEmail, setCurrentEmail] = useState('')
-  const [newEmail, setNewEmail] = useState('')
-  const [currentPassword, setCurrentPassword] = useState('')
-  const [newPassword, setNewPassword] = useState('')
   
   const [isLoading, setIsLoading] = useState(false)
   const [uploadingPhotos, setUploadingPhotos] = useState(false)
@@ -101,91 +98,6 @@ export function CoordenacaoDashboard() {
       description: "Até logo!",
     })
     navigate('/adm')
-  }
-
-  const handleUpdateCredentials = async () => {
-    if (!currentEmail || !currentPassword) {
-      toast({
-        title: "Erro",
-        description: "Email atual e senha atual são obrigatórios",
-        variant: "destructive",
-      })
-      return
-    }
-
-    if (!newEmail && !newPassword) {
-      toast({
-        title: "Erro",
-        description: "Informe pelo menos um novo valor (email ou senha)",
-        variant: "destructive",
-      })
-      return
-    }
-
-    setIsLoading(true)
-
-    try {
-      // Validar credenciais atuais fazendo login
-      const { error: signInError } = await supabase.auth.signInWithPassword({
-        email: currentEmail,
-        password: currentPassword,
-      })
-
-      if (signInError) {
-        throw new Error('Email ou senha atual incorretos')
-      }
-
-      // Preparar objeto de atualização
-      const updates: { email?: string; password?: string } = {}
-      if (newEmail && newEmail !== currentEmail) {
-        updates.email = newEmail
-      }
-      if (newPassword) {
-        updates.password = newPassword
-      }
-
-      // Atualizar credenciais no Supabase Auth
-      const { error: updateError } = await supabase.auth.updateUser(updates)
-
-      if (updateError) throw updateError
-
-      // Se o email foi alterado, atualizar também na tabela admin_users
-      if (updates.email) {
-        const { error: adminUpdateError } = await supabase
-          .from('admin_users')
-          .update({ email: newEmail })
-          .eq('email', currentEmail)
-
-        if (adminUpdateError) {
-          console.error('Erro ao atualizar admin_users:', adminUpdateError)
-        }
-      }
-
-      toast({
-        title: "Sucesso!",
-        description: "Credenciais atualizadas com sucesso. Você será redirecionado para fazer login novamente.",
-      })
-
-      // Limpar campos
-      setCurrentEmail('')
-      setNewEmail('')
-      setCurrentPassword('')
-      setNewPassword('')
-
-      // Fazer logout após 2 segundos
-      setTimeout(() => {
-        handleLogout()
-      }, 2000)
-    } catch (error: any) {
-      console.error('Erro ao atualizar credenciais:', error)
-      toast({
-        title: "Erro",
-        description: error.message || "Erro ao atualizar credenciais",
-        variant: "destructive",
-      })
-    } finally {
-      setIsLoading(false)
-    }
   }
 
   const handleRegisterSecretaria = async () => {
@@ -275,7 +187,7 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterResearcher = async () => {
-    if (!researcherName || !researcherProgram || !researcherLattes || !researcherInstitution || !researcherDescription) {
+    if (!researcherName || !researcherProgram || !researcherEmail || !researcherDescription || !researcherLattes) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
@@ -287,54 +199,32 @@ export function CoordenacaoDashboard() {
     setIsLoading(true)
 
     try {
-      // Insert into researchers table
-      const { error: researcherError } = await supabase
+      const { error } = await supabase
         .from('researchers')
         .insert({
           name: researcherName,
           program: researcherProgram,
-          lattes_link: researcherLattes,
-          institution: researcherInstitution,
-        })
-
-      if (researcherError) throw researcherError
-
-      // Also insert into user_profiles table with researcher_route
-      const firstName = researcherName.split(' ')[0]
-      // Gerar researcher_route baseado no nome (formato: primeiro-ultimo-nome)
-      const nameParts = researcherName.toLowerCase().split(' ')
-      const researcherRoute = nameParts.length > 1 
-        ? `/pesquisadores/${nameParts[0]}-${nameParts[nameParts.length - 1]}`
-        : `/pesquisadores/${nameParts[0]}`
-      
-      const { error: profileError } = await supabase
-        .from('user_profiles')
-        .insert({
-          full_name: researcherName,
-          email: 'a_definir@temporario.com',
-          institution: researcherInstitution,
-          phone: '(00) 00000-0000',
-          first_name: firstName,
-          researcher_route: researcherRoute,
+          email: researcherEmail,
           description: researcherDescription,
+          lattes_link: researcherLattes,
         })
 
-      if (profileError) {
-        console.error('Erro ao criar perfil de usuário:', profileError)
-        // Continue even if profile creation fails
-      }
+      if (error) throw error
+
+      // Criar página pessoal do pesquisador
+      await createResearcherPage(researcherName, researcherEmail, researcherDescription, researcherLattes)
 
       toast({
         title: "Sucesso",
-        description: "Pesquisador cadastrado com sucesso! O pesquisador poderá editar seu email e descrição posteriormente.",
+        description: "Pesquisador cadastrado com sucesso!",
       })
 
       // Limpar formulário
       setResearcherName('')
       setResearcherProgram('')
-      setResearcherLattes('')
-      setResearcherInstitution('UFBA')
+      setResearcherEmail('')
       setResearcherDescription('')
+      setResearcherLattes('')
     } catch (error: any) {
       console.error('Erro ao cadastrar pesquisador:', error)
       toast({
@@ -348,31 +238,10 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterLaboratory = async () => {
-    if (!labName || !labAcronym || !labChief || !labChiefEmail || !labDescription || !labPnipe) {
+    if (!labName || !labAcronym || !labChief || !labDescription || !labPnipe) {
       toast({
         title: "Erro",
         description: "Todos os campos são obrigatórios",
-        variant: "destructive",
-      })
-      return
-    }
-
-    // Validar email do chefe - não aceitar @ufba.br
-    if (labChiefEmail.toLowerCase().includes('@ufba.br')) {
-      toast({
-        title: "Erro",
-        description: "O email do chefe não pode ter domínio @ufba.br. Use um email alternativo (Gmail, Outlook, etc.)",
-        variant: "destructive",
-      })
-      return
-    }
-
-    // Validar formato do email
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(labChiefEmail)) {
-      toast({
-        title: "Erro",
-        description: "Por favor, insira um email válido",
         variant: "destructive",
       })
       return
@@ -447,15 +316,11 @@ export function CoordenacaoDashboard() {
           name: labName,
           acronym: labAcronym,
           chief_name: labChief,
-          chief_alternative_email: labChiefEmail,
           description: labDescription,
           pnipe_address: labPnipe,
           photo1_url,
           photo2_url,
           photo3_url,
-          photo1_legend: labPhoto1Legend || null,
-          photo2_legend: labPhoto2Legend || null,
-          photo3_legend: labPhoto3Legend || null,
         })
 
       if (error) throw error
@@ -469,15 +334,11 @@ export function CoordenacaoDashboard() {
       setLabName('')
       setLabAcronym('')
       setLabChief('')
-      setLabChiefEmail('')
       setLabDescription('')
       setLabPnipe('')
       setLabPhoto1(null)
       setLabPhoto2(null)
       setLabPhoto3(null)
-      setLabPhoto1Legend('')
-      setLabPhoto2Legend('')
-      setLabPhoto3Legend('')
     } catch (error: any) {
       console.error('Erro ao cadastrar laboratório:', error)
       toast({
@@ -646,35 +507,42 @@ export function CoordenacaoDashboard() {
   const handleRegisterEvent = async () => {
     if (!eventName || !eventDate || eventPhotos.length === 0) {
       toast({
-        title: "Erro",
-        description: "Nome, data e pelo menos uma foto são obrigatórios",
+        title: "Campos obrigatórios",
+        description: "Nome do evento, data e pelo menos uma foto são obrigatórios.",
         variant: "destructive",
       })
       return
     }
 
-    try {
-      setIsLoading(true)
-      setUploadingPhotos(true)
+    if (eventPhotos.length > 30) {
+      toast({
+        title: "Muitas fotos",
+        description: "Máximo de 30 fotos permitido por evento.",
+        variant: "destructive",
+      })
+      return
+    }
 
+    setIsLoading(true)
+    setUploadingPhotos(true)
+
+    try {
       // Criar o evento primeiro
       const { data: eventData, error: eventError } = await supabase
         .from('events')
-        .insert([
-          {
-            name: eventName,
-            event_date: eventDate,
-          },
-        ])
+        .insert({
+          name: eventName,
+          event_date: eventDate
+        })
         .select()
         .single()
 
       if (eventError) throw eventError
 
       // Upload das fotos
-      const uploadPromises = eventPhotos.map(async (photo, index) => {
-        const fileExt = photo.name.split('.').pop()
-        const fileName = `${eventData.id}/${Date.now()}_${index}.${fileExt}`
+      for (let i = 0; i < eventPhotos.length; i++) {
+        const photo = eventPhotos[i]
+        const fileName = `${eventData.id}/${Date.now()}-${i}-${photo.name}`
         
         const { error: uploadError } = await supabase.storage
           .from('event-photos')
@@ -686,29 +554,32 @@ export function CoordenacaoDashboard() {
           .from('event-photos')
           .getPublicUrl(fileName)
 
-        return { event_id: eventData.id, photo_url: publicUrl, display_order: index }
-      })
+        // Inserir referência da foto no banco
+        const { error: photoError } = await supabase
+          .from('event_photos')
+          .insert({
+            event_id: eventData.id,
+            photo_url: publicUrl,
+            photo_order: i + 1
+          })
 
-      const photoRecords = await Promise.all(uploadPromises)
-
-      const { error: photosError } = await supabase
-        .from('event_photos')
-        .insert(photoRecords)
-
-      if (photosError) throw photosError
+        if (photoError) throw photoError
+      }
 
       toast({
-        title: "Sucesso!",
-        description: "Evento cadastrado com sucesso!",
+        title: "Sucesso",
+        description: `Evento "${eventName}" cadastrado com sucesso com ${eventPhotos.length} fotos!`,
       })
 
+      // Limpar campos
       setEventName('')
       setEventDate('')
       setEventPhotos([])
+
     } catch (error: any) {
       toast({
-        title: "Erro",
-        description: error.message || "Erro ao cadastrar evento",
+        title: "Erro ao cadastrar evento",
+        description: error.message,
         variant: "destructive",
       })
     } finally {
@@ -717,6 +588,59 @@ export function CoordenacaoDashboard() {
     }
   }
 
+  const handleRegisterProject = async () => {
+    if (!projectTitle || !fundingAgency || !validityPeriod || !coordinator) {
+      toast({
+        title: "Erro",
+        description: "Título, agência financiadora, vigência e coordenador são obrigatórios",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const { error } = await supabase
+        .from('research_projects')
+        .insert({
+          title: projectTitle,
+          funding_agency: fundingAgency,
+          validity_period: validityPeriod,
+          coordinator: coordinator,
+          vice_coordinator: viceCoordinator || null,
+        })
+
+      if (error) throw error
+
+      toast({
+        title: "Sucesso",
+        description: "Projeto de pesquisa cadastrado com sucesso!",
+      })
+
+      // Limpar formulário
+      setProjectTitle('')
+      setFundingAgency('')
+      setValidityPeriod('')
+      setCoordinator('')
+      setViceCoordinator('')
+    } catch (error: any) {
+      console.error('Erro ao cadastrar projeto:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao cadastrar projeto",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const createResearcherPage = async (name: string, email: string, description: string, lattes: string) => {
+    // Aqui será implementada a criação automática da página do pesquisador
+    // Por enquanto, apenas um console.log para indicar que a função foi chamada
+    console.log(`Criando página para ${name}`)
+  }
 
   if (!adminUser) {
     return <div>Carregando...</div>
@@ -751,24 +675,6 @@ export function CoordenacaoDashboard() {
           >
             <Users className="w-5 h-5 mr-2" />
             Gerenciar Usuários
-          </Button>
-          
-          <Button
-            onClick={() => navigate('/adm/coordenacao/pesquisadores')}
-            className={styles.actionButton}
-            variant="outline"
-          >
-            <UserCheck className="w-5 h-5 mr-2" />
-            Gerenciar Pesquisadores
-          </Button>
-          
-          <Button
-            onClick={() => navigate('/adm/coordenacao/laboratorios')}
-            className={styles.actionButton}
-            variant="outline"
-          >
-            <FlaskConical className="w-5 h-5 mr-2" />
-            Gerenciar Laboratórios
           </Button>
           
           <Button
@@ -828,60 +734,6 @@ export function CoordenacaoDashboard() {
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
               <Settings size={24} />
-              <h2>Atualizar Credenciais da Coordenação</h2>
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="current-email">E-mail Atual:</label>
-              <Input
-                id="current-email"
-                type="email"
-                value={currentEmail}
-                onChange={(e) => setCurrentEmail(e.target.value)}
-                placeholder="Digite seu e-mail atual"
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="new-email">Novo E-mail (opcional):</label>
-              <Input
-                id="new-email"
-                type="email"
-                value={newEmail}
-                onChange={(e) => setNewEmail(e.target.value)}
-                placeholder="Digite o novo e-mail ou deixe em branco"
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="current-password">Senha Atual:</label>
-              <Input
-                id="current-password"
-                type="password"
-                value={currentPassword}
-                onChange={(e) => setCurrentPassword(e.target.value)}
-                placeholder="Digite sua senha atual"
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="new-password">Nova Senha (opcional):</label>
-              <Input
-                id="new-password"
-                type="password"
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Digite a nova senha ou deixe em branco"
-              />
-            </div>
-            <Button
-              onClick={handleUpdateCredentials}
-              disabled={isLoading || !currentEmail || !currentPassword || (!newEmail && !newPassword)}
-              className={styles.submitButton}
-            >
-              {isLoading ? 'Atualizando...' : 'Atualizar Credenciais'}
-            </Button>
-          </div>
-
-          <div className={styles.formCard}>
-            <div className={styles.formHeader}>
-              <Settings size={24} />
               <h2>Cadastrar Técnico em TI</h2>
             </div>
             <div className={styles.formGroup}>
@@ -916,7 +768,7 @@ export function CoordenacaoDashboard() {
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
               <Users size={24} />
-              <h2>Credenciar Pesquisador</h2>
+              <h2>Cadastrar Pesquisador</h2>
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-name">Nome:</label>
@@ -929,39 +781,39 @@ export function CoordenacaoDashboard() {
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher-institution">Instituição:</label>
+              <label htmlFor="researcher-program">Programa:</label>
+              <Select value={researcherProgram} onValueChange={setResearcherProgram}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecione o programa" />
+                </SelectTrigger>
+                <SelectContent>
+                  {Object.entries(programMapping).map(([key, value]) => (
+                    <SelectItem key={key} value={key}>
+                      {value}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="researcher-email">E-mail:</label>
               <Input
-                id="researcher-institution"
-                type="text"
-                value={researcherInstitution}
-                onChange={(e) => setResearcherInstitution(e.target.value)}
-                placeholder="Digite a instituição"
+                id="researcher-email"
+                type="email"
+                value={researcherEmail}
+                onChange={(e) => setResearcherEmail(e.target.value)}
+                placeholder="Digite o e-mail do pesquisador"
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="researcher-program">Programa:</label>
-              <select
-                id="researcher-program"
-                value={researcherProgram}
-                onChange={(e) => setResearcherProgram(e.target.value)}
-                style={{
-                  width: '100%',
-                  padding: '10px',
-                  borderRadius: '8px',
-                  border: '1px solid #ccc',
-                  backgroundColor: 'white',
-                  color: '#000',
-                  fontSize: '14px',
-                  cursor: 'pointer'
-                }}
-              >
-                <option value="">Selecione o programa</option>
-                {Object.entries(programMapping).map(([key, value]) => (
-                  <option key={key} value={key}>
-                    {value}
-                  </option>
-                ))}
-              </select>
+              <label htmlFor="researcher-description">Descrição:</label>
+              <Textarea
+                id="researcher-description"
+                value={researcherDescription}
+                onChange={(e) => setResearcherDescription(e.target.value)}
+                placeholder="Digite uma descrição sobre o pesquisador"
+                rows={4}
+              />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="researcher-lattes">Link do Lattes:</label>
@@ -973,27 +825,9 @@ export function CoordenacaoDashboard() {
                 placeholder="Digite o link do currículo Lattes"
               />
             </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="researcher-description">Descrição:</label>
-              <Textarea
-                id="researcher-description"
-                value={researcherDescription}
-                onChange={(e) => setResearcherDescription(e.target.value)}
-                placeholder="Digite uma breve descrição sobre o pesquisador"
-                rows={4}
-                style={{
-                  fontSize: '12pt',
-                  fontFamily: 'inherit',
-                  lineHeight: '1.6',
-                }}
-              />
-            </div>
-            <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
-              * O email e descrição poderão ser editados posteriormente pelo próprio pesquisador
-            </p>
             <Button
               onClick={handleRegisterResearcher}
-              disabled={isLoading || !researcherName || !researcherInstitution || !researcherProgram || !researcherLattes || !researcherDescription}
+              disabled={isLoading || !researcherName || !researcherProgram || !researcherEmail || !researcherDescription || !researcherLattes}
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Pesquisador'}
@@ -1036,19 +870,6 @@ export function CoordenacaoDashboard() {
               />
             </div>
             <div className={styles.formGroup}>
-              <label htmlFor="lab-chief-email">E-mail do Chefe (não @ufba.br):</label>
-              <Input
-                id="lab-chief-email"
-                type="email"
-                value={labChiefEmail}
-                onChange={(e) => setLabChiefEmail(e.target.value)}
-                placeholder="Digite um email alternativo (Gmail, Outlook, etc.)"
-              />
-              <p style={{ fontSize: '0.85rem', color: '#666', marginTop: '0.25rem' }}>
-                ⚠️ Não use email @ufba.br. Este email receberá as demandas de serviço dos usuários.
-              </p>
-            </div>
-            <div className={styles.formGroup}>
               <label htmlFor="lab-description">Descrição:</label>
               <Textarea
                 id="lab-description"
@@ -1075,15 +896,6 @@ export function CoordenacaoDashboard() {
               onChange={setLabPhoto1}
               className={styles.photoDropZone}
             />
-            <div className={styles.inputGroup}>
-              <label>Legenda da Foto 1:</label>
-              <input
-                type="text"
-                value={labPhoto1Legend}
-                onChange={(e) => setLabPhoto1Legend(e.target.value)}
-                placeholder="Digite a legenda da foto 1"
-              />
-            </div>
             <PhotoDropZone
               id="lab-photo2"
               label="Foto 2:"
@@ -1091,15 +903,6 @@ export function CoordenacaoDashboard() {
               onChange={setLabPhoto2}
               className={styles.photoDropZone}
             />
-            <div className={styles.inputGroup}>
-              <label>Legenda da Foto 2:</label>
-              <input
-                type="text"
-                value={labPhoto2Legend}
-                onChange={(e) => setLabPhoto2Legend(e.target.value)}
-                placeholder="Digite a legenda da foto 2"
-              />
-            </div>
             <PhotoDropZone
               id="lab-photo3"
               label="Foto 3:"
@@ -1107,18 +910,9 @@ export function CoordenacaoDashboard() {
               onChange={setLabPhoto3}
               className={styles.photoDropZone}
             />
-            <div className={styles.inputGroup}>
-              <label>Legenda da Foto 3:</label>
-              <input
-                type="text"
-                value={labPhoto3Legend}
-                onChange={(e) => setLabPhoto3Legend(e.target.value)}
-                placeholder="Digite a legenda da foto 3"
-              />
-            </div>
             <Button
               onClick={handleRegisterLaboratory}
-              disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labChiefEmail || !labDescription || !labPnipe}
+              disabled={isLoading || uploadingPhotos || !labName || !labAcronym || !labChief || !labDescription || !labPnipe}
               className={styles.submitButton}
             >
               {uploadingPhotos ? 'Enviando fotos...' : isLoading ? 'Cadastrando...' : 'Cadastrar Laboratório'}
@@ -1208,6 +1002,70 @@ export function CoordenacaoDashboard() {
 
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
+              <BookOpen size={24} />
+              <h2>Cadastrar Projeto de Pesquisa</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-title">Título do Projeto:</label>
+              <Input
+                id="project-title"
+                type="text"
+                value={projectTitle}
+                onChange={(e) => setProjectTitle(e.target.value)}
+                placeholder="Digite o título do projeto"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-funding">Agência Financiadora:</label>
+              <Input
+                id="project-funding"
+                type="text"
+                value={fundingAgency}
+                onChange={(e) => setFundingAgency(e.target.value)}
+                placeholder="Digite a agência financiadora"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-validity">Vigência do Projeto:</label>
+              <Input
+                id="project-validity"
+                type="text"
+                value={validityPeriod}
+                onChange={(e) => setValidityPeriod(e.target.value)}
+                placeholder="Ex: 2023-2026"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-coordinator">Coordenador do Projeto:</label>
+              <Input
+                id="project-coordinator"
+                type="text"
+                value={coordinator}
+                onChange={(e) => setCoordinator(e.target.value)}
+                placeholder="Digite o nome do coordenador"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="project-vice-coordinator">Vice-coordenador do Projeto:</label>
+              <Input
+                id="project-vice-coordinator"
+                type="text"
+                value={viceCoordinator}
+                onChange={(e) => setViceCoordinator(e.target.value)}
+                placeholder="Digite o nome do vice-coordenador (opcional)"
+              />
+            </div>
+            <Button
+              onClick={handleRegisterProject}
+              disabled={isLoading || !projectTitle || !fundingAgency || !validityPeriod || !coordinator}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Cadastrando...' : 'Cadastrar Projeto'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
               <FileText size={24} />
               <h2>Cadastrar Norma/Regulamento</h2>
             </div>
@@ -1240,6 +1098,21 @@ export function CoordenacaoDashboard() {
             </Button>
           </div>
 
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <UserMinus size={24} />
+              <h2>Administrar Usuários</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <p>Gerencie os usuários cadastrados no sistema</p>
+            </div>
+            <Button
+              onClick={() => navigate('/adm/coordenacao/usuarios')}
+              className={styles.submitButton}
+            >
+              Listar Usuários Cadastrados
+            </Button>
+          </div>
 
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
