@@ -169,7 +169,10 @@ export function RF() {
 
       // Redirecionar para comprovante
       if (data?.reservationId) {
-        window.open(`/Labs/Laiga/Receipt?id=${data.reservationId}`, "_blank");
+        // Usar navigate em vez de window.open para evitar bloqueio do popup
+        setTimeout(() => {
+          window.location.href = `/Labs/Laiga/Receipt?id=${data.reservationId}`;
+        }, 1500);
       }
 
       // Resetar formulário
