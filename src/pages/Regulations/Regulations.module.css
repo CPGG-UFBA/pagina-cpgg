@@ -85,7 +85,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/senior.jpg') center/cover;
-  margin-top: -450px;
+  margin-top: -400px;
 }
 
 .accreditation:hover {
