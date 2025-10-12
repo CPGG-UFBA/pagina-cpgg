@@ -233,6 +233,7 @@ export function Sign() {
   const handleVerifyEmail = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    console.log('handleVerifyEmail - iniciando verificação de email:', resetEmail);
 
     try {
       // Validar email
@@ -298,6 +299,7 @@ export function Sign() {
         description: 'Agora preencha seus novos dados para redefinir sua senha.',
       });
 
+      console.log('Email verificado, mudando para formulário de redefinição');
       // Ir para o formulário de redefinição
       setShowPasswordResetForm(true);
       setShowForgotPassword(false);
@@ -440,6 +442,7 @@ export function Sign() {
   }
 
   if (showPasswordResetForm) {
+    console.log('Renderizando formulário de redefinição de senha');
     return (
       <div className={styles.sign}>
         <HomeButton />
@@ -510,6 +513,7 @@ export function Sign() {
   }
 
   if (showForgotPassword) {
+    console.log('Renderizando formulário de verificação de email');
     return (
       <div className={styles.sign}>
         <HomeButton />
@@ -676,7 +680,11 @@ export function Sign() {
             </button>
             <button 
               type="button"
-              onClick={() => setShowForgotPassword(true)}
+              onClick={() => {
+                setShowForgotPassword(true);
+                setShowPasswordResetForm(false);
+                setResetEmail('');
+              }}
               disabled={isLoading}
               style={{
                 marginTop: '10px',
