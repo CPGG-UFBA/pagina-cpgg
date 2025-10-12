@@ -21,7 +21,7 @@
 }
 
 .News {
-  height: 100px;
+  height: 600px;
   width: 28%;
   position: relative;
   display: grid;
@@ -78,7 +78,7 @@
 .slideContainer img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 50%;
   object-fit: cover;
 }
 
