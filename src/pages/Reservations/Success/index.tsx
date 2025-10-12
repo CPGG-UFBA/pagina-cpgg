@@ -9,8 +9,8 @@ export function Success() {
     <>
       <Header />
       <div className={styles.success}>
-          <ul> Your request has been succesfully submitted </ul>
-          <p> Our secretary will soonly confirm it by email </p>
+          <ul> Solicitação de Reserva Enviada com Sucesso! </ul>
+          <p> A secretária do CPGG entrará em contato em breve por e-mail para confirmar sua reserva. </p>
 
 
           <div className={styles.staticFigure}>

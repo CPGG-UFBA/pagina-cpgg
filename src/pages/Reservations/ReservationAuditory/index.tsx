@@ -38,8 +38,8 @@ export function RA() {
       if (error) throw error;
 
       console.log('Reserva enviada com sucesso:', data);
-      // Redirecionar para página de comprovante
-      window.location.href = `/Reservations/Receipt?id=${data.reservationId}`
+      // Redirecionar para página de sucesso
+      window.location.href = '/Reservations/Success'
     } catch (error) {
       console.error('Erro ao enviar reserva:', error);
       alert('Erro ao enviar reserva. Tente novamente.');
