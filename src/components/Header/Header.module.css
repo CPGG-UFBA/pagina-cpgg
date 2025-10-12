@@ -93,10 +93,6 @@ nav ul li a {
 
 .submenu1 {
   display: none;
-}
-
-nav ul li:hover > .submenu1 {
-  display: block;
   position: absolute;
   background-color: #592cbb;
   margin-top: 0;
@@ -105,12 +101,15 @@ nav ul li:hover > .submenu1 {
   z-index: 100000;
   width: 200px;
   left: 0;
-  top: calc(100% - 15px);
+  top: 100%;
   padding: 0;
 }
 
-.submenu1 .submenuList,
-.submenu1 ul {
+nav ul li:hover .submenu1 {
+  display: block;
+}
+
+nav ul li .submenu1 ul {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -118,14 +117,15 @@ nav ul li:hover > .submenu1 {
   display: block;
 }
 
-.submenu1 ul li {
+nav ul li .submenu1 ul li {
   width: 100%;
   padding: 0;
   margin: 0;
   display: block;
+  margin-top: 0;
 }
 
-.submenu1 ul li a {
+nav ul li .submenu1 ul li a {
   display: block;
   width: 100%;
   padding: 12px 15px;
@@ -135,7 +135,7 @@ nav ul li:hover > .submenu1 {
   color: #fff;
 }
 
-.submenu1 ul li:hover a {
+nav ul li .submenu1 ul li:hover a {
   background-color: white;
   color: #592cbb;
 }
