@@ -101,7 +101,7 @@ const handler = async (req: Request): Promise<Response> => {
       <p><strong>Data da Solicitação:</strong> ${new Date().toLocaleString('pt-BR')}</p>
     `
 
-    // Enviar email para o coordenador
+    // Enviar email para o coordenador do LAIGA
     console.log('Enviando email para marcos.vasconcelos@ufba.br...')
     
     try {
