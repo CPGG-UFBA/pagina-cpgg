@@ -123,14 +123,6 @@ export function Regulations() {
                               <h2>{t('regulations.senior')}</h2>
                           </div>
                       </a>
-                  </div>
-
-                  <div className={styles.rightColumn}>
-                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_normativa_1_2023.pdf" target="_blank" rel="noopener noreferrer">
-                          <div className={styles.accreditation}>
-                              <h2>{t('regulations.accreditation')}</h2>
-                          </div>
-                      </a>
 
                       {/* Normas dinâmicas do banco de dados */}
                       {dynamicRegulations.map((regulation) => (
@@ -142,6 +134,14 @@ export function Regulations() {
                           onDelete={handleDeleteRegulation}
                         />
                       ))}
+                  </div>
+
+                  <div className={styles.rightColumn}>
+                      <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_normativa_1_2023.pdf" target="_blank" rel="noopener noreferrer">
+                          <div className={styles.accreditation}>
+                              <h2>{t('regulations.accreditation')}</h2>
+                          </div>
+                      </a>
                   </div>
 
               </div>
