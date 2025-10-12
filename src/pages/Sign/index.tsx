@@ -567,50 +567,26 @@ export function Sign() {
                 required
                 disabled={isLoading}
               />
+              <button type="submit" disabled={isLoading}>
+                {isLoading ? 'Redefinindo...' : 'Redefinir Senha e Criar Nova Conta'}
+              </button>
+              <button 
+                type="button"
+                onClick={() => {
+                  setShowPasswordResetForm(false);
+                  setShowForgotPassword(false);
+                }}
+                disabled={isLoading}
+                style={{
+                  marginTop: '10px',
+                  backgroundColor: '#6b7280',
+                  cursor: isLoading ? 'not-allowed' : 'pointer',
+                  opacity: isLoading ? 0.6 : 1
+                }}
+              >
+                Voltar
+              </button>
             </form>
-          </div>
-
-          <div style={{ maxWidth: '600px', margin: '20px auto 0', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            <button 
-              onClick={handlePasswordReset}
-              disabled={isLoading}
-              style={{
-                padding: '12px 24px',
-                backgroundColor: '#2563eb',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: isLoading ? 'not-allowed' : 'pointer',
-                fontSize: '14px',
-                fontWeight: '500',
-                opacity: isLoading ? 0.6 : 1,
-                transition: 'all 0.2s'
-              }}
-            >
-              {isLoading ? 'Redefinindo...' : 'Redefinir Senha e Criar Nova Conta'}
-            </button>
-            <button 
-              type="button"
-              onClick={() => {
-                setShowPasswordResetForm(false);
-                setShowForgotPassword(false);
-              }}
-              disabled={isLoading}
-              style={{
-                padding: '12px 24px',
-                backgroundColor: '#6b7280',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                cursor: isLoading ? 'not-allowed' : 'pointer',
-                fontSize: '14px',
-                fontWeight: '500',
-                opacity: isLoading ? 0.6 : 1,
-                transition: 'all 0.2s'
-              }}
-            >
-              Voltar
-            </button>
           </div>
         </div>
       </div>
