@@ -11,6 +11,8 @@ export function Header() {
   const { t } = useLanguage();
   const [showSubmenu, setShowSubmenu] = useState(true); // FORÇADO PARA TRUE TEMPORARIAMENTE
   
+  console.log('Header is rendering, showSubmenu:', showSubmenu);
+  
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -74,9 +76,13 @@ export function Header() {
                 padding: '20px',
                 margin: 0,
                 border: '5px solid yellow',
-                boxShadow: '0 0 30px rgba(255, 255, 0, 1)'
+                boxShadow: '0 0 30px rgba(255, 255, 0, 1)',
+                color: 'white',
+                fontSize: '24px',
+                fontWeight: 'bold'
               }}
             >
+              <p>MENU TESTE - SE VOCÊ VÊ ISSO, O SUBMENU FUNCIONA!</p>
               <ul>
                 <li className="header-hoversub"> 
                   <a href='#'>{t('nav.institution')}</a>
