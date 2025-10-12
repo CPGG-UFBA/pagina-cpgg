@@ -9,6 +9,13 @@ const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
   const { t } = useLanguage();
   
+  const handleMouseEnter = () => {
+    console.log('Mouse entered Sobre Nós menu item');
+    const submenu = document.querySelector('.header-submenu1');
+    console.log('Submenu element:', submenu);
+    console.log('Submenu display style:', submenu ? window.getComputedStyle(submenu).display : 'not found');
+  };
+  
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -51,7 +58,7 @@ export function Header() {
               {t('nav.signin')}
             </NavLink>
           </li>
-          <li>
+          <li onMouseEnter={handleMouseEnter}>
             <a href='#' className={styles.navLink}>{t('nav.about')}</a>
             
             <div className="header-submenu1">
