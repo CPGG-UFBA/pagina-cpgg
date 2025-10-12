@@ -1,4 +1,5 @@
 import { Edit3, LogOut } from 'lucide-react'
+import { useEffect } from 'react'
 
 interface EditButtonProps {
   onClick: () => void
@@ -7,7 +8,32 @@ interface EditButtonProps {
 }
 
 export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
-  console.log('🟢 EditButton renderizado, isEditMode:', isEditMode)
+  useEffect(() => {
+    console.log('🟢 EditButton MONTADO!')
+    console.log('🟢 isEditMode:', isEditMode)
+    
+    // Adicionar indicador visual de debug
+    const debugDiv = document.createElement('div')
+    debugDiv.id = 'edit-button-debug'
+    debugDiv.textContent = 'BOTÃO AQUI'
+    debugDiv.style.cssText = `
+      position: fixed;
+      bottom: 100px;
+      right: 16px;
+      background: red;
+      color: white;
+      padding: 10px;
+      z-index: 9999999;
+      font-weight: bold;
+      border: 3px solid yellow;
+    `
+    document.body.appendChild(debugDiv)
+    
+    return () => {
+      const el = document.getElementById('edit-button-debug')
+      if (el) el.remove()
+    }
+  }, [isEditMode])
 
   if (!isEditMode) {
     return (
@@ -22,7 +48,7 @@ export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
           position: 'fixed',
           bottom: '16px',
           right: '16px',
-          zIndex: 999999,
+          zIndex: 9999999,
           width: '60px',
           height: '60px',
           borderRadius: '50%',
@@ -61,7 +87,7 @@ export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
         position: 'fixed',
         bottom: '16px',
         right: '16px',
-        zIndex: 999999,
+        zIndex: 9999999,
         padding: '12px 24px',
         borderRadius: '8px',
         backgroundColor: '#ef4444',
