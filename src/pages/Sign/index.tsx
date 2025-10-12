@@ -497,6 +497,10 @@ export function Sign() {
           </div>
           
           <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
+            <div className={styles.formTitle}>
+              <p>Redefinir Senha</p>
+            </div>
+
             <div style={{ 
               backgroundColor: '#fef3c7', 
               padding: '15px', 
@@ -511,12 +515,9 @@ export function Sign() {
                 fontWeight: '500',
                 margin: 0
               }}>
-                Para redefinir sua senha, preencha novamente seus dados e a nova senha
+                ⚠️ Para redefinir sua senha, preencha novamente seus dados e a nova senha.
+                Sua descrição e foto de perfil serão mantidas.
               </p>
-            </div>
-            
-            <div className={styles.formTitle}>
-              <p>Redefinir Senha - Novo Cadastro</p>
             </div>
 
             <form onSubmit={handlePasswordReset} className={styles.form}>
