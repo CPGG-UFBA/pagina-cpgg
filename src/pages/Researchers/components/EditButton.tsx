@@ -11,6 +11,11 @@ interface EditButtonProps {
 export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
 
+  const handleClick = () => {
+    console.log('EditButton clicado!')
+    onClick()
+  }
+
   return (
     <div className="fixed bottom-4 right-4" style={{ zIndex: 9999 }}>
       {!isEditMode ? (
@@ -20,7 +25,7 @@ export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
           onMouseLeave={() => setIsHovered(false)}
         >
           <Button
-            onClick={onClick}
+            onClick={handleClick}
             size="sm"
             variant="secondary"
             className="w-10 h-10 p-0 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90 shadow-md"
