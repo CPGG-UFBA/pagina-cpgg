@@ -83,7 +83,7 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/senior.jpg') center/cover;
 }
 
