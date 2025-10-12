@@ -287,12 +287,12 @@ export function Sign() {
         }
       }
 
-      // Preencher o formulário com os dados existentes
+      // Preencher apenas o nome completo - email e telefone devem ser preenchidos novamente
       setFormData(prev => ({
         ...prev,
         fullName: profile.full_name,
-        email: resetEmail,
-        phone: profile.phone || ''
+        email: '',
+        phone: ''
       }));
 
       toast({
