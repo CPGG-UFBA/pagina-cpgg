@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import styles from "./Header.module.css";
 import "./Header.global.css";
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,24 +9,7 @@ const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
   const { t } = useLanguage();
-  
-  const handleMouseEnter = () => {
-    console.log('Mouse entered Sobre Nós menu item');
-    const submenu = document.querySelector('.header-submenu1');
-    console.log('Submenu element:', submenu);
-    if (submenu) {
-      const styles = window.getComputedStyle(submenu);
-      console.log('Submenu display:', styles.display);
-      console.log('Submenu position:', styles.position);
-      console.log('Submenu z-index:', styles.zIndex);
-      console.log('Submenu top:', styles.top);
-      console.log('Submenu left:', styles.left);
-      console.log('Submenu width:', styles.width);
-      console.log('Submenu height:', styles.height);
-      const rect = submenu.getBoundingClientRect();
-      console.log('Submenu bounding rect:', rect);
-    }
-  };
+  const [showSubmenu, setShowSubmenu] = useState(false);
   
   return (
     <header className={styles.header}>
@@ -69,10 +53,28 @@ export function Header() {
               {t('nav.signin')}
             </NavLink>
           </li>
-          <li onMouseEnter={handleMouseEnter}>
+          <li 
+            onMouseEnter={() => setShowSubmenu(true)}
+            onMouseLeave={() => setShowSubmenu(false)}
+            style={{ position: 'relative' }}
+          >
             <a href='#' className={styles.navLink}>{t('nav.about')}</a>
             
-            <div className="header-submenu1">
+            <div 
+              className="header-submenu1"
+              style={{
+                display: showSubmenu ? 'block' : 'none',
+                position: 'absolute',
+                backgroundColor: '#592cbb',
+                zIndex: 999999,
+                width: '200px',
+                left: 0,
+                top: '100%',
+                padding: 0,
+                margin: 0,
+                border: '3px solid yellow'
+              }}
+            >
               <ul>
                 <li className="header-hoversub"> 
                   <a href='#'>{t('nav.institution')}</a>
