@@ -108,10 +108,15 @@ nav ul li:hover .submenu1 {
   right: 0;
   max-width: calc(100vw - 20px);
   left: auto;
+  max-height: none;
+  overflow: visible;
 }
 
 nav ul li:hover .submenu1 ul {
   display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li:hover .submenu1 ul li {
