@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Trash2, Undo, ArrowLeft } from 'lucide-react'
+import { Trash2, Undo, ArrowLeft, KeyRound } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
@@ -40,7 +40,9 @@ export function UsuariosAdmin() {
   const [isSyncing, setIsSyncing] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false)
+  const [resetDialogOpen, setResetDialogOpen] = useState(false)
   const [userToDelete, setUserToDelete] = useState<UserProfile | null>(null)
+  const [userToReset, setUserToReset] = useState<UserProfile | null>(null)
   const [deletedUsers, setDeletedUsers] = useState<UserProfile[]>([])
   const { toast } = useToast()
   const navigate = useNavigate()
@@ -278,6 +280,59 @@ export function UsuariosAdmin() {
     }
   }
 
+  const handleResetPassword = async () => {
+    if (!userToReset) return
+
+    try {
+      console.log('Resetando senha do usuário:', userToReset)
+
+      if (!userToReset.user_id) {
+        toast({
+          title: 'Erro',
+          description: 'Este usuário ainda não tem uma conta ativa.',
+          variant: 'destructive'
+        })
+        setResetDialogOpen(false)
+        setUserToReset(null)
+        return
+      }
+
+      // Usar a função que preserva description e photo_url
+      const { data, error } = await supabase
+        .rpc('reset_user_keep_profile_data', {
+          _user_profile_id: userToReset.id
+        })
+
+      if (error) throw error
+
+      const result = data as { success: boolean; error?: string; message?: string; user_name?: string }
+      
+      if (!result.success) {
+        throw new Error(result.error || 'Erro ao resetar senha')
+      }
+
+      console.log('Resultado de reset_user_keep_profile_data:', result)
+
+      toast({
+        title: 'Senha resetada',
+        description: `A senha de ${result.user_name || userToReset.full_name} foi resetada. Email e telefone foram definidos como provisórios. Descrição e foto foram preservadas.`,
+      })
+
+      // Recarregar a lista de usuários
+      await loadUsers()
+      
+      setResetDialogOpen(false)
+      setUserToReset(null)
+    } catch (error: any) {
+      console.error('Erro ao resetar senha:', error)
+      toast({
+        title: 'Erro',
+        description: 'Erro ao resetar senha. Tente novamente.',
+        variant: 'destructive'
+      })
+    }
+  }
+
   const handleUndoDelete = async (deletedUser: UserProfile) => {
     try {
       // Restaurar usando função SQL
@@ -419,15 +474,31 @@ export function UsuariosAdmin() {
                   </span>
                 </td>
                 <td>
-                  <Button
-                    onClick={() => openDeleteDialog(user)}
-                    variant="destructive"
-                    size="sm"
-                    className={styles.deleteButton}
-                    disabled={adminUser?.role === 'secretaria' && user.role === 'coordenacao'}
-                  >
-                    <Trash2 size={16} />
-                  </Button>
+                  <div style={{ display: 'flex', gap: '8px' }}>
+                    {user.user_id && (
+                      <Button
+                        onClick={() => {
+                          setUserToReset(user)
+                          setResetDialogOpen(true)
+                        }}
+                        variant="outline"
+                        size="sm"
+                        title="Resetar senha (preserva descrição e foto)"
+                      >
+                        <KeyRound size={16} />
+                      </Button>
+                    )}
+                    <Button
+                      onClick={() => openDeleteDialog(user)}
+                      variant="destructive"
+                      size="sm"
+                      className={styles.deleteButton}
+                      disabled={adminUser?.role === 'secretaria' && user.role === 'coordenacao'}
+                      title="Deletar usuário completamente"
+                    >
+                      <Trash2 size={16} />
+                    </Button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -463,6 +534,52 @@ export function UsuariosAdmin() {
               onClick={handleDeleteUser}
             >
               SIM
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={resetDialogOpen} onOpenChange={setResetDialogOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Resetar Senha do Usuário</DialogTitle>
+            <DialogDescription>
+              Deseja resetar a senha de {userToReset?.full_name}?
+              <br />
+              <br />
+              <strong>O que será resetado:</strong>
+              <br />
+              • Email será definido como provisório
+              <br />
+              • Telefone será definido como provisório
+              <br />
+              • Conta de autenticação será removida
+              <br />
+              <br />
+              <strong>O que será preservado:</strong>
+              <br />
+              ✓ Nome completo
+              <br />
+              ✓ Descrição do perfil
+              <br />
+              ✓ Foto do perfil
+              <br />
+              <br />
+              O usuário precisará criar uma nova conta com seus novos dados.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setResetDialogOpen(false)}
+            >
+              Cancelar
+            </Button>
+            <Button
+              variant="default"
+              onClick={handleResetPassword}
+            >
+              Resetar Senha
             </Button>
           </DialogFooter>
         </DialogContent>
