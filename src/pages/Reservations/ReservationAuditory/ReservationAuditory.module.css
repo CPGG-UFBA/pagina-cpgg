@@ -116,6 +116,10 @@
   flex: 1;
 }
 
+.dateField:last-child {
+  margin-top: -900px;
+}
+
 .dateField label {
   margin-bottom: 8px;
   margin-left: 2.5rem;
