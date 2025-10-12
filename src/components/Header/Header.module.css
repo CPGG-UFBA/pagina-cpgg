@@ -68,14 +68,13 @@
 }
 
 .signup {
-  margin-left: 510px;
+  margin-left: 460px;
   color: #FF5733;
 }
 
 nav ul {
   display: inline-flex;
   list-style: none;
-  margin-left: -50px;
 }
 
 nav ul li {
@@ -195,7 +194,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 700px;
+    margin-left: 650px;
   }
   
   nav ul li {
@@ -230,7 +229,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 510px;
+    margin-left: 460px;
   }
   
   nav ul li {
@@ -251,7 +250,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 180px;
+    margin-left: 130px;
   }
   
   nav ul li {
@@ -342,7 +341,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 150px;
+    margin-left: 100px;
   }
   
   nav ul li {
