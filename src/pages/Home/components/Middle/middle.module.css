@@ -1,20 +1,14 @@
 .middle {
   display: flex;
   flex-direction: row;
-  padding-top: 120px;
-  padding-left: 24px;
-  padding-right: 24px;
-  padding-bottom: 610px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 24px 0 24px;
   font-family: 'Poppins', sans-serif;
-  margin-bottom: 0;
   height: 100%;
   width: 100%;
   overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
 }
 
 .middle ul {
