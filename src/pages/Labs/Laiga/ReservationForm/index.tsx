@@ -246,7 +246,7 @@ export function RF() {
                 value={formData.peripherals}
                 onChange={(e) => handleInputChange('peripherals', e.target.value)}
                 placeholder="Descreva os periféricos necessários"
-                rows={3}
+                rows={2}
               />
             </div>
 
