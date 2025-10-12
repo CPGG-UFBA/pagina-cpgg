@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
 import styles from "./Header.module.css";
-import "./Header.global.css";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { GlobalEarth } from '@/components/GlobalEarth';
@@ -9,9 +7,6 @@ const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
 export function Header() {
   const { t } = useLanguage();
-  const [showSubmenu, setShowSubmenu] = useState(true); // FORÇADO PARA TRUE TEMPORARIAMENTE
-  
-  console.log('Header is rendering, showSubmenu:', showSubmenu);
   
   return (
     <header className={styles.header}>
@@ -55,38 +50,14 @@ export function Header() {
               {t('nav.signin')}
             </NavLink>
           </li>
-          <li 
-            onMouseEnter={() => setShowSubmenu(true)}
-            onMouseLeave={() => setShowSubmenu(false)}
-            style={{ position: 'relative' }}
-          >
+          <li>
             <a href='#' className={styles.navLink}>{t('nav.about')}</a>
             
-            <div 
-              className="header-submenu1"
-              style={{
-                display: 'block', // FORÇADO
-                position: 'fixed',
-                backgroundColor: '#ff0000', // VERMELHO PARA SER SUPER VISÍVEL
-                zIndex: 999999,
-                width: '300px',
-                left: '50%',
-                top: '200px',
-                transform: 'translateX(-50%)',
-                padding: '20px',
-                margin: 0,
-                border: '5px solid yellow',
-                boxShadow: '0 0 30px rgba(255, 255, 0, 1)',
-                color: 'white',
-                fontSize: '24px',
-                fontWeight: 'bold'
-              }}
-            >
-              <p>MENU TESTE - SE VOCÊ VÊ ISSO, O SUBMENU FUNCIONA!</p>
+            <div className={styles.submenu1}>
               <ul>
-                <li className="header-hoversub"> 
+                <li className={styles.hoversub}> 
                   <a href='#'>{t('nav.institution')}</a>
-                  <div className="header-submenu2">
+                  <div className={styles.submenu2}>
                     <ul>
                       <li>
                         <NavLink to='/cpgg' className={styles.navLink}>
@@ -112,9 +83,9 @@ export function Header() {
                   </div> 
                 </li>
 
-                <li className="header-hoversub"> 
+                <li className={styles.hoversub}> 
                   <a href='#'>{t('nav.personnel')}</a>
-                  <div className="header-submenu2">
+                  <div className={styles.submenu2}>
                     <ul>
                       <li>
                         <NavLink to='/Coordination' className={styles.navLink}>
