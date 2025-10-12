@@ -1,13 +1,14 @@
 /* Middle Component Styles */
 .container {
   width: 100%;
-  min-height: 100vh;
+  flex: 1;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
   margin-top: 0;
+  overflow: hidden;
   background: var(--gradient-main-bg);
 }
 

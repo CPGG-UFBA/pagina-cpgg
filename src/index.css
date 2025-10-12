@@ -175,6 +175,11 @@ All colors MUST be HSL.
     height: 0 !important; /* Forces flex to work properly */
     padding-bottom: 610px !important; /* Space for fixed footer */
   }
+  
+  /* Home page specific - no scroll */
+  .Container:has(+ *) {
+    overflow: hidden !important;
+  }
 
   /* Footer should have fixed height at bottom */
   footer {
