@@ -34,7 +34,7 @@
 .NewsTrack {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 150px;
   animation: scroll-vertical 30s linear infinite;
 }
 
