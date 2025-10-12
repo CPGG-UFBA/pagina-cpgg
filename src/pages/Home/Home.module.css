@@ -3,7 +3,9 @@
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
+  width: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 main {
@@ -11,6 +13,8 @@ main {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  min-height: 0;
+  position: relative;
 }
 
 /* Override portrait orientation */
