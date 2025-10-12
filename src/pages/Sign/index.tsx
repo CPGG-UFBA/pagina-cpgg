@@ -37,6 +37,7 @@ export function Sign() {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [showPasswordResetForm, setShowPasswordResetForm] = useState(false);
   const [resetEmail, setResetEmail] = useState('');
+  const [resetProfileId, setResetProfileId] = useState<string | null>(null);
   
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -269,17 +270,22 @@ export function Sign() {
 
       const profile = profiles[0];
 
+      console.log('Perfil ANTES do reset:', {
+        id: profile.id,
+        full_name: profile.full_name,
+        has_description: !!profile.description,
+        description_preview: profile.description?.substring(0, 50),
+        has_photo: !!profile.photo_url,
+        photo_url: profile.photo_url,
+        email: profile.email,
+        phone: profile.phone
+      });
+
+      // Salvar o profile_id para usar depois
+      setResetProfileId(profile.id);
+
       // Se o perfil tem user_id, resetar apenas os dados de autenticação (preservando description e photo_url)
       if (profile.user_id) {
-        console.log('Perfil encontrado:', {
-          id: profile.id,
-          full_name: profile.full_name,
-          has_description: !!profile.description,
-          has_photo: !!profile.photo_url,
-          email: profile.email,
-          phone: profile.phone
-        });
-
         const { data: resetResult, error: resetError } = await supabase
           .rpc('reset_user_keep_profile_data', {
             _user_profile_id: profile.id
@@ -304,15 +310,20 @@ export function Sign() {
           .eq('id', profile.id)
           .single();
         
-        console.log('Perfil após reset:', {
+        console.log('Perfil DEPOIS do reset:', {
           id: updatedProfile?.id,
           full_name: updatedProfile?.full_name,
           has_description: !!updatedProfile?.description,
+          description_preview: updatedProfile?.description?.substring(0, 50),
           has_photo: !!updatedProfile?.photo_url,
+          photo_url: updatedProfile?.photo_url,
           email: updatedProfile?.email,
           phone: updatedProfile?.phone,
           user_id: updatedProfile?.user_id
         });
+      } else {
+        // Se não tem user_id, apenas salvar o profile_id
+        console.log('Perfil não tem user_id, apenas salvando profile_id');
       }
 
       // Preencher apenas o nome completo - email e telefone devem ser preenchidos novamente
@@ -376,6 +387,11 @@ export function Sign() {
       }
 
 
+      // Usar o profile_id salvo do reset, se disponível
+      let profileIdToUse = resetProfileId || preRegisteredProfile.id;
+
+      console.log('Criando nova conta com profile_id:', profileIdToUse);
+
       // Criar nova conta no Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
@@ -387,7 +403,7 @@ export function Sign() {
             institution: 'UFBA',
             phone: formData.phone,
             researcher_route: preRegisteredProfile.researcher_route || 'pesquisador',
-            profile_id: preRegisteredProfile.id
+            profile_id: profileIdToUse
           }
         }
       });
