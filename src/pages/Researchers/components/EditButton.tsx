@@ -1,4 +1,3 @@
-import { Edit3, LogOut } from 'lucide-react'
 import { useEffect } from 'react'
 
 interface EditButtonProps {
@@ -9,120 +8,65 @@ interface EditButtonProps {
 
 export function EditButton({ onClick, isEditMode, onLogout }: EditButtonProps) {
   useEffect(() => {
-    console.log('🟢 EditButton MONTADO!')
-    console.log('🟢 isEditMode:', isEditMode)
+    // Remover botão anterior se existir
+    const oldButton = document.getElementById('floating-edit-button')
+    if (oldButton) oldButton.remove()
+
+    // Criar botão diretamente no body
+    const button = document.createElement('button')
+    button.id = 'floating-edit-button'
+    button.innerHTML = isEditMode 
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg> Sair`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>`
     
-    // Adicionar indicador visual de debug
-    const debugDiv = document.createElement('div')
-    debugDiv.id = 'edit-button-debug'
-    debugDiv.textContent = 'BOTÃO AQUI'
-    debugDiv.style.cssText = `
-      position: fixed;
-      bottom: 100px;
-      right: 16px;
-      background: red;
-      color: white;
-      padding: 10px;
-      z-index: 9999999;
-      font-weight: bold;
-      border: 3px solid yellow;
+    button.style.cssText = `
+      position: fixed !important;
+      bottom: 16px !important;
+      right: 16px !important;
+      z-index: 999999999 !important;
+      ${isEditMode ? 'padding: 12px 24px;' : 'width: 60px; height: 60px;'}
+      border-radius: ${isEditMode ? '8px' : '50%'} !important;
+      background-color: ${isEditMode ? '#ef4444' : '#3b82f6'} !important;
+      color: white !important;
+      border: none !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      pointer-events: auto !important;
+      font-family: system-ui, -apple-system, sans-serif !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
     `
-    document.body.appendChild(debugDiv)
-    
-    // Verificar elementos no ponto do botão
-    setTimeout(() => {
-      const buttonArea = { x: window.innerWidth - 50, y: window.innerHeight - 50 }
-      const elementsAtPoint = document.elementsFromPoint(buttonArea.x, buttonArea.y)
-      console.log('🔍 Elementos no ponto do botão:', elementsAtPoint.map(el => ({
-        tag: el.tagName,
-        id: el.id,
-        classes: el.className,
-        zIndex: window.getComputedStyle(el).zIndex,
-        pointerEvents: window.getComputedStyle(el).pointerEvents
-      })))
-    }, 500)
-    
-    return () => {
-      const el = document.getElementById('edit-button-debug')
-      if (el) el.remove()
-    }
-  }, [isEditMode])
 
-  if (!isEditMode) {
-    return (
-      <button
-        onClick={(e) => {
-          e.preventDefault()
-          e.stopPropagation()
-          console.log('🔵 BOTÃO CLICADO!')
-          onClick()
-        }}
-        style={{
-          position: 'fixed',
-          bottom: '16px',
-          right: '16px',
-          zIndex: 9999999,
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          backgroundColor: '#3b82f6',
-          color: 'white',
-          border: 'none',
-          cursor: 'pointer',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          pointerEvents: 'auto'
-        }}
-        onMouseEnter={(e) => {
-          console.log('🟣 Mouse entrou')
-          e.currentTarget.style.backgroundColor = '#2563eb'
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.backgroundColor = '#3b82f6'
-        }}
-      >
-        <Edit3 size={24} />
-      </button>
-    )
-  }
-
-  return (
-    <button
-      onClick={(e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        console.log('🔴 LOGOUT CLICADO!')
+    button.addEventListener('click', (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      console.log(isEditMode ? '🔴 LOGOUT CLICADO!' : '🔵 EDITAR CLICADO!')
+      if (isEditMode) {
         onLogout()
-      }}
-      style={{
-        position: 'fixed',
-        bottom: '16px',
-        right: '16px',
-        zIndex: 9999999,
-        padding: '12px 24px',
-        borderRadius: '8px',
-        backgroundColor: '#ef4444',
-        color: 'white',
-        border: 'none',
-        cursor: 'pointer',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        pointerEvents: 'auto'
-      }}
-      onMouseEnter={(e) => {
-        console.log('🟣 Mouse entrou no logout')
-        e.currentTarget.style.backgroundColor = '#dc2626'
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = '#ef4444'
-      }}
-    >
-      <LogOut size={16} />
-      Sair
-    </button>
-  )
+      } else {
+        onClick()
+      }
+    })
+
+    button.addEventListener('mouseenter', () => {
+      button.style.backgroundColor = isEditMode ? '#dc2626' : '#2563eb'
+    })
+
+    button.addEventListener('mouseleave', () => {
+      button.style.backgroundColor = isEditMode ? '#ef4444' : '#3b82f6'
+    })
+
+    document.body.appendChild(button)
+
+    return () => {
+      const btn = document.getElementById('floating-edit-button')
+      if (btn) btn.remove()
+    }
+  }, [isEditMode, onClick, onLogout])
+
+  return null
 }
