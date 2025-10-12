@@ -8,6 +8,7 @@ import { EditButton } from './components/EditButton';
 import { AdminLogin } from './components/AdminLogin';
 import { EditableRegulation } from './components/EditableRegulation';
 import earthImage from '../../assets/earth-regulations.jpg'
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Regulation {
   id: string;
@@ -20,6 +21,7 @@ export function Regulations() {
   const [isEditMode, setIsEditMode] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   useEffect(() => {
     fetchRegulations();
@@ -106,23 +108,23 @@ export function Regulations() {
       <>
       <Header/>
           <div className={styles.regulations}>
-              <h1 className={styles.title}>Regimento e Normas </h1>
+              <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
                   <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Regimento.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.regulation}>
-                          <h2>Regimento</h2>
+                          <h2>{t('regulations.regulation')}</h2>
                       </div>
                   </a>
 
-                  <a className={styles.card} href="https://drive.google.com/file/d/1gYKCWZw-1Io5FCGRtjPKBZNoWDKnMAmE/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_normativa_1_2023.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.accreditation}>
-                          <h2> Deliberação Normativa para (re)credenciamento</h2>
+                          <h2>{t('regulations.accreditation')}</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="https://drive.google.com/file/d/1lNFAxiARsoaADdfVeagH3Dcn3DpYR0w2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Deliberacao_Normativa_2_2023.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.senior}>
-                          <h2> Deliberação Normativa para pesquisadores seniores</h2>
+                          <h2>{t('regulations.senior')}</h2>
                       </div>
                   </a>
 

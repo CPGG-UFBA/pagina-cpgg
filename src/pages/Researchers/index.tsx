@@ -1,24 +1,22 @@
 import styles from './Researchers.module.css'
+import './researchers-scroll-fix.css'
 import { Header } from '../../components/Header'
-import { Footer } from '../../components/Footer'
-import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { supabase } from '@/integrations/supabase/client'
-import { getOrderedResearchersData } from '../../data/researchers'
 import { EditButton } from './components/EditButton'
 import { AdminLogin } from './components/AdminLogin'
 import { EditableResearcher } from './components/EditableResearcher'
 import { useToast } from '@/hooks/use-toast'
+import { useLanguage } from '@/contexts/LanguageContext'
 
 export function Researchers() {
-  const { oil, environment, mineral, oceanography, coast } = getOrderedResearchersData()
+  const { t } = useLanguage()
   const [dbResearchers, setDbResearchers] = useState<any[]>([])
   const [isEditMode, setIsEditMode] = useState(false)
   const [showLogin, setShowLogin] = useState(false)
   const [adminCreds, setAdminCreds] = useState<{ email: string; password: string } | null>(null)
-  const [hiddenStaticResearchers, setHiddenStaticResearchers] = useState<string[]>([])
   const [lastAction, setLastAction] = useState<{
-    type: 'delete' | 'update' | 'hide'
+    type: 'delete' | 'update'
     data: any
     timestamp: number
   } | null>(null)
@@ -26,12 +24,52 @@ export function Researchers() {
 
   useEffect(() => {
     fetchDbResearchers()
-    // Carrega pesquisadores estáticos ocultos do localStorage
-    const hidden = localStorage.getItem('hiddenStaticResearchers')
-    if (hidden) {
-      setHiddenStaticResearchers(JSON.parse(hidden))
-    }
   }, [])
+
+  useEffect(() => {
+    // Garantir que o scroll esteja desbloqueado quando em modo de edição
+    if (isEditMode) {
+      console.log('Modo de edição ativado, desbloqueando scroll...')
+      
+      // Forçar desbloqueio em múltiplos elementos
+      const unlockScroll = () => {
+        document.body.style.overflow = ''
+        document.body.style.pointerEvents = ''
+        document.body.removeAttribute('data-scroll-locked')
+        document.documentElement.style.overflow = ''
+        document.documentElement.style.pointerEvents = ''
+        
+        // Remover qualquer atributo de bloqueio de scroll
+        const scrollLocked = document.querySelectorAll('[data-scroll-locked]')
+        console.log('Elementos com scroll locked:', scrollLocked.length)
+        scrollLocked.forEach(el => {
+          el.removeAttribute('data-scroll-locked')
+          if (el instanceof HTMLElement) {
+            el.style.overflow = ''
+            el.style.pointerEvents = ''
+          }
+        })
+        
+        // Remover spans com position fixed que podem estar bloqueando
+        const fixedElements = document.querySelectorAll('[style*="position: fixed"][style*="overflow: hidden"]')
+        console.log('Elementos fixed bloqueando:', fixedElements.length)
+        fixedElements.forEach(el => {
+          if (el instanceof HTMLElement) {
+            el.style.display = 'none'
+          }
+        })
+        
+        console.log('Body overflow:', document.body.style.overflow)
+        console.log('Body data-scroll-locked:', document.body.getAttribute('data-scroll-locked'))
+      }
+      
+      // Executar múltiplas vezes para garantir
+      unlockScroll()
+      setTimeout(unlockScroll, 100)
+      setTimeout(unlockScroll, 300)
+      setTimeout(unlockScroll, 500)
+    }
+  }, [isEditMode])
 
   const fetchDbResearchers = async () => {
     try {
@@ -50,13 +88,71 @@ export function Researchers() {
 
   const { toast } = useToast()
 
-  const handleLogin = (email: string, password: string) => {
-    setIsEditMode(true)
-    setAdminCreds({ email, password })
-    setShowLogin(false)
+  const handleLogin = async (email: string, password: string) => {
+    console.log('=== HANDLELOGIN CHAMADO ===')
+    
+    try {
+      // Autenticar no Supabase primeiro
+      const { error: signInError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (signInError) {
+        toast({ 
+          title: 'Erro ao fazer login', 
+          description: signInError.message, 
+          variant: 'destructive' 
+        })
+        return
+      }
+
+      setIsEditMode(true)
+      setAdminCreds({ email, password })
+      setShowLogin(false)
+      
+      toast({ title: 'Login realizado', description: 'Modo de edição ativado.' })
+      
+      // Debug completo
+      setTimeout(() => {
+        console.log('=== DEBUG DE SCROLL ===')
+        console.log('Body overflow:', window.getComputedStyle(document.body).overflow)
+        console.log('Body position:', window.getComputedStyle(document.body).position)
+        console.log('Body height:', window.getComputedStyle(document.body).height)
+        console.log('HTML overflow:', window.getComputedStyle(document.documentElement).overflow)
+        console.log('Scroll height:', document.documentElement.scrollHeight)
+        console.log('Client height:', document.documentElement.clientHeight)
+        console.log('Pode rolar?', document.documentElement.scrollHeight > document.documentElement.clientHeight)
+        
+        // Verificar todos os elementos no caminho
+        let el = document.body
+        while (el) {
+          const computed = window.getComputedStyle(el)
+          if (computed.overflow !== 'visible' || computed.position === 'fixed') {
+            console.log('Elemento com overflow/position especial:', el.tagName, {
+              overflow: computed.overflow,
+              position: computed.position,
+              height: computed.height
+            })
+          }
+          el = el.parentElement as HTMLElement
+        }
+        
+        console.log('=== FIM DEBUG ===')
+      }, 200)
+    } catch (error: any) {
+      toast({ 
+        title: 'Erro ao fazer login', 
+        description: error.message, 
+        variant: 'destructive' 
+      })
+    }
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    // Fazer logout do Supabase também
+    await supabase.auth.signOut()
+    
     setIsEditMode(false)
     setAdminCreds(null)
     setLastAction(null)
@@ -76,8 +172,6 @@ export function Researchers() {
         // Restaura pesquisador excluído
         const { error } = await supabase.functions.invoke('admin-researchers', {
           body: {
-            email: adminCreds.email,
-            password: adminCreds.password,
             action: 'restore',
             data: lastAction.data,
           },
@@ -91,8 +185,6 @@ export function Researchers() {
         // Restaura nome anterior
         const { error } = await supabase.functions.invoke('admin-researchers', {
           body: {
-            email: adminCreds.email,
-            password: adminCreds.password,
             action: 'update',
             id: lastAction.data.id,
             name: lastAction.data.oldName,
@@ -103,12 +195,6 @@ export function Researchers() {
 
         await fetchDbResearchers()
         toast({ title: 'Desfeito', description: 'Edição desfeita com sucesso.' })
-      } else if (lastAction.type === 'hide') {
-        // Restaura pesquisador estático oculto
-        const newHidden = hiddenStaticResearchers.filter(name => name !== lastAction.data.name)
-        setHiddenStaticResearchers(newHidden)
-        localStorage.setItem('hiddenStaticResearchers', JSON.stringify(newHidden))
-        toast({ title: 'Desfeito', description: 'Pesquisador restaurado na lista.' })
       }
 
       setLastAction(null)
@@ -118,38 +204,18 @@ export function Researchers() {
     }
   }
 
-  const handleDeleteResearcher = async (id: string, isStatic: boolean = false, name: string = '') => {
+  const handleDeleteResearcher = async (id: string) => {
     if (!adminCreds) {
       toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
       return
     }
 
-    if (isStatic) {
-      // Para pesquisadores estáticos, apenas oculta
-      const newHidden = [...hiddenStaticResearchers, name]
-      setHiddenStaticResearchers(newHidden)
-      localStorage.setItem('hiddenStaticResearchers', JSON.stringify(newHidden))
-      
-      // Salva ação para desfazer
-      showUndoButton({
-        type: 'hide',
-        data: { name },
-        timestamp: Date.now()
-      })
-      
-      toast({ title: 'Excluído', description: 'Pesquisador removido da lista.' })
-      return
-    }
-
-    // Para pesquisadores do banco - salva dados antes de excluir
     const researcherToDelete = dbResearchers.find(r => r.id === id)
     setDbResearchers((prev) => prev.filter((r: any) => r.id !== id))
 
     try {
       const { error } = await supabase.functions.invoke('admin-researchers', {
         body: {
-          email: adminCreds.email,
-          password: adminCreds.password,
           action: 'delete',
           id,
         },
@@ -157,7 +223,6 @@ export function Researchers() {
 
       if (error) throw error
 
-      // Salva ação para desfazer
       showUndoButton({
         type: 'delete',
         data: researcherToDelete,
@@ -171,49 +236,39 @@ export function Researchers() {
     }
   }
 
-  const handleUpdateResearcher = async (id: string, name: string, isStatic: boolean = false, originalName: string = '', programKey: string = '') => {
+  const handleSetChief = async (id: string, programKey: string) => {
     if (!adminCreds) {
       toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
       return
     }
 
-    if (isStatic) {
-      // Migra pesquisador estático para o banco
-      try {
-        const { data, error } = await supabase
-          .from('researchers')
-          .insert({
-            name,
-            email: `${name.toLowerCase().replace(/\s+/g, '.')}@ufba.br`,
-            program: programKey, // usa o programa correto
-            description: `Pesquisador migrado do sistema estático`
-          })
-          .select()
+    try {
+      const { error } = await supabase.rpc('set_researcher_as_chief', {
+        _researcher_id: id,
+        _program: programKey
+      })
 
-        if (error) throw error
+      if (error) throw error
 
-        // Oculta o estático e adiciona o novo do banco
-        const newHidden = [...hiddenStaticResearchers, originalName]
-        setHiddenStaticResearchers(newHidden)
-        localStorage.setItem('hiddenStaticResearchers', JSON.stringify(newHidden))
-        
-        await fetchDbResearchers()
-        toast({ title: 'Atualizado', description: 'Pesquisador migrado para o banco e nome atualizado.' })
-      } catch (error: any) {
-        toast({ title: 'Erro ao migrar', description: error.message, variant: 'destructive' })
-      }
+      await fetchDbResearchers()
+      toast({ title: 'Atualizado', description: 'Coordenador do programa definido com sucesso.' })
+    } catch (error: any) {
+      toast({ title: 'Erro ao definir coordenador', description: error.message, variant: 'destructive' })
+    }
+  }
+
+  const handleUpdateResearcher = async (id: string, name: string) => {
+    if (!adminCreds) {
+      toast({ title: 'Acesso negado', description: 'Faça login administrativo.', variant: 'destructive' })
       return
     }
 
-    // Para pesquisadores do banco - salva nome anterior
     const oldName = dbResearchers.find(r => r.id === id)?.name || ''
     setDbResearchers((prev) => prev.map((r: any) => (r.id === id ? { ...r, name } : r)))
 
     try {
       const { error } = await supabase.functions.invoke('admin-researchers', {
         body: {
-          email: adminCreds.email,
-          password: adminCreds.password,
           action: 'update',
           id,
           name,
@@ -222,7 +277,6 @@ export function Researchers() {
 
       if (error) throw error
 
-      // Salva ação para desfazer
       showUndoButton({
         type: 'update',
         data: { id, oldName, newName: name },
@@ -236,40 +290,22 @@ export function Researchers() {
     }
   }
 
-  // Função para combinar pesquisadores do arquivo estático com os do banco
-  const getCombinedResearchers = (programKey: string) => {
-    const staticResearchers = {
-      oil,
-      environment,
-      mineral,
-      oceanography,
-      coast
-    }[programKey as keyof typeof staticResearchers] || []
-
-    const dbProgramResearchers = dbResearchers
+  const getResearchersByProgram = (programKey: string) => {
+    const programResearchers = dbResearchers
       .filter(r => r.program === programKey)
       .map(r => ({
         name: r.name,
         route: `/researchers/dynamic/${r.id}`,
-        chief: false,
+        chief: r.is_chief || false,
+        isChief: r.is_chief || false,
         id: r.id,
-        isDatabase: true
+        isDatabase: true,
+        programKey: programKey
       }))
 
-    // Filtra pesquisadores estáticos ocultos e adiciona informações extras
-    const visibleStaticResearchers = staticResearchers
-      .filter(r => !hiddenStaticResearchers.includes(r.name))
-      .map(r => ({
-        ...r,
-        isDatabase: false,
-        originalName: r.name,
-        programKey: programKey // adiciona a chave do programa
-      }))
-
-    // Combinar e ordenar alfabeticamente (mantendo chefe primeiro se existir)
-    const allResearchers = [...visibleStaticResearchers, ...dbProgramResearchers]
-    const chief = allResearchers.find(r => r.chief)
-    const rest = allResearchers
+    // Ordenar alfabeticamente, mantendo chefe primeiro se existir
+    const chief = programResearchers.find(r => r.chief)
+    const rest = programResearchers
       .filter(r => !r.chief)
       .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' }))
     
@@ -277,82 +313,82 @@ export function Researchers() {
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflow: 'visible' }}>
       <Header />
-      <div className={`${styles.researchers} hide-earth`} style={{ flex: 1 }}>
+      <div className={`${styles.researchers} hide-earth`} style={{ flex: 1, overflow: 'visible', position: 'relative' }}>
         <div className={styles.Programs}>
-          <ul>Programas de Pesquisa e Corpo Científico </ul>
+          <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
             <div className={styles.Oil}>
-              <h1>Exploração e Produção de Petróleo</h1>
-              {getCombinedResearchers('oil').map((r, index) => (
+              <h1>{t('researchers.oil')}</h1>
+              {getResearchersByProgram('oil').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
                   researcher={r}
                   isEditMode={isEditMode}
-                  onUpdate={(id, name, isStatic, originalName) => 
-                    handleUpdateResearcher(id, name, isStatic, originalName, 'oil')}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
             </div>
             
             <div className={styles.Environment}> 
-              <h1>Recursos Hidricos e Problemas Ambientais</h1>
-              {getCombinedResearchers('environment').map((r, index) => (
+              <h1>{t('researchers.environment')}</h1>
+              {getResearchersByProgram('environment').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
                   researcher={r}
                   isEditMode={isEditMode}
-                  onUpdate={(id, name, isStatic, originalName) => 
-                    handleUpdateResearcher(id, name, isStatic, originalName, 'environment')}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
             </div>
 
             <div className={styles.Mineral}>
-              <h1> Petrologia, Metalogênese e Exp. Mineral</h1>
-              {getCombinedResearchers('mineral').map((r, index) => (
+              <h1>{t('researchers.mineral')}</h1>
+              {getResearchersByProgram('mineral').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
                   researcher={r}
                   isEditMode={isEditMode}
-                  onUpdate={(id, name, isStatic, originalName) => 
-                    handleUpdateResearcher(id, name, isStatic, originalName, 'mineral')}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
             </div>
 
             <div className={styles.Oceanography}> 
-              <h1>Oceanografia Física</h1>
-              {getCombinedResearchers('oceanography').map((r, index) => (
+              <h1>{t('researchers.oceanography')}</h1>
+              {getResearchersByProgram('oceanography').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
                   researcher={r}
                   isEditMode={isEditMode}
-                  onUpdate={(id, name, isStatic, originalName) => 
-                    handleUpdateResearcher(id, name, isStatic, originalName, 'oceanography')}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
             </div>
 
             <div className={styles.Coast}> 
-              <h1>Geologia Marinha e Costeira</h1>
-              {getCombinedResearchers('coast').map((r, index) => (
+              <h1>{t('researchers.coast')}</h1>
+              {getResearchersByProgram('coast').map((r, index) => (
                 <EditableResearcher 
                   key={r.route || index}
                   researcher={r}
                   isEditMode={isEditMode}
-                  onUpdate={(id, name, isStatic, originalName) => 
-                    handleUpdateResearcher(id, name, isStatic, originalName, 'coast')}
+                  onUpdate={(id, name) => handleUpdateResearcher(id, name)}
                   onDelete={handleDeleteResearcher}
+                  onSetChief={handleSetChief}
                   dbResearchers={dbResearchers}
                 />
               ))}
@@ -371,9 +407,7 @@ export function Researchers() {
           <div className="fixed bottom-20 right-4 z-50">
             <div className="bg-card text-card-foreground border border-border rounded-lg p-3 shadow-lg flex items-center gap-3">
               <span className="text-sm">
-                {lastAction.type === 'delete' ? 'Pesquisador excluído' : 
-                 lastAction.type === 'update' ? 'Nome alterado' : 
-                 'Pesquisador ocultado'}
+                {lastAction.type === 'delete' ? 'Pesquisador excluído' : 'Nome alterado'}
               </span>
               <button
                 onClick={handleUndo}
@@ -383,7 +417,7 @@ export function Researchers() {
               </button>
               <button
                 onClick={() => setShowUndo(false)}
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm text-muted-foreground hover:text-foreground"
               >
                 ✕
               </button>
@@ -397,7 +431,6 @@ export function Researchers() {
           onLogin={handleLogin}
         />
       </div>
-      <Footer />
     </div>
   )
 }

@@ -1,19 +1,125 @@
-/* Production Page Styles */
+.Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Portrait orientation - when height > width */
+@media (orientation: portrait) {
+  .Container {
+    justify-content: space-between;
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem 1rem;
-  padding-top: 8rem;
+  padding-bottom: 2rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-.title {
-  font-size: 2.25rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: white;
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-.content {
-  font-size: 1.125rem;
+.header svg {
   color: white;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: hsl(var(--muted-foreground));
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  font-size: 1.1rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.emptyState svg {
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyState p {
+  font-size: 1.1rem;
+}
+
+.scrollArea {
+  width: 100%;
+  max-height: 70vh;
+}
+
+.publicationsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-right: 1rem;
+}
+
+.publicationCard {
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.publicationCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: hsl(var(--primary) / 0.3);
+}
+
+.publicationText {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .publicationsGrid {
+    gap: 1rem;
+  }
+
+  .publicationCard {
+    margin: 0 0.5rem;
+  }
 }

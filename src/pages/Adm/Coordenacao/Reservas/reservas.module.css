@@ -1,7 +1,10 @@
 .container {
   min-height: 100vh;
+  height: auto;
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
   padding: 20px;
+  padding-bottom: 100px;
+  overflow-y: auto;
 }
 
 .header {
@@ -31,6 +34,7 @@
   background: hsl(var(--card));
   border-radius: 12px;
   padding: 24px;
+  margin-bottom: 40px;
   box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15);
 }
 
@@ -59,10 +63,11 @@
 }
 
 .tableContainer {
-  max-height: 600px;
-  overflow-y: auto;
+  max-height: none;
+  overflow-y: visible;
   border: 1px solid hsl(var(--border));
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .loading {

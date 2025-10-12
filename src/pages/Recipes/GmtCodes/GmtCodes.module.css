@@ -1,0 +1,140 @@
+/* GMT Codes Page Styles */
+.gmtCodes {
+  flex: 1;
+  padding: 2rem;
+  padding-top: 150px;
+}
+
+.title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  margin-left: -550px;
+  font-size: 24px;
+  color: white;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  row-gap: 3rem;
+  column-gap: calc(0.17rem + 50px);
+  justify-content: flex-start;
+  justify-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-left: 50px;
+  margin-bottom: 4rem;
+}
+
+.pseudoResistivity {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.radargrama1 {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.radargrama2 {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.otherCodes1 {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.otherCodes2 {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.otherCodes3 {
+  padding: 2rem;
+  border-radius: 12px;
+  width: 250px;
+  height: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+  min-height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.pseudoResistivity:hover,
+.radargrama1:hover,
+.radargrama2:hover,
+.otherCodes1:hover,
+.otherCodes2:hover,
+.otherCodes3:hover {
+  transform: translateY(-5px);
+}
+
+/* Mover rodapé para cima apenas na página GMT Codes */
+.footerGmtCodes {
+  margin-top: -350px;
+}

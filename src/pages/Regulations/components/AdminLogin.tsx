@@ -32,18 +32,34 @@ export function AdminLogin({ isOpen, onClose, onSuccess }: AdminLoginProps) {
     setIsLoading(true)
 
     try {
-      const { data, error } = await supabase
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({
+          title: "Erro de Login",
+          description: "Email ou senha incorretos",
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Verificar se o usuário é admin coordenação
+      const { data: adminData, error: adminError } = await supabase
         .from('admin_users')
-        .select('*')
-        .eq('email', email)
-        .eq('password', password)
+        .select('role')
+        .eq('user_id', authData.user.id)
         .eq('role', 'coordenacao')
         .single()
 
-      if (error || !data) {
+      if (adminError || !adminData) {
+        await supabase.auth.signOut()
         toast({
           title: "Erro de Login",
-          description: "Email ou senha incorretos, ou você não tem permissão de coordenação",
+          description: "Você não tem permissão de coordenação",
           variant: "destructive",
         })
         return

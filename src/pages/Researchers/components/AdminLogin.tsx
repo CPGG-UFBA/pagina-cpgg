@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { supabase } from '@/integrations/supabase/client'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 import { useToast } from '@/hooks/use-toast'
+import { X } from 'lucide-react'
 
 interface AdminLoginProps {
   isOpen: boolean
@@ -16,25 +16,45 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const [isForgotPassword, setIsForgotPassword] = useState(false)
+  const [resetEmail, setResetEmail] = useState('')
   const { toast } = useToast()
+
+  if (!isOpen) return null
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
 
     try {
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({
+          title: "Erro de autenticação",
+          description: "Email ou senha incorretos.",
+          variant: "destructive",
+        })
+        return
+      }
+
+      // Verificar se é coordenação ou secretaria
       const { data, error } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('email', email)
-        .eq('password', password)
+        .eq('user_id', authData.user.id)
         .in('role', ['secretaria', 'coordenacao'])
         .single()
 
       if (error || !data) {
+        await supabase.auth.signOut()
         toast({
           title: "Erro de autenticação",
-          description: "Email ou senha incorretos, ou usuário sem permissão.",
+          description: "Usuário sem permissão.",
           variant: "destructive",
         })
         return
@@ -60,46 +80,197 @@ export function AdminLogin({ isOpen, onClose, onLogin }: AdminLoginProps) {
     }
   }
 
+  const handleForgotPassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(resetEmail, {
+        redirectTo: `${window.location.origin}/reset-password`,
+      })
+
+      if (error) throw error
+
+      toast({
+        title: "Email enviado",
+        description: "Verifique sua caixa de entrada para redefinir sua senha.",
+      })
+      
+      setResetEmail('')
+      setIsForgotPassword(false)
+    } catch (error: any) {
+      console.error('Erro ao enviar email de reset:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao enviar email de recuperação.",
+        variant: "destructive",
+      })
+    } finally {
+      setLoading(false)
+    }
+  }
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>Login Administrativo</DialogTitle>
-        </DialogHeader>
+    <div 
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 9999,
+        padding: '1rem'
+      }}
+      onClick={onClose}
+    >
+      <div 
+        style={{
+          backgroundColor: 'white',
+          borderRadius: '8px',
+          padding: '2rem',
+          maxWidth: '28rem',
+          width: '100%',
+          position: 'relative',
+          boxShadow: '0 10px 40px rgba(0, 0, 0, 0.2)'
+        }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          style={{
+            position: 'absolute',
+            right: '1rem',
+            top: '1rem',
+            background: 'none',
+            border: 'none',
+            cursor: 'pointer',
+            padding: '0.5rem',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: '4px',
+            opacity: 0.7,
+            transition: 'opacity 0.2s'
+          }}
+          onMouseEnter={(e) => e.currentTarget.style.opacity = '1'}
+          onMouseLeave={(e) => e.currentTarget.style.opacity = '0.7'}
+        >
+          <X size={20} color="#000" />
+        </button>
+
+        <h2 style={{ 
+          fontSize: '1.5rem', 
+          fontWeight: 'bold', 
+          marginBottom: '1.5rem',
+          color: '#000'
+        }}>
+          {isForgotPassword ? 'Recuperar Senha' : 'Login Administrativo'}
+        </h2>
         
-        <form onSubmit={handleLogin} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
-            <Input
-              id="email"
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="password">Senha</Label>
-            <Input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          
-          <div className="flex gap-2 pt-2">
-            <Button type="button" variant="outline" onClick={onClose} className="flex-1 bg-background text-foreground border-border hover:bg-muted">
-              Cancelar
+        {!isForgotPassword ? (
+          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <Label htmlFor="email" style={{ color: '#000' }}>Email</Label>
+              <Input
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={{ color: '#000' }}
+              />
+            </div>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <Label htmlFor="password" style={{ color: '#000' }}>Senha</Label>
+              <Input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                style={{ color: '#000' }}
+              />
+            </div>
+            
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => setIsForgotPassword(true)}
+              style={{ padding: 0, height: 'auto', textAlign: 'left', justifyContent: 'flex-start' }}
+            >
+              Esqueci minha senha
             </Button>
-            <Button type="submit" disabled={loading} className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
-              {loading ? 'Entrando...' : 'Entrar'}
+            
+            <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.5rem' }}>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={onClose} 
+                style={{ flex: 1 }}
+              >
+                Cancelar
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={loading} 
+                style={{ flex: 1 }}
+              >
+                {loading ? 'Entrando...' : 'Entrar'}
+              </Button>
+            </div>
+          </form>
+        ) : (
+          <form onSubmit={handleForgotPassword} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <p style={{ color: '#666', fontSize: '0.875rem', marginBottom: '0.5rem' }}>
+              Digite seu email para receber um link de recuperação de senha.
+            </p>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <Label htmlFor="reset-email" style={{ color: '#000' }}>Email</Label>
+              <Input
+                id="reset-email"
+                type="email"
+                value={resetEmail}
+                onChange={(e) => setResetEmail(e.target.value)}
+                required
+                style={{ color: '#000' }}
+              />
+            </div>
+            
+            <Button
+              type="button"
+              variant="link"
+              onClick={() => setIsForgotPassword(false)}
+              style={{ padding: 0, height: 'auto', textAlign: 'left', justifyContent: 'flex-start' }}
+            >
+              Voltar para o login
             </Button>
-          </div>
-        </form>
-      </DialogContent>
-    </Dialog>
+            
+            <div style={{ display: 'flex', gap: '0.5rem', paddingTop: '0.5rem' }}>
+              <Button 
+                type="button" 
+                variant="outline" 
+                onClick={onClose} 
+                style={{ flex: 1 }}
+              >
+                Cancelar
+              </Button>
+              <Button 
+                type="submit" 
+                disabled={loading} 
+                style={{ flex: 1 }}
+              >
+                {loading ? 'Enviando...' : 'Enviar'}
+              </Button>
+            </div>
+          </form>
+        )}
+      </div>
+    </div>
   )
 }

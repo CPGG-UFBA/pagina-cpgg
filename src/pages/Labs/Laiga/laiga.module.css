@@ -80,7 +80,7 @@
   .box span {
     font-size: 16px;
     color: #fff;
-    margin-left: 90px;
+    margin-left: 115px;
   }
 
   .box ul {
@@ -99,7 +99,7 @@
     color: #fff;
     padding-right: 40px;
     font-size: 12px;
-    margin-left: 200px;
+    margin-left: 260px;
     top: -5px;
     position: relative;
     cursor:pointer;
@@ -114,6 +114,16 @@
   nav a:hover {
     color: rgba(147 106 235);
     transition: 0.1s;
+  }
+
+  .purpleLink {
+    color: rgba(147, 106, 235) !important;
+    font-size: 13px !important;
+  }
+
+  .purpleText {
+    color: rgba(147, 106, 235) !important;
+    font-size: 13px !important;
   }
 
 
@@ -550,7 +560,7 @@
 
 .requerimentoButton {
   margin-top: 20px;
-  margin-left: 200px;
+  margin-left: 240px;
 }
 
 .buttonLink {

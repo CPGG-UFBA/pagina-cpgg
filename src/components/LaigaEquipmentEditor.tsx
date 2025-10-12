@@ -30,24 +30,45 @@ export function LaigaEquipmentEditor({ onEquipmentChange }: LaigaEquipmentEditor
 
   const handleLogin = async (email: string, password: string) => {
     try {
+      // Autenticar com Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (authError) {
+        toast({
+          title: "Erro de autenticação",
+          description: "Email ou senha incorretos.",
+          variant: "destructive"
+        })
+        return
+      }
+
+      // Verificar se é coordenação
       const { data, error } = await supabase
         .from('admin_users')
         .select('*')
-        .eq('email', email)
-        .eq('password', password)
+        .eq('user_id', authData.user.id)
         .eq('role', 'coordenacao')
         .single()
 
-      if (error) throw error
-
-      if (data) {
-        setIsAuthenticated(true)
-        setShowLoginDialog(false)
+      if (error || !data) {
+        await supabase.auth.signOut()
         toast({
-          title: "Sucesso!",
-          description: "Login realizado com sucesso. Agora você pode editar os equipamentos.",
+          title: "Erro de autenticação",
+          description: "Você não tem permissão de coordenação.",
+          variant: "destructive"
         })
+        return
       }
+
+      setIsAuthenticated(true)
+      setShowLoginDialog(false)
+      toast({
+        title: "Sucesso!",
+        description: "Login realizado com sucesso. Agora você pode editar os equipamentos.",
+      })
     } catch (error: any) {
       toast({
         title: "Erro",

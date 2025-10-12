@@ -47,15 +47,18 @@ import { Coordination } from './pages/Coordination'
 import { Technicians } from './pages/Technicians'
 import { Recipes } from './pages/Recipes'
 import { Calendars } from './pages/Recipes/Calendars'
+import { GmtCodes } from './pages/Recipes/GmtCodes'
 import { Map } from './pages/Map'
 import { Sign } from './pages/Sign'
 import { Login } from './pages/Login'
+import { ResetPassword } from './pages/ResetPassword'
 import { Register } from './pages/Register'
 import { Registration } from './pages/Registration'
 import { Production } from './pages/Production'
 import { Spaces } from './pages/Spaces'
 import { Labs } from './pages/Labs'
 import { Laiga } from './pages/Labs/Laiga'
+import { DynamicLab } from './pages/Labs/DynamicLab'
 import { RF } from './pages/Labs/Laiga/ReservationForm'
 import { LaigaReceipt } from './pages/Labs/Laiga/Receipt'
 import { Lagep } from './pages/Labs/Lagep'
@@ -86,6 +89,8 @@ import { Secretaria } from './pages/Adm/Secretaria'
 import { Coordenacao } from './pages/Adm/Coordenacao'
 import { CoordenacaoDashboard } from './pages/Adm/Coordenacao/Dashboard'
 import { UsuariosAdmin } from './pages/Adm/Coordenacao/Usuarios'
+import { PesquisadoresAdmin } from './pages/Adm/Coordenacao/Pesquisadores'
+import { LaboratoriosAdmin } from './pages/Adm/Coordenacao/Laboratorios'
 import { ReservasAdmin } from './pages/Adm/Coordenacao/Reservas'
 import { EquipamentosLaiga } from './pages/Adm/Coordenacao/EquipamentosLaiga'
 import { ResearchProjects } from './pages/ResearchProjects'
@@ -138,9 +143,11 @@ export function Router() {
         <Route path='/technicians' element={<Technicians />} />
          <Route path='/recipes' element={<Recipes />} />
          <Route path='/recipes/Calendars' element={<Calendars />} />
+         <Route path='/recipes/gmt-codes' element={<GmtCodes />} />
          <Route path='/map' element={<Map />} />
-        <Route path='/sign' element={<Sign />} />
+         <Route path='/sign' element={<Sign />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/register' element={<Register />} />
         <Route path='/registration' element={<Registration />} />
         <Route path='/institution' element={<Institution />} />
@@ -151,6 +158,7 @@ export function Router() {
          <Route path='/Spaces' element={<Spaces />} />
          <Route path='/Labs' element={<Labs />} />
          <Route path='/Labs/Laiga' element={<Laiga />} />
+         <Route path='/Labs/:acronym' element={<DynamicLab />} />
          <Route path='/Labs/Laiga/ReservationForm' element={<RF />} />
          <Route path='/Labs/Laiga/Receipt' element={<LaigaReceipt />} />
          <Route path='/Labs/Lagep' element={<Lagep />} />
@@ -180,6 +188,8 @@ export function Router() {
          <Route path='/adm/coordenacao' element={<Coordenacao />} />
          <Route path='/adm/coordenacao/dashboard' element={<CoordenacaoDashboard />} />
          <Route path='/adm/coordenacao/usuarios' element={<UsuariosAdmin />} />
+         <Route path='/adm/coordenacao/pesquisadores' element={<PesquisadoresAdmin />} />
+         <Route path='/adm/coordenacao/laboratorios' element={<LaboratoriosAdmin />} />
          <Route path='/adm/coordenacao/reservas' element={<ReservasAdmin />} />
          <Route path='/adm/coordenacao/equipamentos-laiga' element={<EquipamentosLaiga />} />
          <Route path='/adm/secretaria' element={<Secretaria />} />

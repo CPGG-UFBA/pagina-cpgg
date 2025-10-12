@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { ResearcherPhoto } from '../../../../components/ResearcherPhoto'
 import { BackButton } from '../../../../components/BackButton'
 
 export function Simone() {
@@ -12,6 +13,7 @@ export function Simone() {
       <div>
         <div className={styles.Professor} >
           <BackButton />
+          <ResearcherPhoto researcherName="Simone Cerqueira Pereira Cruz" />
           <p> Simone Cerqueira Pereira Cruz </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

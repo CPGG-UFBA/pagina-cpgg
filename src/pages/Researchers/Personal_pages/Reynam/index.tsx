@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { ResearcherPhoto } from '../../../../components/ResearcherPhoto'
 import { BackButton } from '../../../../components/BackButton'
 
 export function Reynam() {
@@ -12,6 +13,7 @@ export function Reynam() {
       <div>
         <div className={styles.Professor} >
           <BackButton />
+          <ResearcherPhoto researcherName="Reynam da Cruz Pestana" />
           <p> Reynam da Cruz Pestana </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 

@@ -24,6 +24,8 @@ interface UserProfile {
   phone: string
   user_id: string
   researcher_route: string | null
+  role?: string
+  public_id?: string
 }
 
 interface AdminUser {
@@ -47,23 +49,58 @@ export function UsuariosAdmin() {
     const userData = sessionStorage.getItem('admin_user')
     if (userData) {
       setAdminUser(JSON.parse(userData))
-      // Sincroniza auth.users -> user_profiles antes de listar
-      supabase.rpc('sync_auth_users_to_profiles').then(() => {
-        loadUsers()
-      })
+      // Carregar usuários sem sincronizar automaticamente
+      loadUsers()
     } else {
       navigate('/adm/coordenacao')
     }
-  }, [navigate])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const loadUsers = async () => {
+    console.log('🔄 loadUsers chamado')
+    console.trace('Stack trace de loadUsers:')
     try {
-      const { data, error } = await supabase
+      // Load regular users
+      const { data: profilesData, error: profilesError } = await supabase
         .rpc('list_all_user_profiles')
 
-      if (error) throw error
+      if (profilesError) throw profilesError
+      
+      console.log('📊 Usuários carregados de user_profiles:', profilesData?.length || 0)
+      console.log('📋 Lista completa:', profilesData)
 
-      setUsers(data || [])
+      // Load admin users (secretaria, TI, and coordenacao)
+      const { data: adminData, error: adminError } = await supabase
+        .from('admin_users')
+        .select('id, email, role, full_name')
+        .in('role', ['secretaria', 'ti', 'coordenacao'])
+      
+      if (adminError) throw adminError
+      
+      console.log('📊 Admins carregados:', adminData?.length || 0)
+
+      // Combine both lists
+      const regularUsers = (profilesData || []).map((user: UserProfile) => ({
+        ...user,
+        role: user.researcher_route ? 'pesquisador' : 'usuario'
+      }))
+
+      const adminUsers = (adminData || []).map((admin: any) => ({
+        id: admin.id,
+        full_name: admin.full_name || admin.email.split('@')[0],
+        email: admin.email,
+        institution: 'UFBA',
+        phone: '-',
+        user_id: admin.id,
+        researcher_route: null,
+        role: admin.role
+      }))
+
+      const allUsers = [...regularUsers, ...adminUsers]
+      console.log('✅ Total de usuários combinados:', allUsers.length)
+      console.log('✅ Usuários finais:', allUsers.map(u => u.full_name))
+      setUsers(allUsers)
     } catch (error: any) {
       console.error('Erro ao carregar usuários:', error)
       toast({
@@ -112,31 +149,122 @@ export function UsuariosAdmin() {
   const handleDeleteUser = async () => {
     if (!userToDelete) return
 
-    try {
-      // Usar função SQL para deletar do banco e auth
-      const { data, error } = await supabase
-        .rpc('delete_user_complete', {
-          _user_profile_id: userToDelete.id
-        })
-
-      if (error) throw error
-
-      const result = data as { success: boolean; error?: string; message?: string }
-      
-      if (!result.success) {
-        throw new Error(result.error || 'Erro ao deletar usuário')
-      }
-
-      // Adicionar à lista de deletados para possível desfazer
-      setDeletedUsers(prev => [...prev, userToDelete])
-
-      // Remover da lista atual
-      setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
-
+    // Impedir secretária de deletar coordenador
+    if (adminUser?.role === 'secretaria' && userToDelete.role === 'coordenacao') {
       toast({
-        title: 'Usuário removido',
-        description: `${userToDelete.full_name} foi removido com sucesso.`,
+        title: 'Ação não permitida',
+        description: 'Secretária não pode remover o coordenador.',
+        variant: 'destructive'
       })
+      setDeleteDialogOpen(false)
+      setUserToDelete(null)
+      return
+    }
+
+    try {
+      console.log('Deletando usuário:', userToDelete)
+      
+      // Verificar se é admin user (secretaria ou ti)
+      if (userToDelete.role === 'secretaria' || userToDelete.role === 'ti') {
+        // Deletar da tabela admin_users
+        const { error } = await supabase
+          .from('admin_users')
+          .delete()
+          .eq('id', userToDelete.id)
+
+        if (error) throw error
+
+        // Remover da lista atual
+        setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
+
+        toast({
+          title: 'Administrador removido',
+          description: `${userToDelete.full_name} foi removido com sucesso.`,
+        })
+      } else {
+        // Primeiro, deletar da tabela researchers se for pesquisador
+        if (userToDelete.role === 'pesquisador' || userToDelete.researcher_route) {
+          console.log('Deletando de researchers com nome:', userToDelete.full_name)
+          const { error: researcherError } = await supabase
+            .from('researchers')
+            .delete()
+            .eq('name', userToDelete.full_name)
+
+          if (researcherError) {
+            console.error('Erro ao deletar da tabela researchers:', researcherError)
+          } else {
+            console.log('Deletado com sucesso de researchers')
+          }
+        }
+
+        // Verificar se tem user_id (usuário autenticado) ou não (apenas perfil de pesquisador)
+        if (userToDelete.user_id) {
+          console.log('Deletando usuário autenticado com user_id:', userToDelete.user_id)
+          // Usuário autenticado - deletar do banco e auth
+          const { data, error } = await supabase
+            .rpc('delete_user_complete', {
+              _user_profile_id: userToDelete.id
+            })
+
+          if (error) throw error
+
+          const result = data as { success: boolean; error?: string; message?: string }
+          
+          if (!result.success) {
+            throw new Error(result.error || 'Erro ao deletar usuário')
+          }
+
+          console.log('Resultado de delete_user_complete:', result)
+          // Adicionar à lista de deletados para possível desfazer
+          setDeletedUsers(prev => [...prev, userToDelete])
+        } else {
+          console.log('Deletando perfil sem autenticação (user_id: null)')
+          // Usar função RPC para deletar com verificação de permissão
+          const { data, error } = await supabase
+            .rpc('delete_user_profile', {
+              _profile_id: userToDelete.id
+            })
+
+          console.log('🔍 Resultado da deleção:', { error, data })
+
+          if (error) {
+            console.error('❌ ERRO ao deletar:', error)
+            throw error
+          }
+
+          const result = data as { success: boolean; error?: string; message?: string }
+          
+          if (!result.success) {
+            throw new Error(result.error || 'Erro ao deletar usuário')
+          }
+
+          console.log('✅ Deletado com sucesso de user_profiles')
+          
+          // Sempre tentar deletar de researchers também (usando nome como chave)
+          console.log('Tentando deletar de researchers com nome:', userToDelete.full_name)
+          const { error: researcherError } = await supabase
+            .from('researchers')
+            .delete()
+            .eq('name', userToDelete.full_name)
+
+          if (researcherError) {
+            console.error('Erro ao deletar da tabela researchers:', researcherError)
+          } else {
+            console.log('Deletado com sucesso de researchers (ou não existia)')
+          }
+
+          // Adicionar à lista de deletados para possível desfazer
+          setDeletedUsers(prev => [...prev, userToDelete])
+        }
+
+        // Remover da lista atual
+        setUsers(prev => prev.filter(user => user.id !== userToDelete.id))
+
+        toast({
+          title: 'Usuário removido',
+          description: `${userToDelete.full_name} foi removido com sucesso.`,
+        })
+      }
 
       setDeleteDialogOpen(false)
       setUserToDelete(null)
@@ -252,35 +380,54 @@ export function UsuariosAdmin() {
         <table className={styles.usersTable}>
           <thead>
             <tr>
+              <th>ID</th>
               <th>Nome</th>
               <th>Email</th>
               <th>Instituição</th>
               <th>Telefone</th>
+              <th>Cargo</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
             {users.map(user => (
               <tr key={user.id}>
+                <td style={{ fontFamily: 'monospace', fontWeight: 'bold', color: '#666' }}>
+                  {user.public_id || '-'}
+                </td>
                 <td>{user.full_name}</td>
                 <td>{user.email}</td>
                 <td>{user.institution}</td>
                 <td>{user.phone}</td>
                 <td>
-                  <div className="flex items-center gap-2">
-                    <LabChiefSelector 
-                      userId={user.id} 
-                      userName={user.full_name} 
-                    />
-                    <Button
-                      onClick={() => openDeleteDialog(user)}
-                      variant="destructive"
-                      size="sm"
-                      className={styles.deleteButton}
-                    >
-                      <Trash2 size={16} />
-                    </Button>
-                  </div>
+                  <span style={{
+                    padding: '4px 12px',
+                    borderRadius: '16px',
+                    fontSize: '12px',
+                    fontWeight: '600',
+                    backgroundColor: user.role === 'secretaria' ? '#9C27B0' : 
+                                   user.role === 'ti' ? '#2196F3' : 
+                                   user.role === 'coordenacao' ? '#FF9800' : 
+                                   user.role === 'pesquisador' ? '#673AB7' : '#4CAF50',
+                    color: 'white',
+                    display: 'inline-block'
+                  }}>
+                    {user.role === 'secretaria' ? 'Secretária' : 
+                     user.role === 'ti' ? 'T.I.' : 
+                     user.role === 'coordenacao' ? 'Coordenação' : 
+                     user.role === 'pesquisador' ? 'Pesquisador' : 'Usuário'}
+                  </span>
+                </td>
+                <td>
+                  <Button
+                    onClick={() => openDeleteDialog(user)}
+                    variant="destructive"
+                    size="sm"
+                    className={styles.deleteButton}
+                    disabled={adminUser?.role === 'secretaria' && user.role === 'coordenacao'}
+                  >
+                    <Trash2 size={16} />
+                  </Button>
                 </td>
               </tr>
             ))}

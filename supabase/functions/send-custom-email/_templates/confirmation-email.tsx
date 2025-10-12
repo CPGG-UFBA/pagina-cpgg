@@ -32,6 +32,9 @@ export const ConfirmationEmail = ({
       <Container style={container}>
         <Heading style={h1}>Acesso CPGG</Heading>
         <Text style={text}>
+          Este é um e-mail enviado para confirmar o cadastro na página do CPGG/UFBA.
+        </Text>
+        <Text style={text}>
           Bem-vindo! Para completar seu registro no CPGG, clique no link abaixo:
         </Text>
         <Link

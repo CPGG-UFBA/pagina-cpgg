@@ -1,19 +1,21 @@
 .pageContainer {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 }
 
 .cpgg {
   flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
   padding: 1rem;
+  padding-bottom: 0;
   text-align: justify;
   font-size: 16px;
   line-height: 30px;
   color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .Title ul {
@@ -46,7 +48,7 @@
   border-radius: 20px;
   gap: 5px;
   overflow-y: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .box p {

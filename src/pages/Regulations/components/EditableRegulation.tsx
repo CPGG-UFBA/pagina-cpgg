@@ -3,6 +3,7 @@ import { Minus, Edit, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
+import styles from '../Regulations.module.css'
 
 interface EditableRegulationProps {
   regulation: {
@@ -58,11 +59,10 @@ export function EditableRegulation({
         href={regulation.pdf_url} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="block"
+        className={styles.card}
       >
-        <div className="p-8 border-radius-12 text-center w-80 shadow-md text-white min-h-32 relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 bg-gradient-to-br from-slate-900/85 to-purple-900/85 bg-cover bg-center rounded-xl" 
-             style={{ backgroundImage: "url('/src/components/Figures/laws.jpg')" }}>
-          <h2 className="text-lg font-semibold">{regulation.name}</h2>
+        <div className={styles.regulation}>
+          <h2>{regulation.name}</h2>
         </div>
       </a>
     )
@@ -70,9 +70,8 @@ export function EditableRegulation({
 
   return (
     <>
-      <div className="block">
-        <div className="p-8 border-radius-12 text-center w-80 shadow-md text-white min-h-32 relative overflow-hidden bg-gradient-to-br from-slate-900/85 to-purple-900/85 bg-cover bg-center rounded-xl border-2 border-dashed border-primary" 
-             style={{ backgroundImage: "url('/src/components/Figures/laws.jpg')" }}>
+      <div className={styles.card}>
+        <div className={`${styles.regulation} border-2 border-dashed border-primary`}>
           <div className="flex flex-col items-center gap-2">
             <h2 className="text-lg font-semibold">{regulation.name}</h2>
             <div className="flex gap-2">
