@@ -1,3 +1,8 @@
+/* Remove scroll de toda a página Coordination */
+body:has(.heads) {
+  overflow: hidden !important;
+}
+
 /* Container Principal */
 .heads {
   padding: 2rem 2rem 2rem 2rem;
@@ -7,10 +12,15 @@
   margin: 100px auto 2rem auto;
   position: relative;
   z-index: 1;
-  overflow: visible;
+  overflow: hidden;
 }
 
+/* Permite scroll apenas em telas menores que 500px */
 @media (max-width: 500px) {
+  body:has(.heads) {
+    overflow: auto !important;
+  }
+  
   .heads {
     overflow: auto;
   }
