@@ -50,7 +50,7 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  margin-top: -430px;
 }
 
 .meetingroom1 img {
@@ -90,7 +90,7 @@
   position: absolute;
   width: 600px;
   height: 600px;
-  top: calc(50% + 65px);
+  top: calc(50% + 15px);
   left: 50%;
   transform: translate(calc(-50% - 200px), -50%);
   padding: 20px;
@@ -114,7 +114,7 @@
     max-width: 600px;
     height: auto;
     min-height: 600px;
-    top: calc(50% + 65px);
+    top: calc(50% + 15px);
     transform: translate(calc(-50% - 100px), -50%);
   }
 
@@ -134,7 +134,7 @@
     max-width: 500px;
     height: auto;
     min-height: 550px;
-    top: calc(50% + 65px);
+    top: calc(50% + 15px);
     transform: translate(calc(-50% - 50px), -50%);
   }
 
@@ -154,7 +154,7 @@
     max-width: 350px;
     height: auto;
     min-height: 500px;
-    top: calc(50% + 65px);
+    top: calc(50% + 15px);
     transform: translate(-50%, -50%);
   }
 
