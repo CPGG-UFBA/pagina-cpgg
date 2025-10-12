@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Header.module.css";
+import "./Header.global.css";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { GlobalEarth } from '@/components/GlobalEarth';
