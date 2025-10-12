@@ -94,6 +94,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/pROEtsX.jpg') center/cover;
+  margin-top: -250px;
 }
 
 .gmt {
@@ -110,6 +111,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+  margin-top: -250px;
 }
 
 .python {
@@ -125,6 +127,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
     url('https://i.imgur.com/jQGbUDR.jpg') center/cover;
+  margin-top: -250px;
 }
 
 
