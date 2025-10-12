@@ -13,7 +13,18 @@ export function Header() {
     console.log('Mouse entered Sobre Nós menu item');
     const submenu = document.querySelector('.header-submenu1');
     console.log('Submenu element:', submenu);
-    console.log('Submenu display style:', submenu ? window.getComputedStyle(submenu).display : 'not found');
+    if (submenu) {
+      const styles = window.getComputedStyle(submenu);
+      console.log('Submenu display:', styles.display);
+      console.log('Submenu position:', styles.position);
+      console.log('Submenu z-index:', styles.zIndex);
+      console.log('Submenu top:', styles.top);
+      console.log('Submenu left:', styles.left);
+      console.log('Submenu width:', styles.width);
+      console.log('Submenu height:', styles.height);
+      const rect = submenu.getBoundingClientRect();
+      console.log('Submenu bounding rect:', rect);
+    }
   };
   
   return (
