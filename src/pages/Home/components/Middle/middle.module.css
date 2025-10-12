@@ -108,33 +108,45 @@
 .static {
   color: #fff;
   margin-top: 50px;
-  line-height: 0.5;
+  line-height: 1.2;
   margin-left: 4.5rem;
   font-size: 45px;
+  padding: 10px 0;
 }
 
 .static > strong {
   font-size: 90px;
-  line-height: 1.6;
+  line-height: 1.2;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: block;
+  padding: 5px 0;
+}
+
+.static h1 {
+  line-height: 1.4;
+  padding: 5px 0;
 }
 
 .enjoy {
-  line-height: 1.6;
+  line-height: 1.4;
   color: #fff;
   padding-top: 30px;
-  line-height: 1.2;
   font-size: 30px;
 }
 
 .enjoy > strong {
   font-size: 30px; 
-  line-height: 1.6;
+  line-height: 1.4;
   background: -webkit-linear-gradient(#2c66b8, #8859ec);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.enjoy h1 {
+  line-height: 1.4;
+  padding: 3px 0;
 }
 
 .staticFigure img {
