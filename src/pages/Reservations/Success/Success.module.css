@@ -10,6 +10,7 @@
   text-align: center;
   max-width: 1200px;
   margin: 0 auto;
+  transform: translateX(-250px);
 }
 
 .success ul {
