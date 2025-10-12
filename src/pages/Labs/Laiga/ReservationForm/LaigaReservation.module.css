@@ -7,8 +7,7 @@
 
 .content {
   padding-top: calc(100vh - 750px);
-  min-height: calc(100vh - 200px);
-  padding-bottom: 200px;
+  min-height: 100vh;
   position: relative;
   overflow-x: auto;
   width: 100%;
@@ -17,8 +16,8 @@
 .title {
   text-align: center;
   color: white;
-  margin-bottom: 12px;
-  font-size: 26px;
+  margin-bottom: 20px;
+  font-size: 32px;
   font-weight: 600;
   transform: translateX(-250px);
 }
@@ -28,7 +27,7 @@
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 12px 25px;
+  padding: 25px;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -36,25 +35,24 @@
 }
 
 .form {
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .form label {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   font-weight: bold;
   color: #333;
-  font-size: 13px;
 }
 
 .form input,
 .form select,
 .form textarea {
   width: 100%;
-  padding: 6px 10px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .form input:focus,
@@ -66,10 +64,10 @@
 }
 
 .equipmentList {
-  max-height: 120px;
+  max-height: 300px;
   overflow-y: auto;
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 12px;
   border-radius: 5px;
   background: #fafafa;
 }
@@ -77,8 +75,7 @@
 .equipmentItem {
   display: flex;
   align-items: center;
-  margin-bottom: 4px;
-  font-size: 13px;
+  margin-bottom: 8px;
 }
 
 .equipmentItem input[type="checkbox"] {
@@ -87,15 +84,15 @@
 }
 
 .form textarea {
-  min-height: 35px;
+  min-height: 60px;
   resize: vertical;
 }
 
 .dateContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 15px;
+  margin-bottom: 12px;
 }
 
 .dateContainer .form {
@@ -105,13 +102,12 @@
 .checkboxContainer {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
-  margin: 6px 0;
-  padding: 8px;
+  gap: 10px;
+  margin: 12px 0;
+  padding: 12px;
   background: rgba(89, 44, 187, 0.1);
-  border-radius: 8px;
+  border-radius: 10px;
   border: 2px solid #592cbb;
-  font-size: 12px;
 }
 
 .checkboxContainer input[type="checkbox"] {
@@ -122,10 +118,10 @@
 .submitButton {
   background: linear-gradient(145deg, #592cbb 0%, #6a3bc5 100%);
   color: white;
-  padding: 10px 25px;
+  padding: 15px 30px;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 10px;
+  font-size: 16px;
   cursor: pointer;
   width: 100%;
   transition: all 0.3s ease;
