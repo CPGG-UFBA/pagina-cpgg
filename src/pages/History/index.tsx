@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './History.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -14,11 +15,11 @@ export  function History() {
               <h1 className={styles.title}>{t('history.title')}</h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="history/Former">
+                  <Link className={styles.card} to="/history/Former">
                       <div className={styles.headers}>
                           <h2>{t('history.coordinators')}</h2>
                       </div>
-                  </a>
+                  </Link>
 
                   <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/PDF_history.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.document}>
