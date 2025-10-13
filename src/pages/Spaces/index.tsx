@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Labs.module.css';
+import styles from './Spaces.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import earthImage from '../../assets/earth-imgur.png';
