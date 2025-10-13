@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { Settings } from 'lucide-react'
 import styles from './Photos.module.css';
@@ -14,6 +15,7 @@ interface Event {
 }
 
 export function Photos() {
+  const navigate = useNavigate()
   const [events, setEvents] = useState<Event[]>([])
   const [showAdminButton, setShowAdminButton] = useState(false)
 
@@ -49,7 +51,7 @@ export function Photos() {
               <h1 className={styles.title}>Fotos de eventos</h1>
               {showAdminButton && (
                 <Button
-                  onClick={() => window.location.href = '/Photos/EventManager'}
+                  onClick={() => navigate('/Photos/EventManager')}
                   size="sm"
                   variant="secondary"
                   className="flex items-center gap-2"
@@ -61,31 +63,31 @@ export function Photos() {
             </div>
 
             <div className={styles.container}>
-                <a className={styles.card} href="/Photos/HistoricalPhotos">
+                <Link className={styles.card} to="/Photos/HistoricalPhotos">
                     <div className={styles.historical}>
                         <h2>Históricas</h2>
                     </div>
-                </a>
+                </Link>
 
-                <a className={styles.card} href="/Photos/Years">
+                <Link className={styles.card} to="/Photos/Years">
                     <div className={styles.fifthy}>
                         <h2> 50 anos - Pós-Graduação em Geofísica</h2>
                     </div>
-                </a>
-                <a className={styles.card} href="/Photos/FirstMeeting">
+                </Link>
+                <Link className={styles.card} to="/Photos/FirstMeeting">
                     <div className={styles.reopen}>
                         <h2> Primeira reunião geral- retorno das atividades do CPGG</h2>
                     </div>
-                </a>
+                </Link>
 
                 {/* Dynamic event cards */}
                 {events.map((event) => (
-                  <a key={event.id} className={styles.card} href={`/Photos/Event/${event.id}`}>
+                  <Link key={event.id} className={styles.card} to={`/Photos/Event/${event.id}`}>
                     <div className={styles.eventCard}>
                       <h2>{event.name}</h2>
                       <p>Evento realizado em {new Date(event.event_date).toLocaleDateString('pt-BR')}</p>
                     </div>
-                  </a>
+                  </Link>
                 ))}
 
             </div>

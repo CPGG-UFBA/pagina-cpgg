@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './laiga.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
@@ -46,9 +47,9 @@ export function Laiga() {
            <span>{t('laiga.chiefName')}</span> 
            
            <div className={styles.requerimentoButton}>
-             <a href="/Labs/Laiga/ReservationForm" className={styles.buttonLink}>
+             <Link to="/Labs/Laiga/ReservationForm" className={styles.buttonLink}>
                {t('laiga.requestButton')}
-             </a>
+             </Link>
            </div>
 
             <div className={styles.box1}>
