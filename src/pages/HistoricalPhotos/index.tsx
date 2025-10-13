@@ -1,6 +1,7 @@
 import styles from './HistoricalPhotos.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { Link } from 'react-router-dom';
 import earthCorrect from '../../assets/earth-correct.jpg'
 
 export  function HP() {
@@ -11,36 +12,29 @@ export  function HP() {
               <h1 className={styles.title}>Fotos Históricas </h1>
 
 
-              <a className={styles.card} href="HistoricalPhotos/LatinAmerican">
+              <Link className={styles.card} to="/Photos/HistoricalPhotos/LatinAmerican">
                       <div className={styles.Latin}>
                           <h2>1a. Conferência Latino-americana de Geofísica </h2>
                       </div>
-                  </a>
+                  </Link>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="HistoricalPhotos/ICG">
+                  <Link className={styles.card} to="/Photos/HistoricalPhotos/ICG">
                       <div className={styles.ICG}>
                           <h2>2o. Congresso Internacional de Geofísica</h2>
                       </div>
-                  </a>
+                  </Link>
 
-                 
-
-                  <a className={styles.card} href="HistoricalPhotos/Yeda">
+                  <Link className={styles.card} to="/Photos/HistoricalPhotos/Yeda">
                       <div className={styles.Yeda}>
                           <h2> Professora Yeda</h2>
                       </div>
-                  </a>
-                  <a className={styles.card} href="HistoricalPhotos/BlockE">
+                  </Link>
+                  <Link className={styles.card} to="/Photos/HistoricalPhotos/BlockE">
                       <div className={styles.BlockE}>
                           <h2> Inauguração da Sede do CPGG</h2>
                       </div>
-                  </a>
-                  <a className={styles.card} href="HistoricalPhotos/Others">
-                      <div className={styles.others}>
-                          <h2> Outras</h2>
-                      </div>
-                  </a>
+                  </Link>
               </div>
           </div>
           <Footer/>
