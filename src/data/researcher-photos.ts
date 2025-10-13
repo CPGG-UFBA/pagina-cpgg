@@ -20,14 +20,11 @@ export const researcherPhotos: Record<string, string> = {
   'Suzan Souza de Vasconcelos': 'https://i.imgur.com/oJT2Gxh.png',
 
   // Programa Mineral
-  'Edson Emanuel Starteri Sampaio': 'https://i.imgur.com/YQM1hAL.jpg',
   'Alice Marques Pereira Lau': 'https://i.imgur.com/nnNDbMR.png',
   'Angela Beatriz de Menezes Leal': 'https://i.imgur.com/vQ4t3iQ.png',
   'Carlson de Matos Maia Leite': 'https://i.imgur.com/WEEbEz3.png',
   'Aroldo Misi': 'https://i.imgur.com/YQM1hAL.jpg',
-  'Jailma Santos de Souza de Oliveira': 'https://i.imgur.com/YQM1hAL.jpg',
   'Johildo Salomão Figuerêdo Barbosa': 'https://i.imgur.com/48srgtB.png',
-  'José Haroldo da Silva Sá': 'https://i.imgur.com/YQM1hAL.jpg',
   'Marcos Alberto Rodrigues Vasconcelos': 'https://i.imgur.com/ba3ItpJ.jpg',
   'Simone Cerqueira Pereira Cruz': 'https://i.imgur.com/MZCgEkm.png',
 
