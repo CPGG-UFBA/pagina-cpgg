@@ -1,0 +1,4 @@
+-- Atualizar descrição do pesquisador José Haroldo da Silva Sá
+UPDATE public.researchers
+SET description = 'Possui graduação em Geologia pela Universidade Federal do Rio de Janeiro (1967), mestrado em Geologia pela Universidade Federal do Rio de Janeiro (1970) e doutorado em Geociências (Recursos Minerais e Hidrogeologia) pela Universidade de São Paulo (1976). Atualmente é consultor do Governo do Estado da Bahia. Tem experiência na área de Geociências, com ênfase em Prospecção Mineral, atuando principalmente nos seguintes temas: pegmatitos, platinum-group mineral, rio de janeiro, rochas máfico-ultramáficas e amapá, brazil.'
+WHERE name = 'José Haroldo da Silva Sá';
