@@ -41,7 +41,7 @@ export function MR() {
 
       console.log('Reserva enviada com sucesso:', data);
       // Redirecionar para página de sucesso usando React Router
-      navigate('/Reservations/Success')
+      navigate('/reservations/success')
     } catch (error) {
       console.error('Erro ao enviar reserva:', error);
       alert('Erro ao enviar reserva. Tente novamente.');

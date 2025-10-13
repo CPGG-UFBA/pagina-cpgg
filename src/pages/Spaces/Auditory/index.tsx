@@ -40,7 +40,7 @@ export function Auditory() {
                  size="sm"
                  className="bg-[#BEB6B6] border-none text-white rounded-md hover:bg-[#936aeb] transition-all duration-500 flex items-center justify-center px-6"
                >
-                 <Link to="/Reservations/ReservationAuditory" className="flex items-center justify-center">Reservar</Link>
+                 <Link to="/reservations/reservation-auditory" className="flex items-center justify-center">Reservar</Link>
                </Button>
             </nav>
           </div>

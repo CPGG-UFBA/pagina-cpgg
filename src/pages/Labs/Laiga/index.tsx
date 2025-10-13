@@ -47,7 +47,7 @@ export function Laiga() {
            <span>{t('laiga.chiefName')}</span> 
            
            <div className={styles.requerimentoButton}>
-             <Link to="/Labs/Laiga/ReservationForm" className={styles.buttonLink}>
+             <Link to="/labs/laiga/reservation-form" className={styles.buttonLink}>
                {t('laiga.requestButton')}
              </Link>
            </div>

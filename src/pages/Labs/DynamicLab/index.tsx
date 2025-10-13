@@ -43,7 +43,7 @@ export function DynamicLab() {
         setLaboratory(data);
       } catch (error) {
         console.error('Erro ao buscar laboratório:', error);
-        navigate('/Spaces');
+        navigate('/spaces');
       } finally {
         setLoading(false);
       }
@@ -115,7 +115,7 @@ export function DynamicLab() {
             <span>{laboratory.chief_name}</span>
 
             <div className={styles.requerimentoButton}>
-              <a href="/Labs/Laiga/ReservationForm" className={styles.buttonLink}>
+              <a href="/labs/laiga/reservation-form" className={styles.buttonLink}>
                 {t('laiga.requestButton')}
               </a>
             </div>

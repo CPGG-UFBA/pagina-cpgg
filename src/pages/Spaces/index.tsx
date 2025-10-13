@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import styles from './Spaces.module.css';
+import { Link } from 'react-router-dom';
+import styles from './Labs.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import earthImage from '../../assets/earth-imgur.png';
@@ -57,17 +58,17 @@ export function Spaces() {
 
         <div className={styles.container}>
           {/* Cards fixos: Auditório e Sala de Reuniões */}
-          <a className={styles.card} href="Spaces/Auditory">
+          <Link className={styles.card} to="/spaces/auditory">
             <div className={styles.auditory}>
               <h2>{t('spaces.auditory')}</h2>
             </div>
-          </a>
+          </Link>
 
-          <a className={styles.card} href="Spaces/MeetingRoom">
+          <Link className={styles.card} to="/spaces/meeting-room">
             <div className={styles.meetingroom}>
               <h2>{t('spaces.meetingRoom')}</h2>
             </div>
-          </a>
+          </Link>
 
           {/* Cards dinâmicos de laboratórios - excluindo LAIGA */}
           {loading ? (

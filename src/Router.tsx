@@ -155,21 +155,21 @@ export function Router() {
         <Route path='/history' element={<History />} />
         <Route path='/history/Former' element={<Former />} />
         <Route path='/production' element={<Production />} />
-         <Route path='/Spaces' element={<Spaces />} />
-         <Route path='/Labs' element={<Labs />} />
-         <Route path='/Labs/Laiga' element={<Laiga />} />
-         <Route path='/Labs/:acronym' element={<DynamicLab />} />
-         <Route path='/Labs/Laiga/ReservationForm' element={<RF />} />
-         <Route path='/Labs/Laiga/Receipt' element={<LaigaReceipt />} />
-         <Route path='/Labs/Lagep' element={<Lagep />} />
-         <Route path='/Labs/Lamod' element={<Lamod />} />
-         <Route path='/Labs/Successlab' element={<Successlab />} />
-         <Route path='/Spaces/Auditory' element={<Auditory />} />
-         <Route path='/Spaces/MeetingRoom' element={<MeetingRoom />} />
-         <Route path='/Reservations/ReservationAuditory' element={<RA />} />
-         <Route path='/Reservations/ReservationMeetingRoom' element={<MR />} />
-         <Route path='/Reservations/Success' element={<Success />} />
-         <Route path='/Reservations/Receipt' element={<Receipt />} />
+         <Route path='/spaces' element={<Spaces />} />
+         <Route path='/labs' element={<Labs />} />
+         <Route path='/labs/laiga' element={<Laiga />} />
+         <Route path='/labs/:acronym' element={<DynamicLab />} />
+         <Route path='/labs/laiga/reservation-form' element={<RF />} />
+         <Route path='/labs/laiga/receipt' element={<LaigaReceipt />} />
+         <Route path='/labs/lagep' element={<Lagep />} />
+         <Route path='/labs/lamod' element={<Lamod />} />
+         <Route path='/labs/successlab' element={<Successlab />} />
+         <Route path='/spaces/auditory' element={<Auditory />} />
+         <Route path='/spaces/meeting-room' element={<MeetingRoom />} />
+         <Route path='/reservations/reservation-auditory' element={<RA />} />
+         <Route path='/reservations/reservation-meeting-room' element={<MR />} />
+         <Route path='/reservations/success' element={<Success />} />
+         <Route path='/reservations/receipt' element={<Receipt />} />
          <Route path='/Regulations' element={<Regulations />} />  
          <Route path='/research-projects' element={<ResearchProjects />} />
          <Route path='/Photos' element={<Photos />} />

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Labs.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -138,14 +139,14 @@ export  function Labs() {
                            onUpdate={handleUpdateLaboratory}
                            onDelete={handleDeleteLaboratory}
                          />
-                       ) : (
-                         <a href={`Labs/${lab.acronym}`} className={styles.labLink}>
-                           <div className={isLaiga ? styles.Laiga : styles.others}>
-                             <h2>{lab.acronym}</h2>
-                             <h2>{lab.name}</h2>
-                           </div>
-                         </a>
-                       )}
+                        ) : (
+                          <Link to={`/labs/${lab.acronym.toLowerCase()}`} className={styles.labLink}>
+                            <div className={isLaiga ? styles.Laiga : styles.others}>
+                              <h2>{lab.acronym}</h2>
+                              <h2>{lab.name}</h2>
+                            </div>
+                          </Link>
+                        )}
                      </div>
                    )})}
 

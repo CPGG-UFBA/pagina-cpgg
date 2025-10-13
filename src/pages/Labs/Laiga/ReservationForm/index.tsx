@@ -171,9 +171,9 @@ export function RF() {
 
       // Redirecionar para comprovante após mostrar o toast
       if (data?.reservationId) {
-        console.log("Redirecionando para:", `/Labs/Laiga/Receipt?id=${data.reservationId}`);
+        console.log("Redirecionando para:", `/labs/laiga/receipt?id=${data.reservationId}`);
         setTimeout(() => {
-          window.location.href = `/Labs/Laiga/Receipt?id=${data.reservationId}`;
+          window.location.href = `/labs/laiga/receipt?id=${data.reservationId}`;
         }, 2000);
       } else {
         console.error("Nenhum reservationId retornado!");
