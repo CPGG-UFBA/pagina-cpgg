@@ -513,13 +513,11 @@ export function UsuariosAdmin() {
       </div>
 
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
-        <DialogContent>
+        <DialogContent className="max-h-[180px]">
           <DialogHeader>
             <DialogTitle>Remover Usuário</DialogTitle>
             <DialogDescription>
-              Deseja remover o usuário {userToDelete?.full_name}?
-              <br />
-              Esta ação irá deletar todas as informações do usuário do banco de dados.
+              Tem certeza que deseja remover {userToDelete?.full_name}?
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
