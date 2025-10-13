@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Recipes.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -17,11 +18,11 @@ export  function Recipes() {
                       </div>
                   </a>
 
-                  <a className={styles.card} href="recipes/Calendars">
+                  <Link className={styles.card} to="/recipes/calendars">
                       <div className={styles.calendars}>
                           <h2> Calendários</h2>
                       </div>
-                  </a>
+                  </Link>
                   <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/modelo-cpgg.ppt">
                       <div className={styles.power}>
                           <h2> Power Point para apresentações</h2>
@@ -32,11 +33,11 @@ export  function Recipes() {
                           <h2> Latex-modelo para slides</h2>
                       </div>
                   </a>
-                  <a className={styles.card} href="/recipes/gmt-codes">
+                  <Link className={styles.card} to="/recipes/gmt-codes">
                       <div className={styles.gmt}>
                           <h2> GMT-códigos</h2>
                       </div>
-                  </a>
+                  </Link>
                   <a className={styles.card} href="/src/assets/PDF/Deliberacao_normativa_2_2023.pdf">
                       <div className={styles.python}>
                           <h2> Python-códigos</h2>

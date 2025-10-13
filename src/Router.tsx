@@ -142,7 +142,7 @@ export function Router() {
         <Route path='/coordination' element={<Coordination />} />
         <Route path='/technicians' element={<Technicians />} />
          <Route path='/recipes' element={<Recipes />} />
-         <Route path='/recipes/Calendars' element={<Calendars />} />
+         <Route path='/recipes/calendars' element={<Calendars />} />
          <Route path='/recipes/gmt-codes' element={<GmtCodes />} />
          <Route path='/map' element={<Map />} />
          <Route path='/sign' element={<Sign />} />
