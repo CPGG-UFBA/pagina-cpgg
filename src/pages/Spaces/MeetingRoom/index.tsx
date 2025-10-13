@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from './meetingroom.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
@@ -37,7 +38,7 @@ export function MeetingRoom() {
                  size="sm"
                  className="bg-[#BEB6B6] border-none text-white rounded-md hover:bg-[#936aeb] transition-all duration-500 flex items-center justify-center px-6"
                >
-                 <a href="/Reservations/ReservationMeetingRoom" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">Reservar</a>
+                 <Link to="/Reservations/ReservationMeetingRoom" className="flex items-center justify-center">Reservar</Link>
                </Button>
             </nav>
           </div>
