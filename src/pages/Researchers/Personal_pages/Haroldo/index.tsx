@@ -3,6 +3,7 @@ import { Header } from '../../../../components/Header'
 import { Footer } from '../../../../components/Footer'
 import { ResearcherEditButton } from '../../../../components/ResearcherEditButton'
 import { DynamicResearcherProfile } from '../../../../components/DynamicResearcherProfile'
+import { ResearcherPhoto } from '../../../../components/ResearcherPhoto'
 import { BackButton } from '../../../../components/BackButton'
 
 export function Haroldo() {
@@ -12,6 +13,7 @@ export function Haroldo() {
       <div>
         <div className={styles.Professor} >
           <BackButton />
+          <ResearcherPhoto researcherName="José Haroldo da Silva Sá" />
           <p> José Haroldo da Silva Sá </p>
           <div className={styles.box1}>
           <DynamicResearcherProfile 
