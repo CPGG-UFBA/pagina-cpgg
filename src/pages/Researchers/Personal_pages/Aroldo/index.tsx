@@ -24,7 +24,7 @@ export function Aroldo() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/2455979526507877" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/2455979526507877" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>aroldo.misi@gmail.com</p> 

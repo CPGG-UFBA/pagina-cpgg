@@ -24,7 +24,7 @@ export function Johildo() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/9012345678901234" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/9012345678901234" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>johildo@ufba.br</p> 

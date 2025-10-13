@@ -24,7 +24,7 @@ export function Ruy() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/7234567890123456" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/7234567890123456" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>ruy@ufba.br</p> 

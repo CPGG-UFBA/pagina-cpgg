@@ -24,7 +24,7 @@ export function Haroldo() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/7890123456789012" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/7890123456789012" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>haroldo@ufba.br</p> 

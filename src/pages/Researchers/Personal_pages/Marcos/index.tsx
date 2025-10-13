@@ -22,7 +22,7 @@ export function Marcos() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/4567890123456789" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/4567890123456789" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> email</b>
            <p>marcos.vasconcelos@ufba.br</p> 

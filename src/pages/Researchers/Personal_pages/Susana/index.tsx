@@ -24,7 +24,7 @@ export function Susana() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/3712697556346790" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/3712697556346790" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>scavalcanti@ufba.br</p> 

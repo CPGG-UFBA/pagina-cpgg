@@ -22,7 +22,7 @@ export function LRogerio() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/1234567890123456" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/1234567890123456" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>lrogerio@ufba.br</p> 

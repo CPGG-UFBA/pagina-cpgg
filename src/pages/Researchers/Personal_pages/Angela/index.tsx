@@ -22,7 +22,7 @@ export function Angela() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4797800A4" target="_blank">Currículo</a>
+             <a href="https://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4797800A4" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>angelab@ufba.br</p> 

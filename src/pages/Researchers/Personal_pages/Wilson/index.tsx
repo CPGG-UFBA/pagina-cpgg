@@ -24,7 +24,7 @@ export function Wilson() {
             <ul> Link para Currículo Lattes</ul>
 
             <nav>
-             <a href="http://lattes.cnpq.br/4503597230743925" target="_blank">Currículo</a>
+             <a href="https://lattes.cnpq.br/4503597230743925" target="_blank" rel="noopener noreferrer">Currículo</a>
            </nav>
            <b> e-mail</b>
            <p>figueiro6@gmail.com</p> 
