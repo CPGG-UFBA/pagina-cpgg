@@ -263,6 +263,21 @@ nav ul li:hover .submenu2 ul li a {
     width: 110px;
     margin: 10px 8px;
     padding: 10px;
+    white-space: nowrap;
+  }
+  
+  nav ul li:hover .submenu1 {
+    display: block !important;
+    position: absolute !important;
+    z-index: 100000 !important;
+  }
+  
+  .submenu1 {
+    min-width: 180px;
+  }
+  
+  .submenu2 {
+    min-width: 190px;
   }
   
   .block1 h1 {
