@@ -81,6 +81,61 @@
   z-index: 1000;
 }
 
+/* 1280px - 1440px */
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .leftSide {
+    width: 22%;
+    gap: 0.8rem;
+  }
+  
+  .imageContainer {
+    height: 7rem;
+  }
+  
+  .centerContent {
+    margin: 0 2rem;
+  }
+  
+  .mainTitle {
+    font-size: 2rem;
+  }
+  
+  .subtitle {
+    font-size: 1.6rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+  }
+  
+  .rightSide {
+    width: 30%;
+  }
+  
+  .earthGlobe {
+    width: 200px;
+    height: 200px;
+    top: 110px;
+  }
+  
+  .wavePattern {
+    height: 7rem;
+  }
+  
+  .newsContainer {
+    bottom: 1.5rem;
+    left: 1.5rem;
+  }
+  
+  .newsText {
+    font-size: 0.8rem;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .container.container {
     flex-direction: column !important;

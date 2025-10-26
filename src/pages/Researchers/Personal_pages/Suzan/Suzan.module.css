@@ -120,6 +120,58 @@ nav a:hover {
   margin-bottom: -500px;
 }
 
+/* 1280px - 1440px */
+@media screen and (min-width: 1280px) and (max-width: 1440px) {
+  .Professor {
+    padding-top: 140px;
+    padding-bottom: 450px;
+    padding-left: 150px;
+  }
+  
+  .Professor > p {
+    left: calc(2% + 400px);
+    font-size: 22px;
+    margin-top: -40px;
+  }
+  
+  .box1 {
+    width: 800px;
+    height: 420px;
+    padding-left: 200px;
+    padding-right: 12px;
+    line-height: 30px;
+  }
+  
+  .box1 ul {
+    font-size: 14px;
+    margin-top: 40px;
+  }
+  
+  .box1 b {
+    font-size: 14px;
+  }
+  
+  .box1 p {
+    font-size: 11px;
+  }
+  
+  .box1 nav a {
+    font-size: 11px;
+  }
+  
+  .box2 {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .staticFigure img {
+    height: 35rem;
+    margin-top: -70px;
+    padding-left: 250px;
+    margin-bottom: -450px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .Professor.Professor {
     padding: 20px !important;
