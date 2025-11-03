@@ -61,11 +61,18 @@ html body[data-scroll-locked] {
   overflow-y: visible !important;
 }
 
-html, body {
+html {
   height: 100%;
   border: none !important;
   box-shadow: none !important;
-  overflow-y: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+body {
+  height: 100%;
+  border: none !important;
+  box-shadow: none !important;
   margin: 0 !important;
   padding: 0 !important;
 }
