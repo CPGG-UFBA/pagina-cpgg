@@ -1,7 +1,15 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .history {
   flex: 1;
   padding: 2rem;
   margin-bottom: 40px;
+  overflow: hidden;
 }
 
 .title {

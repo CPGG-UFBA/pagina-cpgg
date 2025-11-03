@@ -9,7 +9,7 @@ export  function History() {
   const { t } = useLanguage();
   
   return (
-      <>
+      <div className={styles.pageContainer}>
       <Header/>
           <main className={styles.history}>
               <h1 className={styles.title}>{t('history.title')}</h1>
@@ -35,6 +35,6 @@ export  function History() {
           </div>
          
           <Footer/>
-      </>
+      </div>
   )
 }

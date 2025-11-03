@@ -105,7 +105,7 @@ export function Regulations() {
   };
 
   return (
-      <>
+      <div className={styles.pageContainer}>
       <Header/>
           <main className={styles.regulations}>
               <h1 className={styles.title}>{t('regulations.title')}</h1>
@@ -156,6 +156,6 @@ export function Regulations() {
           />
 
           <Footer/>
-      </>
+      </div>
   )
 }

@@ -1,10 +1,17 @@
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .regulations {
   flex: 1;
   padding: 2rem;
   margin-bottom: -30px;
-  min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .title {
@@ -26,12 +33,9 @@
   margin: 0 auto;
   padding: 0 50px;
   margin-bottom: 4rem;
-  max-height: calc(100vh - 400px);
-  overflow-y: auto;
-  padding-bottom: 2rem;
-  margin-left: calc(50% - 400px - 350px);
+  max-height: 100%;
+  overflow: hidden;
 }
-
 
 .regulation {
   padding: 2rem;
