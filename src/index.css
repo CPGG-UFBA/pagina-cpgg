@@ -132,7 +132,7 @@ All colors MUST be HSL.
     height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
-    overflow: visible !important;
+    overflow: hidden !important;
   }
 
   /* All page containers */
