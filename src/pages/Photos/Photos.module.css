@@ -1,8 +1,9 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
 }
 
 /* Portrait orientation - when height > width */
@@ -15,7 +16,7 @@
 .photos {
   flex: 1;
   padding: 2rem;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .title {
