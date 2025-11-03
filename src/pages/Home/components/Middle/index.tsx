@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { supabase } from '@/integrations/supabase/client'
+import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 import styles from './middle.module.css'
+import earth from '../../../../assets/earth-photos.jpg'
 
 interface NewsArticle {
   id: string
@@ -16,10 +18,22 @@ interface NewsArticle {
 export function Middle() {
   const [newsArticles, setNewsArticles] = useState<NewsArticle[]>([])
   const [loading, setLoading] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
 
   useEffect(() => {
     fetchNews()
   }, [])
+
+  useEffect(() => {
+    if (!isPlaying || newsArticles.length === 0) return
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % newsArticles.length)
+    }, 5000)
+
+    return () => clearInterval(interval)
+  }, [isPlaying, newsArticles.length])
 
   const fetchNews = async () => {
     try {
@@ -63,6 +77,22 @@ export function Middle() {
     }
   }
 
+  const handlePrevious = () => {
+    setCurrentIndex((prev) => (prev - 1 + newsArticles.length) % newsArticles.length)
+  }
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % newsArticles.length)
+  }
+
+  const handleDotClick = (index: number) => {
+    setCurrentIndex(index)
+  }
+
+  const togglePlayPause = () => {
+    setIsPlaying((prev) => !prev)
+  }
+
   const fallbackImages = [
     '../../../../components/Figures/news1.png',
     '../../../../components/Figures/news2.png',
@@ -78,29 +108,71 @@ export function Middle() {
   }
 
   const displayArticles = newsArticles.length > 0 ? newsArticles : []
+  const currentArticle = displayArticles[currentIndex]
 
   return (
     <main className={styles.middle}>
       <div className={styles.carouselContainer}>
-        {displayArticles.map((article, index) => (
-          <a key={article.id} href={getNewsRoute(article.news_position)} className={styles.newsLink}>
+        {currentArticle && (
+          <a href={getNewsRoute(currentArticle.news_position)} className={styles.newsLink}>
             <div className={styles.newsCard}>
               <div className={styles.imageWrapper}>
                 <img 
-                  src={getCoverImageUrl(article) || fallbackImages[index % 3]} 
-                  alt={article.title}
+                  src={getCoverImageUrl(currentArticle) || fallbackImages[currentIndex % 3]} 
+                  alt={currentArticle.title}
                   className={styles.newsImage}
                 />
               </div>
               <div className={styles.newsContent}>
-                <h2 className={styles.newsTitle}>{article.title}</h2>
+                <h2 className={styles.newsTitle}>{currentArticle.title}</h2>
                 <p className={styles.newsDescription}>
-                  {article.content.substring(0, 100)}...
+                  {currentArticle.content.substring(0, 150)}...
                 </p>
               </div>
             </div>
           </a>
-        ))}
+        )}
+
+        {displayArticles.length > 1 && (
+          <>
+            <button 
+              onClick={handlePrevious} 
+              className={`${styles.navButton} ${styles.navButtonLeft}`}
+              aria-label="Notícia anterior"
+            >
+              <ChevronLeft size={32} />
+            </button>
+
+            <button 
+              onClick={handleNext} 
+              className={`${styles.navButton} ${styles.navButtonRight}`}
+              aria-label="Próxima notícia"
+            >
+              <ChevronRight size={32} />
+            </button>
+
+            <div className={styles.controls}>
+              <div className={styles.dots}>
+                {displayArticles.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleDotClick(index)}
+                    className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
+                    aria-label={`Ir para notícia ${index + 1}`}
+                  />
+                ))}
+              </div>
+              <button 
+                onClick={togglePlayPause} 
+                className={styles.playPauseButton}
+                aria-label={isPlaying ? 'Pausar' : 'Reproduzir'}
+              >
+                {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+                <span>{isPlaying ? 'PARAR' : 'INICIAR'}</span>
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       <div className={styles.static}>
