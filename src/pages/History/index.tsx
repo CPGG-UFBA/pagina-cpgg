@@ -11,7 +11,7 @@ export  function History() {
   return (
       <>
       <Header/>
-          <div className={styles.history}>
+          <main className={styles.history}>
               <h1 className={styles.title}>{t('history.title')}</h1>
 
               <div className={styles.container}>
@@ -28,7 +28,7 @@ export  function History() {
                   </a>
 
               </div>
-          </div>
+          </main>
 
           <div className={styles.staticFigure}>
             <img src={earth} alt="Terra" />

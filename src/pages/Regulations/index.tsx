@@ -107,7 +107,7 @@ export function Regulations() {
   return (
       <>
       <Header/>
-          <div className={styles.regulations}>
+          <main className={styles.regulations}>
               <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
@@ -141,9 +141,9 @@ export function Regulations() {
                   ))}
 
               </div>
-          </div>
+          </main>
 
-          <EditButton 
+          <EditButton
             onClick={() => setShowLogin(true)}
             isEditMode={isEditMode}
             onLogout={handleLogout}

@@ -154,21 +154,8 @@ All colors MUST be HSL.
   }
 
   /* Main content area should be scrollable and fill remaining space */
-  main:not(.middle),
-  .main-content,
-  .photos,
-  .regulations,
-  .spaces,
-  .cpgg,
-  .contact,
-  .history,
-  .researchers,
-  .labs,
-  .coordination,
-  .technicians,
-  .institution,
-  .production,
-  .recipes {
+  main:not(.middle):not(.cpgg):not(.history):not(.regulations):not(.photos),
+  .main-content {
     flex: 1 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
@@ -177,7 +164,11 @@ All colors MUST be HSL.
   }
   
   /* Home page Middle component - no scroll */
-  main.middle {
+  main.middle,
+  main.cpgg,
+  main.history,
+  main.regulations,
+  main.photos {
     flex: 1 !important;
     overflow: hidden !important;
     overflow-y: hidden !important;
