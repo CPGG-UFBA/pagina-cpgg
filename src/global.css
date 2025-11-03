@@ -70,6 +70,17 @@ html, body {
   padding: 0 !important;
 }
 
+/* Force no scroll on Home page */
+body:has(main.middle) {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+body:has(main.middle) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
 body {
   background-image: url('https://imgur.com/zBzhTLu');
   background-size: cover;
