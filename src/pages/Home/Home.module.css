@@ -5,6 +5,20 @@
   overflow: hidden;
 }
 
+.middle {
+  display: flex;
+  flex-direction: row;
+  padding-top: 140px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 0;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 0;
+  flex: 1;
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+}
+
 /* Portrait orientation - when height > width */
 @media (orientation: portrait) {
   .Container {

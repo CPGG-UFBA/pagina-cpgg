@@ -100,18 +100,14 @@ export function Middle() {
   ]
 
   if (loading) {
-    return (
-      <main className={styles.middle}>
-        <div className={styles.loading}>Carregando notícias...</div>
-      </main>
-    )
+    return <div className={styles.loading}>Carregando notícias...</div>
   }
 
   const displayArticles = newsArticles.length > 0 ? newsArticles : []
   const currentArticle = displayArticles[currentIndex]
 
   return (
-    <main className={styles.middle}>
+    <>
       <div className={styles.carouselContainer}>
         {currentArticle && (
           <a href={getNewsRoute(currentArticle.news_position)} className={styles.newsLink}>
@@ -184,6 +180,6 @@ export function Middle() {
           <h1>and trade proposals</h1>
         </div>
       </div>
-    </main>
+    </>
   )
 }

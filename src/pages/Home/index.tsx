@@ -7,7 +7,9 @@ export function Home() {
   return (
     <div className={styles.Container}>
       <Header />
-      <Middle />
+      <main className={`middle ${styles.middle}`}>
+        <Middle />
+      </main>
       <Footer />
     </div>
   )
