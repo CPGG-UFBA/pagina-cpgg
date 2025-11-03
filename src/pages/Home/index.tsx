@@ -5,9 +5,9 @@ import styles from './Home.module.css'
 
 export function Home() {
   return (
-    <div className={styles.Container}>
+    <div className={styles.Container} style={{ overflow: 'hidden', height: '100vh' }}>
       <Header />
-      <main className={`middle ${styles.middle}`}>
+      <main className={`middle ${styles.middle}`} style={{ overflow: 'hidden' }}>
         <Middle />
       </main>
       <Footer />

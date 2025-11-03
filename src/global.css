@@ -75,34 +75,7 @@ body {
   box-shadow: none !important;
   margin: 0 !important;
   padding: 0 !important;
-}
-
-/* Force no scroll on Home page */
-body:has(main.middle) {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
-
-body:has(main.middle) #root {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
-
-/* Force no scroll on CPGG, History, Regulations, Photos pages */
-body:has(main.cpgg),
-body:has(main.history),
-body:has(main.regulations),
-body:has(main.photos) {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
-
-body:has(main.cpgg) #root,
-body:has(main.history) #root,
-body:has(main.regulations) #root,
-body:has(main.photos) #root {
-  overflow: hidden !important;
-  height: 100vh !important;
+  overflow: hidden;
 }
 
 body {

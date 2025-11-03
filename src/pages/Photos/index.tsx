@@ -44,9 +44,9 @@ export function Photos() {
   }
 
   return (
-      <div className={styles.pageContainer}>
+      <div className={styles.pageContainer} style={{ overflow: 'hidden', height: '100vh' }}>
         <Header/>
-        <main className={styles.photos}>
+        <main className={styles.photos} style={{ overflow: 'hidden' }}>
             <div className={styles.titleContainer}>
               <h1 className={styles.title}>Fotos de eventos</h1>
               {showAdminButton && (

@@ -10,9 +10,9 @@ export function CPGG() {
   const { t } = useLanguage()
   
   return (
-    <div className={styles.pageContainer}>
+    <div className={styles.pageContainer} style={{ overflow: 'hidden', height: '100vh' }}>
       <Header />
-      <main className={styles.cpgg}>
+      <main className={styles.cpgg} style={{ overflow: 'hidden' }}>
         <div className={styles.Title} >
           <ul>{t('cpgg.title')}</ul>
           <div className={styles.box}>
