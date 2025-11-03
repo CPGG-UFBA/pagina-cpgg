@@ -46,7 +46,7 @@
   padding: 20px;
   border-radius: 20px;
   gap: 5px;
-  overflow: hidden;
+  overflow-y: auto;
   margin-bottom: 0;
 }
 
