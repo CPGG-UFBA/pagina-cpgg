@@ -154,7 +154,7 @@ All colors MUST be HSL.
   }
 
   /* Main content area should be scrollable and fill remaining space */
-  main,
+  main:not(.middle),
   .main-content,
   .photos,
   .regulations,
@@ -174,6 +174,15 @@ All colors MUST be HSL.
     overflow-x: hidden !important;
     height: 0 !important; /* Forces flex to work properly */
     padding-bottom: 610px !important; /* Space for fixed footer */
+  }
+  
+  /* Home page Middle component - no scroll */
+  main.middle {
+    flex: 1 !important;
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    padding-bottom: 0 !important;
+    height: auto !important;
   }
   
   /* Home page specific - no scroll */
