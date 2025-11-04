@@ -105,6 +105,17 @@ body:has(main.photos) #root {
   height: 100vh !important;
 }
 
+/* Force no scroll on Coordination page */
+body:has(.heads) {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+body:has(.heads) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
 body {
   background-image: url('https://imgur.com/zBzhTLu');
   background-size: cover;
