@@ -15,12 +15,12 @@
 }
 
 .mainTitle {
-  font-size: 25px;
+  font-size: 28px;
   color: var(--gray-contact);
   margin-left: -500px;
   margin-top: -1.25rem;
   white-space: nowrap;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .section {
