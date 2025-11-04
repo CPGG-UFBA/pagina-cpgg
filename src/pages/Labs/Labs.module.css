@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: -620px;
+  margin-left: -670px;
   margin-bottom: 2rem;
   margin-top: 7rem;
 }
@@ -204,7 +204,7 @@
   }
 
   .titleContainer {
-    margin-left: -500px;
+    margin-left: -550px;
     margin-top: 8rem;
   }
 
@@ -237,7 +237,7 @@
   }
 
   .titleContainer {
-    margin-left: -620px;
+    margin-left: -670px;
     margin-top: 7rem;
   }
 
