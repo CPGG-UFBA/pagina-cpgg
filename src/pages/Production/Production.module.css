@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden !important;
 }
 
 /* Portrait orientation - when height > width */
@@ -78,6 +80,7 @@
 .scrollArea {
   width: 100%;
   max-height: 70vh;
+  overflow: hidden !important;
 }
 
 .publicationsGrid {

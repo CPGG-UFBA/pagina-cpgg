@@ -126,7 +126,7 @@ export function Production() {
   return (
     <div className={styles.Container}>
       <Header />
-      <div className={`${styles.container} scientific-publications-page`}>
+      <div className={`${styles.container} scientific-publications-page production`}>
         <div className={styles.header}>
           <BookOpen size={32} color="white" />
           <h1>Produção Científica</h1>
