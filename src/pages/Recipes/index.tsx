@@ -8,7 +8,7 @@ export  function Recipes() {
   return (
       <>
       <Header/>
-          <div className={styles.recipes}>
+          <div className={`${styles.recipes} recipes`}>
               <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>

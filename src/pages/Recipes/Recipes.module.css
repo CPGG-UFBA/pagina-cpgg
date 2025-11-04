@@ -2,6 +2,8 @@
 .recipes {
   flex: 1;
   padding: 2rem;
+  overflow: hidden !important;
+  max-height: calc(100vh - 150px);
 }
 
 .title {
