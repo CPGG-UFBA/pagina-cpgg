@@ -115,7 +115,7 @@ export  function Labs() {
   return (
       <>
       <Header/>
-          <div className={styles.labs}>
+          <div className={`${styles.labs} labs`}>
             <div className={styles.titleContainer}>
               <h1 className={styles.title}>Laboratórios e Reservas</h1>
               <EditButton 

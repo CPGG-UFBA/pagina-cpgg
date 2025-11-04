@@ -88,14 +88,15 @@ body:has(main.middle) #root {
   height: 100vh !important;
 }
 
-/* Force no scroll on CPGG, History, Regulations, Photos, Coordination, Researchers, Technicians pages */
+/* Force no scroll on CPGG, History, Regulations, Photos, Coordination, Researchers, Technicians, Labs pages */
 body:has(main.cpgg),
 body:has(main.history),
 body:has(main.regulations),
 body:has(main.photos),
 body:has(.coordination),
 body:has(.researchers),
-body:has(.technicians) {
+body:has(.technicians),
+body:has(.labs) {
   overflow: hidden !important;
   height: 100vh !important;
 }
@@ -106,7 +107,8 @@ body:has(main.regulations) #root,
 body:has(main.photos) #root,
 body:has(.coordination) #root,
 body:has(.researchers) #root,
-body:has(.technicians) #root {
+body:has(.technicians) #root,
+body:has(.labs) #root {
   overflow: hidden !important;
   height: 100vh !important;
 }
