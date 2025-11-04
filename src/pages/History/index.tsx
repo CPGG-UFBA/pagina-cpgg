@@ -29,6 +29,10 @@ export  function History() {
 
               </div>
           </main>
+
+          <div className={styles.staticFigure}>
+            <img src={earth} alt="Terra" className={styles.earthImage} />
+          </div>
          
           <Footer/>
       </div>

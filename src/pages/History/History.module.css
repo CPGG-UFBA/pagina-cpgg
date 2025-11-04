@@ -74,13 +74,26 @@
 
 
 .staticFigure {
-  display: none !important;
-  visibility: hidden !important;
+  position: fixed !important;
+  top: 135px !important;
+  left: calc(50% + 500px) !important;
+  transform: translateX(-50%) !important;
+  z-index: 99999 !important;
+  width: 500px !important;
+  height: 500px !important;
+  display: block !important;
+  visibility: visible !important;
+  pointer-events: none !important;
 }
 
-.staticFigure img {
-  display: none !important;
-  visibility: hidden !important;
+.earthImage {
+  width: 500px !important;
+  height: 500px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
 }
 
 @media (max-width: 1200px) {
@@ -88,7 +101,7 @@
     display: none !important;
   }
 
-  .staticFigure img {
+  .earthImage {
     display: none !important;
   }
 
