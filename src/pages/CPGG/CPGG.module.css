@@ -27,7 +27,7 @@
   white-space: nowrap;
   font-weight: bold;
   position: absolute !important;
-  top: calc(230px - 28px) !important;
+  top: calc(205px - 28px) !important;
 }
 
 .box {
@@ -42,7 +42,7 @@
   height: 60vh;
   margin: 0 auto;
   margin-left: calc(50% - 400px - 250px - 140px);
-  margin-top: 230px;
+  margin-top: 205px;
   padding: 20px;
   border-radius: 20px;
   gap: 5px;
