@@ -17,10 +17,6 @@
   overflow: hidden !important;
 }
 
-.Title {
-  overflow: hidden !important;
-}
-
 .Title ul {
   font-size: 28px;
   color: #363F5;
@@ -50,7 +46,7 @@
   padding: 20px;
   border-radius: 20px;
   gap: 5px;
-  overflow: hidden !important;
+  overflow-y: auto;
   margin-bottom: 0;
 }
 
