@@ -75,21 +75,21 @@
 
 .staticFigure {
   display: none !important;
+  visibility: hidden !important;
 }
 
 .staticFigure img {
   display: none !important;
+  visibility: hidden !important;
 }
 
 @media (max-width: 1200px) {
   .staticFigure {
-    right: 50px;
-    top: 120px;
+    display: none !important;
   }
 
   .staticFigure img {
-    width: 400px;
-    height: 400px;
+    display: none !important;
   }
 
   .history h1{
