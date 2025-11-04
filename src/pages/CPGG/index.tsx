@@ -12,7 +12,7 @@ export function CPGG() {
   return (
     <div className={styles.pageContainer}>
       <Header />
-      <main className={styles.cpgg}>
+      <main className={`${styles.cpgg} cpgg`}>
         <div className={styles.Title} >
           <ul>{t('cpgg.title')}</ul>
           <div className={styles.box}>
