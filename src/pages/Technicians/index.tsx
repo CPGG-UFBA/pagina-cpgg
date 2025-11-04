@@ -6,7 +6,7 @@ export function Technicians() {
   return (
     <div className={styles.Container}>
       <Header />
-      <div className={styles.technicians}>
+      <div className={`${styles.technicians} technicians`}>
         <div className={styles.Employees}>
           <ul>Corpo Administrativo e Técnico</ul>
           <div className={styles.techniciansGrid}>
