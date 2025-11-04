@@ -111,6 +111,8 @@ nav ul li:hover .submenu1 {
 
 nav ul li:hover .submenu1 ul {
   display: block;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li:hover .submenu1 ul li {
@@ -147,6 +149,11 @@ nav ul li:hover .submenu1 ul li:hover a {
   width: fit-content;
   min-width: 190px;
   z-index: 100001;
+}
+
+.submenu2 ul {
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li:hover .submenu2 ul li {
