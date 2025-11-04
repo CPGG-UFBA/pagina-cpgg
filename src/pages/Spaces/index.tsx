@@ -53,7 +53,7 @@ export function Spaces() {
   return (
     <div className={styles.pageContainer}>
       <Header/>
-      <main className={styles.spaces}>
+      <main className={`${styles.spaces} spaces`}>
         <h1 className={styles.title}>{t('spaces.title')}</h1>
 
         <div className={styles.container}>
