@@ -144,7 +144,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   display: block;
   position: absolute;
   margin-top: -47px;
-  margin-left: -205px; /* colado ao menu primário, à esquerda */
+  margin-left: -200px; /* colado ao menu primário, à esquerda */
   background-color: #592cbb;
   width: fit-content;
   min-width: 190px;
@@ -189,7 +189,7 @@ nav ul li:hover .submenu2 ul li a {
 }
 
 .submenu2Personnel {
-  margin-left: -205px !important;
+  margin-left: -195px !important;
 }
 
 .header img {
