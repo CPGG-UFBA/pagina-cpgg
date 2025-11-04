@@ -9,7 +9,7 @@
   flex: 1;
   padding: 1rem;
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
   overflow-x: hidden;
 }
 
