@@ -40,7 +40,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
-  transform: translate(-350px, 50px);
+  transform: translate(-350px, 80px);
   overflow: hidden;
   max-height: calc(100vh - 250px);
 }
