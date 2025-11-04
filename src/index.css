@@ -227,7 +227,7 @@ All colors MUST be HSL.
     top: 135px !important;
     left: calc(50% + 500px) !important;
     transform: translateX(-50%) !important;
-    z-index: 99999 !important;
+    z-index: 10000 !important;
     width: 500px !important;
     height: 500px !important;
     display: block !important;
