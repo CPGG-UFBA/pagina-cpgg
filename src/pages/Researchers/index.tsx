@@ -315,7 +315,7 @@ export function Researchers() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', overflow: 'visible' }}>
       <Header />
-      <div className={`${styles.researchers} hide-earth`} style={{ flex: 1, overflow: 'visible', position: 'relative' }}>
+      <div className={`${styles.researchers} researchers hide-earth`} style={{ flex: 1, overflow: 'visible', position: 'relative' }}>
         <div className={styles.Programs}>
           <ul>{t('researchers.title')}</ul>
           <div className={styles.box}>
