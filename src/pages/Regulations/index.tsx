@@ -107,7 +107,7 @@ export function Regulations() {
   return (
       <div className={styles.pageContainer}>
       <Header/>
-          <main className={styles.regulations}>
+          <main className={`${styles.regulations} regulations`}>
               <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
