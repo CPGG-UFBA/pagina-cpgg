@@ -48,7 +48,7 @@
 
 .mapContainer {
   position: relative;
-  height: 480px;
+  height: 380px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
