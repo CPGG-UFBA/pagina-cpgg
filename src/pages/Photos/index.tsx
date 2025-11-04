@@ -46,7 +46,7 @@ export function Photos() {
   return (
       <div className={styles.pageContainer}>
         <Header/>
-        <main className={styles.photos}>
+        <main className={`${styles.photos} photos`}>
             <div className={styles.titleContainer}>
               <h1 className={styles.title}>Fotos de eventos</h1>
               {showAdminButton && (
