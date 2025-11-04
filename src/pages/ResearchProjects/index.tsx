@@ -84,7 +84,7 @@ export function ResearchProjects() {
       <div className={`${styles.container} research-projects-page research-projects`}>
         <div className={styles.header}>
           <BookOpen size={32} />
-          <h1>Projetos de Pesquisa que dão suporte ao CPGG</h1>
+          <h1>Projetos de Pesquisa</h1>
           <p>Conheça os principais projetos de pesquisa que dão suporte ao nosso centro</p>
         </div>
 
