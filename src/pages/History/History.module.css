@@ -74,19 +74,11 @@
 
 
 .staticFigure {
-  position: absolute;
-  right: 200px;
-  top: 180px;
-  z-index: -1;
-  pointer-events: none;
+  display: none !important;
 }
 
 .staticFigure img {
-  width: 520px;
-  height: 520px;
-  object-fit: contain;
-  margin: 0;
-  padding: 0;
+  display: none !important;
 }
 
 @media (max-width: 1200px) {
