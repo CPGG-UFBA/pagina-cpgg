@@ -88,11 +88,12 @@ body:has(main.middle) #root {
   height: 100vh !important;
 }
 
-/* Force no scroll on CPGG, History, Regulations, Photos pages */
+/* Force no scroll on CPGG, History, Regulations, Photos, Coordination pages */
 body:has(main.cpgg),
 body:has(main.history),
 body:has(main.regulations),
-body:has(main.photos) {
+body:has(main.photos),
+body:has(.coordination) {
   overflow: hidden !important;
   height: 100vh !important;
 }
@@ -100,7 +101,8 @@ body:has(main.photos) {
 body:has(main.cpgg) #root,
 body:has(main.history) #root,
 body:has(main.regulations) #root,
-body:has(main.photos) #root {
+body:has(main.photos) #root,
+body:has(.coordination) #root {
   overflow: hidden !important;
   height: 100vh !important;
 }

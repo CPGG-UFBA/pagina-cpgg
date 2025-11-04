@@ -173,7 +173,7 @@ export function Coordination() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
-      <div className={`${styles.heads} ${isEditMode ? styles.editMode : ''} hide-earth`} style={{ flex: 1 }}>
+      <div className={`${styles.heads} coordination ${isEditMode ? styles.editMode : ''} hide-earth`} style={{ flex: 1 }}>
         <div className={styles.box1}>
           <div className={styles.coordination}>
             <ul>Coordenação</ul>
