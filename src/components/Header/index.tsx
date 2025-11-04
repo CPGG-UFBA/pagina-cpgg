@@ -85,7 +85,7 @@ export function Header() {
 
                 <li className={styles.hoversub}> 
                   <a href='#'>{t('nav.personnel')}</a>
-                  <div className={styles.submenu2}>
+                  <div className={`${styles.submenu2} ${styles.submenu2Right}`}>
                     <ul>
                       <li>
                         <NavLink to='/Coordination' className={styles.navLink}>

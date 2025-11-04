@@ -188,6 +188,13 @@ nav ul li:hover .submenu2 ul li a {
   color: #592cbb !important;
 }
 
+.submenu2Right {
+  margin-left: 0 !important;
+  right: auto !important;
+  left: 100% !important;
+  margin-top: -47px !important;
+}
+
 .header img {
   height: 3rem;
   margin-top: 15px;
