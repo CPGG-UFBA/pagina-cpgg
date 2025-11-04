@@ -11,7 +11,7 @@ export  function History() {
   return (
       <div className={styles.pageContainer}>
       <Header/>
-          <main className={styles.history}>
+          <main className={`${styles.history} history`}>
               <h1 className={styles.title}>{t('history.title')}</h1>
 
               <div className={styles.container}>
