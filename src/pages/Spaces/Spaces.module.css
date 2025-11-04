@@ -1,16 +1,16 @@
 .pageContainer {
-  height: 100vh;
+  height: 100vh !important;
+  max-height: 100vh !important;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .spaces {
   flex: 1;
   padding: 1rem;
   position: relative;
-  overflow-y: hidden;
-  overflow-x: hidden;
+  overflow: hidden !important;
 }
 
 .title {
