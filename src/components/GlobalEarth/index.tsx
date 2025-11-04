@@ -41,7 +41,7 @@ export function GlobalEarth() {
       className="global-earth-container"
       style={{
         position: 'fixed !important' as any,
-        top: '135px !important' as any,
+        top: '165px !important' as any,
         right: '50px !important' as any,
         zIndex: '1 !important' as any,
         width: '500px !important' as any,
