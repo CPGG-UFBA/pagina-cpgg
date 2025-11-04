@@ -44,14 +44,14 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 722px;
+  max-width: 903px;
 }
 
 .mapContainer {
   position: relative;
-  height: 280px;
+  height: 224px;
   width: 100%;
-  max-width: 722px;
+  max-width: 903px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
