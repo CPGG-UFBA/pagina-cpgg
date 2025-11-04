@@ -15,7 +15,6 @@ interface ResearchProject {
   funding_agency: string
   validity_period: string
   coordinator: string
-  vice_coordinator: string | null
   created_at: string
 }
 
@@ -32,8 +31,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
     title: '',
     funding_agency: '',
     validity_period: '',
-    coordinator: '',
-    vice_coordinator: ''
+    coordinator: ''
   })
   const { toast } = useToast()
 
@@ -45,8 +43,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
           title: formData.title,
           funding_agency: formData.funding_agency,
           validity_period: formData.validity_period,
-          coordinator: formData.coordinator,
-          vice_coordinator: formData.vice_coordinator || null
+          coordinator: formData.coordinator
         }])
 
       if (error) throw error
@@ -61,8 +58,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
         title: '',
         funding_agency: '',
         validity_period: '',
-        coordinator: '',
-        vice_coordinator: ''
+        coordinator: ''
       })
       onProjectsUpdate()
     } catch (error) {
@@ -83,8 +79,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
           title: formData.title,
           funding_agency: formData.funding_agency,
           validity_period: formData.validity_period,
-          coordinator: formData.coordinator,
-          vice_coordinator: formData.vice_coordinator || null
+          coordinator: formData.coordinator
         })
         .eq('id', projectId)
 
@@ -139,8 +134,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
       title: project.title,
       funding_agency: project.funding_agency,
       validity_period: project.validity_period,
-      coordinator: project.coordinator,
-      vice_coordinator: project.vice_coordinator || ''
+      coordinator: project.coordinator
     })
   }
 
@@ -150,8 +144,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
       title: '',
       funding_agency: '',
       validity_period: '',
-      coordinator: '',
-      vice_coordinator: ''
+      coordinator: ''
     })
   }
 
@@ -263,19 +256,6 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
                   <p className="text-sm">{project.coordinator}</p>
                 )}
               </div>
-              
-              <div>
-                <label className="text-sm font-medium text-muted-foreground">Vice-coordenador:</label>
-                {editingProject === project.id ? (
-                  <Input
-                    value={formData.vice_coordinator}
-                    onChange={(e) => setFormData({ ...formData, vice_coordinator: e.target.value })}
-                    placeholder="Nome do vice-coordenador (opcional)"
-                  />
-                ) : (
-                  <p className="text-sm">{project.vice_coordinator || 'Não informado'}</p>
-                )}
-              </div>
             </CardContent>
           </Card>
         ))}
@@ -307,11 +287,6 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
               placeholder="Coordenador"
               value={formData.coordinator}
               onChange={(e) => setFormData({ ...formData, coordinator: e.target.value })}
-            />
-            <Input
-              placeholder="Vice-coordenador (opcional)"
-              value={formData.vice_coordinator}
-              onChange={(e) => setFormData({ ...formData, vice_coordinator: e.target.value })}
             />
             <div className="flex gap-2">
               <Button variant="outline" onClick={() => setShowAddDialog(false)} className="flex-1">

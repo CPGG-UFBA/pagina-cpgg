@@ -18,7 +18,6 @@ interface ResearchProject {
   funding_agency: string
   validity_period: string
   coordinator: string
-  vice_coordinator: string | null
   created_at: string
 }
 
@@ -131,14 +130,6 @@ export function ResearchProjects() {
                             <span className={styles.label}>Coordenador:</span>
                             <span className={styles.value}>{project.coordinator}</span>
                           </div>
-
-                          {project.vice_coordinator && (
-                            <div className={styles.infoItem}>
-                              <Users size={16} />
-                              <span className={styles.label}>Vice-coordenador:</span>
-                              <span className={styles.value}>{project.vice_coordinator}</span>
-                            </div>
-                          )}
                         </div>
                       </CardContent>
                     </Card>
