@@ -9,9 +9,9 @@ export  function History() {
   const { t } = useLanguage();
   
   return (
-      <div className={styles.pageContainer} style={{ overflow: 'hidden', height: '100vh' }}>
+      <div className={styles.pageContainer}>
       <Header/>
-          <main className={styles.history} style={{ overflow: 'hidden' }}>
+          <main className={styles.history}>
               <h1 className={styles.title}>{t('history.title')}</h1>
 
               <div className={styles.container}>

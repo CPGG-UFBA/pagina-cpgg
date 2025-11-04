@@ -105,9 +105,9 @@ export function Regulations() {
   };
 
   return (
-      <div className={styles.pageContainer} style={{ overflow: 'hidden', height: '100vh' }}>
+      <div className={styles.pageContainer}>
       <Header/>
-          <main className={styles.regulations} style={{ overflow: 'hidden' }}>
+          <main className={styles.regulations}>
               <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
