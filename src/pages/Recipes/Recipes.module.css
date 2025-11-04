@@ -11,12 +11,10 @@
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
+  margin-top: 7rem;
   margin-left: -650px;
   font-size: 24px;
   color: white;
-  position: absolute !important;
-  top: calc(185px - 28px) !important;
-  white-space: nowrap;
 }
 
 .container {

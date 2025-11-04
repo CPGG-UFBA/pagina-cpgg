@@ -17,10 +17,9 @@
 .header {
   text-align: center;
   margin-bottom: 1rem;
+  margin-top: 5rem;
   color: white;
   transform: translateX(-150px);
-  position: absolute !important;
-  top: calc(185px - 28px) !important;
 }
 
 .title {

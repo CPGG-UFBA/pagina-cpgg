@@ -10,14 +10,12 @@
   align-items: center;
   margin-left: -470px;
   margin-bottom: 2rem;
-  position: absolute !important;
-  top: calc(185px - 28px) !important;
+  margin-top: 7rem;
 }
 
 .title {
   font-size: 24px;
   color: white;
-  white-space: nowrap;
 }
 
 .dynamicLab {
