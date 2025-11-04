@@ -103,7 +103,8 @@ nav ul li:hover .submenu1 {
   margin-top: -30px;
   font-size: 16px;
   z-index: 100000;
-  width: 160px;
+  width: fit-content;
+  min-width: 160px;
   right: 0;
   max-width: calc(100vw - 20px);
 }
@@ -114,7 +115,7 @@ nav ul li:hover .submenu1 ul {
 
 nav ul li:hover .submenu1 ul li {
   transition: 0.7s;
-  width: 160px;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -143,13 +144,14 @@ nav ul li:hover .submenu1 ul li:hover a {
   margin-top: -47px;
   margin-left: -190px; /* colado ao menu primário, à esquerda */
   background-color: #592cbb;
-  width: 190px;
+  width: fit-content;
+  min-width: 190px;
   z-index: 100001;
 }
 
 nav ul li:hover .submenu2 ul li {
   transition: 0.7s;
-  width: 190px;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
