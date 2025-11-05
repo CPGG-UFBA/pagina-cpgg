@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Header } from "../../../../components/Header";
+import { Footer } from "../../../../components/Footer";
 import { supabase } from "../../../../integrations/supabase/client";
 import { LaigaEquipmentEditor } from "../../../../components/LaigaEquipmentEditor";
 import styles from "./LaigaReservation.module.css";
@@ -368,6 +369,7 @@ export function RF() {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
