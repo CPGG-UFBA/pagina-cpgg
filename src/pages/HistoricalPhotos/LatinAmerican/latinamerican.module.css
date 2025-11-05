@@ -4,6 +4,11 @@
   height: 100vh !important;
   max-height: 100vh !important;
   overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Portrait orientation - when height > width */
