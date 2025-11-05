@@ -19,7 +19,7 @@
 .title {
   justify-content: center;
   align-items: center;
-  margin-left: 350px;
+  margin-left: 430px;
   margin-bottom: 2rem;
   margin-top: 7rem;
   font-size: 24px;
@@ -46,7 +46,7 @@
   width: 350px;
   height: 100px;
   min-height: 120px;
-  left: 50px;
+  left: 130px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -69,7 +69,7 @@
   height: 100px;
   min-height: 120px;
   top: 210px;
-  left: 480px;
+  left: 560px;
   position: absolute;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -91,7 +91,7 @@
   min-height: 120px;
   width: 350px;
   top: 355px;
-  left: 480px;
+  left: 560px;
   position: absolute;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -113,7 +113,7 @@
   color: white;
   min-height: 120px;
   width: 350px;
-  left: 83px;
+  left: 163px;
   top: 355px;
   position: absolute;
   overflow: hidden;
@@ -136,7 +136,7 @@
   color: white;
   min-height: 120px;
   width: 350px;
-  left: 80px;
+  left: 160px;
   top: 510px;
   position: absolute;
   overflow: hidden;
