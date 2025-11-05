@@ -30,7 +30,7 @@
 
 .formContainer {
   max-width: 800px;
-  max-height: 400px;
+  max-height: 350px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -41,7 +41,7 @@
   transform: translateX(-250px);
   overflow-y: auto;
   overflow-x: hidden;
-  margin-bottom: 100px;
+  margin-bottom: 150px;
 }
 
 .form {
