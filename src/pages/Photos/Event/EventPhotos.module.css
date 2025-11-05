@@ -1,7 +1,14 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Portrait orientation - when height > width */
@@ -14,7 +21,7 @@
 .Years{
   display: flex;
   flex: 1;
-  overflow: visible;
+  overflow: hidden !important;
   justify-content: center;
   color: #fff;
   padding-top: 150px;
