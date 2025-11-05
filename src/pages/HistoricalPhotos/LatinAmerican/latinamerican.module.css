@@ -1,7 +1,9 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
 }
 
 /* Portrait orientation - when height > width */
@@ -14,7 +16,7 @@
 .Latin{
   display: flex;
   flex: 1;
-  overflow: visible;
+  overflow: hidden !important;
   justify-content: center;
   color: #fff;
   padding-top: 150px;
