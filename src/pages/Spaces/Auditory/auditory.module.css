@@ -90,7 +90,7 @@
   position: absolute;
   width: 600px;
   height: 565px;
-  top: calc(50% + 35px);
+  top: calc(50% + 20px);
   left: 50%;
   transform: translate(calc(-50% - 330px), -50%);
   padding: 20px;
