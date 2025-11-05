@@ -1,168 +1,144 @@
 /* Contact Page Styles */
-.contact{
+.contact {
   display: flex;
   flex: 1;
   overflow: visible;
-  justify-content: center;
+  align-items: center;
   color: #fff;
-  padding-top: 150px;
-  padding-bottom: 300px;
-  padding-left: 700px;
-  padding-right: 8px;
-  }
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  margin-top: 8rem;
+}
+
+.contactContent {
+  flex: 1;
+  max-width: 600px;
+}
 
 .contact ul {
-    font-size: 30px;
-    color: #fff;
-    position: absolute; 
-    margin-left: -1500px;
-    margin-top: 100px;
-  }
+  font-size: 30px;
+  color: #fff;
+  margin-bottom: 1rem;
+  list-style: none;
+  padding: 0;
+}
 
-  .contact p {
-    font-size: 20px;
-    color: #fff;
-    position: absolute; 
-    margin-left: -1500px;
-    margin-top: 150px;
-  }
+.contact p {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 1rem;
+}
 
-  .whatsappSection {
-    position: absolute;
-    margin-left: -1500px;
-    margin-top: 250px;
-    z-index: 10;
-  }
+.whatsappSection {
+  margin: 2rem 0;
+  z-index: 10;
+}
 
-  .whatsappLink {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 20px;
-    color: #fff;
-    background: #25D366;
-    padding: 12px 20px;
-    border-radius: 25px;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.whatsappLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 20px;
+  color: #fff;
+  background: #25D366;
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .whatsappLink:hover {
-    background: #128C7E;
-  }
+.whatsappLink:hover {
+  background: #128C7E;
+}
 
-  .whatsappIcon {
-    height: 24px;
-    width: 24px;
-    margin-right: 10px;
-  }
+.whatsappIcon {
+  height: 24px;
+  width: 24px;
+  margin-right: 10px;
+}
 
-  .contact b {
-    font-size: 20px;
-    color: #fff;
-    position: absolute; 
-    margin-left: -1500px;
-    margin-top: 360px;
-  }
+.contact b {
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  margin: 2rem 0 0.5rem 0;
+}
 
-  .contact .address {
-    font-size: 20px;
-    color: #fff;
-    position: absolute; 
-    margin-left: -1500px;
-    margin-top: 450px;
-  }
+.contact .address {
+  font-size: 20px;
+  color: #fff;
+  display: block;
+  margin-bottom: 0.5rem;
+}
 
-  .contact .building {
-    font-size: 20px;
-    color: #fff;
-    position: absolute; 
-    margin-left: -1500px;
-    margin-top: 500px;
-
-  }
-
-
-.staticFigure img {
-  height: 40rem;
-  padding-left: 275px;
-  margin-bottom: -350px;
-  margin-top: -20px;
+.contact .building {
+  font-size: 20px;
+  color: #fff;
+  display: block;
 }
 
 .staticFigure {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
   pointer-events: none;
+}
+
+.staticFigure img {
+  height: 40rem;
+  width: auto;
 }
 
 /*--------------------*/
 
 
 @media (max-width: 1200px) {
-
-  .contact ul {
-    margin-left: -1000px;
-  }
-  .contact a {
-    margin-left: -1000px;
-  }
-  .contact p {
-    margin-left: -1000px;
-  }
-  .contact b {
-    margin-left: -1000px;
-  }
-  .contact .address {
-    margin-left: -1000px;
-  }
-
-  .contact .building {
-    margin-left: -1000px;
-  }
-
-  .whatsappSection {
-    margin-left: -1000px;
-  }
   .staticFigure img {
-    height: 20rem;
-    padding-left: 10px;
+    height: 30rem;
   }
 }
 
 @media (max-width: 900px) {
- 
+  .contact {
+    flex-direction: column;
+    padding: 1rem;
+    margin-top: 6rem;
+  }
+  
+  .staticFigure {
+    display: none;
+  }
   
   .contact ul {
-    margin-left: -800px;
+    font-size: 24px;
   }
-  .contact a {
-    margin-left: -800px;
-  }
-  .contact p {
-    margin-left: -800px;
-  }
-  .contact b {
-    margin-left: -800px;
-  }
-  .contact .address {
-    margin-left: -800px;
-  }
-
+  
+  .contact p,
+  .contact b,
+  .contact .address,
   .contact .building {
-    margin-left: -800px;
-  }
-
-  .whatsappSection {
-    margin-left: -800px;
-  }
-
-  .staticFigure img {
-    height: 20rem;
-    padding-left: 150px;
+    font-size: 18px;
   }
 }
 
 @media (max-width: 430px) {
+  .contact ul {
+    font-size: 20px;
+  }
   
-
+  .contact p,
+  .contact b,
+  .contact .address,
+  .contact .building {
+    font-size: 16px;
+  }
+  
+  .whatsappLink {
+    font-size: 18px;
+    padding: 10px 16px;
+  }
 }

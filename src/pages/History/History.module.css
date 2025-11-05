@@ -14,10 +14,8 @@
 }
 
 .title {
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin-bottom: 2rem;
-  margin-left: 525px;
   margin-top: 7rem;
   font-size: 28px;
   font-weight: bold;
@@ -26,12 +24,11 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 350px);
   gap: 2rem;
-  max-width: 800px;
+  justify-content: center;
   margin: 0 auto;
-  margin-left: 225px;
-  margin-bottom: calc(18rem + 40px);
+  margin-bottom: 4rem;
   position: relative;
 }
 
@@ -75,141 +72,68 @@
 
 
 .staticFigure {
-  position: fixed !important;
-  top: 135px !important;
-  left: calc(50% + 500px) !important;
-  transform: translateX(-50%) !important;
-  z-index: 10000 !important;
-  width: 500px !important;
-  height: 500px !important;
-  display: block !important;
-  visibility: visible !important;
-  pointer-events: none !important;
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .earthImage {
-  width: 500px !important;
-  height: 500px !important;
-  object-fit: contain !important;
-  border-radius: 50% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  display: block !important;
+  height: 37rem;
+  width: auto;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 @media (max-width: 1200px) {
-  .staticFigure {
-    display: none !important;
-  }
-
+  .staticFigure img,
   .earthImage {
-    display: none !important;
+    height: 30rem;
   }
-
-  .history h1{
-    padding-left: 120px;
+  
+  .container {
+    grid-template-columns: repeat(2, 320px);
   }
-
-   .headers {
-    margin-left: 100px;
-  }
-
+  
+  .headers,
   .document {
-    margin-left: 30px;
+    width: 320px;
   }
 }
 
 @media (max-width: 900px) {
-}
-
-@media (max-width: 1000px) {
-  .container {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 1.5rem !important;
-    margin-left: 30px !important;
-    max-width: 85vw !important;
-  }
-
-  .headers {
-    width: 250px !important;
-    min-height: 90px !important;
-    padding: 1.2rem !important;
-    font-size: 13px !important;
-  }
-
-  .document {
-    width: 250px !important;
-    min-height: 90px !important;
-    padding: 1.2rem !important;
-    font-size: 13px !important;
-  }
-
-  .title {
-    margin-left: 50px !important;
-    font-size: 22px !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr 1fr !important;
-    gap: 1rem !important;
-    margin-left: 10px !important;
-    max-width: 95vw !important;
-    margin-bottom: 15rem !important;
-  }
-
-  .headers {
-    width: 160px !important;
-    min-height: 80px !important;
-    padding: 1rem !important;
-    margin-left: 0 !important;
-    font-size: 11px !important;
-  }
-
-  .document {
-    width: 160px !important;
-    min-height: 80px !important;
-    padding: 1rem !important;
-    margin-left: 0 !important;
-    font-size: 11px !important;
-  }
-
-  .title {
-    margin-left: 10px !important;
-    font-size: 18px !important;
-    text-align: center !important;
-    margin-top: 4rem !important;
-  }
-
   .staticFigure {
     display: none;
+  }
+  
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+  }
+  
+  .headers,
+  .document {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-top: 5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    grid-template-columns: 1fr !important;
-    gap: 1rem !important;
-    margin-left: 20px !important;
-    max-width: 90vw !important;
-    margin-bottom: 10rem !important;
-  }
-
   .headers,
   .document {
-    width: 90vw !important;
-    max-width: 280px !important;
-    min-height: 70px !important;
-    padding: 0.8rem !important;
-    margin: 0 auto !important;
-    font-size: 12px !important;
+    min-height: 90px;
+    padding: 1rem;
   }
-
+  
   .title {
-    margin-left: 0 !important;
-    text-align: center !important;
-    font-size: 16px !important;
-    margin-top: 3rem !important;
+    font-size: 20px;
+    margin-top: 4rem;
   }
 }
