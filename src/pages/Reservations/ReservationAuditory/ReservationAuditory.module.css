@@ -116,10 +116,6 @@
   flex: 1;
 }
 
-.dateField:first-child {
-  margin-top: -10px;
-}
-
 .dateField:last-child {
   margin-top: -1000px;
   margin-left: 270px;
