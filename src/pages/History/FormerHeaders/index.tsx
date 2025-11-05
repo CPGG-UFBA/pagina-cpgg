@@ -46,18 +46,18 @@ export function Former() {
 
               <div className={styles.box5}>
                 <div className={styles.Header5}>
-                  <h1>Prof. Umberto Raimundo Costa</h1>
-                  <h1>Gomes de Azevedo</h1>
-                  <a>(1989 a 1990)</a>
-                  <div className={styles.photobox5}></div>
+                  <h1>Prof. Edson Starteri Sampaio</h1>
+                  <a> (1986 a 1989)</a>
+                  <div className={styles.photobox6}></div>
                 </div>
               </div>
 
               <div className={styles.box6}>
                 <div className={styles.Header6}>
-                  <h1>Prof. Edson Starteri Sampaio</h1>
-                  <a> (1986 a 1989)</a>
-                  <div className={styles.photobox6}></div>
+                  <h1>Prof. Umberto Raimundo Costa</h1>
+                  <h1>Gomes de Azevedo</h1>
+                  <a>(1989 a 1990)</a>
+                  <div className={styles.photobox5}></div>
                 </div>
               </div>
 
