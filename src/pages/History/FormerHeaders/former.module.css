@@ -15,14 +15,14 @@
   color: #fff;
   padding-top: 130px;
   padding-bottom: 2rem;
-  padding-left: 830px;
+  padding-left: 50px;
   padding-right: 8px;
   }
 
   .Headers ul {
     font-size: 24px;
     color: #363F5; 
-    margin-left: -900px;
+    margin-left: -50px;
     margin-top: -20px;
     white-space: nowrap;
     font-weight: 600;
@@ -225,23 +225,19 @@
   display: grid;
   grid-template-columns: repeat(4, 350px);
   align-content: start;
-  justify-content: space-between; /* distribui igualmente entre colunas e bordas */
-  row-gap: 20px; /* espaçamento vertical */
-  column-gap: 0; /* sem gap horizontal, o espaço é distribuído por justify-content */
+  justify-content: space-between;
+  row-gap: 20px;
+  column-gap: 0;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: absolute;
-  left: 5%;
-  right: 5%;
-  width: auto; /* ocupa a largura disponível */
+  position: relative;
+  width: auto;
+  max-width: 1500px;
   height: auto;
-  top: 16%;
-  padding: 15px; /* borda de 15px */
+  margin: 20px auto 2rem auto;
+  padding: 15px;
   border-radius: 20px;
-  margin-bottom: 2rem;
-  margin-left: 5px !important;
-  margin-right: 5px !important;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .box1 {
