@@ -39,24 +39,24 @@ export function Former() {
                 <div className={styles.Header4}>
                   <h1>Prof. Humberto da Silva Carvalho</h1>
                   <h1>Gomes de Azevedo</h1>
-                  <a>(1984 a 1986)</a>
+                  <a>(1984 a 1996)</a>
                   <div className={styles.photobox4}></div>
                 </div>
               </div>
 
               <div className={styles.box5}>
                 <div className={styles.Header5}>
-                  <h1>Prof. Edson Starteri Sampaio</h1>
-                  <a> (1986 a 1989)</a>
+                  <h1>Prof. Umberto Raimundo Costa</h1>
+                  <h1>Gomes de Azevedo</h1>
+                  <a>(1989 a 1990)</a>
                   <div className={styles.photobox5}></div>
                 </div>
               </div>
 
               <div className={styles.box6}>
                 <div className={styles.Header6}>
-                  <h1>Prof. Umberto Raimundo Costa</h1>
-                  <h1>Gomes de Azevedo</h1>
-                  <a>(1989 a 1990)</a>
+                  <h1>Prof. Edson Starteri Sampaio</h1>
+                  <a> (1986 a 1989)</a>
                   <div className={styles.photobox6}></div>
                 </div>
               </div>
