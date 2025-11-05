@@ -11,8 +11,8 @@
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
-  margin-top: 7rem;
-  margin-left: -650px;
+  margin-top: calc(7rem + 10px);
+  margin-left: -700px;
   font-size: 28px;
   font-weight: bold;
   color: white;
