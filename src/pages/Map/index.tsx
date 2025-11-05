@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { Header } from '../../components/Header';
 import { supabase } from '@/integrations/supabase/client';
 import styles from './Map.module.css';
+import earthBrazil from '@/assets/earth-brazil-centered.jpg';
 
 interface VisitorLocation {
   id: string;
@@ -179,8 +180,8 @@ export function Map() {
 
           <div className={styles.earthSide}>
             <img 
-              src="https://i.imgur.com/z6pTgZ1.jpg" 
-              alt="Terra CPGG" 
+              src={earthBrazil} 
+              alt="Terra CPGG - Brasil" 
               className={styles.earthImage}
             />
             <p className={styles.earthText}>Conectando o mundo através das Geociências</p>
