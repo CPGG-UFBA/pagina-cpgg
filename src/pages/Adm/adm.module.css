@@ -52,13 +52,12 @@
   grid-template-columns: repeat(2, 200px);
   gap: 20px;
   justify-content: center;
-  padding-bottom: 5px;
 }
 
 .optionCard:nth-child(3) {
   grid-column: 1 / -1;
   justify-self: center;
-  margin-top: -350px;
+  margin-top: -180px;
 }
 
 .optionCard {
