@@ -24,7 +24,7 @@ export function Auditory() {
             </div>
 
             <div className={styles.textContent}>
-              O auditório do CPGG se localiza na sede do CPGG, Bloco E anexo ao Instituto 
+              O auditório do CPGG se localiza na sede do CPGG, prédio anexo ao Instituto 
               de Geociências da UFBA. Conta com uma estrutura para 30 pessoas,
               quadro branco, datashow, caixa de som, iluminação diferenciada,
               ar-condicionados. É utilizado para seminários, defesas de 
