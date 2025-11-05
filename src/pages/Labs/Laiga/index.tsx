@@ -9,7 +9,7 @@ export function Laiga() {
   const { t } = useLanguage()
   
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={styles.laiga}>
         <div className={styles.Title} >
@@ -68,6 +68,6 @@ export function Laiga() {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   )
 }
