@@ -30,7 +30,7 @@
 
 .formContainer {
   max-width: 800px;
-  max-height: 500px;
+  max-height: 300px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
@@ -160,11 +160,11 @@
   .dateContainer {
     grid-template-columns: 1fr;
   }
-  
+
   .formContainer {
     padding: 20px;
   }
-  
+
   .title {
     font-size: 24px;
     transform: translateX(-250px);
