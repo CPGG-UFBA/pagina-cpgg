@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow: hidden;
+  height: 100vh;
+}
+
 .sign {
     background-image: url('https://i.imgur.com/ZwnmRF6.png');
     background-size: cover;
