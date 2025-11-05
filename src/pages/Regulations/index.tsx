@@ -8,6 +8,7 @@ import { EditButton } from './components/EditButton';
 import { AdminLogin } from './components/AdminLogin';
 import { EditableRegulation } from './components/EditableRegulation';
 import earthImage from '../../assets/earth-regulations.jpg'
+import regimentoPdf from '../../assets/PDF/Regimento.pdf'
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface Regulation {
@@ -111,7 +112,7 @@ export function Regulations() {
               <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/Regimento.pdf" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href={regimentoPdf} target="_blank" rel="noopener noreferrer">
                       <div className={styles.regulation}>
                           <h2>{t('regulations.regulation')}</h2>
                       </div>
