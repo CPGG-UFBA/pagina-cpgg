@@ -4,21 +4,22 @@
   box-sizing: border-box;
 }
 
-html, body {
-  overflow: hidden;
-  height: 100vh;
-}
-
 .sign {
     background-image: url('https://i.imgur.com/ZwnmRF6.png');
     background-size: cover;
     -webkit-font-smoothing: antialised;
     margin: 0;
     display: flex;
-    height: 100vh;
+    height: 100vh !important;
+    max-height: 100vh !important;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: hidden !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .container {
@@ -28,6 +29,8 @@ html, body {
     width: 100%;
     max-width: 1200px;
     padding: 2rem;
+    overflow: visible !important;
+    max-height: 100vh;
 }
 
 .logo {
