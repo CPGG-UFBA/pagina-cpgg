@@ -12,12 +12,13 @@ export function EditButtonProjects({ onClick, isEditMode, onLogout }: EditButton
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div className="fixed bottom-4 right-4" style={{ zIndex: 9999 }}>
+    <div className="fixed bottom-4 right-4" style={{ zIndex: 99999, pointerEvents: 'auto' }}>
       {!isEditMode ? (
         <div 
           className="relative"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          style={{ pointerEvents: 'auto' }}
         >
           <Button
             onClick={() => {
@@ -27,6 +28,7 @@ export function EditButtonProjects({ onClick, isEditMode, onLogout }: EditButton
             size="sm"
             variant="secondary"
             className="w-10 h-10 p-0 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90 shadow-md"
+            style={{ pointerEvents: 'auto', cursor: 'pointer' }}
           >
             <Edit3 className="w-4 h-4" />
           </Button>
