@@ -92,7 +92,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-bottom: -750px !important;
+  margin-bottom: -765px !important;
 }
 
 .dateContainer .form {
