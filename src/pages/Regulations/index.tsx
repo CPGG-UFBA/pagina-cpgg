@@ -111,7 +111,7 @@ export function Regulations() {
               <h1 className={styles.title}>{t('regulations.title')}</h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="/Regimento.pdf" target="_blank" rel="noopener noreferrer">
+                  <a className={styles.card} href="/Regimento.pdf" download="Regimento_CPGG.pdf" target="_blank" rel="noopener noreferrer">
                       <div className={styles.regulation}>
                           <h2>{t('regulations.regulation')}</h2>
                       </div>
