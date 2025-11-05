@@ -1,8 +1,16 @@
+import { useEffect } from 'react'
 import styles from './former.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 
 export function Former() {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
+
   return (
     <>
       <Header />
@@ -88,9 +96,6 @@ export function Former() {
             </div>
       </div>
     </div>
-  <div style={{ marginTop: '80px' }}>
-    <Footer />
-  </div>
   </>
   )
 }
