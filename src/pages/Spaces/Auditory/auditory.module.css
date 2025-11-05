@@ -1,7 +1,14 @@
 .Container {
   display: flex;
   flex-direction: column;
-  min-height: 30vh;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Portrait orientation - when height > width */
@@ -18,6 +25,7 @@
   align-items: center;
   color: #fff;
   position: relative;
+  overflow: hidden !important;
 }
 
 .Auditory ul {
