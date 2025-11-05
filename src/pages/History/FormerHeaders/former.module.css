@@ -15,14 +15,14 @@
   color: #fff;
   padding-top: 130px;
   padding-bottom: 2rem;
-  padding-left: 50px;
+  padding-left: 830px;
   padding-right: 8px;
   }
 
   .Headers ul {
     font-size: 24px;
     color: #363F5; 
-    margin-left: -50px;
+    margin-left: -900px;
     margin-top: -20px;
     white-space: nowrap;
     font-weight: 600;
@@ -45,6 +45,7 @@
   font-size: 14px;
   margin-left: 80px;
   margin-top: 35px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -66,6 +67,7 @@
   font-size: 14px;
   margin-left: 6rem;
   margin-top: 15px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -86,7 +88,7 @@
   font-size: 14px;
   margin-left: 7rem;
   margin-top: 35px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -107,7 +109,7 @@
   font-size: 14px;
   margin-left: 6rem;
   margin-top: 10px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -128,7 +130,7 @@
   font-size: 14px;
   margin-left: 6rem;
   margin-top: 15px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -149,7 +151,7 @@
   font-size: 14px;
   margin-left: 6rem;
   margin-top: 10px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -215,7 +217,7 @@
   font-size: 14px;
   margin-left: 6rem;
   margin-top: 10px;
-  margin-bottom: 150px;
+  margin-bottom: 10px;
   white-space: nowrap;
 }
 
@@ -230,14 +232,18 @@
   column-gap: 0;
   border: 2px solid rgba(255,255,255,.2);
   background-color: rgba(255,255,255, 0.2);
-  position: relative;
+  position: absolute;
+  left: 5%;
+  right: 5%;
   width: auto;
-  max-width: 1500px;
   height: auto;
-  margin: 20px auto 2rem auto;
+  top: 16%;
   padding: 15px;
   border-radius: 20px;
-  overflow: visible;
+  margin-bottom: 2rem;
+  margin-left: 5px !important;
+  margin-right: 5px !important;
+  overflow: hidden;
 }
 
 .box1 {
