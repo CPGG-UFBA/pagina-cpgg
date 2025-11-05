@@ -24,7 +24,7 @@ export function MeetingRoom() {
             </div>
 
             <div className={styles.textContent}>
-              A sala de reuniões do CPGG fica localizada na sala 163 da sede do CPGG, Bloco E, anexo ao Instituto de Geociências da UFBA. Tem um amplo espaço de 25 m² com uma mesa central 
+              A sala de reuniões do CPGG fica localizada na sala 163 da sede do CPGG, Bloco anexo ao Instituto de Geociências da UFBA. Tem um amplo espaço de 25 m² com uma mesa central 
               quadrada e assentos para 20 pessoas. Conta com quadro branco, datashow,
               ar-condicionado. O uso prioritário é para atividades
               do CPGG, e para atender às necessidades de seus membros. Reservas podem 
