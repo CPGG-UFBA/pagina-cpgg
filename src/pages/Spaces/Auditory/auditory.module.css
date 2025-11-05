@@ -57,7 +57,8 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  margin-top: -450px;
+  margin-top: 20px;
+  padding-bottom: 10px;
 }
 
 .auditory1 img {
