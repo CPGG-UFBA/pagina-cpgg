@@ -2,10 +2,29 @@ import { NavLink } from 'react-router-dom'
 import { HomeButton } from '../../components/HomeButton'
 import styles from './adm.module.css'
 import { useLanguage } from '@/contexts/LanguageContext'
+import { useEffect } from 'react'
 const logocpgg = 'https://i.imgur.com/6HRTVzo.png';
 
 export function Adm() {
   const { t } = useLanguage();
+
+  useEffect(() => {
+    // Sobrescrever background do body
+    document.body.style.backgroundImage = 'url("https://i.imgur.com/ZwnmRF6.png")'
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundPosition = 'center'
+    document.body.style.backgroundRepeat = 'no-repeat'
+
+    return () => {
+      // Restaurar background original ao sair
+      document.body.style.backgroundImage = 'url("https://imgur.com/zBzhTLu")'
+      document.body.style.backgroundSize = 'cover'
+      document.body.style.backgroundAttachment = ''
+      document.body.style.backgroundPosition = ''
+      document.body.style.backgroundRepeat = ''
+    }
+  }, [])
   
   return (
     <div className={styles.adm}>
