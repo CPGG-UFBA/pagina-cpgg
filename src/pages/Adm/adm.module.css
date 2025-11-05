@@ -23,9 +23,11 @@
   background-color: rgba(255, 255, 255, 0.1);
   width: 700px;
   min-height: 0px;
+  max-height: 400px;
   padding: 10px 10px 5px 10px;
   border-radius: 20px;
   gap: 5px;
+  overflow: hidden;
 }
 
 .logo img {
