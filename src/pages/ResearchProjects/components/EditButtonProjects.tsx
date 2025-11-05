@@ -20,7 +20,10 @@ export function EditButtonProjects({ onClick, isEditMode, onLogout }: EditButton
           onMouseLeave={() => setIsHovered(false)}
         >
           <Button
-            onClick={onClick}
+            onClick={() => {
+              console.log('🔵 BOTÃO EDITAR CLICADO - Projetos de Pesquisa')
+              onClick()
+            }}
             size="sm"
             variant="secondary"
             className="w-10 h-10 p-0 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90 shadow-md"

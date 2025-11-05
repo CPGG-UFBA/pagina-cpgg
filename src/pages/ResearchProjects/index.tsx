@@ -55,6 +55,7 @@ export function ResearchProjects() {
   }
 
   const handleLogin = () => {
+    console.log('✅ HANDLE LOGIN CHAMADO - Projetos')
     setIsAuthenticated(true)
     setShowLoginDialog(false)
     localStorage.setItem('researchProjectsAuth', 'true')

@@ -8,8 +8,12 @@ interface AdminLoginProjectsProps {
 
 export function AdminLoginProjects({ isOpen, onClose, onLogin }: AdminLoginProjectsProps) {
   const handleSuccess = (role: string) => {
+    console.log('🎯 HANDLE SUCCESS - Role:', role)
     if (role === 'coordenacao' || role === 'secretaria') {
+      console.log('✅ Role aprovada, chamando onLogin')
       onLogin()
+    } else {
+      console.log('❌ Role não autorizada:', role)
     }
   }
 
