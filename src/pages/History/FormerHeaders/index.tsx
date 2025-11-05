@@ -39,7 +39,7 @@ export function Former() {
                 <div className={styles.Header4}>
                   <h1>Prof. Humberto da Silva Carvalho</h1>
                   <h1>Gomes de Azevedo</h1>
-                  <a>(1984 a 1996)</a>
+                  <a>(1984 a 1986)</a>
                   <div className={styles.photobox4}></div>
                 </div>
               </div>
