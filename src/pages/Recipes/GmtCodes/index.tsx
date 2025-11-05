@@ -4,7 +4,7 @@ import { Footer } from '../../../components/Footer';
 
 export function GmtCodes() {
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header/>
       <div className={styles.gmtCodes}>
         <h1 className={styles.title}>GMT-códigos</h1>
@@ -50,6 +50,6 @@ export function GmtCodes() {
       <div className={styles.footerGmtCodes}>
         <Footer/>
       </div>
-    </>
+    </div>
   )
 }

@@ -1,8 +1,22 @@
 /* GMT Codes Page Styles */
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 .gmtCodes {
   flex: 1;
   padding: 2rem;
   padding-top: 150px;
+  overflow: hidden !important;
 }
 
 .title {
