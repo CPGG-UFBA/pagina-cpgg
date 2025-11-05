@@ -12,11 +12,14 @@
 }
 
 .content {
-  padding-top: calc(100vh - 750px);
+  padding-top: 150px;
+  padding-bottom: 20px;
   flex: 1;
   position: relative;
-  overflow: hidden !important;
+  overflow-y: auto !important;
+  overflow-x: hidden;
   width: 100%;
+  max-height: calc(100vh - 60px);
 }
 
 .title {
@@ -30,7 +33,7 @@
 
 .formContainer {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 25px;
