@@ -12,7 +12,7 @@
 }
 
 .content {
-  padding-top: calc(100vh - 750px);
+  padding-top: calc(100vh - 830px);
   flex: 1;
   position: relative;
   overflow: hidden;
