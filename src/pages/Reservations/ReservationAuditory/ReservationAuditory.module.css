@@ -1,5 +1,5 @@
 /* Reservation Auditory Page Styles */
-.RA{
+.RA {
   display: flex;
   flex: 1;
   overflow: visible;
@@ -9,27 +9,25 @@
   padding-bottom: 630px;
   padding-left: 700px;
   padding-right: 8px;
-  }
+}
 
 .RA ul {
-    font-size: 24px;
-    color: #363F5;
-    position: absolute; 
-    margin-left: -1390px;
-    margin-top: -20px;
-  }
-
-
+  font-size: 24px;
+  color: #363F5;
+  position: absolute;
+  margin-left: -1390px;
+  margin-top: -20px;
+}
 
 .box {
   display: flex;
   flex-direction: column;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
   height: 520px;
-  top: 18%; 
+  top: 18%;
   left: calc(10% + 130px);
   padding: 10px;
   border-radius: 20px;
@@ -53,17 +51,17 @@
 } */
 
 .box input {
-    display: flex;
-    padding: 15px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    margin-top: 0.2rem;
-    margin-left:2.5rem;
-    border-radius: 15px;
-    transition: all linear 160ms;
-    outline: none;
-    width: 1000px;
-    color: #000;
+  display: flex;
+  padding: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  margin-top: 0.2rem;
+  margin-left: 2.5rem;
+  border-radius: 15px;
+  transition: all linear 160ms;
+  outline: none;
+  width: 100px;
+  color: #000;
 }
 
 .box label {
@@ -74,7 +72,7 @@
 
 .form {
   padding-bottom: 5px;
-  padding-top: 25px
+  padding-top: 25px;
 }
 
 .box button {
@@ -83,9 +81,9 @@
   color: white;
   border-radius: 15px;
   width: 300px;
-  margin-left:2.5rem;
-  background-color: #BEB6B6;
-  margin-left:9rem;
+  margin-left: 2.5rem;
+  background-color: #beb6b6;
+  margin-left: 9rem;
   margin-top: -825px;
   border: none;
   transition: 500ms linear;
@@ -93,15 +91,12 @@
 
 .box button:hover {
   background-color: #936aeb;
-  
 }
 
-.box button > a{
+.box button > a {
   font-size: 16px;
   text-decoration: none;
   color: white;
-  
-
 }
 
 .container {
