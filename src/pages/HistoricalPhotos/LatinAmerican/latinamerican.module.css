@@ -420,7 +420,8 @@
   border-radius: 20px;
   gap: 5px;
   margin-bottom: -500px;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 
