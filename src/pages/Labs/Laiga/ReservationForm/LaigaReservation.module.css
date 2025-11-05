@@ -106,9 +106,9 @@
   margin: 12px 0;
   margin-bottom: -788px;
   padding: 12px;
-  background: rgba(89, 44, 187, 0.1);
+  background: transparent;
   border-radius: 10px;
-  border: 2px solid #592cbb;
+  border: none;
 }
 
 .checkboxContainer:last-of-type {
