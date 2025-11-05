@@ -147,7 +147,7 @@ export function Map() {
       <Header />
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Mapa de Visitantes do CPGG</h1>
+          <h1 className={styles.title}>Mapa de Visitantes da página</h1>
           <p className={styles.subtitle}>
             Visualize a localização de todos os visitantes do site ao redor do mundo
           </p>
