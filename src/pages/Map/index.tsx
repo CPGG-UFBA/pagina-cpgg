@@ -5,6 +5,7 @@ import { Header } from '../../components/Header';
 import { supabase } from '@/integrations/supabase/client';
 import styles from './Map.module.css';
 import earthBrazil from '@/assets/earth-brazil-centered.jpg';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface VisitorLocation {
   id: string;
@@ -16,6 +17,7 @@ interface VisitorLocation {
 }
 
 export function Map() {
+  const { t } = useLanguage();
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<L.Map | null>(null);
   const markersRef = useRef<L.Marker[]>([]);
@@ -134,7 +136,7 @@ export function Map() {
         .bindPopup(`
           <div style="padding: 5px;">
             <h3 style="margin: 0 0 5px 0; color: #333; font-size: 14px;">${location.city}, ${location.country}</h3>
-            <p style="margin: 0; color: #666; font-size: 12px;">Visitantes: ${location.visitor_count}</p>
+            <p style="margin: 0; color: #666; font-size: 12px;">${t('map.visitors')}: ${location.visitor_count}</p>
           </div>
         `)
         .addTo(map.current);
@@ -148,9 +150,9 @@ export function Map() {
       <Header />
       <main className={styles.main}>
         <div className={styles.header}>
-          <h1 className={styles.title}>Mapa de Visitantes da página</h1>
+          <h1 className={styles.title}>{t('map.title')}</h1>
           <p className={styles.subtitle}>
-            Visualize a localização de todos os visitantes do site ao redor do mundo
+            {t('map.subtitle')}
           </p>
         </div>
         
@@ -161,18 +163,18 @@ export function Map() {
               {isLoading && (
                 <div className={styles.loading}>
                   <div className={styles.spinner}></div>
-                  <p>Carregando mapa...</p>
+                  <p>{t('map.loading')}</p>
                 </div>
               )}
             </div>
 
             <div className={styles.stats}>
               <div className={styles.statCard}>
-                <h3>Total de Visitantes</h3>
+                <h3>{t('map.totalVisitors')}</h3>
                 <p className={styles.statNumber}>{totalVisitors.toLocaleString()}</p>
               </div>
               <div className={styles.statCard}>
-                <h3>Localizações Rastreadas</h3>
+                <h3>{t('map.trackedLocations')}</h3>
                 <p className={styles.statNumber}>{locations.length}</p>
               </div>
             </div>
@@ -184,7 +186,7 @@ export function Map() {
               alt="Terra CPGG - Brasil" 
               className={styles.earthImage}
             />
-            <p className={styles.earthText}>Conectando o mundo através das Geociências</p>
+            <p className={styles.earthText}>{t('map.earthText')}</p>
           </div>
         </div>
       </main>

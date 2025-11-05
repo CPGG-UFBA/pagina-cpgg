@@ -129,6 +129,15 @@ const translations = {
     // Lab Success
     'labSuccess.title': 'Reserva de Laboratório Realizada!',
     'labSuccess.message': 'Sua reserva do laboratório foi confirmada com sucesso.',
+    
+    // Map
+    'map.title': 'Mapa de Visitantes da página',
+    'map.subtitle': 'Visualize a localização de todos os visitantes do site ao redor do mundo',
+    'map.loading': 'Carregando mapa...',
+    'map.totalVisitors': 'Total de Visitantes',
+    'map.trackedLocations': 'Localizações Rastreadas',
+    'map.earthText': 'Conectando o mundo através das Geociências',
+    'map.visitors': 'Visitantes',
   },
   en: {
     // Header
@@ -249,6 +258,15 @@ const translations = {
     // Lab Success
     'labSuccess.title': 'Laboratory Reservation Completed!',
     'labSuccess.message': 'Your laboratory reservation has been successfully confirmed.',
+    
+    // Map
+    'map.title': 'Website Visitors Map',
+    'map.subtitle': 'Visualize the location of all website visitors around the world',
+    'map.loading': 'Loading map...',
+    'map.totalVisitors': 'Total Visitors',
+    'map.trackedLocations': 'Tracked Locations',
+    'map.earthText': 'Connecting the world through Geosciences',
+    'map.visitors': 'Visitors',
   }
 };
 
