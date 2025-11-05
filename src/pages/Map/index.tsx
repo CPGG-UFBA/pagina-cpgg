@@ -146,7 +146,7 @@ export function Map() {
   return (
     <div className={styles.container}>
       <Header />
-      <main className={styles.main}>
+      <main className={`${styles.main} map-page`}>
         <div className={styles.header}>
           <h1 className={styles.title}>Mapa de Visitantes do CPGG</h1>
           <p className={styles.subtitle}>
