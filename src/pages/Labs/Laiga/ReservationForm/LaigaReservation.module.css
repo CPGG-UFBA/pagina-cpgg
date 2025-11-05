@@ -1,15 +1,21 @@
 .container {
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
-  min-width: 100vw;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .content {
   padding-top: calc(100vh - 750px);
-  min-height: 100vh;
+  flex: 1;
   position: relative;
-  overflow-x: auto;
+  overflow: hidden !important;
   width: 100%;
 }
 
