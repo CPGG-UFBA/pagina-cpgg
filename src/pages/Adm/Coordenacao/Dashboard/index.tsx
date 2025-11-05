@@ -92,6 +92,22 @@ export function CoordenacaoDashboard() {
     } else {
       navigate('/adm/coordenacao')
     }
+
+    // Sobrescrever background do body
+    document.body.style.backgroundImage = 'url("https://i.imgur.com/ZwnmRF6.png")'
+    document.body.style.backgroundSize = 'cover'
+    document.body.style.backgroundAttachment = 'fixed'
+    document.body.style.backgroundPosition = 'center'
+    document.body.style.backgroundRepeat = 'no-repeat'
+
+    return () => {
+      // Restaurar background original ao sair
+      document.body.style.backgroundImage = 'url("https://imgur.com/zBzhTLu")'
+      document.body.style.backgroundSize = 'cover'
+      document.body.style.backgroundAttachment = ''
+      document.body.style.backgroundPosition = ''
+      document.body.style.backgroundRepeat = ''
+    }
   }, [navigate])
 
   const handleLogout = () => {
