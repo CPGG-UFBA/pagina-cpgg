@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
 import { supabase } from '@/integrations/supabase/client';
 import styles from './Map.module.css';
 
@@ -188,7 +187,6 @@ export function Map() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
