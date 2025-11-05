@@ -7,7 +7,7 @@
   justify-content: center;
   color: #fff;
   padding-top: 130px;
-  padding-bottom: 900px;
+  padding-bottom: 2rem;
   padding-left: 830px;
   padding-right: 8px;
   }
@@ -227,14 +227,14 @@
   left: 5%;
   right: 5%;
   width: auto; /* ocupa a largura disponível */
-  height: 1000px;
+  height: auto;
   top: 16%;
   padding: 15px; /* borda de 15px */
   border-radius: 20px;
-  margin-bottom: -100px;
+  margin-bottom: 2rem;
   margin-left: 5px !important;
   margin-right: 5px !important;
-  overflow-y: auto;
+  overflow-y: visible;
 }
 
 .box1 {
