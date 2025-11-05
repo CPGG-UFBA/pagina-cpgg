@@ -89,7 +89,7 @@
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  height: 600px;
+  height: 590px;
   top: calc(50% + 35px);
   left: 50%;
   transform: translate(calc(-50% - 330px), -50%);
