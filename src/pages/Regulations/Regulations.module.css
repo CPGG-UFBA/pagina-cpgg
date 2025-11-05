@@ -16,10 +16,8 @@
 }
 
 .title {
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin-bottom: 2rem;
-  margin-left: 500px;
   margin-top: 7rem;
   font-size: 28px;
   font-weight: bold;
@@ -28,13 +26,12 @@
 
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 350px);
   column-gap: 2rem;
   row-gap: 20px;
-  max-width: 800px;
+  justify-content: center;
   margin: 0 auto;
-  margin-left: calc(50% - 400px - 400px);
-  padding: 0 50px;
+  padding: 0 2rem;
   margin-bottom: 4rem;
   max-height: 100%;
   overflow: hidden;
@@ -92,7 +89,6 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/senior.jpg') center/cover;
-  margin-top: -380px;
 }
 
 .accreditation:hover {
@@ -123,65 +119,78 @@
   display: block;
 }
 
+.staticFigure {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
 .staticFigure img {
   height: 37rem;
-  padding-left: 970px;
-  margin-bottom: 20px;
-  margin-top: -650px;
+  width: auto;
+}
+
+.earthFigure {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .earthFigure img {
-  height: calc(25rem + 180px);
-  margin-left: 1030px;
-  margin-bottom: 20px;
-  margin-top: calc(-37rem - 40px);
+  height: 37rem;
+  width: auto;
 }
 
 
 
 @media (max-width: 1200px) {
-  .staticFigure img {
-    height: 32rem;
-    padding-left: 170px;
-    margin-bottom: -70px;
-    margin-top: -250px;
-  }
-
+  .staticFigure img,
   .earthFigure img {
-    height: calc(20rem + 180px);
-    margin-left: 490px;
-    margin-bottom: -50px;
-    margin-top: calc(-34rem - 40px);
+    height: 30rem;
   }
-}
-
-
-@media (max-width: 800px) {
-  .staticFigure img {
-    height: 32rem;
-    padding-left: 170px;
-    margin-bottom: -70px;
-    margin-top: -250px;
+  
+  .container {
+    grid-template-columns: repeat(2, 320px);
+    column-gap: 1.5rem;
   }
-
-  .earthFigure img {
-    height: calc(18rem + 180px);
-    margin-left: 340px;
-    margin-bottom: -30px;
-    margin-top: calc(-31rem - 40px);
+  
+  .regulation,
+  .accreditation,
+  .senior,
+  .dynamicRegulation {
+    width: 320px;
   }
 }
 
 @media (max-width: 800px) {
-  .staticFigure img {
-    margin-bottom: 300px;
+  .staticFigure,
+  .earthFigure {
+    display: none;
   }
-
-  .earthFigure img {
-    margin-bottom: 200px;
+  
+  .container {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    padding: 0 1rem;
   }
-
+  
+  .regulation,
+  .accreditation,
+  .senior,
+  .dynamicRegulation {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+  
   .title {
-    margin-left: 70px;
+    font-size: 24px;
+    margin-top: 5rem;
   }
 }
