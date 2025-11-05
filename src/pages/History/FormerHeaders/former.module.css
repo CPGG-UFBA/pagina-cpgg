@@ -1,6 +1,6 @@
 .former {
-  min-height: auto;
-  height: fit-content;
+  min-height: 100vh;
+  height: 100vh;
   overflow: hidden;
   position: relative;
 }
@@ -236,14 +236,14 @@
   left: 5%;
   right: 5%;
   width: auto;
-  height: auto;
+  height: 70vh;
   top: 16%;
   padding: 15px;
   border-radius: 20px;
-  margin-bottom: 2rem;
   margin-left: 5px !important;
   margin-right: 5px !important;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .box1 {
