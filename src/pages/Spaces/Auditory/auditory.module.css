@@ -98,8 +98,6 @@
   width: 600px;
   height: auto;
   min-height: 565px;
-  max-height: 650px;
-  overflow-y: auto;
   top: calc(50% - 10px);
   left: 50%;
   transform: translate(calc(-50% - 330px), -50%);
