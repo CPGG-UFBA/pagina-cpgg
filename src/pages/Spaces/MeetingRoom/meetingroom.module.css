@@ -34,7 +34,7 @@
     position: absolute; 
     top: calc(10% + 25px);
     left: 50%;
-    transform: translateX(calc(-50% - 280px));
+    transform: translateX(calc(-50% - 330px));
     margin: 0;
   }
 
@@ -58,7 +58,7 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  margin-top: -455px;
+  margin-top: -450px;
 }
 
 .meetingroom1 img {
@@ -93,14 +93,15 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border: 2px solid rgba(255,255,255,.2);
-  background-color: rgba(255,255,255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  height: 555px;
-  top: calc(50% + 25px);
+  height: auto;
+  min-height: 565px;
+  top: calc(50% - 10px);
   left: 50%;
-  transform: translate(calc(-50% - 280px), -50%);
+  transform: translate(calc(-50% - 330px), -50%);
   padding: 20px;
   border-radius: 20px;
   margin: 0;
@@ -122,7 +123,7 @@
     max-width: 600px;
     height: auto;
     min-height: 600px;
-    top: calc(50% + 15px);
+    top: calc(50% + 65px);
     transform: translate(calc(-50% - 100px), -50%);
   }
 
@@ -142,7 +143,7 @@
     max-width: 500px;
     height: auto;
     min-height: 550px;
-    top: calc(50% + 15px);
+    top: calc(50% + 65px);
     transform: translate(calc(-50% - 50px), -50%);
   }
 
@@ -162,7 +163,7 @@
     max-width: 350px;
     height: auto;
     min-height: 500px;
-    top: calc(50% + 15px);
+    top: calc(50% + 65px);
     transform: translate(-50%, -50%);
   }
 
