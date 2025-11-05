@@ -657,6 +657,14 @@ export function Sign() {
         <div className={styles.formBox} style={{ maxWidth: '600px', margin: '0 auto' }}>
           <div className={styles.formTitle}>
             <p>Criar Nova Conta</p>
+            <p style={{ 
+              fontSize: '12px', 
+              color: 'rgba(0, 0, 0, 0.5)', 
+              marginTop: '8px',
+              fontWeight: 'normal'
+            }}>
+              A criação de uma conta permite ao pesquisador alterar as informações da sua página pessoal
+            </p>
           </div>
 
           <form onSubmit={handleSubmit} className={styles.form}>
