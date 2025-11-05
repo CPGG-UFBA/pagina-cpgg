@@ -46,6 +46,7 @@
   align-items: start;
   max-width: 1400px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .mapWrapper {
@@ -53,6 +54,7 @@
   flex-direction: column;
   gap: 1.5rem;
   max-width: 903px;
+  overflow: hidden;
 }
 
 .mapContainer {
