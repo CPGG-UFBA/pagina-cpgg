@@ -131,21 +131,40 @@ All colors MUST be HSL.
   }
 
   /* Main app container */
-  body > div {
+  body > div:not(.sign):not(:has(.sign)) {
     height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: hidden !important;
   }
 
+  /* Sign page root container */
+  body > div:has(.sign) {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
   /* All page containers */
-  .Container,
-  .container,
-  .pageContainer {
+  .Container:not(.sign):not(.sign *),
+  .container:not(.sign):not(.sign *),
+  .pageContainer:not(.sign):not(.sign *) {
     height: 100vh !important;
     display: flex !important;
     flex-direction: column !important;
     overflow: hidden !important;
+  }
+
+  /* Sign page exception - contained overflow */
+  .sign {
+    height: 100vh !important;
+    max-height: 100vh !important;
+    overflow: hidden !important;
+  }
+
+  .sign .container {
+    overflow: hidden !important;
+    max-height: 100vh !important;
   }
 
   /* Header should have fixed height */

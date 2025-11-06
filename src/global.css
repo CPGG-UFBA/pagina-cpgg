@@ -20,11 +20,19 @@ footer * {
 }
 
 /* Ensure all page containers use flexbox layout properly */
-[class*="Container"],
-[class*="container"] {
+[class*="Container"]:not(.sign):not(.sign *),
+[class*="container"]:not(.sign):not(.sign *) {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+/* Sign page specific - no scroll */
+.sign,
+.sign [class*="container"] {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
 }
 
 /* Ensure footer is always at bottom and nothing after it */
@@ -88,6 +96,17 @@ body:has(main.middle) #root {
   height: 100vh !important;
 }
 
+/* Force no scroll on Sign page */
+body:has(.sign) {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+body:has(.sign) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
 /* Force no scroll on CPGG, History, Regulations, Photos, Coordination, Researchers, Technicians, Labs, Spaces, Production, Recipes pages */
 body:has(main.cpgg),
 body:has(main.history),
@@ -141,6 +160,13 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+/* Override for Sign page */
+body:has(.sign) #root {
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  height: 100vh !important;
 }
 
 body,
