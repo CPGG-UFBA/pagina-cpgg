@@ -15,6 +15,14 @@ export function Adm() {
     document.body.style.backgroundAttachment = 'fixed'
     document.body.style.backgroundPosition = 'center'
     document.body.style.backgroundRepeat = 'no-repeat'
+    
+    // Forçar remoção de scroll
+    document.body.style.overflow = 'hidden'
+    document.body.style.height = '100vh'
+    document.body.style.maxHeight = '100vh'
+    document.documentElement.style.overflow = 'hidden'
+    document.documentElement.style.height = '100vh'
+    document.documentElement.style.maxHeight = '100vh'
 
     return () => {
       // Restaurar background original ao sair
@@ -23,11 +31,26 @@ export function Adm() {
       document.body.style.backgroundAttachment = ''
       document.body.style.backgroundPosition = ''
       document.body.style.backgroundRepeat = ''
+      document.body.style.overflow = ''
+      document.body.style.height = ''
+      document.body.style.maxHeight = ''
+      document.documentElement.style.overflow = ''
+      document.documentElement.style.height = ''
+      document.documentElement.style.maxHeight = ''
     }
   }, [])
   
   return (
-    <div className={styles.adm}>
+    <div className={styles.adm} style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      overflow: 'hidden',
+      height: '100vh',
+      width: '100vw'
+    }}>
       <HomeButton />
       <div className={styles.container}>
         <div className={styles.logo}>

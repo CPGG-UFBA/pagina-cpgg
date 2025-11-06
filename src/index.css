@@ -8,6 +8,9 @@
 /* Importar fix para Sign page */
 @import './pages/Sign/sign-no-scroll.css';
 
+/* Importar fix para Adm page */
+@import './pages/Adm/adm-no-scroll.css';
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
