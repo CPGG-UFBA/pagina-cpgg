@@ -10,7 +10,9 @@
   -webkit-font-smoothing: antialised;
   margin: 0;
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
 }
@@ -21,11 +23,14 @@
   align-items: center;
   width: 100%;
   max-width: 1200px;
-  padding: 2rem;
+  max-height: 100vh;
+  padding: clamp(1rem, 2vh, 2rem);
+  overflow: hidden;
 }
 
 .logo {
-  margin-bottom: 2rem;
+  margin-bottom: clamp(0.5rem, 2vh, 1.5rem);
+  flex-shrink: 0;
 }
 
 .logo img {
@@ -36,10 +41,12 @@
 .formsContainer {
   display: grid;
   grid-template-columns: repeat(2, minmax(280px, 1fr));
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
   justify-items: center;
   align-items: start;
   width: 100%;
+  flex: 1;
+  overflow: hidden;
 }
 
 .formBox {
@@ -48,12 +55,13 @@
   flex-direction: column;
   border: 2px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.1);
-  width: 450px;
-  height: 730px;
-  padding: 2rem;
+  width: clamp(300px, 90vw, 450px);
+  max-height: calc(100vh - 200px);
+  padding: clamp(1rem, 2vh, 2rem);
   border-radius: 20px;
-  gap: 1rem;
+  gap: clamp(0.5rem, 1vh, 1rem);
   flex-shrink: 0;
+  overflow-y: auto;
 }
 
 .formTitle p {
