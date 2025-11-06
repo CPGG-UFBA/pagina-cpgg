@@ -153,12 +153,17 @@
   cursor: pointer;
   text-decoration: underline;
   font-size: 14px;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   margin-top: 1rem;
+  padding: 8px 16px;
+  border-radius: 8px;
 }
 
 .forgotPassword:hover {
-  color: #7c5ce0;
+  color: white;
+  background-color: #936aeb;
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .dialogContent {
