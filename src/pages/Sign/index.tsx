@@ -780,18 +780,13 @@ export function Sign() {
             </button>
             <button 
               type="button"
+              className={styles.forgotPassword}
               onClick={() => {
                 setShowForgotPassword(true);
                 setShowPasswordResetForm(false);
                 setResetEmail('');
               }}
               disabled={isLoading}
-              style={{
-                marginTop: '10px',
-                backgroundColor: '#059669',
-                cursor: isLoading ? 'not-allowed' : 'pointer',
-                opacity: isLoading ? 0.6 : 1
-              }}
             >
               Esqueci minha senha
             </button>
