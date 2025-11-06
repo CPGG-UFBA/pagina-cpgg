@@ -50,16 +50,21 @@
 }
 
 .optionsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.topRow {
   display: grid;
   grid-template-columns: repeat(2, 200px);
   gap: 20px;
-  justify-content: center;
 }
 
-.optionCard:nth-child(3) {
-  grid-column: 1 / -1;
-  justify-self: center;
-  margin-top: -350px;
+.bottomRow {
+  display: flex;
+  justify-content: center;
 }
 
 .optionCard {

@@ -39,26 +39,30 @@ export function Adm() {
         </div>
         
         <div className={styles.optionsContainer}>
-          <NavLink to="/adm/ti" className={styles.optionCard}>
-            <div className={styles.cardContent}>
-              <h2>{t('adm.ti')}</h2>
-              <p>{t('adm.tiAccess')}</p>
-            </div>
-          </NavLink>
+          <div className={styles.topRow}>
+            <NavLink to="/adm/ti" className={styles.optionCard}>
+              <div className={styles.cardContent}>
+                <h2>{t('adm.ti')}</h2>
+                <p>{t('adm.tiAccess')}</p>
+              </div>
+            </NavLink>
+            
+            <NavLink to="/adm/secretaria" className={styles.optionCard}>
+              <div className={styles.cardContent}>
+                <h2>{t('adm.secretary')}</h2>
+                <p>{t('adm.secretaryAccess')}</p>
+              </div>
+            </NavLink>
+          </div>
           
-          <NavLink to="/adm/secretaria" className={styles.optionCard}>
-            <div className={styles.cardContent}>
-              <h2>{t('adm.secretary')}</h2>
-              <p>{t('adm.secretaryAccess')}</p>
-            </div>
-          </NavLink>
-          
-          <NavLink to="/adm/coordenacao" className={styles.optionCard}>
-            <div className={styles.cardContent}>
-              <h2>{t('adm.coordination')}</h2>
-              <p>{t('adm.coordinationAccess')}</p>
-            </div>
-          </NavLink>
+          <div className={styles.bottomRow}>
+            <NavLink to="/adm/coordenacao" className={styles.optionCard}>
+              <div className={styles.cardContent}>
+                <h2>{t('adm.coordination')}</h2>
+                <p>{t('adm.coordinationAccess')}</p>
+              </div>
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>
