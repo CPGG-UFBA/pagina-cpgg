@@ -42,6 +42,31 @@ export function Sign() {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  // Force remove scroll on mount
+  useEffect(() => {
+    // Save original styles
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+    const originalBodyHeight = document.body.style.height;
+    const originalHtmlHeight = document.documentElement.style.height;
+    
+    // Apply no-scroll styles
+    document.body.style.overflow = 'hidden';
+    document.body.style.height = '100vh';
+    document.body.style.maxHeight = '100vh';
+    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.height = '100vh';
+    document.documentElement.style.maxHeight = '100vh';
+    
+    // Restore on unmount
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.body.style.height = originalBodyHeight;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+      document.documentElement.style.height = originalHtmlHeight;
+    };
+  }, []);
+
   useEffect(() => {
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
@@ -441,7 +466,16 @@ export function Sign() {
 
   if (success) {
     return (
-      <div className={styles.sign}>
+      <div className={styles.sign} style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: 'hidden',
+        height: '100vh',
+        width: '100vw'
+      }}>
         <HomeButton />
         <div className={styles.container}>
           <div className={styles.logo}>
@@ -489,7 +523,16 @@ export function Sign() {
   if (showPasswordResetForm) {
     console.log('Renderizando formulário de redefinição de senha');
     return (
-      <div className={styles.sign}>
+      <div className={styles.sign} style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: 'hidden',
+        height: '100vh',
+        width: '100vw'
+      }}>
         <HomeButton />
         <div className={styles.container}>
           <div className={styles.logo}>
@@ -596,7 +639,16 @@ export function Sign() {
   if (showForgotPassword) {
     console.log('Renderizando formulário de verificação de email');
     return (
-      <div className={styles.sign}>
+      <div className={styles.sign} style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        overflow: 'hidden',
+        height: '100vh',
+        width: '100vw'
+      }}>
         <HomeButton />
         <div className={styles.container}>
           <div className={styles.logo}>
@@ -647,7 +699,16 @@ export function Sign() {
   }
 
   return (
-    <div className={styles.sign}>
+    <div className={styles.sign} style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      overflow: 'hidden',
+      height: '100vh',
+      width: '100vw'
+    }}>
       <HomeButton />
       <div className={styles.container}>
         <div className={styles.logo}>
