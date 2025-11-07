@@ -10,8 +10,10 @@
   padding: 2rem;
   max-width: 900px;
   margin: 0 auto;
-  margin-top: 180px;
+  margin-top: -20px;
+  margin-left: calc(50% - 600px);
   text-align: center;
+  transform: translateX(-150px);
 }
 
 .contactContent {
