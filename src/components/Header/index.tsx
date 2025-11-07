@@ -106,16 +106,6 @@ export function Header() {
                   </div> 
                 </li>
                 <li>
-                  <NavLink to='/cpgg2' className={styles.navLink}>
-                    {t('nav.labsReservations')}
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to='/spaces' className={styles.navLink}>
-                    {t('nav.spacesReservations')}
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink to='/research-projects' className={styles.navLink}>
                     {t('nav.researchProjects')}
                   </NavLink>
@@ -133,6 +123,24 @@ export function Header() {
                 <li>
                   <NavLink to='/Map' className={styles.navLink}>
                     Map
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href='#' className={styles.navLink}>Solicitações</a>
+            
+            <div className={styles.submenu1}>
+              <ul>
+                <li>
+                  <NavLink to='/cpgg2' className={styles.navLink}>
+                    {t('nav.labsReservations')}
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to='/spaces' className={styles.navLink}>
+                    {t('nav.spacesReservations')}
                   </NavLink>
                 </li>
               </ul>
