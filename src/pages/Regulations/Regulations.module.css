@@ -18,7 +18,8 @@
 
 .title {
   text-align: left;
-  margin-bottom: 20px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
   margin-top: 0;
   margin-left: calc(50% - 445px);
   font-size: 28px;
@@ -34,6 +35,7 @@
   justify-content: center;
   margin: 0 auto;
   margin-top: 20px !important;
+  padding-top: 0 !important;
   padding: 0 2rem;
   margin-bottom: 4rem;
   max-height: 100%;

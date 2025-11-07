@@ -18,14 +18,19 @@
   overflow: hidden !important;
 }
 
+.Title {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 .Title ul {
   font-size: 28px;
   color: #363F5;
   margin-top: 0;
   margin-left: calc(50% - 445px);
+  margin-bottom: 0 !important;
   padding-left: 0;
-  padding-bottom: 0;
-  margin-bottom: 20px !important;
+  padding-bottom: 0 !important;
   white-space: nowrap;
   font-weight: bold;
 }
