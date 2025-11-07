@@ -149,8 +149,21 @@ export function LaboratoriosAdmin() {
         </Button>
       </div>
       
-      <div className={styles.titleWrapper}>
-        <h1 className={styles.title}>Gerenciar Laboratórios</h1>
+      <div style={{ marginTop: '55px', marginBottom: '0' }}>
+        <h1 className={styles.title} style={{ 
+          textAlign: 'center',
+          fontSize: '28px',
+          fontWeight: 'bold',
+          color: 'white',
+          margin: '0',
+          marginBottom: '2rem',
+          padding: '0',
+          paddingBottom: '15px',
+          whiteSpace: 'nowrap',
+          textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)'
+        }}>
+          Gerenciar Laboratórios
+        </h1>
       </div>
 
       <div className={styles.tableContainer}>
