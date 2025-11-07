@@ -1,8 +1,14 @@
 import earth from '../../assets/earth-imgur.png'
 import { useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 export function GlobalEarth() {
   const location = useLocation()
+  const [rightPos, setRightPos] = useState('200px')
+  
+  useEffect(() => {
+    setRightPos('200px')
+  }, [])
   
   // Hide on specific pages
   const hideOnRoutes = [
@@ -39,23 +45,13 @@ export function GlobalEarth() {
   // Calculate size based on screen width
   const getSize = () => {
     const width = window.innerWidth
-    if (width <= 834) return '0px' // Hide on small screens
-    if (width <= 1024) return '250px' // Half size
-    if (width <= 1440) return '450px' // -50px from original
-    return '500px' // Default size for screens larger than 1440px
-  }
-
-  // Calculate right position - moved 150px to the left from original
-  const getRightPosition = () => {
-    const width = window.innerWidth
-    if (width <= 834) return '200px'
-    if (width <= 1024) return '200px'
-    if (width <= 1440) return '200px'
-    return '200px'
+    if (width <= 834) return '0px'
+    if (width <= 1024) return '250px'
+    if (width <= 1440) return '450px'
+    return '500px'
   }
 
   const size = getSize()
-  const rightPosition = getRightPosition()
   const shouldHideOnSmallScreen = window.innerWidth <= 834
 
   if (shouldHideOnSmallScreen) {
@@ -68,7 +64,7 @@ export function GlobalEarth() {
       style={{
         position: 'fixed',
         top: '215px',
-        right: rightPosition,
+        right: rightPos,
         zIndex: 1,
         width: size,
         height: size,
