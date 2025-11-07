@@ -4,7 +4,7 @@
   min-height: calc(100vh - 100px);
   width: 100%;
   max-width: 1600px;
-  margin: 120px auto 0 auto;
+  margin: 155px auto 0 auto;
   position: relative;
   z-index: 1;
   overflow: visible !important;
@@ -219,7 +219,7 @@
 @media (max-width: 1024px) {
   .researchers {
     padding: 2rem 1.5rem 4rem 1.5rem;
-    margin: 80px auto 0 auto;
+    margin: 155px auto 0 auto;
   }
 
   .box {
@@ -231,7 +231,7 @@
 @media (max-width: 768px) {
   .researchers {
     padding: 2rem 1rem 4rem 1rem;
-    margin: 60px auto 0 auto;
+    margin: 155px auto 0 auto;
   }
 
   .Programs ul {

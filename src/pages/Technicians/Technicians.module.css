@@ -10,7 +10,7 @@
   min-height: calc(100vh - 200px);
   width: 100%;
   max-width: 1400px;
-  margin: 100px auto 0 auto;
+  margin: 155px auto 0 auto;
   position: relative;
   z-index: 1;
   flex: 1;
@@ -227,7 +227,7 @@
 @media (max-width: 768px) {
   .technicians {
     padding: 2rem 1rem 4rem 1rem;
-    margin: 60px auto 0 auto;
+    margin: 155px auto 0 auto;
   }
 
   .Employees ul {

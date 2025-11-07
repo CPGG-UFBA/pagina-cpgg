@@ -8,7 +8,7 @@
   padding: 2rem;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 8rem;
+  margin-top: 155px;
 }
 
 .contactContent {
@@ -106,7 +106,7 @@
   .contact {
     flex-direction: column;
     padding: 1rem;
-    margin-top: 6rem;
+    margin-top: 155px;
   }
   
   .staticFigure {
