@@ -3,6 +3,7 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 2rem;
   padding-top: 155px;
+  position: relative;
 }
 
 .header {
@@ -10,15 +11,16 @@
   justify-content: space-between;
   align-items: center;
   background: white;
-  padding: 1.5rem 2rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-  position: absolute;
-  top: 20px;
+  margin-bottom: 1.5rem;
+  position: fixed;
+  top: 100px;
   left: 2rem;
   right: 2rem;
-  z-index: 10;
+  z-index: 1000;
+  height: 50px;
 }
 
 .logo {
@@ -41,6 +43,7 @@
   font-weight: bold;
   color: white;
   margin: 0;
+  margin-top: 0;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
