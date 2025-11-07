@@ -5,6 +5,7 @@ import { News1 } from './pages/News/News1'
 import { News2 } from './pages/News/News2'
 import { News3 } from './pages/News/News3'
 import { CPGG } from './pages/CPGG'
+import { CPGG2 } from './pages/CPGG2'
 import { History } from './pages/History'
 import { Former } from './pages/History/FormerHeaders'
 import { Institution } from './pages/Institution'
@@ -152,6 +153,7 @@ export function Router() {
         <Route path='/registration' element={<Registration />} />
         <Route path='/institution' element={<Institution />} />
         <Route path='/cpgg' element={<CPGG />} />
+        <Route path='/cpgg2' element={<CPGG2 />} />
         <Route path='/history' element={<History />} />
         <Route path='/history/Former' element={<Former />} />
         <Route path='/production' element={<Production />} />

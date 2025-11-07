@@ -65,6 +65,11 @@ export function Header() {
                         </NavLink>
                       </li>
                       <li>
+                        <NavLink to='/cpgg2' className={styles.navLink}>
+                          O CPGG2
+                        </NavLink>
+                      </li>
+                      <li>
                         <NavLink to='/history' className={styles.navLink}>
                           {t('nav.history')}
                         </NavLink>
