@@ -1,6 +1,7 @@
 .labs {
   flex: 1;
   padding: 2rem;
+  padding-top: 155px;
   position: relative;
 }
 
@@ -10,13 +11,14 @@
   align-items: center;
   margin-left: -720px;
   margin-bottom: 2rem;
-  margin-top: 155px;
+  margin-top: 0;
 }
 
 .title {
   font-size: 28px;
   font-weight: bold;
   color: white;
+  margin-top: 0;
 }
 
 .dynamicLab {
@@ -206,7 +208,7 @@
 
   .titleContainer {
     margin-left: -600px;
-    margin-top: 155px;
+    margin-top: 0;
   }
 
   .title {
@@ -239,7 +241,7 @@
 
   .titleContainer {
     margin-left: -720px;
-    margin-top: 155px;
+    margin-top: 0;
   }
 
   .container {
@@ -261,7 +263,7 @@
 
   .titleContainer {
     margin-left: 200px;
-    margin-top: 155px;
+    margin-top: 0;
   }
 
   .title {
@@ -303,7 +305,7 @@
 
   .titleContainer {
     margin-left: 100px;
-    margin-top: 155px;
+    margin-top: 0;
     margin-bottom: 1.5rem;
   }
 
@@ -348,7 +350,7 @@
 
   .titleContainer {
     margin-left: 20px;
-    margin-top: 155px;
+    margin-top: 0;
     margin-bottom: 1rem;
     flex-direction: column;
     align-items: flex-start;
@@ -392,7 +394,7 @@
 
   .titleContainer {
     margin-left: 10px;
-    margin-top: 155px;
+    margin-top: 0;
     margin-bottom: 1rem;
     flex-direction: column;
     align-items: center;

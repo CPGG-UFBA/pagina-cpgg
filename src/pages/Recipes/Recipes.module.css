@@ -2,6 +2,7 @@
 .recipes {
   flex: 1;
   padding: 2rem;
+  padding-top: 155px;
   overflow: hidden !important;
   max-height: calc(100vh - 150px);
 }
@@ -11,7 +12,7 @@
   align-items: center;
   text-align: center;
   margin-bottom: 2rem;
-  margin-top: 155px;
+  margin-top: 0;
   margin-left: -1010px;
   font-size: 28px;
   font-weight: bold;
