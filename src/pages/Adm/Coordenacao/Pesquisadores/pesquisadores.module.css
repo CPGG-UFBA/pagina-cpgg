@@ -2,6 +2,7 @@
   min-height: 100vh;
   background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
   padding: 2rem;
+  padding-top: 155px;
   padding-bottom: 4rem;
   overflow-y: auto;
 }
@@ -36,6 +37,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: hsl(var(--foreground));
+  margin-top: 0;
   margin-bottom: 0.5rem;
 }
 

@@ -3,6 +3,7 @@
   height: auto;
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
   padding: 20px;
+  padding-top: 155px;
   padding-bottom: 100px;
   overflow-y: auto;
 }
@@ -28,6 +29,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin: 0;
+  margin-top: 0;
 }
 
 .content {
