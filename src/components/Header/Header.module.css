@@ -12,10 +12,6 @@
   z-index: 100002;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 0 15px;
   overflow: visible;
 }
 
@@ -30,11 +26,10 @@
 }
 
 .languageContainer {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   z-index: 100003;
-  order: 10;
 }
 
 
@@ -46,7 +41,6 @@
   padding: 5px;
   flex-shrink: 1;
   min-width: 0;
-  order: 2;
 }
 
 .block1 h1 {
@@ -77,12 +71,11 @@
 .logoufba {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
-  order: 3;
 }
 
 .header .logoufba img {
   height: 70px;
+  margin-top: 10px;
   object-fit: contain;
   object-position: center;
   max-width: 100%;
@@ -91,8 +84,6 @@
 .figure {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
-  order: 1;
 }
 
 .header .figure img {
@@ -103,37 +94,30 @@
 }
 
 nav {
-  display: flex;
-  flex: 1;
-  justify-content: center;
   overflow: visible;
-  order: 4;
 }
 
 .signup {
+  margin-left: 400px;
   color: #FF5733;
 }
 
 nav ul {
-  display: flex;
+  display: inline-flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin-left: -750px;
   overflow: visible;
-  justify-content: center;
-  flex-wrap: nowrap;
 }
 
 nav ul li {
-  min-width: 90px;
-  margin: 0 4px;
+  width: 105px;
+  margin: 6px;
   padding: 8px;
-  font-size: 14px;
+  margin-top: 35px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
 }
 
 nav ul li a {
@@ -599,4 +583,35 @@ nav ul li:hover .submenu2 ul li a {
 }
 
 /* Language Selector Responsivity - REMOVED: now using flexbox */
+
+/* Language Selector Responsivity */
+@media (min-width: 1151px) and (max-width: 1200px) {
+  .languageContainer {
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1150px) {
+  .languageContainer {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .languageContainer {
+    top: 8px;
+    right: 8px;
+    z-index: 99998;
+  }
+}
+
+@media (max-width: 480px) {
+  .languageContainer {
+    top: 5px;
+    right: 5px;
+    z-index: 99998;
+  }
+}
 
