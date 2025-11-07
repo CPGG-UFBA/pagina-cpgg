@@ -10,9 +10,6 @@
   height: calc(100vh - 200px);
   overflow: hidden !important;
   position: relative;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
 }
 
 /* Force no scroll on Home page */
@@ -43,28 +40,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 0;
+  margin-right: 2rem;
   margin-top: -180px;
   flex-shrink: 0;
   max-height: 100%;
 }
 
-.static {
-  color: #fff;
-  margin-top: 50px;
-  line-height: 0.5;
-  margin-left: 0;
-  font-size: 45px;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-/* 1440px and up - maintain current size and side-by-side layout */
+/* 1440px and up - maintain current size */
 @media (min-width: 1440px) {
-  .middle {
-    flex-direction: row !important;
-  }
-  
   .carouselContainer {
     width: 35%;
   }
@@ -231,10 +214,11 @@
   color: #fff;
   margin-top: 50px;
   line-height: 0.5;
-  margin-left: 0;
+  margin-left: 4.5rem;
   font-size: 45px;
   flex-shrink: 0;
   overflow: hidden;
+  transform: translateX(-60px);
 }
 
 .static > strong {
@@ -274,16 +258,10 @@
 
 /* Media Queries */
 
-/* 1024px and below - reduce proportionally but KEEP SIDE BY SIDE */
+/* 1024px and below - reduce proportionally */
 @media (max-width: 1024px) and (min-width: 835px) {
-  .middle {
-    flex-direction: row !important;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  
   .carouselContainer {
-    width: 45%;
+    width: 40%;
     margin-top: -100px;
   }
   
@@ -300,40 +278,34 @@
   }
   
   .static {
-    font-size: 28px;
-    margin-left: 0;
+    font-size: 32px;
+    margin-left: 2rem;
     margin-top: 20px;
-    flex: 1;
   }
   
   .static > strong {
-    font-size: 56px;
+    font-size: 64px;
   }
   
   .enjoy {
-    font-size: 20px;
+    font-size: 22px;
   }
   
   .enjoy > strong {
-    font-size: 20px;
-  }
-  
-  .staticFigure {
-    flex: 1;
+    font-size: 22px;
   }
   
   .staticFigure img {
-    height: calc(24rem - 50px);
-    padding-left: 50px;
+    height: calc(28rem - 50px);
+    padding-left: 100px;
   }
 }
 
-/* 834px and below - only news, remove text and change to center */
+/* 834px and below - only news, remove text */
 @media (max-width: 834px) {
   .middle {
-    justify-content: center !important;
-    align-items: center !important;
-    flex-direction: row !important;
+    justify-content: center;
+    align-items: center;
   }
   
   .carouselContainer {
