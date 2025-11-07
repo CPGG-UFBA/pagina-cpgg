@@ -215,7 +215,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .signup {
-    margin-left: 440px;
+    margin-left: 480px;
   }
   
   nav ul {
@@ -223,7 +223,10 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul li {
-    font-size: 18px;
+    font-size: 16px;
+    width: 100px;
+    margin: 6px;
+    padding: 8px;
   }
   
   .block1 h1 {
