@@ -38,16 +38,17 @@
   padding-left: 10px;
   margin-left: 25px;
   margin-top: 8px;
-  font-size: clamp(8px, 1.2vw, 12px);
+  font-size: clamp(8px, 1.2vw, 12px) !important;
   text-align: center;
-  white-space: normal;
+  white-space: normal !important;
   font-family: Roboto;
   font-weight: 500;
   color: white;
-  overflow: visible;
+  overflow: visible !important;
+  text-overflow: unset !important;
   max-width: 350px;
   line-height: 1.2;
-  word-wrap: break-word;
+  word-wrap: break-word !important;
 }
 
 .logo {
