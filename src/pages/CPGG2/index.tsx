@@ -12,12 +12,15 @@ export function CPGG2() {
     <div className={styles.pageContainer}>
       <Header />
       <main className={`${styles.cpgg} cpgg`}>
-        <div className={styles.Title} >
+        <div className={styles.Title}>
           <ul>Laboratórios e Reservas</ul>
           
-          <div className={styles.requerimentoButton}>
-            <Link to="/labs/laiga/reservation-form" className={styles.buttonLink}>
-              LAIGA
+          <div className={styles.cardContainer}>
+            <Link to="/labs/laiga" className={styles.labCard}>
+              <div className={styles.Laiga}>
+                <h2>LAIGA</h2>
+                <h2>Laboratório Integrado de Geofísica Aplicada</h2>
+              </div>
             </Link>
           </div>
         </div>
