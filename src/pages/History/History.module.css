@@ -94,6 +94,27 @@
   border-radius: 50%;
 }
 
+/* 1440px specific */
+@media screen and (width: 1440px) {
+  .earthImage {
+    height: 34rem;
+  }
+}
+
+/* 1024px specific */
+@media screen and (width: 1024px) {
+  .earthImage {
+    height: 18.5rem;
+  }
+}
+
+/* 834px and below - hide Earth */
+@media screen and (max-width: 834px) {
+  .staticFigure {
+    display: none !important;
+  }
+}
+
 @media (max-width: 1200px) {
   .staticFigure img,
   .earthImage {

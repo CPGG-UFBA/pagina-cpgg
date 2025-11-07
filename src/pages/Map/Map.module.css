@@ -107,6 +107,29 @@
   animation: rotate 60s linear infinite;
 }
 
+/* 1440px specific */
+@media screen and (width: 1440px) {
+  .earthImage {
+    max-width: 350px;
+    height: 350px;
+  }
+}
+
+/* 1024px specific */
+@media screen and (width: 1024px) {
+  .earthImage {
+    max-width: 200px;
+    height: 200px;
+  }
+}
+
+/* 834px and below - hide Earth */
+@media screen and (max-width: 834px) {
+  .earthSide {
+    display: none;
+  }
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);

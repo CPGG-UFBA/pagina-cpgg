@@ -36,6 +36,22 @@ export function GlobalEarth() {
     return null
   }
   
+  // Calculate size based on screen width
+  const getSize = () => {
+    const width = window.innerWidth
+    if (width <= 834) return '0px' // Hide on small screens
+    if (width === 1024) return '250px' // Half size
+    if (width === 1440) return '450px' // -50px from original
+    return '500px' // Default size for larger screens
+  }
+
+  const size = getSize()
+  const shouldHideOnSmallScreen = window.innerWidth <= 834
+
+  if (shouldHideOnSmallScreen) {
+    return null
+  }
+
   return (
     <div 
       className="global-earth-container"
@@ -44,8 +60,8 @@ export function GlobalEarth() {
         top: '215px !important' as any,
         right: '50px !important' as any,
         zIndex: '1 !important' as any,
-        width: '500px !important' as any,
-        height: '500px !important' as any,
+        width: `${size} !important` as any,
+        height: `${size} !important` as any,
         display: 'block !important' as any,
         visibility: 'visible !important' as any,
         pointerEvents: 'none !important' as any
@@ -56,8 +72,8 @@ export function GlobalEarth() {
         alt='Terra Global CPGG' 
         className="global-earth-image"
         style={{
-          width: '500px !important' as any,
-          height: '500px !important' as any,
+          width: `${size} !important` as any,
+          height: `${size} !important` as any,
           objectFit: 'contain !important' as any,
           borderRadius: '50% !important' as any,
           margin: '0 !important' as any,

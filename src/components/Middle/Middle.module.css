@@ -82,6 +82,29 @@
   z-index: 1000;
 }
 
+/* 1440px specific */
+@media screen and (width: 1440px) {
+  .earthGlobe {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* 1024px specific */
+@media screen and (width: 1024px) {
+  .earthGlobe {
+    width: 125px;
+    height: 125px;
+  }
+}
+
+/* 834px and below - hide Earth */
+@media screen and (max-width: 834px) {
+  .earthGlobe {
+    display: none !important;
+  }
+}
+
 /* 1280px - 1440px */
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
   .container {
