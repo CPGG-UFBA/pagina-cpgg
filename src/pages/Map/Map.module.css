@@ -21,7 +21,7 @@
 .header {
   text-align: center;
   margin-bottom: 1rem;
-  margin-top: calc(5rem + 30px);
+  margin-top: 155px;
   color: white;
   transform: translateX(-150px);
 }
