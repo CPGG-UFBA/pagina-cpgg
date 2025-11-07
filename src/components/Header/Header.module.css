@@ -75,7 +75,7 @@
 nav ul {
   display: inline-flex;
   list-style: none;
-  margin-left: -100px;
+  margin-left: -200px;
 }
 
 nav ul li {
@@ -268,7 +268,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -80px;
+    margin-left: -180px;
   }
   
   nav ul li {
