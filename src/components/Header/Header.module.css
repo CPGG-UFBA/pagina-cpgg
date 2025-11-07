@@ -36,27 +36,31 @@
 .block1 {
   display: flex;
   flex-direction: column;
-  max-width: 400px;
-  overflow: hidden;
+  max-width: min(400px, 25vw);
+  overflow: hidden !important;
   padding: 5px;
+  flex-shrink: 1;
+  min-width: 0;
 }
 
 .block1 h1 {
-  padding-top: 5px;
-  padding-left: 10px;
-  margin-left: 15px;
-  margin-top: 8px;
-  font-size: clamp(8px, 1.1vw, 11px) !important;
-  text-align: center;
+  padding-top: 3px;
+  padding-left: 8px;
+  margin-left: 10px;
+  margin-top: 5px;
+  font-size: clamp(6px, 0.9vw, 10px) !important;
+  text-align: left;
   white-space: normal !important;
   font-family: Roboto;
   font-weight: 500;
   color: white;
   overflow: hidden !important;
-  text-overflow: ellipsis !important;
+  text-overflow: clip !important;
   max-width: 100%;
-  line-height: 1.2;
+  width: 100%;
+  line-height: 1.15;
   word-wrap: break-word !important;
+  word-break: break-word !important;
   hyphens: auto;
 }
 
@@ -238,12 +242,12 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 480px;
+    max-width: min(450px, 28vw);
   }
   
   .block1 h1 {
-    font-size: clamp(10px, 1.3vw, 13px);
-    line-height: 1.3;
+    font-size: clamp(9px, 1.2vw, 12px);
+    line-height: 1.25;
   }
   
   .header .logoufba img {
@@ -281,11 +285,11 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 380px;
+    max-width: min(360px, 25vw);
   }
   
   .block1 h1 {
-    font-size: clamp(9px, 1.1vw, 11px);
+    font-size: clamp(8px, 1vw, 10px);
     line-height: 1.2;
   }
 }
@@ -328,13 +332,13 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 340px;
+    max-width: min(310px, 24vw);
   }
   
   .block1 h1 {
-    font-size: clamp(8px, 0.95vw, 10px);
-    margin-left: 15px;
-    line-height: 1.15;
+    font-size: clamp(7px, 0.9vw, 9px);
+    margin-left: 10px;
+    line-height: 1.1;
   }
   
   .header .logoufba img {
@@ -366,12 +370,12 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 320px;
+    max-width: min(280px, 23vw);
   }
   
   .block1 h1 {
-    font-size: clamp(7px, 0.9vw, 10px);
-    line-height: 1.15;
+    font-size: clamp(6px, 0.85vw, 9px);
+    line-height: 1.1;
   }
 }
 
@@ -398,11 +402,11 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 300px;
+    max-width: min(260px, 22vw);
   }
   
   .block1 h1 {
-    font-size: clamp(7px, 0.85vw, 9px);
+    font-size: clamp(6px, 0.8vw, 8px);
     line-height: 1.1;
   }
   
@@ -447,12 +451,12 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 240px;
+    max-width: min(200px, 20vw);
   }
   
   .block1 h1 {
-    font-size: clamp(6px, 0.75vw, 8px);
-    line-height: 1.1;
+    font-size: clamp(5px, 0.7vw, 7px);
+    line-height: 1.05;
   }
   
   .header .logoufba img {
@@ -501,11 +505,11 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 290px;
+    max-width: min(250px, 22vw);
   }
   
   .block1 h1 {
-    font-size: clamp(7px, 0.85vw, 9px);
+    font-size: clamp(6px, 0.8vw, 8px);
     line-height: 1.1;
   }
 }
@@ -561,17 +565,17 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 200px;
+    max-width: min(160px, 18vw);
   }
   
   .block1 h1 {
-    font-size: clamp(5px, 0.7vw, 7px);
+    font-size: clamp(4px, 0.65vw, 6px);
     text-align: left;
-    padding-top: 5px;
-    margin-top: 8px;
+    padding-top: 3px;
+    margin-top: 5px;
     white-space: normal;
     overflow: hidden;
-    line-height: 1.1;
+    line-height: 1.05;
   }
   
   /* Simplificar submenus */
@@ -649,18 +653,18 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    max-width: 140px;
+    max-width: min(110px, 15vw);
   }
   
   .block1 h1 {
-    font-size: clamp(4px, 0.65vw, 6px);
-    padding-top: 3px;
-    padding-left: 5px;
-    margin-left: 3px;
+    font-size: clamp(3px, 0.6vw, 5px);
+    padding-top: 2px;
+    padding-left: 3px;
+    margin-left: 2px;
     margin-top: 2px;
     white-space: normal;
     overflow: hidden;
-    line-height: 1.1;
+    line-height: 1.05;
   }
   
   .logo {
