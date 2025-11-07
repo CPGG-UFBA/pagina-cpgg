@@ -40,9 +40,9 @@ export function GlobalEarth() {
   const getSize = () => {
     const width = window.innerWidth
     if (width <= 834) return '0px' // Hide on small screens
-    if (width === 1024) return '250px' // Half size
-    if (width === 1440) return '450px' // -50px from original
-    return '500px' // Default size for larger screens
+    if (width <= 1024) return '250px' // Half size
+    if (width <= 1440) return '450px' // -50px from original
+    return '500px' // Default size for screens larger than 1440px
   }
 
   const size = getSize()
