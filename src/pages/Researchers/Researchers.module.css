@@ -4,7 +4,7 @@
   min-height: calc(100vh - 100px);
   width: 100%;
   max-width: 1600px;
-  margin: 155px auto 0 auto;
+  margin: 0 auto;
   position: relative;
   z-index: 1;
   overflow: visible !important;
@@ -16,28 +16,9 @@
   align-items: center;
   width: 100%;
   animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Título Principal */
-.Programs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  animation: fadeIn 0.6s ease-out;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
+  margin: 0 !important;
+  margin-top: 155px !important;
+  padding: 0 !important;
 }
 
 @keyframes fadeIn {
@@ -56,11 +37,12 @@
   font-weight: 700;
   color: hsl(0 0% 100%);
   margin: 0 !important;
-  padding-bottom: 0 !important;
-  margin-left: calc(50% - 445px);
+  margin-left: calc(50% - 445px) !important;
+  padding: 0 !important;
   text-align: left;
   letter-spacing: 0.5px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  line-height: 1.2;
 }
 
 /* Grid de Programas */
