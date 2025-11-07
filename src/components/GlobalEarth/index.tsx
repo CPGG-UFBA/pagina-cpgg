@@ -45,7 +45,17 @@ export function GlobalEarth() {
     return '500px' // Default size for screens larger than 1440px
   }
 
+  // Calculate right position - moved 50px to the left
+  const getRightPosition = () => {
+    const width = window.innerWidth
+    if (width <= 834) return '100px'
+    if (width <= 1024) return '100px'
+    if (width <= 1440) return '100px'
+    return '100px' // 50px to the left from original 150px
+  }
+
   const size = getSize()
+  const rightPosition = getRightPosition()
   const shouldHideOnSmallScreen = window.innerWidth <= 834
 
   if (shouldHideOnSmallScreen) {
@@ -56,15 +66,15 @@ export function GlobalEarth() {
     <div 
       className="global-earth-container"
       style={{
-        position: 'fixed !important' as any,
-        top: '215px !important' as any,
-        right: '100px !important' as any,
-        zIndex: '1 !important' as any,
-        width: `${size} !important` as any,
-        height: `${size} !important` as any,
-        display: 'block !important' as any,
-        visibility: 'visible !important' as any,
-        pointerEvents: 'none !important' as any
+        position: 'fixed',
+        top: '215px',
+        right: rightPosition,
+        zIndex: 1,
+        width: size,
+        height: size,
+        display: 'block',
+        visibility: 'visible',
+        pointerEvents: 'none'
       }}
     >
       <img 
@@ -72,15 +82,15 @@ export function GlobalEarth() {
         alt='Terra Global CPGG' 
         className="global-earth-image"
         style={{
-          width: `${size} !important` as any,
-          height: `${size} !important` as any,
-          objectFit: 'contain !important' as any,
-          borderRadius: '50% !important' as any,
-          margin: '0 !important' as any,
-          padding: '0 !important' as any,
-          display: 'block !important' as any,
-          maxWidth: 'none !important' as any,
-          maxHeight: 'none !important' as any
+          width: size,
+          height: size,
+          objectFit: 'contain',
+          borderRadius: '50%',
+          margin: 0,
+          padding: 0,
+          display: 'block',
+          maxWidth: 'none',
+          maxHeight: 'none'
         }}
       />
     </div>
