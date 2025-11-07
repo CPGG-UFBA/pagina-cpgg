@@ -111,11 +111,6 @@ export function Header() {
                   </div> 
                 </li>
                 <li>
-                  <NavLink to='/labs' className={styles.navLink}>
-                    {t('nav.labsReservations')}
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink to='/spaces' className={styles.navLink}>
                     {t('nav.spacesReservations')}
                   </NavLink>
