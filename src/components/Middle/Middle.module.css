@@ -37,6 +37,7 @@
   color: white;
   flex: 1;
   margin: 0 3rem;
+  transform: translateX(-30px);
 }
 
 .mainTitle {
