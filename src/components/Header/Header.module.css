@@ -166,7 +166,7 @@ nav ul li:hover .submenu1 {
   display: block;
   position: absolute;
   background-color: #592cbb;
-  margin-top: 10px;
+  margin-top: 0;
   margin-left: -60px;
   font-size: 16px;
   z-index: 100000;
@@ -175,6 +175,7 @@ nav ul li:hover .submenu1 {
   right: 0;
   max-width: calc(100vw - 20px);
   top: 100%;
+  padding-top: 5px;
 }
 
 nav ul li:hover .submenu1 ul {
