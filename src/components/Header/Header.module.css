@@ -12,18 +12,16 @@
   z-index: 100002;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
   overflow: visible;
-  padding: 0 10px;
 }
 
 @media (max-width: 1150px) {
   .header {
     background-size: cover;
     background-position: center top;
-    height: 100px;
+    height: 150px;
     aspect-ratio: unset;
+    max-height: 150px;
   }
 }
 
@@ -86,7 +84,6 @@
 .figure {
   display: flex;
   flex-shrink: 0;
-  align-items: center;
 }
 
 .header .figure img {
@@ -96,59 +93,31 @@
   max-width: 100%;
 }
 
-.logoufba {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  order: 2;
-}
-
-.header .logoufba img {
-  height: 70px;
-  object-fit: contain;
-  object-position: center;
-  max-width: 100%;
-}
-
 nav {
   overflow: visible;
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  order: 1;
-  max-width: 60%;
 }
 
 .signup {
-  margin: 0;
-  padding: 0;
+  margin-left: 400px;
   color: #FF5733;
 }
 
 nav ul {
   display: inline-flex;
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin-left: -750px;
   overflow: visible;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
 }
 
 nav ul li {
-  width: auto;
-  min-width: 90px;
-  margin: 0 3px;
+  width: 105px;
+  margin: 6px;
   padding: 8px;
-  font-size: 15px;
+  margin-top: 35px;
+  font-size: 16px;
   position: relative;
   cursor: pointer;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 nav ul li a {
@@ -166,7 +135,7 @@ nav ul li:hover .submenu1 {
   display: block;
   position: absolute;
   background-color: #592cbb;
-  margin-top: 0;
+  margin-top: -30px;
   margin-left: -60px;
   font-size: 16px;
   z-index: 100000;
@@ -174,8 +143,6 @@ nav ul li:hover .submenu1 {
   min-width: 160px;
   right: 0;
   max-width: calc(100vw - 20px);
-  top: 100%;
-  padding-top: 5px;
 }
 
 nav ul li:hover .submenu1 ul {
@@ -495,27 +462,33 @@ nav ul li:hover .submenu2 ul li a {
 /* Mobile (Médio) - 481px - 768px */
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
-    height: 100px;
+    height: 150px;
+    flex-wrap: wrap;
     gap: 5px;
   }
   
   nav {
-    flex: 1;
-    max-width: 50%;
-    order: 1;
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(89, 44, 187, 0.95);
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 100000;
   }
   
   nav ul {
     flex-wrap: wrap;
-    justify-content: center;
   }
   
   nav ul li {
-    font-size: 10px;
-    min-width: 60px;
+    font-size: 11px;
+    min-width: 70px;
     margin: 2px;
-    padding: 4px;
+    padding: 6px;
     text-align: center;
+    flex: 1;
   }
   
   .header .logoufba img {
@@ -540,37 +513,46 @@ nav ul li:hover .submenu2 ul li a {
     line-height: 1.05;
   }
   
+  /* Simplificar submenus */
   nav ul li:hover .submenu1 {
-    width: 150px;
+    position: relative;
+    margin-top: 5px;
+    width: 100%;
+    background-color: rgba(89, 44, 187, 0.9);
   }
 }
 
 /* Mobile (Pequeno) - 320px - 480px */
 @media (max-width: 480px) {
   .header {
-    height: 100px;
-    gap: 3px;
+    height: 150px;
+    flex-wrap: wrap;
+    gap: 5px;
     padding: 5px;
   }
   
   nav {
-    flex: 1;
-    max-width: 45%;
-    order: 1;
+    display: block;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background-color: rgba(89, 44, 187, 0.95);
+    padding: 10px;
+    z-index: 100000;
   }
   
   nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    width: 100%;
   }
   
   nav ul li {
-    width: auto;
-    min-width: 50px;
-    margin: 1px;
-    padding: 4px;
+    width: 100%;
+    margin: 2px 0;
+    padding: 8px;
     text-align: center;
-    font-size: 9px;
+    font-size: 12px;
   }
   
   .header .logoufba img {
@@ -596,9 +578,8 @@ nav ul li:hover .submenu2 ul li a {
     line-height: 1.05;
   }
   
-  nav ul li:hover .submenu1 {
-    width: 120px;
-    font-size: 8px;
+  .logo {
+    margin-left: 10px;
   }
 }
 

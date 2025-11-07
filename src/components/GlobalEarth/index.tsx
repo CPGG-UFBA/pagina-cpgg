@@ -1,14 +1,8 @@
 import earth from '../../assets/earth-imgur.png'
 import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
 export function GlobalEarth() {
   const location = useLocation()
-  const [rightPos, setRightPos] = useState('200px')
-  
-  useEffect(() => {
-    setRightPos('200px')
-  }, [])
   
   // Hide on specific pages
   const hideOnRoutes = [
@@ -45,10 +39,10 @@ export function GlobalEarth() {
   // Calculate size based on screen width
   const getSize = () => {
     const width = window.innerWidth
-    if (width <= 834) return '0px'
-    if (width <= 1024) return '250px'
-    if (width <= 1440) return '450px'
-    return '500px'
+    if (width <= 834) return '0px' // Hide on small screens
+    if (width <= 1024) return '250px' // Half size
+    if (width <= 1440) return '450px' // -50px from original
+    return '500px' // Default size for screens larger than 1440px
   }
 
   const size = getSize()
@@ -62,15 +56,15 @@ export function GlobalEarth() {
     <div 
       className="global-earth-container"
       style={{
-        position: 'fixed',
-        top: '215px',
-        right: rightPos,
-        zIndex: 1,
-        width: size,
-        height: size,
-        display: 'block',
-        visibility: 'visible',
-        pointerEvents: 'none'
+        position: 'fixed !important' as any,
+        top: '215px !important' as any,
+        right: '50px !important' as any,
+        zIndex: '1 !important' as any,
+        width: `${size} !important` as any,
+        height: `${size} !important` as any,
+        display: 'block !important' as any,
+        visibility: 'visible !important' as any,
+        pointerEvents: 'none !important' as any
       }}
     >
       <img 
@@ -78,15 +72,15 @@ export function GlobalEarth() {
         alt='Terra Global CPGG' 
         className="global-earth-image"
         style={{
-          width: size,
-          height: size,
-          objectFit: 'contain',
-          borderRadius: '50%',
-          margin: 0,
-          padding: 0,
-          display: 'block',
-          maxWidth: 'none',
-          maxHeight: 'none'
+          width: `${size} !important` as any,
+          height: `${size} !important` as any,
+          objectFit: 'contain !important' as any,
+          borderRadius: '50% !important' as any,
+          margin: '0 !important' as any,
+          padding: '0 !important' as any,
+          display: 'block !important' as any,
+          maxWidth: 'none !important' as any,
+          maxHeight: 'none !important' as any
         }}
       />
     </div>
