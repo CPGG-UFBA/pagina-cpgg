@@ -411,8 +411,9 @@
   .middle {
     justify-content: center;
     align-items: center;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 100vh;
   }
   
   .carouselContainer {
@@ -438,7 +439,7 @@
   }
   
   .controls {
-    bottom: 120px;
+    bottom: 100px;
   }
 }
 
