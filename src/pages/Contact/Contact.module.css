@@ -1,15 +1,17 @@
 /* Contact Page Styles */
 .contact {
   display: flex;
+  flex-direction: column;
   flex: 1;
   overflow: visible;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   color: #fff;
   padding: 2rem;
-  max-width: calc(100% - 650px);
+  max-width: 900px;
   margin: 0 auto;
-  margin-top: 155px;
-  margin-left: 2rem;
+  margin-top: 180px;
+  text-align: center;
 }
 
 .contactContent {
@@ -18,21 +20,22 @@
 }
 
 .contact ul {
-  font-size: 30px;
+  font-size: 36px;
+  font-weight: 600;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   list-style: none;
   padding: 0;
 }
 
 .contact p {
-  font-size: 20px;
+  font-size: 22px;
   color: #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .whatsappSection {
-  margin: 2rem 0;
+  margin: 2rem 0 3rem 0;
   z-index: 10;
 }
 
@@ -61,23 +64,26 @@
 }
 
 .contact b {
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 700;
   color: #fff;
   display: block;
-  margin: 2rem 0 0.5rem 0;
+  margin: 3rem 0 2rem 0;
 }
 
 .contact .address {
   font-size: 20px;
   color: #fff;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
 }
 
 .contact .building {
   font-size: 20px;
   color: #fff;
   display: block;
+  margin-top: 0.8rem;
 }
 
 .staticFigure {
