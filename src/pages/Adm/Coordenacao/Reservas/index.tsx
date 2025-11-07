@@ -510,7 +510,7 @@ export function ReservasAdmin() {
       </div>
 
       <div style={{ marginTop: '205px', marginBottom: '0' }}>
-        <h1 className={styles.title} style={{ 
+        <h1 style={{ 
           textAlign: 'center',
           fontSize: '28px',
           fontWeight: 'bold',
