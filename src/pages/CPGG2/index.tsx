@@ -17,7 +17,7 @@ export function CPGG2() {
           
           <div className={styles.requerimentoButton}>
             <Link to="/labs/laiga/reservation-form" className={styles.buttonLink}>
-              {t('laiga.requestButton')}
+              LAIGA
             </Link>
           </div>
         </div>
