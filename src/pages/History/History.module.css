@@ -16,13 +16,13 @@
 
 .title {
   text-align: left;
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0;
-  margin-left: calc(50% - 445px);
+  margin: 0 !important;
+  margin-left: calc(50% - 445px) !important;
+  padding: 0 !important;
   font-size: 28px;
   font-weight: bold;
   color: white;
+  line-height: 1.2;
 }
 
 .container {
