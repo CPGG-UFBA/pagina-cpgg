@@ -32,8 +32,9 @@
 .languageContainer {
   display: flex;
   flex-shrink: 0;
-  z-index: 99999;
-  margin-left: auto;
+  align-items: center;
+  z-index: 100003;
+  order: 10;
 }
 
 
@@ -45,6 +46,7 @@
   padding: 5px;
   flex-shrink: 1;
   min-width: 0;
+  order: 2;
 }
 
 .block1 h1 {
@@ -75,6 +77,8 @@
 .logoufba {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  order: 3;
 }
 
 .header .logoufba img {
@@ -87,6 +91,8 @@
 .figure {
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  order: 1;
 }
 
 .header .figure img {
@@ -101,6 +107,7 @@ nav {
   flex: 1;
   justify-content: center;
   overflow: visible;
+  order: 4;
 }
 
 .signup {
