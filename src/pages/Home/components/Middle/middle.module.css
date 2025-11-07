@@ -405,3 +405,58 @@
     padding: 0.75rem;
   }
 }
+
+/* Portrait orientation - hide text and expand carousel */
+@media (orientation: portrait) {
+  .middle {
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+  }
+  
+  .carouselContainer {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 0;
+  }
+  
+  .static {
+    display: none !important;
+  }
+  
+  .staticFigure {
+    display: none !important;
+  }
+  
+  .imageWrapper {
+    height: 350px;
+  }
+  
+  .controls {
+    bottom: 150px;
+  }
+}
+
+/* Portrait small screens */
+@media (orientation: portrait) and (max-width: 600px) {
+  .carouselContainer {
+    width: 95%;
+  }
+  
+  .imageWrapper {
+    height: 280px;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 414px) {
+  .imageWrapper {
+    height: 220px;
+  }
+}
+
+@media (orientation: portrait) and (max-width: 375px) {
+  .imageWrapper {
+    height: 200px;
+  }
+}
