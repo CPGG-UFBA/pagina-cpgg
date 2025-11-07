@@ -3,12 +3,13 @@
   display: flex;
   flex: 1;
   overflow: visible;
-  align-items: center;
+  align-items: flex-start;
   color: #fff;
   padding: 2rem;
-  max-width: 1400px;
+  max-width: calc(100% - 650px);
   margin: 0 auto;
   margin-top: 155px;
+  margin-left: 2rem;
 }
 
 .contactContent {
@@ -86,11 +87,13 @@
   transform: translateY(-50%);
   z-index: 0;
   pointer-events: none;
+  width: 40rem;
 }
 
 .staticFigure img {
   height: 40rem;
   width: auto;
+  object-fit: contain;
 }
 
 /*--------------------*/
