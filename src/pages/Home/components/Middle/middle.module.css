@@ -203,6 +203,7 @@
   font-size: 45px;
   flex-shrink: 0;
   overflow: hidden;
+  transform: translateX(-60px);
 }
 
 .static > strong {
