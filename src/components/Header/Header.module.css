@@ -246,6 +246,13 @@
     height: 100vh;
   }
   
+  .languageContainer {
+    position: relative !important;
+    z-index: 100003 !important;
+    display: flex !important;
+    visibility: visible !important;
+  }
+  
   .signup li {
     font-size: 18px;
   }
@@ -274,6 +281,13 @@
     height: 100vh;
   }
   
+  .languageContainer {
+    position: relative !important;
+    z-index: 100003 !important;
+    display: flex !important;
+    visibility: visible !important;
+  }
+  
   .signup li {
     font-size: 16px;
   }
@@ -292,6 +306,13 @@
 @media (min-width: 1280px) and (max-width: 1440px) {
   .header {
     height: 100vh;
+  }
+  
+  .languageContainer {
+    position: relative !important;
+    z-index: 100003 !important;
+    display: flex !important;
+    visibility: visible !important;
   }
   
   .signup li {
@@ -337,6 +358,13 @@
     height: 100vh;
   }
   
+  .languageContainer {
+    position: relative !important;
+    z-index: 100003 !important;
+    display: flex !important;
+    visibility: visible !important;
+  }
+  
   .signup li {
     font-size: 15px;
   }
@@ -355,6 +383,13 @@
 @media (min-width: 1151px) and (max-width: 1200px) {
   .header {
     height: 100vh;
+  }
+  
+  .languageContainer {
+    position: relative !important;
+    z-index: 100003 !important;
+    display: flex !important;
+    visibility: visible !important;
   }
   
   .signup li {
@@ -577,9 +612,20 @@
   }
 }
 
-/* Language Selector no longer needs responsive positioning - handled by flexbox */
+/* Language Selector SEMPRE VISÍVEL */
 
-/* GARANTIR QUE O SELETOR DE IDIOMA SEMPRE SEJA VISÍVEL */
+/* Garantir visibilidade em telas grandes */
+@media (min-width: 1151px) {
+  .languageContainer {
+    position: relative !important;
+    z-index: 100003 !important;
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
+/* GARANTIR visibilidade em portrait e landscape pequenos */
 @media (orientation: portrait) {
   .languageContainer {
     position: absolute !important;
