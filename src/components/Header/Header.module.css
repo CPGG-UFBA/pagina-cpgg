@@ -211,6 +211,10 @@ nav ul li:hover .submenu2 ul li a {
     margin-left: 700px;
   }
   
+  nav ul {
+    margin-left: -200px;
+  }
+  
   nav ul li {
     font-size: 18px;
   }
@@ -244,6 +248,10 @@ nav ul li:hover .submenu2 ul li a {
   
   .signup {
     margin-left: 510px;
+  }
+  
+  nav ul {
+    margin-left: -200px;
   }
   
   nav ul li {
@@ -319,6 +327,10 @@ nav ul li:hover .submenu2 ul li a {
     margin-left: 300px;
   }
   
+  nav ul {
+    margin-left: -200px;
+  }
+  
   nav ul li {
     font-size: 15px;
   }
@@ -338,6 +350,10 @@ nav ul li:hover .submenu2 ul li a {
   
   .signup {
     margin-left: 180px;
+  }
+  
+  nav ul {
+    margin-left: -200px;
   }
   
   nav ul li {
@@ -429,6 +445,10 @@ nav ul li:hover .submenu2 ul li a {
   
   .signup {
     margin-left: 150px;
+  }
+  
+  nav ul {
+    margin-left: -200px;
   }
   
   nav ul li {
