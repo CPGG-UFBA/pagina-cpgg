@@ -7,20 +7,28 @@ export function LanguageSelector() {
   console.log('LanguageSelector renderizando, idioma atual:', language);
 
   return (
-    <div className={styles.languageSelector} style={{ background: 'rgba(255, 0, 0, 0.3)' }}>
+    <div className={styles.languageSelector} style={{ background: 'rgba(255, 0, 0, 0.3)', minWidth: '120px', minHeight: '50px' }}>
       <button
-        onClick={() => setLanguage('pt')}
+        onClick={() => {
+          console.log('Clicou em PT');
+          setLanguage('pt');
+        }}
         className={`${styles.flagButton} ${language === 'pt' ? styles.active : ''}`}
         aria-label="Português"
         title="Português"
+        style={{ fontSize: '24px' }}
       >
         🇧🇷
       </button>
       <button
-        onClick={() => setLanguage('en')}
+        onClick={() => {
+          console.log('Clicou em EN');
+          setLanguage('en');
+        }}
         className={`${styles.flagButton} ${language === 'en' ? styles.active : ''}`}
         aria-label="English"
         title="English"
+        style={{ fontSize: '24px' }}
       >
         🇺🇸
       </button>
