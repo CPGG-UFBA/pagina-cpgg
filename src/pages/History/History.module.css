@@ -30,10 +30,11 @@
   grid-template-columns: repeat(2, 350px);
   gap: 2rem;
   justify-content: center;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 20px !important;
-  padding-top: 0 !important;
   margin-bottom: 4rem;
+  padding-top: 0 !important;
   position: relative;
 }
 
