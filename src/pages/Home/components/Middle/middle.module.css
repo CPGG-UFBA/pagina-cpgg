@@ -446,6 +446,35 @@
   }
 }
 
+/* Landscape 1440px+ - manter layout original */
+@media (orientation: landscape) and (min-width: 1440px) {
+  .middle {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    padding-top: 140px !important;
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    padding-bottom: 0 !important;
+    height: calc(100vh - 200px) !important;
+  }
+  
+  .carouselContainer {
+    width: 35% !important;
+    margin-right: 2rem !important;
+    margin-top: -180px !important;
+  }
+  
+  .static {
+    display: block !important;
+  }
+  
+  .staticFigure {
+    display: block !important;
+  }
+}
+
 /* Portrait small screens */
 @media (orientation: portrait) and (max-width: 600px) {
   .carouselContainer {
