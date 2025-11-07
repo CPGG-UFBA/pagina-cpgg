@@ -12,6 +12,7 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  margin-top: 0;
   padding: 1rem;
   background: hsl(var(--card));
   border-radius: 8px;
