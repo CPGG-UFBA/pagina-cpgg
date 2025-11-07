@@ -47,6 +47,7 @@ export function Footer() {
           </a>
           <a href='http://www.pggeofisica.ufba.br/' target="_blank">{t('footer.postGradGeophysics')}</a>
           <a href='https://pggeologia.ufba.br/' target="_blank" >{t('footer.postGradGeology')}</a>
+          <a href='/adm'>{t('footer.admin')}</a>
         </nav>
         <div className={styles.copyright}>
           {t('footer.rights')}

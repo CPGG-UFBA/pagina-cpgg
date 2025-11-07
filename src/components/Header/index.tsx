@@ -31,11 +31,6 @@ export function Header() {
       <nav>
         <ul className={styles.signup}>
           <li>
-            <NavLink to='/adm' className={styles.navLink}>
-              {t('nav.admin')}
-            </NavLink>
-          </li>
-          <li>
             <NavLink to='/Contact' className={styles.navLink}>
               {t('nav.contact')}
             </NavLink>
