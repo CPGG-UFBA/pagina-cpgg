@@ -56,6 +56,9 @@
   visibility: visible !important;
   opacity: 1 !important;
   flex-shrink: 0;
+  background: rgba(0, 255, 0, 0.3);
+  padding: 5px;
+  pointer-events: all;
 }
 
 

@@ -3,9 +3,11 @@ import styles from './LanguageSelector.module.css';
 
 export function LanguageSelector() {
   const { language, setLanguage } = useLanguage();
+  
+  console.log('LanguageSelector renderizando, idioma atual:', language);
 
   return (
-    <div className={styles.languageSelector}>
+    <div className={styles.languageSelector} style={{ background: 'rgba(255, 0, 0, 0.3)' }}>
       <button
         onClick={() => setLanguage('pt')}
         className={`${styles.flagButton} ${language === 'pt' ? styles.active : ''}`}
