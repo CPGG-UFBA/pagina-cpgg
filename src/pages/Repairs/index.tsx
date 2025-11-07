@@ -11,11 +11,10 @@ export function RepairsServices() {
   const [formData, setFormData] = useState({
     nome: '',
     sobrenome: '',
-    email: '',
     problemType: '',
     problemDescription: ''
   })
-  const [confirmEmail, setConfirmEmail] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [authError, setAuthError] = useState('')
 
@@ -29,20 +28,13 @@ export function RepairsServices() {
     
     console.log('Iniciando validação do formulário...')
     console.log('FormData:', formData)
-    console.log('ConfirmEmail:', confirmEmail)
+    console.log('Email:', email)
     console.log('Password:', password ? '***' : 'vazio')
     
     // Validar se todos os campos estão preenchidos
-    if (!formData.nome || !formData.sobrenome || !formData.email || !formData.problemType || !formData.problemDescription) {
+    if (!formData.nome || !formData.sobrenome || !formData.problemType || !formData.problemDescription || !email) {
       console.error('Campos obrigatórios não preenchidos')
       setAuthError('Por favor, preencha todos os campos obrigatórios.')
-      return;
-    }
-
-    // Validar confirmação de email
-    if (formData.email !== confirmEmail) {
-      console.error('Emails não coincidem')
-      setAuthError('Os emails não coincidem. Verifique o email de confirmação.')
       return;
     }
 
@@ -57,7 +49,7 @@ export function RepairsServices() {
       console.log('Tentando autenticar usuário...')
       // Tentar autenticar o usuário
       const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
-        email: confirmEmail,
+        email: email,
         password: password
       })
 
@@ -81,9 +73,12 @@ export function RepairsServices() {
       }
 
       console.log('Usuário autenticado, enviando solicitação...')
-      // Se autenticado, enviar a solicitação
+      // Se autenticado, enviar a solicitação com email incluído
       const { data, error } = await supabase.functions.invoke('send-repair-request', {
-        body: formData
+        body: {
+          ...formData,
+          email: email
+        }
       });
 
       if (error) {
@@ -134,17 +129,6 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
-            <label>E-mail *</label>
-            <input 
-              type="email" 
-              placeholder="E-mail" 
-              value={formData.email}
-              onChange={(e) => handleInputChange('email', e.target.value)}
-              required 
-            />
-          </div>
-
-          <div className={styles.form}> 
             <label>Tipo de Problema *</label>
             <select 
               value={formData.problemType}
@@ -168,12 +152,12 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
-            <label>Confirmação de E-mail *</label>
+            <label>E-mail *</label>
             <input 
               type="email" 
-              placeholder="Confirme seu e-mail" 
-              value={confirmEmail}
-              onChange={(e) => setConfirmEmail(e.target.value)}
+              placeholder="Digite seu e-mail" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required 
             />
           </div>
