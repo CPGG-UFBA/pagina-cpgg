@@ -17,7 +17,7 @@
   font-size: 24px;
   color: #363F5;
   position: absolute;
-  margin-left: -1260px;
+  margin-left: -1210px;
   margin-top: -20px;
   max-width: 560px;
   padding: 0 20px;
@@ -26,20 +26,20 @@
 
 @media (max-width: 1600px) {
   .RS ul {
-    margin-left: -1220px;
+    margin-left: -1170px;
   }
 }
 
 @media (max-width: 1400px) {
   .RS ul {
-    margin-left: -1120px;
+    margin-left: -1070px;
     font-size: 22px;
   }
 }
 
 @media (max-width: 1200px) {
   .RS ul {
-    margin-left: -920px;
+    margin-left: -870px;
     font-size: 20px;
     max-width: 500px;
   }
@@ -47,7 +47,7 @@
 
 @media (max-width: 1000px) {
   .RS ul {
-    margin-left: -720px;
+    margin-left: -670px;
     font-size: 18px;
     max-width: 450px;
   }
