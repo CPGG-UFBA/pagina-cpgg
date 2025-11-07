@@ -99,6 +99,7 @@
   
   .centerContent {
     margin: 0 2rem;
+    transform: translateX(-60px);
   }
   
   .mainTitle {
@@ -157,6 +158,7 @@
   .centerContent.centerContent {
     margin: 0 !important;
     order: 3 !important;
+    transform: translateX(-60px) !important;
   }
   
   .mainTitle.mainTitle {
