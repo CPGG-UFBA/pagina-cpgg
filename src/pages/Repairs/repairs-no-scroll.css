@@ -1,6 +1,6 @@
 /* FORÇA REMOÇÃO DE SCROLL NA PÁGINA REPAIRS */
-body:has([class*="RepairsServices_RS"]),
-html:has([class*="RepairsServices_RS"]) {
+body:has([class*="RS"]),
+html:has([class*="RS"]) {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
@@ -10,7 +10,7 @@ html:has([class*="RepairsServices_RS"]) {
   left: 0 !important;
 }
 
-#root:has([class*="RepairsServices_RS"]) {
+#root:has([class*="RS"]) {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
@@ -21,7 +21,7 @@ html:has([class*="RepairsServices_RS"]) {
 }
 
 /* Remove qualquer margin/padding que cause scroll */
-body:has([class*="RepairsServices_RS"]) *,
-#root:has([class*="RepairsServices_RS"]) * {
+body:has([class*="RS"]) *,
+#root:has([class*="RS"]) * {
   margin-bottom: 0 !important;
 }
