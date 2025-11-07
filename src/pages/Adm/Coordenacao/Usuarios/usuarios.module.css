@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   margin-top: 0;
   background: rgba(255, 255, 255, 0.1);
   border: 2px solid rgba(255, 255, 255, 0.2);
@@ -43,6 +43,17 @@
   font-size: 2rem;
   font-weight: bold;
   margin-top: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 2rem 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 

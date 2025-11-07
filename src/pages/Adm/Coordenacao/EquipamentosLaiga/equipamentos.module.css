@@ -12,7 +12,7 @@
   background: hsl(var(--card));
   padding: 20px;
   border-radius: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 0;
   margin-top: 0;
   box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15);
 }
@@ -28,6 +28,15 @@
   font-weight: 700;
   margin: 0;
   margin-top: 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin: 2rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .content {

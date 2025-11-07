@@ -262,10 +262,7 @@ export function PesquisadoresAdmin() {
         </Button>
       </div>
 
-      <div className={styles.title}>
-        <h1>Gerenciar Pesquisadores</h1>
-        <p>Gerencie os pesquisadores cadastrados no sistema</p>
-      </div>
+      <h1 className={styles.title}>Gerenciar Pesquisadores</h1>
 
       <div className={styles.actions}>
         <Button

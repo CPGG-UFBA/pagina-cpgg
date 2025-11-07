@@ -355,13 +355,14 @@ export function EquipamentosLaiga() {
             <ArrowLeft className="h-4 w-4 mr-2" />
             Voltar ao Painel
           </Button>
-          <h1>Gerenciar Equipamentos LAIGA</h1>
+          <Button onClick={handleLogout} variant="outline" size="sm">
+            <LogOut className="h-4 w-4 mr-2" />
+            Sair
+          </Button>
         </div>
-        <Button onClick={handleLogout} variant="outline" size="sm">
-          <LogOut className="h-4 w-4 mr-2" />
-          Sair
-        </Button>
       </div>
+
+      <h1 className={styles.title}>Gerenciar Equipamentos LAIGA</h1>
 
       <div className={styles.content}>
         <div className="mb-6">

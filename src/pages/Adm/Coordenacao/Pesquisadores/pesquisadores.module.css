@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
   margin-top: 0;
   padding: 1rem;
   background: hsl(var(--card));
@@ -31,19 +31,11 @@
 
 .title {
   text-align: center;
-  margin-bottom: 2rem;
-}
-
-.title h1 {
   font-size: 2rem;
   font-weight: bold;
-  color: hsl(var(--foreground));
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.title p {
-  color: hsl(var(--muted-foreground));
+  color: white;
+  margin: 2rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .actions {

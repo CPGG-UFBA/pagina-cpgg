@@ -400,16 +400,17 @@ export function UsuariosAdmin() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar ao Painel
           </Button>
-          <h1>Administrar Usuários</h1>
+          <Button
+            onClick={handleSyncUsers}
+            disabled={isSyncing}
+            className={styles.syncButton}
+          >
+            {isSyncing ? 'Sincronizando...' : 'Sincronizar Usuários'}
+          </Button>
         </div>
-        <Button
-          onClick={handleSyncUsers}
-          disabled={isSyncing}
-          className={styles.syncButton}
-        >
-          {isSyncing ? 'Sincronizando...' : 'Sincronizar Usuários'}
-        </Button>
       </div>
+
+      <h1 className={styles.title}>Administrar Usuários</h1>
 
       {deletedUsers.length > 0 && (
         <div className={styles.undoSection}>
