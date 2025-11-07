@@ -502,13 +502,14 @@ export function ReservasAdmin() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Voltar ao Painel
           </Button>
-          <h1>Gerenciamento de Reservas</h1>
+          <Button onClick={handleLogout} variant="outline" size="sm">
+            <LogOut className="w-4 h-4 mr-2" />
+            Sair
+          </Button>
         </div>
-        <Button onClick={handleLogout} variant="outline" size="sm">
-          <LogOut className="w-4 h-4 mr-2" />
-          Sair
-        </Button>
       </div>
+
+      <h1 className={styles.title}>Gerenciamento de Reservas</h1>
 
       <div className={styles.content}>
         <Tabs defaultValue="physical-spaces" className="w-full">

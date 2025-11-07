@@ -143,14 +143,13 @@ export function LaboratoriosAdmin() {
     <div className={styles.container}>
       <div className={styles.header}>
         <img src={logocpgg} alt="CPGG Logo" className={styles.logo} />
-        <div className="flex items-center gap-4">
-          <Button onClick={() => navigate('/adm/coordenacao/dashboard')} variant="outline" size="sm">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Voltar ao Painel
-          </Button>
-          <h1>Gerenciar Laboratórios</h1>
-        </div>
+        <Button onClick={() => navigate('/adm/coordenacao/dashboard')} variant="outline" size="sm">
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Voltar ao Painel
+        </Button>
       </div>
+      
+      <h1 className={styles.title}>Gerenciar Laboratórios</h1>
 
       <div className={styles.tableContainer}>
         <table className={styles.labsTable}>
