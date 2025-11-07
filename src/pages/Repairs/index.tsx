@@ -27,25 +27,34 @@ export function RepairsServices() {
     e.preventDefault()
     setAuthError('')
     
+    console.log('Iniciando validação do formulário...')
+    console.log('FormData:', formData)
+    console.log('ConfirmEmail:', confirmEmail)
+    console.log('Password:', password ? '***' : 'vazio')
+    
     // Validar se todos os campos estão preenchidos
     if (!formData.nome || !formData.sobrenome || !formData.email || !formData.problemType || !formData.problemDescription) {
+      console.error('Campos obrigatórios não preenchidos')
       setAuthError('Por favor, preencha todos os campos obrigatórios.')
       return;
     }
 
     // Validar confirmação de email
     if (formData.email !== confirmEmail) {
+      console.error('Emails não coincidem')
       setAuthError('Os emails não coincidem. Verifique o email de confirmação.')
       return;
     }
 
     // Validar senha
     if (!password) {
+      console.error('Senha não preenchida')
       setAuthError('Por favor, insira sua senha.')
       return;
     }
     
     try {
+      console.log('Tentando autenticar usuário...')
       // Tentar autenticar o usuário
       const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
         email: confirmEmail,
@@ -53,6 +62,7 @@ export function RepairsServices() {
       })
 
       if (authError) {
+        console.error('Erro de autenticação:', authError)
         // Verificar tipo de erro
         if (authError.message.includes('Invalid login credentials')) {
           setAuthError('Email ou senha incorretos.')
@@ -65,16 +75,21 @@ export function RepairsServices() {
       }
 
       if (!authData.user) {
+        console.error('Usuário não encontrado')
         setAuthError('Usuário não cadastrado.')
         return;
       }
 
+      console.log('Usuário autenticado, enviando solicitação...')
       // Se autenticado, enviar a solicitação
       const { data, error } = await supabase.functions.invoke('send-repair-request', {
         body: formData
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Erro ao invocar edge function:', error)
+        throw error;
+      }
 
       console.log('Solicitação enviada com sucesso:', data);
       
@@ -97,6 +112,7 @@ export function RepairsServices() {
           <form className={styles.box} onSubmit={handleSubmit}>
 
           <div className={styles.form}> 
+            <label>Nome *</label>
              <input 
                type="text" 
                placeholder="Nome" 
@@ -107,6 +123,7 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
+            <label>Sobrenome *</label>
             <input 
               type="text" 
               placeholder="Sobrenome" 
@@ -117,6 +134,7 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
+            <label>E-mail *</label>
             <input 
               type="email" 
               placeholder="E-mail" 
@@ -127,7 +145,7 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
-            <label>Tipo de Problema</label>
+            <label>Tipo de Problema *</label>
             <select 
               value={formData.problemType}
               onChange={(e) => handleInputChange('problemType', e.target.value)}
@@ -140,7 +158,7 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
-            <label>Descrição do Problema</label>
+            <label>Descrição do Problema *</label>
             <textarea 
               placeholder="Descreva detalhadamente o problema..." 
               value={formData.problemDescription}
@@ -150,7 +168,7 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
-            <label>Confirmação de E-mail</label>
+            <label>Confirmação de E-mail *</label>
             <input 
               type="email" 
               placeholder="Confirme seu e-mail" 
@@ -161,13 +179,14 @@ export function RepairsServices() {
           </div>
 
           <div className={styles.form}> 
-            <label>Senha</label>
+            <label>Senha *</label>
             <input 
               type="password" 
               placeholder="Digite sua senha" 
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required 
+              minLength={6}
             />
           </div>
 
