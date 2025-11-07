@@ -20,8 +20,8 @@
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 2rem;
-  margin-top: calc(2rem + 150px);
-  height: calc(100vh - (2rem + 150px));
+  margin-top: calc(2rem + 155px);
+  height: calc(100vh - (2rem + 155px));
   min-height: 0;
 }
 
