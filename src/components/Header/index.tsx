@@ -10,25 +10,23 @@ export function Header() {
   
   return (
     <header className={styles.header}>
-      <div className={styles.figure}>
-        <img src={logocpgg} alt='CPGG' />
-      </div>
-      
-      <div className={styles.block1}>
-        <h1>{t('header.institutionTitle1')}</h1>
-        <h1>{t('header.institutionTitle2')}</h1>
-        <h1>{t('header.institutionTitle3')}</h1>
+      <div className={styles.leftSection}>
+        <div className={styles.figure}>
+          <img src={logocpgg} alt='CPGG' />
+        </div>
+        
+        <div className={styles.block1}>
+          <h1>{t('header.institutionTitle1')}</h1>
+          <h1>{t('header.institutionTitle2')}</h1>
+          <h1>{t('header.institutionTitle3')}</h1>
+        </div>
+
+        <div className={styles.logoufba}>
+          <img src={logoufba} alt='UFBA' />
+        </div>
       </div>
 
-      <div className={styles.logoufba}>
-        <img src={logoufba} alt='UFBA' />
-      </div>
-
-      <div className={styles.languageContainer}>
-        <LanguageSelector />
-      </div>
-      
-      <nav>
+      <nav className={styles.navSection}>
         <ul className={styles.signup}>
           <li>
             <NavLink to='/Contact' className={styles.navLink}>
@@ -143,6 +141,11 @@ export function Header() {
           </li>
         </ul>
       </nav>
+
+      <div className={styles.languageContainer}>
+        <LanguageSelector />
+      </div>
+      
       <GlobalEarth />
     </header>
   );
