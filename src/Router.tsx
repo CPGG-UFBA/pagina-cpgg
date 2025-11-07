@@ -95,6 +95,7 @@ import { LaboratoriosAdmin } from './pages/Adm/Coordenacao/Laboratorios'
 import { ReservasAdmin } from './pages/Adm/Coordenacao/Reservas'
 import { EquipamentosLaiga } from './pages/Adm/Coordenacao/EquipamentosLaiga'
 import { ResearchProjects } from './pages/ResearchProjects'
+import { RepairsServices } from './pages/Repairs'
 
 export function Router() {
   return (
@@ -171,6 +172,7 @@ export function Router() {
          <Route path='/reservations/reservation-meeting-room' element={<MR />} />
          <Route path='/reservations/success' element={<Success />} />
          <Route path='/reservations/receipt' element={<Receipt />} />
+         <Route path='/repairs-services' element={<RepairsServices />} />
          <Route path='/Regulations' element={<Regulations />} />  
          <Route path='/research-projects' element={<ResearchProjects />} />
          <Route path='/Photos' element={<Photos />} />

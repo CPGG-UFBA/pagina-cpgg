@@ -9,5 +9,8 @@ verify_jwt = false
 [functions.send-laiga-reservation]
 verify_jwt = false
 
+[functions.send-repair-request]
+verify_jwt = false
+
 [functions.track-visitor-location]
 verify_jwt = false

@@ -133,10 +133,22 @@ export function Header() {
                     {t('nav.labsReservations')}
                   </NavLink>
                 </li>
-                <li>
-                  <NavLink to='/spaces' className={styles.navLink}>
-                    {t('nav.spacesReservations')}
-                  </NavLink>
+                <li className={styles.hoversub}>
+                  <a href='#'>{t('nav.spacesReservations')}</a>
+                  <div className={styles.submenu2}>
+                    <ul>
+                      <li>
+                        <NavLink to='/spaces' className={styles.navLink}>
+                          Ver espaços
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to='/repairs-services' className={styles.navLink}>
+                          Reparos e serviços técnicos
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
                 </li>
               </ul>
             </div>

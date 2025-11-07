@@ -1,0 +1,91 @@
+/* Repairs Services Page Styles */
+.RS {
+  display: flex;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
+  color: #fff;
+  padding-top: 150px;
+  padding-bottom: 630px;
+  padding-left: 700px;
+  padding-right: 8px;
+}
+
+.RS ul {
+  font-size: 24px;
+  color: #363F5;
+  position: absolute;
+  margin-left: -1390px;
+  margin-top: -20px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  width: 600px;
+  min-height: 480px;
+  top: 19%;
+  left: calc(10% + 130px);
+  padding: 10px;
+  border-radius: 20px;
+  margin-bottom: -100px;
+}
+
+.box input,
+.box select,
+.box textarea {
+  display: flex;
+  padding: 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  margin-top: 0.2rem;
+  margin-left: 2.5rem;
+  border-radius: 15px;
+  transition: all linear 160ms;
+  outline: none;
+  width: 500px;
+  color: #000;
+  background-color: white;
+}
+
+.box textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.box label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+.form {
+  padding-bottom: 5px;
+  padding-top: 25px;
+}
+
+.box button {
+  padding: 15px;
+  font-size: 14px;
+  color: white;
+  border-radius: 15px;
+  width: 300px;
+  margin-left: 9rem;
+  margin-top: 30px;
+  background-color: #beb6b6;
+  border: none;
+  transition: 500ms linear;
+}
+
+.box button:hover {
+  background-color: #936aeb;
+}
+
+.box button > a {
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+}
