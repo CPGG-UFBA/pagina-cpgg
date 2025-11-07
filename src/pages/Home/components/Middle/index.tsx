@@ -107,7 +107,7 @@ export function Middle() {
   const currentArticle = displayArticles[currentIndex]
 
   return (
-    <div className={styles.middle}>
+    <>
       <div className={styles.carouselContainer}>
         {currentArticle && (
           <a href={getNewsRoute(currentArticle.news_position)} className={styles.newsLink}>
@@ -180,6 +180,6 @@ export function Middle() {
           <h1>and trade proposals</h1>
         </div>
       </div>
-    </div>
+    </>
   )
 }

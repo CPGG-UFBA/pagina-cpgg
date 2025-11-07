@@ -409,24 +409,16 @@
 /* Portrait orientation - hide text and expand carousel */
 @media (orientation: portrait) {
   .middle {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    height: calc(100vh - 200px) !important;
-    min-height: 500px;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
   }
   
   .carouselContainer {
     width: 90%;
     max-width: 700px;
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto;
+    margin-top: 0;
   }
   
   .static {
@@ -442,36 +434,7 @@
   }
   
   .controls {
-    bottom: 100px;
-  }
-}
-
-/* Landscape 1440px+ - manter layout original */
-@media (orientation: landscape) and (min-width: 1440px) {
-  .middle {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    padding-top: 140px !important;
-    padding-left: 24px !important;
-    padding-right: 24px !important;
-    padding-bottom: 0 !important;
-    height: calc(100vh - 200px) !important;
-  }
-  
-  .carouselContainer {
-    width: 35% !important;
-    margin-right: 2rem !important;
-    margin-top: -180px !important;
-  }
-  
-  .static {
-    display: block !important;
-  }
-  
-  .staticFigure {
-    display: block !important;
+    bottom: 150px;
   }
 }
 
