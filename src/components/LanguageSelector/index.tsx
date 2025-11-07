@@ -3,32 +3,22 @@ import styles from './LanguageSelector.module.css';
 
 export function LanguageSelector() {
   const { language, setLanguage } = useLanguage();
-  
-  console.log('LanguageSelector renderizando, idioma atual:', language);
 
   return (
-    <div className={styles.languageSelector} style={{ background: 'rgba(255, 0, 0, 0.3)', minWidth: '120px', minHeight: '50px' }}>
+    <div className={styles.languageSelector}>
       <button
-        onClick={() => {
-          console.log('Clicou em PT');
-          setLanguage('pt');
-        }}
+        onClick={() => setLanguage('pt')}
         className={`${styles.flagButton} ${language === 'pt' ? styles.active : ''}`}
         aria-label="Português"
         title="Português"
-        style={{ fontSize: '24px' }}
       >
         🇧🇷
       </button>
       <button
-        onClick={() => {
-          console.log('Clicou em EN');
-          setLanguage('en');
-        }}
+        onClick={() => setLanguage('en')}
         className={`${styles.flagButton} ${language === 'en' ? styles.active : ''}`}
         aria-label="English"
         title="English"
-        style={{ fontSize: '24px' }}
       >
         🇺🇸
       </button>
