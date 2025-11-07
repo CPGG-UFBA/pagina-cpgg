@@ -239,6 +239,22 @@ All colors MUST be HSL.
     background-clip: text;
   }
 
+  /* Fixed spacing between page titles and content - 20px */
+  .title + .container,
+  .title + .box,
+  .Programs .box,
+  main > .container:not(:first-child) {
+    margin-top: 20px !important;
+  }
+
+  /* Ensure all page titles have consistent bottom spacing */
+  .title,
+  .Programs ul,
+  .Title ul,
+  .mainTitle {
+    margin-bottom: 20px !important;
+  }
+
   /* Pause animation on hover */
   .animate-scroll-vertical:hover {
     animation-play-state: paused;

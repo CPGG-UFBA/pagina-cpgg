@@ -24,7 +24,8 @@
   margin-top: 0;
   margin-left: calc(50% - 445px);
   padding-left: 0;
-  padding-bottom: 15px;
+  padding-bottom: 0;
+  margin-bottom: 20px !important;
   white-space: nowrap;
   font-weight: bold;
 }
