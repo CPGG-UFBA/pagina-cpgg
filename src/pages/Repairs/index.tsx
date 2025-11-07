@@ -103,8 +103,9 @@ export function RepairsServices() {
     <>
       <Header />
       <div className={styles.RS}>
-          <ul> Solicitação de Reparos e Serviços Técnicos </ul>
-          <form className={styles.box} onSubmit={handleSubmit}>
+          <div className={styles.formContainer}>
+            <h1 className={styles.title}>Solicitação de Reparos e Serviços Técnicos</h1>
+            <form className={styles.box} onSubmit={handleSubmit}>
 
           <div className={styles.form}> 
             <label>Nome *</label>
@@ -194,6 +195,7 @@ export function RepairsServices() {
           </button>
 
           </form>
+          </div>
         </div>
         
       <Footer />
