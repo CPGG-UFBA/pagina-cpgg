@@ -3,7 +3,7 @@
   height: auto;
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
   padding: 20px;
-  padding-top: 20px;
+  padding-top: 0;
   padding-bottom: 100px;
   overflow-y: auto;
 }
@@ -16,7 +16,7 @@
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 0;
-  margin-top: 20px;
+  margin-top: 32px;
   box-shadow: 0 4px 12px hsl(var(--shadow) / 0.15);
 }
 
@@ -38,7 +38,7 @@
   font-size: 2rem;
   font-weight: bold;
   color: white;
-  margin-top: 55px;
+  margin-top: 35px;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
