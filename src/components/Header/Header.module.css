@@ -76,7 +76,7 @@
 nav ul {
   display: inline-flex;
   list-style: none;
-  margin-left: -550px;
+  margin-left: -750px;
   overflow: visible;
 }
 
@@ -219,7 +219,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -550px;
+    margin-left: -750px;
   }
   
   nav ul li {
@@ -258,7 +258,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -550px;
+    margin-left: -750px;
   }
   
   nav ul li {
@@ -283,7 +283,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -530px;
+    margin-left: -730px;
   }
   
   nav ul li {
@@ -335,7 +335,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -550px;
+    margin-left: -750px;
   }
   
   nav ul li {
@@ -360,7 +360,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -550px;
+    margin-left: -750px;
   }
   
   nav ul li {
@@ -455,7 +455,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    margin-left: -550px;
+    margin-left: -750px;
   }
   
   nav ul li {
