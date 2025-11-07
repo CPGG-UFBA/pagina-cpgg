@@ -48,13 +48,14 @@
 }
 
 .languageContainer {
-  flex-shrink: 0;
+  position: absolute;
+  top: 15px;
+  right: 15px;
   z-index: 100003;
-  margin-left: auto;
-  position: relative;
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
+  flex-shrink: 0;
 }
 
 
@@ -243,11 +244,13 @@
 /* Grandes Telas/4K - ≥ 1601px */
 @media (min-width: 1601px) {
   .header {
-    height: 100vh;
+    height: 100px;
   }
   
   .languageContainer {
-    position: relative !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
     z-index: 100003 !important;
     display: flex !important;
     visibility: visible !important;
@@ -278,11 +281,13 @@
 /* 1440px */
 @media (min-width: 1441px) and (max-width: 1600px) {
   .header {
-    height: 100vh;
+    height: 100px;
   }
   
   .languageContainer {
-    position: relative !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
     z-index: 100003 !important;
     display: flex !important;
     visibility: visible !important;
@@ -305,11 +310,13 @@
 /* 1280px - 1440px */
 @media (min-width: 1280px) and (max-width: 1440px) {
   .header {
-    height: 100vh;
+    height: 100px;
   }
   
   .languageContainer {
-    position: relative !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
     z-index: 100003 !important;
     display: flex !important;
     visibility: visible !important;
@@ -355,11 +362,13 @@
 /* Desktop/HD - 1201px - 1279px */
 @media (min-width: 1201px) and (max-width: 1279px) {
   .header {
-    height: 100vh;
+    height: 100px;
   }
   
   .languageContainer {
-    position: relative !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
     z-index: 100003 !important;
     display: flex !important;
     visibility: visible !important;
@@ -382,11 +391,13 @@
 /* Laptop - 1151px - 1200px */
 @media (min-width: 1151px) and (max-width: 1200px) {
   .header {
-    height: 100vh;
+    height: 100px;
   }
   
   .languageContainer {
-    position: relative !important;
+    position: absolute !important;
+    top: 15px !important;
+    right: 15px !important;
     z-index: 100003 !important;
     display: flex !important;
     visibility: visible !important;
