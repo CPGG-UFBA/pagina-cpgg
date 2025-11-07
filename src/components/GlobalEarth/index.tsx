@@ -58,7 +58,7 @@ export function GlobalEarth() {
       style={{
         position: 'fixed !important' as any,
         top: '215px !important' as any,
-        right: '50px !important' as any,
+        right: '100px !important' as any,
         zIndex: '1 !important' as any,
         width: `${size} !important` as any,
         height: `${size} !important` as any,
