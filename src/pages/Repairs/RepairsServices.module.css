@@ -1,20 +1,22 @@
 /* Repairs Services Page Styles */
 .RS {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding: 150px 20px 50px;
+  flex: 1;
+  overflow: visible;
+  justify-content: center;
   color: #fff;
+  padding-top: 150px;
+  padding-bottom: 630px;
+  padding-left: 700px;
+  padding-right: 8px;
 }
 
 .RS ul {
   font-size: 24px;
   color: #363F5;
-  text-align: center;
-  margin-bottom: 30px;
-  padding: 0;
-  list-style: none;
+  position: absolute;
+  margin-left: -1390px;
+  margin-top: -20px;
 }
 
 .box {
@@ -22,30 +24,32 @@
   flex-direction: column;
   border: 2px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.2);
-  width: 100%;
-  max-width: 600px;
-  max-height: 70vh;
+  position: absolute;
+  width: 600px;
+  max-height: 600px;
   overflow-y: auto;
-  padding: 20px;
+  top: 19%;
+  left: calc(10% + 130px);
+  padding: 10px;
   border-radius: 20px;
-  margin: 0 auto;
+  margin-bottom: -100px;
 }
 
 .box input,
 .box select,
 .box textarea {
-  display: block;
-  width: 100%;
+  display: flex;
   padding: 15px;
   font-size: 14px;
   border: 1px solid #ccc;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
+  margin-left: 2.5rem;
   border-radius: 15px;
   transition: all linear 160ms;
   outline: none;
+  width: 500px;
   color: #000;
   background-color: white;
-  box-sizing: border-box;
 }
 
 .box textarea {
@@ -69,13 +73,12 @@
   font-size: 14px;
   color: white;
   border-radius: 15px;
-  width: 100%;
-  max-width: 300px;
-  margin: 30px auto 0;
+  width: 300px;
+  margin-left: 9rem;
+  margin-top: 30px;
   background-color: #beb6b6;
   border: none;
   transition: 500ms linear;
-  cursor: pointer;
 }
 
 .box button:hover {
@@ -86,43 +89,4 @@
   font-size: 16px;
   text-decoration: none;
   color: white;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .RS {
-    padding: 120px 15px 30px;
-  }
-
-  .RS ul {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-
-  .box {
-    max-height: 60vh;
-    padding: 15px;
-  }
-
-  .box input,
-  .box select,
-  .box textarea {
-    font-size: 13px;
-    padding: 12px;
-  }
-
-  .box button {
-    font-size: 13px;
-    padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .RS ul {
-    font-size: 16px;
-  }
-
-  .box {
-    border-radius: 15px;
-  }
 }
