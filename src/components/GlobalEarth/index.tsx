@@ -45,13 +45,13 @@ export function GlobalEarth() {
     return '500px' // Default size for screens larger than 1440px
   }
 
-  // Calculate right position - moved 50px to the left
+  // Calculate right position - moved 150px to the left from original
   const getRightPosition = () => {
     const width = window.innerWidth
-    if (width <= 834) return '100px'
-    if (width <= 1024) return '100px'
-    if (width <= 1440) return '100px'
-    return '100px' // 50px to the left from original 150px
+    if (width <= 834) return '200px'
+    if (width <= 1024) return '200px'
+    if (width <= 1440) return '200px'
+    return '200px'
   }
 
   const size = getSize()
