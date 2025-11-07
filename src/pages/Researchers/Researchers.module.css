@@ -35,7 +35,8 @@
   font-weight: 700;
   color: hsl(0 0% 100%);
   margin: 0 0 2.375rem 0;
-  text-align: center;
+  margin-left: calc(50% - 445px);
+  text-align: left;
   letter-spacing: 0.5px;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }

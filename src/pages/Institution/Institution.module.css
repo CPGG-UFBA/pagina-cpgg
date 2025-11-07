@@ -17,7 +17,7 @@
 .mainTitle {
   font-size: 28px;
   color: var(--gray-contact);
-  margin-left: -500px;
+  margin-left: calc(50% - 445px);
   margin-top: 0;
   white-space: nowrap;
   font-weight: bold;
