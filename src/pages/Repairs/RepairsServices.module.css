@@ -52,7 +52,7 @@
 
 .box textarea {
   min-height: 120px;
-  resize: vertical;
+  resize: none;
 }
 
 .box label {
