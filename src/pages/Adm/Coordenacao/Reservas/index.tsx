@@ -509,7 +509,9 @@ export function ReservasAdmin() {
         </div>
       </div>
 
-      <h1 className={styles.title}>Gerenciamento de Reservas</h1>
+      <div className={styles.titleWrapper}>
+        <h1 className={styles.title}>Gerenciamento de Reservas</h1>
+      </div>
 
       <div className={styles.content}>
         <Tabs defaultValue="physical-spaces" className="w-full">

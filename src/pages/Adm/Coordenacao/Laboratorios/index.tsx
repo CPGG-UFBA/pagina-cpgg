@@ -149,7 +149,9 @@ export function LaboratoriosAdmin() {
         </Button>
       </div>
       
-      <h1 className={styles.title}>Gerenciar Laboratórios</h1>
+      <div className={styles.titleWrapper}>
+        <h1 className={styles.title}>Gerenciar Laboratórios</h1>
+      </div>
 
       <div className={styles.tableContainer}>
         <table className={styles.labsTable}>

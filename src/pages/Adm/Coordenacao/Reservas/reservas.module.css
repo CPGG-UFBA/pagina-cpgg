@@ -2,13 +2,18 @@
   min-height: 100vh !important;
   background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%) !important;
   padding: 1rem !important;
-  padding-top: 155px !important;
+  padding-top: 100px !important;
   padding-bottom: 100px !important;
   overflow-y: auto !important;
 }
 
 .header {
   display: none !important;
+}
+
+.titleWrapper {
+  margin-top: 55px !important;
+  margin-bottom: 0 !important;
 }
 
 .title {
@@ -22,6 +27,7 @@
   padding: 0 !important;
   padding-bottom: 15px !important;
   padding-left: 0 !important;
+  white-space: nowrap !important;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) !important;
 }
 
