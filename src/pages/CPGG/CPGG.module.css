@@ -28,7 +28,7 @@
   font-size: 28px;
   color: #363F5;
   margin: 0 !important;
-  margin-left: calc(50% - 445px) !important;
+  margin-left: calc(50% - 365px) !important;
   padding: 0 !important;
   white-space: nowrap;
   font-weight: bold;
@@ -46,7 +46,7 @@
   max-width: 800px;
   height: 60vh;
   margin: 0 auto;
-  margin-left: calc(50% - 400px - 250px - 140px);
+  margin-left: calc(50% - 710px);
   margin-top: 20px !important;
   padding: 20px;
   border-radius: 20px;
