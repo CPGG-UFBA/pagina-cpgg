@@ -5,6 +5,7 @@ import { Settings } from 'lucide-react'
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { supabase } from '../../integrations/supabase/client'
+import styles from './Photos.module.css'
 
 interface Event {
   id: string
@@ -44,17 +45,6 @@ export function Photos() {
   }
 
   const cardStyle = {
-    padding: '2rem',
-    borderRadius: '12px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
-    color: 'white',
-    textAlign: 'center' as const,
-    width: '350px',
-    minHeight: '108px',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: 'transform 0.3s ease',
     textDecoration: 'none',
     marginBottom: '2rem'
   }
@@ -82,15 +72,15 @@ export function Photos() {
 
         <div style={{display: 'flex', gap: '3rem', justifyContent: 'center', alignItems: 'flex-start', width: '100%', maxWidth: '1400px', margin: '0 auto', paddingBottom: '2rem', flexWrap: 'wrap', transform: 'translateX(-250px)'}}>
           <div style={{display: 'grid', gridTemplateColumns: '350px 350px', gap: '2rem', flexShrink: 0}}>
-            <Link to="/Photos/HistoricalPhotos" style={{...cardStyle, background: 'linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)), url(/src/components/Figures/sky.jpg) center/cover'}}>
+            <Link to="/Photos/HistoricalPhotos" className={styles.historical} style={{...cardStyle}}>
               <h2>Históricas</h2>
             </Link>
 
-            <Link to="/Photos/Years" style={{...cardStyle, background: 'linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)), url(/src/components/Figures/congrats.png) center/cover'}}>
+            <Link to="/Photos/Years" className={styles.fifthy} style={{...cardStyle}}>
               <h2>50 anos - Pós-Graduação em Geofísica</h2>
             </Link>
 
-            <Link to="/Photos/FirstMeeting" style={{...cardStyle, background: 'linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)), url(/src/components/Figures/meeting.jpg) center/cover'}}>
+            <Link to="/Photos/FirstMeeting" className={styles.reopen} style={{...cardStyle}}>
               <h2>Primeira reunião geral- retorno das atividades do CPGG</h2>
             </Link>
 
@@ -98,7 +88,8 @@ export function Photos() {
               <Link 
                 key={event.id} 
                 to={`/Photos/Event/${event.id}`} 
-                style={{...cardStyle, background: 'linear-gradient(135deg, rgba(2,0,36,0.85), rgba(63,9,121,0.85)), url(/src/assets/earth-regulations.jpg) center/cover'}}
+                className={styles.eventCard}
+                style={{...cardStyle}}
               >
                 <div>
                   <h2>{event.name}</h2>
