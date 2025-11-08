@@ -103,10 +103,10 @@ export function RepairsServices() {
     <>
       <Header />
       <div className={styles.RS}>
-          <ul> Solicitação de Reparos e Serviços Técnicos </ul>
           <form className={styles.box} onSubmit={handleSubmit}>
+          <ul> Solicitação de Reparos e Serviços Técnicos </ul>
 
-          <div className={styles.form}> 
+          <div className={styles.form}>
             <label>Nome *</label>
              <input 
                type="text" 
