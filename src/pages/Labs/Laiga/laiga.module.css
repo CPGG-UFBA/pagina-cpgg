@@ -354,8 +354,8 @@ nav a:hover {
   }
 
   .box {
-    width: 420px;
-    height: 500px;
+    width: 800px;
+    height: 600px;
     left: 5%;
     top: 22%;
     padding-left: 180px;
@@ -412,7 +412,10 @@ nav a:hover {
   }
 
   /* Fotos reduzidas e posicionadas lado a lado */
-  .box1, .box2, .box3, .box4 {
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
     width: 160px;
     height: 160px;
     left: calc(5% + 10px);
@@ -431,7 +434,10 @@ nav a:hover {
     top: calc(22% + 540px);
   }
 
-  .legend1, .legend2, .legend3, .legend4 {
+  .legend1,
+  .legend2,
+  .legend3,
+  .legend4 {
     font-size: 9px;
     top: 160px;
   }
@@ -448,8 +454,8 @@ nav a:hover {
   }
 
   .box {
-    width: 340px;
-    height: 540px;
+    width: 800px;
+    height: 600px;
     left: 3%;
     top: 20%;
     padding-left: 140px;
@@ -513,14 +519,18 @@ nav a:hover {
     margin-top: 15px !important;
   }
 
-  .buttonLink, .Title .buttonLink {
+  .buttonLink,
+  .Title .buttonLink {
     font-size: 16px !important;
     height: 32px !important;
     padding: 0 14px !important;
   }
 
   /* Fotos ao lado esquerdo, reduzidas */
-  .box1, .box2, .box3, .box4 {
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
     width: 120px;
     height: 120px;
     left: calc(3% + 5px);
@@ -539,7 +549,10 @@ nav a:hover {
     top: calc(20% + 405px);
   }
 
-  .legend1, .legend2, .legend3, .legend4 {
+  .legend1,
+  .legend2,
+  .legend3,
+  .legend4 {
     font-size: 8px;
     top: 120px;
   }
@@ -556,7 +569,7 @@ nav a:hover {
   }
 
   .box {
-    width: 260px;
+    width: 400px;
     height: 600px;
     left: 2%;
     top: 18%;
@@ -627,14 +640,18 @@ nav a:hover {
     margin-top: 10px !important;
   }
 
-  .buttonLink, .Title .buttonLink {
+  .buttonLink,
+  .Title .buttonLink {
     font-size: 13px !important;
     height: 26px !important;
     padding: 0 10px !important;
   }
 
   /* Fotos ao lado, proporcionalmente menores */
-  .box1, .box2, .box3, .box4 {
+  .box1,
+  .box2,
+  .box3,
+  .box4 {
     width: 90px;
     height: 90px;
     left: calc(2% + 3px);
@@ -653,7 +670,10 @@ nav a:hover {
     top: calc(18% + 300px);
   }
 
-  .legend1, .legend2, .legend3, .legend4 {
+  .legend1,
+  .legend2,
+  .legend3,
+  .legend4 {
     font-size: 7px;
     top: 90px;
   }
