@@ -20,7 +20,7 @@
   text-align: left;
   margin: 0 !important;
   margin-top: 155px !important;
-  margin-left: calc(50% - 630px) !important;
+  margin-left: calc(50% - 1030px) !important;
   margin-bottom: 10px !important;
   padding: 0 !important;
   font-size: 28px;
@@ -34,7 +34,7 @@
   flex-direction: row;
   align-items: center;
   gap: 30px;
-  margin-left: calc(50% - 630px) !important;
+  margin-left: calc(50% - 1030px) !important;
   margin-top: 0 !important;
   margin-bottom: 4rem;
   padding-top: 0 !important;
