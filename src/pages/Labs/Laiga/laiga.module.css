@@ -346,18 +346,28 @@ nav a:hover {
 /* Tablet - 769px - 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .laiga {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 13px;
     line-height: 26px;
     padding-bottom: 950px;
   }
 
+  .Title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+  }
+
   .box {
-    width: 500px !important;
+    width: 480px !important;
     height: 600px !important;
-    left: 200px !important;
-    top: 22% !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin-left: 0 !important;
     padding-left: 20px !important;
     padding-right: 15px !important;
     font-size: 10px;
@@ -386,6 +396,7 @@ nav a:hover {
     padding-left: 0;
     font-size: 24px;
     text-align: center;
+    width: 100%;
   }
 
   .Title a {
@@ -393,6 +404,7 @@ nav a:hover {
     margin-top: -35px;
     text-align: center;
     margin-left: 0;
+    width: 100%;
   }
 
   .box nav a {
@@ -415,27 +427,28 @@ nav a:hover {
     margin-top: 130px !important;
   }
 
-  /* Fotos reduzidas e posicionadas lado a lado */
+  /* Fotos em coluna à esquerda */
   .box1,
   .box2,
   .box3,
   .box4 {
     width: 160px !important;
     height: 160px !important;
+    position: absolute !important;
     left: 20px !important;
   }
 
   .box1 {
-    top: 22%;
+    top: 22% !important;
   }
   .box2 {
-    top: calc(22% + 180px);
+    top: calc(22% + 180px) !important;
   }
   .box3 {
-    top: calc(22% + 360px);
+    top: calc(22% + 360px) !important;
   }
   .box4 {
-    top: calc(22% + 540px);
+    top: calc(22% + 540px) !important;
   }
 
   .legend1,
@@ -450,18 +463,28 @@ nav a:hover {
 /* Mobile (Médio) - 481px - 768px */
 @media (min-width: 481px) and (max-width: 768px) {
   .laiga {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
     font-size: 12px;
     line-height: 24px;
     padding-bottom: 1100px;
   }
 
+  .Title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+  }
+
   .box {
-    width: 450px !important;
+    width: 380px !important;
     height: 600px !important;
-    left: 150px !important;
-    top: 20% !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin-left: 0 !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
     font-size: 9px;
@@ -487,6 +510,7 @@ nav a:hover {
     padding-left: 0;
     font-size: 20px;
     text-align: center;
+    width: 100%;
   }
 
   .Title a {
@@ -494,6 +518,7 @@ nav a:hover {
     text-align: center;
     margin-left: 0;
     margin-top: -35px;
+    width: 100%;
   }
 
   .box nav a {
@@ -531,27 +556,28 @@ nav a:hover {
     padding: 0 14px !important;
   }
 
-  /* Fotos ao lado esquerdo, reduzidas */
+  /* Fotos em coluna à esquerda */
   .box1,
   .box2,
   .box3,
   .box4 {
     width: 120px !important;
     height: 120px !important;
+    position: absolute !important;
     left: 15px !important;
   }
 
   .box1 {
-    top: 20%;
+    top: 20% !important;
   }
   .box2 {
-    top: calc(20% + 135px);
+    top: calc(20% + 135px) !important;
   }
   .box3 {
-    top: calc(20% + 270px);
+    top: calc(20% + 270px) !important;
   }
   .box4 {
-    top: calc(20% + 405px);
+    top: calc(20% + 405px) !important;
   }
 
   .legend1,
@@ -566,18 +592,28 @@ nav a:hover {
 /* Mobile (Pequeno) - 320px - 480px */
 @media (max-width: 480px) {
   .laiga {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 11px;
     line-height: 22px;
     padding-bottom: 1300px;
   }
 
+  .Title {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    position: relative;
+  }
+
   .box {
-    width: 300px !important;
+    width: 250px !important;
     height: 600px !important;
-    left: 110px !important;
-    top: 18% !important;
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    margin-left: 0 !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
     font-size: 8px;
@@ -605,6 +641,7 @@ nav a:hover {
     font-size: 18px;
     text-align: center;
     white-space: normal;
+    width: 100%;
   }
 
   .Title a {
@@ -613,6 +650,7 @@ nav a:hover {
     margin-left: 0;
     margin-top: -35px;
     white-space: normal;
+    width: 100%;
   }
 
   .box nav a {
@@ -653,27 +691,28 @@ nav a:hover {
     padding: 0 10px !important;
   }
 
-  /* Fotos ao lado, proporcionalmente menores */
+  /* Fotos em coluna à esquerda */
   .box1,
   .box2,
   .box3,
   .box4 {
     width: 90px !important;
     height: 90px !important;
+    position: absolute !important;
     left: 10px !important;
   }
 
   .box1 {
-    top: 18%;
+    top: 18% !important;
   }
   .box2 {
-    top: calc(18% + 100px);
+    top: calc(18% + 100px) !important;
   }
   .box3 {
-    top: calc(18% + 200px);
+    top: calc(18% + 200px) !important;
   }
   .box4 {
-    top: calc(18% + 300px);
+    top: calc(18% + 300px) !important;
   }
 
   .legend1,
