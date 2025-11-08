@@ -361,15 +361,18 @@ nav a:hover {
   }
 
   .box {
-    width: 700px !important;
-    height: 600px !important;
-    position: absolute !important;
-    left: 210px !important;
-    top: 22% !important;
-    padding: 20px !important;
-    padding-left: 20px !important;
-    padding-right: 15px !important;
-    font-size: 10px;
+    width: 700px;
+    height: 600px;
+    left: 5%;
+    top: 25%;
+    left: calc(2% + 75px);
+    padding: 20px;
+    padding-left: 300px;
+    border-radius: 20px;
+    gap: 5px;
+    margin-bottom: -500px;
+    padding-left: 280px;
+    font-size: 12px;
   }
 
   .box p {
