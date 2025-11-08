@@ -104,6 +104,7 @@ nav {
 
 nav ul {
   display: inline-flex;
+  flex-wrap: nowrap !important;
   list-style: none;
   margin-left: -750px;
   overflow: visible;
@@ -399,14 +400,14 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    flex-wrap: wrap;
+    flex-wrap: nowrap !important;
   }
   
   nav ul li {
-    font-size: 11px;
-    min-width: 65px;
-    margin: 0 2px;
-    padding: 5px;
+    font-size: 10px;
+    min-width: 60px;
+    margin: 0 1px;
+    padding: 4px;
   }
   
   .block1 {
@@ -479,16 +480,17 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul {
-    flex-wrap: wrap;
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
   }
   
   nav ul li {
-    font-size: 11px;
-    min-width: 70px;
-    margin: 2px;
-    padding: 6px;
+    font-size: 9px;
+    min-width: 55px;
+    margin: 1px;
+    padding: 4px;
     text-align: center;
-    flex: 1;
+    flex-shrink: 0;
   }
   
   .header .logoufba img {
