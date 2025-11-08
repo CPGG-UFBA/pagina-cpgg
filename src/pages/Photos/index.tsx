@@ -107,10 +107,6 @@ export function Photos() {
               </Link>
             ))}
           </div>
-
-          <div style={{flexShrink: 0}}>
-            <img src="/src/components/Figures/earth3.png" alt="Terra" style={{height: '500px', width: '500px', objectFit: 'contain'}} />
-          </div>
         </div>
       </main>
       <Footer/>
