@@ -12,7 +12,10 @@
   z-index: 100002;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   overflow: visible;
+  padding: 0 10px;
 }
 
 @media (max-width: 1150px) {
@@ -97,10 +100,14 @@
 
 nav {
   overflow: visible;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup {
-  margin-left: 400px;
+  margin: 0;
   color: #FF5733;
 }
 
@@ -108,15 +115,17 @@ nav ul {
   display: inline-flex;
   flex-wrap: nowrap !important;
   list-style: none;
-  margin-left: -750px;
+  margin: 0;
+  padding: 0;
   overflow: visible;
+  justify-content: center;
+  align-items: center;
 }
 
 nav ul li {
-  width: 105px;
-  margin: 6px;
+  width: auto;
+  margin: 0 4px;
   padding: 8px;
-  margin-top: 35px;
   font-size: 16px;
   position: relative;
   cursor: pointer;
@@ -138,13 +147,14 @@ nav ul li:hover .submenu1 {
   display: block;
   position: absolute;
   background-color: #592cbb;
-  margin-top: -30px;
-  margin-left: -60px;
+  margin-top: 10px;
+  margin-left: -20px;
   font-size: 16px;
   z-index: 100000;
   width: fit-content;
   min-width: 160px;
-  right: 0;
+  right: auto;
+  left: 0;
   max-width: calc(100vw - 20px);
 }
 
@@ -398,7 +408,8 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 769px) and (max-width: 1024px) {
   .header {
     height: 120px;
-    gap: 6px;
+    gap: 4px;
+    padding: 0 8px;
   }
   
   nav ul {
@@ -408,7 +419,7 @@ nav ul li:hover .submenu2 ul li a {
   nav ul li {
     font-size: 10px;
     min-width: 60px;
-    margin: 0 1px;
+    margin: 0 2px;
     padding: 4px;
   }
   
@@ -468,12 +479,13 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
     height: 160px;
-    flex-wrap: wrap;
-    gap: 5px;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding: 0 5px;
   }
   
   .block1 {
-    min-width: 160px;
+    min-width: 140px;
     min-height: 65px;
   }
   
@@ -483,14 +495,13 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav {
-    position: absolute;
-    top: 80px;
-    left: 10px;
-    right: 10px;
-    background-color: rgba(89, 44, 187, 0.95);
-    border-radius: 10px;
-    padding: 10px;
-    z-index: 100000;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
   }
   
   nav ul {
@@ -499,9 +510,9 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   nav ul li {
-    font-size: 9px;
-    min-width: 55px;
-    margin: 1px;
+    font-size: 8px;
+    min-width: 50px;
+    margin: 0;
     padding: 4px;
     text-align: center;
     flex-shrink: 0;
