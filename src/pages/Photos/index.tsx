@@ -52,9 +52,9 @@ export function Photos() {
   return (
     <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header/>
-      <main className="photos" style={{flex: 1, padding: '2rem', paddingTop: '155px', overflowY: 'auto'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: 'translateX(-250px)'}}>
-          <h1 style={{margin: 0, fontSize: '28px', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>
+      <main className={styles.photos}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>
             Fotos de eventos
           </h1>
           {showAdminButton && (
@@ -70,8 +70,8 @@ export function Photos() {
           )}
         </div>
 
-        <div style={{display: 'flex', gap: '3rem', justifyContent: 'center', alignItems: 'flex-start', width: '100%', maxWidth: '1400px', margin: '0 auto', paddingBottom: '2rem', flexWrap: 'wrap', transform: 'translateX(-250px)'}}>
-          <div style={{display: 'grid', gridTemplateColumns: '350px 350px', gap: '2rem', flexShrink: 0}}>
+        <div className={styles.mainContent}>
+          <div className={styles.container}>
             <Link to="/Photos/HistoricalPhotos" className={styles.historical} style={{...cardStyle}}>
               <h2>Históricas</h2>
             </Link>
