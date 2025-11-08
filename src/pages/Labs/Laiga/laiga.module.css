@@ -319,7 +319,7 @@ nav a:hover {
 
   .box {
     width: 850px;
-    height: 550px;
+    height: 600px;
     left: 5%;
     padding-left: 280px;
     font-size: 12px;
@@ -354,7 +354,7 @@ nav a:hover {
   }
 
   .box {
-    width: 480px !important;
+    width: 850px !important;
     height: 600px !important;
     position: absolute !important;
     left: 210px !important;
@@ -461,8 +461,8 @@ nav a:hover {
   }
 
   .box {
-    width: 450px !important;
-    height: 600px !important;
+    width: 600px !important;
+    height: 500px !important;
     position: absolute !important;
     left: 150px !important;
     top: 20% !important;
@@ -580,8 +580,8 @@ nav a:hover {
   }
 
   .box {
-    width: 280px !important;
-    height: 600px !important;
+    width: 450px !important;
+    height: 400px !important;
     position: absolute !important;
     left: 110px !important;
     top: 18% !important;
