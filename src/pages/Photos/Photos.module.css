@@ -6,19 +6,11 @@
   overflow: hidden !important;
 }
 
-/* Portrait orientation - when height > width */
-@media (orientation: portrait) {
-  .pageContainer {
-    justify-content: space-between;
-  }
-}
-
 .photos {
   flex: 1;
   padding: 2rem;
   padding-top: 155px;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
@@ -29,7 +21,6 @@
   font-weight: bold;
   color: white;
   text-align: center;
-  max-width: 1000px;
 }
 
 .titleContainer {
@@ -38,31 +29,25 @@
   align-items: center;
   gap: 20px;
   margin: 0 auto 2rem;
-  max-width: 1000px;
 }
 
 .titleContainer .title {
   margin: 0;
-  flex: 1;
 }
 
 .mainContent {
   display: flex;
   gap: 3rem;
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  justify-content: center;
   align-items: flex-start;
-  justify-content: flex-start;
+  width: 100%;
+  padding-bottom: 2rem;
 }
 
 .container {
   display: grid;
-  grid-template-columns: repeat(2, 350px);
+  grid-template-columns: 350px 350px;
   gap: 2rem;
-  width: auto;
-  align-content: start;
 }
 
 .card {
@@ -70,9 +55,10 @@
   display: block;
 }
 
-
-
-.historical {
+.historical,
+.fifthy,
+.reopen,
+.eventCard {
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -83,134 +69,68 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.historical {
   background: linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)),
     url('/src/components/Figures/sky.jpg') center/cover;
 }
 
-.historical:hover {
-  transform: translateY(-5px);
-}
-
 .fifthy {
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  min-height: 120px;
-  width: 350px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('/src/components/Figures/congrats.png') center/cover;
 }
 
-.reopen:hover {
-  transform: translateY(-5px);
-}
-
 .reopen {
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  width: 350px;
-  height: 130px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('/src/components/Figures/meeting.jpg') center/cover;
 }
 
-.fifthy:hover {
+.eventCard {
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(63,9,121,0.85)),
+    url('/src/assets/earth-regulations.jpg') center/cover;
+}
+
+.historical:hover,
+.fifthy:hover,
+.reopen:hover,
+.eventCard:hover {
   transform: translateY(-5px);
 }
 
 .staticFigure {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
   flex-shrink: 0;
-  z-index: 5;
 }
 
 .staticFigure img {
   height: 500px;
   width: 500px;
   object-fit: contain;
-  margin: 0;
 }
-
-.eventCard {
-  padding: 2rem;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  width: 350px;
-  height: 130px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(63,9,121,0.85)),
-    url('/src/assets/earth-regulations.jpg') center/cover;
-}
-
-.eventCard:hover {
-  transform: translateY(-5px);
-}
-
 
 @media (max-width: 768px) {
-  .titleContainer {
-    transform: none !important;
-    margin: 155px auto 2rem !important;
-    text-align: center !important;
-    padding: 0 20px !important;
-  }
-
   .mainContent {
-    flex-direction: column !important;
-    align-items: center !important;
+    flex-direction: column;
+    align-items: center;
   }
 
   .container {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    margin: 0 auto !important;
-    padding: 0 20px !important;
-    max-width: 90vw !important;
+    grid-template-columns: 1fr;
+    max-width: 350px;
   }
 
   .historical,
   .fifthy,
   .reopen,
   .eventCard {
-    width: 100% !important;
-    max-width: 300px !important;
-    margin: 0 auto !important;
-    padding: 1.5rem !important;
-    min-height: 100px !important;
-    height: auto !important;
-    font-size: 14px !important;
-  }
-
-  .staticFigure {
-    transform: none !important;
-    position: relative !important;
-    margin: 2rem auto !important;
-    text-align: center !important;
+    width: 100%;
   }
 
   .staticFigure img {
-    height: 300px !important;
-    width: 300px !important;
+    height: 300px;
+    width: 300px;
   }
-
 }
-
-
-
