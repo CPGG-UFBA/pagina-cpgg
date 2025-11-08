@@ -55,12 +55,13 @@
     border: 2px solid rgba(255,255,255,.2);
     background-color: rgba(255,255,255, 0.2);
     position: absolute;
-    width: 900px;
+    width: 855px;
     height: 470px;
     top: 25%; 
     left:2%;
     padding: 20px;
-    padding-left: 350px;
+    padding-left: 335px;
+    padding-right: 20px;
     border-radius: 20px;
     gap: 5px;
     margin-bottom: -500px;
