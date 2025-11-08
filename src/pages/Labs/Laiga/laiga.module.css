@@ -353,21 +353,13 @@ nav a:hover {
     padding-bottom: 950px;
   }
 
-  .Title {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 20px;
-    position: relative;
-  }
-
   .box {
-    width: 480px !important;
+    width: 500px !important;
     height: 600px !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    margin-left: 0 !important;
+    position: absolute !important;
+    left: 200px !important;
+    top: 22% !important;
+    padding: 20px !important;
     padding-left: 20px !important;
     padding-right: 15px !important;
     font-size: 10px;
@@ -396,7 +388,6 @@ nav a:hover {
     padding-left: 0;
     font-size: 24px;
     text-align: center;
-    width: 100%;
   }
 
   .Title a {
@@ -404,7 +395,6 @@ nav a:hover {
     margin-top: -35px;
     text-align: center;
     margin-left: 0;
-    width: 100%;
   }
 
   .box nav a {
@@ -470,21 +460,13 @@ nav a:hover {
     padding-bottom: 1100px;
   }
 
-  .Title {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 15px;
-    position: relative;
-  }
-
   .box {
-    width: 380px !important;
+    width: 450px !important;
     height: 600px !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    margin-left: 0 !important;
+    position: absolute !important;
+    left: 150px !important;
+    top: 20% !important;
+    padding: 15px !important;
     padding-left: 15px !important;
     padding-right: 15px !important;
     font-size: 9px;
@@ -510,7 +492,6 @@ nav a:hover {
     padding-left: 0;
     font-size: 20px;
     text-align: center;
-    width: 100%;
   }
 
   .Title a {
@@ -518,7 +499,6 @@ nav a:hover {
     text-align: center;
     margin-left: 0;
     margin-top: -35px;
-    width: 100%;
   }
 
   .box nav a {
@@ -599,21 +579,13 @@ nav a:hover {
     padding-bottom: 1300px;
   }
 
-  .Title {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
-    position: relative;
-  }
-
   .box {
-    width: 250px !important;
+    width: 280px !important;
     height: 600px !important;
-    position: relative !important;
-    left: auto !important;
-    top: auto !important;
-    margin-left: 0 !important;
+    position: absolute !important;
+    left: 110px !important;
+    top: 18% !important;
+    padding: 10px !important;
     padding-left: 10px !important;
     padding-right: 10px !important;
     font-size: 8px;
@@ -641,7 +613,6 @@ nav a:hover {
     font-size: 18px;
     text-align: center;
     white-space: normal;
-    width: 100%;
   }
 
   .Title a {
@@ -650,7 +621,6 @@ nav a:hover {
     margin-left: 0;
     margin-top: -35px;
     white-space: normal;
-    width: 100%;
   }
 
   .box nav a {
