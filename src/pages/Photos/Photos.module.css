@@ -1,19 +1,16 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
-  height: 100vh !important;
-  max-height: 100vh !important;
-  overflow: hidden !important;
+  min-height: 100vh;
 }
 
 .photos {
   flex: 1;
   padding: 2rem;
   padding-top: 155px;
-  overflow-y: auto;
-  overflow-x: hidden;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .title {
@@ -40,17 +37,19 @@
   display: flex;
   gap: 3rem;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .container {
   display: grid;
   grid-template-columns: 350px 350px;
   gap: 2rem;
+  flex-shrink: 0;
 }
 
 .card {
