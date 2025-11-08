@@ -114,6 +114,16 @@
 }
 
 
+@media (max-width: 1024px) {
+  .titleContainer {
+    transform: none !important;
+  }
+
+  .mainContent {
+    transform: none !important;
+  }
+}
+
 @media (max-width: 768px) {
   .mainContent {
     flex-direction: column;
