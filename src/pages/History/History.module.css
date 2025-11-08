@@ -85,7 +85,7 @@
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('/src/components/Figures/history-bg.jpg') center/cover;
   margin-top: -145px;
-  margin-left: -50px;
+  margin-left: -65px;
 }
 
 .document:hover {
