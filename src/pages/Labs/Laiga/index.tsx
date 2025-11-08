@@ -13,9 +13,9 @@ export function Laiga() {
       <Header />
       <div className={styles.laiga}>
         <div className={styles.Title} >
-          <a>{t('laiga.subtitle')}</a>
           <div className={styles.box}>
           <ul>{t('laiga.title')}</ul>
+          <a>{t('laiga.subtitle')}</a>
           <p>
               {t('laiga.description1')}
             </p>

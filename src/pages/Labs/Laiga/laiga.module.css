@@ -38,12 +38,14 @@
 }
 
 .Title a {
-    font-size: 25px;
+    font-size: 20px;
     color: #363F5;
-    margin-top: -55px; 
-    margin-left: -15px;
-    padding-bottom: 50px;
-    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 20px;
+    white-space: normal;
+    display: block;
+    text-align: center;
   }
 
 .box  {
