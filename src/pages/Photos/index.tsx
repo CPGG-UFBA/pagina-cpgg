@@ -21,6 +21,7 @@ export function Photos() {
 
   useEffect(() => {
     fetchEvents()
+    console.log('Photos component mounted')
     // Check if user has admin access
     const savedAuth = localStorage.getItem('eventManagerAuth') || localStorage.getItem('eventPhotosAuth')
     if (savedAuth === 'true') {
@@ -37,6 +38,7 @@ export function Photos() {
 
       if (error) throw error
 
+      console.log('Events fetched:', data)
       setEvents(data || [])
     } catch (error) {
       console.error('Error fetching events:', error)
@@ -62,34 +64,37 @@ export function Photos() {
               )}
             </div>
 
-            <div className={styles.mainContent}>
-              <div className={styles.container}>
-                  <Link className={styles.card} to="/Photos/HistoricalPhotos">
-                      <div className={styles.historical}>
+            <div className={styles.mainContent} style={{display: 'flex', gap: '3rem'}}>
+              <div className={styles.container} style={{display: 'grid', gridTemplateColumns: '350px 350px', gap: '2rem'}}>
+                  <Link className={styles.card} to="/Photos/HistoricalPhotos" style={{display: 'block', textDecoration: 'none'}}>
+                      <div className={styles.historical} style={{minHeight: '120px', width: '350px', display: 'flex'}}>
                           <h2>Históricas</h2>
                       </div>
                   </Link>
 
-                  <Link className={styles.card} to="/Photos/Years">
-                      <div className={styles.fifthy}>
+                  <Link className={styles.card} to="/Photos/Years" style={{display: 'block', textDecoration: 'none'}}>
+                      <div className={styles.fifthy} style={{minHeight: '120px', width: '350px', display: 'flex'}}>
                           <h2> 50 anos - Pós-Graduação em Geofísica</h2>
                       </div>
                   </Link>
-                  <Link className={styles.card} to="/Photos/FirstMeeting">
-                      <div className={styles.reopen}>
+                  <Link className={styles.card} to="/Photos/FirstMeeting" style={{display: 'block', textDecoration: 'none'}}>
+                      <div className={styles.reopen} style={{minHeight: '120px', width: '350px', display: 'flex'}}>
                           <h2> Primeira reunião geral- retorno das atividades do CPGG</h2>
                       </div>
                   </Link>
 
                   {/* Dynamic event cards */}
-                  {events.map((event) => (
-                    <Link key={event.id} className={styles.card} to={`/Photos/Event/${event.id}`}>
-                      <div className={styles.eventCard}>
-                        <h2>{event.name}</h2>
-                        <p>Evento realizado em {new Date(event.event_date).toLocaleDateString('pt-BR')}</p>
-                      </div>
-                    </Link>
-                  ))}
+                  {events.map((event) => {
+                    console.log('Rendering event card:', event.name)
+                    return (
+                      <Link key={event.id} className={styles.card} to={`/Photos/Event/${event.id}`} style={{display: 'block', textDecoration: 'none'}}>
+                        <div className={styles.eventCard} style={{minHeight: '120px', width: '350px', display: 'flex'}}>
+                          <h2>{event.name}</h2>
+                          <p>Evento realizado em {new Date(event.event_date).toLocaleDateString('pt-BR')}</p>
+                        </div>
+                      </Link>
+                    )
+                  })}
               </div>
 
               <div className={styles.staticFigure}>
