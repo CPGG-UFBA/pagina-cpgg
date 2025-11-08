@@ -41,6 +41,7 @@
   justify-content: center;
   margin: 0 auto;
   margin-top: -300px !important;
+  margin-left: calc(50% - 350px - 150px) !important;
   padding-top: 0 !important;
   padding: 0 2rem;
   overflow: hidden;
