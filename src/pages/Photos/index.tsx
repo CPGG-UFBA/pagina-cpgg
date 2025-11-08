@@ -63,7 +63,7 @@ export function Photos() {
     <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header/>
       <main className="photos" style={{flex: 1, padding: '2rem', paddingTop: '155px', overflowY: 'auto'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: 'translateX(-200px)'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: 'translateX(-250px)'}}>
           <h1 style={{margin: 0, fontSize: '28px', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>
             Fotos de eventos
           </h1>
@@ -80,7 +80,7 @@ export function Photos() {
           )}
         </div>
 
-        <div style={{display: 'flex', gap: '3rem', justifyContent: 'center', alignItems: 'flex-start', width: '100%', maxWidth: '1400px', margin: '0 auto', paddingBottom: '2rem', flexWrap: 'wrap', transform: 'translateX(-200px)'}}>
+        <div style={{display: 'flex', gap: '3rem', justifyContent: 'center', alignItems: 'flex-start', width: '100%', maxWidth: '1400px', margin: '0 auto', paddingBottom: '2rem', flexWrap: 'wrap', transform: 'translateX(-250px)'}}>
           <div style={{display: 'grid', gridTemplateColumns: '350px 350px', gap: '2rem', flexShrink: 0}}>
             <Link to="/Photos/HistoricalPhotos" style={{...cardStyle, background: 'linear-gradient(90deg, rgba(2,0,36,0.85) 0%, rgba(63,9,121,0.85)), url(/src/components/Figures/sky.jpg) center/cover'}}>
               <h2>Históricas</h2>
