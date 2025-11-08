@@ -52,7 +52,10 @@
   color: white;
   text-align: center;
   width: 350px;
-  min-height: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -71,8 +74,11 @@
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
-  min-height: 120px;
+  height: 120px;
   width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
