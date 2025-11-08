@@ -318,7 +318,7 @@ nav a:hover {
   }
 
   .box {
-    width: 850px;
+    width: 700px;
     height: 600px;
     left: 5%;
     padding-left: 280px;
@@ -354,7 +354,7 @@ nav a:hover {
   }
 
   .box {
-    width: 850px !important;
+    width: 700px !important;
     height: 600px !important;
     position: absolute !important;
     left: 210px !important;
@@ -461,8 +461,8 @@ nav a:hover {
   }
 
   .box {
-    width: 600px !important;
-    height: 500px !important;
+    width: 550px !important;
+    height: 350px !important;
     position: absolute !important;
     left: 150px !important;
     top: 20% !important;
