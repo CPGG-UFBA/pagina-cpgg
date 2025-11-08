@@ -390,7 +390,8 @@ nav a:hover {
   }
 
   .requerimentoButton {
-    margin-left: 120px;
+    margin-left: 120px !important;
+    margin-top: 150px !important;
   }
 }
 
@@ -595,8 +596,8 @@ nav a:hover {
 }
 
 .requerimentoButton {
-  margin-top: 160px;
-  margin-left: 220px;
+  margin-top: 160px !important;
+  margin-left: 220px !important;
 }
 
 .buttonLink {
