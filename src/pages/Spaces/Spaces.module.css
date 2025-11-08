@@ -58,6 +58,10 @@
   transform: translateY(-5px);
 }
 
+.card:nth-child(2) {
+  margin-top: 50px;
+}
+
 .auditory {
   padding: 2rem;
   border-radius: 12px;
