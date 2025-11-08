@@ -321,6 +321,13 @@ nav a:hover {
     width: 700px;
     height: 600px;
     left: 5%;
+    top: 25%;
+    left: calc(2% + 75px);
+    padding: 20px;
+    padding-left: 300px;
+    border-radius: 20px;
+    gap: 5px;
+    margin-bottom: -500px;
     padding-left: 280px;
     font-size: 12px;
   }
