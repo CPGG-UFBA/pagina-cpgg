@@ -319,7 +319,7 @@ nav a:hover {
 
   .box {
     width: 630px;
-    height: 450px;
+    height: 430px;
     left: 5%;
     padding-left: 280px;
     font-size: 12px;
@@ -456,7 +456,7 @@ nav a:hover {
   .requerimentoButton {
     margin-left: 0 !important;
     text-align: center;
-    margin-top: 15px !important;
+    margin-top: 5px !important;
   }
 
   /* Ajustar caixas laterais */
