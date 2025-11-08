@@ -98,13 +98,16 @@
   }
 
   .box ul {
-    font-size: 14px;
-    olor: #363F5;
-    text-align: justify-all; 
-    margin-left: -195px;
-    padding: 20px;
-    margin-top: 50px;
-    white-space: nowrap;
+    font-size: 28px;
+    color: #363F5;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 20px;
+    padding: 0;
+    padding-top: 10px;
+    white-space: normal;
+    font-weight: bold;
+    list-style: none;
   }
  
 
