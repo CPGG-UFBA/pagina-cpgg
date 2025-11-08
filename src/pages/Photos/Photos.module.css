@@ -17,7 +17,8 @@
   flex: 1;
   padding: 2rem;
   padding-top: 155px;
-  overflow: hidden !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
   display: flex;
   flex-direction: column;
 }
@@ -52,6 +53,8 @@
   margin: 0 auto;
   flex: 1;
   align-items: flex-start;
+  justify-content: center;
+  min-height: 0;
 }
 
 .container {
