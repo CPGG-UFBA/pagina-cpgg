@@ -354,12 +354,12 @@ nav a:hover {
   }
 
   .box {
-    width: 500px;
-    height: 600px;
-    left: 200px;
-    top: 22%;
-    padding-left: 20px;
-    padding-right: 15px;
+    width: 500px !important;
+    height: 600px !important;
+    left: 200px !important;
+    top: 22% !important;
+    padding-left: 20px !important;
+    padding-right: 15px !important;
     font-size: 10px;
   }
 
@@ -420,9 +420,9 @@ nav a:hover {
   .box2,
   .box3,
   .box4 {
-    width: 160px;
-    height: 160px;
-    left: 20px;
+    width: 160px !important;
+    height: 160px !important;
+    left: 20px !important;
   }
 
   .box1 {
@@ -458,12 +458,12 @@ nav a:hover {
   }
 
   .box {
-    width: 450px;
-    height: 600px;
-    left: 150px;
-    top: 20%;
-    padding-left: 15px;
-    padding-right: 15px;
+    width: 450px !important;
+    height: 600px !important;
+    left: 150px !important;
+    top: 20% !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
     font-size: 9px;
   }
 
@@ -536,9 +536,9 @@ nav a:hover {
   .box2,
   .box3,
   .box4 {
-    width: 120px;
-    height: 120px;
-    left: 15px;
+    width: 120px !important;
+    height: 120px !important;
+    left: 15px !important;
   }
 
   .box1 {
@@ -574,12 +574,12 @@ nav a:hover {
   }
 
   .box {
-    width: 300px;
-    height: 600px;
-    left: 110px;
-    top: 18%;
-    padding-left: 10px;
-    padding-right: 10px;
+    width: 300px !important;
+    height: 600px !important;
+    left: 110px !important;
+    top: 18% !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
     font-size: 8px;
     overflow-y: auto;
   }
@@ -658,9 +658,9 @@ nav a:hover {
   .box2,
   .box3,
   .box4 {
-    width: 90px;
-    height: 90px;
-    left: 10px;
+    width: 90px !important;
+    height: 90px !important;
+    left: 10px !important;
   }
 
   .box1 {
