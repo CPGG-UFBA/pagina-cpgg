@@ -356,7 +356,7 @@ nav a:hover {
   .box {
     width: 420px;
     height: 600px;
-    left: calc(5% + 180px);
+    left: calc(5% + 200px);
     top: 22%;
     padding-left: 20px;
     padding-right: 15px;
@@ -460,7 +460,7 @@ nav a:hover {
   .box {
     width: 340px;
     height: 600px;
-    left: calc(3% + 135px);
+    left: calc(3% + 145px);
     top: 20%;
     padding-left: 15px;
     padding-right: 15px;
@@ -574,9 +574,9 @@ nav a:hover {
   }
 
   .box {
-    width: 260px;
+    width: 250px;
     height: 600px;
-    left: calc(2% + 100px);
+    left: calc(2% + 105px);
     top: 18%;
     padding-left: 10px;
     padding-right: 10px;
