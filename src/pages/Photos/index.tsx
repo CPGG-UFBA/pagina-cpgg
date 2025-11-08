@@ -44,17 +44,12 @@ export function Photos() {
     }
   }
 
-  const cardStyle = {
-    textDecoration: 'none',
-    marginBottom: '2rem'
-  }
-
   return (
     <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header/>
-      <main className={styles.photos}>
-        <div className={styles.titleContainer}>
-          <h1 className={styles.title}>
+      <main style={{flex: 1, padding: '2rem', paddingTop: '155px', display: 'flex', flexDirection: 'column', width: '100%'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem'}}>
+          <h1 style={{margin: 0, fontSize: '28px', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>
             Fotos de eventos
           </h1>
           {showAdminButton && (
@@ -70,17 +65,46 @@ export function Photos() {
           )}
         </div>
 
-        <div className={styles.mainContent}>
-          <div className={styles.container}>
-            <Link to="/Photos/HistoricalPhotos" className={styles.historical} style={{...cardStyle}}>
+        <div style={{
+          display: 'flex', 
+          gap: '3rem', 
+          justifyContent: 'center', 
+          alignItems: 'flex-start', 
+          width: '100%', 
+          maxWidth: '1400px', 
+          margin: '0 auto', 
+          paddingBottom: '2rem', 
+          flexWrap: 'wrap'
+        }}>
+          <div style={{
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 350px))', 
+            gap: '2rem', 
+            justifyContent: 'center',
+            width: '100%',
+            maxWidth: '750px'
+          }}>
+            <Link 
+              to="/Photos/HistoricalPhotos" 
+              className={styles.historical} 
+              style={{textDecoration: 'none'}}
+            >
               <h2>Históricas</h2>
             </Link>
 
-            <Link to="/Photos/Years" className={styles.fifthy} style={{...cardStyle}}>
+            <Link 
+              to="/Photos/Years" 
+              className={styles.fifthy} 
+              style={{textDecoration: 'none'}}
+            >
               <h2>50 anos - Pós-Graduação em Geofísica</h2>
             </Link>
 
-            <Link to="/Photos/FirstMeeting" className={styles.reopen} style={{...cardStyle}}>
+            <Link 
+              to="/Photos/FirstMeeting" 
+              className={styles.reopen} 
+              style={{textDecoration: 'none'}}
+            >
               <h2>Primeira reunião geral- retorno das atividades do CPGG</h2>
             </Link>
 
@@ -89,7 +113,7 @@ export function Photos() {
                 key={event.id} 
                 to={`/Photos/Event/${event.id}`} 
                 className={styles.eventCard}
-                style={{...cardStyle}}
+                style={{textDecoration: 'none'}}
               >
                 <div>
                   <h2>{event.name}</h2>
