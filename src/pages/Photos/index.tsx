@@ -50,7 +50,7 @@ export function Photos() {
     color: 'white',
     textAlign: 'center' as const,
     width: '350px',
-    minHeight: '120px',
+    minHeight: '108px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
