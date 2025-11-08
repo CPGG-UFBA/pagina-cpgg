@@ -62,34 +62,39 @@ export function Photos() {
               )}
             </div>
 
-            <div className={styles.container}>
-                <Link className={styles.card} to="/Photos/HistoricalPhotos">
-                    <div className={styles.historical}>
-                        <h2>Históricas</h2>
-                    </div>
-                </Link>
-
-                <Link className={styles.card} to="/Photos/Years">
-                    <div className={styles.fifthy}>
-                        <h2> 50 anos - Pós-Graduação em Geofísica</h2>
-                    </div>
-                </Link>
-                <Link className={styles.card} to="/Photos/FirstMeeting">
-                    <div className={styles.reopen}>
-                        <h2> Primeira reunião geral- retorno das atividades do CPGG</h2>
-                    </div>
-                </Link>
-
-                {/* Dynamic event cards */}
-                {events.map((event) => (
-                  <Link key={event.id} className={styles.card} to={`/Photos/Event/${event.id}`}>
-                    <div className={styles.eventCard}>
-                      <h2>{event.name}</h2>
-                      <p>Evento realizado em {new Date(event.event_date).toLocaleDateString('pt-BR')}</p>
-                    </div>
+            <div className={styles.mainContent}>
+              <div className={styles.container}>
+                  <Link className={styles.card} to="/Photos/HistoricalPhotos">
+                      <div className={styles.historical}>
+                          <h2>Históricas</h2>
+                      </div>
                   </Link>
-                ))}
 
+                  <Link className={styles.card} to="/Photos/Years">
+                      <div className={styles.fifthy}>
+                          <h2> 50 anos - Pós-Graduação em Geofísica</h2>
+                      </div>
+                  </Link>
+                  <Link className={styles.card} to="/Photos/FirstMeeting">
+                      <div className={styles.reopen}>
+                          <h2> Primeira reunião geral- retorno das atividades do CPGG</h2>
+                      </div>
+                  </Link>
+
+                  {/* Dynamic event cards */}
+                  {events.map((event) => (
+                    <Link key={event.id} className={styles.card} to={`/Photos/Event/${event.id}`}>
+                      <div className={styles.eventCard}>
+                        <h2>{event.name}</h2>
+                        <p>Evento realizado em {new Date(event.event_date).toLocaleDateString('pt-BR')}</p>
+                      </div>
+                    </Link>
+                  ))}
+              </div>
+
+              <div className={styles.staticFigure}>
+                <img src="/src/components/Figures/earth3.png" alt="Terra" />
+              </div>
             </div>
         </main>
         <Footer/>
