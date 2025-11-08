@@ -39,6 +39,12 @@
   position: relative;
 }
 
+.card {
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+}
+
 .headers {
   padding: 2rem;
   border-radius: 12px;
@@ -149,6 +155,10 @@
   .document {
     width: 100%;
     max-width: 350px;
+  }
+  
+  .headers {
+    margin-left: 0 !important;
   }
   
   .title {
