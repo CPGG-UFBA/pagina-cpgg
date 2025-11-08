@@ -195,11 +195,19 @@ All colors MUST be HSL.
   main.middle,
   main.cpgg,
   main.history,
-  main.regulations,
-  main.photos {
+  main.regulations {
     flex: 1 !important;
     overflow: hidden !important;
     overflow-y: hidden !important;
+    padding-bottom: 0 !important;
+    height: auto !important;
+  }
+  
+  /* Photos page - allow scroll to see all content */
+  main.photos {
+    flex: 1 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
     padding-bottom: 0 !important;
     height: auto !important;
   }
