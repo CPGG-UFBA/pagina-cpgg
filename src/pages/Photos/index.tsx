@@ -48,7 +48,7 @@ export function Photos() {
     <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header/>
       <main style={{flex: 1, padding: '2rem', paddingTop: '155px', display: 'flex', flexDirection: 'column', width: '100%'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: 'translateX(-200px)'}}>
           <h1 style={{margin: 0, fontSize: '28px', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>
             Fotos de eventos
           </h1>
@@ -74,7 +74,8 @@ export function Photos() {
           maxWidth: '1400px', 
           margin: '0 auto', 
           paddingBottom: '2rem', 
-          flexWrap: 'wrap'
+          flexWrap: 'wrap',
+          transform: 'translateX(-200px)'
         }}>
           <div style={{
             display: 'grid', 
