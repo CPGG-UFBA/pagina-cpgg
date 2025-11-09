@@ -52,8 +52,8 @@ export function MR() {
     <>
       <Header />
       <div className={styles.MR}>
-          <ul> Reserva da Sala de Reuniões do CPGG </ul>
           <form className={styles.box} onSubmit={handleSubmit}>
+            <ul> Reserva da Sala de Reuniões do CPGG </ul>
 
           <div className={styles.form}> 
              <input 
