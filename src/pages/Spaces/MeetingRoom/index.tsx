@@ -12,8 +12,8 @@ export function MeetingRoom() {
     <div className={styles.Container}>
       <Header />
       <div className={styles.MeetingRoom}>
-          <ul> Sala de Reuniões do CPGG </ul>
           <div className={styles.box}>
+            <ul> Sala de Reuniões do CPGG </ul>
             <div className={styles.gallery}>
               <div className={styles.meetingroom1}>
                  <img src={meeting1} alt="Foto1" />
