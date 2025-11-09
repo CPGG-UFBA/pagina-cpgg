@@ -56,8 +56,14 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  margin-top: -500px;
+  margin-top: -420px;
   margin-bottom: 10px;
+}
+
+@media (max-width: 1024px) {
+  .buttonContainer {
+    margin-top: -650px;
+  }
 }
 
 .auditory1 img {
