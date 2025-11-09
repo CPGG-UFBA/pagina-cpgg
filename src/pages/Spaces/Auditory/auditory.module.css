@@ -31,7 +31,7 @@
 .Auditory ul {
   font-size: 28px;
   color: #363F5;
-  position: absolute; 
+  position: absolute;
   top: calc(10% + 25px);
   left: 50%;
   transform: translateX(calc(-50% - 330px));
@@ -57,7 +57,7 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
-  margin-top: -450px;
+  margin-top: -480px;
 }
 
 .auditory1 img {
