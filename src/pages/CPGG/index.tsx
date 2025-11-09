@@ -14,9 +14,9 @@ export function CPGG() {
       <Header />
       <main className={`${styles.cpgg} cpgg`}>
         <div className={styles.Title} >
-          <ul>{t('cpgg.title')}</ul>
           <div className={styles.box}>
-          <p>
+            <ul>{t('cpgg.title')}</ul>
+            <p>
               {t('cpgg.description1')}
             </p>
             <br></br>
