@@ -30,13 +30,13 @@
 
 .formContainer {
   max-width: 800px;
-  max-height: 500px;
+  max-height: 600px;
   margin: 0 auto;
   margin-top: 150px;
   margin-bottom: -1800px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  padding: 25px;
+  padding: 25px 25px 20px 25px;
   border-radius: 15px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -103,7 +103,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
-  margin-bottom: -765px !important;
+  margin-bottom: 12px;
 }
 
 .dateContainer .form {
@@ -115,7 +115,6 @@
   align-items: flex-start;
   gap: 10px;
   margin: 12px 0;
-  margin-bottom: -788px;
   padding: 12px;
   background: transparent;
   border-radius: 10px;
@@ -123,7 +122,7 @@
 }
 
 .checkboxContainer:last-of-type {
-  margin-bottom: -908px;
+  margin-bottom: 12px;
 }
 
 .checkboxContainer input[type="checkbox"] {
@@ -140,7 +139,8 @@
   font-size: 16px;
   cursor: pointer;
   width: 100%;
-  margin-top: 90px;
+  margin-top: 20px;
+  margin-bottom: 0;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(89, 44, 187, 0.3);
 }
