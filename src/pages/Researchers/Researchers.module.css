@@ -219,19 +219,30 @@
 @media (max-width: 1024px) {
   .researchers {
     padding: 2rem 1.5rem 4rem 1.5rem;
-    margin: 155px auto 0 auto;
+    margin: 0 auto;
+    margin-top: 100px !important;
+  }
+
+  .Programs {
+    margin-top: 0 !important;
   }
 
   .box {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    margin-top: 30px !important;
   }
 }
 
 @media (max-width: 768px) {
   .researchers {
     padding: 2rem 1rem 4rem 1rem;
-    margin: 155px auto 0 auto;
+    margin: 0 auto;
+    margin-top: 100px !important;
+  }
+
+  .Programs {
+    margin-top: 0 !important;
   }
 
   .Programs ul {
@@ -243,6 +254,7 @@
   .box {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-top: 30px !important;
   }
 
   .Oil,
