@@ -21,7 +21,8 @@
   display: grid !important;
   grid-template-columns: repeat(3, 280px) !important;
   grid-auto-flow: row !important;
-  gap: 20px !important;
+  column-gap: 20px !important;
+  row-gap: 20px !important;
   max-width: 1000px;
   margin-left: 80px;
   margin-top: 60px;
