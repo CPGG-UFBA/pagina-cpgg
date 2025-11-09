@@ -138,6 +138,22 @@ const translations = {
     'map.trackedLocations': 'Localizações Rastreadas',
     'map.earthText': 'Conectando o mundo através das Geociências',
     'map.visitors': 'Visitantes',
+    
+    // Navigation Buttons
+    'button.backToHome': 'Voltar para Home',
+    'button.back': 'Voltar',
+    'button.backToResearchers': 'Voltar para lista de pesquisadores',
+    
+    // Reservation Success
+    'reservation.successTitle': 'Solicitação de Reserva Enviada com Sucesso!',
+    'reservation.successMessage': 'A secretária do CPGG entrará em contato em breve por e-mail para confirmar sua reserva.',
+    
+    // Technicians
+    'technicians.title': 'Corpo Administrativo e Técnico',
+    'technicians.administrativeSecretary': 'Secretária Administrativa',
+    'technicians.itTechnician': 'Técnica em T.I.',
+    'technicians.driver': 'Motorista',
+    'technicians.labTechnician': 'Técnico de Laboratório',
   },
   en: {
     // Header
@@ -267,6 +283,22 @@ const translations = {
     'map.trackedLocations': 'Tracked Locations',
     'map.earthText': 'Connecting the world through Geosciences',
     'map.visitors': 'Visitors',
+    
+    // Navigation Buttons
+    'button.backToHome': 'Back to Home',
+    'button.back': 'Back',
+    'button.backToResearchers': 'Back to researchers list',
+    
+    // Reservation Success
+    'reservation.successTitle': 'Reservation Request Sent Successfully!',
+    'reservation.successMessage': 'The CPGG secretary will contact you shortly by email to confirm your reservation.',
+    
+    // Technicians
+    'technicians.title': 'Administrative and Technical Staff',
+    'technicians.administrativeSecretary': 'Administrative Secretary',
+    'technicians.itTechnician': 'IT Technician',
+    'technicians.driver': 'Driver',
+    'technicians.labTechnician': 'Laboratory Technician',
   }
 };
 
