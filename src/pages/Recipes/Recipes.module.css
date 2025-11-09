@@ -21,17 +21,15 @@
   display: grid !important;
   grid-template-columns: repeat(3, 280px) !important;
   grid-auto-flow: row !important;
-  column-gap: 20px !important;
-  row-gap: 20px !important;
+  gap: 20px !important;
   max-width: 1000px;
   margin-left: 80px;
   margin-top: 40px;
   margin-bottom: 4rem;
-  align-items: start !important;
 }
 
-.container > * {
-  display: flex !important;
+.container > *:nth-child(n+4) {
+  margin-top: -80px !important;
 }
 
 .logos {
