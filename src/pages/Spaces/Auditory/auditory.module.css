@@ -32,7 +32,7 @@
   font-size: 28px;
   color: #363F5;
   position: absolute; 
-  top: calc(10% + 25px);
+  top: calc(10% + 75px);
   left: 50%;
   transform: translateX(calc(-50% - 330px));
   margin: 0;
@@ -100,7 +100,7 @@
   min-height: 565px;
   max-height: 650px;
   overflow-y: auto;
-  top: calc(50% - 10px);
+  top: calc(50% + 40px);
   left: 50%;
   transform: translate(calc(-50% - 330px), -50%);
   padding: 20px;
