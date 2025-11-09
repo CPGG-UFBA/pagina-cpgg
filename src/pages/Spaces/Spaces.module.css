@@ -176,6 +176,19 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center;
+  }
+  
+  .title {
+    margin-left: auto !important;
+    text-align: center !important;
+  }
+}
+
 @media (max-width: 900px) {
   .staticFigure {
     display: none;
