@@ -39,12 +39,13 @@ export function Laiga() {
              <nav>
               <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank" className={styles.purpleLink}>{t('laiga.pnipeSite')}</a>
             </nav>
+            <b className={styles.purpleText}>{t('laiga.chief')}</b>
+            <span>{t('laiga.chiefName')}</span>
+            <br></br>
             <p> 
               {t('laiga.availability')}
             </p>
            <br></br>
-           <b className={styles.purpleText}>{t('laiga.chief')}</b>
-           <span>{t('laiga.chiefName')}</span> 
            
            <div className={styles.requerimentoButton}>
              <Link to="/labs/laiga/reservation-form" className={styles.buttonLink}>
