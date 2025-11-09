@@ -12,38 +12,29 @@ export  function Recipes() {
               <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>
-                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/marcas.zip">
-                      <div className={styles.logos}>
-                          <h2>Marcas do CPGG</h2>
-                      </div>
+                  <a className={styles.logos} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/marcas.zip">
+                      <h2>Marcas do CPGG</h2>
                   </a>
 
-                  <Link className={styles.card} to="/recipes/calendars">
-                      <div className={styles.calendars}>
-                          <h2> Calendários</h2>
-                      </div>
+                  <Link className={styles.calendars} to="/recipes/calendars">
+                      <h2> Calendários</h2>
                   </Link>
-                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/modelo-cpgg.ppt">
-                      <div className={styles.power}>
-                          <h2> Power Point para apresentações</h2>
-                      </div>
+                  
+                  <a className={styles.power} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/modelo-cpgg.ppt">
+                      <h2> Power Point para apresentações</h2>
                   </a>
-                  <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/slide.zip">
-                      <div className={styles.latex}>
-                          <h2> Latex-modelo para slides</h2>
-                      </div>
+                  
+                  <a className={styles.latex} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/slide.zip">
+                      <h2> Latex-modelo para slides</h2>
                   </a>
-                  <Link className={styles.card} to="/recipes/gmt-codes">
-                      <div className={styles.gmt}>
-                          <h2> GMT-códigos</h2>
-                      </div>
+                  
+                  <Link className={styles.gmt} to="/recipes/gmt-codes">
+                      <h2> GMT-códigos</h2>
                   </Link>
-                  <a className={styles.card} href="/src/assets/PDF/Deliberacao_normativa_2_2023.pdf">
-                      <div className={styles.python}>
-                          <h2> Python-códigos</h2>
-                      </div>
+                  
+                  <a className={styles.python} href="/src/assets/PDF/Deliberacao_normativa_2_2023.pdf">
+                      <h2> Python-códigos</h2>
                   </a>
-
               </div>
           </div>
           <div className={styles.footerRecipes}>
