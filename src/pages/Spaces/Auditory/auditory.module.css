@@ -28,14 +28,13 @@
   overflow: hidden !important;
 }
 
-.Auditory ul {
+.box ul {
   font-size: 28px;
   color: #363F5;
-  position: absolute;
-  top: calc(10% + 25px);
-  left: 50%;
-  transform: translateX(calc(-50% - 330px));
-  margin: 0;
+  margin: 0 0 20px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
 }
 
 .gallery {
@@ -127,9 +126,8 @@
     transform: translate(calc(-50% - 100px), -50%);
   }
 
-  .Auditory ul {
+  .box ul {
     font-size: 20px;
-    transform: translateX(calc(-50% - 100px));
   }
 
   .gallery {
@@ -147,9 +145,8 @@
     transform: translate(calc(-50% - 50px), -50%);
   }
 
-  .Auditory ul {
+  .box ul {
     font-size: 18px;
-    transform: translateX(calc(-50% - 50px));
   }
 
   .gallery {
@@ -167,9 +164,8 @@
     transform: translate(-50%, -50%);
   }
 
-  .Auditory ul {
+  .box ul {
     font-size: 16px;
-    transform: translateX(-50%);
   }
 
   .gallery {

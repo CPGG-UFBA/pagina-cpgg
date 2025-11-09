@@ -12,8 +12,8 @@ export function Auditory() {
     <div className={styles.Container}>
       <Header />
       <div className={styles.Auditory}>
-          <ul> Auditório do CPGG </ul>
           <div className={styles.box}>
+            <ul> Auditório do CPGG </ul>
             <div className={styles.gallery}>
               <div className={styles.auditory1}>
                  <img src={auditory1} alt="Foto1" />
