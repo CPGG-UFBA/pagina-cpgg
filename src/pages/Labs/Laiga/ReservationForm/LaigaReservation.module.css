@@ -1,8 +1,8 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 70vh !important;
-  max-height: 80vh !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
   overflow: hidden !important;
   position: fixed !important;
   top: 0;
@@ -29,8 +29,8 @@
 }
 
 .formContainer {
-  max-width: 1800px;
-  max-height: 50px;
+  max-width: 800px;
+  max-height: 500px;
   margin: 0 auto;
   margin-top: 150px;
   margin-bottom: -100px;
