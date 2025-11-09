@@ -16,8 +16,8 @@ export function Former() {
       <Header />
       <div className={styles.former}>
         <div className={styles.Headers}>
-          <ul>Coordenadores do CPGG </ul>
             <div className={styles.boxzero}>
+              <ul>Coordenadores do CPGG</ul>
               <div className={styles.box1}>
                 <div className={styles.Header1}>
                   <h1>Prof. Carlos Alberto Dias</h1>

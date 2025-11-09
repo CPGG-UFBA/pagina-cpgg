@@ -24,13 +24,15 @@
   padding-right: 8px;
   }
 
-  .Headers ul {
+  .boxzero ul {
     font-size: 24px;
     color: #363F5; 
-    margin-left: -900px;
-    margin-top: -20px;
+    text-align: center;
+    margin: 0 0 20px 0;
+    padding: 0;
     white-space: nowrap;
     font-weight: 600;
+    grid-column: 1 / -1;
   }
 
 .Header1   h1{
