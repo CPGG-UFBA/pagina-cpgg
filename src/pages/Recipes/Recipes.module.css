@@ -18,18 +18,18 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(3, 280px);
-  gap: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(3, 280px) !important;
+  grid-auto-flow: row !important;
+  gap: 20px !important;
   max-width: 1000px;
   margin-left: 80px;
   margin-top: 60px;
   margin-bottom: 4rem;
 }
 
-.card {
-  text-decoration: none;
-  display: block;
+.container > * {
+  display: flex !important;
 }
 
 .logos {
