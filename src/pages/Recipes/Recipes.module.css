@@ -19,9 +19,9 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 280px);
   gap: 2rem;
-  max-width: 900px;
+  max-width: 1000px;
   margin-left: 80px;
   margin-top: 60px;
   margin-bottom: 4rem;
@@ -30,7 +30,7 @@
 .logos {
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: 280px;
   height: 120px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
@@ -50,7 +50,7 @@
 .calendars {
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: 280px;
   height: 120px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -70,7 +70,7 @@
 .power {
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: 280px;
   height: 120px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -89,7 +89,7 @@
 .latex {
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: 280px;
   height: 120px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -107,7 +107,7 @@
 .gmt {
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: 280px;
   height: 120px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -125,7 +125,7 @@
 .python {
   padding: 2rem;
   border-radius: 12px;
-  width: 100%;
+  width: 280px;
   height: 120px;
   text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
