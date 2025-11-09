@@ -83,9 +83,10 @@
   color: white;
   border-radius: 15px;
   width: 300px;
+  margin-left: 2.5rem;
   background-color: #beb6b6;
-  margin: 30px auto 0;
-  display: block;
+  margin-left: 9rem;
+  margin-top: -790px;
   border: none;
   transition: 500ms linear;
 }
@@ -113,8 +114,8 @@
 }
 
 .dateField:last-child {
-  margin-top: 0;
-  margin-left: 0;
+  margin-top: -930px;
+  margin-left: 270px;
 }
 
 .dateField label {
