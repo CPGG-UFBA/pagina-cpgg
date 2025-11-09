@@ -107,7 +107,7 @@ body:has(.sign) #root {
   height: 100vh !important;
 }
 
-/* Force no scroll on CPGG, History, Regulations, Photos, Coordination, Researchers, Technicians, Labs, Spaces, Production, Recipes pages */
+/* Force no scroll on CPGG, History, Regulations, Photos, Coordination, Researchers, Technicians, Labs, Spaces, Production, Recipes, Map pages */
 body:has(main.cpgg),
 body:has(main.history),
 body:has(main.regulations),
@@ -118,7 +118,8 @@ body:has(.technicians),
 body:has(.labs),
 body:has(main.spaces),
 body:has(.production),
-body:has(.recipes) {
+body:has(.recipes),
+body:has(main.map) {
   overflow: hidden !important;
   height: 100vh !important;
 }
@@ -133,7 +134,8 @@ body:has(.technicians) #root,
 body:has(.labs) #root,
 body:has(main.spaces) #root,
 body:has(.production) #root,
-body:has(.recipes) #root {
+body:has(.recipes) #root,
+body:has(main.map) #root {
   overflow: hidden !important;
   height: 100vh !important;
 }

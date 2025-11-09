@@ -148,7 +148,7 @@ export function Map() {
   return (
     <div className={styles.container}>
       <Header />
-      <main className={styles.main}>
+      <main className={`${styles.main} map`}>
         <div className={styles.header}>
           <h1 className={styles.title}>{t('map.title')}</h1>
           <p className={styles.subtitle}>
