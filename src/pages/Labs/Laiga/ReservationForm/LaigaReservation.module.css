@@ -30,10 +30,10 @@
 
 .formContainer {
   max-width: 800px;
-  max-height: 300px;
+  max-height: 500px;
   margin: 0 auto;
   margin-top: 150px;
-  margin-bottom: -1500px;
+  margin-bottom: -1800px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   padding: 25px;
