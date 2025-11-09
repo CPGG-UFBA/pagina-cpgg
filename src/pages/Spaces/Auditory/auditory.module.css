@@ -98,7 +98,7 @@
   width: 600px;
   height: auto;
   min-height: 565px;
-  max-height: 650px;
+  max-height: 500px;
   overflow-y: auto;
   top: calc(50% - 10px);
   left: 50%;
