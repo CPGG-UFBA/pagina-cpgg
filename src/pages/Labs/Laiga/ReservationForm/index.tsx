@@ -219,9 +219,9 @@ export function RF() {
       <Header />
       <div className={styles.content}>
         <LaigaEquipmentEditor onEquipmentChange={setEquipments} />
-        <h1 className={styles.title}>Formulário de Reserva de Equipamentos - LAIGA</h1>
 
         <div className={styles.formContainer}>
+          <h1 className={styles.title}>Formulário de Reserva de Equipamentos - LAIGA</h1>
           <form onSubmit={handleSubmit}>
             <div className={styles.form}>
               <label>Equipamentos Disponíveis:</label>
