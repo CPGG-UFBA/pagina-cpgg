@@ -30,7 +30,7 @@
 
 .formContainer {
   max-width: 800px;
-  max-height: 50px;
+  max-height: 5000px;
   margin: 0 auto;
   margin-top: 150px;
   margin-bottom: -1800px;
@@ -46,7 +46,7 @@
 }
 
 .form {
-  margin-bottom: 12px;
+  margin-bottom: 1px;
 }
 
 .form label {
