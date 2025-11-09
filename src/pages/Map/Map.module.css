@@ -16,7 +16,8 @@
   padding: 1rem 2rem;
   padding-top: 155px;
   background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #2d3748 100%);
-  overflow: hidden !important;
+  overflow-y: hidden !important;
+  max-height: calc(100vh - 0px);
 }
 
 .header {
@@ -47,6 +48,8 @@
   align-items: start;
   max-width: 1400px;
   margin: 0 auto;
+  overflow: hidden;
+  max-height: calc(100vh - 200px);
 }
 
 .mapWrapper {
