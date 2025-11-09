@@ -103,7 +103,7 @@
   left: 50%;
   transform: translate(calc(-50% - 330px), -50%);
   padding: 20px;
-  padding-top: 70px;
+  padding-top: 20px;
   border-radius: 20px;
   margin: 0;
 }
