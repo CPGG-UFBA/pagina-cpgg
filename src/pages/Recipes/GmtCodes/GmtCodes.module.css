@@ -31,20 +31,31 @@
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(3, 250px);
-  gap: 2rem;
+  display: flex;
+  align-items: flex-start;
   justify-content: center;
+  gap: 0;
+  max-width: 1400px;
   margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+.buttonsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
   transform: translateY(-50px);
 }
 
-@media (min-width: 1025px) {
+@media (max-width: 1024px) {
+  .buttonsGrid {
+    transform: translateY(-300px) !important;
+    margin: 0 auto;
+    width: fit-content;
+  }
+  
   .container {
-    justify-content: flex-start;
-    justify-items: start;
-    margin-left: 50px;
-    margin-right: 0;
+    justify-content: center;
   }
 }
 
@@ -153,11 +164,6 @@
   transform: translateY(-5px);
 }
 
-@media (max-width: 1024px) {
-  .container {
-    transform: translateY(-300px);
-  }
-}
 
 /* Mover rodapé para cima apenas na página GMT Codes */
 .footerGmtCodes {
