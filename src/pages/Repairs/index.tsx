@@ -91,8 +91,10 @@ export function RepairsServices() {
       // Fazer logout após enviar
       await supabase.auth.signOut()
       
-      // Redirecionar para página de sucesso
-      navigate('/reservations/success')
+      // Redirecionar para página de sucesso com o tipo de problema
+      navigate('/reservations/success', { 
+        state: { serviceType: formData.problemType }
+      })
     } catch (error) {
       console.error('Erro ao enviar solicitação:', error);
       setAuthError('Erro ao enviar solicitação. Tente novamente.')
