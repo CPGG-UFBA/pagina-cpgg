@@ -8,7 +8,6 @@ export  function Calendars() {
       <>
       <Header/>
           <div className={styles.calendars}>
-              <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>
                   <div className={styles.buttonsGrid}>
