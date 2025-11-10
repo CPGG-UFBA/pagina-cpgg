@@ -333,18 +333,6 @@ export function RF() {
             </div>
 
             <div className={styles.form}>
-              <label htmlFor="applicantPassword">Senha *</label>
-              <input
-                type="password"
-                id="applicantPassword"
-                value={formData.applicantPassword}
-                onChange={(e) => handleInputChange("applicantPassword", e.target.value)}
-                placeholder="Digite sua senha"
-                required
-              />
-            </div>
-
-            <div className={styles.form}>
               <label htmlFor="purpose">Utilidade *</label>
               <select
                 id="purpose"
@@ -370,6 +358,18 @@ export function RF() {
                 value={formData.applicantEmail}
                 onChange={(e) => handleInputChange("applicantEmail", e.target.value)}
                 placeholder="Digite seu email"
+                required
+              />
+            </div>
+
+            <div className={styles.form}>
+              <label htmlFor="applicantPassword">Senha *</label>
+              <input
+                type="password"
+                id="applicantPassword"
+                value={formData.applicantPassword}
+                onChange={(e) => handleInputChange("applicantPassword", e.target.value)}
+                placeholder="Digite sua senha"
                 required
               />
             </div>
