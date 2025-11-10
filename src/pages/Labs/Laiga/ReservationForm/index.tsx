@@ -17,8 +17,6 @@ export function RF() {
     applicantName: "",
     applicantEmail: "",
     applicantPassword: "",
-    agreementAccepted: false,
-    damageReportAgreement: false,
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -127,23 +125,6 @@ export function RF() {
       return;
     }
 
-    if (!formData.agreementAccepted) {
-      toast({
-        title: "Erro",
-        description: "Você deve aceitar o termo de agradecimentos",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!formData.damageReportAgreement) {
-      toast({
-        title: "Erro",
-        description: "Você deve aceitar o termo de responsabilidade sobre avarias",
-        variant: "destructive",
-      });
-      return;
-    }
 
     setIsSubmitting(true);
 
@@ -225,8 +206,6 @@ export function RF() {
         applicantName: "",
         applicantEmail: "",
         applicantPassword: "",
-        agreementAccepted: false,
-        damageReportAgreement: false,
       });
     } catch (error: any) {
       console.error("Erro ao enviar solicitação:", error);
@@ -374,36 +353,22 @@ export function RF() {
               </select>
             </div>
 
-            <div className={styles.checkboxContainer}>
-              <input
-                type="checkbox"
-                id="agreement"
-                checked={formData.agreementAccepted}
-                onChange={(e) => handleInputChange("agreementAccepted", e.target.checked)}
-                required
-              />
-              <label htmlFor="agreement">
+            <div className={styles.agreementText}>
+              <p>
                 <strong>
                   Estou de acordo em expressar agradecimentos ao LAIGA/CPGG pelo uso do(s) equipamento(s) utilizado(s)
-                  nos trabalhos apresentados *
+                  nos trabalhos apresentados
                 </strong>
-              </label>
+              </p>
             </div>
 
-            <div className={styles.checkboxContainer}>
-              <input
-                type="checkbox"
-                id="damageReport"
-                checked={formData.damageReportAgreement}
-                onChange={(e) => handleInputChange("damageReportAgreement", e.target.checked)}
-                required
-              />
-              <label htmlFor="damageReport">
+            <div className={styles.agreementText}>
+              <p>
                 <strong>
                   Estou de acordo em reportar no ato da entrega de possíveis problemas ou avarias que o(s)
-                  equipamento(s) tenham sofridos durante o uso *
+                  equipamento(s) tenham sofridos durante o uso
                 </strong>
-              </label>
+              </p>
             </div>
 
             <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
