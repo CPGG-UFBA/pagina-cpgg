@@ -38,7 +38,7 @@
   margin-bottom: -100px;
 }
 
-.box input {
+.form input {
   display: flex;
   padding: 12px;
   font-size: 14px;
@@ -48,7 +48,7 @@
   border-radius: 15px;
   transition: all linear 160ms;
   outline: none;
-  width: calc(100% - 6rem);
+  width: calc(100% - 5rem);
   color: #000;
 }
 
