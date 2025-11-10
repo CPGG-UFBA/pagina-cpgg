@@ -261,45 +261,46 @@
 /* 1024px and below - stack vertically with text on top */
 @media (max-width: 1024px) {
   .middle {
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column !important;
+    align-items: center !important;
     padding-top: 140px;
     gap: 1rem;
-    justify-content: flex-start;
+    justify-content: flex-start !important;
   }
   
   .static {
-    order: 1;
-    font-size: 32px;
-    margin: 0;
-    text-align: center;
-    transform: none;
-    width: 100%;
-    position: relative;
-    line-height: 0.5;
+    order: 1 !important;
+    font-size: 32px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    transform: none !important;
+    width: 100% !important;
+    position: relative !important;
+    line-height: 0.5 !important;
+    display: block !important;
   }
   
   .static > strong {
-    font-size: 64px;
+    font-size: 64px !important;
   }
   
   .enjoy {
-    font-size: 22px;
-    text-align: center;
-    padding-top: 30px;
+    font-size: 22px !important;
+    text-align: center !important;
+    padding-top: 30px !important;
   }
   
   .enjoy > strong {
-    font-size: 22px;
+    font-size: 22px !important;
   }
   
   .carouselContainer {
-    order: 2;
-    width: 70%;
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 0;
-    position: relative;
+    order: 2 !important;
+    width: 70% !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    margin-top: 0 !important;
+    position: relative !important;
   }
   
   .imageWrapper {
@@ -453,32 +454,6 @@
   
   .controls {
     bottom: 150px;
-  }
-}
-
-/* Portrait orientation for 835px-1024px - show text above news */
-@media (orientation: portrait) and (min-width: 835px) and (max-width: 1024px) {
-  .middle {
-    flex-direction: column;
-    align-items: center;
-    padding-top: 120px;
-  }
-  
-  .static {
-    order: 1;
-    display: block !important;
-    text-align: center;
-    margin: 0 0 2rem 0;
-  }
-  
-  .carouselContainer {
-    order: 2;
-    width: 85%;
-    max-width: 650px;
-  }
-  
-  .imageWrapper {
-    height: 300px;
   }
 }
 
