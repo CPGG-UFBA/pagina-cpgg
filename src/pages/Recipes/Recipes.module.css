@@ -202,3 +202,17 @@
   margin-left: 700px;
   margin-top: -100px;
 }
+
+@media (max-width: 1024px) {
+  .latex,
+  .gmt,
+  .python {
+    transform: translateY(-430px) !important;
+  }
+  
+  .latex:hover,
+  .gmt:hover,
+  .python:hover {
+    transform: translateY(-435px) !important;
+  }
+}
