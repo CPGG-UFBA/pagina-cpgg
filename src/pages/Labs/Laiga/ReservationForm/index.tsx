@@ -180,20 +180,10 @@ export function RF() {
         description: "Em breve o chefe do laboratório entrará em contato por e-mail.",
       });
 
-      // Redirecionar para comprovante após mostrar o toast
-      if (data?.reservationId) {
-        console.log("Redirecionando para:", `/labs/laiga/receipt?id=${data.reservationId}`);
-        setTimeout(() => {
-          window.location.href = `/labs/laiga/receipt?id=${data.reservationId}`;
-        }, 2500);
-      } else {
-        console.error("Nenhum reservationId retornado!");
-        toast({
-          title: "Aviso",
-          description: "Solicitação salva mas não foi possível gerar o comprovante.",
-          variant: "destructive",
-        });
-      }
+      // Redirecionar para página de sucesso
+      setTimeout(() => {
+        window.location.href = '/labs/laiga/success';
+      }, 2000);
 
       // Resetar formulário
       setFormData({

@@ -62,6 +62,7 @@ import { Laiga } from './pages/Labs/Laiga'
 import { DynamicLab } from './pages/Labs/DynamicLab'
 import { RF } from './pages/Labs/Laiga/ReservationForm'
 import { LaigaReceipt } from './pages/Labs/Laiga/Receipt'
+import { LaigaSuccess } from './pages/Labs/Laiga/Success'
 import { Lagep } from './pages/Labs/Lagep'
 import { Lamod } from './pages/Labs/Lamod'
 import { Auditory } from './pages/Spaces/Auditory'
@@ -164,6 +165,7 @@ export function Router() {
          <Route path='/labs/:acronym' element={<DynamicLab />} />
          <Route path='/labs/laiga/reservation-form' element={<RF />} />
          <Route path='/labs/laiga/receipt' element={<LaigaReceipt />} />
+         <Route path='/labs/laiga/success' element={<LaigaSuccess />} />
          <Route path='/labs/lagep' element={<Lagep />} />
          <Route path='/labs/lamod' element={<Lamod />} />
          <Route path='/labs/successlab' element={<Successlab />} />
