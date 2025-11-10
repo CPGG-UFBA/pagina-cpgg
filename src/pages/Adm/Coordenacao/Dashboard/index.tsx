@@ -979,6 +979,50 @@ export function CoordenacaoDashboard() {
           <div className={styles.formCard}>
             <div className={styles.formHeader}>
               <Settings size={24} />
+              <h2>Atualizar Secretária</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-email">E-mail Atual da Secretária:</label>
+              <Input
+                id="secretaria-update-email"
+                type="email"
+                value={secretariaUpdateEmail}
+                onChange={(e) => setSecretariaUpdateEmail(e.target.value)}
+                placeholder="Digite o e-mail atual da secretária"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-new-name">Novo Nome (opcional):</label>
+              <Input
+                id="secretaria-update-new-name"
+                type="text"
+                value={secretariaUpdateNewName}
+                onChange={(e) => setSecretariaUpdateNewName(e.target.value)}
+                placeholder="Digite o novo nome ou deixe em branco"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-new-email">Novo E-mail (opcional):</label>
+              <Input
+                id="secretaria-update-new-email"
+                type="email"
+                value={secretariaUpdateNewEmail}
+                onChange={(e) => setSecretariaUpdateNewEmail(e.target.value)}
+                placeholder="Digite o novo e-mail ou deixe em branco"
+              />
+            </div>
+            <Button
+              onClick={handleUpdateSecretaria}
+              disabled={isLoading || !secretariaUpdateEmail || (!secretariaUpdateNewEmail && !secretariaUpdateNewName)}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Atualizando...' : 'Atualizar Secretária'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <Settings size={24} />
               <h2>Atualizar Credenciais da Coordenação</h2>
             </div>
             <div className={styles.formGroup}>
@@ -1105,50 +1149,6 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {isLoading ? 'Atualizando...' : 'Atualizar Técnico em TI'}
-            </Button>
-          </div>
-
-          <div className={styles.formCard}>
-            <div className={styles.formHeader}>
-              <Settings size={24} />
-              <h2>Atualizar Secretária</h2>
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="secretaria-update-email">E-mail Atual da Secretária:</label>
-              <Input
-                id="secretaria-update-email"
-                type="email"
-                value={secretariaUpdateEmail}
-                onChange={(e) => setSecretariaUpdateEmail(e.target.value)}
-                placeholder="Digite o e-mail atual da secretária"
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="secretaria-update-new-name">Novo Nome (opcional):</label>
-              <Input
-                id="secretaria-update-new-name"
-                type="text"
-                value={secretariaUpdateNewName}
-                onChange={(e) => setSecretariaUpdateNewName(e.target.value)}
-                placeholder="Digite o novo nome ou deixe em branco"
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="secretaria-update-new-email">Novo E-mail (opcional):</label>
-              <Input
-                id="secretaria-update-new-email"
-                type="email"
-                value={secretariaUpdateNewEmail}
-                onChange={(e) => setSecretariaUpdateNewEmail(e.target.value)}
-                placeholder="Digite o novo e-mail ou deixe em branco"
-              />
-            </div>
-            <Button
-              onClick={handleUpdateSecretaria}
-              disabled={isLoading || !secretariaUpdateEmail || (!secretariaUpdateNewEmail && !secretariaUpdateNewName)}
-              className={styles.submitButton}
-            >
-              {isLoading ? 'Atualizando...' : 'Atualizar Secretária'}
             </Button>
           </div>
 
