@@ -87,7 +87,7 @@
     position: absolute;
     top: 550px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(calc(-50% - 30px));
     margin: 0 2.5rem;
   }
 }
