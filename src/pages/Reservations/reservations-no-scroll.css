@@ -126,29 +126,6 @@ html:has(.reservationAuditoryPage) {
   max-height: 100vh !important;
 }
 
-@media (max-width: 1024px) {
-  body:has(.reservationAuditoryPage) {
-    overflow: auto !important;
-    height: auto !important;
-  }
-
-  body:has(.reservationAuditoryPage) #root {
-    overflow: auto !important;
-    height: auto !important;
-  }
-
-  html:has(.reservationAuditoryPage) {
-    overflow: auto !important;
-    height: auto !important;
-  }
-
-  .reservationAuditoryPage {
-    overflow: visible !important;
-    height: 100vh !important;
-    min-height: 100vh !important;
-  }
-}
-
 /* Reservation Meeting Room Page - No Scroll */
 body:has(.reservationMeetingRoomPage) {
   overflow: hidden !important;
