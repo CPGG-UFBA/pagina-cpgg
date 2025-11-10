@@ -123,10 +123,8 @@ export function RepairStats() {
   const getTotalStats = () => {
     const infraCount = requests.filter(r => r.problem_type === 'infraestrutura').length
     const tiCount = requests.filter(r => r.problem_type === 'ti').length
-    const pendenteCount = requests.filter(r => r.status === 'pendente').length
-    const resolvidoCount = requests.filter(r => r.status === 'resolvido').length
 
-    return { infraCount, tiCount, pendenteCount, resolvidoCount }
+    return { infraCount, tiCount }
   }
 
   const handleClearStats = async () => {
@@ -216,32 +214,6 @@ export function RepairStats() {
           <CardContent>
             <p className={styles.statNumber}>{stats.tiCount}</p>
             <p className={styles.statLabel}>solicitações</p>
-          </CardContent>
-        </Card>
-
-        <Card className={styles.statCard}>
-          <CardHeader>
-            <CardTitle className={styles.cardTitle}>
-              <Clock className={styles.icon} style={{ color: COLORS.pendente }} />
-              Pendentes
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className={styles.statNumber}>{stats.pendenteCount}</p>
-            <p className={styles.statLabel}>aguardando</p>
-          </CardContent>
-        </Card>
-
-        <Card className={styles.statCard}>
-          <CardHeader>
-            <CardTitle className={styles.cardTitle}>
-              <CheckCircle className={styles.icon} style={{ color: COLORS.resolvido }} />
-              Resolvidas
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className={styles.statNumber}>{stats.resolvidoCount}</p>
-            <p className={styles.statLabel}>concluídas</p>
           </CardContent>
         </Card>
       </div>
