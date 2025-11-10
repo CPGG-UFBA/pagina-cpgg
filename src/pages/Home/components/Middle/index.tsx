@@ -20,8 +20,6 @@ export function Middle() {
   const [loading, setLoading] = useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
-  
-  console.log('USANDO COMPONENTE: src/pages/Home/components/Middle/')
 
   useEffect(() => {
     fetchNews()
