@@ -30,13 +30,22 @@ export function LaigaReceipt() {
 
   const fetchReservation = async () => {
     try {
+      console.log('Buscando reserva com ID:', reservationId)
+      
       const { data, error } = await supabase
         .from('reservations')
         .select('*')
         .eq('id', reservationId)
         .single()
 
-      if (error) throw error
+      console.log('Resultado da busca:', { data, error })
+
+      if (error) {
+        console.error('Erro ao buscar reserva:', error)
+        throw error
+      }
+      
+      console.log('Reserva encontrada:', data)
       setReservation(data)
     } catch (error) {
       console.error('Erro ao buscar reserva:', error)
