@@ -258,6 +258,23 @@
 
 /* Media Queries */
 
+/* 1025px to 1439px - ensure horizontal layout is maintained */
+@media (min-width: 1025px) and (max-width: 1439px) {
+  .middle {
+    flex-direction: row !important;
+  }
+  
+  .static {
+    display: block !important;
+    order: initial !important;
+  }
+  
+  .carouselContainer {
+    order: initial !important;
+    margin-top: -180px !important;
+  }
+}
+
 /* 1024px and below - stack vertically with text on top */
 @media (max-width: 1024px) {
   .middle {
