@@ -1,4 +1,12 @@
 /* Success Page Styles */
+.successContainer {
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
 .success{
   display: flex;
   flex-direction: column;

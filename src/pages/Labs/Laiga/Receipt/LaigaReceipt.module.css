@@ -1,10 +1,12 @@
 .container {
   min-height: 100vh;
+  max-height: 100vh;
   padding: 20px;
   background-image: url("../../../../assets/header-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
 }
 
 .receipt {

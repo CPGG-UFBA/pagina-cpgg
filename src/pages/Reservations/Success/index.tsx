@@ -7,7 +7,7 @@ export function Success() {
   const { t } = useLanguage()
   
   return (
-    <>
+    <div className={styles.successContainer}>
       <Header />
       <div className={styles.success}>
           <ul>{t('reservation.successTitle')}</ul>
@@ -15,6 +15,6 @@ export function Success() {
         </div>
         
       <Footer />
-    </>
+    </div>
   )
 }
