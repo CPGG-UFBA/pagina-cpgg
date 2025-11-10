@@ -130,6 +130,10 @@
   .gallery {
     grid-template-rows: repeat(1, 22vw);
   }
+
+  .buttonContainer {
+    margin-top: -580px;
+  }
 }
 
 
@@ -150,6 +154,10 @@
   .gallery {
     grid-template-rows: repeat(1, 28vw);
   }
+
+  .buttonContainer {
+    margin-top: -580px;
+  }
 }
 
 @media (max-width: 400px) {
@@ -168,5 +176,9 @@
 
   .gallery {
     grid-template-rows: repeat(1, 35vw);
+  }
+
+  .buttonContainer {
+    margin-top: -580px;
   }
 }
