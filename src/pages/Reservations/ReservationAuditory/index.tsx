@@ -117,7 +117,7 @@ export function RA() {
             </div>
           </div>
 
-          <button type="submit" className={styles.submitButton}>
+          <button type="submit" className={styles.button}>
               Enviar   
           </button> 
 
