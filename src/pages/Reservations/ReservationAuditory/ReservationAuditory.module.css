@@ -64,30 +64,6 @@
   padding-top: 10px;
 }
 
-.box button {
-  padding: 12px;
-  font-size: 14px;
-  color: white;
-  border-radius: 15px;
-  width: 300px;
-  background-color: #beb6b6;
-  margin: 15px auto 0 auto;
-  display: block;
-  border: none;
-  transition: 500ms linear;
-  transform: translateY(-740px);
-}
-
-.box button:hover {
-  background-color: #936aeb;
-}
-
-.box button > a {
-  font-size: 16px;
-  text-decoration: none;
-  color: white;
-}
-
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -117,23 +93,4 @@
   width: 100%;
   box-sizing: border-box;
   color: #000;
-}
-
-/* Ajustes responsivos para manter o botão na mesma posição visual */
-@media (max-width: 1024px) {
-  .box button {
-    transform: translateY(-640px);
-  }
-}
-
-@media (max-width: 768px) {
-  .box button {
-    transform: translateY(-540px);
-  }
-}
-
-@media (max-width: 480px) {
-  .box button {
-    transform: translateY(-440px);
-  }
 }

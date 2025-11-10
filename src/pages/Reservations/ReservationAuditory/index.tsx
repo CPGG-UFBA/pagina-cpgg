@@ -117,10 +117,6 @@ export function RA() {
             </div>
           </div>
 
-          <button type="submit" className={styles.button}>
-              Enviar   
-          </button> 
-
           </form>
         </div>
         
