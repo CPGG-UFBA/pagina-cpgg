@@ -28,6 +28,12 @@
   margin-bottom: 4rem;
 }
 
+@media (min-width: 1025px) {
+  .container {
+    margin-left: 80px;
+  }
+}
+
 .container > *:nth-child(n+4) {
   margin-top: -80px !important;
 }
@@ -220,11 +226,8 @@
   .container {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    justify-items: center !important;
-    grid-template-columns: repeat(3, 280px) !important;
-    justify-content: center !important;
-    width: fit-content !important;
-    margin: 40px auto 4rem auto !important;
+    margin: 40px 0 4rem 0 !important;
+    justify-self: center;
   }
   
   .latex,
