@@ -13,7 +13,6 @@ import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts'
 import logocpgg from '@/assets/cpgg-logo.jpg'
-import { HomeButton } from '@/components/HomeButton'
 import styles from './reservas.module.css'
 
 interface Reservation {
@@ -494,7 +493,42 @@ export function ReservasAdmin() {
 
   return (
     <div className={styles.container}>
-      <HomeButton />
+      <button 
+        onClick={() => navigate('/adm')} 
+        style={{
+          position: 'fixed',
+          top: '20px',
+          left: '20px',
+          zIndex: 1000,
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          padding: '12px 16px',
+          backgroundColor: 'rgba(147, 106, 235, 0.9)',
+          color: 'white',
+          border: 'none',
+          borderRadius: '50px',
+          cursor: 'pointer',
+          fontSize: '14px',
+          fontWeight: 500,
+          transition: 'all 0.3s ease',
+          boxShadow: '0 4px 12px rgba(147, 106, 235, 0.3)',
+          backdropFilter: 'blur(10px)'
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(147, 106, 235, 1)'
+          e.currentTarget.style.transform = 'translateY(-2px)'
+          e.currentTarget.style.boxShadow = '0 6px 20px rgba(147, 106, 235, 0.4)'
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = 'rgba(147, 106, 235, 0.9)'
+          e.currentTarget.style.transform = 'translateY(0)'
+          e.currentTarget.style.boxShadow = '0 4px 12px rgba(147, 106, 235, 0.3)'
+        }}
+      >
+        <ArrowLeft size={20} />
+        <span>Voltar</span>
+      </button>
       <div className={styles.header}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG Logo" />
