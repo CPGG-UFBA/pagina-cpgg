@@ -305,6 +305,7 @@
 
   .titleContainer {
     margin-left: 0;
+    margin-right: 0;
     margin-top: 0;
     margin-bottom: 1.5rem;
     justify-content: center;
@@ -312,10 +313,16 @@
     align-items: center;
     text-align: center;
     gap: 1rem;
+    width: 100%;
   }
 
   .title {
     font-size: 20px;
+  }
+  
+  .titleContainer > * {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .container {
