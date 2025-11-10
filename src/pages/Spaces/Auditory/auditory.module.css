@@ -120,7 +120,7 @@
     height: auto;
     min-height: 600px;
     top: calc(50% + 15px);
-    transform: translate(calc(-50% - 100px), -50%);
+    transform: translate(-50%, -50%);
   }
 
   .box ul {
@@ -140,7 +140,7 @@
     height: auto;
     min-height: 550px;
     top: calc(50% + 15px);
-    transform: translate(calc(-50% - 50px), -50%);
+    transform: translate(-50%, -50%);
   }
 
   .box ul {
