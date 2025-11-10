@@ -125,8 +125,18 @@
 
 @media (min-width: 1400px) {
   .box {
-    height: 700px;
+    max-height: 700px;
+    height: auto;
+    overflow-y: auto;
     top: 15%;
+  }
+  
+  .box button {
+    position: relative;
+    top: auto;
+    margin-top: 20px;
+    transform: none;
+    left: auto;
   }
 }
 
