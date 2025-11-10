@@ -122,6 +122,6 @@
 /* Responsive adjustments */
 @media screen and (max-width: 1024px) {
   .box {
-    top: 350px !important;
+    top: 450px !important;
   }
 }
