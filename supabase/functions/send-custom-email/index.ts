@@ -1,22 +1,35 @@
 import React from 'npm:react@18.3.1'
+import { Webhook } from 'https://esm.sh/standardwebhooks@1.0.0'
 import { Resend } from 'npm:resend@4.0.0'
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
 import { ConfirmationEmail } from './_templates/confirmation-email.tsx'
 
 const resend = new Resend(Deno.env.get('RESEND_API_KEY') as string)
+const hookSecret = Deno.env.get('SEND_CUSTOM_EMAIL_HOOK_SECRET') as string
+
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
 
 Deno.serve(async (req) => {
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders })
+  }
+
   if (req.method !== 'POST') {
     return new Response('not allowed', { status: 400 })
   }
 
   try {
-    const payload = await req.json()
+    const payload = await req.text()
+    const headers = Object.fromEntries(req.headers)
+    const wh = new Webhook(hookSecret)
     
     const {
       user,
       email_data: { token, token_hash, redirect_to, email_action_type },
-    } = payload as {
+    } = wh.verify(payload, headers) as {
       user: {
         email: string
       }
