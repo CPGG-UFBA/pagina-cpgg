@@ -578,6 +578,25 @@
     font-weight: 600 !important;
     grid-column: 1 / -1 !important;
   }
+
+  [class*="Header"] h1 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    white-space: normal !important;
+    width: 100% !important;
+  }
+
+  [class*="Header"] a {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 1200px) {
