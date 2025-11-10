@@ -70,9 +70,11 @@ export function Receipt() {
     return (
       <>
         <Header />
-        <div className={styles.container}>
-          <p>Carregando comprovante...</p>
-        </div>
+        <main className="receipt">
+          <div className={styles.container}>
+            <p>Carregando comprovante...</p>
+          </div>
+        </main>
         <Footer />
       </>
     )
@@ -82,10 +84,12 @@ export function Receipt() {
     return (
       <>
         <Header />
-        <div className={styles.container}>
-          <h1>Comprovante não encontrado</h1>
-          <p>Não foi possível encontrar os dados da reserva.</p>
-        </div>
+        <main className="receipt">
+          <div className={styles.container}>
+            <h1>Comprovante não encontrado</h1>
+            <p>Não foi possível encontrar os dados da reserva.</p>
+          </div>
+        </main>
         <Footer />
       </>
     )
@@ -94,13 +98,14 @@ export function Receipt() {
   return (
     <>
       <Header />
-      <div className={styles.container}>
-        <div className={styles.receipt}>
-          <div className={styles.header}>
-            <img src={cpggLogo} alt="Logo CPGG" className={styles.logo} />
-            <h1>COMPROVANTE DE SOLICITAÇÃO</h1>
-            <h2>Centro de Pesquisa em Geofísica e Geologia - CPGG/UFBA</h2>
-          </div>
+      <main className="receipt">
+        <div className={styles.container}>
+          <div className={styles.receipt}>
+            <div className={styles.header}>
+              <img src={cpggLogo} alt="Logo CPGG" className={styles.logo} />
+              <h1>COMPROVANTE DE SOLICITAÇÃO</h1>
+              <h2>Centro de Pesquisa em Geofísica e Geologia - CPGG/UFBA</h2>
+            </div>
 
           <div className={styles.content}>
             <div className={styles.section}>
@@ -136,9 +141,10 @@ export function Receipt() {
             <button onClick={handlePrint} className={styles.printButton}>
               🖨️ Imprimir Comprovante
             </button>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </>
   )
