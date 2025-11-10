@@ -46,6 +46,7 @@
     transform: translateX(-50%);
     width: 90%;
     max-width: 600px;
+    border-color: red;
   }
 }
 
