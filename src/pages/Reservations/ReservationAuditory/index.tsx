@@ -52,7 +52,7 @@ export function RA() {
   return (
     <>
       <Header />
-      <div className={styles.RA}>
+      <div className={`${styles.RA} reservationAuditoryPage`}>
           <form className={styles.box} onSubmit={handleSubmit}>
             <ul> Reserva do Auditório do CPGG </ul>
 
