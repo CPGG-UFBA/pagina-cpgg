@@ -31,6 +31,11 @@ export function CoordenacaoDashboard() {
   const [tiUpdateNewEmail, setTiUpdateNewEmail] = useState('')
   const [tiUpdateNewName, setTiUpdateNewName] = useState('')
   
+  // Estados para atualização de Secretária
+  const [secretariaUpdateEmail, setSecretariaUpdateEmail] = useState('')
+  const [secretariaUpdateNewEmail, setSecretariaUpdateNewEmail] = useState('')
+  const [secretariaUpdateNewName, setSecretariaUpdateNewName] = useState('')
+  
   // Estados para cadastro de pesquisador
   const [researcherName, setResearcherName] = useState('')
   const [researcherProgram, setResearcherProgram] = useState('')
@@ -346,6 +351,64 @@ export function CoordenacaoDashboard() {
       toast({
         title: "Erro",
         description: error.message || "Erro ao atualizar técnico em TI",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleUpdateSecretaria = async () => {
+    if (!secretariaUpdateEmail) {
+      toast({
+        title: "Erro",
+        description: "Email atual é obrigatório",
+        variant: "destructive",
+      })
+      return
+    }
+
+    if (!secretariaUpdateNewEmail && !secretariaUpdateNewName) {
+      toast({
+        title: "Erro",
+        description: "Informe pelo menos um novo valor (email ou nome)",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const updates: { email?: string; full_name?: string } = {}
+      if (secretariaUpdateNewEmail) {
+        updates.email = secretariaUpdateNewEmail
+      }
+      if (secretariaUpdateNewName) {
+        updates.full_name = secretariaUpdateNewName
+      }
+
+      const { error } = await supabase
+        .from('admin_users')
+        .update(updates)
+        .eq('email', secretariaUpdateEmail)
+        .eq('role', 'secretaria')
+
+      if (error) throw error
+
+      toast({
+        title: "Sucesso!",
+        description: "Dados da secretária atualizados com sucesso.",
+      })
+      
+      setSecretariaUpdateEmail('')
+      setSecretariaUpdateNewEmail('')
+      setSecretariaUpdateNewName('')
+    } catch (error: any) {
+      console.error('Erro ao atualizar secretária:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao atualizar secretária",
         variant: "destructive",
       })
     } finally {
@@ -1042,6 +1105,50 @@ export function CoordenacaoDashboard() {
               className={styles.submitButton}
             >
               {isLoading ? 'Atualizando...' : 'Atualizar Técnico em TI'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <Settings size={24} />
+              <h2>Atualizar Secretária</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-email">E-mail Atual da Secretária:</label>
+              <Input
+                id="secretaria-update-email"
+                type="email"
+                value={secretariaUpdateEmail}
+                onChange={(e) => setSecretariaUpdateEmail(e.target.value)}
+                placeholder="Digite o e-mail atual da secretária"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-new-name">Novo Nome (opcional):</label>
+              <Input
+                id="secretaria-update-new-name"
+                type="text"
+                value={secretariaUpdateNewName}
+                onChange={(e) => setSecretariaUpdateNewName(e.target.value)}
+                placeholder="Digite o novo nome ou deixe em branco"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-new-email">Novo E-mail (opcional):</label>
+              <Input
+                id="secretaria-update-new-email"
+                type="email"
+                value={secretariaUpdateNewEmail}
+                onChange={(e) => setSecretariaUpdateNewEmail(e.target.value)}
+                placeholder="Digite o novo e-mail ou deixe em branco"
+              />
+            </div>
+            <Button
+              onClick={handleUpdateSecretaria}
+              disabled={isLoading || !secretariaUpdateEmail || (!secretariaUpdateNewEmail && !secretariaUpdateNewName)}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Atualizando...' : 'Atualizar Secretária'}
             </Button>
           </div>
 
