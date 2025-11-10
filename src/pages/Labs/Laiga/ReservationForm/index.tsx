@@ -321,24 +321,6 @@ export function RF() {
             </div>
 
             <div className={styles.form}>
-              <label htmlFor="purpose">Utilidade *</label>
-              <select
-                id="purpose"
-                value={formData.purpose}
-                onChange={(e) => handleInputChange("purpose", e.target.value)}
-                required
-              >
-                <option value="">Selecione a finalidade</option>
-                <option value="TCC">TCC</option>
-                <option value="Pós-Graduação">Pós-Graduação</option>
-                <option value="Projeto de Pesquisa">Projeto de Pesquisa</option>
-                <option value="Uso em disciplina">Uso em disciplina</option>
-                <option value="Consultoria/Serviços">Consultoria/Serviços</option>
-                <option value="Curso">Curso</option>
-              </select>
-            </div>
-
-            <div className={styles.form}>
               <label htmlFor="applicantName">Nome do Solicitante *</label>
               <input
                 type="text"
@@ -372,6 +354,24 @@ export function RF() {
                 placeholder="Digite sua senha"
                 required
               />
+            </div>
+
+            <div className={styles.form}>
+              <label htmlFor="purpose">Utilidade *</label>
+              <select
+                id="purpose"
+                value={formData.purpose}
+                onChange={(e) => handleInputChange("purpose", e.target.value)}
+                required
+              >
+                <option value="">Selecione a finalidade</option>
+                <option value="TCC">TCC</option>
+                <option value="Pós-Graduação">Pós-Graduação</option>
+                <option value="Projeto de Pesquisa">Projeto de Pesquisa</option>
+                <option value="Uso em disciplina">Uso em disciplina</option>
+                <option value="Consultoria/Serviços">Consultoria/Serviços</option>
+                <option value="Curso">Curso</option>
+              </select>
             </div>
 
             <div className={styles.checkboxContainer}>
