@@ -52,8 +52,8 @@ export function RA() {
     <>
       <Header />
       <div className={styles.RA}>
-          <ul> Reserva do Auditório do CPGG </ul>
           <form className={styles.box} onSubmit={handleSubmit}>
+            <ul> Reserva do Auditório do CPGG </ul>
 
           <div className={styles.form}> 
              <input 
