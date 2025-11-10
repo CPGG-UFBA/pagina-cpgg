@@ -44,12 +44,12 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  transform: translateY(-50px);
+  transform: translateY(-200px);
 }
 
 @media (max-width: 1024px) {
   .buttonsGrid {
-    transform: translateY(-300px) !important;
+    transform: translateY(-450px) !important;
     margin: 0 auto;
     width: fit-content;
   }
