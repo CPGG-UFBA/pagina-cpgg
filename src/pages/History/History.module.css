@@ -142,6 +142,8 @@
   }
   
   .container {
+    flex-direction: column;
+    align-items: center;
     margin-left: auto !important;
     margin-right: auto !important;
     justify-content: center;
@@ -149,10 +151,12 @@
   
   .headers {
     margin-left: 0 !important;
+    margin-top: 0 !important;
   }
   
   .document {
     margin-left: 0 !important;
+    margin-top: 0 !important;
   }
 }
 
