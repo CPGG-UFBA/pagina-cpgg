@@ -187,11 +187,19 @@
     margin-bottom: 15px !important;
   }
   
+  .dateContainer + .form {
+    margin-top: 15px;
+  }
+  
   .checkboxContainer {
-    margin-bottom: 12px;
+    margin-bottom: 12px !important;
   }
   
   .checkboxContainer:last-of-type {
-    margin-bottom: 12px;
+    margin-bottom: 12px !important;
+  }
+  
+  .submitButton {
+    margin-top: 20px;
   }
 }
