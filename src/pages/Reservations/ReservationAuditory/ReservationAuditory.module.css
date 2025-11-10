@@ -19,6 +19,16 @@
   margin-top: -20px;
 }
 
+.box ul {
+  font-size: 24px;
+  color: #363F5;
+  margin: 0 0 20px 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-weight: 600;
+}
+
 .box {
   display: flex;
   flex-direction: column;
