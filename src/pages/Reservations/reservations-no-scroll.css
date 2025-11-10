@@ -1,0 +1,50 @@
+/* Force no scroll on Reservations Success and Receipt pages */
+
+/* Success page */
+body:has(.successContainer) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+body:has(.successContainer) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+.successContainer {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.successContainer main {
+  overflow: hidden !important;
+}
+
+/* Receipt pages */
+body:has(main.receipt) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+body:has(main.receipt) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+main.receipt {
+  overflow: hidden !important;
+  height: auto !important;
+  max-height: calc(100vh - 200px) !important;
+}
+
+main.receipt .container {
+  overflow: hidden !important;
+  max-height: calc(100vh - 200px) !important;
+}
