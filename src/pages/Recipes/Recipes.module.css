@@ -223,13 +223,11 @@
     margin-left: 0 !important;
     margin-right: 0 !important;
     width: 100% !important;
-    background-color: rgba(255, 0, 0, 0.1);
   }
   
   .container {
     margin: 40px auto 4rem auto !important;
     justify-self: center !important;
-    background-color: rgba(0, 255, 0, 0.1);
   }
   
   .latex,
