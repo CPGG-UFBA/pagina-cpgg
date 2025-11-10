@@ -13,6 +13,7 @@ import jsPDF from 'jspdf'
 import html2canvas from 'html2canvas'
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts'
 import logocpgg from '@/assets/cpgg-logo.jpg'
+import { HomeButton } from '@/components/HomeButton'
 import styles from './reservas.module.css'
 
 interface Reservation {
@@ -493,6 +494,7 @@ export function ReservasAdmin() {
 
   return (
     <div className={styles.container}>
+      <HomeButton />
       <div className={styles.header}>
         <div className={styles.logo}>
           <img src={logocpgg} alt="CPGG Logo" />
