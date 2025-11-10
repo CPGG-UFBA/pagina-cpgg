@@ -101,3 +101,27 @@ main.receipt .container {
   overflow: hidden !important;
   max-height: calc(100vh - 200px) !important;
 }
+
+/* Reservation Auditory Page - No Scroll */
+body:has(.reservationAuditoryPage) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+body:has(.reservationAuditoryPage) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+html:has(.reservationAuditoryPage) {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+.reservationAuditoryPage {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
