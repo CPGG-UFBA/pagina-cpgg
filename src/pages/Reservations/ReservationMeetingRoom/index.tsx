@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './ReservationMeetingRoom.module.css'
+import '../reservations-no-scroll.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { supabase } from '../../../integrations/supabase/client'
@@ -51,7 +52,7 @@ export function MR() {
   return (
     <>
       <Header />
-      <div className={styles.MR}>
+      <div className={`${styles.MR} reservationMeetingRoomPage`}>
           <form className={styles.box} onSubmit={handleSubmit}>
             <ul> Reserva da Sala de Reuniões do CPGG </ul>
 

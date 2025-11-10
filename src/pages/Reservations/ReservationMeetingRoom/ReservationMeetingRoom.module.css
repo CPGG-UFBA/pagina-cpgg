@@ -18,7 +18,8 @@
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  height: 560px;
+  max-height: 70vh;
+  overflow-y: auto;
   top: calc(18% + 30px);
   left: calc(10% + 130px);
   padding: 20px;
@@ -28,12 +29,13 @@
 
 .box ul {
   font-size: 24px;
-  color: #363F5;
-  margin: 0 0 20px 0;
+  color: #fff;
+  margin: 0 auto 20px auto;
   padding: 0;
   list-style: none;
   text-align: center;
   font-weight: 600;
+  width: 100%;
 }
 
 /* .box {
@@ -62,7 +64,7 @@
   border-radius: 15px;
   transition: all linear 160ms;
   outline: none;
-  width: 500px;
+  width: calc(100% - 5rem);
   color: #000;
 }
 
@@ -83,10 +85,9 @@
   color: white;
   border-radius: 15px;
   width: 300px;
-  margin-left: 2.5rem;
   background-color: #beb6b6;
-  margin-left: 9rem;
-  margin-top: -790px;
+  margin: 20px auto 0 auto;
+  display: block;
   border: none;
   transition: 500ms linear;
 }
@@ -102,9 +103,11 @@
 }
 
 .container {
-  display: flex;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
   margin-top: 20px;
+  padding: 0 2.5rem;
 }
 
 .dateField {
@@ -113,14 +116,8 @@
   flex: 1;
 }
 
-.dateField:last-child {
-  margin-top: -930px;
-  margin-left: 270px;
-}
-
 .dateField label {
   margin-bottom: 8px;
-  margin-left: 2.5rem;
   font-size: 14px;
   font-weight: 600;
 }
@@ -129,10 +126,9 @@
   padding: 15px;
   font-size: 14px;
   border: 1px solid #ccc;
-  margin-left: 2.5rem;
   border-radius: 15px;
   transition: all linear 160ms;
   outline: none;
-  width: 220px;
+  width: 100%;
   color: #000;
 }
