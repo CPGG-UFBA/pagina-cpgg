@@ -83,12 +83,11 @@
   color: white;
   border-radius: 15px;
   width: 300px;
-  margin-left: 2.5rem;
   background-color: #beb6b6;
-  margin-left: 9rem;
-  margin-top: -790px;
+  margin: 20px auto 0 auto;
   border: none;
   transition: 500ms linear;
+  display: block;
 }
 
 .box button:hover {
@@ -102,9 +101,12 @@
 }
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   margin-top: 20px;
+  width: 100%;
+  padding: 0 2.5rem;
 }
 
 .dateField {
@@ -114,25 +116,24 @@
 }
 
 .dateField:last-child {
-  margin-top: -930px;
-  margin-left: 270px;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 .dateField label {
   margin-bottom: 8px;
-  margin-left: 2.5rem;
   font-size: 14px;
   font-weight: 600;
+  display: block;
 }
 
 .dateField input {
   padding: 15px;
   font-size: 14px;
   border: 1px solid #ccc;
-  margin-left: 2.5rem;
   border-radius: 15px;
   transition: all linear 160ms;
   outline: none;
-  width: 220px;
+  width: 100%;
   color: #000;
 }
