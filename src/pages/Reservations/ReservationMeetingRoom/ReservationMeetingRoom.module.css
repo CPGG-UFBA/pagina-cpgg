@@ -118,3 +118,13 @@
   box-sizing: border-box;
   color: #000;
 }
+
+@media (max-width: 1024px) {
+  .box button {
+    position: absolute;
+    top: 550px;
+    left: 50%;
+    transform: translateX(calc(-50% - 30px));
+    margin: 0 2.5rem;
+  }
+}
