@@ -205,15 +205,18 @@
 
 @media (max-width: 1024px) {
   .title {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   
   .container {
     margin-left: auto !important;
     margin-right: auto !important;
+    justify-items: center !important;
+    grid-template-columns: repeat(3, 280px) !important;
     justify-content: center !important;
+    width: 100% !important;
   }
   
   .latex,
