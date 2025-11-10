@@ -54,7 +54,7 @@ const translations = {
     'contact.emailUs': 'Envie-nos um e-mail',
     'contact.copyLink': 'Copiar link',
     'contact.address': 'Av. Anita Garibaldi, s/n -Acesso Portão 2. Ondina, Salvador - BA, 40170-290',
-    'contact.building': 'Bloco E- Anexo ao Instituto de Geociências',
+    'contact.building': 'Bloco anexo ao Instituto de Geociências',
     
     // Toast messages
     'toast.linkCopied': 'Link copiado',
@@ -199,7 +199,7 @@ const translations = {
     'contact.emailUs': 'E-mail us at',
     'contact.copyLink': 'Copy link',
     'contact.address': 'Av. Anita Garibaldi, s/n -Access Gate 2. Ondina, Salvador - BA, 40170-290',
-    'contact.building': 'Block E- Annex to the Institute of Geosciences',
+    'contact.building': 'Annex block to the Institute of Geosciences',
     
     // Toast messages
     'toast.linkCopied': 'Link copied',
