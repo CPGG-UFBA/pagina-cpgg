@@ -29,7 +29,6 @@
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  max-height: 580px;
   overflow: visible;
   top: 15%;
   left: calc(10% + 130px);
@@ -66,16 +65,17 @@
 
 .box button {
   padding: 12px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   color: white;
   border-radius: 15px;
-  width: 300px;
+  width: calc(100% - 5rem);
   background-color: #beb6b6;
-  margin: 15px auto 0 auto;
+  margin: 20px 2.5rem 0 2.5rem;
   display: block;
   border: none;
   transition: 500ms linear;
-  transform: translateY(-740px);
+  cursor: pointer;
 }
 
 .box button:hover {
@@ -119,21 +119,3 @@
   color: #000;
 }
 
-/* Ajustes responsivos para manter o botão na mesma posição visual */
-@media (max-width: 1024px) {
-  .box button {
-    transform: translateY(-640px);
-  }
-}
-
-@media (max-width: 768px) {
-  .box button {
-    transform: translateY(-540px);
-  }
-}
-
-@media (max-width: 480px) {
-  .box button {
-    transform: translateY(-440px);
-  }
-}
