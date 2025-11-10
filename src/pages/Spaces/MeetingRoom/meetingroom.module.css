@@ -119,8 +119,8 @@
     max-width: 600px;
     height: auto;
     min-height: 600px;
-    top: calc(50% + 15px);
-    transform: translate(-50%, -50%);
+    top: 200px;
+    transform: translateX(-50%);
   }
 
   .box ul {
@@ -138,8 +138,8 @@
     max-width: 500px;
     height: auto;
     min-height: 550px;
-    top: calc(50% + 15px);
-    transform: translate(-50%, -50%);
+    top: 200px;
+    transform: translateX(-50%);
   }
 
   .box ul {
@@ -157,8 +157,8 @@
     max-width: 350px;
     height: auto;
     min-height: 500px;
-    top: calc(50% + 15px);
-    transform: translate(-50%, -50%);
+    top: 200px;
+    transform: translateX(-50%);
   }
 
   .box ul {
