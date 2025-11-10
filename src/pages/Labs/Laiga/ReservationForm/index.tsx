@@ -296,6 +296,18 @@ export function RF() {
               />
             </div>
 
+            <div className={styles.form}>
+              <label htmlFor="applicantName">Nome do Solicitante *</label>
+              <input
+                type="text"
+                id="applicantName"
+                value={formData.applicantName}
+                onChange={(e) => handleInputChange("applicantName", e.target.value)}
+                placeholder="Digite seu nome completo"
+                required
+              />
+            </div>
+
             <div className={styles.dateContainer}>
               <div className={styles.form}>
                 <label htmlFor="withdrawalDate">Data de Retirada *</label>
@@ -318,18 +330,6 @@ export function RF() {
                   required
                 />
               </div>
-            </div>
-
-            <div className={styles.form}>
-              <label htmlFor="applicantName">Nome do Solicitante *</label>
-              <input
-                type="text"
-                id="applicantName"
-                value={formData.applicantName}
-                onChange={(e) => handleInputChange("applicantName", e.target.value)}
-                placeholder="Digite seu nome completo"
-                required
-              />
             </div>
 
             <div className={styles.form}>
