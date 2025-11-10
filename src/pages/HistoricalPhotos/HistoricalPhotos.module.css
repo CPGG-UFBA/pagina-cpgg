@@ -47,6 +47,7 @@
   height: 100px;
   min-height: 120px;
   left: 130px;
+  top: 100px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -68,7 +69,7 @@
   width: 350px;
   height: 100px;
   min-height: 120px;
-  top: 210px;
+  top: 310px;
   left: 560px;
   position: absolute;
   overflow: hidden;
@@ -90,7 +91,7 @@
   color: white;
   min-height: 120px;
   width: 350px;
-  top: 355px;
+  top: 455px;
   left: 560px;
   position: absolute;
   overflow: hidden;
@@ -114,7 +115,7 @@
   min-height: 120px;
   width: 350px;
   left: 163px;
-  top: 355px;
+  top: 455px;
   position: absolute;
   overflow: hidden;
   transition: transform 0.3s ease;
@@ -137,7 +138,7 @@
   min-height: 120px;
   width: 350px;
   left: 160px;
-  top: 510px;
+  top: 610px;
   position: absolute;
   overflow: hidden;
   transition: transform 0.3s ease;
