@@ -24,7 +24,12 @@ export function CoordenacaoDashboard() {
   const [secretariaEmail, setSecretariaEmail] = useState('')
   const [secretariaPassword, setSecretariaPassword] = useState('')
   const [tiEmail, setTiEmail] = useState('')
-  const [tiPassword, setTiPassword] = useState('')
+  const [tiName, setTiName] = useState('')
+  
+  // Estados para atualização de TI
+  const [tiUpdateEmail, setTiUpdateEmail] = useState('')
+  const [tiUpdateNewEmail, setTiUpdateNewEmail] = useState('')
+  const [tiUpdateNewName, setTiUpdateNewName] = useState('')
   
   // Estados para cadastro de pesquisador
   const [researcherName, setResearcherName] = useState('')
@@ -248,10 +253,10 @@ export function CoordenacaoDashboard() {
   }
 
   const handleRegisterTI = async () => {
-    if (!tiEmail || !tiPassword) {
+    if (!tiEmail || !tiName) {
       toast({
         title: "Erro",
-        description: "Email e senha são obrigatórios",
+        description: "Email e nome são obrigatórios",
         variant: "destructive",
       })
       return
@@ -264,7 +269,7 @@ export function CoordenacaoDashboard() {
         .from('admin_users')
         .upsert({ 
           email: tiEmail, 
-          password: tiPassword, 
+          full_name: tiName,
           role: 'ti' 
         }, {
           onConflict: 'email'
@@ -277,12 +282,70 @@ export function CoordenacaoDashboard() {
         description: "Usuário de TI cadastrado com sucesso.",
       })
       setTiEmail('')
-      setTiPassword('')
+      setTiName('')
     } catch (error: any) {
       console.error('Erro ao cadastrar técnico em TI:', error)
       toast({
         title: "Erro",
         description: error.message || "Erro ao cadastrar técnico em TI",
+        variant: "destructive",
+      })
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const handleUpdateTI = async () => {
+    if (!tiUpdateEmail) {
+      toast({
+        title: "Erro",
+        description: "Email atual é obrigatório",
+        variant: "destructive",
+      })
+      return
+    }
+
+    if (!tiUpdateNewEmail && !tiUpdateNewName) {
+      toast({
+        title: "Erro",
+        description: "Informe pelo menos um novo valor (email ou nome)",
+        variant: "destructive",
+      })
+      return
+    }
+
+    setIsLoading(true)
+
+    try {
+      const updates: { email?: string; full_name?: string } = {}
+      if (tiUpdateNewEmail) {
+        updates.email = tiUpdateNewEmail
+      }
+      if (tiUpdateNewName) {
+        updates.full_name = tiUpdateNewName
+      }
+
+      const { error } = await supabase
+        .from('admin_users')
+        .update(updates)
+        .eq('email', tiUpdateEmail)
+        .eq('role', 'ti')
+
+      if (error) throw error
+
+      toast({
+        title: "Sucesso!",
+        description: "Dados do técnico de TI atualizados com sucesso.",
+      })
+      
+      setTiUpdateEmail('')
+      setTiUpdateNewEmail('')
+      setTiUpdateNewName('')
+    } catch (error: any) {
+      console.error('Erro ao atualizar técnico em TI:', error)
+      toast({
+        title: "Erro",
+        description: error.message || "Erro ao atualizar técnico em TI",
         variant: "destructive",
       })
     } finally {
@@ -901,6 +964,16 @@ export function CoordenacaoDashboard() {
               <h2>Cadastrar Técnico em TI</h2>
             </div>
             <div className={styles.formGroup}>
+              <label htmlFor="ti-name">Nome:</label>
+              <Input
+                id="ti-name"
+                type="text"
+                value={tiName}
+                onChange={(e) => setTiName(e.target.value)}
+                placeholder="Digite o nome do técnico"
+              />
+            </div>
+            <div className={styles.formGroup}>
               <label htmlFor="ti-email">E-mail:</label>
               <Input
                 id="ti-email"
@@ -910,22 +983,56 @@ export function CoordenacaoDashboard() {
                 placeholder="Digite o e-mail do técnico"
               />
             </div>
-            <div className={styles.formGroup}>
-              <label htmlFor="ti-password">Senha:</label>
-              <Input
-                id="ti-password"
-                type="password"
-                value={tiPassword}
-                onChange={(e) => setTiPassword(e.target.value)}
-                placeholder="Digite a senha"
-              />
-            </div>
             <Button
               onClick={handleRegisterTI}
-              disabled={isLoading || !tiEmail || !tiPassword}
+              disabled={isLoading || !tiEmail || !tiName}
               className={styles.submitButton}
             >
               {isLoading ? 'Cadastrando...' : 'Cadastrar Técnico em TI'}
+            </Button>
+          </div>
+
+          <div className={styles.formCard}>
+            <div className={styles.formHeader}>
+              <Settings size={24} />
+              <h2>Atualizar Técnico em TI</h2>
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="ti-update-email">E-mail Atual do Técnico:</label>
+              <Input
+                id="ti-update-email"
+                type="email"
+                value={tiUpdateEmail}
+                onChange={(e) => setTiUpdateEmail(e.target.value)}
+                placeholder="Digite o e-mail atual do técnico"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="ti-update-new-name">Novo Nome (opcional):</label>
+              <Input
+                id="ti-update-new-name"
+                type="text"
+                value={tiUpdateNewName}
+                onChange={(e) => setTiUpdateNewName(e.target.value)}
+                placeholder="Digite o novo nome ou deixe em branco"
+              />
+            </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="ti-update-new-email">Novo E-mail (opcional):</label>
+              <Input
+                id="ti-update-new-email"
+                type="email"
+                value={tiUpdateNewEmail}
+                onChange={(e) => setTiUpdateNewEmail(e.target.value)}
+                placeholder="Digite o novo e-mail ou deixe em branco"
+              />
+            </div>
+            <Button
+              onClick={handleUpdateTI}
+              disabled={isLoading || !tiUpdateEmail || (!tiUpdateNewEmail && !tiUpdateNewName)}
+              className={styles.submitButton}
+            >
+              {isLoading ? 'Atualizando...' : 'Atualizar Técnico em TI'}
             </Button>
           </div>
 
