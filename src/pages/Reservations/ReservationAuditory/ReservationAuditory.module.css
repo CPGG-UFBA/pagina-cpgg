@@ -82,11 +82,13 @@
   transform: translateX(calc(-50% - 30px));
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 1024px) {
   .box button {
-    position: relative;
-    top: auto;
-    margin: 20px 2.5rem 0 2.5rem;
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 2.5rem;
   }
 }
 
