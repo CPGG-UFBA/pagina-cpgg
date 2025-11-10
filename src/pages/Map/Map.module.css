@@ -241,6 +241,12 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .header {
+    transform: translateX(0);
+  }
+}
+
 @media (max-width: 1200px) {
   .contentWrapper {
     grid-template-columns: 1fr;
