@@ -35,12 +35,21 @@
   grid-template-columns: repeat(3, 250px);
   row-gap: 3rem;
   column-gap: calc(0.17rem + 50px);
-  justify-content: flex-start;
-  justify-items: start;
+  justify-content: center;
+  justify-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  margin-left: 50px;
   margin-bottom: 4rem;
+  transform: translateY(-50px);
+}
+
+@media (min-width: 1025px) {
+  .container {
+    justify-content: flex-start;
+    justify-items: start;
+    margin-left: 50px;
+    margin-right: 0;
+  }
 }
 
 .pseudoResistivity {
@@ -105,7 +114,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
-  margin-top: -400px;
+  margin-top: -200px;
 }
 
 .otherCodes2 {
@@ -122,7 +131,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
-  margin-top: -400px;
+  margin-top: -200px;
 }
 
 .otherCodes3 {
@@ -139,7 +148,7 @@
   transition: transform 0.3s ease;
   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
-  margin-top: -400px;
+  margin-top: -200px;
 }
 
 .pseudoResistivity:hover,
@@ -149,6 +158,12 @@
 .otherCodes2:hover,
 .otherCodes3:hover {
   transform: translateY(-5px);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    transform: translateY(-300px);
+  }
 }
 
 /* Mover rodapé para cima apenas na página GMT Codes */
