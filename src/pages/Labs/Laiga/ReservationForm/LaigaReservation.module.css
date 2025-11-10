@@ -182,4 +182,16 @@
     transform: translateX(0);
     margin-top: -150px;
   }
+  
+  .dateContainer {
+    margin-bottom: 15px !important;
+  }
+  
+  .checkboxContainer {
+    margin-bottom: 12px;
+  }
+  
+  .checkboxContainer:last-of-type {
+    margin-bottom: 12px;
+  }
 }
