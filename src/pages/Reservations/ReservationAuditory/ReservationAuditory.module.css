@@ -29,12 +29,12 @@
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  max-height: 580px;
-  overflow: hidden;
+  max-height: 650px;
+  overflow: visible;
   top: 15%;
   left: calc(10% + 130px);
   padding: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 20px;
   border-radius: 20px;
   margin-bottom: -100px;
 }
@@ -71,7 +71,7 @@
   border-radius: 15px;
   width: 300px;
   background-color: #beb6b6;
-  margin: 1px auto 0 auto;
+  margin: 10px auto 0 auto;
   display: block;
   border: none;
   transition: 500ms linear;
