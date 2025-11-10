@@ -76,13 +76,6 @@ export function Adm() {
                 <p>{t('adm.secretaryAccess')}</p>
               </div>
             </NavLink>
-
-            <NavLink to="/adm/repair-stats" className={styles.optionCard}>
-              <div className={styles.cardContent}>
-                <h2>Gerenciar Solicitações</h2>
-                <p>Estatísticas de serviços técnicos</p>
-              </div>
-            </NavLink>
           </div>
           
           <div className={styles.bottomRow}>
