@@ -39,16 +39,6 @@
   margin-bottom: -100px;
 }
 
-@media screen and (max-width: 1025px) {
-  .box {
-    top: 450px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-  }
-}
-
 .form input {
   display: flex;
   padding: 12px;
@@ -127,11 +117,4 @@
   width: 100%;
   box-sizing: border-box;
   color: #000;
-}
-
-/* Responsive adjustments */
-@media screen and (max-width: 1025px) {
-  .RA {
-    padding-left: 20px;
-  }
 }
