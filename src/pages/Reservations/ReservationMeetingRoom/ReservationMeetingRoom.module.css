@@ -123,6 +123,12 @@
   color: #000;
 }
 
+@media (min-width: 1400px) {
+  .box {
+    top: calc(15% - 500px);
+  }
+}
+
 @media (max-width: 1024px) {
   .box button {
     position: absolute;
