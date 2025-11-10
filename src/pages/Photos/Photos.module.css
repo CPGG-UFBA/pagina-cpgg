@@ -114,6 +114,30 @@
 }
 
 
+@media (max-width: 1024px) {
+  .staticFigure {
+    display: none !important;
+  }
+  
+  .title,
+  .titleContainer {
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .mainContent {
+    justify-content: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 @media (max-width: 1025px) {
   .titleContainer {
     transform: none !important;
