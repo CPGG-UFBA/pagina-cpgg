@@ -258,11 +258,44 @@
 
 /* Media Queries */
 
-/* 1024px and below - reduce proportionally */
-@media (max-width: 1024px) and (min-width: 835px) {
+/* 1024px and below - stack vertically with text on top */
+@media (max-width: 1024px) {
+  .middle {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 140px;
+    gap: 2rem;
+  }
+  
+  .static {
+    order: 1;
+    font-size: 32px;
+    margin-left: 0;
+    margin-top: 0;
+    text-align: center;
+    transform: none;
+    width: 100%;
+  }
+  
+  .static > strong {
+    font-size: 64px;
+  }
+  
+  .enjoy {
+    font-size: 22px;
+    text-align: center;
+  }
+  
+  .enjoy > strong {
+    font-size: 22px;
+  }
+  
   .carouselContainer {
-    width: 40%;
-    margin-top: -100px;
+    order: 2;
+    width: 70%;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 0;
   }
   
   .imageWrapper {
@@ -277,27 +310,8 @@
     font-size: 0.9rem;
   }
   
-  .static {
-    font-size: 32px;
-    margin-left: 2rem;
-    margin-top: 20px;
-  }
-  
-  .static > strong {
-    font-size: 64px;
-  }
-  
-  .enjoy {
-    font-size: 22px;
-  }
-  
-  .enjoy > strong {
-    font-size: 22px;
-  }
-  
-  .staticFigure img {
-    height: calc(28rem - 50px);
-    padding-left: 100px;
+  .staticFigure {
+    display: none !important;
   }
 }
 
