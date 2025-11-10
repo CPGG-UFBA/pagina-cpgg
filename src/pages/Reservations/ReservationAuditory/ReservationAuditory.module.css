@@ -76,7 +76,7 @@
   border: none;
   transition: 500ms linear;
   cursor: pointer;
-  transform: translateY(-500px);
+  transform: translateY(-1000px);
 }
 
 .box button:hover {
