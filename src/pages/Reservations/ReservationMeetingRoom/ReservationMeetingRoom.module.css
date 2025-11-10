@@ -75,7 +75,7 @@
   display: block;
   border: none;
   transition: 500ms linear;
-  transform: translateY(-690px);
+  transform: translateY(-740px);
 }
 
 .box button:hover {
