@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ArrowLeft, AlertCircle, CheckCircle, Clock, XCircle } from 'lucide-react'
+import { ArrowLeft, AlertCircle, CheckCircle, Clock, XCircle, Trash2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useToast } from '@/hooks/use-toast'
@@ -129,6 +129,34 @@ export function RepairStats() {
     return { infraCount, tiCount, pendenteCount, resolvidoCount }
   }
 
+  const handleClearStats = async () => {
+    if (!confirm('Tem certeza que deseja ZERAR todas as estatísticas? Esta ação não pode ser desfeita e todas as solicitações serão permanentemente deletadas.')) {
+      return
+    }
+
+    try {
+      const { error } = await supabase
+        .from('repair_requests')
+        .delete()
+        .neq('id', '00000000-0000-0000-0000-000000000000') // Delete all records
+
+      if (error) throw error
+
+      await loadRequests()
+      toast({
+        title: 'Sucesso',
+        description: 'Todas as estatísticas foram zeradas.',
+      })
+    } catch (error: any) {
+      console.error('Erro ao zerar estatísticas:', error)
+      toast({
+        title: 'Erro',
+        description: 'Erro ao zerar estatísticas. Tente novamente.',
+        variant: 'destructive'
+      })
+    }
+  }
+
   const stats = getTotalStats()
 
   if (isLoading) {
@@ -154,6 +182,14 @@ export function RepairStats() {
       <div className={styles.header}>
         <img src={logocpgg} alt="CPGG Logo" className={styles.logo} />
         <h1>Estatísticas de Solicitações de Serviços</h1>
+        <Button 
+          onClick={handleClearStats}
+          variant="destructive"
+          className={styles.clearButton}
+        >
+          <Trash2 className="w-4 h-4 mr-2" />
+          Zerar Estatísticas
+        </Button>
       </div>
 
       <div className={styles.statsGrid}>
