@@ -5,6 +5,14 @@ body:has(.successContainer) {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE 10+ */
+}
+
+body:has(.successContainer)::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 
 body:has(.successContainer) #root {
@@ -13,12 +21,36 @@ body:has(.successContainer) #root {
   max-height: 100vh !important;
 }
 
+html:has(.successContainer) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html:has(.successContainer)::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+}
+
 .successContainer {
   height: 100vh !important;
   max-height: 100vh !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
+}
+
+.successContainer * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+.successContainer *::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 
 .successContainer main {
@@ -30,12 +62,33 @@ body:has(main.receipt) {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+body:has(main.receipt)::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 
 body:has(main.receipt) #root {
   overflow: hidden !important;
   height: 100vh !important;
   max-height: 100vh !important;
+}
+
+html:has(main.receipt) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+html:has(main.receipt)::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
 }
 
 main.receipt {
