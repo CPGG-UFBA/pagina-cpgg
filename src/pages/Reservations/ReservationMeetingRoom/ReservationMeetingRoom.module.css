@@ -63,7 +63,8 @@
   padding-top: 10px;
 }
 
-.box button {
+.box button,
+.button {
   padding: 12px;
   font-size: 16px;
   font-weight: 600;
@@ -82,7 +83,8 @@
   transform: translateX(calc(-50% - 30px));
 }
 
-.box button:hover {
+.box button:hover,
+.button:hover {
   background-color: #936aeb;
 }
 
@@ -131,17 +133,22 @@
     top: 15%;
   }
   
-  .box button {
+  .box button,
+  .button {
     position: relative;
     top: auto;
     margin-top: 20px;
     transform: none;
     left: auto;
+    width: calc(100% - 5rem);
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .box button {
+  .box button,
+  .button {
     position: absolute;
     top: 550px;
     left: 50%;
