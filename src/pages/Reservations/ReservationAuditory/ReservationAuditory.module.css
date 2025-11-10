@@ -69,7 +69,7 @@
   font-weight: 600;
   color: white;
   border-radius: 15px;
-  width: calc(100% - 5rem);
+  width: calc((100% - 5rem) * 0.8);
   background-color: #beb6b6;
   margin: 0 2.5rem;
   display: block;
