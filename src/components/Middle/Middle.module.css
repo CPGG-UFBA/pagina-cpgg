@@ -161,27 +161,30 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   .container.container {
     flex-direction: column !important;
     padding: 2rem 1rem !important;
-    gap: 2rem !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+  
+  .centerContent.centerContent {
+    order: 1 !important;
+    margin: 0 !important;
+    transform: none !important;
+    width: 100% !important;
   }
   
   .leftSide.leftSide {
-    width: 100% !important;
+    order: 2 !important;
+    width: 90% !important;
     flex-direction: row !important;
     gap: 1rem !important;
   }
   
   .imageContainer.imageContainer {
     height: 8rem !important;
-  }
-  
-  .centerContent.centerContent {
-    margin: 0 !important;
-    order: 3 !important;
-    transform: translateX(-60px) !important;
   }
   
   .mainTitle.mainTitle {
@@ -193,22 +196,24 @@
   }
   
   .rightSide.rightSide {
-    width: 100% !important;
-    order: 2 !important;
+    display: none !important;
   }
   
   .earthGlobe.earthGlobe {
-    width: 200px !important;
-    height: 200px !important;
-    object-fit: contain !important;
-    position: relative !important;
-    top: auto !important;
-    left: auto !important;
-    transform: none !important;
+    display: none !important;
   }
   
   .wavePattern.wavePattern {
     height: 8rem !important;
+  }
+  
+  .newsContainer.newsContainer {
+    position: relative !important;
+    order: 3 !important;
+    bottom: auto !important;
+    left: auto !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
   }
 }
 
