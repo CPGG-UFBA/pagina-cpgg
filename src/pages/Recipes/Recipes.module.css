@@ -204,6 +204,18 @@
 }
 
 @media (max-width: 1024px) {
+  .title {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center !important;
+  }
+  
   .latex,
   .gmt,
   .python {
@@ -214,5 +226,9 @@
   .gmt:hover,
   .python:hover {
     transform: translateY(-435px) !important;
+  }
+  
+  .staticFigure {
+    display: none !important;
   }
 }
