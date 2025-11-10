@@ -138,3 +138,9 @@
   text-decoration: none;
   color: white;
 }
+
+@media (min-width: 1400px) {
+  .box {
+    left: calc(10% + 130px - 150px);
+  }
+}
