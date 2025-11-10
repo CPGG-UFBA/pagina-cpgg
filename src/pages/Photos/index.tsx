@@ -5,6 +5,7 @@ import { Settings } from 'lucide-react'
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { supabase } from '../../integrations/supabase/client'
+import { useIsMobile } from '@/hooks/use-mobile'
 import styles from './Photos.module.css'
 
 interface Event {
@@ -18,6 +19,16 @@ export function Photos() {
   const navigate = useNavigate()
   const [events, setEvents] = useState<Event[]>([])
   const [showAdminButton, setShowAdminButton] = useState(false)
+  const [isTablet, setIsTablet] = useState(window.innerWidth <= 1024)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsTablet(window.innerWidth <= 1024)
+    }
+    
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   useEffect(() => {
     fetchEvents()
@@ -48,7 +59,7 @@ export function Photos() {
     <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
       <Header/>
       <main style={{flex: 1, padding: '2rem', paddingTop: '155px', display: 'flex', flexDirection: 'column', width: '100%'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: 'translateX(-200px)'}}>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: isTablet ? 'translateX(0)' : 'translateX(-200px)'}}>
           <h1 style={{margin: 0, fontSize: '28px', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>
             Fotos de eventos
           </h1>
@@ -75,7 +86,7 @@ export function Photos() {
           margin: '0 auto', 
           paddingBottom: '2rem', 
           flexWrap: 'wrap',
-          transform: 'translateX(-200px)'
+          transform: isTablet ? 'translateX(0)' : 'translateX(-200px)'
         }}>
           <div style={{
             display: 'grid', 
