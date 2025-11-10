@@ -115,6 +115,20 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .contact {
+    transform: translateX(0);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .contact ul {
+    margin-left: 0;
+    text-align: center;
+  }
+}
+
 @media (max-width: 900px) {
   .contact {
     flex-direction: column;
