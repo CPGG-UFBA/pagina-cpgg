@@ -16,6 +16,7 @@ export function RF() {
     purpose: "",
     applicantName: "",
     applicantEmail: "",
+    applicantPassword: "",
     agreementAccepted: false,
     damageReportAgreement: false,
   });
@@ -106,7 +107,7 @@ export function RF() {
       return;
     }
 
-    if (!formData.purpose || !formData.applicantName || !formData.applicantEmail) {
+    if (!formData.purpose || !formData.applicantName || !formData.applicantEmail || !formData.applicantPassword) {
       toast({
         title: "Erro",
         description: "Preencha todos os campos obrigatórios",
@@ -145,6 +146,36 @@ export function RF() {
     }
 
     setIsSubmitting(true);
+
+    // Validar credenciais do usuário
+    try {
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email: formData.applicantEmail,
+        password: formData.applicantPassword,
+      });
+
+      if (authError || !authData.user) {
+        toast({
+          title: "Erro de Autenticação",
+          description: "Email ou senha incorretos. Somente pesquisadores cadastrados podem reservar equipamentos.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Fazer logout imediatamente após validação (não manter sessão ativa)
+      await supabase.auth.signOut();
+    } catch (error) {
+      console.error("Erro na autenticação:", error);
+      toast({
+        title: "Erro",
+        description: "Erro ao verificar credenciais. Tente novamente.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       console.log("Enviando dados para a função:", formData);
@@ -193,6 +224,7 @@ export function RF() {
         purpose: "",
         applicantName: "",
         applicantEmail: "",
+        applicantPassword: "",
         agreementAccepted: false,
         damageReportAgreement: false,
       });
@@ -326,6 +358,18 @@ export function RF() {
                 value={formData.applicantEmail}
                 onChange={(e) => handleInputChange("applicantEmail", e.target.value)}
                 placeholder="Digite seu email"
+                required
+              />
+            </div>
+
+            <div className={styles.form}>
+              <label htmlFor="applicantPassword">Senha *</label>
+              <input
+                type="password"
+                id="applicantPassword"
+                value={formData.applicantPassword}
+                onChange={(e) => handleInputChange("applicantPassword", e.target.value)}
+                placeholder="Digite sua senha"
                 required
               />
             </div>
