@@ -579,7 +579,15 @@
     grid-column: 1 / -1 !important;
   }
 
-  [class*="Header"] h1 {
+  .Header1 h1,
+  .Header2 h1,
+  .Header3 h1,
+  .Header4 h1,
+  .Header5 h1,
+  .Header6 h1,
+  .Header7 h1,
+  .Header8 h1,
+  .Header9 h1 {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
@@ -588,9 +596,18 @@
     padding-left: 0 !important;
     white-space: normal !important;
     width: 100% !important;
+    max-width: 100% !important;
   }
 
-  [class*="Header"] a {
+  .Header1 a,
+  .Header2 a,
+  .Header3 a,
+  .Header4 a,
+  .Header5 a,
+  .Header6 a,
+  .Header7 a,
+  .Header8 a,
+  .Header9 a {
     display: flex !important;
     justify-content: center !important;
     text-align: center !important;
