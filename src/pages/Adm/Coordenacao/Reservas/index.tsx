@@ -494,7 +494,7 @@ export function ReservasAdmin() {
   return (
     <div className={styles.container}>
       <button 
-        onClick={() => navigate('/adm')} 
+        onClick={() => navigate('/adm/coordenacao/dashboard')}
         style={{
           position: 'fixed',
           top: '20px',
