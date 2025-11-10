@@ -63,8 +63,7 @@
   padding-top: 10px;
 }
 
-.box button,
-.button {
+.box button {
   padding: 12px;
   font-size: 16px;
   font-weight: 600;
@@ -83,8 +82,7 @@
   transform: translateX(calc(-50% - 30px));
 }
 
-.box button:hover,
-.button:hover {
+.box button:hover {
   background-color: #936aeb;
 }
 
@@ -127,28 +125,13 @@
 
 @media (min-width: 1400px) {
   .box {
-    max-height: 700px;
-    height: auto;
-    overflow-y: auto;
+    height: 700px;
     top: 15%;
-  }
-  
-  .box button,
-  .button {
-    position: relative;
-    top: auto;
-    margin-top: 20px;
-    transform: none;
-    left: auto;
-    width: calc(100% - 5rem);
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .box button,
-  .button {
+  .box button {
     position: absolute;
     top: 550px;
     left: 50%;
