@@ -299,7 +299,7 @@
   .cardContainer {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    margin-top: 2rem !important;
+    margin-top: -350px !important;
     justify-content: center !important;
   }
 }
