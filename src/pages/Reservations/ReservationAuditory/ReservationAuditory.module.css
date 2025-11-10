@@ -78,8 +78,8 @@
   cursor: pointer;
   position: absolute;
   top: 530px;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 @media (max-width: 1199px) {
