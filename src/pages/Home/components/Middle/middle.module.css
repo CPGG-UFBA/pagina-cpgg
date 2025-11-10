@@ -420,8 +420,66 @@
   }
 }
 
-/* Portrait orientation - hide text and expand carousel */
-@media (orientation: portrait) {
+/* Portrait orientation for screens above 1024px - hide text and expand carousel */
+@media (orientation: portrait) and (min-width: 1025px) {
+  .middle {
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+  }
+  
+  .carouselContainer {
+    width: 90%;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 0;
+  }
+  
+  .static {
+    display: none !important;
+  }
+  
+  .staticFigure {
+    display: none !important;
+  }
+  
+  .imageWrapper {
+    height: 350px;
+  }
+  
+  .controls {
+    bottom: 150px;
+  }
+}
+
+/* Portrait orientation for 835px-1024px - show text above news */
+@media (orientation: portrait) and (min-width: 835px) and (max-width: 1024px) {
+  .middle {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 120px;
+  }
+  
+  .static {
+    order: 1;
+    display: block !important;
+    text-align: center;
+    margin: 0 0 2rem 0;
+  }
+  
+  .carouselContainer {
+    order: 2;
+    width: 85%;
+    max-width: 650px;
+  }
+  
+  .imageWrapper {
+    height: 300px;
+  }
+}
+
+/* Portrait orientation for screens below 835px - only news */
+@media (orientation: portrait) and (max-width: 834px) {
   .middle {
     justify-content: center;
     align-items: center;
