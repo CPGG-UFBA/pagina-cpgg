@@ -180,5 +180,6 @@
 @media (max-width: 1024px) {
   .formContainer {
     transform: translateX(0);
+    margin-top: -150px;
   }
 }
