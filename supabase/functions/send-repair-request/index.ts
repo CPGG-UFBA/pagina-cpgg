@@ -28,15 +28,10 @@ const handler = async (req: Request): Promise<Response> => {
     
     console.log('Recebida solicitação de reparo:', { nome, sobrenome, email, problemType });
 
-    // Determinar o email de destino baseado no tipo de problema
-    const secretariaEmail = Deno.env.get("SECRETARIA_EMAIL");
-    const tiEmail = Deno.env.get("TI_EMAIL");
+    // Emails configurados (hardcoded)
+    const secretariaEmail = "secretaria.cpgg.ufba@gmail.com";
+    const tiEmail = "secretaria.cpgg.ufba@gmail.com"; // Pode ser alterado para email específico de TI
     
-    if (!secretariaEmail || !tiEmail) {
-      console.error('Emails não configurados. SECRETARIA_EMAIL ou TI_EMAIL não encontrados.');
-      throw new Error('Configuração de emails não encontrada');
-    }
-
     const destinatario = problemType === 'infraestrutura' ? secretariaEmail : tiEmail;
     const departamento = problemType === 'infraestrutura' ? 'Secretaria' : 'T.I.';
 
