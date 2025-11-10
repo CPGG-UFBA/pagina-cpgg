@@ -130,6 +130,32 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .staticFigure {
+    display: none !important;
+  }
+  
+  .title {
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center;
+  }
+  
+  .headers {
+    margin-left: 0 !important;
+  }
+  
+  .document {
+    margin-left: 0 !important;
+  }
+}
+
 @media (max-width: 1200px) {
   .staticFigure img,
   .earthImage {
