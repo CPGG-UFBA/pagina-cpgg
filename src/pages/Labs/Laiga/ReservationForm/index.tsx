@@ -176,8 +176,8 @@ export function RF() {
       console.log("ID da reserva:", data?.reservationId);
 
       toast({
-        title: "✅ Solicitação enviada com sucesso!",
-        description: "Abrindo comprovante em 2 segundos...",
+        title: "Solicitação Enviada com Sucesso!",
+        description: "Em breve o chefe do laboratório entrará em contato por e-mail.",
       });
 
       // Redirecionar para comprovante após mostrar o toast
@@ -185,7 +185,7 @@ export function RF() {
         console.log("Redirecionando para:", `/labs/laiga/receipt?id=${data.reservationId}`);
         setTimeout(() => {
           window.location.href = `/labs/laiga/receipt?id=${data.reservationId}`;
-        }, 2000);
+        }, 2500);
       } else {
         console.error("Nenhum reservationId retornado!");
         toast({
