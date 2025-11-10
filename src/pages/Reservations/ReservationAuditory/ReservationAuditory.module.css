@@ -39,6 +39,16 @@
   margin-bottom: -100px;
 }
 
+@media screen and (max-width: 1025px) {
+  .box {
+    top: 450px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+  }
+}
+
 .form input {
   display: flex;
   padding: 12px;
@@ -122,14 +132,6 @@
 /* Responsive adjustments */
 @media screen and (max-width: 1025px) {
   .RA {
-    padding-left: 20px !important;
-  }
-  
-  .box {
-    top: 450px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    width: 90% !important;
-    max-width: 600px !important;
+    padding-left: 20px;
   }
 }
