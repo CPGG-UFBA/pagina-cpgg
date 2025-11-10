@@ -204,19 +204,27 @@
 }
 
 @media (max-width: 1024px) {
+  .recipes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
   .title {
     text-align: center !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100%;
   }
   
   .container {
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
     justify-items: center !important;
     grid-template-columns: repeat(3, 280px) !important;
     justify-content: center !important;
-    width: 100% !important;
+    width: fit-content !important;
+    margin: 40px auto 4rem auto !important;
   }
   
   .latex,
