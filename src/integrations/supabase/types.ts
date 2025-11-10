@@ -309,6 +309,48 @@ export type Database = {
         }
         Relationships: []
       }
+      repair_requests: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          nome: string
+          notes: string | null
+          problem_description: string
+          problem_type: string
+          resolved_at: string | null
+          sobrenome: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          nome: string
+          notes?: string | null
+          problem_description: string
+          problem_type: string
+          resolved_at?: string | null
+          sobrenome: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          nome?: string
+          notes?: string | null
+          problem_description?: string
+          problem_type?: string
+          resolved_at?: string | null
+          sobrenome?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       research_projects: {
         Row: {
           coordinator: string
@@ -567,10 +609,7 @@ export type Database = {
         Args: { _user_profile_id: string }
         Returns: Json
       }
-      delete_user_profile: {
-        Args: { _profile_id: string }
-        Returns: Json
-      }
+      delete_user_profile: { Args: { _profile_id: string }; Returns: Json }
       find_user_profile_by_name: {
         Args: { _search_name: string }
         Returns: {
@@ -585,20 +624,11 @@ export type Database = {
           user_id: string
         }[]
       }
-      generate_public_id: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-      get_admin_role: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
-      is_admin: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      generate_public_id: { Args: never; Returns: string }
+      get_admin_role: { Args: never; Returns: string }
+      is_admin: { Args: never; Returns: boolean }
       list_all_user_profiles: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           email: string
           full_name: string
@@ -631,10 +661,7 @@ export type Database = {
         Args: { _program: string; _researcher_id: string }
         Returns: undefined
       }
-      sync_auth_users_to_profiles: {
-        Args: Record<PropertyKey, never>
-        Returns: Json
-      }
+      sync_auth_users_to_profiles: { Args: never; Returns: Json }
     }
     Enums: {
       [_ in never]: never

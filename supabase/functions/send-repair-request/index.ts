@@ -1,7 +1,11 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.3';
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -28,9 +32,30 @@ const handler = async (req: Request): Promise<Response> => {
     
     console.log('Recebida solicitação de reparo:', { nome, sobrenome, email, problemType });
 
-    // Emails configurados (hardcoded)
+    // Salvar no banco de dados primeiro
+    const { data: savedRequest, error: dbError } = await supabase
+      .from('repair_requests')
+      .insert({
+        nome,
+        sobrenome,
+        email,
+        problem_type: problemType,
+        problem_description: problemDescription,
+        status: 'pendente'
+      })
+      .select()
+      .single();
+
+    if (dbError) {
+      console.error('Erro ao salvar solicitação no banco:', dbError);
+      throw new Error('Erro ao salvar solicitação');
+    }
+
+    console.log('Solicitação salva no banco:', savedRequest);
+
+    // Emails configurados
     const secretariaEmail = "secretaria.cpgg.ufba@gmail.com";
-    const tiEmail = "secretaria.cpgg.ufba@gmail.com"; // Pode ser alterado para email específico de TI
+    const tiEmail = "bianca.andrade@ufba.br"; // Email da funcionária de T.I.
     
     const destinatario = problemType === 'infraestrutura' ? secretariaEmail : tiEmail;
     const departamento = problemType === 'infraestrutura' ? 'Secretaria' : 'T.I.';
