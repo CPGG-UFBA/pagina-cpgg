@@ -29,8 +29,7 @@
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  max-height: 580px;
-  overflow: hidden;
+  overflow: visible;
   top: 15%;
   left: calc(10% + 130px);
   padding: 20px;
@@ -66,16 +65,21 @@
 
 .box button {
   padding: 12px;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 600;
   color: white;
   border-radius: 15px;
-  width: 300px;
+  width: calc((100% - 5rem) * 0.8);
   background-color: #beb6b6;
-  margin: 15px auto 0 auto;
+  margin: 0 2.5rem;
   display: block;
   border: none;
   transition: 500ms linear;
-  transform: translateY(-740px);
+  cursor: pointer;
+  position: absolute;
+  top: 530px;
+  left: 50%;
+  transform: translateX(calc(-50% - 30px));
 }
 
 .box button:hover {
