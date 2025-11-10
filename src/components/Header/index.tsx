@@ -129,13 +129,13 @@ export function Header() {
             <div className={styles.submenu1}>
               <ul>
                 <li>
-                  <NavLink to='/cpgg2' className={styles.navLink}>
-                    {t('nav.labsReservations')}
+                  <NavLink to='/spaces' className={styles.navLink}>
+                    {t('nav.spacesReservations')}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/spaces' className={styles.navLink}>
-                    {t('nav.spacesReservations')}
+                  <NavLink to='/cpgg2' className={styles.navLink}>
+                    {t('nav.labsReservations')}
                   </NavLink>
                 </li>
                 <li>
