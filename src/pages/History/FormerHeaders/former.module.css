@@ -599,7 +599,15 @@
     max-width: 100% !important;
   }
 
-  .Header1 a,
+  .Header1 a {
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-left: 0 !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+  }
+
   .Header2 a,
   .Header3 a,
   .Header4 a,
