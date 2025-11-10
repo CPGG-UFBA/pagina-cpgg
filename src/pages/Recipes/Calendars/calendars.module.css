@@ -32,7 +32,7 @@
 
 @media (max-width: 1024px) {
   .buttonsGrid {
-    transform: translateX(0) translateY(-250px) !important;
+    transform: translateX(0) translateY(-500px) !important;
     margin: 0 auto;
     width: fit-content;
   }
