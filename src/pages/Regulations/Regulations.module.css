@@ -153,6 +153,27 @@
 
 
 
+@media (max-width: 1024px) {
+  .staticFigure,
+  .earthFigure {
+    display: none !important;
+  }
+  
+  .title {
+    text-align: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 1200px) {
   .staticFigure img,
   .earthFigure img {
