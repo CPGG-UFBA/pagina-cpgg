@@ -180,10 +180,11 @@
   }
 
   .Title ul {
-    margin-left: calc(50% - 445px) !important;
+    margin-left: 0 !important;
     font-size: 24px;
     top: 0 !important;
     position: relative !important;
+    text-align: center;
   }
 
   .box {
@@ -199,6 +200,11 @@
   .requerimentoButton {
     margin-left: 0;
     text-align: center;
+  }
+  
+  .cardContainer {
+    margin-left: 0;
+    margin-top: 2rem;
   }
 }
 
