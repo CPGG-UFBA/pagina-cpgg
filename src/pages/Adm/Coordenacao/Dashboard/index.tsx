@@ -35,6 +35,7 @@ export function CoordenacaoDashboard() {
   const [secretariaUpdateEmail, setSecretariaUpdateEmail] = useState('')
   const [secretariaUpdateNewEmail, setSecretariaUpdateNewEmail] = useState('')
   const [secretariaUpdateNewName, setSecretariaUpdateNewName] = useState('')
+  const [secretariaUpdateNewPassword, setSecretariaUpdateNewPassword] = useState('')
   
   // Estados para cadastro de pesquisador
   const [researcherName, setResearcherName] = useState('')
@@ -368,10 +369,10 @@ export function CoordenacaoDashboard() {
       return
     }
 
-    if (!secretariaUpdateNewEmail && !secretariaUpdateNewName) {
+    if (!secretariaUpdateNewEmail && !secretariaUpdateNewName && !secretariaUpdateNewPassword) {
       toast({
         title: "Erro",
-        description: "Informe pelo menos um novo valor (email ou nome)",
+        description: "Informe pelo menos um novo valor (email, nome ou senha)",
         variant: "destructive",
       })
       return
@@ -380,6 +381,7 @@ export function CoordenacaoDashboard() {
     setIsLoading(true)
 
     try {
+      // Atualizar dados na tabela admin_users
       const updates: { email?: string; full_name?: string } = {}
       if (secretariaUpdateNewEmail) {
         updates.email = secretariaUpdateNewEmail
@@ -388,13 +390,36 @@ export function CoordenacaoDashboard() {
         updates.full_name = secretariaUpdateNewName
       }
 
-      const { error } = await supabase
-        .from('admin_users')
-        .update(updates)
-        .eq('email', secretariaUpdateEmail)
-        .eq('role', 'secretaria')
+      if (Object.keys(updates).length > 0) {
+        const { error } = await supabase
+          .from('admin_users')
+          .update(updates)
+          .eq('email', secretariaUpdateEmail)
+          .eq('role', 'secretaria')
 
-      if (error) throw error
+        if (error) throw error
+      }
+
+      // Atualizar senha se fornecida
+      if (secretariaUpdateNewPassword) {
+        // Buscar o user_id do admin
+        const { data: adminData, error: fetchError } = await supabase
+          .from('admin_users')
+          .select('user_id')
+          .eq('email', secretariaUpdateEmail)
+          .eq('role', 'secretaria')
+          .single()
+
+        if (fetchError) throw fetchError
+
+        // Atualizar senha no auth.users
+        const { error: passwordError } = await supabase.auth.admin.updateUserById(
+          adminData.user_id,
+          { password: secretariaUpdateNewPassword }
+        )
+
+        if (passwordError) throw passwordError
+      }
 
       toast({
         title: "Sucesso!",
@@ -404,6 +429,7 @@ export function CoordenacaoDashboard() {
       setSecretariaUpdateEmail('')
       setSecretariaUpdateNewEmail('')
       setSecretariaUpdateNewName('')
+      setSecretariaUpdateNewPassword('')
     } catch (error: any) {
       console.error('Erro ao atualizar secretária:', error)
       toast({
@@ -1011,9 +1037,19 @@ export function CoordenacaoDashboard() {
                 placeholder="Digite o novo e-mail ou deixe em branco"
               />
             </div>
+            <div className={styles.formGroup}>
+              <label htmlFor="secretaria-update-new-password">Nova Senha (opcional):</label>
+              <Input
+                id="secretaria-update-new-password"
+                type="password"
+                value={secretariaUpdateNewPassword}
+                onChange={(e) => setSecretariaUpdateNewPassword(e.target.value)}
+                placeholder="Digite a nova senha ou deixe em branco"
+              />
+            </div>
             <Button
               onClick={handleUpdateSecretaria}
-              disabled={isLoading || !secretariaUpdateEmail || (!secretariaUpdateNewEmail && !secretariaUpdateNewName)}
+              disabled={isLoading || !secretariaUpdateEmail || (!secretariaUpdateNewEmail && !secretariaUpdateNewName && !secretariaUpdateNewPassword)}
               className={styles.submitButton}
             >
               {isLoading ? 'Atualizando...' : 'Atualizar Secretária'}
