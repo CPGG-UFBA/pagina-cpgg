@@ -125,7 +125,8 @@
 
 @media (min-width: 1400px) {
   .box {
-    top: calc(15% - 12700px);
+    height: 700px;
+    top: 15%;
   }
 }
 
