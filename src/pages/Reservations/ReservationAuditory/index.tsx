@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './ReservationAuditory.module.css'
+import '../reservations-no-scroll.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
 import { supabase } from '../../../integrations/supabase/client'
