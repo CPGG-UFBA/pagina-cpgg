@@ -170,7 +170,7 @@ export function RepairStats() {
   return (
     <div className={styles.container}>
       <button 
-        onClick={() => navigate('/adm')} 
+        onClick={() => navigate('/adm/coordenacao/dashboard')} 
         className={styles.backButton}
       >
         <ArrowLeft size={20} />
