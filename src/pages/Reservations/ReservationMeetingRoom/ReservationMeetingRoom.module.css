@@ -11,22 +11,6 @@
   padding-right: 8px;
 }
 
-.box {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.2);
-  position: absolute;
-  width: 600px;
-  max-height: 70vh;
-  overflow-y: auto;
-  top: calc(18% + 30px);
-  left: calc(10% + 130px);
-  padding: 20px;
-  border-radius: 20px;
-  margin-bottom: -500px;
-}
-
 .box ul {
   font-size: 24px;
   color: #fff;
@@ -38,25 +22,25 @@
   width: 100%;
 }
 
-/* .box {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    border: 2px solid rgba(255,255,255,.2);
-    background-color: rgba(255,255,255, 0.1);
-    position: absolute;
-    width: 600px;
-    height: 650px;
-    top: 5%; 
-    left:30%;
-    padding: 10px;
-    border-radius: 20px;
-    gap: 5px;
-} */
-
-.box input {
+.box {
   display: flex;
-  padding: 15px;
+  flex-direction: column;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  top: 15%;
+  left: calc(10% + 130px);
+  padding: 20px;
+  border-radius: 20px;
+  margin-bottom: -100px;
+}
+
+.form input {
+  display: flex;
+  padding: 12px;
   font-size: 14px;
   border: 1px solid #ccc;
   margin-top: 0.2rem;
@@ -75,21 +59,22 @@
 }
 
 .form {
-  padding-bottom: 5px;
-  padding-top: 25px;
+  padding-bottom: 3px;
+  padding-top: 10px;
 }
 
 .box button {
-  padding: 15px;
+  padding: 12px;
   font-size: 14px;
   color: white;
   border-radius: 15px;
   width: 300px;
   background-color: #beb6b6;
-  margin: 20px auto 0 auto;
+  margin: 15px auto 0 auto;
   display: block;
   border: none;
   transition: 500ms linear;
+  transform: translateY(-670px);
 }
 
 .box button:hover {
@@ -105,30 +90,30 @@
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 10px;
   padding: 0 2.5rem;
 }
 
 .dateField {
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .dateField label {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   font-size: 14px;
   font-weight: 600;
 }
 
 .dateField input {
-  padding: 15px;
-  font-size: 14px;
+  padding: 12px;
+  font-size: 13px;
   border: 1px solid #ccc;
   border-radius: 15px;
   transition: all linear 160ms;
   outline: none;
   width: 100%;
+  box-sizing: border-box;
   color: #000;
 }
