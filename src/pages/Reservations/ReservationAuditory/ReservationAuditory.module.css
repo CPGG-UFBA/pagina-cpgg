@@ -120,8 +120,16 @@
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
+  .RA {
+    padding-left: 20px !important;
+  }
+  
   .box {
     top: 450px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 90% !important;
+    max-width: 600px !important;
   }
 }
