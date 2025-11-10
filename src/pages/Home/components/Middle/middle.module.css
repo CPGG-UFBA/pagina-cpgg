@@ -264,17 +264,19 @@
     flex-direction: column;
     align-items: center;
     padding-top: 140px;
-    gap: 2rem;
+    gap: 1rem;
+    justify-content: flex-start;
   }
   
   .static {
     order: 1;
     font-size: 32px;
-    margin-left: 0;
-    margin-top: 0;
+    margin: 0;
     text-align: center;
     transform: none;
     width: 100%;
+    position: relative;
+    line-height: 0.5;
   }
   
   .static > strong {
@@ -284,6 +286,7 @@
   .enjoy {
     font-size: 22px;
     text-align: center;
+    padding-top: 30px;
   }
   
   .enjoy > strong {
@@ -296,6 +299,7 @@
     max-width: 600px;
     margin: 0 auto;
     margin-top: 0;
+    position: relative;
   }
   
   .imageWrapper {
