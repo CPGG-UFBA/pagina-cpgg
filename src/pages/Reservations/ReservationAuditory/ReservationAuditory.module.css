@@ -36,6 +36,7 @@
   padding: 20px;
   border-radius: 20px;
   margin-bottom: -100px;
+  transform: translateY(-500px);
 }
 
 .form input {
