@@ -53,12 +53,14 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log('Solicitação salva no banco:', savedRequest);
 
-    // Emails configurados
+    // Emails configurados conforme especificação:
+    // - Infraestrutura → Secretaria
+    // - T.I. → Técnica de T.I.
     const secretariaEmail = "secretaria.cpgg.ufba@gmail.com";
-    const tiEmail = "bianca.andrade@ufba.br"; // Email da funcionária de T.I.
+    const tiEmail = "bianca.andrade@ufba.br";
     
     const destinatario = problemType === 'infraestrutura' ? secretariaEmail : tiEmail;
-    const departamento = problemType === 'infraestrutura' ? 'Secretaria' : 'T.I.';
+    const departamento = problemType === 'infraestrutura' ? 'Secretaria (Infraestrutura)' : 'T.I.';
 
     console.log(`Enviando email para ${departamento}: ${destinatario}`);
 

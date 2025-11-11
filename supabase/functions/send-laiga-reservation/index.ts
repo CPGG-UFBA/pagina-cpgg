@@ -121,66 +121,29 @@ const handler = async (req: Request): Promise<Response> => {
       formattedReturnDate
     )
 
-    // Enviar email para o chefe do laboratório LAIGA
-    console.log(`Enviando email para o chefe do LAIGA: ${chiefEmail}...`)
+    // Enviar email SOMENTE para o chefe do laboratório LAIGA
+    console.log(`📧 Enviando email EXCLUSIVAMENTE para o chefe do LAIGA: ${chiefEmail}`)
     
-    try {
-      const emailResponse = await resend.emails.send({
-        from: 'CPGG LAIGA <onboarding@resend.dev>',
-        to: [chiefEmail],
-        subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
-        html: emailHtml,
-        reply_to: reservationData.applicantEmail,
-        attachments: [
-          {
-            filename: `Comprovante_LAIGA_${reservation.id.substring(0, 8)}.pdf`,
-            content: pdfContent,
-          },
-        ],
-      })
+    const emailResponse = await resend.emails.send({
+      from: 'CPGG LAIGA <onboarding@resend.dev>',
+      to: [chiefEmail],
+      subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
+      html: emailHtml,
+      reply_to: reservationData.applicantEmail,
+      attachments: [
+        {
+          filename: `Comprovante_LAIGA_${reservation.id.substring(0, 8)}.pdf`,
+          content: pdfContent,
+        },
+      ],
+    })
 
-      if (emailResponse.error) {
-        console.error('Erro ao enviar email para o chefe:', emailResponse.error)
-        throw emailResponse.error
-      } else {
-        console.log('Email enviado com sucesso para o chefe do LAIGA:', emailResponse.data)
-      }
-    } catch (emailError: any) {
-      console.error('Falha no envio do email principal, tentando alternativas...', emailError)
-      
-      // Tentar enviar para a secretaria como backup
-      try {
-        console.log('Tentando enviar para secretaria.cpgg.ufba@gmail.com como backup...')
-        const backupEmail = await resend.emails.send({
-          from: 'CPGG LAIGA <onboarding@resend.dev>',
-          to: ['secretaria.cpgg.ufba@gmail.com'],
-          subject: `[BACKUP] Nova Solicitação LAIGA - Encaminhar para Prof. Marcos Vasconcelos`,
-          html: `
-            <div style="background-color: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; margin-bottom: 20px; border-radius: 5px;">
-              <strong>⚠️ AVISO:</strong> Este email foi redirecionado para a secretaria pois houve problema no envio direto para o chefe do laboratório.
-              <br><strong>Destinatário original:</strong> ${chiefEmail} (${chiefName})
-              <br><strong>Ação necessária:</strong> Por favor, encaminhe este email para o chefe do LAIGA.
-            </div>
-            ${emailHtml}
-          `,
-          reply_to: reservationData.applicantEmail,
-          attachments: [
-            {
-              filename: `Comprovante_LAIGA_${reservation.id.substring(0, 8)}.pdf`,
-              content: pdfContent,
-            },
-          ],
-        })
-        
-        if (backupEmail.error) {
-          console.error('Falha também no email de backup:', backupEmail.error)
-        } else {
-          console.log('Email de backup enviado com sucesso:', backupEmail.data)
-        }
-      } catch (backupError) {
-        console.error('Erro total no envio de emails:', backupError)
-      }
+    if (emailResponse.error) {
+      console.error('❌ Erro ao enviar email para o chefe do LAIGA:', emailResponse.error)
+      throw new Error(`Falha ao enviar email: ${emailResponse.error.message}`)
     }
+    
+    console.log('✅ Email enviado com sucesso para o chefe do LAIGA:', emailResponse.data)
 
     return new Response(
       JSON.stringify({ 
