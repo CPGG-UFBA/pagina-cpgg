@@ -4,7 +4,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100px;
+  height: 120px;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,9 +22,9 @@
   .header {
     background-size: cover;
     background-position: center top;
-    height: 150px;
+    height: 170px;
     aspect-ratio: unset;
-    max-height: 150px;
+    max-height: 170px;
   }
 }
 
@@ -254,7 +254,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Grandes Telas/4K - ≥ 1601px */
 @media (min-width: 1601px) {
   .header {
-    height: 100px;
+    height: 120px;
     gap: 15px;
   }
   
@@ -284,7 +284,7 @@ nav ul li:hover .submenu2 ul li a {
 /* 1440px */
 @media (min-width: 1441px) and (max-width: 1600px) {
   .header {
-    height: 100px;
+    height: 120px;
     gap: 12px;
   }
   
@@ -306,7 +306,7 @@ nav ul li:hover .submenu2 ul li a {
 /* 1280px - 1440px */
 @media (min-width: 1280px) and (max-width: 1440px) {
   .header {
-    height: 100px;
+    height: 120px;
     gap: 10px;
   }
   
@@ -353,7 +353,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Desktop/HD - 1201px - 1279px */
 @media (min-width: 1201px) and (max-width: 1279px) {
   .header {
-    height: 100px;
+    height: 120px;
     gap: 8px;
   }
   
@@ -375,7 +375,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Laptop - 1151px - 1200px */
 @media (min-width: 1151px) and (max-width: 1200px) {
   .header {
-    height: 100px;
+    height: 120px;
     gap: 8px;
   }
   
@@ -407,7 +407,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Tablet - 769px - 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .header {
-    height: 120px;
+    height: 140px;
     gap: 4px;
     padding: 0 8px;
   }
@@ -454,7 +454,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Medium Laptop - 1025px - 1150px */
 @media (min-width: 1025px) and (max-width: 1150px) {
   .header {
-    height: 100px;
+    height: 120px;
     gap: 8px;
   }
   
@@ -478,7 +478,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Mobile (Médio) - 481px - 768px */
 @media (min-width: 481px) and (max-width: 768px) {
   .header {
-    height: 160px;
+    height: 180px;
     flex-wrap: nowrap;
     gap: 4px;
     padding: 0 5px;
@@ -552,7 +552,7 @@ nav ul li:hover .submenu2 ul li a {
 /* Mobile (Pequeno) - 320px - 480px */
 @media (max-width: 480px) {
   .header {
-    height: 150px;
+    height: 170px;
     flex-wrap: wrap;
     gap: 5px;
     padding: 5px;
