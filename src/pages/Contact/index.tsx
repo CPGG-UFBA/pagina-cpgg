@@ -30,7 +30,7 @@ export function Contact() {
       <Header />
       <div className={styles.contact}>
         <ul> {t('contact.emailUs')} </ul>
-        <p> secretaria.cpgg.ufba@gmail.com</p>
+        <p> cpgg@ufba.br</p>
 
         <div className={styles.whatsappSection}>
           <button type="button" className={styles.whatsappLink} onClick={copyWhatsAppLink} aria-label="Copiar link do WhatsApp">
