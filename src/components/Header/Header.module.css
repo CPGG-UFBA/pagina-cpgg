@@ -72,7 +72,9 @@
 
 .block1 h1:nth-child(2),
 .block1 h1:nth-child(3) {
-  align-self: center !important;
+  position: relative !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
   width: auto !important;
