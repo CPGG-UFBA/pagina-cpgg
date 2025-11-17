@@ -558,6 +558,10 @@ nav ul li:hover .submenu2 ul li a {
 
 /* AJUSTE ESPECÍFICO para resoluções ≤ 500x980px - Mover itens do menu para esquerda e para cima */
 @media (max-width: 500px) and (max-height: 980px) {
+  .header {
+    height: 150px;
+  }
+
   .header nav {
     transform: translateY(20px) !important;
     position: relative !important;
