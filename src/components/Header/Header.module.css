@@ -643,3 +643,10 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
+/* Navigation positioning for small screens */
+@media (max-width: 500px) {
+  nav {
+    transform: translateY(50px);
+  }
+}
+
