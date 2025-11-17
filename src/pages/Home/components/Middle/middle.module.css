@@ -417,11 +417,11 @@
 
 @media (max-width: 500px) and (max-height: 980px) {
   .newsCard {
-    transform: scale(0.90);
+    transform: scale(0.81);
   }
   
   .newsCard:hover {
-    transform: scale(0.90) translateY(-4px);
+    transform: scale(0.81) translateY(-4px);
   }
   
   .playPauseButton {
