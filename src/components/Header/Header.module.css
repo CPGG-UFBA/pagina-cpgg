@@ -549,6 +549,22 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
+/* AJUSTE ESPECÍFICO 481-500px - Centralizar horizontalmente e mover 50px para baixo */
+@media (min-width: 481px) and (max-width: 500px) {
+  .header nav {
+    transform: translateY(50px) !important;
+    position: relative !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .header nav ul {
+    justify-content: center !important;
+    display: flex !important;
+  }
+}
+
 /* Mobile (Pequeno) - 320px - 480px */
 @media (max-width: 480px) {
   .header {
@@ -648,22 +664,3 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
-
-/* Ajuste específico para navegação em resoluções pequenas (481-500px) - DEVE VIR POR ÚLTIMO */
-@media (min-width: 481px) and (max-width: 500px) {
-  .header nav {
-    transform: translateY(50px) !important;
-    position: relative !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: 0 !important;
-  }
-  
-  .header nav ul {
-    justify-content: center !important;
-    display: flex !important;
-  }
-}
