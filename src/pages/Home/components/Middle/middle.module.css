@@ -416,6 +416,10 @@
 }
 
 @media (max-width: 500px) and (max-height: 980px) {
+  .carouselContainer {
+    transform: translateY(80px);
+  }
+  
   .newsCard {
     transform: scale(0.81);
   }
