@@ -564,6 +564,18 @@ nav ul li:hover .submenu2 ul li a {
     display: flex !important;
     transform: translateX(-200px) !important;
   }
+  
+  .block1 {
+    transform: translateY(-50px) !important;
+  }
+  
+  .logoufba {
+    transform: translateY(-50px) !important;
+  }
+  
+  .figure {
+    transform: translateY(-50px) !important;
+  }
 }
 
 /* Mobile (Pequeno) - 320px - 480px */
