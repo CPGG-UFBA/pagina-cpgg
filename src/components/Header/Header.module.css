@@ -566,15 +566,15 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 {
-    transform: translateY(20px) !important;
+    transform: translateY(-35px) !important;
   }
   
   .logoufba {
-    transform: translateY(20px) !important;
+    transform: translateY(-35px) !important;
   }
   
   .figure {
-    transform: translateY(20px) !important;
+    transform: translateY(-35px) !important;
   }
 }
 
