@@ -217,6 +217,12 @@
   }
 }
 
+@media screen and (max-width: 430px) {
+  .newsContainer.newsContainer {
+    margin-top: calc(1rem + 100px) !important;
+  }
+}
+
 .wavePattern {
   position: absolute;
   bottom: 0;
