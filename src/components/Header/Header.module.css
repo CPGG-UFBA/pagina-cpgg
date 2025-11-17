@@ -579,6 +579,11 @@ nav ul li:hover .submenu2 ul li a {
     line-height: 1.1 !important;
   }
   
+  .block1 h1:nth-child(2),
+  .block1 h1:nth-child(3) {
+    text-align: center !important;
+  }
+  
   .logoufba {
     transform: translate(205px, -35px) !important;
   }
