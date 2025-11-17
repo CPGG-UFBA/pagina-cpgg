@@ -72,6 +72,8 @@
 .block1 h1:nth-child(2),
 .block1 h1:nth-child(3) {
   text-align: center !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
 .logo {
