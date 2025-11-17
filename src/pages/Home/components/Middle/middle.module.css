@@ -406,6 +406,12 @@
   }
 }
 
+@media (max-width: 430px) {
+  .carouselContainer {
+    margin-top: 250px !important;
+  }
+}
+
 @media (max-width: 414px) {
   .carouselContainer {
     width: 98%;
