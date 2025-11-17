@@ -649,3 +649,12 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
+/* Ajuste específico para mover navegação em resoluções de 481-500px */
+@media (min-width: 481px) and (max-width: 500px) {
+  .header nav {
+    margin-top: 50px !important;
+    margin-left: -50px !important;
+  }
+}
+
+
