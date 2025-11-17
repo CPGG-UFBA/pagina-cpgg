@@ -253,8 +253,14 @@ nav ul li:hover .submenu2 ul li a {
 @media (min-width: 481px) and (max-width: 500px) {
   .header nav {
     transform: translateY(50px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    width: 100% !important;
+    justify-content: center !important;
+    left: 0 !important;
+    right: 0 !important;
+  }
+  
+  .header nav ul {
+    justify-content: center !important;
   }
 }
 
@@ -569,12 +575,16 @@ nav ul li:hover .submenu2 ul li a {
     display: block;
     position: absolute;
     top: 130px;
-    left: 50%;
-    transform: translateX(-50%);
-    right: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
     background-color: rgba(89, 44, 187, 0.95);
     padding: 10px;
     z-index: 100000;
+  }
+  
+  nav ul {
+    justify-content: center;
   }
   
   nav ul {
