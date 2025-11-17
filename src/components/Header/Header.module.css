@@ -249,8 +249,8 @@ nav ul li:hover .submenu2 ul li a {
   max-width: 100%;
 }
 
-/* Ajuste específico para navegação em resoluções pequenas */
-@media (max-width: 500px) {
+/* Ajuste específico para navegação em resoluções pequenas (481-500px) */
+@media (min-width: 481px) and (max-width: 500px) {
   .header nav {
     margin-top: 50px;
     margin-left: -50px;
@@ -567,8 +567,8 @@ nav ul li:hover .submenu2 ul li a {
   nav {
     display: block;
     position: absolute;
-    top: 80px;
-    left: 0;
+    top: 130px;
+    left: -50px;
     right: 0;
     background-color: rgba(89, 44, 187, 0.95);
     padding: 10px;
