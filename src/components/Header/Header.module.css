@@ -249,7 +249,13 @@ nav ul li:hover .submenu2 ul li a {
   max-width: 100%;
 }
 
-
+/* Ajuste específico para navegação em resoluções pequenas */
+@media (max-width: 500px) {
+  nav {
+    margin-top: 50px;
+    margin-left: -100px;
+  }
+}
 
 /* Grandes Telas/4K - ≥ 1601px */
 @media (min-width: 1601px) {
