@@ -582,6 +582,7 @@ nav ul li:hover .submenu2 ul li a {
     margin: 0 !important;
     padding: 1px 0 !important;
     line-height: 1.1 !important;
+    font-size: calc(clamp(8px, 0.9vw, 10px) + 2pt) !important;
   }
   
   .block1 h1:nth-child(2),
