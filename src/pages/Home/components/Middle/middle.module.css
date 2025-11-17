@@ -408,7 +408,7 @@
 
 @media (max-width: 500px) {
   .carouselContainer {
-    margin-top: -100px !important;
+    margin-top: -150px !important;
     width: calc(100% + 40px) !important;
     margin-left: -20px !important;
     margin-right: -20px !important;
