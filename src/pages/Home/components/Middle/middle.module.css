@@ -417,11 +417,11 @@
 
 @media (max-width: 500px) and (max-height: 980px) {
   .newsCard {
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   
   .newsCard:hover {
-    transform: scale(0.9) translateY(-4px);
+    transform: scale(0.95) translateY(-4px);
   }
 }
 
