@@ -75,6 +75,8 @@
   align-self: center !important;
   padding-left: 0 !important;
   margin-left: 0 !important;
+  width: auto !important;
+  max-width: none !important;
 }
 
 .logo {
