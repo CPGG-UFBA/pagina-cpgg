@@ -427,6 +427,10 @@
   .playPauseButton {
     transform: translateY(-90px);
   }
+  
+  .dots {
+    transform: translateY(-50px);
+  }
 }
 
 @media (max-width: 414px) {
