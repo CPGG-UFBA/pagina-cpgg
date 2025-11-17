@@ -435,6 +435,14 @@
   .dots {
     transform: translateY(-50px);
   }
+  
+  .navButtonLeft {
+    left: -10px;
+  }
+  
+  .navButtonRight {
+    right: -10px;
+  }
 }
 
 @media (max-width: 414px) {
