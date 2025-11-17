@@ -408,7 +408,7 @@
 
 @media (max-width: 430px) {
   .carouselContainer {
-    margin-top: 50px !important;
+    margin-top: 0px !important;
   }
 }
 
