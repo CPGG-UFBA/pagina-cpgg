@@ -598,6 +598,10 @@ nav ul li:hover .submenu2 ul li a {
     align-self: center !important;
   }
   
+  .block1 h1:nth-child(1) {
+    transform: translateX(-50px) !important;
+  }
+  
   .logoufba {
     transform: translate(205px, -35px) !important;
   }
