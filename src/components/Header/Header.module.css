@@ -574,6 +574,7 @@ nav ul li:hover .submenu2 ul li a {
     transform: translate(80px, -35px) !important;
     display: flex !important;
     flex-direction: column !important;
+    align-items: flex-start !important;
   }
   
   .block1 h1 {
@@ -587,9 +588,9 @@ nav ul li:hover .submenu2 ul li a {
   
   .block1 h1:nth-child(2),
   .block1 h1:nth-child(3) {
-    text-align: center !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
+    align-self: center !important;
   }
   
   .logoufba {
