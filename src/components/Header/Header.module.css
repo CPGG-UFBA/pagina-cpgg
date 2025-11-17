@@ -1,7 +1,6 @@
 .header {
   width: 100%;
-  /* background-image: url("../../assets/header-bg.jpg"); */
-  background-color: #592cbb;
+  background-image: url("../../assets/header-bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
