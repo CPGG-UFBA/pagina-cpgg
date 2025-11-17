@@ -415,6 +415,16 @@
   }
 }
 
+@media (max-width: 500px) and (max-height: 980px) {
+  .newsCard {
+    transform: scale(0.9);
+  }
+  
+  .newsCard:hover {
+    transform: scale(0.9) translateY(-4px);
+  }
+}
+
 @media (max-width: 414px) {
   .carouselContainer {
     width: 98%;
