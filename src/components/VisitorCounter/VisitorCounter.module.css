@@ -41,11 +41,13 @@
 @media (max-width: 500px) and (max-height: 980px) {
   .counter {
     position: fixed !important;
-    top: 15px !important;
+    top: 60px !important;
     bottom: auto !important;
-    left: 160px !important;
-    font-size: 7px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    font-size: 8px !important;
     padding: 3px 6px !important;
     z-index: 100005 !important;
+    background: rgba(89, 44, 187, 0.9) !important;
   }
 }
