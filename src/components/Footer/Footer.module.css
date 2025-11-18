@@ -635,7 +635,7 @@
 @media (max-width: 500px) and (max-height: 980px) {
   .copyright {
     position: fixed !important;
-    top: 35px !important;
+    top: 110px !important;
     bottom: auto !important;
     right: 10px !important;
     left: auto !important;
