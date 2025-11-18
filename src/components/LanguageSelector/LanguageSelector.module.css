@@ -71,8 +71,8 @@
   }
 }
 
-/* Stack flags vertically for resolutions 500x980px and below */
-@media (max-width: 500px) and (max-height: 980px) {
+/* Stack flags vertically for widths up to 500px */
+@media (max-width: 500px) {
   .languageSelector {
     flex-direction: column;
     align-items: center;
