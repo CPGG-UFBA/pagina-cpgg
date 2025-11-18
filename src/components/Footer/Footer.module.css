@@ -630,3 +630,26 @@
     font-size: 0.8rem;
   }
 }
+
+/* Resoluções 500x980px para baixo - mover copyright e visitantes para o header */
+@media (max-width: 500px) and (max-height: 980px) {
+  .copyright {
+    position: fixed;
+    top: 35px;
+    right: 10px;
+    z-index: 100005;
+    font-size: 7px;
+    background: rgba(89, 44, 187, 0.8);
+    padding: 3px 6px;
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+  }
+  
+  .bar {
+    pointer-events: none;
+  }
+  
+  .bar nav {
+    pointer-events: auto;
+  }
+}
