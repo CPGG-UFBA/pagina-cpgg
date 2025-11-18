@@ -343,8 +343,8 @@
   }
 }
 
-/* 834px and below - only news, remove text */
-@media (max-width: 834px) {
+/* 501px to 834px - only news, remove text */
+@media (min-width: 501px) and (max-width: 834px) {
   .middle {
     justify-content: center;
     align-items: center;
@@ -370,13 +370,13 @@
   }
 }
 
-/* Show text again for very small screens (500px and below with height constraint) */
-@media (max-width: 500px) and (max-height: 980px) {
+/* Show text for 500px and below */
+@media (max-width: 500px) {
   .static {
     display: block !important;
     order: 1 !important;
     font-size: 20px !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     text-align: center !important;
     transform: translateY(-50px) !important;
     width: 100% !important;
@@ -394,6 +394,7 @@
     font-size: 14px !important;
     text-align: center !important;
     padding-top: 20px !important;
+    line-height: 1.2 !important;
   }
   
   .enjoy > strong {
@@ -440,6 +441,8 @@
 @media (max-width: 500px) {
   .middle {
     flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
   }
   
   .carouselContainer {
@@ -447,6 +450,7 @@
     width: calc(100% + 40px) !important;
     margin-left: -20px !important;
     margin-right: -20px !important;
+    order: 2 !important;
   }
 }
 
