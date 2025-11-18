@@ -408,7 +408,7 @@
 /* 500px and below - two lines layout */
 @media (max-width: 500px) {
   .bar {
-    height: 180px;
+    height: 171px;
     padding: 15px 10px;
     flex-direction: column;
     gap: 10px;
@@ -456,11 +456,11 @@
   }
   
   .image {
-    height: 180px;
+    height: 171px;
   }
   
   .bar {
-    height: 160px;
+    height: 152px;
     padding: 10px 5px;
     flex-direction: column;
     gap: 8px;
@@ -491,11 +491,11 @@
   }
   
   .image {
-    height: 160px;
+    height: 152px;
   }
   
   .bar {
-    height: 180px;
+    height: 171px;
     padding: 10px 5px;
     flex-direction: column;
     gap: 6px;
@@ -526,11 +526,11 @@
   }
   
   .image {
-    height: 150px;
+    height: 142px;
   }
   
   .bar {
-    height: 190px;
+    height: 180px;
     padding: 10px 3px;
     flex-direction: column;
     gap: 5px;
@@ -561,11 +561,11 @@
   }
   
   .image {
-    height: 120px;
+    height: 114px;
   }
   
   .bar {
-    height: 200px;
+    height: 190px;
     padding: 10px 2px;
     flex-direction: column;
     gap: 4px;
@@ -603,11 +603,11 @@
   }
   
   .image {
-    height: 100px;
+    height: 95px;
   }
   
   .bar {
-    height: 220px;
+    height: 209px;
     padding: 8px 2px;
     flex-direction: column;
     gap: 3px;
