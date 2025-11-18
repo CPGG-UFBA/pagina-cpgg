@@ -99,12 +99,6 @@ export function Middle() {
     '../../../../components/Figures/news3.png'
   ]
 
-  // Debug logs
-  useEffect(() => {
-    console.log('Window dimensions:', window.innerWidth, 'x', window.innerHeight);
-    console.log('Text element should be visible:', window.innerWidth <= 500);
-  }, []);
-
   if (loading) {
     return <div className={styles.loading}>Carregando notícias...</div>
   }
@@ -114,30 +108,6 @@ export function Middle() {
 
   return (
     <>
-      {/* Debug indicator - remove after testing */}
-      <div style={{
-        position: 'fixed',
-        top: '10px',
-        right: '10px',
-        background: 'red',
-        color: 'white',
-        padding: '5px 10px',
-        zIndex: 9999,
-        fontSize: '12px'
-      }}>
-        {window.innerWidth}px x {window.innerHeight}px
-      </div>
-      
-      <div className={styles.static}>
-        <strong>Earth</strong>
-        <h1>is our Goal</h1>
-        <div className={styles.enjoy}>
-          <h1>Enjoy our best solutions for </h1>
-          <strong>scientific</strong>
-          <h1>and trade proposals</h1>
-        </div>
-      </div>
-      
       <div className={styles.carouselContainer}>
         {currentArticle && (
           <a href={getNewsRoute(currentArticle.news_position)} className={styles.newsLink}>
@@ -199,6 +169,16 @@ export function Middle() {
             </div>
           </>
         )}
+      </div>
+
+      <div className={styles.static}>
+        <strong>Earth</strong>
+        <h1>is our Goal</h1>
+        <div className={styles.enjoy}>
+          <h1>Enjoy our best solutions for </h1>
+          <strong>scientific</strong>
+          <h1>and trade proposals</h1>
+        </div>
       </div>
     </>
   )
