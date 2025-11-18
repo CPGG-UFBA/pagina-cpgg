@@ -710,3 +710,29 @@ nav ul li:hover .submenu2 ul li a {
     z-index: 99998;
   }
 }
+
+/* Reduce submenu width by half for resolutions 500x980px and below */
+@media (max-width: 500px) and (max-height: 980px) {
+  nav ul li:hover .submenu1 {
+    min-width: 80px !important;
+    width: 85px !important;
+    max-width: 85px !important;
+  }
+  
+  nav ul li:hover .submenu1 ul li {
+    width: 85px !important;
+  }
+  
+  .submenu1 {
+    min-width: 80px !important;
+  }
+  
+  .hoversub:hover .submenu2 {
+    min-width: 95px !important;
+    width: 95px !important;
+  }
+  
+  .submenu2 {
+    min-width: 95px !important;
+  }
+}
