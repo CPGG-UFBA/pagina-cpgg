@@ -36,3 +36,15 @@
     padding: 2px 5px;
   }
 }
+
+/* Resoluções 500x980px para baixo - mover para o header */
+@media (max-width: 500px) and (max-height: 980px) {
+  .counter {
+    top: 35px;
+    bottom: auto;
+    left: 10px;
+    font-size: 7px;
+    padding: 3px 6px;
+    z-index: 100005;
+  }
+}
