@@ -416,8 +416,26 @@
 }
 
 @media (max-width: 500px) and (max-height: 980px) {
+  .static {
+    display: block !important;
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.2;
+    transform: none !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    order: 1 !important;
+  }
+  
+  .static > strong {
+    font-size: 48px !important;
+  }
+  
   .carouselContainer {
     transform: translateY(80px);
+    order: 2 !important;
   }
   
   .newsCard {
