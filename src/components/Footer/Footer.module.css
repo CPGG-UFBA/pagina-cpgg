@@ -413,7 +413,7 @@
   }
   
   .bar {
-    height: 220px;
+    height: 280px;
     padding: 15px 10px;
     flex-direction: column;
     gap: 10px;
@@ -424,10 +424,11 @@
   .bar nav {
     flex-wrap: wrap;
     justify-content: center;
-    align-content: center;
+    align-content: flex-start;
     align-items: center;
     gap: 8px;
     width: 100%;
+    padding-top: 10px;
   }
   
   .footer nav a:first-child,
@@ -440,11 +441,13 @@
     text-align: center;
     justify-content: center;
     min-width: fit-content;
+    font-size: 9px;
   }
   
   .copyright {
     font-size: 9px;
     text-align: center;
+    margin-top: 20px;
   }
 }
 
