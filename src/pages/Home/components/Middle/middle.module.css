@@ -488,7 +488,7 @@
   }
   
   .carouselContainer {
-    transform: translateY(-100px);
+    transform: translateY(-200px);
     order: 2 !important;
     margin-top: 20px !important;
   }
