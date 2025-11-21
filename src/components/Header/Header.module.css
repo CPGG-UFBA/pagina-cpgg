@@ -183,6 +183,11 @@ nav ul li:hover .submenu1 {
   max-width: calc(100vw - 20px) !important;
 }
 
+/* Extra safety: class-only selector to work with CSS Modules */
+.submenu1Open {
+  display: block !important;
+}
+
 nav ul li:hover .submenu1 ul {
   display: block;
   padding: 0;
@@ -237,6 +242,11 @@ nav ul li:hover .submenu1 ul li:hover a {
   width: fit-content !important;
   min-width: 190px !important;
   z-index: 100006 !important;
+}
+
+/* Extra safety: class-only selector to work with CSS Modules */
+.submenu2Open {
+  display: block !important;
 }
 
 .submenu2Personnel {
