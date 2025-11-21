@@ -167,6 +167,22 @@ nav ul li:hover .submenu1 {
   max-width: calc(100vw - 20px);
 }
 
+/* Ensure submenu opens on click (submenu1Open) for all resolutions, including 390x844 and below */
+.submenu1.submenu1Open {
+  display: block !important;
+  position: absolute !important;
+  background-color: #592cbb !important;
+  margin-top: 10px !important;
+  margin-left: -20px !important;
+  font-size: 16px !important;
+  z-index: 100005 !important;
+  width: fit-content !important;
+  min-width: 160px !important;
+  right: auto !important;
+  left: 0 !important;
+  max-width: calc(100vw - 20px) !important;
+}
+
 nav ul li:hover .submenu1 ul {
   display: block;
   padding: 0;
@@ -208,6 +224,19 @@ nav ul li:hover .submenu1 ul li:hover a {
   width: fit-content;
   min-width: 190px;
   z-index: 100001;
+}
+
+/* Ensure second-level submenu opens on click (submenu2Open) for all resolutions */
+.hoversub .submenu2.submenu2Open {
+  display: block !important;
+  position: absolute !important;
+  top: 0 !important;
+  right: 100% !important;
+  margin: 0 !important;
+  background-color: #592cbb !important;
+  width: fit-content !important;
+  min-width: 190px !important;
+  z-index: 100006 !important;
 }
 
 .submenu2Personnel {
