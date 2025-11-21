@@ -155,10 +155,10 @@ nav ul li a {
 nav ul li:hover .submenu1 {
   display: block;
   position: absolute;
-  background-color: #ffffff;
+  background-color: #592cbb;
   margin-top: 10px;
   margin-left: -20px;
-  font-size: 14px;
+  font-size: 16px;
   z-index: 100000;
   width: fit-content;
   min-width: 160px;
@@ -171,83 +171,16 @@ nav ul li:hover .submenu1 {
 .submenu1.submenu1Open {
   display: block !important;
   position: absolute !important;
-  background-color: #ffffff !important;
+  background-color: #592cbb !important;
   margin-top: 10px !important;
   margin-left: -20px !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   z-index: 100005 !important;
   width: fit-content !important;
   min-width: 160px !important;
   right: auto !important;
   left: 0 !important;
   max-width: calc(100vw - 20px) !important;
-}
-
-/* Mobile menu styles */
-.navLinkButton {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  padding: 10px 15px;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-}
-
-.mobileSubmenuContainer {
-  background-color: #ffffff;
-  padding: 10px;
-  margin-top: 8px;
-  border-radius: 4px;
-}
-
-.mobileSubmenuContainer ul {
-  display: block !important;
-  padding: 0;
-  margin: 0;
-}
-
-.mobileSubmenuContainer ul li {
-  width: 100%;
-  padding: 8px 0;
-  margin: 0;
-}
-
-.mobileSubmenuContainer a {
-  color: #000000;
-  padding: 8px 12px;
-  display: block;
-  font-size: 14px;
-}
-
-.subNavLinkButton {
-  background: none;
-  border: none;
-  color: #000000;
-  font-size: 14px;
-  padding: 8px 12px;
-  cursor: pointer;
-  text-align: left;
-  width: 100%;
-  font-weight: 500;
-}
-
-.mobileNestedSubmenu {
-  background-color: #f5f5f5;
-  padding: 8px;
-  margin-top: 8px;
-  border-radius: 4px;
-}
-
-.mobileNestedSubmenu li {
-  padding: 4px 0;
-}
-
-.mobileNestedSubmenu a {
-  color: #000000;
-  padding: 6px 12px;
-  font-size: 13px;
 }
 
 /* Extra safety: class-only selector to work with CSS Modules */
@@ -292,7 +225,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   top: 0;
   right: 100%;
   margin: 0;
-  background-color: #ffffff;
+  background-color: #592cbb;
   width: fit-content;
   min-width: 190px;
   z-index: 100001;
@@ -305,7 +238,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   top: 0 !important;
   right: 100% !important;
   margin: 0 !important;
-  background-color: #ffffff !important;
+  background-color: #592cbb !important;
   width: fit-content !important;
   min-width: 190px !important;
   z-index: 100006 !important;
@@ -331,19 +264,19 @@ nav ul li:hover .submenu2 ul li {
   padding: 0;
   margin: 0;
 }
-/* Ensure default background of submenu2 items is solid white */
+/* Ensure default background of submenu2 items is solid purple */
 .submenu2 ul li {
-  background-color: #ffffff;
+  background-color: #592cbb;
 }
 
-/* Default state: anchors inside submenu2 are white background with dark text */
+/* Default state: anchors inside submenu2 are purple with white text */
 .submenu2 li a {
   display: block;
   width: 100%;
   padding: 12px 15px;
   margin: 0;
-  background-color: #ffffff !important;
-  color: #000000 !important;
+  background-color: #592cbb !important;
+  color: #fff !important;
 }
 
 /* Keep smooth transition on hover */
