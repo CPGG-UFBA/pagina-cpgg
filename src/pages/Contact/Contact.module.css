@@ -176,3 +176,12 @@
     transform: translateY(-100px);
   }
 }
+
+/* Move phone, address and building up 40px for resolutions 390x844 and below */
+@media (max-width: 390px) and (max-height: 844px) {
+  .contact b,
+  .contact .address,
+  .contact .building {
+    transform: translateY(-40px);
+  }
+}
