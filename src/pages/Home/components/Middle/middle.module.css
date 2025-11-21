@@ -504,6 +504,21 @@
   .imageWrapper {
     height: 200px;
   }
+  
+  .playPauseButton {
+    padding: 4px 9px;
+    font-size: 9.6px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .dotActive {
+    width: 9.6px;
+    height: 9.6px;
+  }
 }
 
 @media (orientation: portrait) and (max-width: 414px) {
