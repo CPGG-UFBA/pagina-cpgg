@@ -16,20 +16,20 @@ export function Header() {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   const toggleMenu = (menu: string) => {
-    console.log('🔵 MENU CLICKED:', menu, 'Current:', openMenu);
+    console.log('toggleMenu', { menu, openMenuBefore: openMenu });
     setOpenMenu((prev) => {
       const next = prev === menu ? null : menu;
-      console.log('🔵 MENU NEW STATE:', next);
+      console.log('toggleMenu next', next);
       return next;
     });
     setOpenSubmenu(null);
   };
 
   const toggleSubmenu = (submenu: string) => {
-    console.log('🟢 SUBMENU CLICKED:', submenu, 'Current:', openSubmenu);
+    console.log('toggleSubmenu', { submenu, openSubmenuBefore: openSubmenu });
     setOpenSubmenu((prev) => {
       const next = prev === submenu ? null : submenu;
-      console.log('🟢 SUBMENU NEW STATE:', next);
+      console.log('toggleSubmenu next', next);
       return next;
     });
   };
@@ -71,28 +71,51 @@ export function Header() {
             </NavLink>
           </li>
           <li>
-            <button
-              type='button'
-              className={styles.navLinkButton}
-              onClick={() => toggleMenu('about')}
+            <a 
+              href='#' 
+              className={styles.navLink}
+              onClick={(e) => { e.preventDefault(); toggleMenu('about'); }}
             >
               {t('nav.about')}
-            </button>
+            </a>
             
             <div
               className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}
+              style={
+                isMobile
+                  ? {
+                      display: openMenu === 'about' ? 'block' : 'none',
+                      position: 'fixed',
+                      top: 130,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: '#592cbb',
+                      zIndex: 200000,
+                    }
+                  : undefined
+              }
             >
               <ul>
                 <li className={styles.hoversub}>
-                  <button
-                    type='button'
-                    className={styles.subNavLinkButton}
-                    onClick={() => toggleSubmenu('institution')}
+                  <a
+                    href='#'
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSubmenu('institution');
+                    }}
                   >
                     {t('nav.institution')}
-                  </button>
+                  </a>
                   <div
                     className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
+                    style={
+                      isMobile
+                        ? {
+                            display: openSubmenu === 'institution' ? 'block' : 'none',
+                            marginTop: 8,
+                          }
+                        : undefined
+                    }
                   >
                     <ul>
                       <li>
@@ -120,15 +143,18 @@ export function Header() {
                 </li>
 
                 <li className={styles.hoversub}>
-                  <button
-                    type='button'
-                    className={styles.subNavLinkButton}
-                    onClick={() => toggleSubmenu('personnel')}
+                  <a
+                    href='#'
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSubmenu('personnel');
+                    }}
                   >
                     {t('nav.personnel')}
-                  </button>
+                  </a>
                   <div
                     className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}
+                    style={isMobile ? { display: openSubmenu === 'personnel' ? 'block' : 'none' } : undefined}
                   >
                     <ul>
                       <li>
@@ -173,16 +199,29 @@ export function Header() {
             </div>
           </li>
           <li>
-            <button
-              type='button'
-              className={styles.navLinkButton}
-              onClick={() => toggleMenu('requests')}
+            <a 
+              href='#' 
+              className={styles.navLink}
+              onClick={(e) => { e.preventDefault(); toggleMenu('requests'); }}
             >
               Solicitações
-            </button>
+            </a>
             
             <div
               className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}
+              style={
+                isMobile
+                  ? {
+                      display: openMenu === 'requests' ? 'block' : 'none',
+                      position: 'fixed',
+                      top: 130,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: '#592cbb',
+                      zIndex: 200000,
+                    }
+                  : undefined
+              }
             >
               <ul>
                 <li>
