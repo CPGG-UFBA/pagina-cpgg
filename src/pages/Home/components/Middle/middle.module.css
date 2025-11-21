@@ -494,15 +494,15 @@
   }
   
   .newsCard {
-    transform: scale(0.5);
+    transform: scale(0.55);
   }
   
   .newsCard:hover {
-    transform: scale(0.5) translateY(-4px);
+    transform: scale(0.55) translateY(-4px);
   }
   
   .imageWrapper {
-    height: 200px;
+    height: 220px;
   }
   
   .playPauseButton {
