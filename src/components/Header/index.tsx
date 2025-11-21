@@ -71,7 +71,19 @@ export function Header() {
             
             <div
               className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}
-              style={isMobile ? { display: openMenu === 'about' ? 'block' : 'none' } : undefined}
+              style={
+                isMobile
+                  ? {
+                      display: openMenu === 'about' ? 'block' : 'none',
+                      position: 'fixed',
+                      top: 130,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: '#592cbb',
+                      zIndex: 200000,
+                    }
+                  : undefined
+              }
             >
               <ul>
                 <li className={styles.hoversub}>
@@ -86,7 +98,14 @@ export function Header() {
                   </a>
                   <div
                     className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
-                    style={isMobile ? { display: openSubmenu === 'institution' ? 'block' : 'none' } : undefined}
+                    style={
+                      isMobile
+                        ? {
+                            display: openSubmenu === 'institution' ? 'block' : 'none',
+                            marginTop: 8,
+                          }
+                        : undefined
+                    }
                   >
                     <ul>
                       <li>
@@ -178,7 +197,22 @@ export function Header() {
               Solicitações
             </a>
             
-            <div className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}>
+            <div
+              className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}
+              style={
+                isMobile
+                  ? {
+                      display: openMenu === 'requests' ? 'block' : 'none',
+                      position: 'fixed',
+                      top: 130,
+                      left: 0,
+                      right: 0,
+                      backgroundColor: '#592cbb',
+                      zIndex: 200000,
+                    }
+                  : undefined
+              }
+            >
               <ul>
                 <li>
                   <NavLink to='/spaces' className={styles.navLink}>
