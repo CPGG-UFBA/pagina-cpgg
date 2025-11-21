@@ -1,12 +1,30 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import styles from "./Header.module.css";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageSelector } from '@/components/LanguageSelector';
 import { GlobalEarth } from '@/components/GlobalEarth';
+import { useIsMobile } from '@/hooks/use-mobile';
+
 const logocpgg = "https://imgur.com/6HRTVzo.png";
 const logoufba = "https://imgur.com/x7mquv7.png";
+
 export function Header() {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
+
+  const toggleMenu = (menu: string) => {
+    if (!isMobile) return;
+    setOpenMenu(openMenu === menu ? null : menu);
+    setOpenSubmenu(null);
+  };
+
+  const toggleSubmenu = (submenu: string) => {
+    if (!isMobile) return;
+    setOpenSubmenu(openSubmenu === submenu ? null : submenu);
+  };
   
   return (
     <header className={styles.header}>
@@ -46,13 +64,24 @@ export function Header() {
             </NavLink>
           </li>
           <li>
-            <a href='#' className={styles.navLink}>{t('nav.about')}</a>
+            <a 
+              href='#' 
+              className={styles.navLink}
+              onClick={(e) => { e.preventDefault(); toggleMenu('about'); }}
+            >
+              {t('nav.about')}
+            </a>
             
-            <div className={styles.submenu1}>
+            <div className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}>
               <ul>
                 <li className={styles.hoversub}> 
-                  <a href='#'>{t('nav.institution')}</a>
-                  <div className={styles.submenu2}>
+                  <a 
+                    href='#'
+                    onClick={(e) => { e.preventDefault(); toggleSubmenu('institution'); }}
+                  >
+                    {t('nav.institution')}
+                  </a>
+                  <div className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}>
                     <ul>
                       <li>
                         <NavLink to='/cpgg' className={styles.navLink}>
@@ -79,8 +108,13 @@ export function Header() {
                 </li>
 
                 <li className={styles.hoversub}> 
-                  <a href='#'>{t('nav.personnel')}</a>
-                  <div className={`${styles.submenu2} ${styles.submenu2Personnel}`}>
+                  <a 
+                    href='#'
+                    onClick={(e) => { e.preventDefault(); toggleSubmenu('personnel'); }}
+                  >
+                    {t('nav.personnel')}
+                  </a>
+                  <div className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}>
                     <ul>
                       <li>
                         <NavLink to='/Coordination' className={styles.navLink}>
@@ -124,9 +158,15 @@ export function Header() {
             </div>
           </li>
           <li>
-            <a href='#' className={styles.navLink}>Solicitações</a>
+            <a 
+              href='#' 
+              className={styles.navLink}
+              onClick={(e) => { e.preventDefault(); toggleMenu('requests'); }}
+            >
+              Solicitações
+            </a>
             
-            <div className={styles.submenu1}>
+            <div className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}>
               <ul>
                 <li>
                   <NavLink to='/spaces' className={styles.navLink}>
