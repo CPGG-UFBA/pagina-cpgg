@@ -432,7 +432,6 @@
 
 @media (max-width: 500px) {
   .carouselContainer {
-    margin-top: -150px !important;
     width: calc(100% + 40px) !important;
     margin-left: -20px !important;
     margin-right: -20px !important;
@@ -581,23 +580,47 @@
   }
 }
 
-/* Portrait orientation for screens below 835px - only news */
+/* Portrait orientation for screens below 835px - keep text above news */
 @media (orientation: portrait) and (max-width: 834px) {
   .middle {
-    justify-content: center;
-    align-items: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
     padding-top: 120px;
   }
   
+  .static {
+    display: block !important;
+    order: 1 !important;
+    font-size: 22px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    transform: none !important;
+    width: 100% !important;
+    line-height: 0.8 !important;
+    margin-bottom: 25px !important;
+  }
+  
+  .static > strong {
+    font-size: 44px !important;
+  }
+  
+  .enjoy {
+    font-size: 17px !important;
+    padding-top: 22px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .enjoy > strong {
+    font-size: 17px !important;
+  }
+  
   .carouselContainer {
+    order: 2 !important;
     width: 90%;
     max-width: 700px;
     margin: 0 auto;
     margin-top: 0;
-  }
-  
-  .static {
-    display: none !important;
   }
   
   .staticFigure {
