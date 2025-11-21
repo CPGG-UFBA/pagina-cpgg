@@ -747,9 +747,9 @@ nav ul li:hover .submenu2 ul li a {
     transform: translateX(-5px) !important;
   }
   
-  nav {
+  .header nav {
     position: absolute !important;
-    top: 110px !important;
+    top: 90px !important; /* was 110px */
     left: 0 !important;
     right: 0 !important;
     width: 100% !important;
@@ -757,7 +757,7 @@ nav ul li:hover .submenu2 ul li a {
     padding: 0 5px !important;
   }
   
-  nav ul {
+  .header nav ul {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
@@ -767,7 +767,7 @@ nav ul li:hover .submenu2 ul li a {
     overflow-x: auto !important;
   }
   
-  nav ul li {
+  .header nav ul li {
     font-size: 8px !important;
     min-width: auto !important;
     padding: 4px 6px !important;
@@ -775,7 +775,7 @@ nav ul li:hover .submenu2 ul li a {
     white-space: nowrap !important;
   }
   
-  nav ul li a {
+  .header nav ul li a {
     padding: 6px 8px !important;
   }
 }
