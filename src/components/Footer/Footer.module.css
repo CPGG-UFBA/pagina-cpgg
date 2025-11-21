@@ -23,7 +23,7 @@
 }
 
 .bar {
-  background: #00249c;
+  background: transparent;
   display: flex;
   height: 110px;
   width: 100%;
