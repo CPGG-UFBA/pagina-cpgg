@@ -524,27 +524,27 @@
   }
 
   .imageWrapper {
-    height: 140px;
+    height: 125px;
   }
 
   .newsContent {
-    padding: 0.75rem;
+    padding: 0.7rem;
   }
   
   .newsTitle {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .newsDescription {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
   }
   
   .newsCard {
-    transform: scale(0.68);
+    transform: scale(0.58);
   }
   
   .newsCard:hover {
-    transform: scale(0.68) translateY(-4px);
+    transform: scale(0.58) translateY(-4px);
   }
 }
 
