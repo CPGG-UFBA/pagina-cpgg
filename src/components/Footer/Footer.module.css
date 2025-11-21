@@ -651,6 +651,13 @@
   }
 }
 
+/* Transparent footer bar for small mobile: 390x844 and below */
+@media (max-width: 390px) and (max-height: 844px) {
+  .bar {
+    background: transparent !important;
+  }
+}
+
 /* Reduce button/link width by half for resolutions 500x980px and below */
 @media (max-width: 500px) and (max-height: 980px) {
   .footer nav a:first-child,
