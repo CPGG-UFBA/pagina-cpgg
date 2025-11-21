@@ -777,7 +777,7 @@ nav ul li:hover .submenu2 ul li a {
 }
 
 /* 390x840 and similar small-phone resolutions: move institution titles 50px down and 5px left */
-@media (max-width: 390px) and (max-height: 844px) {
+@media (max-width: 390px) {
   .block1 {
     transform: translate(-5px, -10px) !important;
   }
