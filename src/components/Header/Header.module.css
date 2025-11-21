@@ -854,7 +854,7 @@ nav ul li:hover .submenu2 ul li a {
   .header nav ul li a {
     display: block !important;
     width: 100% !important;
-    padding: 7px 12px !important;
+    padding: 7px 11px !important;
   }
   
   /* Submenus abrem logo abaixo de seus botões */
@@ -864,6 +864,7 @@ nav ul li:hover .submenu2 ul li a {
     left: 0 !important;
     transform: translateX(5px) !important;
     margin-top: 0 !important;
+    min-width: 152px !important;
   }
   
   .submenu1.submenu1Open {
@@ -874,7 +875,7 @@ nav ul li:hover .submenu2 ul li a {
     transform: translateX(5px) !important;
     background-color: #592cbb !important;
     z-index: 100005 !important;
-    min-width: 160px !important;
+    min-width: 152px !important;
     margin-top: 0 !important;
   }
   
