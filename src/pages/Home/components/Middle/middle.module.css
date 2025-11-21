@@ -349,7 +349,7 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding-top: 160px !important;
+    padding-top: 200px !important;
     padding-bottom: 100px !important;
   }
   
@@ -590,8 +590,8 @@
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
-    padding-top: 160px !important;
-    padding-bottom: 100px !important;
+    padding-top: 210px !important;
+    padding-bottom: 110px !important;
   }
   
   .static {
