@@ -548,4 +548,17 @@
   .newsCard:hover {
     transform: scale(0.58) translateY(-4px);
   }
+  
+  .navButton {
+    width: 29px;
+    height: 29px;
+  }
+  
+  .navButtonLeft {
+    left: 8px;
+  }
+  
+  .navButtonRight {
+    right: 8px;
+  }
 }
