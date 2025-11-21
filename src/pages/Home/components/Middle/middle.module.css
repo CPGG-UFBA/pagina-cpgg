@@ -679,7 +679,7 @@
 @media (orientation: portrait) and (max-width: 414px) {
   .imageWrapper {
     height: 315px;
-    transform: scale(0.9);
+    transform: scale(0.8);
     transform-origin: center top;
   }
 }
