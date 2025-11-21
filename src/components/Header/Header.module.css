@@ -898,11 +898,11 @@ nav ul li:hover .submenu2 ul li a {
   
   /* Move o submenu2 (Instituição) para baixo */
   .header nav ul li .submenu1 .hoversub .submenu2 {
-    transform: translate(-11px, 30px) !important;
+    transform: translate(-16px, 30px) !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2.submenu2Open {
-    transform: translate(-11px, 30px) !important;
+    transform: translate(-16px, 30px) !important;
   }
   
   /* Remove hover branco dos submenus */
