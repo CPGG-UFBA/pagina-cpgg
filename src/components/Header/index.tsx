@@ -72,16 +72,25 @@ export function Header() {
               {t('nav.about')}
             </a>
             
-            <div className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}>
+            <div
+              className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}
+              style={isMobile ? { display: openMenu === 'about' ? 'block' : 'none' } : undefined}
+            >
               <ul>
-                <li className={styles.hoversub}> 
-                  <a 
+                <li className={styles.hoversub}>
+                  <a
                     href='#'
-                    onClick={(e) => { e.preventDefault(); toggleSubmenu('institution'); }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSubmenu('institution');
+                    }}
                   >
                     {t('nav.institution')}
                   </a>
-                  <div className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}>
+                  <div
+                    className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
+                    style={isMobile ? { display: openSubmenu === 'institution' ? 'block' : 'none' } : undefined}
+                  >
                     <ul>
                       <li>
                         <NavLink to='/cpgg' className={styles.navLink}>
@@ -104,17 +113,23 @@ export function Header() {
                         </NavLink>
                       </li>
                     </ul>
-                  </div> 
+                  </div>
                 </li>
 
-                <li className={styles.hoversub}> 
-                  <a 
+                <li className={styles.hoversub}>
+                  <a
                     href='#'
-                    onClick={(e) => { e.preventDefault(); toggleSubmenu('personnel'); }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleSubmenu('personnel');
+                    }}
                   >
                     {t('nav.personnel')}
                   </a>
-                  <div className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}>
+                  <div
+                    className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}
+                    style={isMobile ? { display: openSubmenu === 'personnel' ? 'block' : 'none' } : undefined}
+                  >
                     <ul>
                       <li>
                         <NavLink to='/Coordination' className={styles.navLink}>
@@ -132,7 +147,7 @@ export function Header() {
                         </NavLink>
                       </li>
                     </ul>
-                  </div> 
+                  </div>
                 </li>
                 <li>
                   <NavLink to='/research-projects' className={styles.navLink}>
