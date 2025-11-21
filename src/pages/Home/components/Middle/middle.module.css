@@ -519,6 +519,10 @@
     width: 6px;
     height: 6px;
   }
+  
+  .controls {
+    bottom: 220px;
+  }
 }
 
 @media (orientation: portrait) and (max-width: 414px) {
