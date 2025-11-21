@@ -18,6 +18,9 @@ export function Header() {
     setOpenMenu((prev) => {
       const next = prev === menu ? null : menu;
       console.log('toggleMenu next', next);
+      if (next) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
       return next;
     });
     setOpenSubmenu(null);
