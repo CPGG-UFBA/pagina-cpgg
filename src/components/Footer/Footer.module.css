@@ -547,6 +547,13 @@
   }
 }
 
+/* 390x840 specific adjustment */
+@media (min-width: 390px) and (max-width: 390px) and (min-height: 840px) and (max-height: 844px) {
+  .copyright {
+    transform: translate(-50px, 50px);
+  }
+}
+
 /* 320px - 374px */
 @media (min-width: 320px) and (max-width: 374px) {
   .footer nav a:first-child,
