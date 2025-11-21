@@ -343,22 +343,46 @@
   }
 }
 
-/* 834px and below - only news, remove text */
+/* 834px and below - keep text above news */
 @media (max-width: 834px) {
   .middle {
-    justify-content: center;
-    align-items: center;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+  
+  .static {
+    display: block !important;
+    order: 1 !important;
+    font-size: 24px !important;
+    margin: 0 !important;
+    text-align: center !important;
+    transform: none !important;
+    width: 100% !important;
+    line-height: 0.8 !important;
+    margin-bottom: 30px !important;
+  }
+  
+  .static > strong {
+    font-size: 48px !important;
+  }
+  
+  .enjoy {
+    font-size: 18px !important;
+    padding-top: 25px !important;
+    line-height: 1.4 !important;
+  }
+  
+  .enjoy > strong {
+    font-size: 18px !important;
   }
   
   .carouselContainer {
+    order: 2 !important;
     width: 90%;
     max-width: 600px;
     margin: 0 auto;
     margin-top: 0;
-  }
-  
-  .static {
-    display: none !important;
   }
   
   .staticFigure {
