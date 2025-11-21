@@ -43,6 +43,7 @@
   justify-content: space-evenly;
   flex: 1;
   gap: 10px;
+  margin-bottom: 30px;
 }
 
 .copyright {
