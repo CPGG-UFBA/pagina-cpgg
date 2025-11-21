@@ -13,9 +13,7 @@
 
 .image {
   width: 100%;
-  /* removida a figura de ondas para evitar faixa lilás */
-  background-image: none;
-  background-color: #001b5e;
+  background-image: url('../../assets/footer-figure.png');
   background-size: cover;
   background-repeat: no-repeat;
   height: 530px;
@@ -25,7 +23,7 @@
 }
 
 .bar {
-  background: #001b5e;
+  background: #00249c;
   display: flex;
   height: 110px;
   width: 100%;
@@ -411,11 +409,6 @@
 
 /* 500px and below - two lines layout */
 @media (max-width: 500px) {
-  .image {
-    background-image: none;
-    background-color: #001b5e;
-  }
-
   .bar {
     height: 220px;
     padding: 15px 10px;
@@ -553,6 +546,13 @@
   .copyright {
     font-size: 8px;
     text-align: center;
+  }
+}
+
+/* 390x840 specific adjustment */
+@media (min-width: 390px) and (max-width: 390px) and (min-height: 840px) and (max-height: 844px) {
+  .copyright {
+    transform: translate(-50px, 50px);
   }
 }
 
