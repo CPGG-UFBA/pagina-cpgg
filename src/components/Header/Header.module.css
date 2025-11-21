@@ -878,11 +878,20 @@ nav ul li:hover .submenu2 ul li a {
     margin-top: 0 !important;
   }
   
-  .submenu1 ul li {
+  /* Move os itens do submenu para a esquerda */
+  .header nav ul li .submenu1 ul li {
     transform: translateX(-110px) !important;
   }
   
-  .submenu1Open ul li {
+  .header nav ul li .submenu1.submenu1Open ul li {
+    transform: translateX(-110px) !important;
+  }
+  
+  .header nav ul li .submenu1 ul li a {
+    transform: translateX(-110px) !important;
+  }
+  
+  .header nav ul li .submenu1.submenu1Open ul li a {
     transform: translateX(-110px) !important;
   }
 }
