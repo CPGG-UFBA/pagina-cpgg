@@ -670,3 +670,14 @@
     margin-top: 10px;
   }
 }
+
+/* Move footer links 150px down for resolutions >= 800x793 */
+@media (min-width: 800px) and (min-height: 793px) {
+  .bar nav {
+    transform: translateY(25px);
+  }
+  
+  .copyright {
+    transform: translateY(25px);
+  }
+}
