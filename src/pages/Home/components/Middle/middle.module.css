@@ -12,18 +12,20 @@
   position: relative;
 }
 
-/* Force no scroll on Home page */
-:global(.Container:has(.middle)) {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
-
-:global(.Container:has(.middle) main) {
-  overflow: hidden !important;
-  overflow-y: hidden !important;
-  padding-bottom: 0 !important;
-  height: auto !important;
-  flex: none !important;
+/* Force no scroll on Home page - desktop only */
+@media (min-width: 1025px) {
+  :global(.Container:has(.middle)) {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
+  
+  :global(.Container:has(.middle) main) {
+    overflow: hidden !important;
+    overflow-y: hidden !important;
+    padding-bottom: 0 !important;
+    height: auto !important;
+    flex: none !important;
+  }
 }
 
 .loading {
