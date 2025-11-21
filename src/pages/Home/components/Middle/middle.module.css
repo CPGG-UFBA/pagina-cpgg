@@ -538,6 +538,14 @@
   .newsDescription {
     font-size: 0.8rem;
   }
+  
+  .newsCard {
+    transform: scale(0.85);
+  }
+  
+  .newsCard:hover {
+    transform: scale(0.85) translateY(-4px);
+  }
 }
 
 @media (max-width: 375px) {
