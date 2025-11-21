@@ -549,8 +549,16 @@
   }
 }
 
-/* 390x840 specific adjustment */
+/* 390x840 specific adjustment and hide lilac polygon on very small screens */
 @media (min-width: 390px) and (max-width: 390px) and (min-height: 840px) and (max-height: 844px) {
+  .image {
+    display: none;
+  }
+  
+  .bar {
+    margin-top: 0;
+  }
+  
   .copyright {
     transform: translate(-50px, 50px);
   }
