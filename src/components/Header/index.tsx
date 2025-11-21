@@ -81,6 +81,7 @@ export function Header() {
             
             <div
               className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}
+              style={openMenu === 'about' ? { display: 'block' } : undefined}
             >
               <ul>
                 <li className={styles.hoversub}>
@@ -93,6 +94,7 @@ export function Header() {
                   </button>
                   <div
                     className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
+                    style={openSubmenu === 'institution' ? { display: 'block' } : undefined}
                   >
                     <ul>
                       <li>
@@ -129,6 +131,7 @@ export function Header() {
                   </button>
                   <div
                     className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}
+                    style={openSubmenu === 'personnel' ? { display: 'block' } : undefined}
                   >
                     <ul>
                       <li>
@@ -183,6 +186,7 @@ export function Header() {
             
             <div
               className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}
+              style={openMenu === 'requests' ? { display: 'block' } : undefined}
             >
               <ul>
                 <li>
