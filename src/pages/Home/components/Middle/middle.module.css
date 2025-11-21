@@ -506,18 +506,18 @@
   }
   
   .playPauseButton {
-    padding: 4px 9px;
-    font-size: 9.6px;
+    padding: 3px 8px;
+    font-size: 8px;
   }
   
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
   
   .dotActive {
-    width: 9.6px;
-    height: 9.6px;
+    width: 8px;
+    height: 8px;
   }
 }
 
