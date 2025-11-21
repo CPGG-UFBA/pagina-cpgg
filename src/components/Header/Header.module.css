@@ -744,7 +744,7 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   .block1 h1:first-child {
-    transform: translateX(-5px) !important;
+    transform: translateX(-15px) !important;
   }
 
   .logoufba {
