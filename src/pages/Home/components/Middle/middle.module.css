@@ -616,7 +616,7 @@
     font-size: 22px !important;
     margin: 0 !important;
     text-align: center !important;
-    transform: none !important;
+    transform: translateY(-40px) !important;
     width: 100% !important;
     line-height: 0.8 !important;
     margin-bottom: 25px !important;
