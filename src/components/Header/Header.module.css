@@ -792,16 +792,19 @@ nav ul li:hover .submenu2 ul li a {
     padding: 6px 8px !important;
   }
 
-  /* Disable hover on mobile */
-  nav ul li:hover .submenu1:not(.submenu1Open) {
+  /* Mobile click functionality for submenus - override hover behavior completely */
+  /* Do NOT rely on :hover on small phones, only on the Open classes set via React */
+  nav ul li:hover .submenu1 {
+    /* prevent hover from changing visibility */
     display: none !important;
   }
 
-  .hoversub:hover .submenu2:not(.submenu2Open) {
+  .hoversub:hover .submenu2 {
+    /* prevent hover from changing visibility */
     display: none !important;
   }
 
-  /* Mobile click functionality for submenus */
+  /* When React adds the Open classes, force them to be visible */
   nav ul li .submenu1.submenu1Open {
     display: block !important;
     position: absolute !important;
