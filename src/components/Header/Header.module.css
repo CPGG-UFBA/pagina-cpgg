@@ -854,4 +854,25 @@ nav ul li:hover .submenu2 ul li a {
     width: 100% !important;
     padding: 8px 12px !important;
   }
+  
+  /* Submenus abrem logo abaixo de seus botões */
+  .submenu1 {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    margin-top: 0 !important;
+  }
+  
+  .submenu1.submenu1Open {
+    display: block !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    background-color: #592cbb !important;
+    z-index: 100005 !important;
+    min-width: 160px !important;
+    margin-top: 0 !important;
+  }
 }
