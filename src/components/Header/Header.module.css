@@ -833,6 +833,10 @@ nav ul li:hover .submenu2 ul li a {
     transform: translate(20px, -30px) !important;
   }
   
+  .header nav ul li:nth-child(2) {
+    transform: translate(40px, -50px) !important;
+  }
+  
   .header nav ul li a {
     display: block !important;
     width: 100% !important;
