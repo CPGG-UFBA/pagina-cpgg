@@ -71,28 +71,26 @@ export function Header() {
             </NavLink>
           </li>
           <li>
-            <a 
-              href='#' 
-              className={styles.navLink}
-              onClick={(e) => { e.preventDefault(); toggleMenu('about'); }}
+            <button
+              type='button'
+              className={styles.navLinkButton}
+              onClick={() => toggleMenu('about')}
             >
               {t('nav.about')}
-            </a>
+            </button>
             
             <div
               className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}
             >
               <ul>
                 <li className={styles.hoversub}>
-                  <a
-                    href='#'
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toggleSubmenu('institution');
-                    }}
+                  <button
+                    type='button'
+                    className={styles.subNavLinkButton}
+                    onClick={() => toggleSubmenu('institution')}
                   >
                     {t('nav.institution')}
-                  </a>
+                  </button>
                   <div
                     className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
                   >
@@ -122,15 +120,13 @@ export function Header() {
                 </li>
 
                 <li className={styles.hoversub}>
-                  <a
-                    href='#'
-                    onClick={(e) => {
-                      e.preventDefault();
-                      toggleSubmenu('personnel');
-                    }}
+                  <button
+                    type='button'
+                    className={styles.subNavLinkButton}
+                    onClick={() => toggleSubmenu('personnel')}
                   >
                     {t('nav.personnel')}
-                  </a>
+                  </button>
                   <div
                     className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}
                   >
@@ -177,13 +173,13 @@ export function Header() {
             </div>
           </li>
           <li>
-            <a 
-              href='#' 
-              className={styles.navLink}
-              onClick={(e) => { e.preventDefault(); toggleMenu('requests'); }}
+            <button
+              type='button'
+              className={styles.navLinkButton}
+              onClick={() => toggleMenu('requests')}
             >
               Solicitações
-            </a>
+            </button>
             
             <div
               className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}
