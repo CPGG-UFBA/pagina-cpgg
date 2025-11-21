@@ -746,6 +746,17 @@ nav ul li:hover .submenu2 ul li a {
   .block1 h1:first-child {
     transform: translateX(-5px) !important;
   }
+
+  .logoufba {
+    display: flex !important;
+    transform: translate(20px, -10px) !important;
+    position: relative !important;
+    z-index: 100001 !important;
+  }
+
+  .logoufba img {
+    height: 50px !important;
+  }
   
   .header nav {
     position: absolute !important;
