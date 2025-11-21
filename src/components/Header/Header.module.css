@@ -595,18 +595,15 @@ nav ul li:hover .submenu2 ul li a {
   }
 }
 
-/* AJUSTE ESPECÍFICO para resoluções ≤ 500x980px - simplificar layout para preservar menus em cascata */
+/* AJUSTE ESPECÍFICO para resoluções ≤ 500x980px - Mover itens do menu para esquerda e para cima */
 @media (max-width: 500px) and (max-height: 980px) {
   .header {
-    height: 160px;
+    height: 140px;
   }
 
   .header nav {
-    transform: none !important;
-    position: absolute !important;
-    top: 110px !important;
-    left: 0 !important;
-    right: 0 !important;
+    transform: translateY(40px) !important;
+    position: relative !important;
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
@@ -615,18 +612,18 @@ nav ul li:hover .submenu2 ul li a {
   .header nav ul {
     justify-content: center !important;
     display: flex !important;
-    transform: none !important;
+    transform: translateX(-200px) !important;
   }
 
   .block1 {
-    transform: none !important;
+    transform: translate(80px, -20px) !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-start !important;
   }
 
   .block1 h1 {
-    white-space: normal !important;
+    white-space: nowrap !important;
     display: block !important;
     margin: 0 !important;
     padding: 1px 0 !important;
@@ -634,12 +631,23 @@ nav ul li:hover .submenu2 ul li a {
     font-size: calc(clamp(8px, 0.9vw, 10px) + 2pt) !important;
   }
 
+  .block1 h1:nth-child(2),
+  .block1 h1:nth-child(3) {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    align-self: center !important;
+  }
+
+  .block1 h1:nth-child(1) {
+    transform: translateX(-45px) !important;
+  }
+
   .logoufba {
-    transform: none !important;
+    transform: translate(180px, -20px) !important;
   }
 
   .figure {
-    transform: none !important;
+    transform: translateY(-20px) !important;
   }
 }
 
