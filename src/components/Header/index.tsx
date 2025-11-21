@@ -16,16 +16,13 @@ export function Header() {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   const toggleMenu = (menu: string) => {
-    if (!isMobile) return;
     setOpenMenu(openMenu === menu ? null : menu);
     setOpenSubmenu(null);
   };
 
   const toggleSubmenu = (submenu: string) => {
-    if (!isMobile) return;
     setOpenSubmenu(openSubmenu === submenu ? null : submenu);
   };
-  
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
