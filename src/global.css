@@ -85,17 +85,15 @@ body {
   padding: 0 !important;
 }
 
-/* Force no scroll on Home page - desktop only */
-@media (min-width: 1025px) {
-  body:has(main.middle) {
-    overflow: hidden !important;
-    height: 100vh !important;
-  }
-  
-  body:has(main.middle) #root {
-    overflow: hidden !important;
-    height: 100vh !important;
-  }
+/* Force no scroll on Home page */
+body:has(main.middle) {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+body:has(main.middle) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
 }
 
 /* Force no scroll on Sign page */
