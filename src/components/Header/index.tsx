@@ -16,12 +16,22 @@ export function Header() {
   const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   const toggleMenu = (menu: string) => {
-    setOpenMenu(openMenu === menu ? null : menu);
+    console.log('toggleMenu', { menu, openMenuBefore: openMenu });
+    setOpenMenu((prev) => {
+      const next = prev === menu ? null : menu;
+      console.log('toggleMenu next', next);
+      return next;
+    });
     setOpenSubmenu(null);
   };
 
   const toggleSubmenu = (submenu: string) => {
-    setOpenSubmenu(openSubmenu === submenu ? null : submenu);
+    console.log('toggleSubmenu', { submenu, openSubmenuBefore: openSubmenu });
+    setOpenSubmenu((prev) => {
+      const next = prev === submenu ? null : submenu;
+      console.log('toggleSubmenu next', next);
+      return next;
+    });
   };
   return (
     <header className={styles.header}>
