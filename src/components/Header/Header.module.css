@@ -765,7 +765,7 @@ nav ul li:hover .submenu2 ul li a {
     align-items: center !important;
     gap: 2px !important;
     overflow-x: auto !important;
-    transform: translateX(20px) !important;
+    transform: translateX(10px) !important;
   }
   
   .header nav ul li {
