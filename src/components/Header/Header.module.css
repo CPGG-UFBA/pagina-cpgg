@@ -810,43 +810,44 @@ nav ul li:hover .submenu2 ul li a {
   
   .header nav ul {
     display: flex !important;
-    flex-direction: column !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     justify-content: flex-start !important;
-    align-items: stretch !important;
-    gap: 0 !important;
+    align-items: center !important;
+    gap: 2px !important;
     overflow: visible !important;
     width: 100% !important;
   }
   
   .header nav ul li {
-    font-size: 10px !important;
-    width: 25% !important;
+    font-size: 8px !important;
+    width: auto !important;
     text-align: center !important;
-    padding: 8px 0 !important;
+    padding: 6px 4px !important;
     margin: 0 !important;
-    white-space: normal !important;
+    white-space: nowrap !important;
     position: relative !important;
-    display: block !important;
+    display: inline-block !important;
   }
   
   .header nav ul li:first-child {
-    transform: translate(20px, -30px) !important;
+    transform: none !important;
   }
   
   .header nav ul li:nth-child(2) {
-    transform: translate(20px, -10px) !important;
+    transform: none !important;
   }
   
   .header nav ul li:nth-child(3) {
-    transform: translate(50px, -30px) !important;
+    transform: none !important;
   }
   
   .header nav ul li:nth-child(4) {
-    transform: translate(70px, -60px) !important;
+    transform: none !important;
   }
   
   .header nav ul li:nth-child(5) {
-    transform: translate(330px, -210px) !important;
+    transform: none !important;
   }
   
   .header nav ul li a {
