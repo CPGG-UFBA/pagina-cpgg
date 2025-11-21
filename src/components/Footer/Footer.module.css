@@ -656,14 +656,16 @@
   }
   
   .bar {
-    height: 180px !important;
+    height: 220px !important;
   }
   
   .bar nav {
     gap: 6px;
+    flex-wrap: wrap;
   }
   
   .copyright {
     font-size: 9px !important;
+    margin-top: 10px;
   }
 }
