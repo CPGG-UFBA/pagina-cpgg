@@ -13,7 +13,9 @@
 
 .image {
   width: 100%;
-  background-image: url('../../assets/footer-figure.png');
+  /* removida a figura de ondas para evitar faixa lilás */
+  background-image: none;
+  background-color: #001b5e;
   background-size: cover;
   background-repeat: no-repeat;
   height: 530px;
