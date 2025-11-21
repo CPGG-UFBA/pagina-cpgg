@@ -53,38 +53,34 @@ export function Header() {
         <LanguageSelector />
       </div>
       
-      
-        <nav className={styles.mobileNav}>
-          <ul className={styles.mobileMenuList}>
-            <li>
-              <NavLink to='/Contact' className={styles.navLink}>
-                {t('nav.contact')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/' className={styles.navLink}>
-                {t('nav.home')}
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/sign' className={styles.navLink}>
-                {t('nav.signin')}
-              </NavLink>
-            </li>
-
-            {/* SOBRE NÓS - mobile em cascata */}
-            <li className={styles.mobileMainItem}>
-              <button
-                type='button'
-                className={styles.mobileMainButton}
-                onClick={() => toggleMenu('about')}
-              >
-                {t('nav.about')}
-              </button>
+      <nav>
+        <ul className={styles.signup}>
+          <li>
+            <NavLink to='/Contact' className={styles.navLink}>
+              {t('nav.contact')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/' className={styles.navLink}>
+              {t('nav.home')}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to='/sign' className={styles.navLink}>
+              {t('nav.signin')}
+            </NavLink>
+          </li>
+          <li>
+            <button
+              type='button'
+              className={styles.navLinkButton}
+              onClick={() => toggleMenu('about')}
+            >
+              {t('nav.about')}
+            </button>
             
             <div
               className={`${styles.submenu1} ${openMenu === 'about' ? styles.submenu1Open : ''}`}
-              style={openMenu === 'about' ? { display: 'block' } : undefined}
             >
               <ul>
                 <li className={styles.hoversub}>
@@ -97,7 +93,6 @@ export function Header() {
                   </button>
                   <div
                     className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
-                    style={openSubmenu === 'institution' ? { display: 'block' } : undefined}
                   >
                     <ul>
                       <li>
@@ -134,7 +129,6 @@ export function Header() {
                   </button>
                   <div
                     className={`${styles.submenu2} ${styles.submenu2Personnel} ${openSubmenu === 'personnel' ? styles.submenu2Open : ''}`}
-                    style={openSubmenu === 'personnel' ? { display: 'block' } : undefined}
                   >
                     <ul>
                       <li>
@@ -189,7 +183,6 @@ export function Header() {
             
             <div
               className={`${styles.submenu1} ${openMenu === 'requests' ? styles.submenu1Open : ''}`}
-              style={openMenu === 'requests' ? { display: 'block' } : undefined}
             >
               <ul>
                 <li>
