@@ -40,6 +40,10 @@
     padding-top: 210px;
     padding-bottom: 120px;
   }
+  
+  .carouselContainer {
+    transform: translateY(-100px);
+  }
 }
 
 /* Force no scroll for resolutions 500x980px and below */
