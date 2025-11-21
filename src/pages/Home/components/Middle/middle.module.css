@@ -524,19 +524,19 @@
   }
 
   .imageWrapper {
-    height: 200px;
+    height: 160px;
   }
 
   .newsContent {
-    padding: 1rem;
+    padding: 0.85rem;
   }
   
   .newsTitle {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .newsDescription {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
   
   .newsCard {
