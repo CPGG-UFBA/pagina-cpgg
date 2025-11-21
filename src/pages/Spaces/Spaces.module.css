@@ -215,3 +215,13 @@
   }
 }
 
+@media (max-width: 390px) {
+  .title {
+    margin-top: 255px !important;
+  }
+  
+  .container {
+    margin-top: -200px !important;
+  }
+}
+
