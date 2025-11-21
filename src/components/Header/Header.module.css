@@ -30,7 +30,7 @@
 
 .languageContainer {
   position: absolute;
-  top: 15px;
+  top: -5px;
   right: 15px;
   z-index: 100003;
 }
@@ -683,21 +683,21 @@ nav ul li:hover .submenu2 ul li a {
 /* Language Selector Responsivity */
 @media (min-width: 1151px) and (max-width: 1200px) {
   .languageContainer {
-    top: 10px;
+    top: -10px;
     right: 15px;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1150px) {
   .languageContainer {
-    top: 10px;
+    top: -10px;
     right: 10px;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
   .languageContainer {
-    top: 8px;
+    top: -12px;
     right: 8px;
     z-index: 99998;
   }
@@ -705,7 +705,7 @@ nav ul li:hover .submenu2 ul li a {
 
 @media (max-width: 480px) {
   .languageContainer {
-    top: 5px;
+    top: -15px;
     right: 5px;
     z-index: 99998;
   }
