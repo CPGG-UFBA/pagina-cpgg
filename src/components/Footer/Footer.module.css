@@ -409,6 +409,15 @@
 
 /* 500px and below - two lines layout */
 @media (max-width: 500px) {
+  .footer {
+    position: static;
+  }
+
+  .image {
+    height: 220px;
+    margin-top: 0;
+  }
+
   .bar {
     height: 220px;
     padding: 15px 10px;
