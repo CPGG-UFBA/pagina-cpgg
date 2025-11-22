@@ -873,7 +873,7 @@ nav ul li:hover .submenu2 ul li a {
     max-width: 150px !important;
     display: none !important;
     flex-direction: column !important;
-    background-color: #592cbb !important;
+    background-color: transparent !important;
     padding: 0 !important;
   }
   
@@ -884,7 +884,7 @@ nav ul li:hover .submenu2 ul li a {
     top: 100% !important;
     left: 50% !important;
     transform: translate(calc(-50% + 15px), 0px) !important;
-    background-color: #592cbb !important;
+    background-color: transparent !important;
     z-index: 100005 !important;
     min-width: 150px !important;
     max-width: 150px !important;
