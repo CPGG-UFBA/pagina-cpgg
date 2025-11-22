@@ -186,5 +186,6 @@
 @media (max-width: 390px) {
   .box {
     top: 300px !important;
+    z-index: 1001 !important;
   }
 }
