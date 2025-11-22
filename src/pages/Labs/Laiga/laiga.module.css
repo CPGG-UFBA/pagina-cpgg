@@ -769,7 +769,7 @@ nav a:hover {
   position: static;
 }
 
-/* Media query específica para telas pequenas até 400px de largura */
+/* Media query específica para telas pequenas até 400px de largura (incluindo 390x844) */
 @media (max-width: 400px) {
   .laiga {
     padding-left: 0 !important;
@@ -792,6 +792,7 @@ nav a:hover {
     max-height: 60vh !important;
     overflow-y: auto !important;
     min-height: 400px !important;
+    text-align: center !important;
   }
 
   .box ul {
@@ -817,6 +818,7 @@ nav a:hover {
     margin-left: 0 !important;
     text-align: center !important;
     width: 100% !important;
+    margin-bottom: 20px !important;
   }
 
   .buttonLink,
@@ -825,14 +827,12 @@ nav a:hover {
     margin: 0 auto !important;
   }
 
-  /* Mostrar as boxes de fotos em grid 2x2 ao fim da box */
+  /* Grid 2x2 de fotos: linha 1 (fotos 1 e 2), linha 2 (fotos 3 e 4) */
   .box1,
   .box2,
   .box3,
   .box4 {
-    position: relative !important;
-    left: 0 !important;
-    top: 0 !important;
+    position: static !important;
     width: 150px !important;
     height: 150px !important;
     min-width: 150px !important;
@@ -852,10 +852,13 @@ nav a:hover {
 
   .box2 {
     margin-left: 10px !important;
+    margin-right: 0 !important;
   }
 
   .box3 {
-    clear: left !important;
+    display: block !important;
+    clear: both !important;
+    margin-top: 10px !important;
     margin-right: 10px !important;
   }
 
@@ -869,5 +872,6 @@ nav a:hover {
   .legend4 {
     font-size: 8px !important;
     top: 150px !important;
+    white-space: normal !important;
   }
 }
