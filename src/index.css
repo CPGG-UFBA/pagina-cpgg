@@ -243,6 +243,12 @@ All colors MUST be HSL.
     overflow: hidden !important;
   }
 
+  /* Allow scroll on Research Projects page even when using .Container layout */
+  body:has(.research-projects-page) .Container {
+    overflow-y: auto !important;
+  }
+
+
   /* Footer should have fixed height at bottom */
   footer {
     flex-shrink: 0 !important;
