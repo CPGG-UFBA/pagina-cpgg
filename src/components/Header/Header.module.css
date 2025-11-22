@@ -994,7 +994,7 @@ nav ul li:hover .submenu2 ul li a {
   .header nav ul li .submenu1 .hoversub .submenu2 {
     position: absolute !important;
     top: 0 !important;
-    right: calc(100% - 4px) !important;
+    right: calc(100% - 8px) !important;
     left: auto !important;
     transform: none !important;
     min-width: 150px !important;
@@ -1012,7 +1012,7 @@ nav ul li:hover .submenu2 ul li a {
   .header nav ul li .submenu1 .hoversub .submenu2.submenu2Open {
     position: absolute !important;
     top: 0 !important;
-    right: calc(100% - 4px) !important;
+    right: calc(100% - 8px) !important;
     left: auto !important;
     transform: none !important;
     min-width: 150px !important;
