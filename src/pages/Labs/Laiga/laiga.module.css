@@ -671,51 +671,36 @@ nav a:hover {
     padding: 0 10px !important;
   }
 
-  /* Fotos em grid 2x2 ao fim da box (mobile pequeno) */
+  /* Fotos em coluna à esquerda */
   .box1,
   .box2,
   .box3,
   .box4 {
-    position: relative !important;
-    left: 0 !important;
-    top: 0 !important;
-    width: 150px !important;
-    height: 150px !important;
-    min-width: 150px !important;
-    min-height: 150px !important;
-    max-width: 150px !important;
-    max-height: 150px !important;
-    display: inline-block !important;
-    margin: 5px !important;
-    vertical-align: top !important;
-    background-size: cover !important;
-    background-position: center !important;
+    width: 90px !important;
+    height: 90px !important;
+    position: absolute !important;
+    left: 10px !important;
   }
 
-  /* Primeira linha: fotos 1 e 2, segunda linha: fotos 3 e 4 */
   .box1 {
-    margin-right: 10px !important;
+    top: 18% !important;
   }
-
   .box2 {
-    margin-left: 10px !important;
+    top: calc(18% + 100px) !important;
   }
-
   .box3 {
-    clear: left !important;
-    margin-right: 10px !important;
+    top: calc(18% + 200px) !important;
   }
-
   .box4 {
-    margin-left: 10px !important;
+    top: calc(18% + 300px) !important;
   }
 
   .legend1,
   .legend2,
   .legend3,
   .legend4 {
-    font-size: 8px !important;
-    top: 150px !important;
+    font-size: 7px;
+    top: 90px;
   }
 }
 
@@ -769,8 +754,8 @@ nav a:hover {
   position: static;
 }
 
-/* Media query específica para telas pequenas até 400px de largura (incluindo 390x844) */
-@media (max-width: 400px) {
+/* Media query específica para telas até 390x844 */
+@media (max-width: 390px) and (max-height: 844px) {
   .laiga {
     padding-left: 0 !important;
     padding-right: 0 !important;
@@ -792,7 +777,6 @@ nav a:hover {
     max-height: 60vh !important;
     overflow-y: auto !important;
     min-height: 400px !important;
-    text-align: center !important;
   }
 
   .box ul {
@@ -818,7 +802,6 @@ nav a:hover {
     margin-left: 0 !important;
     text-align: center !important;
     width: 100% !important;
-    margin-bottom: 20px !important;
   }
 
   .buttonLink,
@@ -827,51 +810,25 @@ nav a:hover {
     margin: 0 auto !important;
   }
 
-  /* Grid 2x2 de fotos: linha 1 (fotos 1 e 2), linha 2 (fotos 3 e 4) */
+  /* Mostrar as boxes de fotos em grid 2x2 ao fim da box */
   .box1,
   .box2,
   .box3,
   .box4 {
-    position: static !important;
-    width: 150px !important;
-    height: 150px !important;
-    min-width: 150px !important;
-    min-height: 150px !important;
-    max-width: 150px !important;
-    max-height: 150px !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 25px !important;
+    height: 25px !important;
     display: inline-block !important;
-    margin: 5px !important;
-    vertical-align: top !important;
-    background-size: cover !important;
-    background-position: center !important;
-  }
-
-  .box1 {
-    margin-right: 10px !important;
-  }
-
-  .box2 {
-    margin-left: 10px !important;
-    margin-right: 0 !important;
-  }
-
-  .box3 {
-    display: block !important;
-    clear: both !important;
-    margin-top: 10px !important;
-    margin-right: 10px !important;
-  }
-
-  .box4 {
-    margin-left: 10px !important;
+    margin: 3px !important;
   }
 
   .legend1,
   .legend2,
   .legend3,
   .legend4 {
-    font-size: 8px !important;
-    top: 150px !important;
-    white-space: normal !important;
+    font-size: 6px !important;
+    top: 25px !important;
   }
 }
