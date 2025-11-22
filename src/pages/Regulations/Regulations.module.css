@@ -246,4 +246,13 @@
   .container {
     margin-top: -80px !important;
   }
+  
+  .regulation,
+  .accreditation,
+  .senior,
+  .dynamicRegulation {
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 350px !important;
+  }
 }
