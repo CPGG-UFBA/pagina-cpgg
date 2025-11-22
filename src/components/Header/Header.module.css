@@ -813,6 +813,7 @@ nav ul li:hover .submenu2 ul li a {
     background-color: transparent !important;
     padding: 0 !important;
     overflow: visible !important;
+    pointer-events: auto !important;
   }
   
   .header nav ul {
@@ -825,6 +826,7 @@ nav ul li:hover .submenu2 ul li a {
     overflow: visible !important;
     width: 100% !important;
     transform: translate(-7px, -30px) !important;
+    pointer-events: auto !important;
   }
 
   .header nav ul li {
@@ -837,6 +839,15 @@ nav ul li:hover .submenu2 ul li a {
     position: relative !important;
     display: inline-block !important;
     flex-shrink: 0 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
+  }
+  
+  .header nav ul li a {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
   }
 
   .header nav ul li:first-child {
@@ -882,6 +893,7 @@ nav ul li:hover .submenu2 ul li a {
     flex-direction: column !important;
     background-color: #592cbb !important;
     padding: 0 !important;
+    pointer-events: auto !important;
   }
   
   .submenu1.submenu1Open {
@@ -892,11 +904,12 @@ nav ul li:hover .submenu2 ul li a {
     left: 50% !important;
     transform: translate(calc(-50% + 15px), 0px) !important;
     background-color: #592cbb !important;
-    z-index: 100005 !important;
+    z-index: 100010 !important;
     min-width: 150px !important;
     max-width: 150px !important;
     margin-top: 0 !important;
     padding: 0 !important;
+    pointer-events: auto !important;
   }
   
   .submenu1 ul {
@@ -1030,7 +1043,8 @@ nav ul li:hover .submenu2 ul li a {
     flex-direction: column !important;
     background-color: #592cbb !important;
     padding: 0 !important;
-    z-index: 100006 !important;
+    z-index: 100015 !important;
+    pointer-events: auto !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul {
@@ -1072,11 +1086,20 @@ nav ul li:hover .submenu2 ul li a {
     white-space: normal !important;
     color: white !important;
     display: block !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    cursor: pointer !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul li a:hover {
     background-color: white !important;
     color: #592cbb !important;
+  }
+  
+  /* Garantir que os itens do submenu com hover também sejam clicáveis */
+  .header nav ul li .submenu1 .hoversub {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
   }
   
   /* Hover dos submenus */
@@ -1090,5 +1113,56 @@ nav ul li:hover .submenu2 ul li a {
   .submenu2 ul li:hover a {
     background-color: white !important;
     color: #592cbb !important;
+  }
+}
+
+/* iPhone 12 mini e dispositivos similares (375px width) */
+@media (max-width: 375px) and (min-width: 360px) {
+  /* Garantir que menus sejam clicáveis */
+  .header nav ul li {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .header nav ul li a {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Aumentar z-index dos submenus */
+  .submenu1.submenu1Open {
+    z-index: 100020 !important;
+  }
+  
+  .submenu2.submenu2Open {
+    z-index: 100025 !important;
+  }
+  
+  /* Garantir que submenus sejam clicáveis */
+  .submenu1,
+  .submenu1.submenu1Open,
+  .submenu2,
+  .submenu2.submenu2Open {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .submenu1 ul li,
+  .submenu2 ul li {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .submenu1 ul li a,
+  .submenu2 ul li a {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
   }
 }
