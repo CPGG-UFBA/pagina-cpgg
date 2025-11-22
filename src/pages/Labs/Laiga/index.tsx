@@ -33,6 +33,11 @@ export function Laiga() {
             </p>
             <br></br>
 
+            <p>
+              {t('laiga.description5')}
+            </p>
+            <br></br>
+
             <nav>
               <a
                 href="https://pnipe.mcti.gov.br/search?term=Laiga"
@@ -42,11 +47,6 @@ export function Laiga() {
                 {t('laiga.pnipeSite')}
               </a>
             </nav>
-            <br></br>
-
-            <p>
-              {t('laiga.description5')}
-            </p>
             <br></br>
 
             <p>
