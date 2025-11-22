@@ -200,5 +200,16 @@
   .header {
     margin-top: 150px;
   }
+
+  .projectsGrid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-items: center;
+  }
+
+  .projectCard {
+    margin: 0 auto;
+    max-width: 90%;
+  }
 }
 
