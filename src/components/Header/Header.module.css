@@ -831,6 +831,16 @@ nav ul li:hover .submenu2 ul li a {
     display: inline-block !important;
   }
   
+  /* Quebra linha para "Laboratórios e reservas" e "Reparos e serviços técnicos" */
+  .header nav ul li:nth-child(2) .submenu1 ul li:nth-child(2) a,
+  .header nav ul li:nth-child(2) .submenu1 ul li:nth-child(3) a {
+    white-space: normal !important;
+    text-align: left !important;
+    line-height: 1.3 !important;
+    word-break: break-word !important;
+    max-width: 137px !important;
+  }
+  
   .header nav ul li:first-child {
     transform: none !important;
   }
