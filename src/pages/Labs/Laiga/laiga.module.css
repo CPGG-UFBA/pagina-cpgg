@@ -814,6 +814,10 @@ nav a:hover {
     text-align: center !important;
   }
 
+  .box span {
+    text-align: center !important;
+  }
+
   .requerimentoButton {
     margin-left: 0 !important;
     text-align: center !important;
