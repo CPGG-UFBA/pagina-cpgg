@@ -235,16 +235,25 @@ All colors MUST be HSL.
       height: auto !important;
       overflow-y: auto !important;
     }
-
+  
     /* Recipes page - allow scroll */
     body > div:has(.recipes) {
       height: auto !important;
       overflow-y: auto !important;
     }
-
+  
     body:has(.recipes) .recipes {
       max-height: none !important;
       overflow-y: auto !important;
+    }
+
+    /* Spaces page - remove scroll on very small screens */
+    main.spaces {
+      flex: 1 !important;
+      overflow: hidden !important;
+      overflow-y: hidden !important;
+      padding-bottom: 0 !important;
+      height: auto !important;
     }
   }
 
