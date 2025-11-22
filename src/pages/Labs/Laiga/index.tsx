@@ -36,7 +36,6 @@ export function Laiga() {
             <p>
               {t('laiga.description5')}
             </p>
-            <br></br>
 
             <nav>
               <a
