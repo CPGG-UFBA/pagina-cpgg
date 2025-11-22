@@ -145,7 +145,7 @@
   }
 }
 
-@media (max-width: 390px) and (max-height: 844px) {
+@media (max-width: 600px) {
   .RS {
     padding-left: 0 !important;
     padding-right: 0 !important;

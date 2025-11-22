@@ -27,7 +27,7 @@ body:has([class*="RS"]) *,
 }
 
 /* EM TELAS PEQUENAS (ATÉ 390x844) PERMITIR SCROLL PARA O FORMULÁRIO CABER COMPLETO */
-@media (max-width: 390px) and (max-height: 844px) {
+@media (max-width: 600px) {
   body:has([class*="RS"]),
   html:has([class*="RS"]) {
     overflow-y: auto !important;
