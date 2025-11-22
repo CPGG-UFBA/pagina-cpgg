@@ -263,7 +263,7 @@ export function ResearchProjectEditor({ projects, onProjectsUpdate }: ResearchPr
 
       {/* Add Project Dialog */}
       <Dialog open={showAddDialog} onOpenChange={setShowAddDialog}>
-        <DialogContent className="sm:max-w-lg">
+        <DialogContent className="sm:max-w-md max-h-[50vh]">
           <DialogHeader>
             <DialogTitle>Adicionar Novo Projeto</DialogTitle>
           </DialogHeader>
