@@ -814,23 +814,23 @@ nav ul li:hover .submenu2 ul li a {
     flex-wrap: wrap !important;
     justify-content: flex-start !important;
     align-items: center !important;
-    gap: 2px !important;
+    gap: 7px !important;
     overflow: visible !important;
     width: 100% !important;
     transform: translate(50px, -30px) !important;
   }
   
   .header nav ul li {
-    font-size: 8px !important;
+    font-size: 10px !important;
     width: auto !important;
     text-align: center !important;
     padding: 6px 4px !important;
-    margin: 0 !important;
+    margin: 0 2.5px !important;
     white-space: nowrap !important;
     position: relative !important;
     display: inline-block !important;
   }
-  
+
   .header nav ul li:first-child {
     transform: none !important;
   }
