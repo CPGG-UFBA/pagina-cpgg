@@ -237,7 +237,13 @@ All colors MUST be HSL.
     }
 
     /* Recipes page - allow scroll */
-    body:has(.recipes) {
+    body > div:has(.recipes) {
+      height: auto !important;
+      overflow-y: auto !important;
+    }
+
+    body:has(.recipes) .recipes {
+      max-height: none !important;
       overflow-y: auto !important;
     }
   }
