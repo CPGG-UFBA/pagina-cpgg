@@ -790,7 +790,7 @@ nav a:hover {
   .box b,
   .box nav a {
     margin-left: 0 !important;
-    text-align: left !important;
+    text-align: justify !important;
   }
 
   .requerimentoButton {
