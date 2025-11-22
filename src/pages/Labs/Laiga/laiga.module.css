@@ -92,6 +92,8 @@
   font-size: 16px;
   color: #fff;
   margin-left: 35px;
+  text-align: center;
+  display: block;
 }
 
 .box ul {
@@ -535,7 +537,7 @@ nav a:hover {
   }
 
   .box span {
-    text-align: left;
+    text-align: center !important;
     display: block;
     font-size: 11px;
     margin-left: 0;
@@ -664,7 +666,7 @@ nav a:hover {
   }
 
   .box span {
-    text-align: left;
+    text-align: center !important;
     display: block;
     font-size: 10px;
     white-space: normal;
