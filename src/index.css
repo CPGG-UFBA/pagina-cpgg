@@ -247,13 +247,15 @@ All colors MUST be HSL.
       overflow-y: auto !important;
     }
 
-    /* Spaces page - remove scroll on very small screens */
-    main.spaces {
-      flex: 1 !important;
-      overflow: hidden !important;
-      overflow-y: hidden !important;
-      padding-bottom: 0 !important;
+    /* Repairs page - allow scroll on very small screens */
+    body > div:has(.RS) {
       height: auto !important;
+      overflow-y: auto !important;
+    }
+
+    body:has(.RS) #root {
+      height: auto !important;
+      overflow-y: auto !important;
     }
   }
 
