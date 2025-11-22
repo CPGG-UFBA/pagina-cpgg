@@ -247,15 +247,23 @@ All colors MUST be HSL.
       overflow-y: auto !important;
     }
 
-    /* Repairs page - allow scroll on very small screens */
-    body > div:has(.RS) {
-      height: auto !important;
+    /* Repairs page - allow scroll on very small screens (CSS Modules: class contains "RS") */
+    body:has([class*="RS"]),
+    html:has([class*="RS"]) {
       overflow-y: auto !important;
+      overflow-x: hidden !important;
+      height: auto !important;
+      max-height: none !important;
+      position: static !important;
     }
 
-    body:has(.RS) #root {
-      height: auto !important;
+    body > div:has([class*="RS"]),
+    body:has([class*="RS"]) #root {
       overflow-y: auto !important;
+      overflow-x: hidden !important;
+      height: auto !important;
+      max-height: none !important;
+      position: static !important;
     }
   }
 
