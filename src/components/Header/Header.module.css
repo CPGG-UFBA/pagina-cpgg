@@ -935,22 +935,22 @@ nav ul li:hover .submenu2 ul li a {
   /* Move o submenu2 (Instituição) para baixo */
   .header nav ul li .submenu1 .hoversub .submenu2 {
     transform: translate(-19px, 30px) !important;
-    min-width: 112px !important;
-    max-width: 112px !important;
+    min-width: 90px !important;
+    max-width: 90px !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2.submenu2Open {
     transform: translate(-19px, 30px) !important;
-    min-width: 112px !important;
-    max-width: 112px !important;
+    min-width: 90px !important;
+    max-width: 90px !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul li {
-    max-width: 112px !important;
+    max-width: 90px !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul li a {
-    max-width: 112px !important;
+    max-width: 90px !important;
     padding: 10px 7px !important;
     line-height: 1.2 !important;
   }
