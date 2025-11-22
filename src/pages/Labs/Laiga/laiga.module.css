@@ -774,6 +774,8 @@ nav a:hover {
     padding-left: 15px !important;
     padding-right: 15px !important;
     height: auto !important;
+    max-height: 60vh !important;
+    overflow-y: auto !important;
     min-height: 400px !important;
   }
 
