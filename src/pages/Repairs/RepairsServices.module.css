@@ -159,7 +159,13 @@
     width: 95% !important;
     max-width: 95% !important;
     margin: 0 auto !important;
-    padding: 15px !important;
+    padding: 10px !important;
+    padding-bottom: 15px !important;
+  }
+
+  .box ul {
+    margin: 10px 0 !important;
+    font-size: 18px !important;
   }
 
   .box input,
@@ -168,12 +174,21 @@
     width: calc(100% - 30px) !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    padding: 10px !important;
+    margin-top: 5px !important;
+  }
+
+  .box textarea {
+    min-height: 60px !important;
   }
 
   .box button {
     width: calc(100% - 30px) !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-top: 15px !important;
+    margin-bottom: 5px !important;
+    padding: 12px !important;
   }
 
   .form {
@@ -181,10 +196,14 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    padding-bottom: 5px !important;
+    padding-top: 10px !important;
   }
 
   .box label {
     align-self: flex-start;
     margin-left: 15px;
+    margin-top: 0 !important;
+    font-size: 13px !important;
   }
 }
