@@ -289,8 +289,9 @@
 
 @media (max-width: 390px) {
   .Title ul {
-    margin-top: 85px !important;
-    margin-left: calc(50% - 385px) !important;
+    position: relative !important;
+    top: -70px !important;
+    left: 60px !important;
   }
 }
 
