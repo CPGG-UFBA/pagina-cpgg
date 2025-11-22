@@ -2,17 +2,10 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-height: 100vh;
   position: relative;
   pointer-events: auto;
-  overflow-y: auto;
 }
 
-@media (max-width: 390px), (max-height: 844px) and (max-width: 390px) {
-  .Container {
-    overflow-y: scroll;
-  }
-}
 
 /* Portrait orientation - when height > width */
 @media (orientation: portrait) {
@@ -34,11 +27,12 @@
   overflow-y: auto;
 }
 
-@media (max-width: 390px), (max-height: 844px) and (max-width: 390px) {
+@media (max-width: 390px) and (max-height: 844px) {
   .container {
     padding-top: 305px;
   }
 }
+
 
 .header {
   text-align: center;
@@ -98,11 +92,12 @@
   pointer-events: auto;
 }
 
-@media (max-width: 390px), (max-height: 844px) and (max-width: 390px) {
+@media (max-width: 390px) and (max-height: 844px) {
   .scrollArea {
     max-height: calc(100vh - 350px);
   }
 }
+
 
 .projectsGrid {
   display: grid;
