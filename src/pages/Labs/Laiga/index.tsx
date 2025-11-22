@@ -35,10 +35,12 @@ export function Laiga() {
              <p> 
               {t('laiga.description5')}
             </p>
+            <br></br>
 
             <nav>
               <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank" className={styles.purpleLink}>{t('laiga.pnipeSite')}</a>
             </nav>
+            <br></br>
 
             <p> 
               {t('laiga.availability')}
