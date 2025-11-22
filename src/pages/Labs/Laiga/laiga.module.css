@@ -786,16 +786,16 @@ nav a:hover {
     margin-top: -20px !important;
   }
 
-  .box p,
+  .box p {
+    margin-bottom: 7.5px !important;
+    text-align: justify !important;
+  }
+
   .box span,
   .box b,
   .box nav a {
     margin-left: 0 !important;
     text-align: justify !important;
-  }
-
-  .box p {
-    margin-bottom: 7.5px !important;
   }
 
   .requerimentoButton {
