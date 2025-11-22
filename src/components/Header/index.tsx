@@ -102,7 +102,7 @@ export function Header() {
                     {t('nav.institution')}
                   </a>
                   <div
-                    className={`${styles.submenu2} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
+                    className={`${styles.submenu2} ${styles.submenu2Institution} ${openSubmenu === 'institution' ? styles.submenu2Open : ''}`}
                   >
                     <ul>
                       <li>
