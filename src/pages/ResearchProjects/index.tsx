@@ -101,7 +101,7 @@ export function ResearchProjects() {
                 <p>Nenhum projeto de pesquisa cadastrado ainda.</p>
               </div>
             ) : (
-              <ScrollArea className={styles.scrollArea}>
+              <div className={styles.scrollArea}>
                 <div className={styles.projectsGrid}>
                   {projects.map((project) => (
                     <Card key={project.id} className={styles.projectCard}>
@@ -136,7 +136,7 @@ export function ResearchProjects() {
                     </Card>
                   ))}
                 </div>
-              </ScrollArea>
+              </div>
             )}
           </>
         )}
