@@ -862,7 +862,7 @@ nav ul li:hover .submenu2 ul li a {
     position: absolute !important;
     top: 100% !important;
     left: 0 !important;
-    transform: translate(10px, -3px) !important;
+    transform: translate(10px, 5px) !important;
     margin-top: 0 !important;
     min-width: 137px !important;
     max-width: 137px !important;
@@ -873,7 +873,7 @@ nav ul li:hover .submenu2 ul li a {
     position: absolute !important;
     top: 100% !important;
     left: 0 !important;
-    transform: translate(10px, -3px) !important;
+    transform: translate(10px, 5px) !important;
     background-color: #592cbb !important;
     z-index: 100005 !important;
     min-width: 137px !important;
