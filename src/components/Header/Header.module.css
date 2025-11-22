@@ -940,15 +940,6 @@ nav ul li:hover .submenu2 ul li a {
     transform: translateX(-25px) !important;
   }
   
-  /* Ajuste específico para "Laboratórios e reservas" - mover para cima e direita */
-  .header nav ul > li:nth-child(5) .submenu1 ul li:nth-child(2) a {
-    transform: translate(55px, -50px) !important;
-  }
-  
-  .header nav ul > li:nth-child(5) .submenu1.submenu1Open ul li:nth-child(2) a {
-    transform: translate(55px, -50px) !important;
-  }
-  
   /* Quebra linha e alinha à esquerda para itens do menu "Solicitações" em mobile */
   .header nav ul > li:nth-child(5) .submenu1 ul li:nth-child(2) a,
   .header nav ul > li:nth-child(5) .submenu1 ul li:nth-child(3) a {
