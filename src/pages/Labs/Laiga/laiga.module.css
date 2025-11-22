@@ -828,6 +828,8 @@ nav a:hover {
   .purpleLink {
     display: inline-block !important;
     margin-top: 20px !important;
+    text-align: center !important;
+    width: 100% !important;
   }
 
   .requerimentoButton {
