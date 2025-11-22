@@ -1003,7 +1003,7 @@ nav ul li:hover .submenu2 ul li a {
     margin-right: 0 !important;
     display: none !important;
     flex-direction: column !important;
-    background-color: transparent !important;
+    background-color: #592cbb !important; /* box lilás visível */
     padding: 0 !important;
     z-index: 100006 !important;
   }
@@ -1021,7 +1021,7 @@ nav ul li:hover .submenu2 ul li a {
     margin-right: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    background-color: transparent !important;
+    background-color: #592cbb !important; /* box lilás visível */
     padding: 0 !important;
     z-index: 100006 !important;
   }
