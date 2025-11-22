@@ -111,15 +111,14 @@
 
 .box nav a {
   color: #fff;
-  padding-right: 40px;
   font-size: 12px;
-  margin-left: 230px;
-  top: -5px;
-  position: relative;
   cursor: pointer;
   font-family: Roboto;
   font-weight: 500;
+  display: block;
+  margin: 8px 0;
 }
+
 
 nav a {
   list-style: none;
@@ -133,8 +132,9 @@ nav a:hover {
 .purpleLink {
   color: rgba(147, 106, 235) !important;
   font-size: 13px !important;
-  margin-left: -50px !important;
+  margin-left: 0 !important;
 }
+
 
 .purpleText {
   color: rgba(147, 106, 235) !important;
