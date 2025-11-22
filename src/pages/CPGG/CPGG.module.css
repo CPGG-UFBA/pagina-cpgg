@@ -291,28 +291,34 @@
     text-align: center;
   }
 
-  /* Fotos em linha horizontal após o texto, no fluxo do documento */
+  /* Fotos em grid após o texto, mesmo tamanho da página LAIGA */
   .box1,
   .box2,
   .box3 {
-    width: 100px !important;
-    height: 100px !important;
     position: relative !important;
-    display: inline-block !important;
-    margin: 10px 5px !important;
-    left: auto !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 300px !important;
+    height: 300px !important;
+    min-width: 300px !important;
+    min-height: 300px !important;
+    max-width: 300px !important;
+    max-height: 300px !important;
+    display: block !important;
+    margin: 10px auto !important;
+    background-size: cover !important;
+    background-position: center !important;
     right: auto !important;
-    top: auto !important;
     bottom: auto !important;
   }
 
   .legend1,
   .legend2,
   .legend3 {
-    font-size: 7px;
-    position: relative !important;
-    top: auto !important;
-    bottom: auto !important;
-    margin-top: 5px;
+    font-size: 10px !important;
+    top: 300px !important;
+    text-align: center !important;
+    position: absolute !important;
+    margin-top: 0 !important;
   }
 }
