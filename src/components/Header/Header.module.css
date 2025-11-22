@@ -885,11 +885,17 @@ nav ul li:hover .submenu2 ul li a {
   .header nav ul li .submenu1 ul li {
     transform: translateX(-30px) !important;
     max-width: 123px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   .header nav ul li .submenu1.submenu1Open ul li {
     transform: translateX(-30px) !important;
     max-width: 123px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   /* Move itens específicos 5px para a direita */
@@ -910,6 +916,7 @@ nav ul li:hover .submenu2 ul li a {
     max-width: 123px !important;
     padding: 10px 9px !important;
     line-height: 1.2 !important;
+    background-color: transparent !important;
   }
   
   /* Move links dos itens específicos 5px para a direita */
@@ -924,6 +931,7 @@ nav ul li:hover .submenu2 ul li a {
     max-width: 123px !important;
     padding: 10px 9px !important;
     line-height: 1.2 !important;
+    background-color: transparent !important;
   }
   
   .header nav ul li .submenu1.submenu1Open ul li:nth-child(1) a,
@@ -947,24 +955,28 @@ nav ul li:hover .submenu2 ul li a {
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul li {
     max-width: 80px !important;
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul li a {
     max-width: 80px !important;
     padding: 10px 5px !important;
     line-height: 1.2 !important;
+    background-color: transparent !important;
   }
   
   /* Remove hover branco dos submenus */
   nav ul li:hover .submenu1 ul li:hover,
   nav ul li:hover .submenu1 ul li:hover a {
-    background-color: #592cbb !important;
+    background-color: transparent !important;
     color: #fff !important;
   }
   
   .submenu2 ul li:hover,
   .submenu2 ul li:hover a {
-    background-color: #592cbb !important;
+    background-color: transparent !important;
     color: #fff !important;
   }
 }
