@@ -529,6 +529,11 @@ nav a:hover {
     display: block;
   }
 
+  .box .purpleText {
+    text-align: center !important;
+    margin-left: 0 !important;
+  }
+
   .box span {
     text-align: left;
     display: block;
@@ -651,6 +656,11 @@ nav a:hover {
     text-align: left;
     display: block;
     white-space: normal;
+  }
+
+  .box .purpleText {
+    text-align: center !important;
+    margin-left: 0 !important;
   }
 
   .box span {
@@ -796,6 +806,10 @@ nav a:hover {
   .box nav a {
     margin-left: 0 !important;
     text-align: justify !important;
+  }
+
+  .box .purpleText {
+    text-align: center !important;
   }
 
   .requerimentoButton {
