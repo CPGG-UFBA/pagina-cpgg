@@ -230,4 +230,9 @@
   .container {
     margin-top: -170px !important;
   }
+  
+  .headers {
+    width: 350px;
+    height: 120px;
+  }
 }
