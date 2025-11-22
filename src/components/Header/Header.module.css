@@ -864,7 +864,8 @@ nav ul li:hover .submenu2 ul li a {
     left: 0 !important;
     transform: translate(10px, 5px) !important;
     margin-top: 0 !important;
-    min-width: 152px !important;
+    min-width: 137px !important;
+    max-width: 137px !important;
   }
   
   .submenu1.submenu1Open {
@@ -875,34 +876,54 @@ nav ul li:hover .submenu2 ul li a {
     transform: translate(10px, 5px) !important;
     background-color: #592cbb !important;
     z-index: 100005 !important;
-    min-width: 152px !important;
+    min-width: 137px !important;
+    max-width: 137px !important;
     margin-top: 0 !important;
   }
   
   /* Move os itens do submenu para a esquerda */
   .header nav ul li .submenu1 ul li {
     transform: translateX(-30px) !important;
+    max-width: 137px !important;
   }
   
   .header nav ul li .submenu1.submenu1Open ul li {
     transform: translateX(-30px) !important;
+    max-width: 137px !important;
   }
   
   .header nav ul li .submenu1 ul li a {
     transform: translateX(-30px) !important;
+    max-width: 137px !important;
+    padding: 11px 10px !important;
   }
   
   .header nav ul li .submenu1.submenu1Open ul li a {
     transform: translateX(-30px) !important;
+    max-width: 137px !important;
+    padding: 11px 10px !important;
   }
   
   /* Move o submenu2 (Instituição) para baixo */
   .header nav ul li .submenu1 .hoversub .submenu2 {
     transform: translate(-19px, 30px) !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2.submenu2Open {
     transform: translate(-19px, 30px) !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
+  }
+  
+  .header nav ul li .submenu1 .hoversub .submenu2 ul li {
+    max-width: 124px !important;
+  }
+  
+  .header nav ul li .submenu1 .hoversub .submenu2 ul li a {
+    max-width: 124px !important;
+    padding: 11px 8px !important;
   }
   
   /* Remove hover branco dos submenus */
