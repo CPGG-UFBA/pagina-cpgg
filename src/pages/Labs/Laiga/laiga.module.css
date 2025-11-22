@@ -810,6 +810,13 @@ nav a:hover {
     text-align: justify !important;
   }
 
+  .box nav a {
+    position: static !important;
+    top: auto !important;
+    display: block !important;
+    margin: 8px 0 !important;
+  }
+
   .box .purpleText {
     text-align: center !important;
   }
