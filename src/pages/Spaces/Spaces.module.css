@@ -217,11 +217,12 @@
 
 @media (max-width: 390px) {
   .pageContainer {
-    overflow-y: hidden !important;
+    overflow: hidden !important;
   }
   
   .spaces {
-    overflow-y: hidden !important;
+    overflow: hidden !important;
+    max-height: 100vh !important;
   }
   
   .title {
@@ -230,7 +231,8 @@
   
   .container {
     margin-top: -230px !important;
-    overflow-y: hidden !important;
+    overflow: hidden !important;
+    max-height: calc(100vh - 300px) !important;
   }
 }
 
