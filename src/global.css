@@ -152,6 +152,15 @@ body:has(main.map) #root {
   }
 }
 
+/* EXCEÇÃO: remover fundo roxo na página do Auditório em telas pequenas */
+@media (max-width: 500px) {
+  body:has(.Auditory) {
+    background-image: none !important;
+    background-color: #001a5a !important;
+  }
+}
+
+
 
 /* Force no scroll on Coordination page */
 body:has(.heads) {
