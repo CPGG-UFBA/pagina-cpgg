@@ -299,3 +299,9 @@
     height: 250px;
   }
 }
+
+@media (max-width: 390px) {
+  .main {
+    padding-top: 255px !important;
+  }
+}
