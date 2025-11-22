@@ -34,6 +34,11 @@ export function Header() {
       return next;
     });
   };
+
+  const closeAllMenus = () => {
+    setOpenMenu(null);
+    setOpenSubmenu(null);
+  };
   return (
     <header className={styles.header}>
       <div className={styles.figure}>
@@ -99,22 +104,22 @@ export function Header() {
                   >
                     <ul>
                       <li>
-                        <NavLink to='/cpgg' className={styles.navLink}>
+                        <NavLink to='/cpgg' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.cpgg')}
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to='/history' className={styles.navLink}>
+                        <NavLink to='/history' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.history')}
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to='/Regulations' className={styles.navLink}>
+                        <NavLink to='/Regulations' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.regulations')}
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to='/Photos' className={styles.navLink}>
+                        <NavLink to='/Photos' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.photos')}
                         </NavLink>
                       </li>
@@ -137,17 +142,17 @@ export function Header() {
                   >
                     <ul>
                       <li>
-                        <NavLink to='/Coordination' className={styles.navLink}>
+                        <NavLink to='/Coordination' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.coordination')}
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to='/researchers' className={styles.navLink}>
+                        <NavLink to='/researchers' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.researchers')}
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to='/Technicians' className={styles.navLink}>
+                        <NavLink to='/Technicians' className={styles.navLink} onClick={closeAllMenus}>
                           {t('nav.technicians')}
                         </NavLink>
                       </li>
@@ -155,22 +160,22 @@ export function Header() {
                   </div>
                 </li>
                 <li>
-                  <NavLink to='/research-projects' className={styles.navLink}>
+                  <NavLink to='/research-projects' className={styles.navLink} onClick={closeAllMenus}>
                     {t('nav.researchProjects')}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/production' className={styles.navLink}>
+                  <NavLink to='/production' className={styles.navLink} onClick={closeAllMenus}>
                     {t('nav.scientificProduction')}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/Recipes' className={styles.navLink}>
+                  <NavLink to='/Recipes' className={styles.navLink} onClick={closeAllMenus}>
                     {t('nav.recipes')}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/Map' className={styles.navLink}>
+                  <NavLink to='/Map' className={styles.navLink} onClick={closeAllMenus}>
                     Map
                   </NavLink>
                 </li>
@@ -191,17 +196,17 @@ export function Header() {
             >
               <ul>
                 <li>
-                  <NavLink to='/spaces' className={styles.navLink}>
+                  <NavLink to='/spaces' className={styles.navLink} onClick={closeAllMenus}>
                     {t('nav.spacesReservations')}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/cpgg2' className={styles.navLink}>
+                  <NavLink to='/cpgg2' className={styles.navLink} onClick={closeAllMenus}>
                     {t('nav.labsReservations')}
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to='/repairs-services' className={styles.navLink}>
+                  <NavLink to='/repairs-services' className={styles.navLink} onClick={closeAllMenus}>
                     Reparos e serviços técnicos
                   </NavLink>
                 </li>
