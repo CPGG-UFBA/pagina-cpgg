@@ -810,11 +810,41 @@ nav a:hover {
     margin: 0 auto !important;
   }
 
-  /* Ocultar as boxes de fotos em telas muito pequenas */
+  /* Mostrar as boxes de fotos em grid 2x2 ao fim da box */
   .box1,
   .box2,
   .box3,
   .box4 {
-    display: none !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: calc(50% - 10px) !important;
+    height: 150px !important;
+    display: inline-block !important;
+    margin: 5px !important;
+  }
+
+  .box1 {
+    margin-right: 5px !important;
+  }
+
+  .box2 {
+    margin-left: 5px !important;
+  }
+
+  .box3 {
+    margin-right: 5px !important;
+  }
+
+  .box4 {
+    margin-left: 5px !important;
+  }
+
+  .legend1,
+  .legend2,
+  .legend3,
+  .legend4 {
+    font-size: 8px !important;
+    top: 150px !important;
   }
 }
