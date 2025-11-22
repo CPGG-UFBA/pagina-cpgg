@@ -36,16 +36,16 @@ export function Laiga() {
               {t('laiga.description5')}
             </p>
 
+            <nav>
+              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank" className={styles.purpleLink}>{t('laiga.pnipeSite')}</a>
+            </nav>
+
             <p> 
               {t('laiga.availability')}
             </p>
            <br></br>
            <b className={styles.purpleText}>{t('laiga.chief')}</b>
-           <span>{t('laiga.chiefName')}</span> 
-           
-           <nav>
-              <a href="https://pnipe.mcti.gov.br/search?term=Laiga" target="_blank" className={styles.purpleLink}>{t('laiga.pnipeSite')}</a>
-            </nav>
+           <span>{t('laiga.chiefName')}</span>
            
            <div className={styles.requerimentoButton}>
              <Link to="/labs/laiga/reservation-form" className={styles.buttonLink}>
