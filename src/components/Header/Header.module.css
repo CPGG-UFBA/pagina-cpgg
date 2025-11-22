@@ -1040,6 +1040,11 @@ nav ul li:hover .submenu2 ul li a {
     padding-top: 30px !important;
   }
   
+  /* Padding especial para submenu de Instituição */
+  .header nav ul li .submenu1 .hoversub .submenu2Institution ul {
+    padding-top: 30px !important;
+  }
+  
   .header nav ul li .submenu1 .hoversub .submenu2 ul li {
     width: 100% !important;
     max-width: 100% !important;
