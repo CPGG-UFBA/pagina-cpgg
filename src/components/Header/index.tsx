@@ -76,7 +76,9 @@ export function Header() {
               {t('nav.signin')}
             </NavLink>
           </li>
-          <li>
+          <li
+            onMouseLeave={closeAllMenus}
+          >
             <a 
               href='#' 
               className={styles.navLink}
@@ -182,7 +184,9 @@ export function Header() {
               </ul>
             </div>
           </li>
-          <li>
+          <li
+            onMouseLeave={closeAllMenus}
+          >
             <a 
               href='#' 
               className={styles.navLink}
