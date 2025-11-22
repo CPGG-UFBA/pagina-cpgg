@@ -671,36 +671,51 @@ nav a:hover {
     padding: 0 10px !important;
   }
 
-  /* Fotos em coluna à esquerda */
+  /* Fotos em grid 2x2 ao fim da box (mobile pequeno) */
   .box1,
   .box2,
   .box3,
   .box4 {
-    width: 90px !important;
-    height: 90px !important;
-    position: absolute !important;
-    left: 10px !important;
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 150px !important;
+    height: 150px !important;
+    min-width: 150px !important;
+    min-height: 150px !important;
+    max-width: 150px !important;
+    max-height: 150px !important;
+    display: inline-block !important;
+    margin: 5px !important;
+    vertical-align: top !important;
+    background-size: cover !important;
+    background-position: center !important;
   }
 
+  /* Primeira linha: fotos 1 e 2, segunda linha: fotos 3 e 4 */
   .box1 {
-    top: 18% !important;
+    margin-right: 10px !important;
   }
+
   .box2 {
-    top: calc(18% + 100px) !important;
+    margin-left: 10px !important;
   }
+
   .box3 {
-    top: calc(18% + 200px) !important;
+    clear: left !important;
+    margin-right: 10px !important;
   }
+
   .box4 {
-    top: calc(18% + 300px) !important;
+    margin-left: 10px !important;
   }
 
   .legend1,
   .legend2,
   .legend3,
   .legend4 {
-    font-size: 7px;
-    top: 90px;
+    font-size: 8px !important;
+    top: 150px !important;
   }
 }
 
