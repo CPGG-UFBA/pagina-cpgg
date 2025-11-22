@@ -231,7 +231,10 @@
     margin-top: -170px !important;
   }
   
-  .headers {
-    width: 350px;
+  .headers,
+  .document {
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 350px !important;
   }
 }
