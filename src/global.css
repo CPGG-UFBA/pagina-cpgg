@@ -273,7 +273,13 @@ button {
     background-image: none !important;
     background-color: #001a5a !important;
   }
+
+  body:has(.auditory-page) .header {
+    background-image: none !important;
+    background-color: #001a5a !important;
+  }
 }
+
 
 button[data-radix-select-trigger] * {
   color: #000 !important;
