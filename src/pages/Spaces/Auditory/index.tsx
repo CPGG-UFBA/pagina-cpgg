@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './auditory.module.css'
 import { Header } from '../../../components/Header'
@@ -8,6 +9,13 @@ import auditory1 from '../../../assets/Photos/Auditory/Auditorio1-new.jpg'
 import auditory2 from '../../../assets/Photos/Auditory/Auditorio2-new.jpg'
 
 export function Auditory() {
+  useEffect(() => {
+    document.body.classList.add('auditory-page-body')
+    return () => {
+      document.body.classList.remove('auditory-page-body')
+    }
+  }, [])
+
   return (
     <div className={`${styles.Container} auditory-page`}>
       <Header />

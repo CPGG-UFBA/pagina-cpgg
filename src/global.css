@@ -152,14 +152,18 @@ body:has(main.map) #root {
   }
 }
 
-/* EXCEÇÃO: remover fundo roxo na página do Auditório em telas pequenas */
-@media (max-width: 500px) {
-  body:has(.auditory-page) {
+/* EXCEÇÃO: remover fundo roxo na página do Auditório em telas pequenas específicas */
+@media (max-width: 390px) and (max-height: 844px) {
+  body.auditory-page-body {
+    background-image: none !important;
+    background-color: #001a5a !important;
+  }
+
+  body.auditory-page-body header {
     background-image: none !important;
     background-color: #001a5a !important;
   }
 }
-
 
 
 /* Force no scroll on Coordination page */
