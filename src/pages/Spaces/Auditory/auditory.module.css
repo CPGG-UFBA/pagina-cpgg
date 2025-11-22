@@ -161,12 +161,20 @@
 }
 
 @media (max-width: 400px) {
+  .Container {
+    position: static !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
   .box {
     width: 95%;
     max-width: 350px;
     height: auto;
     min-height: 500px;
-    top: 200px;
+    top: 220px;
     transform: translateX(-50%);
   }
 
