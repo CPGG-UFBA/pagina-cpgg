@@ -265,16 +265,15 @@
   .box {
     width: 90% !important;
     max-width: 350px !important;
-    height: auto !important;
-    min-height: 400px !important;
+    height: 450px !important;
     position: absolute !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: calc(18% + 50px) !important;
     padding: 10px !important;
-    padding-bottom: 10px !important;
     font-size: 8px;
-    overflow-y: auto;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
     margin-left: 0 !important;
   }
 
