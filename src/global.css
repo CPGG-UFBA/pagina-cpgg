@@ -163,6 +163,13 @@ body:has(main.map) #root {
     background-image: none !important;
     background-color: #001a5a !important;
   }
+
+  /* remover ondas lilás do rodapé só nesta página */
+  body.auditory-page-body footer > div:nth-child(2) {
+    background-image: none !important;
+    height: 0 !important;
+    margin-top: 0 !important;
+  }
 }
 
 
