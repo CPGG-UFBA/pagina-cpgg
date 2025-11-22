@@ -892,6 +892,19 @@ nav ul li:hover .submenu2 ul li a {
     max-width: 123px !important;
   }
   
+  /* Move itens específicos 5px para a direita */
+  .header nav ul li .submenu1 ul li:nth-child(1),
+  .header nav ul li .submenu1 ul li:nth-child(2),
+  .header nav ul li .submenu1 ul li:nth-child(3) {
+    transform: translateX(-25px) !important;
+  }
+  
+  .header nav ul li .submenu1.submenu1Open ul li:nth-child(1),
+  .header nav ul li .submenu1.submenu1Open ul li:nth-child(2),
+  .header nav ul li .submenu1.submenu1Open ul li:nth-child(3) {
+    transform: translateX(-25px) !important;
+  }
+  
   .header nav ul li .submenu1 ul li a {
     transform: translateX(-30px) !important;
     max-width: 123px !important;
@@ -899,11 +912,24 @@ nav ul li:hover .submenu2 ul li a {
     line-height: 1.2 !important;
   }
   
+  /* Move links dos itens específicos 5px para a direita */
+  .header nav ul li .submenu1 ul li:nth-child(1) a,
+  .header nav ul li .submenu1 ul li:nth-child(2) a,
+  .header nav ul li .submenu1 ul li:nth-child(3) a {
+    transform: translateX(-25px) !important;
+  }
+  
   .header nav ul li .submenu1.submenu1Open ul li a {
     transform: translateX(-30px) !important;
     max-width: 123px !important;
     padding: 10px 9px !important;
     line-height: 1.2 !important;
+  }
+  
+  .header nav ul li .submenu1.submenu1Open ul li:nth-child(1) a,
+  .header nav ul li .submenu1.submenu1Open ul li:nth-child(2) a,
+  .header nav ul li .submenu1.submenu1Open ul li:nth-child(3) a {
+    transform: translateX(-25px) !important;
   }
   
   /* Move o submenu2 (Instituição) para baixo */
