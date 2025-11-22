@@ -934,13 +934,13 @@ nav ul li:hover .submenu2 ul li a {
   
   /* Move o submenu2 (Instituição) para baixo */
   .header nav ul li .submenu1 .hoversub .submenu2 {
-    transform: translate(-19px, 30px) !important;
+    transform: translate(-24px, 30px) !important;
     min-width: 80px !important;
     max-width: 80px !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2.submenu2Open {
-    transform: translate(-19px, 30px) !important;
+    transform: translate(-24px, 30px) !important;
     min-width: 80px !important;
     max-width: 80px !important;
   }
