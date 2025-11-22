@@ -906,7 +906,7 @@ nav ul li:hover .submenu2 ul li a {
     display: flex !important;
     flex-direction: column !important;
     background-color: transparent !important;
-    padding: 0 !important;
+    padding: 30px 0 0 0 !important;
     margin: 0 !important;
     width: 100% !important;
   }
