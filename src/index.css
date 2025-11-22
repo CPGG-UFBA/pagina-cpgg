@@ -223,8 +223,8 @@ All colors MUST be HSL.
     height: auto !important;
   }
   
-  /* Research Projects page - allow scroll even on small screens (<=390x844) */
-  @media (max-width: 390px) and (max-height: 844px) {
+  /* Research Projects page - allow scroll even on small screens (<=390px width) */
+  @media (max-width: 390px) {
     body > div:has(.research-projects-page) {
       height: auto !important;
       overflow-y: auto !important;

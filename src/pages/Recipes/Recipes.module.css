@@ -247,8 +247,8 @@
   }
 }
 
-/* Layout vertical para telas muito pequenas (390x844 e menores) */
-@media (max-width: 390px) and (max-height: 844px) {
+/* Layout vertical para telas muito pequenas (390px de largura ou menos) */
+@media (max-width: 390px) {
   .recipes {
     overflow-y: auto !important;
     max-height: none !important;
