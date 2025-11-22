@@ -859,15 +859,19 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   /* Submenus abrem logo abaixo de seus botões */
+  .header nav ul > li {
+    position: relative !important;
+  }
+  
   .submenu1 {
     position: absolute !important;
     top: 100% !important;
-    left: 0 !important;
-    transform: translate(10px, 5px) !important;
+    left: 50% !important;
+    transform: translate(-50%, 5px) !important;
     margin-top: 0 !important;
     min-width: 137px !important;
     max-width: 137px !important;
-    display: flex !important;
+    display: none !important;
     flex-direction: column !important;
   }
   
@@ -876,8 +880,8 @@ nav ul li:hover .submenu2 ul li a {
     flex-direction: column !important;
     position: absolute !important;
     top: 100% !important;
-    left: 0 !important;
-    transform: translate(10px, 5px) !important;
+    left: 50% !important;
+    transform: translate(-50%, 5px) !important;
     background-color: #592cbb !important;
     z-index: 100005 !important;
     min-width: 137px !important;
@@ -891,63 +895,41 @@ nav ul li:hover .submenu2 ul li a {
     width: 100% !important;
   }
   
-  /* Move os itens do submenu para a esquerda */
+  /* Itens do submenu alinhados corretamente */
   .header nav ul li .submenu1 ul li {
-    transform: translateX(-30px) !important;
+    transform: none !important;
+    width: 100% !important;
     max-width: 137px !important;
-    background-color: transparent !important;
+    background-color: #592cbb !important;
     border: none !important;
     box-shadow: none !important;
   }
   
   .header nav ul li .submenu1.submenu1Open ul li {
-    transform: translateX(-30px) !important;
+    transform: none !important;
+    width: 100% !important;
     max-width: 137px !important;
-    background-color: transparent !important;
+    background-color: #592cbb !important;
     border: none !important;
     box-shadow: none !important;
   }
   
-  /* Move itens específicos 5px para a direita */
-  .header nav ul li .submenu1 ul li:nth-child(1),
-  .header nav ul li .submenu1 ul li:nth-child(2),
-  .header nav ul li .submenu1 ul li:nth-child(3) {
-    transform: translateX(-25px) !important;
-  }
-  
-  .header nav ul li .submenu1.submenu1Open ul li:nth-child(1),
-  .header nav ul li .submenu1.submenu1Open ul li:nth-child(2),
-  .header nav ul li .submenu1.submenu1Open ul li:nth-child(3) {
-    transform: translateX(-25px) !important;
-  }
-  
   .header nav ul li .submenu1 ul li a {
-    transform: translateX(-30px) !important;
+    transform: none !important;
+    width: 100% !important;
     max-width: 137px !important;
     padding: 10px 9px !important;
     line-height: 1.2 !important;
-    background-color: transparent !important;
-  }
-  
-  /* Move links dos itens específicos 5px para a direita */
-  .header nav ul li .submenu1 ul li:nth-child(1) a,
-  .header nav ul li .submenu1 ul li:nth-child(2) a,
-  .header nav ul li .submenu1 ul li:nth-child(3) a {
-    transform: translateX(-25px) !important;
+    background-color: #592cbb !important;
   }
   
   .header nav ul li .submenu1.submenu1Open ul li a {
-    transform: translateX(-30px) !important;
+    transform: none !important;
+    width: 100% !important;
     max-width: 137px !important;
     padding: 10px 9px !important;
     line-height: 1.2 !important;
-    background-color: transparent !important;
-  }
-  
-  .header nav ul li .submenu1.submenu1Open ul li:nth-child(1) a,
-  .header nav ul li .submenu1.submenu1Open ul li:nth-child(2) a,
-  .header nav ul li .submenu1.submenu1Open ul li:nth-child(3) a {
-    transform: translateX(-25px) !important;
+    background-color: #592cbb !important;
   }
   
   /* Quebra linha e alinha à esquerda para itens do menu "Solicitações" em mobile */
@@ -1022,16 +1004,16 @@ nav ul li:hover .submenu2 ul li a {
     white-space: normal !important;
   }
   
-  /* Remove hover branco dos submenus */
+  /* Remove hover transparente dos submenus */
   nav ul li:hover .submenu1 ul li:hover,
   nav ul li:hover .submenu1 ul li:hover a {
-    background-color: transparent !important;
-    color: #fff !important;
+    background-color: white !important;
+    color: #592cbb !important;
   }
   
   .submenu2 ul li:hover,
   .submenu2 ul li:hover a {
-    background-color: transparent !important;
-    color: #fff !important;
+    background-color: white !important;
+    color: #592cbb !important;
   }
 }
