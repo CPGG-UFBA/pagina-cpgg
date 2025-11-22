@@ -26,16 +26,17 @@
   pointer-events: auto;
 }
 
-/* Extra ajuste para telas pequenas 390px de largura e menores */
-@media (max-width: 390px) {
+/* Extra ajuste para telas pequenas 430px de largura e menores */
+@media (max-width: 430px) {
   .container {
-    padding-top: 305px;
+    padding-top: 340px;
   }
 
   .header {
     margin-top: 150px;
   }
 }
+
 
 .header {
   text-align: center;
@@ -95,12 +96,13 @@
   pointer-events: auto;
 }
 
-/* Ajuste extra para 390px de largura e menores: garante espaço e rolagem */
-@media (max-width: 390px) {
+/* Ajuste extra para 430px de largura e menores: garante espaço e rolagem */
+@media (max-width: 430px) {
   .scrollArea {
-    max-height: calc(100vh - 350px);
+    max-height: none;
   }
 }
+
 
 .projectsGrid {
   display: grid;
