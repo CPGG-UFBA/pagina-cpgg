@@ -268,13 +268,13 @@ button {
 
 /* Ensure all text inside select components is black */
 
-@media (max-width: 500px) {
+@media (max-width: 390px) and (max-height: 844px) {
   body:has(.auditory-page) {
     background-image: none !important;
     background-color: #001a5a !important;
   }
 
-  body:has(.auditory-page) .header {
+  body:has(.auditory-page) header {
     background-image: none !important;
     background-color: #001a5a !important;
   }
