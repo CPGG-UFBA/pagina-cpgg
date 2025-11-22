@@ -134,11 +134,24 @@ body:has(.technicians) #root,
 body:has(.labs) #root,
 body:has(main.spaces) #root,
 body:has(.production) #root,
-body:has(.recipes) #root,
 body:has(main.map) #root {
   overflow: hidden !important;
   height: 100vh !important;
 }
+
+/* EXCEÇÃO: permitir scroll na página Recipes em telas pequenas */
+@media (max-width: 390px) {
+  body:has(.recipes) {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+
+  body:has(.recipes) #root {
+    overflow-y: auto !important;
+    height: auto !important;
+  }
+}
+
 
 /* Force no scroll on Coordination page */
 body:has(.heads) {
