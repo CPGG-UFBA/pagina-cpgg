@@ -71,10 +71,10 @@
   }
 }
 
-/* Stack flags vertically for widths up to 500px */
+/* Mantém as bandeiras lado a lado mesmo em telas pequenas */
 @media (max-width: 500px) {
   .languageSelector {
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     gap: 4px;
   }
