@@ -184,8 +184,16 @@
 }
 
 @media (max-width: 390px) {
+  .Container {
+    z-index: 1001 !important;
+  }
+  
+  .Auditory {
+    z-index: 1001 !important;
+  }
+  
   .box {
     top: 300px !important;
-    z-index: 1001 !important;
+    z-index: 1002 !important;
   }
 }
