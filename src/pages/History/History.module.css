@@ -221,3 +221,13 @@
     margin-top: 155px;
   }
 }
+
+@media (max-width: 390px) and (max-height: 844px) {
+  .title {
+    margin-top: 355px !important;
+  }
+  
+  .container {
+    margin-top: 200px !important;
+  }
+}
