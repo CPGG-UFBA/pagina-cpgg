@@ -216,12 +216,21 @@
 }
 
 @media (max-width: 390px) {
+  .pageContainer {
+    overflow-y: hidden !important;
+  }
+  
+  .spaces {
+    overflow-y: hidden !important;
+  }
+  
   .title {
-    margin-top: 255px !important;
+    margin-top: 225px !important;
   }
   
   .container {
-    margin-top: -200px !important;
+    margin-top: -230px !important;
+    overflow-y: hidden !important;
   }
 }
 
