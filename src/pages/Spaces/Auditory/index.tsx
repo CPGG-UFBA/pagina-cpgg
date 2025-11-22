@@ -9,7 +9,7 @@ import auditory2 from '../../../assets/Photos/Auditory/Auditorio2-new.jpg'
 
 export function Auditory() {
   return (
-    <div className={styles.Container}>
+    <div className={`${styles.Container} auditory-page`}>
       <Header />
       <div className={styles.Auditory}>
           <div className={styles.box}>

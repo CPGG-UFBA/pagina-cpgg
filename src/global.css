@@ -154,7 +154,7 @@ body:has(main.map) #root {
 
 /* EXCEÇÃO: remover fundo roxo na página do Auditório em telas pequenas */
 @media (max-width: 500px) {
-  body:has(.Auditory) {
+  body:has(.auditory-page) {
     background-image: none !important;
     background-color: #001a5a !important;
   }
