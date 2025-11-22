@@ -778,6 +778,13 @@ nav ul li:hover .submenu2 ul li a {
 
 /* 390x840 and similar small-phone resolutions: move institution titles 50px down and 5px left */
 @media (max-width: 390px) {
+  /* Centralizar seletor de idiomas */
+  .languageContainer {
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+  }
+  
   .block1 {
     transform: translate(-5px, -10px) !important;
   }
