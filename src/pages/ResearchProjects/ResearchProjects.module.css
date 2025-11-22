@@ -4,6 +4,7 @@
   min-height: 100vh;
   position: relative;
   pointer-events: auto;
+  overflow-y: auto;
 }
 
 /* Portrait orientation - when height > width */
@@ -25,8 +26,8 @@
   pointer-events: auto;
 }
 
-/* Extra ajuste para telas pequenas 390x844 e menores */
-@media (max-width: 390px) and (max-height: 844px) {
+/* Extra ajuste para telas pequenas 390px de largura e menores */
+@media (max-width: 390px) {
   .container {
     padding-top: 305px;
   }
@@ -94,8 +95,8 @@
   pointer-events: auto;
 }
 
-/* Ajuste extra para 390x844 e menores: garante espaço e rolagem */
-@media (max-width: 390px) and (max-height: 844px) {
+/* Ajuste extra para 390px de largura e menores: garante espaço e rolagem */
+@media (max-width: 390px) {
   .scrollArea {
     max-height: calc(100vh - 350px);
   }
