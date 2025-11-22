@@ -129,7 +129,7 @@ export function AdminAuthDialog({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="w-[90vw] max-w-[14rem] sm:max-w-[16rem]">
+      <DialogContent className="sm:max-w-md max-h-[50vh]">
         <DialogHeader>
           <DialogTitle>{title}</DialogTitle>
           <DialogDescription>
