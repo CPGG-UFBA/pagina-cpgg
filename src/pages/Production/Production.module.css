@@ -127,3 +127,9 @@
     margin: 0 0.5rem;
   }
 }
+
+@media (max-width: 390px) {
+  .container {
+    padding-top: 255px !important;
+  }
+}
