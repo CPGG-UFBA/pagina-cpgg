@@ -354,6 +354,19 @@ All colors MUST be HSL.
     }
   }
 
+  /* Hide Earth figure on screens ≤390x844 */
+  @media (max-width: 390px) and (max-height: 844px) {
+    .staticFigure,
+    .staticFigure img,
+    .earthFigure,
+    .earthFigure img,
+    .earthImage,
+    .global-earth-container {
+      display: none !important;
+      visibility: hidden !important;
+    }
+  }
+
   /* Ensure Radix UI Portals (like Select dropdowns) are visible */
   [data-radix-portal] {
     z-index: 999999 !important;
