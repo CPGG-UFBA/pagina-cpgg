@@ -818,17 +818,26 @@ nav a:hover {
     position: relative !important;
     left: 0 !important;
     top: 0 !important;
-    width: 70px !important;
-    height: 70px !important;
+    width: 150px !important;
+    height: 150px !important;
     display: inline-block !important;
     margin: 5px !important;
+    vertical-align: top !important;
+  }
+
+  .box2 {
+    margin-right: 0 !important;
+  }
+
+  .box3 {
+    clear: left !important;
   }
 
   .legend1,
   .legend2,
   .legend3,
   .legend4 {
-    font-size: 7px !important;
-    top: 70px !important;
+    font-size: 8px !important;
+    top: 150px !important;
   }
 }
