@@ -1043,12 +1043,12 @@ nav ul li:hover .submenu2 ul li a {
   }
   
   /* Padding especial para submenu de Pessoal */
-  .submenu2Personnel ul {
+  .header nav ul li .submenu1 .hoversub .submenu2Personnel ul {
     padding-top: 30px !important;
   }
   
   /* Padding especial para submenu de Instituição */
-  .submenu2Institution ul {
+  .header nav ul li .submenu1 .hoversub .submenu2Institution ul {
     padding-top: 30px !important;
   }
   
