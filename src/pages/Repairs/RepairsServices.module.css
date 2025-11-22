@@ -144,3 +144,47 @@
     left: calc(10% + 130px - 150px);
   }
 }
+
+@media (max-width: 390px) and (max-height: 844px) {
+  .RS {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 100px !important;
+  }
+
+  .box {
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 95% !important;
+    max-width: 95% !important;
+    margin: 0 auto !important;
+    padding: 15px !important;
+  }
+
+  .box input,
+  .box select,
+  .box textarea {
+    width: calc(100% - 30px) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .box button {
+    width: calc(100% - 30px) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .box label {
+    align-self: flex-start;
+    margin-left: 15px;
+  }
+}
