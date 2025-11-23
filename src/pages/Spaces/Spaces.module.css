@@ -219,36 +219,44 @@
   .pageContainer {
     height: 100vh !important;
     max-height: 100vh !important;
-    overflow: hidden !important;
-    position: fixed !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    position: relative !important;
     width: 100%;
-    top: 0;
-    left: 0;
   }
   
   .spaces {
-    overflow: hidden !important;
-    max-height: 100vh !important;
-    padding-bottom: 0;
-    overflow-y: hidden !important;
+    overflow: visible !important;
+    max-height: none !important;
+    min-height: calc(100vh - 200px);
+    padding-bottom: 1rem;
     position: relative;
   }
   
   .title {
-    margin-top: 185px !important;
+    margin-top: 165px !important;
     font-size: 20px;
   }
   
   .container {
-    margin-top: -160px !important;
-    overflow: hidden !important;
-    overflow-y: hidden !important;
-    max-height: calc(100vh - 300px) !important;
+    margin-top: -140px !important;
+    overflow: visible !important;
+    max-height: none !important;
+    padding-bottom: 2rem;
   }
   
   .card {
     pointer-events: auto !important;
     touch-action: manipulation !important;
+    margin-bottom: 1rem;
+  }
+  
+  .card:nth-child(1) {
+    margin-top: 30px;
+  }
+  
+  .card:nth-child(2) {
+    margin-top: 0;
   }
   
   .auditory,
@@ -256,6 +264,14 @@
   .laboratory {
     pointer-events: auto !important;
     touch-action: manipulation !important;
+    height: 90px;
+    font-size: 0.9rem;
+  }
+  
+  .auditory h2,
+  .meetingroom h2,
+  .laboratory h2 {
+    font-size: 1.4rem;
   }
 }
 

@@ -151,13 +151,14 @@ body:has(main.map) #root {
     height: auto !important;
   }
 
-  /* Travar scroll vertical na página Spaces apenas em telas muito pequenas */
+  /* Permitir scroll vertical na página Spaces em telas muito pequenas para mostrar o footer */
   html:has(main.spaces),
   body:has(main.spaces),
   body:has(main.spaces) #root {
-    overflow: hidden !important;
-    height: 100vh !important;
-    overscroll-behavior: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    height: auto !important;
+    min-height: 100vh !important;
   }
 }
 
