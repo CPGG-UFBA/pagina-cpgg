@@ -152,10 +152,12 @@ body:has(main.map) #root {
   }
 
   /* Travar scroll vertical na página Spaces apenas em telas muito pequenas */
+  html:has(main.spaces),
   body:has(main.spaces),
   body:has(main.spaces) #root {
     overflow: hidden !important;
     height: 100vh !important;
+    overscroll-behavior: none !important;
   }
 }
 
