@@ -161,21 +161,13 @@
 }
 
 @media (max-width: 400px) {
-  .Container {
-    position: static !important;
-    height: auto !important;
-    max-height: none !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-  }
-
   .box {
     width: 95%;
     max-width: 350px;
     height: auto;
-    min-height: 500px;
+    min-height: 300px;
     max-height: 500px;
-    top: 220px;
+    top: 200px;
     transform: translateX(-50%);
     overflow-y: auto;
     overflow-x: hidden;
@@ -194,20 +186,6 @@
   }
 }
 
-@media (max-width: 390px) {
-  .Container {
-    z-index: 1001 !important;
-  }
-  
-  .Auditory {
-    z-index: 1001 !important;
-  }
-  
-  .box {
-    top: 300px !important;
-    z-index: 1002 !important;
-  }
-}
 
 /* Scroll dentro da box para resoluções 390x844 ou menores */
 @media (max-width: 390px) and (max-height: 844px) {
