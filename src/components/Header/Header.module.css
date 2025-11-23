@@ -599,7 +599,9 @@ nav ul li:hover .submenu2 ul li a {
     position: relative;
     margin-top: 5px;
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(89, 44, 187, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -899,9 +901,11 @@ nav ul li:hover .submenu2 ul li a {
     max-width: 150px !important;
     display: none !important;
     flex-direction: column !important;
-    background-color: transparent !important;
+    background-color: rgba(89, 44, 187, 0.95) !important;
     padding: 0 !important;
     pointer-events: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
   }
   
   .submenu1.submenu1Open {
@@ -911,13 +915,15 @@ nav ul li:hover .submenu2 ul li a {
     top: 100% !important;
     left: 50% !important;
     transform: translate(calc(-50% + 15px), 0px) !important;
-    background-color: transparent !important;
+    background-color: rgba(89, 44, 187, 0.95) !important;
     z-index: 100010 !important;
     min-width: 150px !important;
     max-width: 150px !important;
     margin-top: 0 !important;
     padding: 0 !important;
     pointer-events: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
   }
   
   .submenu1 ul {
@@ -1031,9 +1037,11 @@ nav ul li:hover .submenu2 ul li a {
     margin-right: 0 !important;
     display: none !important;
     flex-direction: column !important;
-    background-color: transparent !important;
+    background-color: rgba(89, 44, 187, 0.95) !important;
     padding: 0 !important;
     z-index: 100006 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
   }
   
   /* Controle via click (openSubmenu state) */
@@ -1049,10 +1057,12 @@ nav ul li:hover .submenu2 ul li a {
     margin-right: 0 !important;
     display: flex !important;
     flex-direction: column !important;
-    background-color: transparent !important;
+    background-color: rgba(89, 44, 187, 0.95) !important;
     padding: 0 !important;
     z-index: 100015 !important;
     pointer-events: auto !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
   }
   
   .header nav ul li .submenu1 .hoversub .submenu2 ul {
