@@ -235,9 +235,21 @@
   }
   
   .container {
-    margin-top: -100px !important;
+    margin-top: -130px !important;
     overflow: hidden !important;
     max-height: calc(100vh - 300px) !important;
+  }
+  
+  .card {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+  }
+  
+  .auditory,
+  .meetingroom,
+  .laboratory {
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
   }
 }
 
