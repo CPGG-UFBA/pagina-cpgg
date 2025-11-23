@@ -155,7 +155,7 @@ nav ul li a {
 nav ul li:hover .submenu1 {
   display: block;
   position: absolute;
-  background-color: #592cbb;
+  background-color: transparent;
   margin-top: 10px;
   margin-left: -20px;
   font-size: 16px;
@@ -171,7 +171,7 @@ nav ul li:hover .submenu1 {
 .submenu1.submenu1Open {
   display: block !important;
   position: absolute !important;
-  background-color: #592cbb !important;
+  background-color: transparent !important;
   margin-top: 10px !important;
   margin-left: -20px !important;
   font-size: 16px !important;
@@ -225,7 +225,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   top: 0;
   right: 100%;
   margin: 0;
-  background-color: #592cbb;
+  background-color: transparent;
   width: fit-content;
   min-width: 190px;
   z-index: 100001;
@@ -238,7 +238,7 @@ nav ul li:hover .submenu1 ul li:hover a {
   top: 0 !important;
   right: 100% !important;
   margin: 0 !important;
-  background-color: #592cbb !important;
+  background-color: transparent !important;
   width: fit-content !important;
   min-width: 190px !important;
   z-index: 100006 !important;
@@ -264,18 +264,18 @@ nav ul li:hover .submenu2 ul li {
   padding: 0;
   margin: 0;
 }
-/* Ensure default background of submenu2 items is solid purple */
+/* Ensure default background of submenu2 items is transparent */
 .submenu2 ul li {
-  background-color: #592cbb;
+  background-color: transparent;
 }
 
-/* Default state: anchors inside submenu2 are purple with white text */
+/* Default state: anchors inside submenu2 are transparent with white text */
 .submenu2 li a {
   display: block;
   width: 100%;
   padding: 11px 15px;
   margin: 0;
-  background-color: #592cbb !important;
+  background-color: transparent !important;
   color: #fff !important;
 }
 
@@ -591,7 +591,7 @@ nav ul li:hover .submenu2 ul li a {
     position: relative;
     margin-top: 5px;
     width: 100%;
-    background-color: rgba(89, 44, 187, 0.9);
+    background-color: transparent;
   }
 }
 
@@ -667,7 +667,7 @@ nav ul li:hover .submenu2 ul li a {
     left: 0;
     right: 0;
     width: 100%;
-    background-color: rgba(89, 44, 187, 0.95);
+    background-color: transparent;
     padding: 10px;
     z-index: 100000;
   }
