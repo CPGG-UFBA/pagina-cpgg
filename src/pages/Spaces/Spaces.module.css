@@ -217,22 +217,27 @@
 
 @media (max-width: 390px) {
   .pageContainer {
-    overflow: hidden !important;
+    height: 100vh !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    position: relative !important;
   }
   
   .spaces {
-    overflow: hidden !important;
-    max-height: 100vh !important;
+    overflow: visible !important;
+    max-height: none !important;
+    padding-bottom: 2rem;
   }
   
   .title {
-    margin-top: 225px !important;
+    margin-top: 190px !important;
   }
   
   .container {
-    margin-top: -230px !important;
-    overflow: hidden !important;
-    max-height: calc(100vh - 300px) !important;
+    margin-top: 0 !important;
+    overflow: visible !important;
+    max-height: none !important;
   }
 }
 
