@@ -58,6 +58,8 @@
   display: flex;
   justify-content: center;
   margin-top: -430px;
+  position: relative;
+  z-index: 100010;
 }
 
 .meetingroom1 img {
@@ -193,4 +195,9 @@
     overflow-x: hidden !important;
     -webkit-overflow-scrolling: touch !important;
   }
+
+  .buttonContainer {
+    margin-top: -40px;
+  }
 }
+
