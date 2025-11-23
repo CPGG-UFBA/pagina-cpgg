@@ -557,8 +557,8 @@
   }
 }
 
-/* Small devices (up to 390px wide) - hide lilac footer image and keep only blue bar, adjust copyright position */
-@media (max-width: 390px) {
+/* Small devices (up to 390px wide and up to 844px tall) - hide lilac footer image and keep only blue bar, adjust copyright position */
+@media (max-width: 390px) and (max-height: 844px) {
   .image {
     display: none;
   }
@@ -569,7 +569,7 @@
   }
 
   .copyright {
-    transform: translate(60px, 80px) !important;
+    transform: translate(120px, 140px) !important;
   }
 }
 
