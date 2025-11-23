@@ -150,6 +150,13 @@ body:has(main.map) #root {
     overflow-y: auto !important;
     height: auto !important;
   }
+
+  /* Travar scroll vertical na página Spaces apenas em telas muito pequenas */
+  body:has(main.spaces),
+  body:has(main.spaces) #root {
+    overflow: hidden !important;
+    height: 100vh !important;
+  }
 }
 
 
