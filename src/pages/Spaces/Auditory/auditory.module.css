@@ -1,8 +1,8 @@
 .Container {
   display: flex;
   flex-direction: column;
-  height: 90vh !important;
-  max-height: 90vh !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
   overflow: hidden !important;
   position: fixed !important;
   top: 0;
