@@ -28,6 +28,17 @@ export function DynamicResearcher() {
   const [userPhotoUrl, setUserPhotoUrl] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
 
+  // Remove page scroll
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+    
+    return () => {
+      document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+    }
+  }, [])
+
   useEffect(() => {
     if (id) {
       fetchResearcher(id)
