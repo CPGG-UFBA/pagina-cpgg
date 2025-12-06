@@ -13,14 +13,16 @@
   }
 
 
-.Professor > p {
-  position: absolute;
-  left: calc(2% + 475px);
-  font-size: 25px;
-  color: #363F5; 
-  margin-top: -50px;
-  white-space: nowrap;
-  transform: translateX(-50%);
+.researcherName {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  margin: 0 0 20px 0;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 
@@ -128,12 +130,20 @@ nav a:hover {
   
   .box1.box1 {
     width: 90vw !important;
-    height: 50vh !important;
+    height: auto !important;
+    min-height: 50vh !important;
     padding: 20px !important;
+    padding-left: 20px !important;
     left: 5% !important;
     top: 15% !important;
     font-size: 14px !important;
     z-index: 10 !important;
+  }
+  
+  .researcherName {
+    font-size: 18px !important;
+    padding: 10px 0 !important;
+    margin-bottom: 15px !important;
   }
   
   .box2.box2 {
