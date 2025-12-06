@@ -157,8 +157,8 @@ export function DynamicResearcher() {
       <div>
         <div className={styles.Professor}>
           <BackButton />
-          <p>{researcher.name}</p>
           <div className={styles.box1}>
+            <h1 className={styles.researcherName}>{researcher.name}</h1>
             <DynamicResearcherProfile 
               key={refreshKey}
               researcherName={researcher.name}
