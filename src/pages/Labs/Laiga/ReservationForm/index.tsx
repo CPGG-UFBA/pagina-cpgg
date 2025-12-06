@@ -43,22 +43,31 @@ export function RF() {
       // Fallback to hardcoded list if database fails
       setEquipments(
         [
+          "Bússola Brunton",
+          "Caminhão de fonte sísmica AWD",
+          "Caminhonete 4x4",
           "Elrec Pro",
           "Gamaespectrômetro RS125",
+          "Gerador Honda 3,6 KVA",
           "Gerador Honda EG5500",
+          "GPR IDS-RIS MF-HI-MOD",
+          "GPR SIR 20",
           "GPR SIR 3000",
           "GPR SIR 4000",
-          "GPR SIR 20",
           "GPS diferencial SP60",
           "GPS Etrex10",
           "Gravímetro CG5",
           "Magnetômetro Marinho G882",
           "Magnetômetro Terrestre GSN19",
+          "Martelo de Geólogo",
+          "Percômetro para medidas de condutividade em amostras de testemunho",
+          "Perfuratriz para amostragem de solo",
           "Sismógrafo Geode48",
+          "Sonar Marinho DE340D e DE680D",
           "Susceptibilímetro KT10",
           "Syscal Pro",
-          "VLF T-VLF",
           "V8 Phoenix",
+          "VLF T-VLF",
         ].sort(),
       );
     }
