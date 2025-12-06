@@ -42,7 +42,8 @@
   padding-top: 6px;
   padding-left: 230px;
   padding-right: 15px;
-  overflow: hidden;
+  overflow-y: scroll;
+
 }
 
 .box1 ul {
