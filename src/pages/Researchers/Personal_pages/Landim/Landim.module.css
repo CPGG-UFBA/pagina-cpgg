@@ -3,11 +3,11 @@
   column-gap: 3rem;
   display: flex;
   flex: 1;
-  overflow: hidden;
+  overflow: visible;
   justify-content: center;
   color: #fff;
-  padding-top: 20px;
-  padding-bottom: 0;
+  padding-top: 170px;
+  padding-bottom: 560px;
   padding-left: 200px;
   padding-right: 8px;
   }
@@ -35,14 +35,14 @@
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 950px;
-  height: calc(100vh - 200px);
-  top: 120px;
+  height: 500px;
+  top: 20%;
   left:2%;
   border-radius: 20px;
   padding-top: 6px;
   padding-left: 230px;
   padding-right: 15px;
-  overflow-y: auto;
+  overflow-y: scroll;
 
 }
 
@@ -170,8 +170,7 @@ nav a:hover {
 .Container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 /* Portrait orientation - when height > width */  

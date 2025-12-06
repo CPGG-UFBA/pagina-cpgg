@@ -28,17 +28,6 @@ export function DynamicResearcher() {
   const [userPhotoUrl, setUserPhotoUrl] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
 
-  // Remove page scroll
-  useEffect(() => {
-    document.body.style.overflow = 'hidden'
-    document.documentElement.style.overflow = 'hidden'
-    
-    return () => {
-      document.body.style.overflow = ''
-      document.documentElement.style.overflow = ''
-    }
-  }, [])
-
   useEffect(() => {
     if (id) {
       fetchResearcher(id)
@@ -163,9 +152,9 @@ export function DynamicResearcher() {
   const photoUrl = userPhotoUrl || getResearcherPhoto(researcher.name)
 
   return (
-    <div className={styles.Container} style={{ height: '100vh', overflow: 'hidden' }}>
+    <div className={styles.Container}>
       <Header />
-      <div style={{ flex: 1, overflow: 'hidden' }}>
+      <div>
         <div className={styles.Professor}>
           <BackButton />
           <div className={styles.box1}>
