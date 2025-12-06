@@ -3,11 +3,11 @@
   column-gap: 3rem;
   display: flex;
   flex: 1;
-  overflow: visible;
+  overflow: hidden;
   justify-content: center;
   color: #fff;
-  padding-top: 170px;
-  padding-bottom: 560px;
+  padding-top: 20px;
+  padding-bottom: 0;
   padding-left: 200px;
   padding-right: 8px;
   }
@@ -35,14 +35,14 @@
   background-color: rgba(255,255,255, 0.2);
   position: absolute;
   width: 950px;
-  height: 500px;
-  top: 20%;
+  height: calc(100vh - 200px);
+  top: 120px;
   left:2%;
   border-radius: 20px;
   padding-top: 6px;
   padding-left: 230px;
   padding-right: 15px;
-  overflow-y: scroll;
+  overflow-y: auto;
 
 }
 
