@@ -152,9 +152,9 @@ export function DynamicResearcher() {
   const photoUrl = userPhotoUrl || getResearcherPhoto(researcher.name)
 
   return (
-    <div className={styles.Container}>
+    <div className={styles.Container} style={{ height: '100vh', overflow: 'hidden' }}>
       <Header />
-      <div>
+      <div style={{ flex: 1, overflow: 'hidden' }}>
         <div className={styles.Professor}>
           <BackButton />
           <div className={styles.box1}>
