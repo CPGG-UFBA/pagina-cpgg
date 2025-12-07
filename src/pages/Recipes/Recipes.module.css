@@ -1,160 +1,53 @@
 /* Recipes Page Styles */
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
 .recipes {
   flex: 1;
-  padding: 2rem;
-  padding-top: 155px;
-  overflow: hidden !important;
+  padding: 1rem 2rem;
+  padding-top: 130px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
   max-height: calc(100vh - 150px);
 }
 
 .title {
   text-align: left;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-top: 0;
-  margin-left: 380px;
+  margin-left: 80px;
   font-size: 32px;
   font-weight: bold;
   color: white;
 }
 
 .container {
-  display: grid !important;
-  grid-template-columns: repeat(3, 280px) !important;
-  grid-auto-flow: row !important;
-  gap: 20px !important;
-  max-width: 1000px;
-  margin-top: 40px;
-  margin-bottom: 4rem;
-  margin-left: auto;
-  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  grid-template-rows: repeat(2, 108px);
+  gap: 20px;
+  max-width: 900px;
+  margin-left: 80px;
 }
 
-@media (min-width: 1025px) {
-  .container {
-    margin-left: 80px;
-    margin-right: 0;
-  }
-}
-
-.container > *:nth-child(n+4) {
-  margin-top: -80px !important;
-}
-
-.logos {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 280px;
-  height: 108px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  margin: 0 !important;
-  background: linear-gradient(135deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
-    url('https://i.imgur.com/dha5JtJ.jpg') center/cover;
-}
-
-
-
-.calendars {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 280px;
-  height: 108px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  margin: 0 !important;
-  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
-    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
-}
-
-
-
-.power {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 280px;
-  height: 108px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  margin: 0 !important;
-  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
-    url('https://i.imgur.com/qwyDw3g.jpg') center/cover;
-}
-
-
-.latex {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 280px;
-  height: 108px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  margin: 0 !important;
-  transform: translateY(-180px) !important;
-  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
-    url('https://i.imgur.com/pROEtsX.jpg') center/cover;
-}
-
-.gmt {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 280px;
-  height: 108px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  text-decoration: none;
-  margin: 0 !important;
-  transform: translateY(-180px) !important;
-  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
-    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
-}
-
+.logos,
+.calendars,
+.power,
+.latex,
+.gmt,
 .python {
   padding: 2rem;
   border-radius: 12px;
   width: 280px;
   height: 108px;
-  text-align: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
+  text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,112 +55,78 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   text-decoration: none;
-  margin: 0 !important;
-  transform: translateY(-180px) !important;
+}
+
+.logos {
+  background: linear-gradient(135deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+    url('https://i.imgur.com/dha5JtJ.jpg') center/cover;
+}
+
+.calendars {
+  background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
+    url('https://i.imgur.com/tETHUnK.jpg') center/cover;
+}
+
+.power {
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/qwyDw3g.jpg') center/cover;
+}
+
+.latex {
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/pROEtsX.jpg') center/cover;
+}
+
+.gmt {
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
+    url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
+}
+
+.python {
   background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
     url('https://i.imgur.com/jQGbUDR.jpg') center/cover;
 }
 
-
-.logos:hover {
-  transform: translateY(-5px);
-}
-.power:hover {
-  transform: translateY(-5px);
-}
-.calendars:hover {
-  transform: translateY(-5px);
-}
-
-.latex:hover {
-  transform: translateY(-185px);
-}
-
-.gmt:hover {
-  transform: translateY(-185px);
-}
-
+.logos:hover,
+.calendars:hover,
+.power:hover,
+.latex:hover,
+.gmt:hover,
 .python:hover {
-  transform: translateY(-185px);
+  transform: translateY(-5px);
 }
 
-
-.staticFigure {
-  position: relative;
-  grid-column: 1 / -1;
-  left: 300px;
-  top: -200px;
-}
-
-/* Rodapé da página Recipes */
-.footerRecipes {
-  margin-top: auto;
-}
-
-.staticFigure img {
-  height: calc(25rem + 200px);
-  object-fit: contain;
-  margin-left: 700px;
-  margin-top: -100px;
-}
-
+/* Tablet e telas menores */
 @media (max-width: 1024px) {
-  .recipes {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-  }
-  
   .title {
-    text-align: center !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    width: 100% !important;
+    text-align: center;
+    margin-left: 0;
   }
   
   .container {
-    margin: 40px auto 4rem auto !important;
-    justify-self: center !important;
-  }
-  
-  .latex,
-  .gmt,
-  .python {
-    transform: translateY(-430px) !important;
-  }
-  
-  .latex:hover,
-  .gmt:hover,
-  .python:hover {
-    transform: translateY(-435px) !important;
-  }
-  
-  .staticFigure {
-    display: none !important;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 280px);
+    grid-template-rows: repeat(3, 108px);
   }
 }
 
-/* Layout vertical para telas muito pequenas (390px de largura ou menos) */
-@media (max-width: 390px) {
+/* Mobile */
+@media (max-width: 650px) {
   .recipes {
-    overflow-y: auto !important;
-    max-height: none !important;
+    padding-top: 180px;
+    overflow-y: auto;
   }
 
   .title {
-    margin-top: 50px !important;
+    margin-top: 30px;
   }
 
   .container {
-    grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    max-width: 90% !important;
-    margin: 40px auto 4rem auto !important;
-    padding: 0 1rem !important;
-  }
-
-  .container > *:nth-child(n+4) {
-    margin-top: 0 !important;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    max-width: 320px;
+    padding: 0 1rem;
   }
 
   .logos,
@@ -276,19 +135,7 @@
   .latex,
   .gmt,
   .python {
-    width: 100% !important;
-    max-width: 320px !important;
-    margin: 0 auto !important;
-    transform: translateY(0) !important;
-  }
-
-  .latex:hover,
-  .gmt:hover,
-  .python:hover {
-    transform: translateY(-5px) !important;
-  }
-
-  .footerRecipes {
-    margin-top: 0 !important;
+    width: 100%;
+    max-width: 320px;
   }
 }
