@@ -1,16 +1,21 @@
 /* Spaces page - disable vertical scroll */
+html:has(.spaces-page),
 body:has(.spaces-page) {
   overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
 }
 
 body:has(.spaces-page) > div,
 body:has(.spaces-page) #root {
   height: 100vh !important;
+  max-height: 100vh !important;
   overflow: hidden !important;
 }
 
 .spaces-page {
   height: 100vh !important;
+  max-height: 100vh !important;
   overflow: hidden !important;
 }
 
