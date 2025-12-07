@@ -1,10 +1,9 @@
 import React from 'npm:react@18.3.1'
 import { Webhook } from 'https://esm.sh/standardwebhooks@1.0.0'
-import { Resend } from 'npm:resend@4.0.0'
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
 import { ConfirmationEmail } from './_templates/confirmation-email.tsx'
+import { sendEmail } from "../_shared/smtp-client.ts"
 
-const resend = new Resend(Deno.env.get('RESEND_API_KEY') as string)
 const hookSecret = Deno.env.get('SEND_CUSTOM_EMAIL_HOOK_SECRET') as string
 
 const corsHeaders = {
@@ -52,15 +51,14 @@ Deno.serve(async (req) => {
       })
     )
 
-    const { error } = await resend.emails.send({
-      from: 'CPGG <noreply@resend.dev>',
-      to: [user.email],
+    const emailResult = await sendEmail({
+      to: user.email,
       subject: 'Acesso CPGG - Confirme seu registro',
       html,
     })
     
-    if (error) {
-      throw error
+    if (!emailResult.success) {
+      throw new Error(emailResult.error)
     }
 
     return new Response(JSON.stringify({ success: true }), {

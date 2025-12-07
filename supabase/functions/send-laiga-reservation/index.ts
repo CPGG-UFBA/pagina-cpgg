@@ -1,9 +1,9 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts"
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.3'
-import { Resend } from 'npm:resend@4.0.0'
 import React from 'npm:react@18.3.1'
 import { renderAsync } from 'npm:@react-email/components@0.0.22'
 import { ReservationEmail } from './_templates/reservation-email.tsx'
+import { sendEmail } from "../_shared/smtp-client.ts"
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -37,14 +37,8 @@ const handler = async (req: Request): Promise<Response> => {
     
     const supabaseUrl = Deno.env.get('SUPABASE_URL')!
     const supabaseServiceRoleKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!
-    const resendApiKey = Deno.env.get('RESEND_API_KEY')!
-
-    if (!resendApiKey) {
-      throw new Error('RESEND_API_KEY não configurado')
-    }
 
     const supabase = createClient(supabaseUrl, supabaseServiceRoleKey)
-    const resend = new Resend(resendApiKey)
 
     const reservationData: LaigaReservationRequest = await req.json()
     console.log('Dados recebidos:', JSON.stringify(reservationData, null, 2))
@@ -121,15 +115,14 @@ const handler = async (req: Request): Promise<Response> => {
       formattedReturnDate
     )
 
-    // Enviar email SOMENTE para o chefe do laboratório LAIGA
+    // Enviar email via SMTP
     console.log(`📧 Enviando email EXCLUSIVAMENTE para o chefe do LAIGA: ${chiefEmail}`)
     
-    const emailResponse = await resend.emails.send({
-      from: 'CPGG LAIGA <onboarding@resend.dev>',
-      to: [chiefEmail],
+    const emailResult = await sendEmail({
+      to: chiefEmail,
       subject: `Nova Solicitação de Equipamentos LAIGA - ${reservationData.applicantName}`,
       html: emailHtml,
-      reply_to: reservationData.applicantEmail,
+      replyTo: reservationData.applicantEmail,
       attachments: [
         {
           filename: `Comprovante_LAIGA_${reservation.id.substring(0, 8)}.pdf`,
@@ -138,12 +131,12 @@ const handler = async (req: Request): Promise<Response> => {
       ],
     })
 
-    if (emailResponse.error) {
-      console.error('❌ Erro ao enviar email para o chefe do LAIGA:', emailResponse.error)
-      throw new Error(`Falha ao enviar email: ${emailResponse.error.message}`)
+    if (!emailResult.success) {
+      console.error('❌ Erro ao enviar email para o chefe do LAIGA:', emailResult.error)
+      throw new Error(`Falha ao enviar email: ${emailResult.error}`)
     }
     
-    console.log('✅ Email enviado com sucesso para o chefe do LAIGA:', emailResponse.data)
+    console.log('✅ Email enviado com sucesso para o chefe do LAIGA')
 
     return new Response(
       JSON.stringify({ 
