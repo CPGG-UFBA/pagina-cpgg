@@ -82,6 +82,13 @@
   transform: translateX(calc(-50% - 30px));
 }
 
+@media (min-width: 1400px) {
+  .box {
+    height: 700px;
+    top: 15%;
+  }
+}
+
 @media (max-width: 1024px) {
   .box button {
     position: absolute;
