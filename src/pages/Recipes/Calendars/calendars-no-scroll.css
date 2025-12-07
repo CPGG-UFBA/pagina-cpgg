@@ -1,0 +1,19 @@
+/* Force no scroll on Calendars page */
+html:has(.calendars),
+body:has(.calendars) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+body:has(.calendars) #root,
+body:has(.calendars) > div {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+.calendars {
+  overflow: hidden !important;
+  max-height: calc(100vh - 150px) !important;
+}
