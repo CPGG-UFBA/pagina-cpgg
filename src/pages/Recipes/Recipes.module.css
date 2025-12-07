@@ -106,8 +106,8 @@
   transform: translateY(-5px);
 }
 
-/* Tablet e telas menores */
-@media (max-width: 850px) {
+/* Telas médias (850px - 1199px) - 2 colunas */
+@media (max-width: 1199px) {
   .title {
     text-align: center;
     margin-left: 0;
