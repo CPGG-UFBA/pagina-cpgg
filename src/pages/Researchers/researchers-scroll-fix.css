@@ -1,31 +1,30 @@
-/* Fix absoluto para scroll na página de pesquisadores */
-body {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  position: static !important;
-  height: auto !important;
+/* Fix para páginas de pesquisadores - layout fixo como a página principal */
+body:has(.researcherPageContainer) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
 }
 
-html {
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  height: auto !important;
+body:has(.researcherPageContainer) #root {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
 }
 
-/* Remover qualquer bloqueio de scroll do Radix */
-body[data-scroll-locked],
-html[data-scroll-locked],
-[data-scroll-locked] {
-  overflow: visible !important;
-  overflow-y: auto !important;
-  position: static !important;
-  height: auto !important;
+html:has(.researcherPageContainer) {
+  overflow: hidden !important;
+  height: 100vh !important;
 }
 
-/* Garantir que containers não bloqueiem scroll */
-#root,
-#root > div {
-  overflow: visible !important;
-  height: auto !important;
-  min-height: 100vh !important;
+.researcherPageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
