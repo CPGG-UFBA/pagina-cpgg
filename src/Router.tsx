@@ -55,6 +55,7 @@ import { Login } from './pages/Login'
 import { ResetPassword } from './pages/ResetPassword'
 import { Register } from './pages/Register'
 import { Registration } from './pages/Registration'
+import { EmailConfirmed } from './pages/EmailConfirmed'
 import { Production } from './pages/Production'
 import { Spaces } from './pages/Spaces'
 import { Labs } from './pages/Labs'
@@ -154,6 +155,7 @@ export function Router() {
         <Route path='/reset-password' element={<ResetPassword />} />
         <Route path='/register' element={<Register />} />
         <Route path='/registration' element={<Registration />} />
+        <Route path='/email-confirmed' element={<EmailConfirmed />} />
         <Route path='/institution' element={<Institution />} />
         <Route path='/cpgg' element={<CPGG />} />
         <Route path='/cpgg2' element={<CPGG2 />} />
