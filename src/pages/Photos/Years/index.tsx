@@ -39,8 +39,8 @@ export function Years() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos />
       <div className={styles.Years}>
-          <BackButtonPhotos />
           <ul> 50 anos do Programa de Pós-Graduação em Geofísica (2019) </ul>
           <div className={styles.box}>
           <div className={styles.gallery}>

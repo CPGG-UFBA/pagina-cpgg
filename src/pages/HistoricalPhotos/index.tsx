@@ -9,8 +9,8 @@ export  function HP() {
   return (
       <div className={styles.pageContainer}>
       <Header/>
+      <BackButtonPhotos />
           <div className={styles.hp}>
-              <BackButtonPhotos />
               <h1 className={styles.title}>Fotos Históricas </h1>
 
 

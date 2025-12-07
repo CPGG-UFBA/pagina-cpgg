@@ -33,8 +33,8 @@ export function FirstMeeting() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos />
       <div className={styles.FirstMeeting}>
-          <BackButtonPhotos />
           <ul> Primeira reunião geral de retorno do CPGG (março de 2024)</ul>
           <div className={styles.box}>
           <div className={styles.gallery}>

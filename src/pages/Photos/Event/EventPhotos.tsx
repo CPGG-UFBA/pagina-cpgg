@@ -123,8 +123,8 @@ export function EventPhotos() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos />
       <div className={styles.Years}>
-        <BackButtonPhotos />
         <ul>{event.name}</ul>
         <div 
           className="absolute top-4 right-4 z-10"
