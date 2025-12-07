@@ -37,8 +37,8 @@ export function ICG() {
   return (
     <div className={styles.pageContainer}>
       <Header />
-      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.ICG}>
+          <BackButtonPhotos to="/Photos/HistoricalPhotos" />
           <ul> 2<sup>o</sup> Congresso Internacional de Geofísica (1991) </ul>
           <div className={styles.box}>
           <div className={styles.gallery}>

@@ -10,8 +10,8 @@ export function Yeda() {
   return (
     <div className={styles.pageContainer}>
       <Header />
-      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.Yeda}>
+          <BackButtonPhotos to="/Photos/HistoricalPhotos" />
           <ul> Professora Yeda </ul>
           <div className={styles.box}>
           <div className={styles.gallery}>
