@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom';
 import styles from './Recipes.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-const earth = 'https://i.imgur.com/z6pTgZ1.jpg'
 
-export  function Recipes() {
+export function Recipes() {
   return (
-      <>
+      <div className={styles.Container}>
       <Header/>
-          <div className={`${styles.recipes} recipes`}>
+          <main className={`${styles.recipes} recipes`}>
               <h1 className={styles.title}>Receitas </h1>
 
               <div className={styles.container}>
@@ -36,10 +35,8 @@ export  function Recipes() {
                       <h2> Python-códigos</h2>
                   </a>
               </div>
-          </div>
-          <div className={styles.footerRecipes}>
-            <Footer/>
-          </div>
-      </>
+          </main>
+          <Footer/>
+      </div>
   )
 }
