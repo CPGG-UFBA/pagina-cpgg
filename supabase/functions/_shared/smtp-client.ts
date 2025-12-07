@@ -1,4 +1,4 @@
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
+import { Resend } from "npm:resend@2.0.0";
 
 interface EmailOptions {
   to: string | string[];
@@ -18,61 +18,43 @@ interface EmailResult {
 }
 
 export async function sendEmail(options: EmailOptions): Promise<EmailResult> {
-  const smtpHost = Deno.env.get("SMTP_HOST");
-  const smtpPort = parseInt(Deno.env.get("SMTP_PORT") || "587");
-  const smtpUser = Deno.env.get("SMTP_USER");
-  const smtpPassword = Deno.env.get("SMTP_PASSWORD");
+  const resendApiKey = Deno.env.get("RESEND_API_KEY");
 
-  if (!smtpHost || !smtpUser || !smtpPassword) {
-    console.error("SMTP credentials not configured");
-    return { success: false, error: "Credenciais SMTP não configuradas" };
+  if (!resendApiKey) {
+    console.error("RESEND_API_KEY not configured");
+    return { success: false, error: "RESEND_API_KEY não configurada" };
   }
 
-  console.log(`📧 Conectando ao servidor SMTP: ${smtpHost}:${smtpPort}`);
+  const resend = new Resend(resendApiKey);
+  const toAddresses = Array.isArray(options.to) ? options.to : [options.to];
+
+  console.log(`📧 Enviando email via Resend para ${toAddresses.join(", ")}`);
 
   try {
-    const client = new SMTPClient({
-      connection: {
-        hostname: smtpHost,
-        port: smtpPort,
-        tls: smtpPort === 465,
-        auth: {
-          username: smtpUser,
-          password: smtpPassword,
-        },
-      },
-    });
-
-    const toAddresses = Array.isArray(options.to) ? options.to : [options.to];
-
-    console.log(`📧 Enviando email de ${smtpUser} para ${toAddresses.join(", ")}`);
-
     const emailConfig: any = {
-      from: smtpUser,
+      from: "CPGG UFBA <onboarding@resend.dev>",
       to: toAddresses,
       subject: options.subject,
       html: options.html,
     };
 
     if (options.replyTo) {
-      emailConfig.replyTo = options.replyTo;
+      emailConfig.reply_to = options.replyTo;
     }
 
     if (options.attachments && options.attachments.length > 0) {
       emailConfig.attachments = options.attachments.map((att) => ({
         filename: att.filename,
-        content: Uint8Array.from(atob(att.content), (c) => c.charCodeAt(0)),
-        contentType: att.contentType || "application/pdf",
+        content: att.content, // Resend accepts base64 directly
       }));
     }
 
-    await client.send(emailConfig);
-    await client.close();
-
-    console.log("✅ Email enviado com sucesso via SMTP");
+    const result = await resend.emails.send(emailConfig);
+    
+    console.log("✅ Email enviado com sucesso via Resend:", result);
     return { success: true };
   } catch (error) {
-    console.error("❌ Erro ao enviar email via SMTP:", error);
+    console.error("❌ Erro ao enviar email via Resend:", error);
     return { success: false, error: error.message };
   }
 }
