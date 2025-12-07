@@ -6,31 +6,28 @@
 }
 
 .hp {
-  flex: 1;
-  padding: 2rem;
   padding-top: 130px;
-  overflow-y: auto;
-  max-height: calc(100vh - 100px);
+  padding-left: 80px;
 }
 
 .title {
   text-align: left;
-  margin-left: 80px;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-size: 24px;
   color: white;
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 350px);
-  gap: 1.5rem;
-  margin-left: 80px;
-  padding-bottom: 2rem;
+  display: grid !important;
+  grid-template-columns: 280px 280px !important;
+  grid-template-rows: auto auto !important;
+  gap: 1rem !important;
+  width: fit-content;
 }
 
 .card {
   text-decoration: none;
+  display: block;
 }
 
 .Latin,
@@ -38,18 +35,28 @@
 .Yeda,
 .BlockE,
 .others {
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
-  width: 350px;
-  min-height: 100px;
+  width: 280px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
   transition: transform 0.3s ease;
+}
+
+.Latin h2,
+.ICG h2,
+.Yeda h2,
+.BlockE h2,
+.others h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
 }
 
 .Latin {
@@ -85,20 +92,6 @@
   transform: translateY(-5px);
 }
 
-.staticFigure img {
-  height: 40rem;
-  padding-left: 900px;
-  margin-bottom: -270px;
-  margin-left: -365px;
-  margin-top: -230px;
-}
-
-@media (max-width: 1200px) {
-  .staticFigure {
-    display: none;
-  }
-}
-
 @media (max-width: 768px) {
   .hp {
     padding: 20px;
@@ -106,16 +99,13 @@
   }
 
   .title {
-    margin-left: 20px;
     text-align: center;
     font-size: 20px;
   }
 
   .container {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    margin-left: 20px;
-    max-width: 90vw;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
   }
 
   .Latin,
@@ -124,10 +114,9 @@
   .BlockE,
   .others {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     margin: 0 auto;
-    min-height: 80px;
-    padding: 1.5rem;
-    font-size: 14px;
+    height: 70px;
+    padding: 1rem;
   }
 }
