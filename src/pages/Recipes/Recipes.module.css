@@ -28,8 +28,8 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 260px);
-  grid-template-rows: repeat(2, 90px);
+  grid-template-columns: repeat(3, 260px) !important;
+  grid-template-rows: repeat(2, 90px) !important;
   gap: 15px;
   max-width: 850px;
   margin-left: 80px;
@@ -107,7 +107,7 @@
 }
 
 /* Tablet e telas menores */
-@media (max-width: 900px) {
+@media (max-width: 850px) {
   .title {
     text-align: center;
     margin-left: 0;
@@ -115,8 +115,8 @@
   
   .container {
     margin: 0 auto;
-    grid-template-columns: repeat(2, 260px);
-    grid-template-rows: repeat(3, 90px);
+    grid-template-columns: repeat(2, 260px) !important;
+    grid-template-rows: repeat(3, 90px) !important;
   }
 }
 
