@@ -1,4 +1,4 @@
-/* Repairs page - disable vertical scroll */
+/* Repairs page - disable vertical scroll and static footer */
 html:has(.repairs-page),
 body:has(.repairs-page) {
   overflow: hidden !important;
@@ -21,9 +21,17 @@ body:has(.repairs-page) #root {
   flex-direction: column !important;
 }
 
-.repairs-page main {
+.repairs-page main.repairs {
   flex: 1 !important;
   overflow: hidden !important;
-  overflow-y: hidden !important;
+  overflow-y: auto !important;
   padding-bottom: 0 !important;
+  max-height: calc(100vh - 150px) !important;
+}
+
+/* Footer static positioning */
+.repairs-page footer {
+  position: relative !important;
+  margin-top: auto !important;
+  flex-shrink: 0 !important;
 }
