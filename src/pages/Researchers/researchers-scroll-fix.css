@@ -1,21 +1,6 @@
 /* Fix para páginas de pesquisadores - layout fixo como a página principal */
-body:has(.researcherPageContainer) {
-  overflow: hidden !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
-}
 
-body:has(.researcherPageContainer) #root {
-  overflow: hidden !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
-}
-
-html:has(.researcherPageContainer) {
-  overflow: hidden !important;
-  height: 100vh !important;
-}
-
+/* Aplicar para páginas que usam o Container de pesquisadores */
 .researcherPageContainer {
   display: flex;
   flex-direction: column;
