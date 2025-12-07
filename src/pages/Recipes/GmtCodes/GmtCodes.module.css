@@ -20,13 +20,14 @@
 }
 
 .title {
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  margin-bottom: 2rem;
-  margin-top: 2rem;
-  margin-left: -780px;
-  font-size: 24px;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  width: calc(250px * 3 + 2rem * 2); /* 3 columns + 2 gaps */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 32px;
+  font-weight: bold;
   color: white;
 }
 
@@ -42,9 +43,9 @@
 
 .buttonsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 250px);
+  grid-template-rows: repeat(2, 100px);
   gap: 2rem;
-  transform: translateY(-200px);
 }
 
 @media (max-width: 1024px) {
@@ -164,8 +165,7 @@
   transform: translateY(-5px);
 }
 
-
-/* Mover rodapé para cima apenas na página GMT Codes */
+/* Footer container */
 .footerGmtCodes {
-  margin-top: -350px;
+  /* Footer positioned naturally */
 }

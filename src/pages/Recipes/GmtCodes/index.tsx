@@ -6,7 +6,8 @@ export function GmtCodes() {
   return (
     <div className={styles.pageContainer}>
       <Header/>
-      <div className={styles.gmtCodes}>
+      <main className={styles.gmtCodes}>
+        <h1 className={styles.title}>GMT-códigos</h1>
         <div className={styles.container}>
           <div className={styles.buttonsGrid}>
             <a className={styles.card} href="https://raw.githubusercontent.com/CPGG-UFBA/Documentos_WEB_CPGG/main/pseudo_res1.zip">
@@ -46,7 +47,7 @@ export function GmtCodes() {
             </a>
           </div>
         </div>
-      </div>
+      </main>
       <div className={styles.footerGmtCodes}>
         <Footer/>
       </div>
