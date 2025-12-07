@@ -14,6 +14,12 @@
 /* Importar fix para Reservations Success/Receipt pages */
 @import './pages/Reservations/reservations-no-scroll.css';
 
+/* Importar fix para Contact page */
+@import './pages/Contact/contact-no-scroll.css';
+
+/* Importar fix para Spaces page */
+@import './pages/Spaces/spaces-no-scroll.css';
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
