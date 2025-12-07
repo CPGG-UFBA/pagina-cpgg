@@ -39,7 +39,7 @@ export function Years() {
     <div className={styles.pageContainer}>
       <Header />
       <div className={styles.Years}>
-          <ul> 50 anos do Programa de Pós-Graduação em Geofísica </ul>
+          <ul> 50 anos do Programa de Pós-Graduação em Geofísica (2019) </ul>
           <div className={styles.box}>
           <div className={styles.gallery}>
             <div className={styles.photo1}>
