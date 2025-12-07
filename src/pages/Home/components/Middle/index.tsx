@@ -3,7 +3,6 @@ import { supabase } from '@/integrations/supabase/client'
 import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react'
 import styles from './middle.module.css'
 import earth from '../../../../assets/earth-photos.jpg'
-import cpggAerial from '../../../../assets/cpgg-aerial-view.jpg'
 
 interface NewsArticle {
   id: string
@@ -108,102 +107,79 @@ export function Middle() {
   const currentArticle = displayArticles[currentIndex]
 
   return (
-    <div className={styles.pageWrapper}>
-      {/* Hero Banner - Full Width Aerial Photo */}
-      <section className={styles.heroBanner}>
-        <img 
-          src={cpggAerial} 
-          alt="Vista aérea do CPGG - Centro de Pesquisa em Geofísica e Geologia"
-          className={styles.heroImage}
-        />
-        <div className={styles.heroOverlay}>
-          <h1 className={styles.heroTitle}>CPGG</h1>
-          <p className={styles.heroSubtitle}>Centro de Pesquisa em Geofísica e Geologia</p>
-        </div>
-      </section>
+    <>
+      <div className={styles.carouselContainer}>
+        {currentArticle && (
+          <a href={getNewsRoute(currentArticle.news_position)} className={styles.newsLink}>
+            <div className={styles.newsCard}>
+              <div className={styles.imageWrapper}>
+                <img 
+                  src={getCoverImageUrl(currentArticle) || fallbackImages[currentIndex % 3]} 
+                  alt={currentArticle.title}
+                  className={styles.newsImage}
+                />
+              </div>
+              <div className={styles.newsContent}>
+                <h2 className={styles.newsTitle}>{currentArticle.title}</h2>
+                <p className={styles.newsDescription}>
+                  {currentArticle.content.substring(0, 150)}...
+                </p>
+              </div>
+            </div>
+          </a>
+        )}
 
-      {/* Content Section Below Banner */}
-      <section className={styles.contentSection}>
-        {/* Left - News Carousel */}
-        <div className={styles.carouselContainer}>
-          {currentArticle && (
-            <a href={getNewsRoute(currentArticle.news_position)} className={styles.newsLink}>
-              <div className={styles.newsCard}>
-                <div className={styles.imageWrapper}>
-                  <img 
-                    src={getCoverImageUrl(currentArticle) || fallbackImages[currentIndex % 3]} 
-                    alt={currentArticle.title}
-                    className={styles.newsImage}
+        {displayArticles.length > 1 && (
+          <>
+            <button 
+              onClick={handlePrevious} 
+              className={`${styles.navButton} ${styles.navButtonLeft}`}
+              aria-label="Notícia anterior"
+            >
+              <ChevronLeft size={32} />
+            </button>
+
+            <button 
+              onClick={handleNext} 
+              className={`${styles.navButton} ${styles.navButtonRight}`}
+              aria-label="Próxima notícia"
+            >
+              <ChevronRight size={32} />
+            </button>
+
+            <div className={styles.controls}>
+              <div className={styles.dots}>
+                {displayArticles.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleDotClick(index)}
+                    className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
+                    aria-label={`Ir para notícia ${index + 1}`}
                   />
-                </div>
-                <div className={styles.newsContent}>
-                  <h2 className={styles.newsTitle}>{currentArticle.title}</h2>
-                  <p className={styles.newsDescription}>
-                    {currentArticle.content.substring(0, 150)}...
-                  </p>
-                </div>
+                ))}
               </div>
-            </a>
-          )}
-
-          {displayArticles.length > 1 && (
-            <>
               <button 
-                onClick={handlePrevious} 
-                className={`${styles.navButton} ${styles.navButtonLeft}`}
-                aria-label="Notícia anterior"
+                onClick={togglePlayPause} 
+                className={styles.playPauseButton}
+                aria-label={isPlaying ? 'Pausar' : 'Reproduzir'}
               >
-                <ChevronLeft size={32} />
+                {isPlaying ? <Pause size={16} /> : <Play size={16} />}
+                <span>{isPlaying ? 'PARAR' : 'INICIAR'}</span>
               </button>
+            </div>
+          </>
+        )}
+      </div>
 
-              <button 
-                onClick={handleNext} 
-                className={`${styles.navButton} ${styles.navButtonRight}`}
-                aria-label="Próxima notícia"
-              >
-                <ChevronRight size={32} />
-              </button>
-
-              <div className={styles.controls}>
-                <div className={styles.dots}>
-                  {displayArticles.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => handleDotClick(index)}
-                      className={`${styles.dot} ${index === currentIndex ? styles.dotActive : ''}`}
-                      aria-label={`Ir para notícia ${index + 1}`}
-                    />
-                  ))}
-                </div>
-                <button 
-                  onClick={togglePlayPause} 
-                  className={styles.playPauseButton}
-                  aria-label={isPlaying ? 'Pausar' : 'Reproduzir'}
-                >
-                  {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-                  <span>{isPlaying ? 'PARAR' : 'INICIAR'}</span>
-                </button>
-              </div>
-            </>
-          )}
+      <div className={styles.static}>
+        <strong>Earth</strong>
+        <h1>is our Goal</h1>
+        <div className={styles.enjoy}>
+          <h1>Enjoy our best solutions for </h1>
+          <strong>scientific</strong>
+          <h1>and trade proposals</h1>
         </div>
-
-        {/* Center - Text Content */}
-        <div className={styles.static}>
-          <strong>Earth</strong>
-          <h1>is our Goal</h1>
-          <div className={styles.enjoy}>
-            <h1>Enjoy our best solutions for </h1>
-            <strong>scientific</strong>
-            <h1>and trade proposals</h1>
-          </div>
-        </div>
-
-        {/* Right - Earth Globe */}
-        <div className={styles.earthContainer}>
-          <img src={earth} alt="Terra" className={styles.earthImage} />
-        </div>
-      </section>
-    </div>
+      </div>
+    </>
   )
 }
