@@ -1,3 +1,4 @@
+import './contact-no-scroll.css'
 import styles from './Contact.module.css'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
@@ -26,7 +27,7 @@ export function Contact() {
   }
 
   return (
-    <div className={styles.Container}>
+    <div className={`${styles.Container} contact-page`}>
       <Header />
       <main className={`${styles.contact} contact`}>
         <ul> {t('contact.emailUs')} </ul>
