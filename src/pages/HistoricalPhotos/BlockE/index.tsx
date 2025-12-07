@@ -19,8 +19,8 @@ export function BlockE() {
   return (
     <div className={styles.pageContainer}>
       <Header />
-      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.BlockE}>
+          <BackButtonPhotos to="/Photos/HistoricalPhotos" />
           <ul> Inauguração da Sede do CPGG (2013) </ul>
           <div className={styles.box}>
           <div className={styles.gallery}>

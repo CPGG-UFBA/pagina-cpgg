@@ -40,8 +40,8 @@ export function Latin() {
   return (
     <div className={styles.pageContainer}>
       <Header />
-      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.Latin}>
+          <BackButtonPhotos to="/Photos/HistoricalPhotos" />
           <ul> 1<sup>a</sup>  Reunião Latino-americana (1974) </ul>
           <div className={styles.box}>
           <div className={styles.gallery}>
