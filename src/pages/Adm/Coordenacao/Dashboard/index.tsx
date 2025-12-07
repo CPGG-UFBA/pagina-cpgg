@@ -915,27 +915,6 @@ export function CoordenacaoDashboard() {
         <div className={styles.quickActions}>
           <div className="flex items-center gap-2">
             <Button
-              onClick={() => navigate('/adm/coordenacao/usuarios')}
-              className={styles.actionButton}
-              variant="outline"
-            >
-              <Users className="w-5 h-5 mr-2" />
-              Gerenciar Usuários
-            </Button>
-            <TooltipProvider>
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <HelpCircle className="w-5 h-5 text-muted-foreground cursor-help" />
-                </TooltipTrigger>
-                <TooltipContent side="right" className="max-w-xs">
-                  <p>Um pesquisador entra automaticamente na lista de usuários ao ser credenciado pelo Adm. Entretanto, seus dados só são atualizados e só poderá usar o sistema quando ele mesmo cria uma nova conta. Enquanto não cria, seus dados permanecem desatualizados</p>
-                </TooltipContent>
-              </Tooltip>
-            </TooltipProvider>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <Button
               onClick={() => navigate('/adm/coordenacao/pesquisadores')}
               className={styles.actionButton}
               variant="outline"
@@ -950,6 +929,27 @@ export function CoordenacaoDashboard() {
                 </TooltipTrigger>
                 <TooltipContent side="right" className="max-w-xs">
                   <p>Um pesquisador entra nesta lista quando o administrador o credencia no formulário abaixo</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
+          
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => navigate('/adm/coordenacao/usuarios')}
+              className={styles.actionButton}
+              variant="outline"
+            >
+              <Users className="w-5 h-5 mr-2" />
+              Gerenciar Usuários
+            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <HelpCircle className="w-5 h-5 text-muted-foreground cursor-help" />
+                </TooltipTrigger>
+                <TooltipContent side="right" className="max-w-xs">
+                  <p>Um pesquisador entra automaticamente na lista de usuários ao ser credenciado pelo Adm. Entretanto, seus dados só são atualizados e só poderá usar o sistema quando ele mesmo cria uma nova conta. Enquanto não cria, seus dados permanecem desatualizados</p>
                 </TooltipContent>
               </Tooltip>
             </TooltipProvider>
