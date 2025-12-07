@@ -199,9 +199,9 @@
   top: -200px;
 }
 
-/* Mover rodapé para cima apenas na página Recipes */
+/* Rodapé da página Recipes */
 .footerRecipes {
-  margin-top: -350px;
+  margin-top: auto;
 }
 
 .staticFigure img {
