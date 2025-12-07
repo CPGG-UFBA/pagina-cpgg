@@ -25,7 +25,7 @@
   margin-bottom: 1rem;
   margin-top: 0;
   color: white;
-  transform: translateX(-150px);
+  max-width: 903px;
 }
 
 .title {
