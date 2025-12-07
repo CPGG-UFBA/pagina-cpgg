@@ -50,7 +50,7 @@ export function MR() {
   }
 
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={`${styles.MR} reservationMeetingRoomPage`}>
           <form className={styles.box} onSubmit={handleSubmit}>
@@ -125,6 +125,6 @@ export function MR() {
         </div>
         
       <Footer />
-    </>
+    </div>
   )
 }

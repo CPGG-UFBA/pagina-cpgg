@@ -50,7 +50,7 @@ export function RA() {
   }
 
   return (
-    <>
+    <div className={styles.pageContainer}>
       <Header />
       <div className={`${styles.RA} reservationAuditoryPage`}>
           <form className={styles.box} onSubmit={handleSubmit}>
@@ -125,6 +125,6 @@ export function RA() {
         </div>
         
       <Footer />
-    </>
+    </div>
   )
 }
