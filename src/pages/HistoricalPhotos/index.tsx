@@ -10,7 +10,7 @@ export  function HP() {
       <div className={`${styles.pageContainer} historical-photos-page`}>
       <Header/>
       <BackButtonPhotos />
-          <main className={styles.hp}>
+          <main className={`middle ${styles.hp}`}>
               <h1 className={styles.title}>Fotos Históricas</h1>
 
               <div className={styles.container}>
