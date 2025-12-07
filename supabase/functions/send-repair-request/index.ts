@@ -1,8 +1,7 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
-import { Resend } from "npm:resend@2.0.0";
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.3';
+import { sendEmail } from "../_shared/smtp-client.ts";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
 const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
@@ -64,9 +63,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log(`Enviando email para ${departamento}: ${destinatario}`);
 
-    const emailResponse = await resend.emails.send({
-      from: "CPGG Reparos <onboarding@resend.dev>",
-      to: [destinatario],
+    const emailResult = await sendEmail({
+      to: destinatario,
       subject: `Solicitação de Reparo - ${departamento}`,
       html: `
         <h2>Nova Solicitação de Reparo</h2>
@@ -80,11 +78,17 @@ const handler = async (req: Request): Promise<Response> => {
         <hr>
         <p style="font-size: 12px; color: #666;">Esta solicitação foi enviada automaticamente através do sistema de reservas do CPGG.</p>
       `,
+      replyTo: email,
     });
 
-    console.log("Email enviado com sucesso:", emailResponse);
+    if (!emailResult.success) {
+      console.error("Erro ao enviar email:", emailResult.error);
+      throw new Error(`Falha ao enviar email: ${emailResult.error}`);
+    }
 
-    return new Response(JSON.stringify(emailResponse), {
+    console.log("Email enviado com sucesso via SMTP");
+
+    return new Response(JSON.stringify({ success: true, id: savedRequest.id }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
