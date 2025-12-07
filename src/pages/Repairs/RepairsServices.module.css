@@ -6,13 +6,13 @@
   overflow: visible;
   justify-content: center;
   color: #fff;
-  padding-top: 150px;
-  padding-bottom: 150px;
+  padding-top: 120px;
+  padding-bottom: 20px;
   padding-left: 700px;
   padding-right: 8px;
   height: auto;
-  min-height: 100vh;
-  max-height: none;
+  min-height: auto;
+  max-height: calc(100vh - 150px);
 }
 
 
@@ -65,15 +65,15 @@
   background-color: rgba(255, 255, 255, 0.2);
   position: absolute;
   width: 600px;
-  top: 15%;
+  top: 10%;
   left: calc(10% + 130px);
   padding: 10px;
-  padding-bottom: 40px;
+  padding-bottom: 30px;
   border-radius: 20px;
   margin-bottom: 20px;
-  max-height: none !important;
-  height: auto !important;
-  overflow-y: visible !important;
+  max-height: calc(100vh - 200px);
+  height: auto;
+  overflow-y: auto;
 }
 
 
