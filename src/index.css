@@ -156,7 +156,6 @@ All colors MUST be HSL.
 
   /* All page containers */
   .Container:not(.sign):not(.sign *),
-  .container:not(.sign):not(.sign *),
   .pageContainer:not(.sign):not(.sign *) {
     height: 100vh !important;
     display: flex !important;
