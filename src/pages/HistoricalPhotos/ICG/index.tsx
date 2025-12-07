@@ -1,6 +1,7 @@
 import styles from './ICG.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { BackButtonPhotos } from '../../../components/BackButtonPhotos'
 const photo1 = 'https://i.imgur.com/GMRQmEM.jpg'
 const photo2 = 'https://i.imgur.com/Hg8sA0g.jpg'
 const photo3 = 'https://i.imgur.com/KkqSlH1.jpg'
@@ -36,6 +37,7 @@ export function ICG() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.ICG}>
           <ul> 2<sup>o</sup> Congresso Internacional de Geofísica (1991) </ul>
           <div className={styles.box}>

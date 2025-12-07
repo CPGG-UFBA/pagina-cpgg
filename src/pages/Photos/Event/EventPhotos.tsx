@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { AdminLoginEventPhotos } from './components/AdminLoginEventPhotos'
 import { EventPhotoEditor } from './components/EventPhotoEditor'
 import { Edit3 } from 'lucide-react'
+import { BackButtonPhotos } from '@/components/BackButtonPhotos'
 import styles from './EventPhotos.module.css'
 
 interface EventPhoto {
@@ -122,6 +123,7 @@ export function EventPhotos() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos />
       <div className={styles.Years}>
         <ul>{event.name}</ul>
         <div 

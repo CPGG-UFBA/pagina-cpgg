@@ -1,6 +1,7 @@
 import styles from './fiftiethyears.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { BackButtonPhotos } from '../../../components/BackButtonPhotos'
 
 import photo1 from '../../../assets/Photos/Years/Foto1.png'
 import photo2 from '../../../assets/Photos/Years/Foto2.png'
@@ -38,6 +39,7 @@ export function Years() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos />
       <div className={styles.Years}>
           <ul> 50 anos do Programa de Pós-Graduação em Geofísica (2019) </ul>
           <div className={styles.box}>
