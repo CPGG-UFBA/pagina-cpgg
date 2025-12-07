@@ -1,6 +1,7 @@
 import styles from './firstmeeting.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { BackButtonPhotos } from '../../../components/BackButtonPhotos'
 
 const photo1 = 'https://imgur.com/lvESJHN.jpg'
 const photo2 = 'https://imgur.com/QaTS5bR.jpg'
@@ -32,6 +33,7 @@ export function FirstMeeting() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos />
       <div className={styles.FirstMeeting}>
           <ul> Primeira reunião geral de retorno do CPGG (março de 2024)</ul>
           <div className={styles.box}>

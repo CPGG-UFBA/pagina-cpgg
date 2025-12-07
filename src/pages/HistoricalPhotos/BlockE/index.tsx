@@ -1,6 +1,7 @@
 import styles from './blockE.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { BackButtonPhotos } from '../../../components/BackButtonPhotos'
 const photo1 = 'https://i.imgur.com/4plf8GA.jpg'
 const photo2 = 'https://i.imgur.com/OqJh5xS.jpg'
 const photo3 = 'https://i.imgur.com/EqJTyBR.jpg'
@@ -18,6 +19,7 @@ export function BlockE() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.BlockE}>
           <ul> Inauguração da Sede do CPGG (2013) </ul>
           <div className={styles.box}>

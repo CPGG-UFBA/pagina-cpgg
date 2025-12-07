@@ -1,6 +1,7 @@
 import styles from './latinamerican.module.css'
 import { Header } from '../../../components/Header'
 import { Footer } from '../../../components/Footer'
+import { BackButtonPhotos } from '../../../components/BackButtonPhotos'
 const photo1 = 'https://i.imgur.com/pzNfaQS.jpg'
 const photo2 = 'https://i.imgur.com/LRJ3g5F.jpg'
 const photo3 = 'https://i.imgur.com/LRJ3g5F.jpg'
@@ -39,6 +40,7 @@ export function Latin() {
   return (
     <div className={styles.pageContainer}>
       <Header />
+      <BackButtonPhotos to="/Photos/HistoricalPhotos" />
       <div className={styles.Latin}>
           <ul> 1<sup>a</sup>  Reunião Latino-americana (1974) </ul>
           <div className={styles.box}>
