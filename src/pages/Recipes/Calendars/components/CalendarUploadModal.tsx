@@ -72,36 +72,40 @@ export function CalendarUploadModal({ isOpen, onClose, onUpload, nextYear }: Cal
         <DialogHeader>
           <DialogTitle>Adicionar Novo Calendário</DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="year">Ano</Label>
-            <Input
-              id="year"
-              type="number"
-              value={year}
-              onChange={(e) => handleYearChange(parseInt(e.target.value))}
-              min={2000}
-              max={2100}
-              required
-            />
-          </div>
-          
-          <div className="space-y-2">
-            <Label htmlFor="name">Nome do Calendário</Label>
-            <Input
-              id="name"
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Ex: Calendário de 2026"
-              required
-            />
+        <form onSubmit={handleSubmit} className="space-y-2">
+          <div className="flex gap-4">
+            <div className="flex-1 space-y-1">
+              <Label htmlFor="year" className="text-xs">Ano</Label>
+              <Input
+                id="year"
+                type="number"
+                value={year}
+                onChange={(e) => handleYearChange(parseInt(e.target.value))}
+                min={2000}
+                max={2100}
+                required
+                className="h-8"
+              />
+            </div>
+            
+            <div className="flex-[2] space-y-1">
+              <Label htmlFor="name" className="text-xs">Nome do Calendário</Label>
+              <Input
+                id="name"
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Ex: Calendário de 2026"
+                required
+                className="h-8"
+              />
+            </div>
           </div>
 
-          <div className="space-y-2">
-            <Label>Arquivo PDF</Label>
+          <div className="space-y-1">
+            <Label className="text-xs">Arquivo PDF</Label>
             <div 
-              className="border-2 border-dashed border-border rounded-lg p-6 text-center cursor-pointer hover:border-primary transition-colors"
+              className="border-2 border-dashed border-border rounded-lg p-3 text-center cursor-pointer hover:border-primary transition-colors"
               onClick={() => fileInputRef.current?.click()}
             >
               <input
@@ -111,14 +115,11 @@ export function CalendarUploadModal({ isOpen, onClose, onUpload, nextYear }: Cal
                 onChange={handleFileChange}
                 className="hidden"
               />
-              <Upload className="w-10 h-10 mx-auto mb-2 text-muted-foreground" />
+              <Upload className="w-6 h-6 mx-auto mb-1 text-muted-foreground" />
               {file ? (
-                <p className="text-sm text-foreground font-medium">{file.name}</p>
+                <p className="text-xs text-foreground font-medium">{file.name}</p>
               ) : (
-                <>
-                  <p className="text-sm text-muted-foreground">Clique para selecionar um arquivo PDF</p>
-                  <p className="text-xs text-muted-foreground mt-1">ou arraste e solte aqui</p>
-                </>
+                <p className="text-xs text-muted-foreground">Clique para selecionar PDF</p>
               )}
             </div>
           </div>
