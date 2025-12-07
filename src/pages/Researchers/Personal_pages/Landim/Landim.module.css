@@ -3,14 +3,14 @@
   column-gap: 3rem;
   display: flex;
   flex: 1;
-  overflow: visible;
+  overflow: hidden;
   justify-content: center;
   color: #fff;
   padding-top: 170px;
-  padding-bottom: 560px;
+  padding-bottom: 50px;
   padding-left: 200px;
   padding-right: 8px;
-  }
+}
 
 
 .researcherName {
@@ -170,7 +170,14 @@ nav a:hover {
 .Container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /* Portrait orientation - when height > width */  
