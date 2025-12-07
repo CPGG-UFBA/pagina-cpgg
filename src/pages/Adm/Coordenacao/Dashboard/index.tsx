@@ -7,7 +7,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useToast } from '@/hooks/use-toast'
 import { supabase } from '@/integrations/supabase/client'
 import { PhotoDropZone } from '@/components/PhotoDropZone'
-import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus, Image, Calendar, FileSpreadsheet, ClipboardList } from 'lucide-react'
+import { UserCheck, Settings, Users, FlaskConical, LogOut, Newspaper, FileText, BookOpen, UserMinus, Image, Calendar, FileSpreadsheet, ClipboardList, HelpCircle } from 'lucide-react'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 import logocpgg from '@/assets/cpgg-logo.jpg'
 import styles from './dashboard.module.css'
 
@@ -921,14 +922,26 @@ export function CoordenacaoDashboard() {
             Gerenciar Usuários
           </Button>
           
-          <Button
-            onClick={() => navigate('/adm/coordenacao/pesquisadores')}
-            className={styles.actionButton}
-            variant="outline"
-          >
-            <UserCheck className="w-5 h-5 mr-2" />
-            Gerenciar Pesquisadores
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button
+              onClick={() => navigate('/adm/coordenacao/pesquisadores')}
+              className={styles.actionButton}
+              variant="outline"
+            >
+              <UserCheck className="w-5 h-5 mr-2" />
+              Gerenciar Pesquisadores
+            </Button>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <HelpCircle className="w-5 h-5 text-muted-foreground cursor-help" />
+                </TooltipTrigger>
+                <TooltipContent side="right" className="max-w-xs">
+                  <p>Um pesquisador entra nesta lista quando o administrador o credencia no formulário abaixo</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          </div>
           
           <Button
             onClick={() => navigate('/adm/coordenacao/laboratorios')}
