@@ -6,8 +6,12 @@
 }
 
 .hp {
+  display: flex;
+  flex-direction: column;
   padding-top: 130px;
   padding-left: 80px;
+  flex: 1;
+  overflow: hidden !important;
 }
 
 .title {
@@ -20,7 +24,6 @@
 .container {
   display: grid !important;
   grid-template-columns: 280px 280px !important;
-  grid-template-rows: auto auto !important;
   gap: 1rem !important;
   width: fit-content;
 }
@@ -90,6 +93,13 @@
 .BlockE:hover,
 .others:hover {
   transform: translateY(-5px);
+}
+
+/* Portrait orientation */
+@media (orientation: portrait) {
+  .pageContainer {
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 768px) {
