@@ -149,15 +149,15 @@ export function Map() {
     <div className={styles.container}>
       <Header />
       <main className={`${styles.main} map`}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>{t('map.title')}</h1>
-          <p className={styles.subtitle}>
-            {t('map.subtitle')}
-          </p>
-        </div>
-        
         <div className={styles.contentWrapper}>
           <div className={styles.mapWrapper}>
+            <div className={styles.header}>
+              <h1 className={styles.title}>{t('map.title')}</h1>
+              <p className={styles.subtitle}>
+                {t('map.subtitle')}
+              </p>
+            </div>
+            
             <div className={styles.mapContainer}>
               <div ref={mapContainer} className={styles.map} />
               {isLoading && (
