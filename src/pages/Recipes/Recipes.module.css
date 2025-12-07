@@ -108,10 +108,17 @@
 
 /* Telas grandes (1200px+) - 3x2 */
 @media (min-width: 1200px) {
+  .title {
+    text-align: left;
+    margin-left: calc(80px + 260px + 15px + 130px - 60px);
+  }
+  
   .container {
     display: grid !important;
     grid-template-columns: repeat(3, 260px) !important;
     grid-template-rows: repeat(2, 90px) !important;
+    row-gap: 45px;
+    column-gap: 15px;
     margin-left: 80px;
   }
 }
