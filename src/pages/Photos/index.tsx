@@ -5,7 +5,6 @@ import { Settings } from 'lucide-react'
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { supabase } from '../../integrations/supabase/client'
-import { useIsMobile } from '@/hooks/use-mobile'
 import styles from './Photos.module.css'
 
 interface Event {
@@ -19,16 +18,6 @@ export function Photos() {
   const navigate = useNavigate()
   const [events, setEvents] = useState<Event[]>([])
   const [showAdminButton, setShowAdminButton] = useState(false)
-  const [isTablet, setIsTablet] = useState(window.innerWidth <= 1024)
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsTablet(window.innerWidth <= 1024)
-    }
-    
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   useEffect(() => {
     fetchEvents()
@@ -56,13 +45,11 @@ export function Photos() {
   }
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+    <div className={styles.pageContainer}>
       <Header/>
-      <main style={{flex: 1, padding: '2rem', paddingTop: '155px', display: 'flex', flexDirection: 'column', width: '100%'}}>
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '20px', marginBottom: '2rem', transform: isTablet ? 'translateX(0)' : 'translateX(-200px)'}}>
-          <h1 style={{margin: 0, fontSize: '28px', fontWeight: 'bold', color: 'white', textAlign: 'center'}}>
-            Fotos de eventos
-          </h1>
+      <main className={styles.photos}>
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>Fotos de eventos</h1>
           {showAdminButton && (
             <Button
               onClick={() => navigate('/Photos/EventManager')}
@@ -76,30 +63,11 @@ export function Photos() {
           )}
         </div>
 
-        <div style={{
-          display: 'flex', 
-          gap: '3rem', 
-          justifyContent: 'center', 
-          alignItems: 'flex-start', 
-          width: '100%', 
-          maxWidth: '1400px', 
-          margin: '0 auto', 
-          paddingBottom: '2rem', 
-          flexWrap: 'wrap',
-          transform: isTablet ? 'translateX(0)' : 'translateX(-200px)'
-        }}>
-          <div style={{
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 350px))', 
-            gap: '2rem', 
-            justifyContent: 'center',
-            width: '100%',
-            maxWidth: '750px'
-          }}>
+        <div className={styles.mainContent}>
+          <div className={styles.container}>
             <Link 
               to="/Photos/HistoricalPhotos" 
               className={styles.historical} 
-              style={{textDecoration: 'none'}}
             >
               <h2>Históricas</h2>
             </Link>
@@ -107,7 +75,6 @@ export function Photos() {
             <Link 
               to="/Photos/Years" 
               className={styles.fifthy} 
-              style={{textDecoration: 'none'}}
             >
               <h2>50 anos - Pós-Graduação em Geofísica</h2>
             </Link>
@@ -115,7 +82,6 @@ export function Photos() {
             <Link 
               to="/Photos/FirstMeeting" 
               className={styles.reopen} 
-              style={{textDecoration: 'none'}}
             >
               <h2>Primeira reunião geral- retorno das atividades do CPGG</h2>
             </Link>
@@ -125,7 +91,6 @@ export function Photos() {
                 key={event.id} 
                 to={`/Photos/Event/${event.id}`} 
                 className={styles.eventCard}
-                style={{textDecoration: 'none'}}
               >
                 <div>
                   <h2>{event.name}</h2>
