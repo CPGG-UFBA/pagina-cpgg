@@ -174,7 +174,7 @@ export function Sign() {
         email: formData.email,
         password: formData.password,
         options: {
-          emailRedirectTo: `${window.location.origin}/`,
+          emailRedirectTo: `${window.location.origin}/email-confirmed`,
           data: {
             full_name: formData.fullName,
             institution: 'UFBA',
@@ -229,7 +229,7 @@ export function Sign() {
         type: 'signup',
         email: registeredEmail,
         options: {
-          emailRedirectTo: `${window.location.origin}/`,
+          emailRedirectTo: `${window.location.origin}/email-confirmed`,
         }
       });
 
@@ -422,7 +422,7 @@ export function Sign() {
         email: formData.email,
         password: formData.password,
         options: {
-          emailRedirectTo: `${window.location.origin}/`,
+          emailRedirectTo: `${window.location.origin}/email-confirmed`,
           data: {
             full_name: formData.fullName,
             institution: 'UFBA',
