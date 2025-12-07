@@ -264,16 +264,6 @@ export function PesquisadoresAdmin() {
 
       <h1 className={styles.title}>Gerenciar Pesquisadores</h1>
 
-      <div className={styles.actions}>
-        <Button
-          onClick={handleMigrateAll}
-          disabled={isMigrating}
-          className={styles.migrateButton}
-        >
-          <Plus size={16} />
-          {isMigrating ? 'Migrando...' : 'Migrar Pesquisadores Estáticos'}
-        </Button>
-      </div>
 
       {isLoading ? (
         <div className={styles.loading}>Carregando pesquisadores...</div>
