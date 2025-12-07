@@ -107,6 +107,12 @@
   margin: 0;
 }
 
+@media (min-width: 1201px) {
+  .box {
+    top: calc(50% + 45px);
+  }
+}
+
 .box nav a {
   color: #fff;
   font-size: 14px;
