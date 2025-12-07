@@ -14,18 +14,19 @@
 
 .gmtCodes {
   flex: 1;
-  padding: 2rem;
-  padding-top: 150px;
-  overflow: hidden !important;
+  padding: 1rem 2rem;
+  padding-top: 130px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 150px);
 }
 
 .title {
-  text-align: center;
+  text-align: left;
   margin-bottom: 1.5rem;
   margin-top: 0;
-  width: calc(250px * 3 + 2rem * 2); /* 3 columns + 2 gaps */
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 80px;
   font-size: 32px;
   font-weight: bold;
   color: white;
@@ -34,125 +35,95 @@
 .container {
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 0;
   max-width: 1400px;
-  margin: 0 auto;
-  margin-bottom: 4rem;
+  margin-left: 80px;
 }
 
 .buttonsGrid {
   display: grid;
-  grid-template-columns: repeat(3, 250px);
-  grid-template-rows: repeat(2, 100px);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 260px);
+  grid-template-rows: repeat(2, 90px);
+  gap: 15px;
 }
 
 @media (max-width: 1024px) {
   .buttonsGrid {
-    transform: translateY(-450px) !important;
     margin: 0 auto;
     width: fit-content;
   }
   
   .container {
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .title {
+    text-align: center;
+    margin-left: 0;
   }
 }
 
-.pseudoResistivity {
-  padding: 2rem;
+.pseudoResistivity,
+.radargrama1,
+.radargrama2,
+.otherCodes1,
+.otherCodes2,
+.otherCodes3 {
+  padding: 1.5rem;
   border-radius: 12px;
-  width: 250px;
-  height: 100px;
+  width: 260px;
+  height: 90px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
-  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
+}
+
+.pseudoResistivity h2,
+.radargrama1 h2,
+.radargrama2 h2,
+.otherCodes1 h2,
+.otherCodes2 h2,
+.otherCodes3 h2 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.pseudoResistivity {
+  background: linear-gradient(135deg, rgba(2,0,36,0.95) 0%, rgba(63,9,121,0.85)),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
 }
 
 .radargrama1 {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 250px;
-  height: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-align: center;
-  min-height: 100px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
   background: linear-gradient(135deg, rgba(2,0,36,0.85), rgba(9,94,121,0.85)),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
 }
 
 .radargrama2 {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 250px;
-  height: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-align: center;
-  min-height: 100px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(35,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
 }
 
 .otherCodes1 {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 250px;
-  height: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-align: center;
-  min-height: 100px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(95,9,121,0.85) 35%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
 }
 
 .otherCodes2 {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 250px;
-  height: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-align: center;
-  min-height: 100px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(9,68,121,0.85) 58%, rgba(0,212,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
 }
 
 .otherCodes3 {
-  padding: 2rem;
-  border-radius: 12px;
-  width: 250px;
-  height: 100px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: white;
-  text-align: center;
-  min-height: 100px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
+  background: linear-gradient(135deg, rgba(2,0,36,1) 0%, rgba(6,54,60,0.95) 100%, rgba(0,150,255,0.85) 100%),
     url('https://i.imgur.com/Uvpl9WR.jpg') center/cover;
 }
 
