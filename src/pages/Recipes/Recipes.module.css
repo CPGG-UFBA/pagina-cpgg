@@ -28,10 +28,10 @@
 
 .container {
   display: grid;
-  grid-template-columns: repeat(3, 280px);
-  grid-template-rows: repeat(2, 108px);
-  gap: 20px;
-  max-width: 900px;
+  grid-template-columns: repeat(3, 260px);
+  grid-template-rows: repeat(2, 90px);
+  gap: 15px;
+  max-width: 850px;
   margin-left: 80px;
 }
 
@@ -41,10 +41,10 @@
 .latex,
 .gmt,
 .python {
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 12px;
-  width: 280px;
-  height: 108px;
+  width: 260px;
+  height: 90px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: white;
   text-align: center;
@@ -55,6 +55,16 @@
   overflow: hidden;
   transition: transform 0.3s ease;
   text-decoration: none;
+}
+
+.logos h2,
+.calendars h2,
+.power h2,
+.latex h2,
+.gmt h2,
+.python h2 {
+  font-size: 14px;
+  margin: 0;
 }
 
 .logos {
@@ -97,7 +107,7 @@
 }
 
 /* Tablet e telas menores */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .title {
     text-align: center;
     margin-left: 0;
@@ -105,8 +115,8 @@
   
   .container {
     margin: 0 auto;
-    grid-template-columns: repeat(2, 280px);
-    grid-template-rows: repeat(3, 108px);
+    grid-template-columns: repeat(2, 260px);
+    grid-template-rows: repeat(3, 90px);
   }
 }
 
