@@ -57,6 +57,9 @@ export function Header() {
 
       <div className={styles.languageContainer}>
         <LanguageSelector />
+        <a href="/adm" className={styles.admLink}>
+          {t('nav.admin')}
+        </a>
       </div>
       
       <nav>
@@ -75,6 +78,16 @@ export function Header() {
             <NavLink to='/sign' className={styles.navLink}>
               {t('nav.signin')}
             </NavLink>
+          </li>
+          <li>
+            <a 
+              href='https://posufba-geofexpmineral.com.br/' 
+              target='_blank' 
+              rel='noopener noreferrer'
+              className={styles.navLink}
+            >
+              Curso de Especialização
+            </a>
           </li>
           <li
             onMouseLeave={closeAllMenus}
