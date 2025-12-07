@@ -68,13 +68,13 @@ export function CalendarUploadModal({ isOpen, onClose, onUpload, nextYear }: Cal
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-[500px]">
-        <DialogHeader>
-          <DialogTitle>Adicionar Novo Calendário</DialogTitle>
+      <DialogContent className="sm:max-w-[380px] p-4">
+        <DialogHeader className="pb-2">
+          <DialogTitle className="text-base">Adicionar Calendário</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-2">
-          <div className="flex gap-4">
-            <div className="flex-1 space-y-1">
+          <div className="flex gap-2">
+            <div className="w-20 space-y-1">
               <Label htmlFor="year" className="text-xs">Ano</Label>
               <Input
                 id="year"
@@ -84,54 +84,49 @@ export function CalendarUploadModal({ isOpen, onClose, onUpload, nextYear }: Cal
                 min={2000}
                 max={2100}
                 required
-                className="h-8"
+                className="h-8 text-sm"
               />
             </div>
             
-            <div className="flex-[2] space-y-1">
-              <Label htmlFor="name" className="text-xs">Nome do Calendário</Label>
+            <div className="flex-1 space-y-1">
+              <Label htmlFor="name" className="text-xs">Nome</Label>
               <Input
                 id="name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Ex: Calendário de 2026"
+                placeholder="Calendário de 2026"
                 required
-                className="h-8"
+                className="h-8 text-sm"
               />
             </div>
           </div>
 
-          <div className="space-y-1">
-            <Label className="text-xs">Arquivo PDF</Label>
-            <div 
-              className="border-2 border-dashed border-border rounded-lg p-3 text-center cursor-pointer hover:border-primary transition-colors"
-              onClick={() => fileInputRef.current?.click()}
-            >
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".pdf"
-                onChange={handleFileChange}
-                className="hidden"
-              />
-              <Upload className="w-6 h-6 mx-auto mb-1 text-muted-foreground" />
-              {file ? (
-                <p className="text-xs text-foreground font-medium">{file.name}</p>
-              ) : (
-                <p className="text-xs text-muted-foreground">Clique para selecionar PDF</p>
-              )}
-            </div>
+          <div 
+            className="border-2 border-dashed border-border rounded p-2 text-center cursor-pointer hover:border-primary transition-colors flex items-center justify-center gap-2"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept=".pdf"
+              onChange={handleFileChange}
+              className="hidden"
+            />
+            <Upload className="w-4 h-4 text-muted-foreground" />
+            <p className="text-xs text-muted-foreground">
+              {file ? file.name : 'Selecionar PDF'}
+            </p>
           </div>
 
-          {error && <p className="text-destructive text-sm">{error}</p>}
+          {error && <p className="text-destructive text-xs">{error}</p>}
           
-          <div className="flex justify-end space-x-2">
-            <Button type="button" variant="outline" onClick={handleClose}>
+          <div className="flex justify-end gap-2 pt-1">
+            <Button type="button" variant="outline" onClick={handleClose} size="sm">
               Cancelar
             </Button>
-            <Button type="submit" disabled={isLoading || !file}>
-              {isLoading ? 'Enviando...' : 'Adicionar Calendário'}
+            <Button type="submit" disabled={isLoading || !file} size="sm">
+              {isLoading ? 'Enviando...' : 'Adicionar'}
             </Button>
           </div>
         </form>
