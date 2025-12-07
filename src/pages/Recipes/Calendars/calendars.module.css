@@ -17,10 +17,11 @@
 }
 
 .title {
-  text-align: left;
+  text-align: center;
   margin-bottom: 1.5rem;
   margin-top: 0;
   margin-left: 80px;
+  width: 780px; /* 3 columns * 250px + 2 gaps * 15px */
   font-size: 32px;
   font-weight: bold;
   color: white;
