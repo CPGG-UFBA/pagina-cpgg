@@ -187,7 +187,7 @@ All colors MUST be HSL.
   }
 
   /* Main content area should be scrollable and fill remaining space */
-  main:not(.middle):not(.cpgg):not(.history):not(.regulations):not(.photos):not(.map):not(.success):not(.receipt):not(.contact):not(.recipes):not(.calendars),
+  main:not(.middle):not(.cpgg):not(.history):not(.regulations):not(.photos):not(.map):not(.success):not(.receipt):not(.contact):not(.recipes):not(.calendars):not(.spaces),
   .main-content {
     flex: 1 !important;
     overflow-y: auto !important;
@@ -212,7 +212,8 @@ All colors MUST be HSL.
   main.history,
   main.regulations,
   main.map,
-  main.contact {
+  main.contact,
+  main.spaces {
     flex: 1 !important;
     overflow: hidden !important;
     overflow-y: hidden !important;
