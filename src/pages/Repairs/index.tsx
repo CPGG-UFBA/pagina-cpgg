@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './repairs-page-no-scroll.css'
 import styles from './RepairsServices.module.css'
 
 import { Header } from '../../components/Header'
@@ -102,9 +103,9 @@ export function RepairsServices() {
   }
 
   return (
-    <>
+    <div className="repairs-page">
       <Header />
-      <div className={styles.RS}>
+      <main className={`${styles.RS} repairs`}>
           <form className={styles.box} onSubmit={handleSubmit}>
           <ul> Solicitação de Reparos e Serviços Técnicos </ul>
 
@@ -196,9 +197,9 @@ export function RepairsServices() {
           </button>
 
           </form>
-        </div>
+        </main>
         
       <Footer />
-    </>
+    </div>
   )
 }

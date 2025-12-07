@@ -1,0 +1,29 @@
+/* Repairs page - disable vertical scroll */
+html:has(.repairs-page),
+body:has(.repairs-page) {
+  overflow: hidden !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+}
+
+body:has(.repairs-page) > div,
+body:has(.repairs-page) #root {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.repairs-page {
+  height: 100vh !important;
+  max-height: 100vh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.repairs-page main {
+  flex: 1 !important;
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+  padding-bottom: 0 !important;
+}
