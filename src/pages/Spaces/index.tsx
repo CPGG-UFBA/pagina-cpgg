@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import './spaces-no-scroll.css';
 import styles from './Spaces.module.css';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -51,7 +52,7 @@ export function Spaces() {
   };
   
   return (
-    <div className={styles.pageContainer}>
+    <div className={`${styles.pageContainer} spaces-page`}>
       <Header/>
       <main className={`${styles.spaces} spaces`}>
         <h1 className={styles.title}>{t('spaces.title')}</h1>
