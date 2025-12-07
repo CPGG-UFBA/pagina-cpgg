@@ -729,15 +729,26 @@ export function Sign() {
           </div>
 
           <form onSubmit={handleSubmit} className={styles.form}>
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Nome completo"
-              value={formData.fullName}
-              onChange={handleInputChange}
-              required
-              disabled={isLoading}
-            />
+            <div style={{ width: '100%' }}>
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Nome completo"
+                value={formData.fullName}
+                onChange={handleInputChange}
+                required
+                disabled={isLoading}
+                style={{ marginBottom: '4px' }}
+              />
+              <p style={{ 
+                fontSize: '11px', 
+                color: '#dc2626', 
+                margin: '0 0 10px 0',
+                fontWeight: '500'
+              }}>
+                O nome deve ser obrigatoriamente seu nome COMPLETO, sem abreviações
+              </p>
+            </div>
             <input
               type="email"
               name="email"
