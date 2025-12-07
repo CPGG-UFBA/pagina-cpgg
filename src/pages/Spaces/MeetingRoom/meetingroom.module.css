@@ -109,7 +109,7 @@
 
 @media (min-width: 1201px) {
   .box {
-    top: calc(50% + 45px);
+    top: calc(50% + 50px);
   }
 }
 
