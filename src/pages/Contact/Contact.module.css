@@ -1,19 +1,25 @@
 /* Contact Page Styles */
+.Container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .contact {
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: visible;
+  overflow: hidden;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   color: #fff;
   padding: 2rem;
+  padding-top: 130px;
   max-width: 900px;
   margin: 0 auto;
-  margin-top: -20px;
-  margin-left: calc(50% - 600px);
   text-align: center;
-  transform: translateX(-150px);
 }
 
 .contactContent {
@@ -26,10 +32,9 @@
   font-weight: 600;
   color: #fff;
   margin-bottom: 1.5rem;
-  margin-left: calc(50% - 345px);
   list-style: none;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .contact p {

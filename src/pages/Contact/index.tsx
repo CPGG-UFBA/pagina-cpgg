@@ -26,9 +26,9 @@ export function Contact() {
   }
 
   return (
-    <>
+    <div className={styles.Container}>
       <Header />
-      <div className={styles.contact}>
+      <main className={`${styles.contact} contact`}>
         <ul> {t('contact.emailUs')} </ul>
         <p> cpgg@ufba.br</p>
 
@@ -43,9 +43,8 @@ export function Contact() {
         <p className={styles.address}> {t('contact.address')}</p>
         <p className={styles.building}> {t('contact.building')}</p>
 
-      </div>
-
+      </main>
       <Footer />
-    </>
+    </div>
   )
 }
