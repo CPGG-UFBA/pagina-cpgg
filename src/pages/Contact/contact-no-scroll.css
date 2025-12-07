@@ -1,0 +1,22 @@
+/* Contact page - disable vertical scroll */
+body:has(.contact-page) {
+  overflow: hidden !important;
+}
+
+body:has(.contact-page) > div,
+body:has(.contact-page) #root {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.contact-page {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.contact-page main {
+  flex: 1 !important;
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+  padding-bottom: 0 !important;
+}
