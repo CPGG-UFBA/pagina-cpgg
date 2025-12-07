@@ -9,41 +9,29 @@
   flex: 1;
   padding: 1rem 2rem;
   padding-top: 130px;
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .title {
-  margin: 0;
+  margin: 0 0 1rem 80px;
   font-size: 32px;
   font-weight: bold;
   color: white;
-  text-align: center;
-}
-
-.titleContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-bottom: 1.5rem;
-  margin-left: 80px;
-  width: calc(350px * 2 + 2rem); /* 2 columns + gap */
 }
 
 .mainContent {
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  max-width: 1400px;
   margin-left: 80px;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.container {
+.buttonsGrid {
   display: grid;
   grid-template-columns: repeat(2, 350px);
-  gap: 2rem;
+  gap: 15px;
 }
 
 .card {
@@ -131,7 +119,7 @@
     margin-right: auto;
   }
   
-  .container {
+  .buttonsGrid {
     margin-left: auto;
     margin-right: auto;
   }
@@ -143,7 +131,7 @@
     align-items: center;
   }
 
-  .container {
+  .buttonsGrid {
     grid-template-columns: 1fr;
     max-width: 350px;
   }
@@ -166,7 +154,7 @@
     padding: 1rem;
   }
 
-  .container {
+  .buttonsGrid {
     max-width: 90vw;
   }
 

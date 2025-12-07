@@ -213,13 +213,14 @@ All colors MUST be HSL.
     height: auto !important;
   }
   
-  /* Photos page - allow scroll to see all content */
+  /* Photos page - fixed footer with scroll for content */
   main.photos {
     flex: 1 !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     padding-bottom: 0 !important;
     height: auto !important;
+    max-height: calc(100vh - 160px) !important;
   }
   
   /* Research Projects page - allow scroll even on small screens (<=390px width) */
