@@ -114,6 +114,13 @@
 /*--------------------*/
 
 
+/* Telas grandes (1200px+) - texto 300px para esquerda */
+@media (min-width: 1200px) {
+  .contact {
+    transform: translateX(-300px);
+  }
+}
+
 @media (max-width: 1200px) {
   .staticFigure img {
     height: 30rem;
