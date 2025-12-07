@@ -30,7 +30,7 @@
 
 .formContainer {
   max-width: 800px;
-  max-height: 500px;
+  max-height: calc(100vh - 280px);
   margin: 0 auto;
   margin-top: 150px;
   margin-bottom: 5px;
